@@ -77,15 +77,29 @@ class PairFilter:
         
         # Calculate spread as bid-ask difference in points
         spread_price = ask - bid
-        spread_points = spread_price / point
         
-        # Sanity check: if spread_points is unreasonably high, there's likely an error
+        # For high-priced symbols (e.g., indices, crypto), points calculation may overflow
+        # Use percentage-based calculation as fallback
+        if point > 0:
+            spread_points = spread_price / point
+        else:
+            # Fallback to percentage if point is invalid
+            spread_points = (spread_price / bid * 100) * 10000  # Convert to approximate points (scaled)
+        
+        # Sanity check: if spread_points is unreasonably high, use percentage instead
         # For forex, typical spreads are 1-50 points
         # For indices, spreads can be 50-500 points
-        # If it's > 10000, something is wrong - return bid-ask spread percentage instead
-        if spread_points > 10000:
-            # This is likely a calculation error, log it but still return the value
-            logger.debug(f"{symbol}: Spread calculation may be incorrect (points: {spread_points:.0f}, bid: {bid}, ask: {ask}, point: {point})")
+        # For high-priced symbols (e.g., >1000), use percentage calculation
+        if spread_points > 10000 or bid > 1000:
+            # Use percentage-based spread for high-priced symbols
+            if bid > 0:
+                spread_percent = (spread_price / bid) * 100
+                # Convert to approximate points: 1% = 100 points (scaled)
+                spread_points = spread_percent * 100
+                logger.debug(f"{symbol}: Using percentage-based spread calculation (price: {bid:.2f}, spread: {spread_percent:.4f}% = {spread_points:.1f} points)")
+            else:
+                logger.warning(f"{symbol}: Invalid bid price ({bid}) for spread calculation")
+                return None
         
         return spread_points
     

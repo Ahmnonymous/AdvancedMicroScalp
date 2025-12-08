@@ -6,6 +6,7 @@ Handles connection to MetaTrader 5 with automatic reconnection logic.
 import MetaTrader5 as mt5
 import time
 import logging
+import threading
 from typing import Optional, Dict, Any
 import json
 
@@ -21,6 +22,14 @@ class MT5Connector:
         self.connected = False
         self.reconnect_attempts = self.mt5_config.get('reconnect_attempts', 5)
         self.reconnect_delay = self.mt5_config.get('reconnect_delay', 5)
+        
+        # Symbol info caching (TTL: 5 seconds)
+        self._symbol_info_cache = {}
+        self._symbol_cache_ttl = 5.0  # seconds
+        self._cache_lock = threading.Lock()
+        
+        # Price staleness check (reject prices older than 5 seconds)
+        self._price_max_age_seconds = 5.0
         
     def connect(self) -> bool:
         """Connect to MT5 terminal."""
@@ -138,17 +147,42 @@ class MT5Connector:
             'swap_mode': swap_mode
         }
     
-    def get_symbol_info(self, symbol: str) -> Optional[Dict[str, Any]]:
-        """Get symbol information."""
+    def get_symbol_info(self, symbol: str, check_price_staleness: bool = True) -> Optional[Dict[str, Any]]:
+        """Get symbol information with caching."""
         if not self.ensure_connected():
             return None
         
+        now = time.time()
+        
+        # Check cache first
+        with self._cache_lock:
+            if symbol in self._symbol_info_cache:
+                cached_data, cached_time = self._symbol_info_cache[symbol]
+                if now - cached_time < self._symbol_cache_ttl:
+                    # Return cached data if not stale
+                    if check_price_staleness:
+                        # Verify price staleness even for cached data
+                        price_age = now - cached_time
+                        if price_age > self._price_max_age_seconds:
+                            logger.warning(f"{symbol}: Cached price is stale ({price_age:.2f}s > {self._price_max_age_seconds}s), fetching fresh data")
+                        else:
+                            return cached_data
+                    else:
+                        return cached_data
+        
+        # Fetch fresh data
         symbol_info = mt5.symbol_info(symbol)
         if symbol_info is None:
             logger.error(f"Symbol {symbol} not found")
             return None
         
-        return {
+        # Get current tick time to check price staleness
+        tick = mt5.symbol_info_tick(symbol)
+        tick_time = 0
+        if tick:
+            tick_time = tick.time if hasattr(tick, 'time') else now
+        
+        result = {
             'name': symbol_info.name,
             'bid': symbol_info.bid,
             'ask': symbol_info.ask,
@@ -166,8 +200,23 @@ class MT5Connector:
             'volume_min': symbol_info.volume_min,
             'volume_max': symbol_info.volume_max,
             'volume_step': symbol_info.volume_step,
-            'filling_mode': symbol_info.filling_mode
+            'filling_mode': symbol_info.filling_mode,
+            '_fetched_time': now,  # Internal timestamp for staleness checks
+            '_tick_time': tick_time  # MT5 tick time
         }
+        
+        # Check price staleness if requested
+        if check_price_staleness and tick_time > 0:
+            price_age = now - tick_time
+            if price_age > self._price_max_age_seconds:
+                logger.warning(f"{symbol}: Price is stale ({price_age:.2f}s > {self._price_max_age_seconds}s), rejecting")
+                return None
+        
+        # Update cache
+        with self._cache_lock:
+            self._symbol_info_cache[symbol] = (result, now)
+        
+        return result
     
     def is_swap_free(self, symbol: str) -> bool:
         """Check if symbol is swap-free (Islamic account)."""

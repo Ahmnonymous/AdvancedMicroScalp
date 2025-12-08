@@ -7,6 +7,8 @@ import MetaTrader5 as mt5
 import pandas as pd
 import numpy as np
 import logging
+import time
+import threading
 from typing import Optional, Dict, Any, Tuple
 from execution.mt5_connector import MT5Connector
 
@@ -42,6 +44,11 @@ class TrendFilter:
         self.use_volatility_filter = self.trading_config.get('use_volatility_filter', True)
         self.rsi_soft_filter = self.trading_config.get('rsi_soft_filter', False)  # Soft RSI filter (warn but don't block)
         self.min_quality_score = self.trading_config.get('min_quality_score', 50)  # Minimum quality score (lowered for micro-scalping)
+        
+        # Rate data caching (TTL: 60 seconds for M1 timeframe)
+        self._rates_cache = {}  # {symbol: (dataframe, timestamp)}
+        self._rates_cache_ttl = 60.0  # seconds (matches M1 timeframe)
+        self._rates_cache_lock = threading.Lock()
     
     def _parse_timeframe(self, tf: str) -> int:
         """Convert timeframe string to MT5 constant."""
@@ -57,10 +64,22 @@ class TrendFilter:
         return timeframe_map.get(tf.upper(), mt5.TIMEFRAME_M1)
     
     def get_rates(self, symbol: str, count: int = 100) -> Optional[pd.DataFrame]:
-        """Get historical rates for symbol."""
+        """Get historical rates for symbol with caching."""
         if not self.mt5_connector.ensure_connected():
             return None
         
+        now = time.time()
+        cache_key = f"{symbol}_{self.timeframe}_{count}"
+        
+        # Check cache first
+        with self._rates_cache_lock:
+            if cache_key in self._rates_cache:
+                cached_df, cached_time = self._rates_cache[cache_key]
+                if now - cached_time < self._rates_cache_ttl:
+                    # Return cached data if not stale
+                    return cached_df.copy()  # Return copy to prevent mutation
+        
+        # Fetch fresh data
         rates = mt5.copy_rates_from_pos(symbol, self.timeframe, 0, count)
         if rates is None or len(rates) == 0:
             logger.error(f"Failed to get rates for {symbol}")
@@ -68,6 +87,19 @@ class TrendFilter:
         
         df = pd.DataFrame(rates)
         df['time'] = pd.to_datetime(df['time'], unit='s')
+        
+        # Update cache
+        with self._rates_cache_lock:
+            self._rates_cache[cache_key] = (df.copy(), now)
+            
+            # Cleanup old cache entries (keep only recent ones)
+            if len(self._rates_cache) > 100:  # Limit cache size
+                cutoff_time = now - self._rates_cache_ttl * 2
+                self._rates_cache = {
+                    k: v for k, v in self._rates_cache.items()
+                    if v[1] > cutoff_time
+                }
+        
         return df
     
     def calculate_sma(self, df: pd.DataFrame, period: int, column: str = 'close') -> pd.Series:

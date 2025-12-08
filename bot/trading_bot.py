@@ -234,16 +234,17 @@ class TradingBot:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: RSI filter failed (RSI: {rsi_value:.1f} not in range {self.trend_filter.rsi_entry_range_min}-{self.trend_filter.rsi_entry_range_max})")
                         continue
                     
-                    # 3. Check halal compliance (skip in test mode if configured)
+                    # 3. Check halal compliance (ALWAYS skip in test mode per requirements)
                     test_mode = self.config.get('pairs', {}).get('test_mode', False)
-                    test_mode_ignore_halal = self.config.get('pairs', {}).get('test_mode_ignore_halal', False)
                     
-                    if not (test_mode and test_mode_ignore_halal):
+                    if test_mode:
+                        # Test mode: ALWAYS ignore halal checks (per requirements)
+                        logger.debug(f"✅ {symbol}: Halal check skipped (test mode)")
+                    else:
+                        # Live mode: enforce halal if enabled
                         if not self.halal_compliance.validate_trade(symbol, trend_signal['signal']):
                             logger.info(f"⛔ [SKIP] {symbol} | Reason: HALAL COMPLIANCE CHECK FAILED")
                             continue
-                    else:
-                        logger.debug(f"✅ {symbol}: Halal check skipped (test mode)")
                     
                     # 3a. TESTING MODE: Check min lot size requirements (0.01-0.1, risk <= $2)
                     min_lot_valid = True
@@ -262,15 +263,47 @@ class TradingBot:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Setup validation failed (signal is NONE)")
                         continue
                     
-                    # 5. Check if we can open a new trade (with staged open support)
-                    # Calculate quality score (simplified - relaxed for medium frequency)
-                    # Use a default score that passes staged open threshold (30.0)
-                    quality_score = 50.0  # Default, relaxed for medium frequency trading
+                    # 4a. Check trend strength minimum (SMA separation percentage)
+                    sma_separation_pct = abs((trend_signal.get('sma_fast', 0) - trend_signal.get('sma_slow', 0)) / trend_signal.get('sma_slow', 1) * 100) if trend_signal.get('sma_slow', 0) > 0 else 0
+                    min_trend_strength_pct = self.trading_config.get('min_trend_strength_pct', 0.05)  # Default 0.05%
+                    if sma_separation_pct < min_trend_strength_pct:
+                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Trend strength too weak (SMA separation: {sma_separation_pct:.4f}% < {min_trend_strength_pct}%)")
+                        continue
+                    
+                    # 5. Calculate quality score for trade selection
+                    quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                    quality_score = quality_assessment.get('quality_score', 0.0)
+                    high_quality_setup = quality_assessment.get('is_high_quality', False)
+                    min_quality_score = self.trading_config.get('min_quality_score', 50.0)
+                    
+                    # Filter by quality score - only trade high-quality setups
+                    if quality_score < min_quality_score:
+                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Quality score {quality_score:.1f} < threshold {min_quality_score} | Details: {', '.join(quality_assessment.get('reasons', []))}")
+                        continue
+                    
+                    # Check portfolio risk limit before opening trade
+                    symbol_info_for_risk_check = self.mt5_connector.get_symbol_info(symbol)
+                    if symbol_info_for_risk_check:
+                        # Estimate risk for this trade
+                        min_sl_pips = self.risk_manager.min_stop_loss_pips
+                        point = symbol_info_for_risk_check.get('point', 0.00001)
+                        pip_value = point * 10 if symbol_info_for_risk_check.get('digits', 5) == 5 or symbol_info_for_risk_check.get('digits', 3) == 3 else point
+                        contract_size = symbol_info_for_risk_check.get('contract_size', 1.0)
+                        min_sl_price = min_sl_pips * pip_value
+                        estimated_risk = min_lot * min_sl_price * contract_size if min_sl_price > 0 and contract_size > 0 else self.risk_manager.max_risk_usd
+                        
+                        # Check portfolio risk
+                        portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
+                        if not portfolio_risk_ok:
+                            logger.info(f"⛔ [SKIP] {symbol} | Reason: Portfolio risk limit - {portfolio_reason}")
+                            continue
+                    
+                    # 6. Check if we can open a new trade (with staged open support)
                     can_open, reason = self.risk_manager.can_open_trade(
                         symbol=symbol,
                         signal=trend_signal['signal'],
                         quality_score=quality_score,
-                        high_quality_setup=False
+                        high_quality_setup=high_quality_setup
                     )
                     if not can_open:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
@@ -278,7 +311,7 @@ class TradingBot:
                         symbol_logger.debug(f"⛔ Cannot open trade: {reason}")
                         continue
                     
-                    # 6. Check spread
+                    # 7. Check spread
                     spread_points = self.pair_filter.get_spread_points(symbol)
                     if spread_points is None:
                         logger.warning(f"⚠️ {symbol}: Cannot get spread information - skipping")
@@ -290,7 +323,7 @@ class TradingBot:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Spread {spread_points:.2f} points > {max_spread} limit")
                         continue
                     
-                    # 6a. TESTING MODE: Check spread + fees <= $0.30 (STRICTLY ENFORCED)
+                    # 7a. TESTING MODE: Check spread + fees <= $0.30 (STRICTLY ENFORCED)
                     total_cost = 0.0
                     cost_description = ""
                     if test_mode:
@@ -316,13 +349,13 @@ class TradingBot:
                         # Non-test mode: still calculate for sorting, but don't enforce strict limit
                         total_cost, cost_description = self.risk_manager.calculate_spread_and_fees_cost(symbol, min_lot if min_lot_valid else 0.01)
                     
-                    # 7. ALL CHECKS PASSED - Add to opportunities
+                    # 8. ALL CHECKS PASSED - Add to opportunities
                     signal_type = trend_signal['signal']
                     
                     # Get testing mode info for comprehensive logging
                     min_lot_info = ""
                     spread_fees_info = ""
-                    pass_reason = "All checks passed"
+                    pass_reason = f"All checks passed (Quality: {quality_score:.1f})"
                     calculated_risk = 0.0
                     symbol_info_for_risk = self.mt5_connector.get_symbol_info(symbol)
                     
@@ -355,6 +388,8 @@ class TradingBot:
                     logger.info(f"[OPPORTUNITY CHECK]")
                     logger.info(f"Symbol: {symbol}")
                     logger.info(f"Signal: {signal_type}")
+                    logger.info(f"Quality Score: {quality_score:.1f} (Threshold: {min_quality_score})")
+                    logger.info(f"Trend Strength: {sma_separation_pct:.4f}%")
                     logger.info(f"Spread: {spread_points:.2f} points")
                     if test_mode and total_cost > 0:
                         logger.info(f"Fees: {cost_description}")
@@ -363,11 +398,11 @@ class TradingBot:
                     if calculated_risk > 0:
                         logger.info(f"Calculated Lot: {min_lot:.4f} (PASS)")
                         logger.info(f"Risk: ${calculated_risk:.2f} (PASS ≤ $2.00)")
-                    logger.info(f"Reason: Signal PASS → Trade Executed")
+                    logger.info(f"Reason: Quality score {quality_score:.1f} >= {min_quality_score} → Trade Executed")
                     logger.info("=" * 80)
                     
                     # Legacy concise logging
-                    logger.info(f"✅ {symbol} | Signal: {signal_type} | MinLot: {min_lot:.4f} | "
+                    logger.info(f"✅ {symbol} | Signal: {signal_type} | Quality: {quality_score:.1f} | MinLot: {min_lot:.4f} | "
                               f"Spread: {spread_points:.1f}pts{spread_fees_info} | Pass: {pass_reason}")
                     
                     # Log signal type for debugging trade direction
@@ -388,7 +423,8 @@ class TradingBot:
                         'rsi': trend_signal.get('rsi', 50),
                         'spread': spread_points,
                         'min_lot': opp_min_lot,
-                        'spread_fees_cost': total_cost  # Always include for sorting
+                        'spread_fees_cost': total_cost,  # Always include for sorting
+                        'quality_score': quality_score  # Include quality score for sorting
                     })
                     
                 except Exception as e:
@@ -799,8 +835,11 @@ class TradingBot:
     def manage_positions(self):
         """Manage open positions (halal checks, max duration, etc.)."""
         try:
-            # Check all positions for halal compliance (this will close violating positions)
-            self.halal_compliance.check_all_positions()
+            # Check all positions for halal compliance (skip in test mode)
+            test_mode = self.config.get('pairs', {}).get('test_mode', False)
+            if not test_mode:
+                # Only check halal compliance in live mode
+                self.halal_compliance.check_all_positions()
             
             positions = self.order_manager.get_open_positions()
             
@@ -879,18 +918,19 @@ class TradingBot:
                 # Get test_mode before using it
                 test_mode = self.config.get('pairs', {}).get('test_mode', False)
                 
-                # Sort by spread+fees cost (lowest first) for prioritization
-                # This ensures we execute the most cost-effective trades first (per user requirement)
-                def get_total_cost(opp):
+                # Sort by quality score (highest first), then by spread+fees cost (lowest first) for prioritization
+                # This ensures we execute highest quality setups first, then most cost-effective
+                def get_priority(opp):
+                    quality = opp.get('quality_score', 0.0)
                     cost = opp.get('spread_fees_cost')
                     if cost is not None and cost > 0:
-                        return cost
-                    # Fallback to spread points if cost not calculated (multiply by 0.0001 to approximate USD cost)
+                        # Negative quality for descending sort, positive cost for ascending sort
+                        return (-quality, cost)
+                    # Fallback: use quality score primarily
                     spread = opp.get('spread', 999999)
-                    # For fallback, use a high multiplier to ensure calculated costs come first
-                    return spread * 0.0001 + 1000000  # Ensure non-calculated costs are sorted after calculated ones
+                    return (-quality, spread * 0.0001 + 1000000)
                 
-                opportunities.sort(key=get_total_cost)
+                opportunities.sort(key=get_priority)
                 
                 # Log sorted order for verification
                 if test_mode and opportunities:
@@ -916,6 +956,9 @@ class TradingBot:
                 trades_skipped = 0
                 
                 for opportunity in opportunities:
+                    # Always get fresh position count to prevent exceeding max
+                    current_positions = self.order_manager.get_position_count()
+                    
                     # Check if we've reached max open trades
                     if current_positions >= max_trades:
                         logger.info(f"⏸️  Max open trades ({max_trades}) reached - skipping remaining opportunities")
@@ -927,27 +970,28 @@ class TradingBot:
                     spread = opportunity.get('spread', 0)
                     min_lot = opportunity.get('min_lot', 0.01)
                     spread_fees_cost = opportunity.get('spread_fees_cost', 0.0)
+                    quality_score = opportunity.get('quality_score', 0.0)
                     
                     # Prepare fees string for logging
                     fees_str = f"${spread_fees_cost:.2f}" if spread_fees_cost > 0 else "N/A"
                     
                     # Log opportunity row (testing mode)
                     if test_mode:
-                        logger.info(f"{symbol:<12} | {signal:<6} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'Evaluating...':<20} | {'-'}")
+                        logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'Evaluating...':<20} | {'-'}")
                     
-                    logger.info(f"🎯 Evaluating opportunity: {symbol} {signal} (Spread: {spread:.1f} points)")
+                    logger.info(f"🎯 Evaluating opportunity: {symbol} {signal} (Quality: {quality_score:.1f}, Spread: {spread:.1f} points)")
                     
-                    # Check if we can still open a trade for this symbol
+                    # Check if we can still open a trade for this symbol (with actual quality score)
                     can_open, reason = self.risk_manager.can_open_trade(
                         symbol=symbol,
                         signal=signal,
-                        quality_score=50.0,
-                        high_quality_setup=False
+                        quality_score=quality_score,
+                        high_quality_setup=quality_score >= min_quality_score
                     )
                     
                     if not can_open:
                         if test_mode:
-                            logger.info(f"{symbol:<12} | {signal:<6} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | {reason}")
+                            logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | {reason}")
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
                         trades_skipped += 1
                         continue
@@ -955,13 +999,13 @@ class TradingBot:
                     # Execute trade
                     if self.execute_trade(opportunity):
                         if test_mode:
-                            logger.info(f"{symbol:<12} | {signal:<6} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'PASS - EXECUTED':<20} | Trade executed")
+                            logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'PASS - EXECUTED':<20} | Trade executed")
                         logger.info(f"✅ {symbol}: Trade execution completed successfully")
                         trades_executed += 1
-                        current_positions += 1
+                        # DO NOT manually increment - always use get_position_count() in next iteration
                     else:
                         if test_mode:
-                            logger.info(f"{symbol:<12} | {signal:<6} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | Trade execution failed")
+                            logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | Trade execution failed")
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Trade execution failed (check logs above)")
                         trades_skipped += 1
                 
@@ -969,7 +1013,9 @@ class TradingBot:
                 if test_mode:
                     logger.info("-" * 100)
                 
-                logger.info(f"📊 Cycle Summary: {trades_executed} executed, {trades_skipped} skipped, {current_positions}/{max_trades} positions open")
+                # Get final position count
+                final_position_count = self.order_manager.get_position_count()
+                logger.info(f"📊 Cycle Summary: {trades_executed} executed, {trades_skipped} skipped, {final_position_count}/{max_trades} positions open")
             else:
                 logger.info("ℹ️  No trading opportunities found this cycle (check logs above for reasons)")
             

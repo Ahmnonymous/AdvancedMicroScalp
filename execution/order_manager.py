@@ -63,29 +63,56 @@ class OrderManager:
         pip_value = point * 10 if symbol_info['digits'] == 5 or symbol_info['digits'] == 3 else point
         stop_loss_price = stop_loss * pip_value
         
-        # Get current price
-        if order_type == OrderType.BUY:
-            price = symbol_info['ask']
-            sl_price = price - stop_loss_price
-            # Ensure SL is valid (not negative or zero)
-            if sl_price <= 0:
-                logger.error(f"Invalid stop loss price {sl_price} for {symbol}")
-                return None
-            if take_profit and take_profit > 0:
-                tp_price = price + (take_profit * pip_value)
-            else:
-                tp_price = 0
-        else:  # SELL
-            price = symbol_info['bid']
-            sl_price = price + stop_loss_price
-            # Ensure SL is valid
-            if sl_price <= 0:
-                logger.error(f"Invalid stop loss price {sl_price} for {symbol}")
-                return None
-            if take_profit and take_profit > 0:
-                tp_price = price - (take_profit * pip_value)
-            else:
-                tp_price = 0
+            # Get current price and validate staleness
+            if order_type == OrderType.BUY:
+                price = symbol_info['ask']
+                if price <= 0:
+                    logger.error(f"Invalid ask price {price} for {symbol}")
+                    return None
+            else:  # SELL
+                price = symbol_info['bid']
+                if price <= 0:
+                    logger.error(f"Invalid bid price {price} for {symbol}")
+                    return None
+            
+            # Check price staleness (if timestamp available)
+            fetched_time = symbol_info.get('_fetched_time', 0)
+            tick_time = symbol_info.get('_tick_time', 0)
+            if fetched_time > 0 or tick_time > 0:
+                import time
+                now = time.time()
+                if tick_time > 0:
+                    price_age = now - tick_time
+                    if price_age > 5.0:  # 5 seconds max age
+                        logger.warning(f"{symbol}: Price is stale ({price_age:.2f}s old), rejecting order")
+                        return None
+                elif fetched_time > 0:
+                    price_age = now - fetched_time
+                    if price_age > 5.0:
+                        logger.warning(f"{symbol}: Symbol info is stale ({price_age:.2f}s old), rejecting order")
+                        return None
+            
+            # Calculate stop loss price
+            if order_type == OrderType.BUY:
+                sl_price = price - stop_loss_price
+                # Ensure SL is valid (not negative or zero)
+                if sl_price <= 0:
+                    logger.error(f"Invalid stop loss price {sl_price} for {symbol}")
+                    return None
+                if take_profit and take_profit > 0:
+                    tp_price = price + (take_profit * pip_value)
+                else:
+                    tp_price = 0
+            else:  # SELL
+                sl_price = price + stop_loss_price
+                # Ensure SL is valid (not negative or zero)
+                if sl_price <= 0:
+                    logger.error(f"Invalid stop loss price {sl_price} for {symbol}")
+                    return None
+                if take_profit and take_profit > 0:
+                    tp_price = price - (take_profit * pip_value)
+                else:
+                    tp_price = 0
         
         # Validate stop loss distance against broker's minimum stops level
         stops_level = symbol_info.get('trade_stops_level', 0)

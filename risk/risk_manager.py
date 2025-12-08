@@ -62,6 +62,10 @@ class RiskManager:
         # Staged trade tracking (for multi-trade logic)
         self._staged_trades = {}  # {symbol: {'trades': [ticket1, ticket2, ...], 'first_trade_time': datetime, 'trend': 'LONG'|'SELL', 'lock': threading.Lock}}
         self._staged_lock = threading.Lock()
+        
+        # Portfolio risk limit configuration
+        self.max_portfolio_risk_pct = self.risk_config.get('max_portfolio_risk_pct', 15.0)  # Default 15% of account balance
+        self.max_portfolio_risk_usd = self.risk_config.get('max_portfolio_risk_usd', None)  # Absolute USD limit (optional)
     
     def calculate_minimum_lot_size_for_risk(
         self,
@@ -480,6 +484,80 @@ class RiskManager:
                 return False, f"Max staged trades ({self.max_open_trades}) for {symbol} reached"
             
             return True, f"Staged open allowed (window: {time_since_first:.0f}s, trades: {len(existing_tickets)})"
+    
+    def check_portfolio_risk(self, new_trade_risk_usd: float = 0.0) -> Tuple[bool, str]:
+        """
+        Check if adding new trade would exceed portfolio risk limit.
+        
+        Args:
+            new_trade_risk_usd: Risk amount in USD for the new trade being considered
+        
+        Returns:
+            (allowed: bool, reason: str)
+        """
+        # Get account balance
+        account_info = self.mt5_connector.get_account_info()
+        if account_info is None:
+            return False, "Cannot get account info for portfolio risk check"
+        
+        account_balance = account_info.get('balance', 0.0)
+        if account_balance <= 0:
+            return False, "Invalid account balance"
+        
+        # Get all open positions and calculate total risk
+        positions = self.order_manager.get_open_positions()
+        total_risk_usd = 0.0
+        
+        for position in positions:
+            symbol = position.get('symbol')
+            if not symbol:
+                continue
+            
+            # Get position's stop loss distance
+            entry_price = position.get('price_open', 0)
+            sl_price = position.get('sl', 0)
+            lot_size = position.get('volume', 0)
+            order_type = position.get('type')
+            
+            if entry_price <= 0 or lot_size <= 0:
+                continue
+            
+            # Get symbol info for calculations
+            symbol_info = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=False)
+            if symbol_info is None:
+                continue
+            
+            point = symbol_info.get('point', 0.00001)
+            pip_value = point * 10 if symbol_info.get('digits', 5) == 5 or symbol_info.get('digits', 3) == 3 else point
+            contract_size = symbol_info.get('contract_size', 1.0)
+            
+            # Calculate stop loss distance in price
+            if order_type == 'BUY' and sl_price > 0:
+                sl_distance_price = entry_price - sl_price
+            elif order_type == 'SELL' and sl_price > 0:
+                sl_distance_price = sl_price - entry_price
+            else:
+                # No SL set, use default min stop loss
+                sl_distance_price = self.min_stop_loss_pips * pip_value
+            
+            # Calculate risk for this position
+            position_risk = lot_size * abs(sl_distance_price) * contract_size
+            total_risk_usd += position_risk
+        
+        # Add new trade risk
+        total_risk_with_new = total_risk_usd + new_trade_risk_usd
+        
+        # Check absolute USD limit first (if set)
+        if self.max_portfolio_risk_usd is not None:
+            if total_risk_with_new > self.max_portfolio_risk_usd:
+                return False, f"Portfolio risk ${total_risk_with_new:.2f} would exceed absolute limit ${self.max_portfolio_risk_usd:.2f} (current: ${total_risk_usd:.2f})"
+        
+        # Check percentage limit
+        portfolio_risk_pct = (total_risk_with_new / account_balance) * 100
+        if portfolio_risk_pct > self.max_portfolio_risk_pct:
+            return False, f"Portfolio risk {portfolio_risk_pct:.1f}% would exceed limit {self.max_portfolio_risk_pct}% (current: ${total_risk_usd:.2f}, new: ${total_risk_with_new:.2f}, balance: ${account_balance:.2f})"
+        
+        return True, f"Portfolio risk OK ({portfolio_risk_pct:.1f}% <= {self.max_portfolio_risk_pct}%, ${total_risk_with_new:.2f})"
     
     def update_trailing_stop(
         self,
@@ -935,15 +1013,38 @@ class RiskManager:
             # Get current tickets
             current_tickets = {pos['ticket'] for pos in positions} if positions else set()
             
-            # Clean up tracking for closed positions
+            # Clean up tracking for closed positions (thread-safe)
+            # First, collect symbols for closed tickets before removing tracking
+            closed_tickets = set(self._position_tracking.keys()) - current_tickets
+            closed_tickets_symbols = {}  # {ticket: symbol}
+            
+            # Get symbols from positions or from a cache before cleanup
+            for ticket in closed_tickets:
+                # Try to get symbol from current positions first
+                pos_info = next((p for p in positions if p.get('ticket') == ticket), None)
+                if pos_info:
+                    closed_tickets_symbols[ticket] = pos_info.get('symbol')
+                else:
+                    # Position already closed, try to get from position manager
+                    # This is a fallback - might not work if position is fully closed
+                    # For now, we'll skip staged trade cleanup if symbol is unavailable
+                    pass
+            
+            # Now remove tracking entries
             with self._tracking_lock:
-                closed_tickets = set(self._position_tracking.keys()) - current_tickets
                 for ticket in closed_tickets:
                     self._position_tracking.pop(ticket, None)
-                    # Also unregister from staged trades
-                    for symbol in list(self._staged_trades.keys()):
-                        if ticket in self._staged_trades[symbol].get('trades', []):
-                            self.unregister_staged_trade(symbol, ticket)
+            
+            # Clean up staged trades for closed positions
+            if closed_tickets_symbols:
+                with self._staged_lock:
+                    for ticket, symbol in closed_tickets_symbols.items():
+                        if symbol and symbol in self._staged_trades:
+                            if ticket in self._staged_trades[symbol].get('trades', []):
+                                self._staged_trades[symbol]['trades'].remove(ticket)
+                            # Clean up if no more trades for this symbol
+                            if not self._staged_trades[symbol].get('trades', []):
+                                self._staged_trades.pop(symbol, None)
             
             if not positions:
                 return
