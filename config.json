@@ -45,6 +45,13 @@
       "big_jump_threshold_usd": 0.40,
       "big_jump_lock_margin_usd": 0.10,
       "max_peak_lock_usd": 2.50
+    },
+    "micro_profit_engine": {
+      "enabled": true,
+      "min_profit_threshold_usd": 0.03,
+      "max_profit_threshold_usd": 0.10,
+      "max_retries": 3,
+      "retry_delay_ms": 10
     }
   },
   "trading": {

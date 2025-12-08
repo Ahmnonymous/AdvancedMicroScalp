@@ -21,6 +21,7 @@ from risk.halal_compliance import HalalCompliance
 from news_filter.news_api import NewsFilter
 from bot.config_validator import ConfigValidator
 from bot.logger_setup import get_symbol_logger
+from trade_logging.trade_logger import TradeLogger
 
 logger = logging.getLogger(__name__)
 
@@ -49,6 +50,27 @@ class TradingBot:
         self.pair_filter = PairFilter(self.config, self.mt5_connector)
         self.halal_compliance = HalalCompliance(self.config, self.mt5_connector, self.order_manager)
         self.news_filter = NewsFilter(self.config, self.mt5_connector)
+        self.trade_logger = TradeLogger(self.config)
+        
+        # Initialize Micro-HFT Profit Engine (optional add-on)
+        micro_config = self.config.get('micro_profit_engine', {})
+        if micro_config.get('enabled', True):
+            try:
+                from bot.micro_profit_engine import MicroProfitEngine
+                self.micro_profit_engine = MicroProfitEngine(
+                    config=self.config,
+                    order_manager=self.order_manager,
+                    trade_logger=self.trade_logger
+                )
+                # Register with risk manager
+                self.risk_manager.set_micro_profit_engine(self.micro_profit_engine)
+                logger.info("Micro-HFT Profit Engine initialized and registered")
+            except ImportError as e:
+                logger.warning(f"Micro-HFT Profit Engine not available: {e}")
+                self.micro_profit_engine = None
+        else:
+            self.micro_profit_engine = None
+            logger.info("Micro-HFT Profit Engine disabled in config")
         
         # Supervisor settings
         self.supervisor_config = self.config.get('supervisor', {})
@@ -585,18 +607,46 @@ class TradingBot:
             # ALWAYS use the minimum lot size (LEAST POSSIBLE for this symbol)
             lot_size = effective_min_lot
             
-            # Calculate actual risk with minimum lot size (for logging only)
+            # CRITICAL FIX: Calculate risk using ACTUAL fill price (will be updated after order placement)
+            # For now, use requested price but we'll recalculate with actual fill price after order
             point = symbol_info_for_lot.get('point', 0.00001)
             pip_value = point * 10 if symbol_info_for_lot.get('digits', 5) == 5 or symbol_info_for_lot.get('digits', 3) == 3 else point
             contract_size = symbol_info_for_lot.get('contract_size', 1.0)
             stop_loss_price = stop_loss_pips * pip_value
-            actual_risk = lot_size * stop_loss_price * contract_size
+            
+            # Calculate risk with requested entry price (pre-trade validation)
+            # Note: After order placement, we'll recalculate with actual fill price
+            estimated_risk = lot_size * stop_loss_price * contract_size
+            
+            # CRITICAL FIX: Reject trade if estimated risk (with slippage buffer) exceeds max_risk_usd
+            # Add 10% slippage buffer to account for execution slippage
+            max_risk_usd = self.risk_manager.max_risk_usd
+            slippage_buffer = 1.10  # 10% buffer for slippage
+            risk_with_slippage = estimated_risk * slippage_buffer
+            
+            if risk_with_slippage > max_risk_usd:
+                logger.warning(f"⛔ {symbol}: REJECTED - Estimated risk ${estimated_risk:.2f} (with slippage: ${risk_with_slippage:.2f}) exceeds max ${max_risk_usd:.2f} | "
+                             f"Lot: {lot_size:.4f}, SL: {stop_loss_pips:.1f} pips, Contract: {contract_size}")
+                self.trade_stats['failed_trades'] += 1
+                return False
             
             # Log trade execution with lot size details
-            logger.info(f"📦 {symbol}: EXECUTING WITH MINIMUM LOT SIZE = {lot_size:.4f} | "
-                       f"Source: {min_source} | "
-                       f"Actual Risk: ${actual_risk:.2f} | "
-                       f"Policy: Always use LEAST POSSIBLE lot size per symbol")
+            # Use estimated_risk here (actual risk will be calculated after order placement with fill price)
+            try:
+                logger.info(f"📦 {symbol}: EXECUTING WITH MINIMUM LOT SIZE = {lot_size:.4f} | "
+                           f"Source: {min_source} | "
+                           f"Estimated Risk: ${estimated_risk:.2f} (with slippage: ${risk_with_slippage:.2f}, max: ${max_risk_usd:.2f}) | "
+                           f"Policy: Always use LEAST POSSIBLE lot size per symbol")
+            except (NameError, UnboundLocalError) as e:
+                # Fallback if variables are undefined (should not happen, but safety check)
+                logger.warning(f"⚠️ {symbol}: Error logging trade details: {e}. Using fallback values.")
+                fallback_risk = estimated_risk if 'estimated_risk' in locals() else 0.0
+                fallback_slippage = risk_with_slippage if 'risk_with_slippage' in locals() else 0.0
+                fallback_max = max_risk_usd if 'max_risk_usd' in locals() else 2.0
+                logger.info(f"📦 {symbol}: EXECUTING WITH MINIMUM LOT SIZE = {lot_size:.4f} | "
+                           f"Source: {min_source} | "
+                           f"Estimated Risk: ${fallback_risk:.2f} (with slippage: ${fallback_slippage:.2f}, max: ${fallback_max:.2f}) | "
+                           f"Policy: Always use LEAST POSSIBLE lot size per symbol")
             
             # Get spread for statistics
             spread_points = self.pair_filter.get_spread_points(symbol)
@@ -677,13 +727,30 @@ class TradingBot:
                     logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
                     break  # Don't retry if market is closed
                 
-                ticket = self.order_manager.place_order(
+                order_result = self.order_manager.place_order(
                     symbol=symbol,
                     order_type=order_type,
                     lot_size=lot_size,
                     stop_loss=stop_loss_pips,
                     comment=f"Bot {signal}"
                 )
+                
+                # Handle new return format (dict with ticket, entry_price_actual, slippage)
+                entry_price_actual = entry_price  # Default to requested price
+                slippage = 0.0
+                
+                if order_result is None:
+                    ticket = None
+                elif isinstance(order_result, dict):
+                    if 'error' in order_result:
+                        ticket = order_result['error']  # Error code
+                    else:
+                        ticket = order_result.get('ticket')
+                        entry_price_actual = order_result.get('entry_price_actual', entry_price)
+                        slippage = order_result.get('slippage', 0.0)
+                else:
+                    # Legacy format (int ticket)
+                    ticket = order_result
                 
                 # Success case
                 if ticket and ticket > 0:
@@ -701,8 +768,11 @@ class TradingBot:
                 # -4: Market closed (10018) - non-retryable
                 # -5: Trading restriction (10027, 10044, etc.) - non-retryable
                 
+                # Handle error codes (from dict or legacy int)
+                error_code = ticket if isinstance(ticket, int) and ticket < 0 else (order_result.get('error') if isinstance(order_result, dict) else None)
+                
                 # Market closed - don't retry
-                if ticket == -4:
+                if error_code == -4:
                     logger.warning(f"⏰ {symbol}: Market closed (error 10018) - skipping trade execution")
                     logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - order rejected by broker")
                     print(f"⛔ {symbol}: Market closed - order rejected. Re-scan when market opens.")
@@ -710,7 +780,7 @@ class TradingBot:
                     break  # Don't retry
                 
                 # Trading restrictions - don't retry (10027, 10044, etc.)
-                if ticket == -5:
+                if error_code == -5:
                     logger.error(f"❌ {symbol}: Trading restriction (error 10027/10044) - trade not allowed")
                     logger.info(f"⛔ [SKIP] {symbol} | Reason: Trading restriction - symbol/order type not tradeable")
                     print(f"❌ {symbol}: Trading restriction - this symbol cannot be traded. Check account permissions or symbol restrictions.")
@@ -722,14 +792,14 @@ class TradingBot:
                     break  # Don't retry
                 
                 # Invalid stops - don't retry
-                if ticket == -3:
+                if error_code == -3:
                     logger.error(f"❌ {symbol}: Invalid stops (error 10016) - trade failed")
                     logger.info(f"⛔ [SKIP] {symbol} | Reason: Invalid stops - check stop loss configuration")
                     self.trade_stats['failed_trades'] += 1
                     break  # Don't retry
                 
                 # Invalid volume - retry once with broker minimum
-                if ticket == -1:
+                if error_code == -1:
                     if not volume_error_occurred:  # Only retry once
                         volume_error_occurred = True
                         logger.warning(f"⚠️ {symbol}: Invalid volume error (lot: {lot_size:.4f}), retrying once with broker minimum lot...")
@@ -768,7 +838,7 @@ class TradingBot:
                     break
                 
                 # Transient errors (-2 or None) - retry with exponential backoff
-                if ticket == -2 or ticket is None:
+                if error_code == -2 or ticket is None:
                     if attempt < max_retries - 1:
                         # Exponential backoff for transient errors
                         backoff_delay = backoff_base * (2 ** attempt)
@@ -785,6 +855,9 @@ class TradingBot:
             if ticket and ticket > 0:  # Valid ticket number
                 # Register staged trade
                 self.risk_manager.register_staged_trade(symbol, ticket, signal)
+                
+                # Get quality score from opportunity for logging
+                quality_score = opportunity.get('quality_score', None)
                 
                 # Get minimum lot info for detailed logging
                 symbol_info_for_log = self.mt5_connector.get_symbol_info(symbol)
@@ -804,30 +877,56 @@ class TradingBot:
                     effective_min_lot = lot_size
                     min_source = "default"
                 
-                # Log to root (minimal) and symbol logger (detailed)
-                spread_fees_log = f" | Spread+Fees: ${spread_fees_cost:.2f}" if test_mode and spread_fees_cost > 0 else ""
-                logger.info(f"✅ TRADE EXECUTED: {symbol} {signal} | Ticket: {ticket} | "
-                           f"Entry: {entry_price:.5f} | Lot: {lot_size:.4f} (min: {effective_min_lot:.4f} {min_source}) | "
-                           f"SL: {stop_loss_pips:.1f}pips{spread_fees_log} | Reason: Minimum lot for $2.0 risk")
+                # CRITICAL FIX: Recalculate risk with ACTUAL fill price (accounting for slippage)
+                # This ensures risk calculations are accurate
+                point = symbol_info_for_log.get('point', 0.00001) if symbol_info_for_log else 0.00001
+                pip_value = point * 10 if (symbol_info_for_log and symbol_info_for_log.get('digits', 5) in [5, 3]) else point
+                contract_size = symbol_info_for_log.get('contract_size', 1.0) if symbol_info_for_log else 1.0
                 
-                symbol_logger = get_symbol_logger(symbol, self.config)
-                symbol_logger.info("=" * 80)
-                symbol_logger.info(f"✅ TRADE EXECUTED SUCCESSFULLY")
-                symbol_logger.info(f"   Symbol: {symbol}")
-                symbol_logger.info(f"   Direction: {signal}")
-                symbol_logger.info(f"   Ticket: {ticket}")
-                symbol_logger.info(f"   Entry Price: {entry_price:.5f}")
-                symbol_logger.info(f"   Lot Size: {lot_size:.4f} (minimum possible for $2.0 risk, respecting broker minimum)")
-                symbol_logger.info(f"   Min Lot Size: {effective_min_lot:.4f} (source: {min_source})")
-                symbol_logger.info(f"   Reason: Testing mode - minimum lot size calculated from risk, respecting broker minimum")
-                symbol_logger.info(f"   Stop Loss: {stop_loss_pips:.1f} pips")
-                symbol_logger.info(f"   Spread: {spread_points:.1f} points")
-                if test_mode and spread_fees_cost > 0:
-                    symbol_logger.info(f"   Spread+Fees Cost: ${spread_fees_cost:.2f} ({spread_fees_desc})")
-                symbol_logger.info(f"   SMA20: {opportunity.get('sma_fast', 0):.5f}")
-                symbol_logger.info(f"   SMA50: {opportunity.get('sma_slow', 0):.5f}")
-                symbol_logger.info(f"   RSI: {opportunity.get('rsi', 50):.1f}")
-                symbol_logger.info("=" * 80)
+                # Calculate SL distance from actual fill price
+                if order_type == OrderType.BUY:
+                    sl_price_from_fill = entry_price_actual - (stop_loss_pips * pip_value)
+                else:  # SELL
+                    sl_price_from_fill = entry_price_actual + (stop_loss_pips * pip_value)
+                
+                # Calculate actual risk with fill price
+                try:
+                    sl_distance_from_fill = abs(entry_price_actual - sl_price_from_fill)
+                    actual_risk_with_fill = lot_size * sl_distance_from_fill * contract_size
+                    
+                    # Validate risk with actual fill price (should still be <= $2.00 with buffer)
+                    max_risk_usd_actual = self.risk_manager.max_risk_usd
+                    risk_with_slippage_actual = actual_risk_with_fill * 1.10  # 10% buffer
+                    if risk_with_slippage_actual > max_risk_usd_actual:
+                        logger.warning(f"⚠️ {symbol}: Actual risk ${actual_risk_with_fill:.2f} (with buffer: ${risk_with_slippage_actual:.2f}) exceeds max ${max_risk_usd_actual:.2f} after fill")
+                        # Log but don't reject - trade already placed, just warn
+                except (NameError, TypeError, ValueError) as e:
+                    logger.error(f"❌ {symbol}: Error calculating actual risk: {e}. Using estimated risk as fallback.")
+                    # Fallback to estimated risk if calculation fails
+                    actual_risk_with_fill = estimated_risk if 'estimated_risk' in locals() else lot_size * stop_loss_pips * 0.10
+                    risk_with_slippage_actual = risk_with_slippage if 'risk_with_slippage' in locals() else actual_risk_with_fill * 1.10
+                
+                # Use unified trade logger
+                self.trade_logger.log_trade_execution(
+                    symbol=symbol,
+                    ticket=ticket,
+                    signal=signal,
+                    entry_price_requested=entry_price,
+                    entry_price_actual=entry_price_actual,
+                    lot_size=lot_size,
+                    stop_loss_pips=stop_loss_pips,
+                    stop_loss_price=stop_loss_price,
+                    quality_score=quality_score,
+                    spread_points=spread_points,
+                    spread_fees_cost=spread_fees_cost if test_mode else None,
+                    slippage=slippage if slippage > 0.00001 else None,
+                    risk_usd=actual_risk_with_fill,
+                    min_lot=effective_min_lot,
+                    min_lot_source=min_source,
+                    sma_fast=opportunity.get('sma_fast', 0),
+                    sma_slow=opportunity.get('sma_slow', 0),
+                    rsi=opportunity.get('rsi', 50)
+                )
                 
                 self.trade_count_today += 1
                 self.trade_stats['total_trades'] += 1

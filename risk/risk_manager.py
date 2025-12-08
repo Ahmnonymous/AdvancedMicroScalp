@@ -66,6 +66,22 @@ class RiskManager:
         # Portfolio risk limit configuration
         self.max_portfolio_risk_pct = self.risk_config.get('max_portfolio_risk_pct', 15.0)  # Default 15% of account balance
         self.max_portfolio_risk_usd = self.risk_config.get('max_portfolio_risk_usd', None)  # Absolute USD limit (optional)
+        
+        # Micro-HFT Profit Engine (optional add-on, initialized separately)
+        self._micro_profit_engine = None
+    
+    def set_micro_profit_engine(self, micro_profit_engine):
+        """
+        Set the Micro-HFT Profit Engine instance.
+        
+        This allows the bot to inject the micro profit engine without
+        modifying the core risk manager logic.
+        
+        Args:
+            micro_profit_engine: MicroProfitEngine instance
+        """
+        self._micro_profit_engine = micro_profit_engine
+        logger.info("Micro-HFT Profit Engine registered with RiskManager")
     
     def calculate_minimum_lot_size_for_risk(
         self,
@@ -883,10 +899,41 @@ class RiskManager:
                 else:
                     reason = f"Incremental update (profit: ${current_profit_usd:.2f})"
                 
+                # CRITICAL FIX: Ensure SL never goes worse than -$2.00 (max risk per trade)
+                # This prevents early exits - SL should never be worse than the initial risk
+                if target_sl_profit < -self.max_risk_usd:
+                    # Log early exit prevention
+                    from trade_logging.trade_logger import TradeLogger
+                    trade_logger = TradeLogger(self.config)
+                    trade_logger.log_early_exit_prevention(
+                        symbol=symbol,
+                        ticket=ticket,
+                        attempted_sl_profit=target_sl_profit,
+                        max_risk=self.max_risk_usd
+                    )
+                    logger.warning(f"⚠️  Ticket {ticket}: Target SL profit ${target_sl_profit:.2f} would exceed max risk ${self.max_risk_usd:.2f}, preventing early exit")
+                    tracking['last_profit'] = current_profit_usd
+                    return False, f"Prevented early exit: SL would exceed max risk ${self.max_risk_usd:.2f}"
+                
                 # Only update if target SL is higher than current SL profit
                 if target_sl_profit <= last_sl_profit:
                     tracking['last_profit'] = current_profit_usd
                     return False, f"SL already at target (current: ${last_sl_profit:.2f}, target: ${target_sl_profit:.2f})"
+            
+            # CRITICAL FIX: Final check - ensure SL never goes worse than -$2.00
+            if target_sl_profit < -self.max_risk_usd:
+                # Log early exit prevention
+                from trade_logging.trade_logger import TradeLogger
+                trade_logger = TradeLogger(self.config)
+                trade_logger.log_early_exit_prevention(
+                    symbol=symbol,
+                    ticket=ticket,
+                    attempted_sl_profit=target_sl_profit,
+                    max_risk=self.max_risk_usd
+                )
+                logger.warning(f"⚠️  Ticket {ticket}: Target SL profit ${target_sl_profit:.2f} would exceed max risk ${self.max_risk_usd:.2f}, preventing early exit")
+                tracking['last_profit'] = current_profit_usd
+                return False, f"Prevented early exit: SL would exceed max risk ${self.max_risk_usd:.2f}"
             
             # Ensure we never move SL backward
             if target_sl_profit < last_sl_profit:
@@ -943,29 +990,75 @@ class RiskManager:
             # Get current SL to check if update is needed
             current_sl = position['sl']
             
+            # CRITICAL FIX: Check if SL needs updating with proper tolerance
+            # Use point size as tolerance to prevent floating point precision issues
+            point = symbol_info.get('point', 0.00001)
+            sl_difference = abs(new_sl_price - current_sl) if current_sl > 0 else float('inf')
+            
             # Check if SL needs updating (only move forward)
             needs_update = False
             if order_type == 'BUY':
-                if new_sl_price > current_sl:
+                # For BUY: SL should be below entry, so higher SL = better (closer to entry)
+                if current_sl == 0 or (new_sl_price > current_sl and sl_difference >= point):
                     needs_update = True
             else:  # SELL
-                if current_sl == 0 or new_sl_price < current_sl:
+                # For SELL: SL should be above entry, so lower SL = better (closer to entry)
+                if current_sl == 0 or (new_sl_price < current_sl and sl_difference >= point):
                     needs_update = True
             
             if not needs_update:
                 tracking['last_profit'] = current_profit_usd
-                return False, f"SL already optimal (current: {current_sl:.5f}, calculated: {new_sl_price:.5f})"
+                return False, f"SL already optimal (current: {current_sl:.5f}, calculated: {new_sl_price:.5f}, diff: {sl_difference:.8f} < point: {point:.8f})"
             
-            # Update stop loss with retry logic
+            # CRITICAL FIX: Update stop loss with retry logic (up to 3 attempts)
+            # If SL modification fails after retries, manually close position to prevent late exit
             success = False
-            max_retries = 2
+            max_retries = 3
+            last_error = None
+            
             for attempt in range(max_retries):
                 success = self.order_manager.modify_order(ticket, stop_loss_price=new_sl_price)
                 if success:
                     break
                 if attempt < max_retries - 1:
                     import time
-                    time.sleep(0.1)  # Small backoff
+                    time.sleep(0.1 * (attempt + 1))  # Increasing backoff
+                else:
+                    # Get last error for logging
+                    import MetaTrader5 as mt5
+                    error = mt5.last_error()
+                    last_error = error if error else "Unknown error"
+            
+            # If SL modification failed after all retries, manually close position to prevent late exit
+            if not success:
+                logger.error(f"❌ Ticket {ticket}: SL modification failed after {max_retries} attempts. "
+                           f"Manually closing position to prevent late exit. Error: {last_error}")
+                
+                # Calculate expected loss (should be -$2.00)
+                expected_loss = -self.max_risk_usd
+                
+                # Close position manually
+                close_success = self.order_manager.close_position(ticket, comment="SL modification failed - prevent late exit")
+                if close_success:
+                    logger.warning(f"⚠️ Ticket {ticket}: Position closed manually due to SL modification failure")
+                    # Log late exit prevention
+                    from trade_logging.trade_logger import TradeLogger
+                    trade_logger = TradeLogger(self.config)
+                    # Get actual profit from position before it closes
+                    position = self.order_manager.get_position_by_ticket(ticket)
+                    actual_profit = position.get('profit', expected_loss) if position else expected_loss
+                    trade_logger.log_late_exit_prevention(
+                        symbol=symbol,
+                        ticket=ticket,
+                        actual_profit=actual_profit,
+                        expected_profit=expected_loss,
+                        sl_modification_failed=True
+                    )
+                else:
+                    logger.error(f"❌ Ticket {ticket}: Failed to close position manually after SL modification failure")
+                
+                tracking['last_profit'] = current_profit_usd
+                return False, f"SL modification failed after {max_retries} attempts, position closed manually"
             
             if success:
                 # Update tracking
@@ -982,14 +1075,18 @@ class RiskManager:
                 root_logger = logging.getLogger()
                 root_logger.info(f"📈 SL ADJUSTED: {symbol} Ticket {ticket} | Profit: ${current_profit_usd:.2f} → SL: ${target_sl_profit:.2f}")
                 
-                # Detailed log to symbol logger
-                from bot.logger_setup import get_symbol_logger
-                symbol_logger = get_symbol_logger(symbol, self.config)
-                symbol_logger.info(f"📈 TRAILING STOP: Ticket {ticket} ({symbol} {order_type}) | "
-                                  f"Profit: ${current_profit_usd:.2f} | Peak: ${peak_profit:.2f} | "
-                                  f"SL Profit: ${target_sl_profit:.2f} | "
-                                  f"SL Price: {new_sl_price:.5f} ({abs(sl_pips):.1f} pips) | "
-                                  f"Reason: {reason}")
+                # Use unified trade logger for trailing stop adjustments
+                from trade_logging.trade_logger import TradeLogger
+                trade_logger = TradeLogger(self.config)
+                trade_logger.log_trailing_stop_adjustment(
+                    symbol=symbol,
+                    ticket=ticket,
+                    current_profit=current_profit_usd,
+                    new_sl_profit=target_sl_profit,
+                    new_sl_price=new_sl_price,
+                    sl_pips=sl_pips,
+                    reason=reason
+                )
                 
                 return True, reason
             else:
@@ -1021,27 +1118,112 @@ class RiskManager:
             # Get current tickets
             current_tickets = {pos['ticket'] for pos in positions} if positions else set()
             
-            # Clean up tracking for closed positions (thread-safe)
-            # First, collect symbols for closed tickets before removing tracking
-            closed_tickets = set(self._position_tracking.keys()) - current_tickets
-            closed_tickets_symbols = {}  # {ticket: symbol}
+            # CRITICAL FIX: Detect and log position closures
+            # Track previously open positions to detect closures
+            if not hasattr(self, '_last_open_tickets'):
+                self._last_open_tickets = set()
             
-            # Get symbols from positions or from a cache before cleanup
+            # Detect closed positions
+            closed_tickets = self._last_open_tickets - current_tickets
+            closed_tickets_symbols = {}  # {ticket: symbol}
+            closed_positions_info = {}  # {ticket: position_info}
+            
+            # Get information about closed positions from tracking before cleanup
             for ticket in closed_tickets:
-                # Try to get symbol from current positions first
-                pos_info = next((p for p in positions if p.get('ticket') == ticket), None)
-                if pos_info:
-                    closed_tickets_symbols[ticket] = pos_info.get('symbol')
-                else:
-                    # Position already closed, try to get from position manager
-                    # This is a fallback - might not work if position is fully closed
-                    # For now, we'll skip staged trade cleanup if symbol is unavailable
-                    pass
+                # Get symbol and entry info from tracking
+                tracking = self._get_position_tracking(ticket)
+                if tracking:
+                    # Try to get position info from order manager (might still be in cache)
+                    pos_info = self.order_manager.get_position_by_ticket(ticket)
+                    if pos_info:
+                        closed_positions_info[ticket] = pos_info
+                        closed_tickets_symbols[ticket] = pos_info.get('symbol')
+                    else:
+                        # Position fully closed - try to get from deal history
+                        import MetaTrader5 as mt5
+                        if self.mt5_connector.ensure_connected():
+                            # Get deal history for this ticket (position identifier)
+                            # Note: ticket is position ID, we need to get deals by position
+                            deals = mt5.history_deals_get(position=ticket)
+                            if deals and len(deals) > 0:
+                                # Sort deals by time
+                                deals_sorted = sorted(deals, key=lambda d: d.time)
+                                
+                                # Get entry deal (first deal, type IN)
+                                entry_deal = None
+                                close_deal = None
+                                total_profit = 0.0
+                                
+                                for deal in deals_sorted:
+                                    if deal.entry == mt5.DEAL_ENTRY_IN:
+                                        entry_deal = deal
+                                    elif deal.entry == mt5.DEAL_ENTRY_OUT:
+                                        close_deal = deal
+                                    total_profit += deal.profit
+                                
+                                if entry_deal and close_deal:
+                                    symbol = entry_deal.symbol
+                                    entry_price = entry_deal.price
+                                    entry_time = datetime.fromtimestamp(entry_deal.time)
+                                    close_price = close_deal.price
+                                    close_time = datetime.fromtimestamp(close_deal.time)
+                                    
+                                    closed_positions_info[ticket] = {
+                                        'symbol': symbol,
+                                        'entry_price': entry_price,
+                                        'entry_time': entry_time,
+                                        'close_price': close_price,
+                                        'close_time': close_time,
+                                        'profit': total_profit
+                                    }
+                                    closed_tickets_symbols[ticket] = symbol
+                                    
+                                    # Use unified trade logger for position closure
+                                    from trade_logging.trade_logger import TradeLogger
+                                    trade_logger = TradeLogger(self.config)
+                                    
+                                    duration_min = (close_time - entry_time).total_seconds() / 60
+                                    
+                                    # Determine close reason
+                                    close_reason = "Unknown"
+                                    if abs(total_profit + 2.0) < 0.10:  # Close to -$2.00
+                                        close_reason = "Stop Loss (-$2.00)"
+                                    elif total_profit > 0:
+                                        close_reason = "Take Profit or Trailing Stop"
+                                    elif total_profit < -2.0:
+                                        close_reason = f"Stop Loss exceeded (${total_profit:.2f})"
+                                        # Log late exit warning
+                                        trade_logger.log_late_exit_prevention(
+                                            symbol=symbol,
+                                            ticket=ticket,
+                                            actual_profit=total_profit,
+                                            expected_profit=-2.0,
+                                            sl_modification_failed=False
+                                        )
+                                    
+                                    # Log position closure with unified logger
+                                    trade_logger.log_position_closure(
+                                        symbol=symbol,
+                                        ticket=ticket,
+                                        entry_price=entry_price,
+                                        close_price=close_price,
+                                        profit=total_profit,
+                                        duration_minutes=duration_min,
+                                        close_reason=close_reason,
+                                        entry_time=entry_time,
+                                        close_time=close_time
+                                    )
             
             # Now remove tracking entries
             with self._tracking_lock:
                 for ticket in closed_tickets:
                     self._position_tracking.pop(ticket, None)
+                    # Clean up micro-HFT engine tracking
+                    if hasattr(self, '_micro_profit_engine') and self._micro_profit_engine:
+                        self._micro_profit_engine.cleanup_closed_position(ticket)
+            
+            # Update last open tickets
+            self._last_open_tickets = current_tickets.copy()
             
             # Clean up staged trades for closed positions
             if closed_tickets_symbols:
@@ -1061,6 +1243,22 @@ class RiskManager:
             for position in positions:
                 ticket = position['ticket']
                 current_profit = position.get('profit', 0.0)
+                
+                # MICRO-HFT PROFIT ENGINE: Check and close if profit is in sweet spot ($0.03–$0.10)
+                # This runs BEFORE trailing stop to take micro profits immediately
+                # It does NOT interfere with SL, risk, or trailing stop logic
+                if hasattr(self, '_micro_profit_engine') and self._micro_profit_engine:
+                    try:
+                        # Check if position should be closed by micro-HFT engine
+                        # This only closes if profit is within $0.03–$0.10 sweet spot and does NOT touch SL
+                        was_closed = self._micro_profit_engine.check_and_close(position, self.mt5_connector)
+                        if was_closed:
+                            # Position was closed by micro-HFT engine, skip trailing stop
+                            # Position closure will be detected in next cycle
+                            continue
+                    except Exception as e:
+                        logger.error(f"Error in micro-HFT profit engine: {e}", exc_info=True)
+                        # Continue with normal processing if micro-HFT engine fails
                 
                 # Check if this position should use fast polling
                 tracking = self._get_position_tracking(ticket)

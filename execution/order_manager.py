@@ -31,7 +31,7 @@ class OrderManager:
         stop_loss: float,
         take_profit: Optional[float] = None,
         comment: str = "Trading Bot"
-    ) -> Optional[int]:
+    ) -> Optional[Dict[str, Any]]:
         """
         Place a market order.
         
@@ -44,11 +44,13 @@ class OrderManager:
             comment: Order comment
         
         Returns:
-            Ticket number if successful, None otherwise.
+            Dictionary with 'ticket' (int), 'entry_price_actual' (float), 'slippage' (float) if successful.
+            Returns error code dict with 'error' key for failures.
+            Returns None for connection errors.
         """
         if not self.mt5_connector.ensure_connected():
             logger.error("Cannot place order: MT5 not connected")
-            return None
+            return None  # Connection error
         
         # Get fresh symbol info right before order placement (critical for accurate prices)
         symbol_info = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=True)
@@ -229,8 +231,8 @@ class OrderManager:
         if result is None:
             error = mt5.last_error()
             logger.error(f"Order send returned None. MT5 error: {error}")
-            # Return -2 to indicate connection/transient error (retryable)
-            return -2
+            # Return error dict to indicate connection/transient error (retryable)
+            return {'error': -2}
         
         if result.retcode != mt5.TRADE_RETCODE_DONE:
             error_msg = f"Order failed: {result.retcode} - {result.comment}"
@@ -247,33 +249,33 @@ class OrderManager:
                 logger.error(f"   Stops Level: {stops_level}, Min Distance: {min_distance:.5f}" if stops_level > 0 else f"   Stops Level: {stops_level} (no minimum)")
                 logger.error(f"   Point: {point}, Digits: {digits}, Pip Value: {pip_value}")
                 logger.error(f"   Ask: {ask_price:.5f}, Bid: {bid_price:.5f}, Spread: {abs(ask_price - bid_price):.5f}")
-                # Return -3 for invalid stops (non-retryable)
-                return -3
+                # Return error dict for invalid stops (non-retryable)
+                return {'error': -3}
             elif result.retcode == 10018:  # Market closed
                 logger.warning(f"⏰ {error_msg} - Market is closed for {symbol}, skipping order placement")
                 # Don't retry when market is closed - it won't help
-                # Return -4 for market closed (non-retryable)
-                return -4
+                # Return error dict for market closed (non-retryable)
+                return {'error': -4}
             elif result.retcode == 10014:  # Invalid volume
                 logger.error(f"❌ {error_msg} - Volume {lot_size} is invalid for {symbol}")
-                # Return special error code to indicate volume issue
-                return -1  # Special return value to indicate volume error (retryable once)
+                # Return error dict to indicate volume issue
+                return {'error': -1}  # Special return value to indicate volume error (retryable once)
             elif result.retcode == 10027:  # Trade disabled
                 logger.error(f"❌ {error_msg} - Trading is disabled for {symbol}")
                 logger.error(f"   This symbol cannot be traded (account or symbol restriction)")
-                # Return -5 for trade disabled (non-retryable)
-                return -5
+                # Return error dict for trade disabled (non-retryable)
+                return {'error': -5}
             elif result.retcode == 10044:  # Trading restriction (broker-specific, often means trading not allowed)
                 logger.error(f"❌ {error_msg} - Trading restriction for {symbol} {order_type.name}")
                 logger.error(f"   Symbol: {symbol}, Order Type: {order_type.name}, Price: {price:.5f}, SL: {sl_price:.5f}, Lot: {lot_size}")
                 logger.error(f"   This symbol/order type may not be tradeable due to account or broker restrictions")
-                # Return -5 for trading restrictions (non-retryable)
-                return -5
+                # Return error dict for trading restrictions (non-retryable)
+                return {'error': -5}
             elif result.retcode == 10029:  # Too many requests
                 logger.error(f"❌ {error_msg} - Too many requests for {symbol}")
                 logger.error(f"   Rate limit exceeded - wait before retrying")
-                # Return -2 for rate limiting (retryable with backoff)
-                return -2
+                # Return error dict for rate limiting (retryable with backoff)
+                return {'error': -2}
             else:
                 logger.error(error_msg)
                 # Log order details for other errors
@@ -283,13 +285,39 @@ class OrderManager:
                 if 10027 <= result.retcode <= 10099:
                     # Likely a trading restriction, don't retry
                     logger.error(f"   This appears to be a trading restriction - not retrying")
-                    return -5
-                # Return -2 for other transient errors (retryable with backoff)
-                return -2
+                    return {'error': -5}
+                # Return error dict for other transient errors (retryable with backoff)
+                return {'error': -2}
+        
+        # CRITICAL FIX: Get actual fill price from deal history (not order request)
+        # This accounts for slippage
+        actual_entry_price = price  # Default to requested price
+        slippage = 0.0
+        
+        if result.order and result.order > 0:
+            # Get deal for this order to get actual fill price
+            deals = mt5.history_deals_get(ticket=result.order)
+            if deals and len(deals) > 0:
+                # Get the entry deal (DEAL_ENTRY_IN)
+                for deal in deals:
+                    if deal.entry == mt5.DEAL_ENTRY_IN:
+                        actual_entry_price = deal.price
+                        slippage = abs(actual_entry_price - price)
+                        if slippage > 0.00001:  # Significant slippage
+                            logger.warning(f"⚠️ {symbol}: Entry slippage detected - Requested: {price:.5f}, Filled: {actual_entry_price:.5f}, Slippage: {slippage:.5f}")
+                        break
         
         logger.info(f"Order placed successfully: Ticket {result.order}, Symbol {symbol}, "
-                   f"Type {order_type.name}, Volume {lot_size}, SL {sl_price:.5f}")
-        return result.order
+                   f"Type {order_type.name}, Volume {lot_size}, SL {sl_price:.5f}, "
+                   f"Entry Price: {actual_entry_price:.5f} (requested: {price:.5f})")
+        
+        # Return comprehensive result with actual fill price
+        return {
+            'ticket': result.order,
+            'entry_price_actual': actual_entry_price,
+            'entry_price_requested': price,
+            'slippage': slippage
+        }
     
     def modify_order(
         self,
@@ -341,6 +369,17 @@ class OrderManager:
         else:
             new_sl = position.sl
         
+        # CRITICAL FIX: Check if new SL is effectively the same as current SL before modifying
+        # This prevents error 10025 (No changes)
+        current_sl = position.sl
+        if current_sl > 0:
+            point = symbol_info.get('point', 0.00001)
+            # Use point size as tolerance (if prices differ by less than 1 point, consider them equal)
+            sl_difference = abs(new_sl - current_sl)
+            if sl_difference < point:
+                logger.debug(f"Skip SL modification for ticket {ticket}: new SL {new_sl:.5f} equals current SL {current_sl:.5f} (diff: {sl_difference:.8f} < point: {point:.8f})")
+                return True  # Return True since SL is already at desired level
+        
         if take_profit_price is not None:
             new_tp = take_profit_price
         elif take_profit is not None:
@@ -365,19 +404,44 @@ class OrderManager:
             "tp": new_tp,
         }
         
-        result = mt5.order_send(request)
+        # CRITICAL FIX: Retry logic for SL modification (up to 3 attempts)
+        max_retries = 3
+        for attempt in range(max_retries):
+            result = mt5.order_send(request)
+            
+            if result is None:
+                error = mt5.last_error()
+                if attempt < max_retries - 1:
+                    logger.warning(f"Modify order send returned None for ticket {ticket} (attempt {attempt + 1}/{max_retries}). MT5 error: {error}. Retrying...")
+                    import time
+                    time.sleep(0.1 * (attempt + 1))  # Increasing backoff
+                    continue
+                else:
+                    logger.error(f"Modify order send returned None for ticket {ticket} after {max_retries} attempts. MT5 error: {error}")
+                    return False
+            
+            if result.retcode == mt5.TRADE_RETCODE_DONE:
+                logger.info(f"Order {ticket} modified: SL {new_sl:.5f}, TP {new_tp:.5f}")
+                return True
+            
+            # Handle specific error codes
+            if result.retcode == 10025:  # No changes (already at desired level)
+                logger.debug(f"Order {ticket} SL modification skipped: No changes (SL already at {new_sl:.5f})")
+                return True  # Consider this success - SL is already at desired level
+            
+            if result.retcode == 10027:  # Trade disabled
+                logger.error(f"Modify order failed for ticket {ticket}: Trading disabled (error {result.retcode})")
+                return False
+            
+            if attempt < max_retries - 1:
+                logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - {result.comment}. Retrying...")
+                import time
+                time.sleep(0.1 * (attempt + 1))  # Increasing backoff
+            else:
+                logger.error(f"Modify order failed for ticket {ticket} after {max_retries} attempts: {result.retcode} - {result.comment}")
+                return False
         
-        if result is None:
-            error = mt5.last_error()
-            logger.error(f"Modify order send returned None. MT5 error: {error}")
-            return False
-        
-        if result.retcode != mt5.TRADE_RETCODE_DONE:
-            logger.error(f"Modify order failed: {result.retcode} - {result.comment}")
-            return False
-        
-        logger.info(f"Order {ticket} modified: SL {new_sl:.5f}, TP {new_tp:.5f}")
-        return True
+        return False
     
     def close_position(self, ticket: int, comment: str = "Close by bot") -> bool:
         """Close an open position."""
