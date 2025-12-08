@@ -1,6 +1,11 @@
 # MetaTrader5 Python API
-# Note: Windows-only package. Requires Windows OS and compatible Python version (3.8-3.11 recommended)
-# If installation fails with version constraint, try: pip install MetaTrader5
+# CRITICAL: Windows-only package. Requires Python 3.6-3.10 (NOT 3.11+)
+# If you have Python 3.11+, you must use Python 3.10 or earlier
+# Check your Python version: python --version
+# If Python 3.11+, create a virtual environment with Python 3.10:
+#   py -3.10 -m venv venv
+#   venv\Scripts\activate
+#   pip install -r requirements.txt
 MetaTrader5
 
 # Data processing and analysis

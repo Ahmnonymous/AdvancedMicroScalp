@@ -49,9 +49,12 @@ This trading bot is a sophisticated automated trading system that:
 
 ### Prerequisites
 
-1. **Python 3.8+** installed on your system
-2. **MetaTrader 5** installed and configured
-3. **MT5 account credentials** (demo or live)
+1. **Python 3.6-3.10** installed on your system (Python 3.11+ is NOT supported by MetaTrader5)
+   - Check version: `python --version`
+   - If you have Python 3.11+, you must use Python 3.10 or create a virtual environment with Python 3.10
+2. **Windows Operating System** (MetaTrader5 is Windows-only)
+3. **MetaTrader 5** installed and configured
+4. **MT5 account credentials** (demo or live)
 
 ### Step 1: Clone or Download the Repository
 
@@ -68,13 +71,38 @@ pip install -r requirements.txt
 
 **Troubleshooting MetaTrader5 Installation:**
 
-If you encounter an error installing MetaTrader5:
-1. **Ensure you're on Windows** - MetaTrader5 is Windows-only
-2. **Check Python version** - Compatible with Python 3.8-3.11
-3. **Upgrade pip first**: `python -m pip install --upgrade pip`
-4. **Try installing without version constraint**: `pip install MetaTrader5`
-5. **Try specific version**: `pip install MetaTrader5==5.0.5200`
-6. **If using virtual environment**, ensure it's activated
+If you encounter `ERROR: Could not find a version that satisfies the requirement MetaTrader5`:
+
+1. **Check Python version** (CRITICAL):
+   ```bash
+   python --version
+   ```
+   - MetaTrader5 only supports Python 3.6-3.10
+   - Python 3.11+ will NOT work - no wheels available
+   - If you have Python 3.11+, you must use Python 3.10
+
+2. **Solution for Python 3.11+ users:**
+   
+   **Option A: Install Python 3.10 and use it:**
+   ```bash
+   # Download Python 3.10 from python.org
+   # Then use it specifically:
+   py -3.10 -m pip install -r requirements.txt
+   ```
+   
+   **Option B: Create virtual environment with Python 3.10:**
+   ```bash
+   # If you have Python 3.10 installed:
+   py -3.10 -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+3. **Ensure you're on Windows** - MetaTrader5 is Windows-only
+
+4. **Upgrade pip first**: `python -m pip install --upgrade pip`
+
+5. **Try installing directly**: `pip install MetaTrader5`
 
 This will install:
 - `MetaTrader5` - MT5 Python API (Windows-only, Python 3.8-3.11)
