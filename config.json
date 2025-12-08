@@ -72,7 +72,14 @@
     "min_quality_score": 50,
     "use_price_action_confirmation": true,
     "use_volume_confirmation": true,
-    "execution_timeout_seconds": 0.3
+    "execution_timeout_seconds": 2.0,
+    "manual_mode_bypass_randomness": true,
+    "manual_wait_for_close_timeout_seconds": 3600
+  },
+  "execution": {
+    "order_timeout_seconds": 2.0,
+    "order_max_retries": 3,
+    "order_retry_backoff_base_seconds": 1.0
   },
   "news": {
     "enabled": true,

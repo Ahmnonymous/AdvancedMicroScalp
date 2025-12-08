@@ -999,10 +999,18 @@ class RiskManager:
     def monitor_all_positions_continuous(self, use_fast_polling: bool = False):
         """
         Monitor all open positions and update trailing stops continuously.
-        Supports fast polling for positions with profit >= fast_trailing_threshold_usd.
+        
+        This function checks P/L in millisecond margins (300ms intervals) for fast trailing stop updates.
+        Fast polling mode is automatically enabled for positions with profit >= fast_trailing_threshold_usd.
+        
+        Features:
+        - Breakeven protection: Moves SL to $0.00 when profit is between $0.00 and $0.10
+        - Continuous trailing: Updates SL as profit increases
+        - Millisecond-level checking: Fast polling (300ms) for profitable positions
         
         Args:
-            use_fast_polling: If True, use fast interval for positions in fast polling mode
+            use_fast_polling: If True, only monitor positions in fast polling mode (300ms intervals)
+                             This enables millisecond-level P/L checking for profitable positions
         """
         if not self.continuous_trailing_enabled:
             return

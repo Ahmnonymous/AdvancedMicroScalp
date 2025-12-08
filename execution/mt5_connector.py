@@ -7,7 +7,7 @@ import MetaTrader5 as mt5
 import time
 import logging
 import threading
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Tuple
 import json
 
 logger = logging.getLogger(__name__)
@@ -147,8 +147,15 @@ class MT5Connector:
             'swap_mode': swap_mode
         }
     
-    def get_symbol_info(self, symbol: str, check_price_staleness: bool = True) -> Optional[Dict[str, Any]]:
-        """Get symbol information with caching."""
+    def get_symbol_info(self, symbol: str, check_price_staleness: bool = False) -> Optional[Dict[str, Any]]:
+        """
+        Get symbol information with caching.
+        
+        Args:
+            symbol: Trading symbol
+            check_price_staleness: If True, reject stale prices (>5s old). 
+                                  Default False - only check when placing orders, not during scanning.
+        """
         if not self.ensure_connected():
             return None
         
@@ -160,13 +167,12 @@ class MT5Connector:
                 cached_data, cached_time = self._symbol_info_cache[symbol]
                 if now - cached_time < self._symbol_cache_ttl:
                     # Return cached data if not stale
-                    if check_price_staleness:
-                        # Verify price staleness even for cached data
-                        price_age = now - cached_time
-                        if price_age > self._price_max_age_seconds:
-                            logger.warning(f"{symbol}: Cached price is stale ({price_age:.2f}s > {self._price_max_age_seconds}s), fetching fresh data")
-                        else:
-                            return cached_data
+                    if not check_price_staleness:
+                        return cached_data
+                    # If checking staleness, verify even cached data
+                    price_age = now - cached_time
+                    if price_age > self._price_max_age_seconds:
+                        logger.debug(f"{symbol}: Cached price is stale ({price_age:.2f}s > {self._price_max_age_seconds}s), fetching fresh data")
                     else:
                         return cached_data
         
@@ -176,11 +182,12 @@ class MT5Connector:
             logger.error(f"Symbol {symbol} not found")
             return None
         
-        # Get current tick time to check price staleness
-        tick = mt5.symbol_info_tick(symbol)
+        # Get current tick time to check price staleness (only if requested)
         tick_time = 0
-        if tick:
-            tick_time = tick.time if hasattr(tick, 'time') else now
+        if check_price_staleness:
+            tick = mt5.symbol_info_tick(symbol)
+            if tick:
+                tick_time = tick.time if hasattr(tick, 'time') else now
         
         result = {
             'name': symbol_info.name,
@@ -202,10 +209,10 @@ class MT5Connector:
             'volume_step': symbol_info.volume_step,
             'filling_mode': symbol_info.filling_mode,
             '_fetched_time': now,  # Internal timestamp for staleness checks
-            '_tick_time': tick_time  # MT5 tick time
+            '_tick_time': tick_time  # MT5 tick time (0 if not checked)
         }
         
-        # Check price staleness if requested
+        # Check price staleness if requested (only when placing orders)
         if check_price_staleness and tick_time > 0:
             price_age = now - tick_time
             if price_age > self._price_max_age_seconds:
@@ -217,6 +224,97 @@ class MT5Connector:
             self._symbol_info_cache[symbol] = (result, now)
         
         return result
+    
+    def is_symbol_tradeable_now(self, symbol: str, check_trade_allowed: bool = True) -> Tuple[bool, str]:
+        """
+        Check if symbol is tradeable right now (market is open and trading is allowed).
+        
+        Args:
+            symbol: Trading symbol
+            check_trade_allowed: If True, also check account trade permissions
+        
+        Returns:
+            Tuple of (is_tradeable, reason)
+            - is_tradeable: True if market is open and tradeable
+            - reason: Reason string if not tradeable, empty if tradeable
+        """
+        if not self.ensure_connected():
+            return False, "MT5 not connected"
+        
+        # Check account trade permissions if requested
+        if check_trade_allowed:
+            account_info = self.get_account_info()
+            if account_info:
+                if not account_info.get('trade_allowed', False):
+                    return False, "Trading disabled on account - check account settings"
+                if not account_info.get('trade_expert', False):
+                    return False, "Expert advisor trading disabled - enable in MT5 terminal"
+        
+        # Get symbol info
+        symbol_info_obj = mt5.symbol_info(symbol)
+        if symbol_info_obj is None:
+            # Try to add symbol to Market Watch if not found
+            if not mt5.symbol_select(symbol, True):
+                return False, f"Symbol {symbol} not found and cannot be added to Market Watch"
+            # Retry getting symbol info after adding to Market Watch
+            symbol_info_obj = mt5.symbol_info(symbol)
+            if symbol_info_obj is None:
+                return False, f"Symbol {symbol} not found even after adding to Market Watch"
+        
+        # Ensure symbol is in Market Watch (required for trading)
+        if not mt5.symbol_select(symbol, True):
+            return False, f"Symbol {symbol} cannot be added to Market Watch"
+        
+        # Refresh symbol data after adding to Market Watch
+        symbol_info_obj = mt5.symbol_info(symbol)
+        if symbol_info_obj is None:
+            return False, f"Symbol {symbol} info unavailable after Market Watch addition"
+        
+        # Check trade mode (must be 4 = full trading enabled)
+        if symbol_info_obj.trade_mode != 4:
+            mode_descriptions = {
+                0: "Disabled",
+                1: "Long only",
+                2: "Short only",
+                3: "Close only",
+                4: "Full trading"
+            }
+            mode_desc = mode_descriptions.get(symbol_info_obj.trade_mode, f"Unknown mode {symbol_info_obj.trade_mode}")
+            return False, f"Trade mode {symbol_info_obj.trade_mode} ({mode_desc}) - not fully tradeable"
+        
+        # Validate contract size, min volume, step, stop level, freeze level
+        if symbol_info_obj.trade_contract_size <= 0:
+            return False, f"Invalid contract size ({symbol_info_obj.trade_contract_size})"
+        
+        if symbol_info_obj.volume_min <= 0:
+            return False, f"Invalid minimum volume ({symbol_info_obj.volume_min})"
+        
+        if symbol_info_obj.volume_step <= 0:
+            return False, f"Invalid volume step ({symbol_info_obj.volume_step})"
+        
+        # Get current tick to check if market is open
+        tick = mt5.symbol_info_tick(symbol)
+        if tick is None:
+            return False, "Cannot get tick data - market may be closed"
+        
+        # Check if bid/ask are valid (market is open)
+        if tick.bid <= 0 or tick.ask <= 0:
+            return False, "Invalid prices (bid/ask <= 0) - market closed"
+        
+        if tick.bid >= tick.ask:
+            return False, f"Invalid spread (bid {tick.bid} >= ask {tick.ask}) - market closed"
+        
+        # Check if prices are stale (no recent update)
+        import time
+        if hasattr(tick, 'time') and tick.time > 0:
+            tick_age_seconds = time.time() - tick.time
+            if tick_age_seconds > 60:  # No update for 60 seconds suggests market closed
+                return False, f"Price stale ({tick_age_seconds:.0f}s old) - market may be closed"
+        
+        # Check trading hours if available (MT5 doesn't always provide this)
+        # For now, we rely on bid/ask validity which is the most reliable indicator
+        
+        return True, ""
     
     def is_swap_free(self, symbol: str) -> bool:
         """Check if symbol is swap-free (Islamic account)."""

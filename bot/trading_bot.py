@@ -98,6 +98,15 @@ class TradingBot:
         self.fast_trailing_interval_ms = self.risk_config.get('fast_trailing_interval_ms', 300)
         self.fast_trailing_threshold_usd = self.risk_config.get('fast_trailing_threshold_usd', 0.10)
     
+        # Manual approval mode settings
+        self.manual_approval_mode = False
+        self.manual_max_trades = None
+        self.manual_batch_cancelled = False  # Flag for cancel batch
+        self.manual_wait_for_close_timeout = self.trading_config.get('manual_wait_for_close_timeout_seconds', 3600)  # Default 1 hour
+        self.manual_scan_completed = False  # Track if scan has been completed in this session
+        self.manual_approved_trades = []  # Track approved trades waiting to execute
+        self.manual_trades_executing = False  # Track if trades are currently executing
+    
     def connect(self) -> bool:
         """Connect to MT5."""
         logger.info("Connecting to MT5...")
@@ -212,6 +221,20 @@ class TradingBot:
             for symbol in symbols:
                 try:
                     logger.debug(f"📊 Analyzing {symbol}...")
+                    
+                    # 0. Check if symbol was previously restricted (prevent duplicate attempts)
+                    if hasattr(self, '_restricted_symbols') and symbol.upper() in self._restricted_symbols:
+                        logger.debug(f"⛔ [SKIP] {symbol} | Reason: Previously restricted - skipping to avoid duplicate attempts")
+                        continue
+                    
+                    # 0a. Check if symbol is tradeable/executable RIGHT NOW (market is open, trade mode enabled)
+                    # This prevents non-executable symbols from appearing in opportunity lists
+                    is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
+                    if not is_tradeable:
+                        logger.debug(f"⛔ [SKIP] {symbol} | Reason: NOT EXECUTABLE - {reason}")
+                        continue  # Skip this symbol - not tradeable right now
+                    else:
+                        logger.debug(f"✅ {symbol}: Symbol is tradeable and executable")
                     
                     # 1. Check if news is blocking (but allow trading if API fails)
                     news_blocking = self.news_filter.is_news_blocking(symbol)
@@ -384,11 +407,12 @@ class TradingBot:
                                     calculated_risk = min_lot_check * min_sl_price * contract_size
                     
                     # Enhanced opportunity logging with detailed breakdown
+                    quality_threshold = self.trading_config.get('min_quality_score', 50.0)
                     logger.info("=" * 80)
                     logger.info(f"[OPPORTUNITY CHECK]")
                     logger.info(f"Symbol: {symbol}")
                     logger.info(f"Signal: {signal_type}")
-                    logger.info(f"Quality Score: {quality_score:.1f} (Threshold: {min_quality_score})")
+                    logger.info(f"Quality Score: {quality_score:.1f} (Threshold: {quality_threshold})")
                     logger.info(f"Trend Strength: {sma_separation_pct:.4f}%")
                     logger.info(f"Spread: {spread_points:.2f} points")
                     if test_mode and total_cost > 0:
@@ -398,7 +422,7 @@ class TradingBot:
                     if calculated_risk > 0:
                         logger.info(f"Calculated Lot: {min_lot:.4f} (PASS)")
                         logger.info(f"Risk: ${calculated_risk:.2f} (PASS ≤ $2.00)")
-                    logger.info(f"Reason: Quality score {quality_score:.1f} >= {min_quality_score} → Trade Executed")
+                    logger.info(f"Reason: Quality score {quality_score:.1f} >= {quality_threshold} → Trade Executed")
                     logger.info("=" * 80)
                     
                     # Legacy concise logging
@@ -439,21 +463,30 @@ class TradingBot:
         logger.info(f"🎯 Found {len(opportunities)} trading opportunity(ies)")
         return opportunities
     
-    def execute_trade(self, opportunity: Dict[str, Any]) -> bool:
-        """Execute a trade based on opportunity with randomness factor and comprehensive logging."""
+    def execute_trade(self, opportunity: Dict[str, Any], skip_randomness: bool = False) -> bool:
+        """
+        Execute a trade based on opportunity with randomness factor and comprehensive logging.
+        
+        Args:
+            opportunity: Trade opportunity dictionary
+            skip_randomness: If True, skip randomness factor (used in manual approval mode)
+        
+        Returns:
+            True if trade was successfully executed, False otherwise
+        """
         symbol = opportunity['symbol']
         signal = opportunity['signal']
         
         try:
-            # RANDOMNESS FACTOR: Small randomness to prevent trading every single candle
-            # But NOT too restrictive - should allow frequent trading
-            random_value = random.random()  # 0.0 to 1.0
-            
-            if random_value < self.randomness_factor:
-                logger.info(f"🎲 {symbol}: RANDOMNESS SKIP - Random value {random_value:.3f} < threshold {self.randomness_factor} (skipping trade to avoid over-trading)")
-                return False
-            else:
-                logger.info(f"🎲 {symbol}: RANDOMNESS PASS - Random value {random_value:.3f} >= threshold {self.randomness_factor} (proceeding with trade)")
+            # RANDOMNESS FACTOR: Skip in manual approval mode (user already approved)
+            if not skip_randomness:
+                random_value = random.random()  # 0.0 to 1.0
+                
+                if random_value < self.randomness_factor:
+                    logger.info(f"🎲 {symbol}: RANDOMNESS SKIP - Random value {random_value:.3f} < threshold {self.randomness_factor} (skipping trade to avoid over-trading)")
+                    return False
+                else:
+                    logger.info(f"🎲 {symbol}: RANDOMNESS PASS - Random value {random_value:.3f} >= threshold {self.randomness_factor} (proceeding with trade)")
             
             # Apply randomized delay if enabled (but ensure execution within 0.3 seconds)
             execution_timeout = self.trading_config.get('execution_timeout_seconds', 0.3)
@@ -519,20 +552,22 @@ class TradingBot:
                 self.trade_stats['failed_trades'] += 1
                 return False
             
-            # Calculate lot size - ALWAYS use minimum lot size per symbol (per user requirement)
-            # Get minimum lot size for this symbol
+            # ALWAYS use the MINIMUM lot size per symbol (per user requirement)
+            # Get minimum lot size for this symbol - this is the LEAST POSSIBLE lot size
             symbol_info_for_lot = self.mt5_connector.get_symbol_info(symbol)
             if not symbol_info_for_lot:
                 logger.error(f"❌ {symbol}: Cannot get symbol info for lot size calculation")
                 self.trade_stats['failed_trades'] += 1
                 return False
             
+            # Get broker minimum lot size
             symbol_min_lot = symbol_info_for_lot.get('volume_min', 0.01)
             symbol_upper = symbol.upper()
             symbol_limit_config = self.risk_manager.symbol_limits.get(symbol_upper, {})
             config_min_lot = symbol_limit_config.get('min_lot')
             
             # Determine effective minimum lot (config override or broker minimum)
+            # This is the LEAST POSSIBLE lot size for this symbol
             if config_min_lot is not None:
                 effective_min_lot = max(symbol_min_lot, config_min_lot)
                 min_source = "config"
@@ -540,31 +575,28 @@ class TradingBot:
                 effective_min_lot = symbol_min_lot
                 min_source = "broker"
             
-            # Round to volume step
+            # Round to volume step to ensure valid lot size
             volume_step = symbol_info_for_lot.get('volume_step', 0.01)
             if volume_step > 0:
                 effective_min_lot = round(effective_min_lot / volume_step) * volume_step
                 if effective_min_lot < volume_step:
                     effective_min_lot = volume_step
             
-            # Use minimum lot size (per user requirement: always use minimum lot size)
+            # ALWAYS use the minimum lot size (LEAST POSSIBLE for this symbol)
             lot_size = effective_min_lot
             
-            # Verify risk doesn't exceed $2 USD with minimum lot
+            # Calculate actual risk with minimum lot size (for logging only)
             point = symbol_info_for_lot.get('point', 0.00001)
             pip_value = point * 10 if symbol_info_for_lot.get('digits', 5) == 5 or symbol_info_for_lot.get('digits', 3) == 3 else point
             contract_size = symbol_info_for_lot.get('contract_size', 1.0)
             stop_loss_price = stop_loss_pips * pip_value
             actual_risk = lot_size * stop_loss_price * contract_size
             
-            if actual_risk > self.risk_manager.max_risk_usd:
-                logger.warning(f"⚠️ {symbol}: Using minimum lot {lot_size:.4f} results in risk ${actual_risk:.2f} > ${self.risk_manager.max_risk_usd:.2f} (using minimum anyway per requirement)")
-            
             # Log trade execution with lot size details
             logger.info(f"📦 {symbol}: EXECUTING WITH MINIMUM LOT SIZE = {lot_size:.4f} | "
                        f"Source: {min_source} | "
-                       f"Estimated Risk: ${actual_risk:.2f} | "
-                       f"Policy: Always use minimum lot size per symbol")
+                       f"Actual Risk: ${actual_risk:.2f} | "
+                       f"Policy: Always use LEAST POSSIBLE lot size per symbol")
             
             # Get spread for statistics
             spread_points = self.pair_filter.get_spread_points(symbol)
@@ -578,30 +610,72 @@ class TradingBot:
             if test_mode:
                 spread_fees_cost, spread_fees_desc = self.risk_manager.calculate_spread_and_fees_cost(symbol, lot_size)
             
-            # Place order with retry logic (ensure execution within 0.3 seconds)
+            # Place order with retry logic using configurable timeout and retry policy
             logger.info(f"📤 {symbol}: Placing {signal} order (Lot: {lot_size}, SL: {stop_loss_pips:.1f} pips)...")
-            max_retries = 3
+            
+            # Get execution config with defaults
+            execution_config = self.config.get('execution', {})
+            execution_timeout = execution_config.get('order_timeout_seconds', 2.0)
+            max_retries = execution_config.get('order_max_retries', 3)
+            backoff_base = execution_config.get('order_retry_backoff_base_seconds', 1.0)
+            
             ticket = None
             volume_error_occurred = False
-            execution_timeout = self.trading_config.get('execution_timeout_seconds', 0.3)
+            
             execution_start = time.time()
             
+            # Check if symbol is tradeable NOW before attempting orders
+            is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
+            if not is_tradeable:
+                logger.warning(f"⏰ {symbol}: Market closed or not tradeable - {reason}")
+                logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
+                print(f"⛔ {symbol}: Market closed - {reason}. Re-scan when market opens.")
+                self.trade_stats['failed_trades'] += 1
+                return False
+            
+            # Classify error types for retry logic
+            NON_RETRYABLE_ERRORS = {
+                10018: "Market closed",  # Never retry
+                10004: "Requote",  # Can retry but with backoff
+                10019: "No prices",  # Market closed variant
+            }
+            
+            RETRYABLE_ERRORS = {
+                10006: "Request timeout",  # Transient - retry with backoff
+                10007: "Request canceled",  # Transient - retry with backoff
+                10008: "Request placed",  # Processing - retry
+                10009: "Request processing",  # Processing - retry
+            }
+            
             for attempt in range(max_retries):
-                # Check if we're within execution timeout
+                # Calculate elapsed time
                 elapsed = time.time() - execution_start
-                if elapsed > execution_timeout:
-                    logger.warning(f"⚠️ {symbol}: Execution timeout ({elapsed:.3f}s > {execution_timeout}s), attempting final order...")
+                
+                # Check if we're within execution timeout
+                if elapsed > execution_timeout and attempt > 0:
+                    logger.warning(f"⚠️ {symbol}: Execution timeout ({elapsed:.3f}s > {execution_timeout}s) on attempt {attempt + 1}/{max_retries}")
                 
                 # Ensure MT5 is connected before placing order
                 if not self.mt5_connector.ensure_connected():
                     logger.warning(f"⚠️ {symbol}: MT5 disconnected, attempting reconnect...")
                     if not self.mt5_connector.reconnect():
-                        logger.error(f"❌ {symbol}: Failed to reconnect to MT5")
+                        logger.error(f"❌ {symbol}: Failed to reconnect to MT5 (attempt {attempt + 1}/{max_retries})")
                         if attempt < max_retries - 1:
-                            time.sleep(2)
+                            # Exponential backoff for connection issues
+                            backoff_delay = backoff_base * (2 ** attempt)
+                            logger.info(f"⏳ {symbol}: Waiting {backoff_delay:.1f}s before retry...")
+                            time.sleep(backoff_delay)
                             continue
                         else:
+                            logger.error(f"❌ {symbol}: Connection failed after {max_retries} attempts")
                             break
+                
+                # Re-check market status before each retry (market may have closed)
+                is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
+                if not is_tradeable:
+                    logger.warning(f"⏰ {symbol}: Market closed during retry - {reason}")
+                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
+                    break  # Don't retry if market is closed
                 
                 ticket = self.order_manager.place_order(
                     symbol=symbol,
@@ -611,6 +685,7 @@ class TradingBot:
                     comment=f"Bot {signal}"
                 )
                 
+                # Success case
                 if ticket and ticket > 0:
                     elapsed = time.time() - execution_start
                     if elapsed > execution_timeout:
@@ -619,11 +694,46 @@ class TradingBot:
                         logger.debug(f"✅ {symbol}: Order placed within timeout ({elapsed:.3f}s < {execution_timeout}s)")
                     break
                 
-                # Check if volume error occurred (special return value -1)
+                # Error code classification:
+                # -1: Invalid volume (10014) - retry once with broker minimum
+                # -2: Transient error (connection, timeout, etc.) - retry with backoff
+                # -3: Invalid stops (10016) - non-retryable
+                # -4: Market closed (10018) - non-retryable
+                # -5: Trading restriction (10027, 10044, etc.) - non-retryable
+                
+                # Market closed - don't retry
+                if ticket == -4:
+                    logger.warning(f"⏰ {symbol}: Market closed (error 10018) - skipping trade execution")
+                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - order rejected by broker")
+                    print(f"⛔ {symbol}: Market closed - order rejected. Re-scan when market opens.")
+                    self.trade_stats['failed_trades'] += 1
+                    break  # Don't retry
+                
+                # Trading restrictions - don't retry (10027, 10044, etc.)
+                if ticket == -5:
+                    logger.error(f"❌ {symbol}: Trading restriction (error 10027/10044) - trade not allowed")
+                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Trading restriction - symbol/order type not tradeable")
+                    print(f"❌ {symbol}: Trading restriction - this symbol cannot be traded. Check account permissions or symbol restrictions.")
+                    self.trade_stats['failed_trades'] += 1
+                    # Mark symbol as restricted to prevent future attempts in this session
+                    if not hasattr(self, '_restricted_symbols'):
+                        self._restricted_symbols = set()
+                    self._restricted_symbols.add(symbol.upper())
+                    break  # Don't retry
+                
+                # Invalid stops - don't retry
+                if ticket == -3:
+                    logger.error(f"❌ {symbol}: Invalid stops (error 10016) - trade failed")
+                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Invalid stops - check stop loss configuration")
+                    self.trade_stats['failed_trades'] += 1
+                    break  # Don't retry
+                
+                # Invalid volume - retry once with broker minimum
                 if ticket == -1:
-                    volume_error_occurred = True
-                    logger.warning(f"⚠️ {symbol}: Invalid volume error (lot: {lot_size:.4f}), retrying with broker minimum lot...")
-                    # Get minimum lot and retry
+                    if not volume_error_occurred:  # Only retry once
+                        volume_error_occurred = True
+                        logger.warning(f"⚠️ {symbol}: Invalid volume error (lot: {lot_size:.4f}), retrying once with broker minimum lot...")
+                        # Get minimum lot and retry
                     symbol_info_retry = self.mt5_connector.get_symbol_info(symbol)
                     if symbol_info_retry:
                         symbol_min_lot = symbol_info_retry.get('volume_min', 0.01)
@@ -650,12 +760,29 @@ class TradingBot:
                     else:
                         logger.error(f"❌ {symbol}: Cannot get symbol info for retry")
                         break
+                else:
+                    # Already retried once - fail and log
+                    logger.error(f"❌ {symbol}: Invalid volume error persisted after retry with broker minimum lot - trade failed")
+                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Invalid volume - retry with minimum lot failed")
+                    self.trade_stats['failed_trades'] += 1
+                    break
                 
-                if attempt < max_retries - 1:
-                    logger.warning(f"⚠️ {symbol}: Order placement failed (attempt {attempt + 1}/{max_retries}), retrying...")
-                    time.sleep(1)
+                # Transient errors (-2 or None) - retry with exponential backoff
+                if ticket == -2 or ticket is None:
+                    if attempt < max_retries - 1:
+                        # Exponential backoff for transient errors
+                        backoff_delay = backoff_base * (2 ** attempt)
+                        logger.warning(f"⚠️ {symbol}: Order placement failed (attempt {attempt + 1}/{max_retries}), retrying in {backoff_delay:.1f}s...")
+                        logger.info(f"⏳ {symbol}: Exponential backoff delay: {backoff_delay:.1f}s")
+                        time.sleep(backoff_delay)
+                        continue
+                    else:
+                        logger.error(f"❌ {symbol}: Order placement failed after {max_retries} attempts with exponential backoff")
+                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Order placement failed after {max_retries} retries")
+                        self.trade_stats['failed_trades'] += 1
+                        break
             
-            if ticket:
+            if ticket and ticket > 0:  # Valid ticket number
                 # Register staged trade
                 self.risk_manager.register_staged_trade(symbol, ticket, signal)
                 
@@ -876,27 +1003,351 @@ class TradingBot:
         except Exception as e:
             self.handle_error(e, "Managing positions")
     
+    def get_user_trade_count(self) -> int:
+        """Get number of trades from user (1-6)."""
+        while True:
+            try:
+                user_input = input("\n📊 How many trades do you want to take? (1-6): ").strip()
+                if not user_input:
+                    # Default to config value if empty
+                    return self.risk_manager.max_open_trades
+                
+                trade_count = int(user_input)
+                if 1 <= trade_count <= 6:
+                    return trade_count
+                else:
+                    print("⚠️  Please enter a number between 1 and 6.")
+            except ValueError:
+                print("⚠️  Invalid input. Please enter a number between 1 and 6.")
+            except (EOFError, KeyboardInterrupt):
+                print("\n⚠️  Input cancelled. Using default from config.")
+                return self.risk_manager.max_open_trades
+    
+    def display_opportunities(self, opportunities: List[Dict[str, Any]], max_count: int) -> None:
+        """
+        Display top trading opportunities in a user-friendly format with warnings.
+        Shows quality score, lot size, spread, fees, risk, and any warnings.
+        """
+        if not opportunities:
+            print("\n❌ No trading opportunities found.")
+            return
+        
+        # Sort by quality score (descending) if not already sorted
+        sorted_opps = sorted(opportunities, key=lambda x: x.get('quality_score', 0.0), reverse=True)
+        top_opps = sorted_opps[:max_count]
+        
+        # Get config limits for warnings
+        test_mode = self.config.get('pairs', {}).get('test_mode', False)
+        max_spread_fees = 0.30 if test_mode else None
+        max_spread_points = self.pair_filter.max_spread_points
+        
+        print("\n" + "=" * 120)
+        print("📊 TOP TRADING OPPORTUNITIES")
+        print("=" * 120)
+        print(f"{'#':<4} | {'🌟':<3} | {'Symbol':<12} | {'Signal':<6} | {'Quality':<8} | {'Lot':<8} | {'Spread':<10} | {'SL(pips)':<10} | {'Risk $':<8} | {'Cost $':<8} | {'Warnings'}")
+        print("-" * 120)
+        
+        best_quality = top_opps[0].get('quality_score', 0.0) if top_opps else 0.0
+        
+        for idx, opp in enumerate(top_opps, 1):
+            symbol = opp.get('symbol', 'N/A')
+            signal = opp.get('signal', 'NONE')
+            quality = opp.get('quality_score', 0.0)
+            min_lot = opp.get('min_lot', 0.01)
+            spread = opp.get('spread', 0.0)
+            spread_fees = opp.get('spread_fees_cost', 0.0)
+            
+            # Calculate estimated risk and SL (for display purposes)
+            symbol_info = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=False)
+            estimated_risk = 2.0  # Default target
+            sl_pips = self.risk_manager.min_stop_loss_pips
+            if symbol_info:
+                point = symbol_info.get('point', 0.00001)
+                pip_value = point * 10 if symbol_info.get('digits', 5) == 5 or symbol_info.get('digits', 3) == 3 else point
+                contract_size = symbol_info.get('contract_size', 1.0)
+                min_sl_price = sl_pips * pip_value
+                if min_sl_price > 0 and contract_size > 0:
+                    # Calculate lot size for $2 risk
+                    calculated_lot = self.risk_manager.max_risk_usd / (min_sl_price * contract_size)
+                    # Use max of calculated and minimum lot
+                    effective_lot = max(calculated_lot, min_lot)
+                    estimated_risk = effective_lot * min_sl_price * contract_size
+            
+            # Check for warnings
+            warnings = []
+            if test_mode and max_spread_fees and spread_fees > max_spread_fees:
+                warnings.append(f"Cost ${spread_fees:.2f} > ${max_spread_fees:.2f}")
+            if spread > max_spread_points:
+                warnings.append(f"Spread {spread:.1f}pts > {max_spread_points:.1f}pts")
+            if estimated_risk > self.risk_manager.max_risk_usd * 1.1:  # Allow 10% tolerance for broker minimum
+                warnings.append(f"Risk ${estimated_risk:.2f} > ${self.risk_manager.max_risk_usd:.2f}")
+            
+            warning_str = "; ".join(warnings) if warnings else "OK"
+            
+            # Highlight best setup (highest quality score, first in list)
+            is_best = (quality == best_quality and idx == 1) or (quality >= best_quality * 0.95 and idx == 1)
+            highlight = "🌟" if is_best else "  "
+            
+            print(f"{idx:<4} | {highlight:<3} | {symbol:<12} | {signal:<6} | {quality:<8.1f} | {min_lot:<8.4f} | "
+                  f"{spread:<10.1f} | {sl_pips:<10.1f} | ${estimated_risk:<7.2f} | ${spread_fees:<7.2f} | {warning_str}")
+        
+        print("-" * 120)
+        if top_opps:
+            best_opp = top_opps[0]
+            print(f"\n🌟 BEST SETUP: {best_opp.get('symbol')} {best_opp.get('signal')} | "
+                  f"Quality Score: {best_opp.get('quality_score', 0.0):.1f} | "
+                  f"Lot: {best_opp.get('min_lot', 0.01):.4f}")
+        print("\n💡 Keyboard Shortcuts:")
+        print("   Y = Approve | N = Skip | ALL = Approve all remaining | C = Cancel batch | S = Skip remaining")
+        print("=" * 120)
+    
+    def get_user_approval(self, symbol: str, signal: str, quality_score: float) -> Any:
+        """
+        Get user approval for a trade. Returns True, False, 'ALL', or 'CANCEL'.
+        
+        Supports:
+        - Y/YES: Approve single trade
+        - N/NO: Skip single trade
+        - ALL: Approve all remaining trades
+        - C/CANCEL: Cancel entire batch
+        - S/SKIP: Skip remaining trades
+        """
+        while True:
+            try:
+                prompt = f"Approve? (Y / N / ALL / C=cancel / S=skip): "
+                user_input = input(prompt).strip().upper()
+                
+                if user_input in ['Y', 'YES']:
+                    return True
+                elif user_input in ['N', 'NO']:
+                    return False
+                elif user_input == 'ALL':
+                    return 'ALL'  # Special value to approve all
+                elif user_input in ['C', 'CANCEL']:
+                    return 'CANCEL'  # Cancel entire batch
+                elif user_input in ['S', 'SKIP']:
+                    return 'SKIP'  # Skip remaining
+                else:
+                    print("⚠️  Please enter Y (Yes), N (No), ALL (approve all), C (cancel batch), or S (skip remaining).")
+            except (EOFError, KeyboardInterrupt):
+                print("\n⚠️  Input cancelled. Skipping trade.")
+                return False
+    
+    def verify_position_opened(self, ticket: int, symbol: str, max_wait_seconds: float = 2.0) -> bool:
+        """
+        Verify that a position was successfully opened after order placement.
+        
+        Args:
+            ticket: Order ticket number
+            symbol: Trading symbol
+            max_wait_seconds: Maximum time to wait for position confirmation
+        
+        Returns:
+            True if position is open, False otherwise
+        """
+        import time
+        start_time = time.time()
+        check_interval = 0.1  # Check every 100ms
+        
+        while (time.time() - start_time) < max_wait_seconds:
+            # Check if position exists
+            positions = self.order_manager.get_open_positions()
+            for position in positions:
+                if position.get('ticket') == ticket:
+                    logger.debug(f"✅ {symbol}: Position {ticket} verified - confirmed open")
+                    return True
+            
+            time.sleep(check_interval)
+        
+        # Final check
+        positions = self.order_manager.get_open_positions()
+        for position in positions:
+            if position.get('ticket') == ticket:
+                logger.debug(f"✅ {symbol}: Position {ticket} verified - confirmed open")
+                return True
+        
+        logger.warning(f"⚠️ {symbol}: Position {ticket} not found after {max_wait_seconds}s wait")
+        return False
+    
+    def wait_for_position_close(self, ticket: int, symbol: str, timeout_seconds: Optional[float] = None) -> bool:
+        """
+        Wait for a position to close using threading.Event for efficient waiting.
+        Does not block trailing stop threads.
+        
+        Args:
+            ticket: Position ticket number
+            symbol: Trading symbol
+            timeout_seconds: Maximum time to wait (None = use config default)
+        
+        Returns:
+            True if position closed, False if timeout or cancelled
+        """
+        if timeout_seconds is None:
+            timeout_seconds = self.manual_wait_for_close_timeout
+        
+        check_interval = 1.0  # Check every second (not too frequent to avoid blocking)
+        start_time = time.time()
+        
+        logger.info(f"⏳ Waiting for position {ticket} ({symbol}) to close (timeout: {timeout_seconds}s)...")
+        print(f"⏳ Waiting for position {ticket} to close before next trade...")
+        
+        while (time.time() - start_time) < timeout_seconds:
+            # Check if batch was cancelled
+            if self.manual_batch_cancelled:
+                logger.info(f"🛑 Batch cancelled - stopping wait for position {ticket}")
+                print(f"🛑 Batch cancelled - stopping wait")
+                return False
+            
+            # Check if position still exists
+            position = self.order_manager.get_position_by_ticket(ticket)
+            if position is None:
+                elapsed = time.time() - start_time
+                logger.info(f"✅ Position {ticket} closed after {elapsed:.1f}s")
+                print(f"✅ Position {ticket} closed - proceeding to next trade")
+                return True
+            
+            # Sleep to avoid busy-waiting (allows other threads to run)
+            time.sleep(check_interval)
+        
+        # Timeout reached
+        elapsed = time.time() - start_time
+        logger.warning(f"⏰ Timeout waiting for position {ticket} to close ({elapsed:.1f}s > {timeout_seconds}s)")
+        print(f"⏰ Timeout waiting for position {ticket} to close - proceeding anyway")
+        return False  # Timeout - proceed to next trade
+    
+    def execute_trade_sequential(self, opportunity: Dict[str, Any], wait_for_close: bool = True) -> Optional[int]:
+        """
+        Execute a trade sequentially with position verification and optional wait-for-close.
+        Used in manual approval mode to ensure each trade completes before next.
+        
+        Args:
+            opportunity: Trade opportunity dictionary
+            wait_for_close: If True, wait for position to close before returning
+        
+        Returns:
+            Ticket number if trade executed successfully, None otherwise
+        """
+        symbol = opportunity['symbol']
+        signal = opportunity['signal']
+        
+        # Check if batch was cancelled
+        if self.manual_batch_cancelled:
+            logger.info(f"🛑 Batch cancelled - skipping trade {symbol} {signal}")
+            return None
+        
+        # Get position list BEFORE execution to compare after
+        positions_before = self.order_manager.get_open_positions()
+        position_count_before = len(positions_before)
+        position_tickets_before = {p.get('ticket') for p in positions_before if p.get('ticket')}
+        
+        # Execute trade (skip randomness in manual mode)
+        logger.info(f"🚀 Executing approved trade: {symbol} {signal}")
+        success = self.execute_trade(opportunity, skip_randomness=True)
+        
+        if not success:
+            logger.error(f"❌ {symbol}: Trade execution failed")
+            print(f"❌ Execution failed for {symbol} {signal}")
+            return None
+        
+        # Wait for position to appear (MT5 can take a moment)
+        max_wait = 2.0  # seconds
+        wait_interval = 0.1  # Check every 100ms
+        waited = 0.0
+        position_found = False
+        new_ticket = None
+        
+        while waited < max_wait:
+            time.sleep(wait_interval)
+            waited += wait_interval
+            
+            # Check if batch was cancelled
+            if self.manual_batch_cancelled:
+                logger.info(f"🛑 Batch cancelled during position verification")
+                return None
+            
+            # Get current positions
+            positions_after = self.order_manager.get_open_positions()
+            position_tickets_after = {p.get('ticket') for p in positions_after if p.get('ticket')}
+            
+            # Find new positions
+            new_tickets = position_tickets_after - position_tickets_before
+            
+            if new_tickets:
+                # Check if any new position matches our symbol and signal
+                for ticket in new_tickets:
+                    for position in positions_after:
+                        if position.get('ticket') == ticket:
+                            pos_symbol = position.get('symbol', '').upper()
+                            pos_type = position.get('type', 0)
+                            expected_type = 0 if signal == 'LONG' else 1  # 0=BUY, 1=SELL
+                            
+                            if pos_symbol == symbol.upper() and pos_type == expected_type:
+                                new_ticket = ticket
+                                position_found = True
+                                break
+                    
+                    if position_found:
+                        break
+            
+            if position_found:
+                break
+        
+        if position_found and new_ticket:
+            logger.info(f"✅ {symbol}: Position {new_ticket} confirmed open and verified")
+            print(f"✅ Position {new_ticket} verified for {symbol} {signal}")
+            
+            # Wait for position to close if requested
+            if wait_for_close:
+                self.wait_for_position_close(new_ticket, symbol)
+            
+            return new_ticket
+        else:
+            # Trade might have executed but position not found (could be instant close, etc.)
+            # Check if position count increased at all
+            position_count_after = self.order_manager.get_position_count()
+            if position_count_after > position_count_before:
+                logger.warning(f"⚠️ {symbol}: Position count increased but specific position not verified (may have different symbol)")
+                print(f"⚠️  Position verification uncertain for {symbol} (position count changed)")
+                # If wait_for_close is True but we don't have a ticket, we can't wait
+                if not wait_for_close:
+                    return -1  # Special value indicating success but no ticket
+                return None
+            else:
+                logger.warning(f"⚠️ {symbol}: Trade executed but position not found after {max_wait}s")
+                print(f"⚠️  Position not verified for {symbol} {signal} after {max_wait}s")
+                # Position might have closed immediately - if wait_for_close, we're done
+                if not wait_for_close:
+                    return -1  # Special value indicating success but no ticket
+                return None
+    
     def run_cycle(self):
         """Execute one trading cycle."""
         if self.check_kill_switch():
             return
         
-        # Ensure MT5 connection with retry logic
+        # Ensure MT5 connection with retry logic and exponential backoff
         if not self.mt5_connector.ensure_connected():
             logger.warning("MT5 not connected, attempting reconnect...")
             reconnect_success = False
-            for reconnect_attempt in range(3):
+            max_reconnect_attempts = 3
+            for reconnect_attempt in range(max_reconnect_attempts):
                 if self.mt5_connector.reconnect():
                     reconnect_success = True
                     logger.info(f"✅ MT5 reconnected successfully (attempt {reconnect_attempt + 1})")
                     break
                 else:
-                    logger.warning(f"⚠️ Reconnection attempt {reconnect_attempt + 1}/3 failed, retrying...")
-                    time.sleep(2)
+                    # Exponential backoff: 2^attempt seconds
+                    backoff_delay = 2 ** reconnect_attempt
+                    logger.warning(f"⚠️ Reconnection attempt {reconnect_attempt + 1}/{max_reconnect_attempts} failed, retrying in {backoff_delay}s...")
+                    time.sleep(backoff_delay)
             
             if not reconnect_success:
-                logger.error("❌ MT5 reconnection failed after 3 attempts")
-                self.handle_error(Exception("MT5 reconnection failed after 3 attempts"), "Connection check")
+                error_msg = f"MT5 reconnection failed after {max_reconnect_attempts} attempts"
+                logger.error(f"❌ {error_msg}")
+                if self.manual_approval_mode:
+                    print(f"\n❌ {error_msg} - Aborting batch execution")
+                    self.manual_batch_cancelled = True
+                self.handle_error(Exception(error_msg), "Connection check")
                 return
         
         if self.is_in_cooldown():
@@ -918,27 +1369,142 @@ class TradingBot:
                 # Get test_mode before using it
                 test_mode = self.config.get('pairs', {}).get('test_mode', False)
                 
-                # Sort by quality score (highest first), then by spread+fees cost (lowest first) for prioritization
-                # This ensures we execute highest quality setups first, then most cost-effective
+                # Sort by profit probability (quality score) HIGH to LOW, then fees LOW to HIGH
+                # This ensures best setups (highest profit probability) are traded first, with lowest costs
+                # FIXED: Proper sorting - QualityScore DESC (top to low profit probability), Cost ASC (low to high fees)
                 def get_priority(opp):
-                    quality = opp.get('quality_score', 0.0)
-                    cost = opp.get('spread_fees_cost')
-                    if cost is not None and cost > 0:
-                        # Negative quality for descending sort, positive cost for ascending sort
-                        return (-quality, cost)
-                    # Fallback: use quality score primarily
-                    spread = opp.get('spread', 999999)
-                    return (-quality, spread * 0.0001 + 1000000)
+                    quality = opp.get('quality_score', 0.0)  # Profit probability indicator
+                    cost = opp.get('spread_fees_cost', 0.0)  # Total fees
+                    # Negative quality for descending sort (highest profit probability first)
+                    # Positive cost for ascending sort (lowest fees first)
+                    return (-quality, cost if cost > 0 else 999999)
                 
                 opportunities.sort(key=get_priority)
                 
-                # Log sorted order for verification
-                if test_mode and opportunities:
-                    logger.info("📊 Opportunities sorted by spread+fees (ascending):")
+                # Log sorting rationale
+                if opportunities:
+                    logger.info("📊 Opportunities sorted: Profit Probability (HIGH→LOW), Fees (LOW→HIGH)")
+                    logger.info("   → Best setups (highest profit probability, lowest fees) will be traded first")
+                
+                # Log sorted order for verification (always log, not just in test mode)
+                if opportunities:
+                    logger.info("📊 Opportunities sorted by quality score (descending), then spread+fees (ascending):")
                     for idx, opp in enumerate(opportunities[:10], 1):  # Show first 10
+                        quality = opp.get('quality_score', 0.0)
                         cost = opp.get('spread_fees_cost', 0.0)
                         spread = opp.get('spread', 0)
-                        logger.info(f"  {idx}. {opp['symbol']} {opp['signal']}: ${cost:.2f} (spread: {spread:.1f}pts)")
+                        logger.info(f"  {idx}. {opp['symbol']} {opp['signal']}: Quality={quality:.1f}, Cost=${cost:.2f} (spread: {spread:.1f}pts)")
+                
+                # Manual approval mode: display opportunities and get user approval
+                if self.manual_approval_mode:
+                    # Prevent double scanning - only scan once per session unless trades finish
+                    if self.manual_scan_completed and not self.manual_trades_executing:
+                        # Previous scan completed and trades finished, allow new scan
+                        self.manual_scan_completed = False
+                    elif self.manual_scan_completed:
+                        # Scan already completed, skip
+                        logger.info("Scan already completed in this session - skipping duplicate scan")
+                        opportunities = []
+                    
+                    # Use manual max_trades if set, otherwise use config
+                    max_trades = self.manual_max_trades if self.manual_max_trades is not None else self.risk_manager.max_open_trades
+                    
+                    # Get current position count before approval
+                    initial_positions = self.order_manager.get_position_count()
+                    remaining_slots = max_trades - initial_positions
+                    
+                    # Display top opportunities (limit to available slots)
+                    display_count = min(len(opportunities), remaining_slots) if remaining_slots > 0 else 0
+                    
+                    if display_count > 0:
+                        self.display_opportunities(opportunities, display_count)
+                    else:
+                        print(f"\n⚠️  No available trade slots. Current positions: {initial_positions}/{max_trades}")
+                        opportunities = []  # Clear opportunities
+                    
+                    # Get user approval for each trade
+                    approved_opportunities = []
+                    approve_all = False
+                    
+                    if remaining_slots <= 0:
+                        print(f"\n⏸️  Max open trades ({max_trades}) already reached - cannot take more trades.")
+                        opportunities = []  # Clear opportunities
+                    else:
+                        # Limit opportunities to remaining slots
+                        available_opps = opportunities[:remaining_slots]
+                        
+                        for idx, opp in enumerate(available_opps, 1):
+                            if len(approved_opportunities) >= remaining_slots:
+                                break
+                            
+                            # Check if we've reached max open trades (re-check after each approval)
+                            current_positions = self.order_manager.get_position_count()
+                            if current_positions >= max_trades:
+                                print(f"\n⏸️  Max open trades ({max_trades}) reached - cannot take more trades.")
+                                break
+                            
+                            if not approve_all:
+                                # Display trade number for clarity
+                                quality = opp.get('quality_score', 0.0)
+                                symbol = opp.get('symbol')
+                                signal = opp.get('signal')
+                                print(f"\n{'='*80}")
+                                print(f"Trade #{idx}: {symbol} ({signal}), Quality = {quality:.1f}")
+                                print(f"{'='*80}")
+                                
+                                approval = self.get_user_approval(
+                                    symbol,
+                                    signal,
+                                    quality
+                                )
+                                
+                                if approval == 'CANCEL':
+                                    self.manual_batch_cancelled = True
+                                    print(f"🛑 Batch cancelled by user")
+                                    logger.info("Manual batch cancelled by user")
+                                    break
+                                elif approval == 'SKIP':
+                                    print(f"⏭️  Skipping remaining trades")
+                                    logger.info("User skipped remaining trades")
+                                    break
+                                elif approval == 'ALL':
+                                    approve_all = True
+                                    approved_opportunities.append(opp)
+                                    print(f"✅ Approved ALL remaining trades")
+                                    # Add all remaining opportunities to approved list
+                                    remaining_in_batch = available_opps[idx:]
+                                    for remaining_opp in remaining_in_batch:
+                                        if len(approved_opportunities) < remaining_slots:
+                                            current_positions = self.order_manager.get_position_count()
+                                            if current_positions >= max_trades:
+                                                break
+                                            approved_opportunities.append(remaining_opp)
+                                    break
+                                elif approval:
+                                    approved_opportunities.append(opp)
+                                    print(f"✅ Approved: {symbol} {signal}")
+                                else:
+                                    print(f"❌ Skipped: {symbol} {signal}")
+                            else:
+                                # Already approved all
+                                approved_opportunities.append(opp)
+                        
+                        # Check if batch was cancelled
+                        if self.manual_batch_cancelled:
+                            opportunities = []  # Clear opportunities
+                            print(f"\n🛑 Batch execution cancelled by user.\n")
+                        
+                        # Replace opportunities with approved ones for sequential execution
+                        opportunities = approved_opportunities
+                        
+                        # Mark scan as completed
+                        if opportunities:
+                            self.manual_scan_completed = True
+                            self.manual_trades_executing = True
+                            print(f"\n📊 Approved {len(opportunities)} trade(s) for sequential execution.\n")
+                        else:
+                            print(f"\n⚠️  No trades approved for execution.\n")
+                
                 
                 # Log opportunity table header (testing mode)
                 if test_mode:
@@ -947,22 +1513,28 @@ class TradingBot:
                     logger.info(f"{'Symbol':<12} | {'Signal':<6} | {'MinLot':<8} | {'Spread':<10} | {'Fees':<10} | {'Status':<20} | {'Reason'}")
                     logger.info("-" * 100)
                 
-                logger.info(f"🎯 Found {len(opportunities)} opportunity(ies) - evaluating all symbols (sorted by spread+fees cost, lowest first)")
+                mode_text = "MANUAL APPROVAL MODE" if self.manual_approval_mode else "AUTOMATIC MODE"
+                logger.info(f"🎯 Found {len(opportunities)} opportunity(ies) - evaluating all symbols (sorted by quality score and spread+fees cost) [{mode_text}]")
+                
+                # Get quality threshold for comparison
+                min_quality_score = self.trading_config.get('min_quality_score', 50.0)
                 
                 # Get current position count
                 current_positions = self.order_manager.get_position_count()
-                max_trades = self.risk_manager.max_open_trades
+                max_trades = self.manual_max_trades if (self.manual_approval_mode and self.manual_max_trades is not None) else self.risk_manager.max_open_trades
                 trades_executed = 0
                 trades_skipped = 0
+                failed_symbols_in_batch = set()  # Track symbols that failed in this batch to prevent duplicates
                 
-                for opportunity in opportunities:
+                # Execute opportunities (sequential in manual mode, parallel in automatic mode)
+                for idx, opportunity in enumerate(opportunities, 1):
                     # Always get fresh position count to prevent exceeding max
                     current_positions = self.order_manager.get_position_count()
                     
                     # Check if we've reached max open trades
                     if current_positions >= max_trades:
                         logger.info(f"⏸️  Max open trades ({max_trades}) reached - skipping remaining opportunities")
-                        trades_skipped += len(opportunities) - opportunities.index(opportunity)
+                        trades_skipped += len(opportunities) - idx + 1
                         break
                     
                     symbol = opportunity['symbol']
@@ -975,23 +1547,161 @@ class TradingBot:
                     # Prepare fees string for logging
                     fees_str = f"${spread_fees_cost:.2f}" if spread_fees_cost > 0 else "N/A"
                     
+                    # Manual approval mode: Sequential execution with position verification and wait-for-close
+                    if self.manual_approval_mode:
+                        # Check if batch was cancelled
+                        if self.manual_batch_cancelled:
+                            logger.info("Batch cancelled - stopping execution")
+                            print(f"\n🛑 Batch execution cancelled - stopping")
+                            break
+                        
+                        # Prevent duplicate attempts for symbols that already failed in this batch
+                        if symbol.upper() in failed_symbols_in_batch:
+                            logger.info(f"⏭️ {symbol}: Skipping - already failed in this batch")
+                            print(f"⏭️ {symbol}: Skipped - already attempted and failed in this batch")
+                            trades_skipped += 1
+                            continue
+                        
+                        # Check if symbol was previously restricted
+                        if hasattr(self, '_restricted_symbols') and symbol.upper() in self._restricted_symbols:
+                            logger.info(f"⏭️ {symbol}: Skipping - symbol is restricted")
+                            print(f"⏭️ {symbol}: Skipped - symbol is restricted (cannot be traded)")
+                            trades_skipped += 1
+                            continue
+                        
+                        print(f"\n{'='*80}")
+                        print(f"📈 Executing Trade {idx}/{len(opportunities)}: {symbol} {signal}")
+                        print(f"{'='*80}")
+                        
+                        # Comprehensive safety checks before executing approved trade
+                        # 0. Check if symbol was previously restricted (prevent duplicate attempts)
+                        if hasattr(self, '_restricted_symbols') and symbol.upper() in self._restricted_symbols:
+                            logger.warning(f"⏰ {symbol}: Symbol is restricted - skipping execution")
+                            logger.info(f"⛔ [SKIP] {symbol} | Reason: Symbol restricted - cannot be traded")
+                            print(f"⛔ {symbol}: Symbol is restricted - cannot be traded. Skipped.")
+                            failed_symbols_in_batch.add(symbol.upper())
+                            trades_skipped += 1
+                            continue
+                        
+                        # 0a. Check if market is open (CRITICAL - prevents unnecessary order attempts)
+                        is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
+                        if not is_tradeable:
+                            logger.warning(f"⏰ {symbol}: Market closed or not tradeable - {reason}")
+                            logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
+                            print(f"⛔ {symbol}: Market closed - {reason}. Skipped. Re-scan when market opens.")
+                            failed_symbols_in_batch.add(symbol.upper())
+                            trades_skipped += 1
+                            continue
+                        
+                        # 1. Check portfolio risk
+                        symbol_info_for_risk = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=False)
+                        if symbol_info_for_risk:
+                            min_sl_pips = self.risk_manager.min_stop_loss_pips
+                            point = symbol_info_for_risk.get('point', 0.00001)
+                            pip_value = point * 10 if symbol_info_for_risk.get('digits', 5) == 5 or symbol_info_for_risk.get('digits', 3) == 3 else point
+                            contract_size = symbol_info_for_risk.get('contract_size', 1.0)
+                            min_sl_price = min_sl_pips * pip_value
+                            estimated_risk = min_lot * min_sl_price * contract_size if min_sl_price > 0 and contract_size > 0 else self.risk_manager.max_risk_usd
+                            
+                            portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
+                            if not portfolio_risk_ok:
+                                logger.warning(f"⛔ {symbol}: Portfolio risk limit - {portfolio_reason}")
+                                print(f"⛔ {symbol}: Cannot execute - {portfolio_reason}")
+                                trades_skipped += 1
+                                continue
+                        
+                        # 2. Check if we can still open trade
+                        can_open, reason = self.risk_manager.can_open_trade(
+                            symbol=symbol,
+                            signal=signal,
+                            quality_score=quality_score,
+                            high_quality_setup=quality_score >= min_quality_score
+                        )
+                        if not can_open:
+                            logger.warning(f"⛔ {symbol}: Cannot open trade - {reason}")
+                            print(f"⛔ {symbol}: Cannot execute - {reason}")
+                            trades_skipped += 1
+                            continue
+                        
+                        # 3. Check spread (re-check before execution)
+                        if not self.pair_filter.check_spread(symbol):
+                            spread_points = self.pair_filter.get_spread_points(symbol)
+                            max_spread = self.pair_filter.max_spread_points
+                            logger.warning(f"⛔ {symbol}: Spread {spread_points:.2f} points > {max_spread} limit")
+                            print(f"⛔ {symbol}: Spread too wide - cannot execute")
+                            trades_skipped += 1
+                            continue
+                        
+                        # 4. Check price staleness
+                        symbol_info_fresh = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=True)
+                        if symbol_info_fresh is None:
+                            logger.warning(f"⛔ {symbol}: Price is stale or symbol info unavailable")
+                            print(f"⛔ {symbol}: Price stale - cannot execute")
+                            trades_skipped += 1
+                            continue
+                        
+                        # 5. Check halal compliance (if not in test mode)
+                        test_mode = self.config.get('pairs', {}).get('test_mode', False)
+                        if not test_mode:
+                            if not self.halal_compliance.validate_trade(symbol, signal):
+                                logger.warning(f"⛔ {symbol}: Halal compliance check failed")
+                                print(f"⛔ {symbol}: Halal compliance failed - cannot execute")
+                                trades_skipped += 1
+                                continue
+                    
                     # Log opportunity row (testing mode)
                     if test_mode:
-                        logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'Evaluating...':<20} | {'-'}")
+                        logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'Executing...':<20} | {'-'}")
                     
-                    logger.info(f"🎯 Evaluating opportunity: {symbol} {signal} (Quality: {quality_score:.1f}, Spread: {spread:.1f} points)")
+                    logger.info(f"🎯 Executing approved trade: {symbol} {signal} (Quality: {quality_score:.1f}, Spread: {spread:.1f} points)")
                     
-                    # Check if we can still open a trade for this symbol (with actual quality score)
+                    # Execute trade sequentially with verification and wait-for-close
+                    if self.manual_approval_mode:
+                        ticket = self.execute_trade_sequential(opportunity, wait_for_close=True)
+                        if ticket and ticket > 0 and ticket != -1:
+                            if test_mode:
+                                logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'EXECUTED & CLOSED':<20} | Trade executed and closed")
+                            logger.info(f"✅ {symbol}: Trade {idx}/{len(opportunities)} executed and closed successfully")
+                            print(f"✅ Trade {idx}/{len(opportunities)} completed and closed: {symbol} {signal}")
+                            trades_executed += 1
+                        elif ticket == -1:
+                            # Position opened but couldn't verify ticket (might have closed immediately)
+                            logger.info(f"✅ {symbol}: Trade {idx}/{len(opportunities)} executed (position closed immediately)")
+                            print(f"✅ Trade {idx}/{len(opportunities)} executed: {symbol} {signal}")
+                            trades_executed += 1
+                        else:
+                            if test_mode:
+                                logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'FAILED':<20} | Trade execution failed")
+                            logger.error(f"❌ {symbol}: Trade {idx}/{len(opportunities)} execution failed (check logs above)")
+                            print(f"❌ Trade {idx}/{len(opportunities)} failed: {symbol} {signal}")
+                            # Mark symbol as failed to prevent duplicate attempts
+                            failed_symbols_in_batch.add(symbol.upper())
+                            trades_skipped += 1
+                        
+                        # Check if batch was cancelled during execution
+                        if self.manual_batch_cancelled:
+                            logger.info("Batch cancelled during execution - stopping")
+                            print(f"\n🛑 Batch execution cancelled - stopping")
+                            break
+                    else:
+                        # Automatic mode: Standard execution (existing logic)
+                        # Log opportunity row (testing mode)
+                        if test_mode:
+                            logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'Evaluating...':<20} | {'-'}")
+                        
+                        logger.info(f"🎯 Evaluating opportunity: {symbol} {signal} (Quality: {quality_score:.1f}, Spread: {spread:.1f} points)")
+                        
+                        # Check if we can still open a trade for this symbol (with actual quality score)
                     can_open, reason = self.risk_manager.can_open_trade(
                         symbol=symbol,
                         signal=signal,
-                        quality_score=quality_score,
-                        high_quality_setup=quality_score >= min_quality_score
+                            quality_score=quality_score,
+                            high_quality_setup=quality_score >= min_quality_score
                     )
                     
                     if not can_open:
                         if test_mode:
-                            logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | {reason}")
+                                logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | {reason}")
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
                         trades_skipped += 1
                         continue
@@ -999,15 +1709,24 @@ class TradingBot:
                     # Execute trade
                     if self.execute_trade(opportunity):
                         if test_mode:
-                            logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'PASS - EXECUTED':<20} | Trade executed")
+                                logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'PASS - EXECUTED':<20} | Trade executed")
                         logger.info(f"✅ {symbol}: Trade execution completed successfully")
                         trades_executed += 1
-                        # DO NOT manually increment - always use get_position_count() in next iteration
+                            # DO NOT manually increment - always use get_position_count() in next iteration
                     else:
                         if test_mode:
-                            logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | Trade execution failed")
+                                logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | Trade execution failed")
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Trade execution failed (check logs above)")
                         trades_skipped += 1
+                    
+                    # Re-check position count after execution
+                    current_positions_after = self.order_manager.get_position_count()
+                    if current_positions_after >= max_trades:
+                        logger.info(f"⏸️  Max open trades ({max_trades}) reached after trade {idx}")
+                        if idx < len(opportunities):
+                            print(f"\n⏸️  Max open trades reached - stopping batch execution.")
+                            trades_skipped += len(opportunities) - idx
+                            break
                 
                 # Close opportunity table (testing mode)
                 if test_mode:
@@ -1015,8 +1734,23 @@ class TradingBot:
                 
                 # Get final position count
                 final_position_count = self.order_manager.get_position_count()
+                
+                # Manual approval mode: Display batch execution summary
+                if self.manual_approval_mode and opportunities:
+                    print("\n" + "=" * 100)
+                    print("📊 BATCH EXECUTION SUMMARY")
+                    print("=" * 100)
+                    print(f"   Trades Executed: {trades_executed}")
+                    print(f"   Trades Skipped:  {trades_skipped}")
+                    print(f"   Total Approved:  {len(opportunities)}")
+                    print(f"   Current Positions: {final_position_count}/{max_trades}")
+                    print("=" * 100)
+                
                 logger.info(f"📊 Cycle Summary: {trades_executed} executed, {trades_skipped} skipped, {final_position_count}/{max_trades} positions open")
             else:
+                if self.manual_approval_mode:
+                    print("\n⚠️  No trading opportunities found this cycle.")
+                    print("   (Check logs for reasons: quality score, spread, portfolio risk, etc.)\n")
                 logger.info("ℹ️  No trading opportunities found this cycle (check logs above for reasons)")
             
             self.reset_error_count()
@@ -1024,25 +1758,117 @@ class TradingBot:
         except Exception as e:
             self.handle_error(e, "Trading cycle")
     
-    def run(self, cycle_interval_seconds: int = 60):
-        """Run the trading bot continuously."""
+    def run(self, cycle_interval_seconds: int = 60, manual_approval: bool = False, manual_max_trades: Optional[int] = None):
+        """
+        Run the trading bot continuously.
+        
+        Args:
+            cycle_interval_seconds: Seconds between trading cycles
+            manual_approval: If True, require user approval before executing trades
+            manual_max_trades: Max trades for this session (1-6), only used in manual mode
+        """
         self.running = True
-        logger.info(f"Trading bot started. Cycle interval: {cycle_interval_seconds}s")
+        self.manual_approval_mode = manual_approval
+        original_max_trades = None  # Store original value for restoration
+        
+        # Get manual max_trades if in manual mode
+        if manual_approval:
+            # Reset batch cancellation flag and scan state
+            self.manual_batch_cancelled = False
+            self.manual_scan_completed = False
+            self.manual_approved_trades = []
+            self.manual_trades_executing = False
+            
+            if manual_max_trades is None:
+                self.manual_max_trades = self.get_user_trade_count()
+            else:
+                self.manual_max_trades = min(max(1, manual_max_trades), 6)
+            
+            # Temporarily override max_open_trades for this session
+            original_max_trades = self.risk_manager.max_open_trades
+            self.risk_manager.max_open_trades = self.manual_max_trades
+            
+            logger.info(f"Trading bot started in MANUAL APPROVAL MODE. Max trades: {self.manual_max_trades}, Cycle interval: {cycle_interval_seconds}s")
+            print(f"\n✅ Manual Approval Mode Enabled")
+            print(f"   Max Trades: {self.manual_max_trades}")
+            print(f"   Cycle Interval: {cycle_interval_seconds}s")
+        else:
+            logger.info(f"Trading bot started in AUTOMATIC MODE. Cycle interval: {cycle_interval_seconds}s")
         
         # Start continuous trailing stop monitor
         self.start_continuous_trailing_stop()
         
         try:
             while self.running:
-                self.run_cycle()
-                time.sleep(cycle_interval_seconds)
+                # In manual mode, check if we need to wait for trades to finish
+                if self.manual_approval_mode:
+                    # Check if there are open positions from approved trades
+                    open_positions = self.order_manager.get_open_positions()
+                    if open_positions and self.manual_trades_executing:
+                        # Wait for all positions to close before allowing new scan
+                        print(f"\n⏳ Waiting for {len(open_positions)} open position(s) to close...")
+                        logger.info(f"Waiting for {len(open_positions)} position(s) to close before next scan")
+                        # Wait a bit and check again in next cycle
+                        time.sleep(5)
+                        continue
+                    elif not open_positions and self.manual_trades_executing:
+                        # All trades finished, reset state
+                        self.manual_trades_executing = False
+                        self.manual_scan_completed = False
+                        print(f"\n✅ All trades finished. Ready for new scan.")
+                        logger.info("All trades finished - ready for new scan")
+                
+                # Run one trading cycle (only if not already scanning/executing in manual mode)
+                if not self.manual_approval_mode or not self.manual_trades_executing:
+                    self.run_cycle()
+                
+                # In manual mode, ask if user wants to continue scanning (only after trades finish)
+                if self.manual_approval_mode:
+                    # Only ask if we're not currently executing trades
+                    if not self.manual_trades_executing:
+                        try:
+                            print("\n" + "=" * 100)
+                            continue_choice = input("🔄 Scan for more opportunities? (Y/N, or press Enter to continue): ").strip().upper()
+                            print("=" * 100)
+                            
+                            if continue_choice in ['N', 'NO']:
+                                print("\n✅ Stopping bot as requested by user...")
+                                logger.info("Manual batch approval mode stopped by user")
+                                break
+                            # If Y or Enter, continue to next cycle
+                            elif continue_choice in ['Y', 'YES', '']:
+                                print(f"\n🔍 Scanning for new opportunities...\n")
+                                # Reset scan state to allow new scan
+                                self.manual_scan_completed = False
+                                # Small delay before next scan
+                                time.sleep(1)
+                            else:
+                                # Invalid input, default to continuing
+                                print(f"⚠️  Invalid input. Continuing scan...\n")
+                                time.sleep(1)
+                        except (EOFError, KeyboardInterrupt):
+                            print("\n\n✅ Bot stopped by user (Ctrl+C)")
+                            logger.info("Manual batch approval mode stopped by user (KeyboardInterrupt)")
+                            break
+                    else:
+                        # Trades are executing, wait a bit before checking again
+                        time.sleep(5)
+                else:
+                    # Automatic mode: wait for cycle interval
+                    time.sleep(cycle_interval_seconds)
         
         except KeyboardInterrupt:
             logger.info("Trading bot stopped by user")
+            if self.manual_approval_mode:
+                print("\n✅ Bot stopped by user")
         except Exception as e:
             self.handle_error(e, "Main loop")
             logger.critical("Fatal error in main loop, shutting down")
         finally:
+            # Restore original max_open_trades if it was overridden
+            if original_max_trades is not None:
+                self.risk_manager.max_open_trades = original_max_trades
+                logger.info(f"Restored max_open_trades to {original_max_trades}")
             self.shutdown()
     
     def shutdown(self):

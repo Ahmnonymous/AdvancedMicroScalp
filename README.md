@@ -213,7 +213,30 @@ See `migration/README.md` for detailed configuration options and advanced featur
 
 ### Running the Bot
 
-#### Option 1: Launch System (Recommended)
+#### Option 1: Manual Batch Trade Approval Mode (NEW)
+Interactive mode where you review and approve trades before execution:
+
+```bash
+python run_bot_manual.py
+```
+
+**Features:**
+- Prompts for batch size (1-6 trades)
+- Displays top opportunities sorted by quality score
+- Highlights best setup with 🌟
+- Approve/skip individual trades or approve all
+- Sequential execution: waits for each trade to close before next
+- Cancel batch anytime with 'C' key
+- All safety checks enforced before execution
+
+**Keyboard Shortcuts:**
+- `Y` = Approve single trade
+- `N` = Skip single trade
+- `ALL` = Approve all remaining trades
+- `C` = Cancel entire batch
+- `S` = Skip remaining trades
+
+#### Option 2: Launch System (Recommended for Automatic Mode)
 Runs bot in background with real-time monitor in foreground:
 
 ```bash
@@ -225,11 +248,78 @@ For test mode (ignores restrictions):
 python launch_system.py --test-mode
 ```
 
-#### Option 2: Run Bot Only
+#### Option 3: Run Bot Only (Automatic Mode)
 Runs bot in background mode without monitor:
 
 ```bash
 python run_bot.py
+```
+
+### Manual Batch Trade Approval Mode
+
+**Overview:**
+Manual Batch Trade Approval Mode allows you to review and approve trades before execution. The bot scans for opportunities, displays the top setups sorted by quality score, and waits for your approval before executing each trade sequentially.
+
+**How It Works:**
+1. **Batch Size Selection**: At startup, you specify how many trades to take (1-6)
+2. **Opportunity Scanning**: Bot scans all symbols and calculates quality scores
+3. **Display Top Setups**: Shows top N opportunities in a formatted table with:
+   - Rank, Symbol, Signal (LONG/SHORT), Quality Score
+   - Lot Size, Spread, Stop Loss (pips), Estimated Risk ($), Cost ($)
+   - Warnings for any issues (spread too wide, cost too high, etc.)
+   - 🌟 marks the best setup
+4. **Approval Process**: For each setup, you can:
+   - Approve (`Y`): Execute this trade
+   - Skip (`N`): Skip this trade
+   - Approve All (`ALL`): Approve all remaining trades
+   - Cancel Batch (`C`): Cancel entire batch execution
+   - Skip Remaining (`S`): Skip all remaining trades
+5. **Sequential Execution**: Approved trades execute one at a time:
+   - Each trade waits for position to close before next trade executes
+   - All safety checks are re-validated before each execution
+   - Position verification ensures trade was opened successfully
+6. **Safety Checks**: Before each approved trade executes:
+   - Portfolio risk limits
+   - Position count limits
+   - Spread and fees validation
+   - Price staleness check
+   - Halal compliance (in live mode)
+   - News filter (if enabled)
+   - Stop loss validation
+
+**Configuration:**
+Add to `config.json` under `trading` section:
+```json
+{
+  "trading": {
+    "manual_wait_for_close_timeout_seconds": 3600
+  }
+}
+```
+
+**Example Flow:**
+```
+📊 How many trades do you want to take? (1-6): 3
+
+📊 TOP TRADING OPPORTUNITIES
+================================================================================
+#    | 🌟 | Symbol      | Signal | Quality  | Lot     | Spread    | Risk $  | Cost $
+--------------------------------------------------------------------------------
+1    | 🌟 | EURUSD      | LONG   | 85.3     | 0.0100  | 12.0      | $2.00   | $0.12
+2    |    | GBPUSD      | SHORT  | 72.1     | 0.0100  | 15.0      | $2.00   | $0.15
+3    |    | USDJPY      | LONG   | 68.5     | 0.0100  | 10.0      | $2.00   | $0.10
+
+❓ Do you want to trade EURUSD (LONG)? Quality: 85.3 [Y/N/ALL/C=cancel/S=skip]: Y
+✅ Approved: EURUSD LONG
+
+🚀 Executing approved trade: EURUSD LONG
+✅ Position 12345 verified for EURUSD LONG
+⏳ Waiting for position 12345 to close before next trade...
+✅ Position 12345 closed - proceeding to next trade
+
+❓ Do you want to trade GBPUSD (SHORT)? Quality: 72.1 [Y/N/ALL/C=cancel/S=skip]: ALL
+✅ Approved ALL remaining trades
+...
 ```
 
 ### Test Mode vs Live Mode
@@ -238,16 +328,18 @@ python run_bot.py
 - Ignores spread restrictions
 - Ignores commission checks
 - Ignores exotic currency restrictions
-- Ignores halal compliance (for testing)
+- **ALWAYS ignores halal compliance** (for testing)
 - Useful for testing strategies and configurations
 
 **Live Mode:**
 - All restrictions and filters active
 - Real money trading
 - Full risk management enforced
-- Halal compliance active
+- Halal compliance active (if enabled)
 
 Enable test mode by setting `"test_mode": true` in `config.json` under `pairs` section, or use `--test-mode` flag with `launch_system.py`.
+
+**Note:** In Manual Batch Mode, halal compliance is automatically skipped when `test_mode=true`, regardless of other settings.
 
 ### Monitoring
 

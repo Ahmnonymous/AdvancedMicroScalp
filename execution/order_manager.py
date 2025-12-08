@@ -50,30 +50,44 @@ class OrderManager:
             logger.error("Cannot place order: MT5 not connected")
             return None
         
-        symbol_info = self.mt5_connector.get_symbol_info(symbol)
+        # Get fresh symbol info right before order placement (critical for accurate prices)
+        symbol_info = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=True)
         if symbol_info is None:
-            logger.error(f"Cannot place order: Symbol {symbol} not found")
+            logger.error(f"Cannot place order: Symbol {symbol} not found or price is stale")
             return None
         
         # Normalize symbol
         symbol = symbol_info['name']
         
+        # Get fresh tick data for most current prices (MT5 requirement for accurate order placement)
+        tick = mt5.symbol_info_tick(symbol)
+        if tick is None:
+            logger.error(f"Cannot get tick data for {symbol}")
+            return None
+        
+        # Check if market is open (bid and ask must be valid)
+        if tick.bid <= 0 or tick.ask <= 0 or tick.bid >= tick.ask:
+            logger.warning(f"⏰ {symbol}: Market appears closed (bid: {tick.bid}, ask: {tick.ask}) - skipping order placement")
+            return None
+        
+        # Use fresh tick prices (more accurate than cached symbol_info)
+        if order_type == OrderType.BUY:
+            price = tick.ask
+            bid_price = tick.bid
+            ask_price = tick.ask
+        else:  # SELL
+            price = tick.bid
+            bid_price = tick.bid
+            ask_price = tick.ask
+        
+        if price <= 0:
+            logger.error(f"Invalid price {price} for {symbol} (order_type: {order_type.name})")
+            return None
+        
         # Convert stop_loss from pips to price
         point = symbol_info['point']
         pip_value = point * 10 if symbol_info['digits'] == 5 or symbol_info['digits'] == 3 else point
         stop_loss_price = stop_loss * pip_value
-        
-        # Get current price and validate staleness
-        if order_type == OrderType.BUY:
-            price = symbol_info['ask']
-            if price <= 0:
-                logger.error(f"Invalid ask price {price} for {symbol}")
-                return None
-        else:  # SELL
-            price = symbol_info['bid']
-            if price <= 0:
-                logger.error(f"Invalid bid price {price} for {symbol}")
-                return None
         
         # Check price staleness (if timestamp available)
         fetched_time = symbol_info.get('_fetched_time', 0)
@@ -93,18 +107,26 @@ class OrderManager:
                     return None
         
         # Calculate stop loss price
+        # CRITICAL: For SELL orders, MT5 validates stops against ASK price (broker requirement)
+        # For BUY orders, validate against ASK (entry price)
+        
         if order_type == OrderType.BUY:
             sl_price = price - stop_loss_price
             # Ensure SL is valid (not negative or zero)
             if sl_price <= 0:
                 logger.error(f"Invalid stop loss price {sl_price} for {symbol}")
                 return None
+            # Use entry price (ASK) for validation
+            validation_price = price  # ASK for BUY
             if take_profit and take_profit > 0:
                 tp_price = price + (take_profit * pip_value)
             else:
                 tp_price = 0
         else:  # SELL
-            sl_price = price + stop_loss_price
+            # CRITICAL: For SELL orders, MT5 validates stop loss against ASK price
+            # Therefore, calculate SL relative to ASK, not BID (entry price)
+            validation_price = ask_price if ask_price > 0 else price
+            sl_price = validation_price + stop_loss_price  # SL above ASK for SELL orders
             # Ensure SL is valid (not negative or zero)
             if sl_price <= 0:
                 logger.error(f"Invalid stop loss price {sl_price} for {symbol}")
@@ -114,18 +136,45 @@ class OrderManager:
             else:
                 tp_price = 0
         
+        # Normalize prices to symbol's tick size (MT5 requirement)
+        # Normalize SL and TP to point precision
+        digits = symbol_info.get('digits', 5)
+        if sl_price > 0:
+            sl_price = round(sl_price / point) * point
+            # Round to correct decimal places
+            sl_price = round(sl_price, digits)
+        
+        if tp_price > 0:
+            tp_price = round(tp_price / point) * point
+            tp_price = round(tp_price, digits)
+        
         # Validate stop loss distance against broker's minimum stops level
         stops_level = symbol_info.get('trade_stops_level', 0)
+        min_distance = 0.0
+        actual_distance = abs(validation_price - sl_price)
+        
         if stops_level > 0:
             min_distance = stops_level * point
-            actual_distance = abs(price - sl_price)
+            # Use validation_price (ASK for SELL, ASK for BUY) to check distance
             
             if actual_distance < min_distance:
                 logger.error(f"Stop loss distance {actual_distance:.5f} is less than broker minimum {min_distance:.5f} "
-                           f"(stops_level: {stops_level}) for {symbol}")
+                           f"(stops_level: {stops_level}, validation_price: {validation_price:.5f}, sl_price: {sl_price:.5f}) for {symbol}")
                 return None
             
-            logger.debug(f"{symbol}: Stop loss validated - distance {actual_distance:.5f} >= minimum {min_distance:.5f}")
+            logger.debug(f"{symbol}: Stop loss validated - distance {actual_distance:.5f} >= minimum {min_distance:.5f} "
+                        f"(validation_price: {validation_price:.5f}, sl_price: {sl_price:.5f})")
+        else:
+            logger.debug(f"{symbol}: Stop loss distance: {actual_distance:.5f} (no stops_level requirement)")
+        
+        # Additional validation: Ensure SL is on the correct side for order type
+        if order_type == OrderType.BUY and sl_price >= validation_price:
+            logger.error(f"Invalid stop loss for BUY order: SL {sl_price:.5f} >= entry price {validation_price:.5f} for {symbol}")
+            return None
+        
+        if order_type == OrderType.SELL and sl_price <= validation_price:
+            logger.error(f"Invalid stop loss for SELL order: SL {sl_price:.5f} <= validation price {validation_price:.5f} (ASK) for {symbol}")
+            return None
         
         # Determine filling type based on symbol
         # CRITICAL: Must use the EXACT filling mode the symbol supports
@@ -180,19 +229,63 @@ class OrderManager:
         if result is None:
             error = mt5.last_error()
             logger.error(f"Order send returned None. MT5 error: {error}")
-            return None
+            # Return -2 to indicate connection/transient error (retryable)
+            return -2
         
         if result.retcode != mt5.TRADE_RETCODE_DONE:
             error_msg = f"Order failed: {result.retcode} - {result.comment}"
-            if result.retcode == 10018:  # Market closed
-                logger.warning(f"⏰ {error_msg} - Market is closed, will retry when market opens")
+            
+            # Detailed logging for stop loss errors (10016)
+            if result.retcode == 10016:  # Invalid stops
+                logger.error(f"❌ {error_msg}")
+                logger.error(f"   Symbol: {symbol}, Order Type: {order_type.name}")
+                logger.error(f"   Entry Price: {price:.5f} ({'ASK' if order_type == OrderType.BUY else 'BID'})")
+                logger.error(f"   Stop Loss Price: {sl_price:.5f} ({'below entry' if order_type == OrderType.BUY else 'above entry'})")
+                logger.error(f"   Stop Loss Pips: {stop_loss}")
+                logger.error(f"   Validation Price: {validation_price:.5f} ({'ASK' if order_type == OrderType.SELL else 'ASK'})")
+                logger.error(f"   Stop Distance: {abs(validation_price - sl_price):.5f}")
+                logger.error(f"   Stops Level: {stops_level}, Min Distance: {min_distance:.5f}" if stops_level > 0 else f"   Stops Level: {stops_level} (no minimum)")
+                logger.error(f"   Point: {point}, Digits: {digits}, Pip Value: {pip_value}")
+                logger.error(f"   Ask: {ask_price:.5f}, Bid: {bid_price:.5f}, Spread: {abs(ask_price - bid_price):.5f}")
+                # Return -3 for invalid stops (non-retryable)
+                return -3
+            elif result.retcode == 10018:  # Market closed
+                logger.warning(f"⏰ {error_msg} - Market is closed for {symbol}, skipping order placement")
+                # Don't retry when market is closed - it won't help
+                # Return -4 for market closed (non-retryable)
+                return -4
             elif result.retcode == 10014:  # Invalid volume
                 logger.error(f"❌ {error_msg} - Volume {lot_size} is invalid for {symbol}")
                 # Return special error code to indicate volume issue
-                return -1  # Special return value to indicate volume error
+                return -1  # Special return value to indicate volume error (retryable once)
+            elif result.retcode == 10027:  # Trade disabled
+                logger.error(f"❌ {error_msg} - Trading is disabled for {symbol}")
+                logger.error(f"   This symbol cannot be traded (account or symbol restriction)")
+                # Return -5 for trade disabled (non-retryable)
+                return -5
+            elif result.retcode == 10044:  # Trading restriction (broker-specific, often means trading not allowed)
+                logger.error(f"❌ {error_msg} - Trading restriction for {symbol} {order_type.name}")
+                logger.error(f"   Symbol: {symbol}, Order Type: {order_type.name}, Price: {price:.5f}, SL: {sl_price:.5f}, Lot: {lot_size}")
+                logger.error(f"   This symbol/order type may not be tradeable due to account or broker restrictions")
+                # Return -5 for trading restrictions (non-retryable)
+                return -5
+            elif result.retcode == 10029:  # Too many requests
+                logger.error(f"❌ {error_msg} - Too many requests for {symbol}")
+                logger.error(f"   Rate limit exceeded - wait before retrying")
+                # Return -2 for rate limiting (retryable with backoff)
+                return -2
             else:
                 logger.error(error_msg)
-            return None
+                # Log order details for other errors
+                logger.error(f"   Symbol: {symbol}, Order Type: {order_type.name}, Price: {price:.5f}, SL: {sl_price:.5f}, Lot: {lot_size}")
+                logger.error(f"   Error code: {result.retcode} | Comment: {result.comment}")
+                # Check if error is likely a restriction (10000-10099 range, some are restrictions)
+                if 10027 <= result.retcode <= 10099:
+                    # Likely a trading restriction, don't retry
+                    logger.error(f"   This appears to be a trading restriction - not retrying")
+                    return -5
+                # Return -2 for other transient errors (retryable with backoff)
+                return -2
         
         logger.info(f"Order placed successfully: Ticket {result.order}, Symbol {symbol}, "
                    f"Type {order_type.name}, Volume {lot_size}, SL {sl_price:.5f}")
