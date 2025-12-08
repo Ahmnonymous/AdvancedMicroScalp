@@ -1,5 +1,7 @@
 # MetaTrader5 Python API
-MetaTrader5>=5.0.45
+# Note: Windows-only package. Requires Windows OS and compatible Python version (3.8-3.11 recommended)
+# If installation fails with version constraint, try: pip install MetaTrader5
+MetaTrader5
 
 # Data processing and analysis
 pandas>=2.0.0

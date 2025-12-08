@@ -66,8 +66,18 @@ cd TRADING
 pip install -r requirements.txt
 ```
 
+**Troubleshooting MetaTrader5 Installation:**
+
+If you encounter an error installing MetaTrader5:
+1. **Ensure you're on Windows** - MetaTrader5 is Windows-only
+2. **Check Python version** - Compatible with Python 3.8-3.11
+3. **Upgrade pip first**: `python -m pip install --upgrade pip`
+4. **Try installing without version constraint**: `pip install MetaTrader5`
+5. **Try specific version**: `pip install MetaTrader5==5.0.5200`
+6. **If using virtual environment**, ensure it's activated
+
 This will install:
-- `MetaTrader5` - MT5 Python API
+- `MetaTrader5` - MT5 Python API (Windows-only, Python 3.8-3.11)
 - `pandas` - Data processing
 - `numpy` - Numerical computations
 - `requests` - HTTP requests for news API
