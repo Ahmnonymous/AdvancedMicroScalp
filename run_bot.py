@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""
+Trading Bot Entry Point
+Run this script to start the automated trading bot.
+"""
+
+import sys
+import os
+import json
+from bot.logger_setup import setup_logging
+from bot.trading_bot import TradingBot
+
+def main():
+    """Main entry point for the trading bot."""
+    # Check if config exists
+    if not os.path.exists('config.json'):
+        print("ERROR: config.json not found!")
+        print("Please create config.json with your MT5 credentials and settings.")
+        sys.exit(1)
+    
+    # Load config to setup logging
+    with open('config.json', 'r') as f:
+        config = json.load(f)
+    
+    # Setup logging
+    logger = setup_logging(config)
+    
+    # Log that bot is starting in background mode
+    logger.info("=" * 80)
+    logger.info("TRADING BOT STARTING IN BACKGROUND MODE")
+    logger.info("=" * 80)
+    
+    try:
+        # Create and start bot
+        bot = TradingBot('config.json')
+        
+        # Connect to MT5
+        if not bot.connect():
+            logger.error("Failed to connect to MT5. Please check your credentials in config.json")
+            sys.exit(1)
+        
+        # Reset kill switch and errors for fresh start
+        bot.reset_kill_switch()
+        logger.info("System initialized - kill switch reset, ready for trading")
+        
+        # Run bot (this will run continuously in background)
+        cycle_interval = config.get('trading', {}).get('cycle_interval_seconds', 60)
+        logger.info(f"Bot running in background. Main cycle: {cycle_interval}s, Trailing stop: 3.0s")
+        bot.run(cycle_interval_seconds=cycle_interval)
+    
+    except KeyboardInterrupt:
+        logger.info("Bot stopped by user")
+        sys.exit(0)
+    except Exception as e:
+        logger.critical(f"Fatal error: {e}", exc_info=True)
+        sys.exit(1)
+
+if __name__ == '__main__':
+    main()
+
