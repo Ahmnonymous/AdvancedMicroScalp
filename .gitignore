@@ -24,9 +24,10 @@ wheels/
 *.egg
 
 # Logs
-logs/*.log
-logs/*.txt
+logs/
+bot_log.txt
 *.log
+gitpush.txt
 
 # IDE
 .vscode/
