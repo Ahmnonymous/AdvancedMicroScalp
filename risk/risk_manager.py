@@ -303,7 +303,7 @@ class RiskManager:
         Check if symbol's minimum lot size is suitable for testing mode.
         
         Requirements:
-        - Min lot size must be between 0.01 and 0.1
+        - Min lot size must be between 0.01 and 0.03
         - Min lot size must not cause risk to exceed $2.0
         
         Args:
@@ -327,20 +327,21 @@ class RiskManager:
         # Get symbol's native minimum lot size from broker
         symbol_min_lot = symbol_info.get('volume_min', 0.01)
         
-        # Determine effective minimum
+        # Determine effective minimum - broker minimum takes precedence (must respect broker's requirement)
+        # If config has a min_lot, it can only INCREASE the minimum, not decrease it below broker's requirement
         if config_min_lot is not None:
             effective_min_lot = max(symbol_min_lot, config_min_lot)
-            limit_source = "config"
+            limit_source = "config" if config_min_lot >= symbol_min_lot else "broker"
         else:
             effective_min_lot = symbol_min_lot
             limit_source = "broker"
         
-        # Check 1: Min lot must be between 0.01 and 0.1
+        # Check 1: Min lot must be between 0.01 and 0.03 (updated limit)
         if effective_min_lot < 0.01:
             return False, effective_min_lot, f"Min lot {effective_min_lot:.4f} < 0.01 (too small for testing)"
         
-        if effective_min_lot > 0.1:
-            return False, effective_min_lot, f"Min lot {effective_min_lot:.4f} > 0.1 (too large for testing)"
+        if effective_min_lot > 0.03:
+            return False, effective_min_lot, f"Min lot {effective_min_lot:.4f} > 0.03 (exceeds lot size limit - skip this symbol)"
         
         # Check 2: Min lot must not cause risk to exceed $2.0
         # We need to estimate risk with minimum lot size

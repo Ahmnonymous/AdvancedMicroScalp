@@ -1,0 +1,12 @@
+2025-12-09 16:51:57 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470813223 (FR40m) closed at $-0.07
+2025-12-09 17:08:15 - monitoring - INFO - Near $0.10 multiple: Ticket 470921034 (BTCXAUm) at $0.27, next multiple: $0.30
+2025-12-09 17:08:25 - monitoring - INFO - Near $0.10 multiple: Ticket 470921034 (BTCXAUm) at $0.36, next multiple: $0.40
+2025-12-09 17:08:35 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470921034 (BTCXAUm) closed at $0.38
+2025-12-09 17:08:35 - monitoring - INFO - Micro-HFT sweet spot: Order 470920985 (ETHUSDm) closed at $0.04
+2025-12-09 17:16:28 - monitoring - INFO - Near $0.10 multiple: Ticket 470934852 (ETHUSDm) at $0.17, next multiple: $0.20
+2025-12-09 17:16:38 - monitoring - INFO - Near $0.10 multiple: Ticket 470928458 (ETHUSDm) at $0.19, next multiple: $0.20
+2025-12-09 17:16:48 - monitoring - INFO - Near $0.10 multiple: Ticket 470928458 (ETHUSDm) at $0.30, next multiple: $0.30
+2025-12-09 17:16:48 - monitoring - INFO - Near $0.10 multiple: Ticket 470934852 (ETHUSDm) at $0.36, next multiple: $0.40
+2025-12-09 17:17:10 - monitoring - INFO - Near $0.10 multiple: Ticket 470930794 (ETHUSDm) at $0.30, next multiple: $0.30
+2025-12-09 17:17:10 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470978707 (BTCXAUm) closed at $0.12
+2025-12-09 17:18:20 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470978682 (ETHUSDm) closed at $0.17

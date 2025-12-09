@@ -20,6 +20,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bot.trading_bot import TradingBot
 from monitor.realtime_bot_monitor import RealtimeBotMonitor
 from monitor.realtime_reconciliation import RealtimeReconciliation
+from monitor.comprehensive_bot_monitor import ComprehensiveBotMonitor
 from utils.logger_factory import get_logger
 
 # Setup logging
@@ -54,6 +55,7 @@ class TradingSystemLauncher:
         self.bot: Optional[TradingBot] = None
         self.monitor: Optional[RealtimeBotMonitor] = None
         self.reconciliation: Optional[RealtimeReconciliation] = None
+        self.comprehensive_monitor: Optional[ComprehensiveBotMonitor] = None
         
         # Threads
         self.bot_thread: Optional[threading.Thread] = None
@@ -135,6 +137,14 @@ class TradingSystemLauncher:
             logger.info("✅ Broker Reconciliation initialized")
             print()
             
+            # Initialize Comprehensive Bot Monitor
+            print("🔧 Initializing Comprehensive Bot Monitor...")
+            logger.info("Initializing Comprehensive Bot Monitor...")
+            self.comprehensive_monitor = ComprehensiveBotMonitor(self.config_path)
+            print("✅ Comprehensive Bot Monitor initialized")
+            logger.info("✅ Comprehensive Bot Monitor initialized")
+            print()
+            
             # Set running flag
             self.running = True
             
@@ -185,6 +195,15 @@ class TradingSystemLauncher:
             self.reconciliation_thread.start()
             print("✅ Broker Reconciliation started")
             logger.info("✅ Broker Reconciliation started")
+            time.sleep(0.5)
+            print()
+            
+            # Start Comprehensive Bot Monitor
+            print("🚀 Starting Comprehensive Bot Monitor...")
+            logger.info("Starting Comprehensive Bot Monitor...")
+            self.comprehensive_monitor.start()
+            print("✅ Comprehensive Bot Monitor started")
+            logger.info("✅ Comprehensive Bot Monitor started")
             print()
             
             print("=" * 80)
@@ -543,6 +562,15 @@ class TradingSystemLauncher:
         
         # Display final summary before stopping
         self._display_final_summary()
+        
+        # Stop Comprehensive Bot Monitor
+        print("⏹️  Stopping Comprehensive Bot Monitor...")
+        logger.info("Stopping Comprehensive Bot Monitor...")
+        if self.comprehensive_monitor:
+            self.comprehensive_monitor.stop()
+            print("✅ Comprehensive Bot Monitor stopped")
+            logger.info("✅ Comprehensive Bot Monitor stopped")
+        print()
         
         # Stop Broker Reconciliation
         print("⏹️  Stopping Broker Reconciliation...")

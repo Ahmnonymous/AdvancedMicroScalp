@@ -61,9 +61,9 @@
     },
     "volume": {
       "enabled": true,
-      "min_tick_volume": 10,
+      "min_tick_volume": 5,
       "check_period_minutes": 5,
-      "min_avg_volume": 5.0
+      "min_avg_volume": 3.0
     }
   },
   "trading": {
@@ -74,8 +74,8 @@
     "rsi_overbought": 75,
     "rsi_oversold": 25,
     "use_rsi_filter": true,
-    "rsi_entry_range_min": 30,
-    "rsi_entry_range_max": 50,
+    "rsi_entry_range_min": 20,
+    "rsi_entry_range_max": 70,
     "rsi_soft_filter": false,
     "cycle_interval_seconds": 20,
     "randomize_timing": false,
@@ -84,7 +84,7 @@
     "atr_period": 14,
     "atr_multiplier": 2.0,
     "min_trend_strength": 0.000001,
-    "min_trend_strength_pct": 0.05,
+    "min_trend_strength_pct": 0.02,
     "max_choppiness": 0.85,
     "min_adx": 10,
     "use_volatility_filter": false,

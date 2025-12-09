@@ -9,7 +9,10 @@ from typing import Optional, Dict, Any, List
 from datetime import datetime
 from enum import Enum
 
-logger = logging.getLogger(__name__)
+# Use logger factory for proper logging
+from utils.logger_factory import get_logger
+
+logger = get_logger("order_manager", "logs/system/order_manager.log")
 
 
 class OrderType(Enum):
@@ -482,6 +485,14 @@ class OrderManager:
             else:
                 filling_type = mt5.ORDER_FILLING_RETURN
         
+        # Sanitize comment for MT5: Remove special characters, limit length (max 31 chars for some brokers)
+        # Replace $, parentheses, and other special chars that might cause issues
+        sanitized_comment = comment.replace('$', 'USD').replace('(', '').replace(')', '').replace('-', '_')
+        sanitized_comment = ''.join(c for c in sanitized_comment if c.isalnum() or c in (' ', '_', '.'))  # Only allow alphanumeric, space, underscore, period
+        sanitized_comment = sanitized_comment[:31]  # Limit to 31 characters (MT5 comment field limit)
+        if not sanitized_comment or not sanitized_comment.strip():
+            sanitized_comment = "Close by bot"  # Fallback to default
+        
         request = {
             "action": mt5.TRADE_ACTION_DEAL,
             "symbol": symbol,
@@ -491,7 +502,7 @@ class OrderManager:
             "price": price,
             "deviation": 20,
             "magic": 234000,
-            "comment": comment,
+            "comment": sanitized_comment,
             "type_time": mt5.ORDER_TIME_GTC,
             "type_filling": filling_type,
         }
@@ -527,10 +538,15 @@ class OrderManager:
         if positions is None:
             return []
         
-        from datetime import datetime
+        from datetime import datetime, timedelta
         
         result = []
         dec8_date = datetime(2025, 12, 8).date()  # Dec 8, 2025 date
+        today_date = datetime.now().date()  # Today's date
+        
+        # Exclude positions older than 12 hours (locked positions from previous day)
+        max_age_hours = 12
+        cutoff_time = datetime.now() - timedelta(hours=max_age_hours)
         
         excluded_count = 0
         for pos in positions:
@@ -539,9 +555,24 @@ class OrderManager:
             time_open_date = time_open.date()
             
             # Skip positions from Dec 8, 2025 if exclude_dec8 is True (locked positions - markets closed)
-            if exclude_dec8 and time_open_date == dec8_date:
+            # Also skip positions older than 12 hours (likely from previous trading day)
+            should_exclude = False
+            exclusion_reason = ""
+            
+            if exclude_dec8:
+                if time_open_date == dec8_date:
+                    should_exclude = True
+                    exclusion_reason = f"Dec 8, 2025 locked position (market closed)"
+                elif time_open < cutoff_time:
+                    should_exclude = True
+                    exclusion_reason = f"Position older than {max_age_hours} hours (locked from previous day)"
+                elif time_open_date < today_date:
+                    should_exclude = True
+                    exclusion_reason = f"Position from previous day ({time_open_date})"
+            
+            if should_exclude:
                 excluded_count += 1
-                logger.info(f"🚫 EXCLUDING Dec 8, 2025 locked position (market closed): Ticket {pos.ticket}, Symbol {pos.symbol}, Opened: {time_open} (Date: {time_open_date})")
+                logger.info(f"🚫 EXCLUDING {exclusion_reason}: Ticket {pos.ticket}, Symbol {pos.symbol}, Opened: {time_open} (Date: {time_open_date}, Age: {(datetime.now() - time_open).total_seconds()/3600:.2f}h)")
                 continue
             
             result.append({
@@ -560,7 +591,7 @@ class OrderManager:
             })
         
         if excluded_count > 0:
-            logger.info(f"✅ Excluded {excluded_count} Dec 8, 2025 locked position(s). Showing {len(result)} active position(s).")
+            logger.info(f"✅ Excluded {excluded_count} locked/old position(s) (Dec 8 or >{max_age_hours}h old). Showing {len(result)} active position(s).")
         
         return result
             
