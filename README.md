@@ -115,9 +115,26 @@ pip install -r requirements.txt
    ```bash
    python launch_system.py
    ```
-4. **Monitor output** in console
+4. **Monitor output**:
+   - Real-time trade summary updates every 15 seconds (display only)
+   - Trading executes at millisecond speeds independently
+   - Micro-HFT checks every 50ms
+   - Fast trailing stops every 300ms
 5. **Check logs** in `logs/` directory
 6. **Stop with Ctrl+C** (graceful shutdown)
+
+## Trading Speed
+
+**Important**: The 15-second summary display interval does NOT affect trading speed.
+
+**Actual Trading Execution Speeds**:
+- ✅ **Micro-HFT checks**: Every 50ms (milliseconds)
+- ✅ **Fast trailing stop**: Every 300ms (for profitable positions)
+- ✅ **Normal trailing stop**: Every 3 seconds
+- ✅ **Trade execution**: Instant (milliseconds)
+- ✅ **Bot scanning cycle**: 20 seconds (configurable)
+
+The summary display is purely visual and runs in a separate thread, completely independent of trading execution.
 
 ## License
 

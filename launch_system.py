@@ -196,8 +196,10 @@ class TradingSystemLauncher:
             logger.info("ALL SYSTEMS OPERATIONAL")
             logger.info("=" * 80)
             
-            # Start trade summary display thread
-            print("📊 Starting Trade Summary Display...")
+            # Start trade summary display thread (DISPLAY ONLY - does not affect trading speed)
+            print("📊 Starting Trade Summary Display (updates every 5s - does NOT affect trading speed)...")
+            logger.info("Starting Trade Summary Display (display-only, updates every 5 seconds)")
+            print("   Note: Trading executes in milliseconds independently of display updates")
             self.summary_thread = threading.Thread(
                 target=self._display_trade_summary_loop,
                 name="TradeSummaryDisplay",
@@ -270,7 +272,18 @@ class TradingSystemLauncher:
             error_logger.error(error_msg, exc_info=True)
     
     def _display_trade_summary_loop(self):
-        """Display real-time trade summary in a loop."""
+        """
+        Display real-time trade summary in a loop.
+        
+        IMPORTANT: This is DISPLAY-ONLY and does NOT affect trading speed.
+        Trading executes independently at millisecond speeds:
+        - Micro-HFT checks: Every 50ms
+        - Fast trailing stop: Every 300ms (for profitable positions)
+        - Normal trailing stop: Every 3 seconds
+        - Trade execution: Instant (milliseconds)
+        
+        This summary only refreshes the display every 15 seconds for readability.
+        """
         import os
         
         # ANSI color codes
@@ -288,7 +301,9 @@ class TradingSystemLauncher:
             """Clear terminal screen."""
             os.system('cls' if os.name == 'nt' else 'clear')
         
-        summary_interval = 15.0  # Update every 15 seconds
+        # Display update interval (5 seconds) - this is ONLY for display, NOT trading
+        # Trading happens at millisecond speeds independently
+        summary_interval = 5.0  # Update DISPLAY every 5 seconds
         
         try:
             while self.running and not self.shutdown_event.is_set():
@@ -421,7 +436,7 @@ class TradingSystemLauncher:
                     
                     # Footer
                     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
-                    print(f"{Colors.YELLOW}Next update in {summary_interval:.0f} seconds | Press Ctrl+C to stop{Colors.END}")
+                    print(f"{Colors.YELLOW}Display updates every {summary_interval:.0f}s | Trading runs at millisecond speeds | Press Ctrl+C to stop{Colors.END}")
                     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
                     
                 except Exception as e:
