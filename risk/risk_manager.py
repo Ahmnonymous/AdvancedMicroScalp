@@ -1244,21 +1244,9 @@ class RiskManager:
                 ticket = position['ticket']
                 current_profit = position.get('profit', 0.0)
                 
-                # MICRO-HFT PROFIT ENGINE: Check and close if profit is in sweet spot ($0.03–$0.10)
-                # This runs BEFORE trailing stop to take micro profits immediately
-                # It does NOT interfere with SL, risk, or trailing stop logic
-                if hasattr(self, '_micro_profit_engine') and self._micro_profit_engine:
-                    try:
-                        # Check if position should be closed by micro-HFT engine
-                        # This only closes if profit is within $0.03–$0.10 sweet spot and does NOT touch SL
-                        was_closed = self._micro_profit_engine.check_and_close(position, self.mt5_connector)
-                        if was_closed:
-                            # Position was closed by micro-HFT engine, skip trailing stop
-                            # Position closure will be detected in next cycle
-                            continue
-                    except Exception as e:
-                        logger.error(f"Error in micro-HFT profit engine: {e}", exc_info=True)
-                        # Continue with normal processing if micro-HFT engine fails
+                # IMPORTANT: Run trailing stop FIRST to lock profit at $0.10 increments
+                # Then Micro-HFT can close if appropriate
+                # This ensures profit is locked before closing
                 
                 # Check if this position should use fast polling
                 tracking = self._get_position_tracking(ticket)
@@ -1266,8 +1254,29 @@ class RiskManager:
                     # Skip if not in fast polling mode and we're in fast polling cycle
                     continue
                 
-                # Update trailing stop
+                # CRITICAL: Update trailing stop FIRST to lock profit at $0.10 increments
+                # This ensures profit is locked BEFORE Micro-HFT tries to close
+                # When profit reaches $0.10, trailing stop locks it, preventing premature closure at $0.03
                 success, reason = self.update_continuous_trailing_stop(ticket, current_profit)
+                
+                # MICRO-HFT PROFIT ENGINE: Check and close AFTER trailing stop has locked profit
+                # Only closes if profit is in sweet spot ($0.03–$0.10) or if trailing stop has locked at $0.10+
+                # Run this AFTER trailing stop update to ensure profit is locked first
+                if hasattr(self, '_micro_profit_engine') and self._micro_profit_engine:
+                    try:
+                        # Get fresh position data after trailing stop update
+                        fresh_position = self.order_manager.get_position_by_ticket(ticket)
+                        if fresh_position:
+                            # Check if position should be closed by micro-HFT engine
+                            # This only closes after trailing stop has locked profit appropriately
+                            was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                            if was_closed:
+                                # Position was closed by micro-HFT engine
+                                # Position closure will be detected in next cycle
+                                continue
+                    except Exception as e:
+                        logger.error(f"Error in micro-HFT profit engine: {e}", exc_info=True)
+                        # Continue with normal processing if micro-HFT engine fails
                 
                 # Log if update was skipped (for debugging)
                 if not success and current_profit >= self.min_lock_increment_usd:

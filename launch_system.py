@@ -11,7 +11,7 @@ import threading
 import signal
 import time
 import atexit
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional
 
 # Add project root to path
@@ -59,6 +59,7 @@ class TradingSystemLauncher:
         self.bot_thread: Optional[threading.Thread] = None
         self.monitor_thread: Optional[threading.Thread] = None
         self.reconciliation_thread: Optional[threading.Thread] = None
+        self.summary_thread: Optional[threading.Thread] = None
         
         # Control flags
         self.running = False
@@ -195,6 +196,18 @@ class TradingSystemLauncher:
             logger.info("ALL SYSTEMS OPERATIONAL")
             logger.info("=" * 80)
             
+            # Start trade summary display thread
+            print("📊 Starting Trade Summary Display...")
+            self.summary_thread = threading.Thread(
+                target=self._display_trade_summary_loop,
+                name="TradeSummaryDisplay",
+                daemon=False
+            )
+            self.summary_thread.start()
+            print("✅ Trade Summary Display started")
+            print()
+            logger.info("Trade Summary Display started")
+            
             # Keep main thread alive until shutdown
             try:
                 while self.running and not self.shutdown_event.is_set():
@@ -256,6 +269,203 @@ class TradingSystemLauncher:
             logger.error(error_msg, exc_info=True)
             error_logger.error(error_msg, exc_info=True)
     
+    def _display_trade_summary_loop(self):
+        """Display real-time trade summary in a loop."""
+        import os
+        
+        # ANSI color codes
+        class Colors:
+            HEADER = '\033[95m'
+            BLUE = '\033[94m'
+            CYAN = '\033[96m'
+            GREEN = '\033[92m'
+            YELLOW = '\033[93m'
+            RED = '\033[91m'
+            END = '\033[0m'
+            BOLD = '\033[1m'
+        
+        def clear_screen():
+            """Clear terminal screen."""
+            os.system('cls' if os.name == 'nt' else 'clear')
+        
+        summary_interval = 15.0  # Update every 15 seconds
+        
+        try:
+            while self.running and not self.shutdown_event.is_set():
+                try:
+                    # Get account info
+                    account_info = None
+                    if self.bot and self.bot.mt5_connector:
+                        account_info = self.bot.mt5_connector.get_account_info()
+                    
+                    # Get open positions (excluding Dec 8)
+                    positions = []
+                    if self.bot and self.bot.order_manager:
+                        positions = self.bot.order_manager.get_open_positions(exclude_dec8=True)
+                    
+                    # Get trade statistics
+                    trade_stats = {}
+                    daily_pnl = 0.0
+                    if self.bot:
+                        trade_stats = getattr(self.bot, 'trade_stats', {})
+                        daily_pnl = getattr(self.bot, 'daily_pnl', 0.0)
+                    
+                    # Get monitoring summary
+                    monitor_summary = {}
+                    if self.monitor:
+                        monitor_summary = self.monitor.get_monitoring_summary()
+                    
+                    # Clear screen and display summary
+                    clear_screen()
+                    
+                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
+                    print(f"{Colors.BOLD}{Colors.HEADER}📊 TRADING BOT - REAL-TIME SUMMARY{Colors.END}")
+                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
+                    print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                    print()
+                    
+                    # Account Info
+                    if account_info:
+                        balance = account_info.get('balance', 0)
+                        equity = account_info.get('equity', 0)
+                        profit = account_info.get('profit', 0)
+                        currency = account_info.get('currency', 'USD')
+                        
+                        profit_color = Colors.GREEN if profit >= 0 else Colors.RED
+                        equity_color = Colors.GREEN if equity >= balance else Colors.YELLOW
+                        
+                        print(f"{Colors.BOLD}Account Information:{Colors.END}")
+                        print(f"  Balance: ${balance:.2f} {currency}")
+                        print(f"  Equity: {equity_color}${equity:.2f}{Colors.END} {currency}")
+                        print(f"  Floating P/L: {profit_color}${profit:.2f}{Colors.END} {currency}")
+                        print()
+                    
+                    # Open Positions
+                    print(f"{Colors.BOLD}{Colors.BLUE}📊 OPEN POSITIONS ({len(positions)}){Colors.END}")
+                    print(f"{Colors.BLUE}{'-' * 100}{Colors.END}")
+                    
+                    if positions:
+                        total_profit = 0.0
+                        for pos in positions:
+                            ticket = pos.get('ticket', 0)
+                            symbol = pos.get('symbol', 'N/A')
+                            pos_type = pos.get('type', 'N/A')
+                            volume = pos.get('volume', 0.0)
+                            profit = pos.get('profit', 0.0)
+                            sl = pos.get('sl', 0.0)
+                            entry = pos.get('price_open', 0.0)
+                            current = pos.get('price_current', 0.0)
+                            time_open = pos.get('time_open', datetime.now())
+                            
+                            duration = datetime.now() - time_open if isinstance(time_open, datetime) else timedelta(0)
+                            
+                            profit_color = Colors.GREEN if profit >= 0 else Colors.RED
+                            profit_symbol = "🟢" if profit >= 0 else "🔴"
+                            
+                            total_profit += profit
+                            
+                            # Determine if Micro-HFT applicable
+                            hft_status = ""
+                            if 0.03 <= profit <= 0.10:
+                                hft_status = f"{Colors.YELLOW}[HFT Sweet Spot]"
+                            elif profit > 0.10:
+                                hft_status = f"{Colors.CYAN}[HFT Target]"
+                            
+                            print(f"{profit_symbol} {Colors.BOLD}Ticket {ticket}{Colors.END} | "
+                                  f"{symbol} {pos_type} | "
+                                  f"Lot: {volume:.4f} | "
+                                  f"{profit_color}P/L: ${profit:.2f}{Colors.END} {hft_status}{Colors.END}")
+                            print(f"   Entry: {entry:.5f} → Current: {current:.5f} | "
+                                  f"SL: {sl:.5f} | "
+                                  f"Duration: {str(duration).split('.')[0]}")
+                        print(f"{Colors.BLUE}{'-' * 100}{Colors.END}")
+                        total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
+                        print(f"{Colors.BOLD}Total Floating P/L: {total_color}${total_profit:.2f}{Colors.END}")
+                    else:
+                        print(f"{Colors.YELLOW}No open positions{Colors.END}")
+                    
+                    print()
+                    
+                    # Trade Statistics
+                    print(f"{Colors.BOLD}{Colors.CYAN}📈 TRADE STATISTICS{Colors.END}")
+                    print(f"{Colors.CYAN}{'-' * 100}{Colors.END}")
+                    total_trades = trade_stats.get('total_trades', 0)
+                    successful = trade_stats.get('successful_trades', 0)
+                    failed = trade_stats.get('failed_trades', 0)
+                    success_rate = (successful / total_trades * 100) if total_trades > 0 else 0
+                    
+                    print(f"Total Trades: {total_trades}")
+                    print(f"{Colors.GREEN}Successful: {successful}{Colors.END}")
+                    print(f"{Colors.RED}Failed: {failed}{Colors.END}")
+                    print(f"Success Rate: {success_rate:.1f}%")
+                    print(f"Daily P/L: {Colors.GREEN if daily_pnl >= 0 else Colors.RED}${daily_pnl:.2f}{Colors.END}")
+                    print()
+                    
+                    # Micro-HFT Performance
+                    if monitor_summary:
+                        print(f"{Colors.BOLD}{Colors.CYAN}⚡ MICRO-HFT PERFORMANCE{Colors.END}")
+                        print(f"{Colors.CYAN}{'-' * 100}{Colors.END}")
+                        hft_trades = monitor_summary.get('hft_trades', 0)
+                        sweet_spot_rate = monitor_summary.get('hft_sweet_spot_rate', 0)
+                        print(f"HFT Trades: {hft_trades}")
+                        print(f"Sweet Spot Rate: {Colors.GREEN if sweet_spot_rate >= 70 else Colors.YELLOW}{sweet_spot_rate:.1f}%{Colors.END}")
+                        print()
+                    
+                    # Monitoring Status
+                    print(f"{Colors.BOLD}{Colors.CYAN}🔍 MONITORING STATUS{Colors.END}")
+                    print(f"{Colors.CYAN}{'-' * 100}{Colors.END}")
+                    print(f"Bot Status: {Colors.GREEN if self.bot and self.bot.running else Colors.RED}{'Running' if self.bot and self.bot.running else 'Stopped'}{Colors.END}")
+                    print(f"Monitoring: {Colors.GREEN if self.monitor and self.monitor.monitoring_active else Colors.RED}{'Active' if self.monitor and self.monitor.monitoring_active else 'Inactive'}{Colors.END}")
+                    print(f"Reconciliation: {Colors.GREEN}Active (every {self.reconciliation_interval} min){Colors.END}")
+                    print()
+                    
+                    # Footer
+                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
+                    print(f"{Colors.YELLOW}Next update in {summary_interval:.0f} seconds | Press Ctrl+C to stop{Colors.END}")
+                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
+                    
+                except Exception as e:
+                    logger.error(f"Error displaying trade summary: {e}", exc_info=True)
+                
+                # Wait for next update
+                self.shutdown_event.wait(summary_interval)
+        
+        except Exception as e:
+            logger.error(f"Error in trade summary display loop: {e}", exc_info=True)
+    
+    def _display_final_summary(self):
+        """Display final summary before shutdown."""
+        try:
+            # Get final data
+            positions = []
+            if self.bot and self.bot.order_manager:
+                positions = self.bot.order_manager.get_open_positions(exclude_dec8=True)
+            
+            trade_stats = {}
+            if self.bot:
+                trade_stats = getattr(self.bot, 'trade_stats', {})
+            
+            monitor_summary = {}
+            if self.monitor:
+                monitor_summary = self.monitor.get_monitoring_summary()
+            
+            print("=" * 80)
+            print("FINAL TRADE SUMMARY")
+            print("=" * 80)
+            print(f"Open Positions: {len(positions)}")
+            print(f"Total Trades: {trade_stats.get('total_trades', 0)}")
+            print(f"Successful: {trade_stats.get('successful_trades', 0)}")
+            print(f"Failed: {trade_stats.get('failed_trades', 0)}")
+            
+            if monitor_summary:
+                print(f"HFT Trades: {monitor_summary.get('hft_trades', 0)}")
+                print(f"HFT Sweet Spot Rate: {monitor_summary.get('hft_sweet_spot_rate', 0):.1f}%")
+            
+            print("=" * 80)
+            
+        except Exception as e:
+            logger.error(f"Error displaying final summary: {e}", exc_info=True)
+    
     def stop(self):
         """Stop all components gracefully."""
         if not self.running:
@@ -303,6 +513,21 @@ class TradingSystemLauncher:
                 print("✅ Real-Time Monitor stopped")
                 logger.info("✅ Real-Time Monitor stopped")
         print()
+        
+        # Stop Trade Summary Display
+        print("⏹️  Stopping Trade Summary Display...")
+        logger.info("Stopping Trade Summary Display...")
+        if self.summary_thread and self.summary_thread.is_alive():
+            self.summary_thread.join(timeout=3.0)
+            if self.summary_thread.is_alive():
+                logger.warning("Summary thread did not stop within timeout")
+            else:
+                print("✅ Trade Summary Display stopped")
+                logger.info("✅ Trade Summary Display stopped")
+        print()
+        
+        # Display final summary before stopping
+        self._display_final_summary()
         
         # Stop Broker Reconciliation
         print("⏹️  Stopping Broker Reconciliation...")
@@ -361,7 +586,7 @@ class TradingSystemLauncher:
             for handler in logging.root.handlers[:]:
                 handler.flush()
             print("✅ Logs flushed")
-    except Exception as e:
+        except Exception as e:
             logger.error(f"Error flushing logs: {e}", exc_info=True)
         print()
         

@@ -83,16 +83,62 @@ class MicroProfitEngine:
         # Get actual profit from MT5 (not estimated)
         current_profit = position.get('profit', 0.0)
         
-        # ENHANCED: Handle sweet spot and $0.10 multiples
-        # Rule 1: Close if profit is in sweet spot ($0.03–$0.10)
-        # Rule 2: Close if profit is a multiple of $0.10 (but not below $0.03)
-        # Rule 3: Never close below $0.03 (let stop-loss handle it)
+        # ENHANCED: Smart profit locking strategy
+        # Rule 1: If profit >= $0.10, let trailing stop lock it at $0.10 first (don't close yet)
+        # Rule 2: Only close if profit is exactly in sweet spot ($0.03–$0.10) AND declining
+        # Rule 3: Close if profit is a multiple of $0.10 AND trailing stop has locked it (SL profit >= $0.10)
+        # Rule 4: Never close below $0.03 (let stop-loss handle it)
         
+        # Check if trailing stop has locked profit at $0.10 or higher
+        sl_price = position.get('sl', 0.0)
+        entry_price = position.get('price_open', 0.0)
+        order_type = position.get('type', '')
+        symbol = position.get('symbol', '')
+        
+        # Calculate SL profit (lock level) - how much profit is locked by trailing stop
+        sl_profit_locked = 0.0
+        if sl_price > 0 and entry_price > 0:
+            symbol_info = mt5_connector.get_symbol_info(symbol, check_price_staleness=False) if mt5_connector else None
+            if symbol_info:
+                point = symbol_info.get('point', 0.00001)
+                pip_value = point * 10 if symbol_info.get('digits', 5) in [5, 3] else point
+                contract_size = symbol_info.get('contract_size', 1.0)
+                lot_size = position.get('volume', 0.01)
+                
+                # Calculate SL distance in price terms
+                # For BUY: SL below entry = profit locked (entry_price - sl_price is positive)
+                # For SELL: SL above entry = profit locked (sl_price - entry_price is positive)
+                if order_type == 'BUY':
+                    sl_distance_price = entry_price - sl_price  # Positive if SL is below entry (profit locked)
+                else:  # SELL
+                    sl_distance_price = sl_price - entry_price  # Positive if SL is above entry (profit locked)
+                
+                # Calculate locked profit in USD
+                # sl_distance_price is already in the correct direction (positive = profit locked)
+                sl_profit_locked = lot_size * abs(sl_distance_price) * contract_size
+        
+        # CRITICAL: If profit >= $0.10 but trailing stop hasn't locked it yet, wait
+        # Let trailing stop lock profit at $0.10 first before closing
+        if current_profit >= 0.10:
+            # Check if trailing stop has locked at least $0.09 (accounting for rounding)
+            if sl_profit_locked < 0.09:
+                # Trailing stop hasn't locked profit yet - don't close, let it lock first
+                logger.debug(f"Micro-HFT: Ticket {ticket} profit ${current_profit:.2f} but SL only locked ${sl_profit_locked:.2f} - waiting for trailing stop")
+                return False
+        
+        # If profit is in sweet spot ($0.03–$0.10), can close immediately
         in_sweet_spot = (self.min_profit_threshold_usd <= current_profit <= self.max_profit_threshold_usd)
-        is_multiple_of_ten_cents = (current_profit > self.max_profit_threshold_usd and 
-                                     abs(current_profit % 0.10) < 0.005)  # Allow small floating point errors
         
-        should_close = in_sweet_spot or is_multiple_of_ten_cents
+        # If profit >= $0.10, only close if trailing stop has locked it at $0.10+
+        # This ensures we capture $0.10 instead of closing at $0.03 when profit was $0.19
+        is_multiple_and_locked = False
+        if current_profit >= 0.10:
+            # Check if it's at a $0.10 multiple AND trailing stop has locked it
+            is_multiple = abs(current_profit % 0.10) < 0.005
+            is_locked = sl_profit_locked >= 0.09  # Trailing stop locked at $0.10+
+            is_multiple_and_locked = is_multiple and is_locked
+        
+        should_close = in_sweet_spot or is_multiple_and_locked
         
         if not should_close:
             return False

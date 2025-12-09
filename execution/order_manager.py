@@ -510,8 +510,16 @@ class OrderManager:
         logger.info(f"Position {ticket} closed successfully")
         return True
     
-    def get_open_positions(self) -> List[Dict[str, Any]]:
-        """Get all open positions."""
+    def get_open_positions(self, exclude_dec8: bool = True) -> List[Dict[str, Any]]:
+        """
+        Get all open positions from MT5.
+        
+        Args:
+            exclude_dec8: If True, exclude positions opened on Dec 8, 2025 (locked positions)
+        
+        Returns:
+            List of position dictionaries
+        """
         if not self.mt5_connector.ensure_connected():
             return []
         
@@ -519,8 +527,19 @@ class OrderManager:
         if positions is None:
             return []
         
+        from datetime import datetime
+        
         result = []
+        dec8_date = datetime(2025, 12, 8).date()  # Dec 8, 2025 date
+        
         for pos in positions:
+            # Get position open time
+            time_open = datetime.fromtimestamp(pos.time)
+            
+            # Skip positions from Dec 8 if exclude_dec8 is True
+            if exclude_dec8 and time_open.date() == dec8_date:
+                continue
+            
             result.append({
                 'ticket': pos.ticket,
                 'symbol': pos.symbol,
@@ -532,15 +551,20 @@ class OrderManager:
                 'tp': pos.tp,
                 'profit': pos.profit,
                 'swap': pos.swap,
-                'time_open': datetime.fromtimestamp(pos.time),
+                'time_open': time_open,
                 'comment': pos.comment
             })
         
         return result
     
-    def get_position_count(self) -> int:
-        """Get count of open positions."""
-        positions = self.get_open_positions()
+    def get_position_count(self, exclude_dec8: bool = True) -> int:
+        """
+        Get count of open positions.
+        
+        Args:
+            exclude_dec8: If True, exclude positions opened on Dec 8, 2025 (locked positions)
+        """
+        positions = self.get_open_positions(exclude_dec8=exclude_dec8)
         return len(positions)
     
     def get_position_by_ticket(self, ticket: int) -> Optional[Dict[str, Any]]:
