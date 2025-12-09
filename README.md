@@ -95,7 +95,7 @@ All logs are automatically generated during runtime in the `logs/` directory:
 
 Install dependencies:
 
-```bash
+   ```bash
 pip install -r requirements.txt
 ```
 

@@ -166,8 +166,15 @@ class MicroProfitEngine:
         # Rule 3: Never close below $0.03 (let stop-loss handle it)
         # Rule 4: Never close if profit < -$2.00 (stop-loss should handle)
         
-        # Safety: Don't close if at stop-loss
+        # CRITICAL: Never close if at or below stop-loss (-$2.00)
+        # Micro-HFT only closes PROFITABLE trades, never losses
         if fresh_profit <= -2.0:
+            logger.debug(f"Micro-HFT: Ticket {ticket} at stop-loss (profit: ${fresh_profit:.2f}) - not closing (let stop-loss handle)")
+            return False
+        
+        # Additional safety: Never close if profit is negative
+        if fresh_profit < 0:
+            logger.debug(f"Micro-HFT: Ticket {ticket} has negative profit (${fresh_profit:.2f}) - not closing")
             return False
         
         in_sweet_spot = (self.min_profit_threshold_usd <= fresh_profit <= self.max_profit_threshold_usd)
@@ -229,8 +236,14 @@ class MicroProfitEngine:
                 # Rule 2: Close if multiple of $0.10 (but not below $0.03)
                 # Rule 3: Never close below $0.03 or at stop-loss
                 
+                # CRITICAL: Never close if at stop-loss or negative profit
+                # Micro-HFT only closes PROFITABLE trades, never losses
                 if latest_profit <= -2.0:
-                    # At stop-loss, don't close (stop-loss will handle)
+                    logger.debug(f"Micro-HFT: Ticket {ticket} at stop-loss (profit: ${latest_profit:.2f}) - not closing")
+                    break
+                
+                if latest_profit < 0:
+                    logger.debug(f"Micro-HFT: Ticket {ticket} has negative profit (${latest_profit:.2f}) - not closing")
                     break
                 
                 in_sweet_spot_retry = (self.min_profit_threshold_usd <= latest_profit <= self.max_profit_threshold_usd)

@@ -61,6 +61,9 @@ class TradingBot:
         self.volume_filter = VolumeFilter(self.config, self.mt5_connector)
         self.trade_logger = TradeLogger(self.config)
         
+        # Register P/L callback with risk manager
+        self.risk_manager.set_pnl_callback(self._update_realized_pnl_on_closure)
+        
         # Initialize Position Monitor for closure detection
         self.position_monitor = PositionMonitor(self.config, self.trade_logger)
         self.position_monitor_running = False
@@ -99,10 +102,13 @@ class TradingBot:
         self.kill_switch_active = False
         self.running = False
         
-        # P&L tracking
+        # P&L tracking (legacy - kept for compatibility)
         self.daily_pnl = 0.0
         self.last_pnl_reset = datetime.now().date()
         self.trade_count_today = 0
+        
+        # Session tracking (initialized in connect())
+        self.session_start_balance = None
         
         # Trading config
         self.trading_config = self.config.get('trading', {})
@@ -117,10 +123,17 @@ class TradingBot:
         self.trade_stats = {
             'total_trades': 0,
             'successful_trades': 0,
-            'failed_trades': 0,
+            'failed_trades': 0,  # Only actual execution failures
+            'filtered_opportunities': 0,  # Opportunities filtered out (not failed trades)
             'total_spread_paid': 0.0,
             'total_commission_paid': 0.0
         }
+        
+        # P/L tracking (daily and session)
+        self.session_start_time = datetime.now()
+        self.session_start_balance = None
+        self.realized_pnl = 0.0  # Realized P/L from closed trades
+        self.realized_pnl_today = 0.0  # Realized P/L for today
         
         # Continuous trailing stop thread
         self.trailing_stop_thread = None
@@ -152,6 +165,15 @@ class TradingBot:
         logger.info("Connecting to MT5...")
         if self.mt5_connector.connect():
             logger.info("MT5 connection established")
+            
+            # Initialize session tracking
+            account_info = self.mt5_connector.get_account_info()
+            if account_info:
+                self.session_start_balance = account_info.get('balance', 0)
+                self.session_start_time = datetime.now()
+                self.realized_pnl = 0.0
+                logger.info(f"📊 Session started | Starting Balance: ${self.session_start_balance:.2f}")
+            
             return True
         else:
             logger.error("Failed to connect to MT5")
@@ -224,11 +246,13 @@ class TradingBot:
             logger.info("=" * 60)
             logger.info(f"📊 Daily P&L Report - Date: {self.last_pnl_reset}")
             logger.info(f"   Total P&L: ${self.daily_pnl:.2f}")
+            logger.info(f"   Realized P/L: ${self.realized_pnl_today:.2f}")
             logger.info(f"   Trades Executed: {self.trade_count_today}")
             logger.info(f"   Trade Statistics:")
             logger.info(f"     - Total Trades: {self.trade_stats['total_trades']}")
             logger.info(f"     - Successful: {self.trade_stats['successful_trades']}")
             logger.info(f"     - Failed: {self.trade_stats['failed_trades']}")
+            logger.info(f"     - Filtered Opportunities: {self.trade_stats['filtered_opportunities']}")
             if self.trade_stats['total_trades'] > 0:
                 success_rate = (self.trade_stats['successful_trades'] / self.trade_stats['total_trades']) * 100
                 logger.info(f"     - Success Rate: {success_rate:.1f}%")
@@ -236,19 +260,98 @@ class TradingBot:
                 logger.info(f"     - Total Spread Paid: {self.trade_stats['total_spread_paid']:.1f} points")
             logger.info("=" * 60)
             self.daily_pnl = 0.0
+            self.realized_pnl_today = 0.0
             self.trade_count_today = 0
             self.last_pnl_reset = today
         
-        # Calculate current P&L from open positions
-        positions = self.order_manager.get_open_positions()
-        current_pnl = sum([p['profit'] for p in positions])
+        # Calculate realized P/L from closed trades today
+        # Read from trade logs to get closed trade profits
+        try:
+            realized_pnl_today = self._calculate_realized_pnl_today()
+            if realized_pnl_today is not None:
+                self.realized_pnl_today = realized_pnl_today
+        except Exception as e:
+            logger.debug(f"Could not calculate realized P/L from logs: {e}")
         
-        # Get account info for total equity change
+        # Calculate current floating P/L from open positions
+        positions = self.order_manager.get_open_positions(exclude_dec8=True)
+        floating_pnl = sum([p['profit'] for p in positions])
+        
+        # Total daily P/L = realized (closed) + floating (open)
+        self.daily_pnl = self.realized_pnl_today + floating_pnl
+        
+        # Get account info for session tracking
         account_info = self.mt5_connector.get_account_info()
-        if account_info:
-            # This is a simplified calculation
-            # In production, track starting balance vs current equity
-            pass
+        if account_info and self.session_start_balance:
+            current_balance = account_info.get('balance', 0)
+            session_pnl = current_balance - self.session_start_balance
+            # Store for display
+            self.session_pnl = session_pnl
+        else:
+            self.session_pnl = self.daily_pnl  # Fallback
+    
+    def _calculate_realized_pnl_today(self) -> float:
+        """Calculate realized P/L from closed trades today by reading trade logs."""
+        import os
+        import glob
+        import json
+        from datetime import datetime
+        
+        today = datetime.now().date()
+        total_realized = 0.0
+        
+        # Read all trade log files
+        trade_log_dir = "logs/trades"
+        if not os.path.exists(trade_log_dir):
+            return 0.0
+        
+        for log_file in glob.glob(os.path.join(trade_log_dir, "*.log")):
+            try:
+                with open(log_file, 'r') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith('{'):
+                            try:
+                                trade = json.loads(line)
+                                # Check if trade is closed and from today
+                                if trade.get('status') == 'CLOSED':
+                                    trade_timestamp = trade.get('timestamp', '')
+                                    if trade_timestamp:
+                                        try:
+                                            trade_time = datetime.strptime(trade_timestamp.split('.')[0], '%Y-%m-%d %H:%M:%S')
+                                            if trade_time.date() == today:
+                                                profit = trade.get('profit_usd', 0.0)
+                                                if profit is not None:
+                                                    total_realized += profit
+                                        except (ValueError, AttributeError):
+                                            continue
+                            except json.JSONDecodeError:
+                                continue
+            except Exception:
+                continue
+        
+        return total_realized
+    
+    def _update_realized_pnl_on_closure(self, profit: float, close_time: datetime):
+        """
+        Callback to update realized P/L when a position closes.
+        Called by RiskManager when it detects a position closure.
+        
+        Args:
+            profit: Profit/loss from closed trade
+            close_time: Close timestamp
+        """
+        from datetime import datetime as dt
+        today = dt.now().date()
+        close_date = close_time.date() if isinstance(close_time, dt) else close_time
+        
+        # Update total realized P/L
+        self.realized_pnl += profit
+        
+        # Update today's realized P/L if closed today
+        if close_date == today:
+            self.realized_pnl_today += profit
+            logger.debug(f"📊 Updated realized P/L: +${profit:.2f} | Today: ${self.realized_pnl_today:.2f} | Total: ${self.realized_pnl:.2f}")
     
     def scan_for_opportunities(self) -> List[Dict[str, Any]]:
         """Scan for trading opportunities with SIMPLE logic and comprehensive logging."""
@@ -269,6 +372,7 @@ class TradingBot:
                     # 0. Check if symbol was previously restricted (prevent duplicate attempts)
                     if hasattr(self, '_restricted_symbols') and symbol.upper() in self._restricted_symbols:
                         logger.debug(f"⛔ [SKIP] {symbol} | Reason: Previously restricted - skipping to avoid duplicate attempts")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 0a. Check if symbol is tradeable/executable RIGHT NOW (market is open, trade mode enabled)
@@ -276,6 +380,7 @@ class TradingBot:
                     is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
                     if not is_tradeable:
                         logger.debug(f"⛔ [SKIP] {symbol} | Reason: NOT EXECUTABLE - {reason}")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue  # Skip this symbol - not tradeable right now
                     else:
                         logger.debug(f"✅ {symbol}: Symbol is tradeable and executable")
@@ -284,18 +389,21 @@ class TradingBot:
                     should_skip_close, close_reason = self.market_closing_filter.should_skip(symbol)
                     if should_skip_close:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: {close_reason}")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 0c. Check if volume/liquidity is sufficient
                     should_skip_volume, volume_reason, volume_value = self.volume_filter.should_skip(symbol)
                     if should_skip_volume:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: {volume_reason}")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 1. Check if news is blocking (but allow trading if API fails)
                     news_blocking = self.news_filter.is_news_blocking(symbol)
                     if news_blocking:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: NEWS BLOCKING (high-impact news within 10 min window)")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     else:
                         logger.debug(f"✅ {symbol}: No news blocking")
@@ -305,12 +413,14 @@ class TradingBot:
                     
                     if trend_signal['signal'] == 'NONE':
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: No trend signal (SMA20 == SMA50 or invalid data)")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 2a. Check RSI filter (30-50 range for entries)
                     if self.trend_filter.use_rsi_filter and not trend_signal.get('rsi_filter_passed', True):
                         rsi_value = trend_signal.get('rsi', 50)
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: RSI filter failed (RSI: {rsi_value:.1f} not in range {self.trend_filter.rsi_entry_range_min}-{self.trend_filter.rsi_entry_range_max})")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 3. Check halal compliance (ALWAYS skip in test mode per requirements)
@@ -323,6 +433,7 @@ class TradingBot:
                         # Live mode: enforce halal if enabled
                         if not self.halal_compliance.validate_trade(symbol, trend_signal['signal']):
                             logger.info(f"⛔ [SKIP] {symbol} | Reason: HALAL COMPLIANCE CHECK FAILED")
+                            self.trade_stats['filtered_opportunities'] += 1
                             continue
                     
                     # 3a. TESTING MODE: Check min lot size requirements (0.01-0.1, risk <= $2)
@@ -334,12 +445,14 @@ class TradingBot:
                         if not min_lot_valid:
                             logger.info(f"⛔ [SKIP] {symbol} | Signal: {trend_signal['signal']} | "
                                       f"MinLot: {min_lot:.4f} | Reason: {min_lot_reason}")
+                            self.trade_stats['filtered_opportunities'] += 1
                             continue
                         logger.debug(f"✅ {symbol}: Min lot check passed - {min_lot_reason}")
                     
                     # 4. SIMPLIFIED setup validation (only checks if signal != NONE)
                     if not self.trend_filter.is_setup_valid_for_scalping(symbol, trend_signal):
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Setup validation failed (signal is NONE)")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 4a. Check trend strength minimum (SMA separation percentage)
@@ -347,6 +460,7 @@ class TradingBot:
                     min_trend_strength_pct = self.trading_config.get('min_trend_strength_pct', 0.05)  # Default 0.05%
                     if sma_separation_pct < min_trend_strength_pct:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Trend strength too weak (SMA separation: {sma_separation_pct:.4f}% < {min_trend_strength_pct}%)")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 5. Calculate quality score for trade selection
@@ -358,6 +472,7 @@ class TradingBot:
                     # Filter by quality score - only trade high-quality setups
                     if quality_score < min_quality_score:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Quality score {quality_score:.1f} < threshold {min_quality_score} | Details: {', '.join(quality_assessment.get('reasons', []))}")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # Check portfolio risk limit before opening trade
@@ -375,6 +490,7 @@ class TradingBot:
                         portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
                         if not portfolio_risk_ok:
                             logger.info(f"⛔ [SKIP] {symbol} | Reason: Portfolio risk limit - {portfolio_reason}")
+                            self.trade_stats['filtered_opportunities'] += 1
                             continue
                     
                     # 6. Check if we can open a new trade (with staged open support)
@@ -388,18 +504,21 @@ class TradingBot:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
                         symbol_logger = get_symbol_logger(symbol)
                         symbol_logger.debug(f"⛔ Cannot open trade: {reason}")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 7. Check spread
                     spread_points = self.pair_filter.get_spread_points(symbol)
                     if spread_points is None:
                         logger.warning(f"⚠️ {symbol}: Cannot get spread information - skipping")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # Check spread acceptability
                     if not self.pair_filter.check_spread(symbol):
                         max_spread = self.pair_filter.max_spread_points
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Spread {spread_points:.2f} points > {max_spread} limit")
+                        self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 7a. TESTING MODE: Check spread + fees <= $0.30 (STRICTLY ENFORCED)
@@ -408,7 +527,7 @@ class TradingBot:
                     if test_mode:
                         # Use min_lot already calculated above
                         if not min_lot_valid:
-                            # Already logged above, skip
+                            # Already logged above, skip (filtered_opportunities already incremented)
                             continue
                         
                         # Calculate spread + fees cost using minimum lot size
@@ -421,6 +540,8 @@ class TradingBot:
                                       f"MinLot: {min_lot:.4f} | Spread: {spread_points:.1f}pts | "
                                       f"Spread+Fees: ${total_cost:.2f} > ${max_cost:.2f} | "
                                       f"Reason: Spread+Fees exceed limit (STRICT) | ({cost_description})")
+                            self.trade_stats['filtered_opportunities'] += 1
+                            continue
                             continue
                         
                         logger.debug(f"✅ {symbol}: Spread+Fees check passed - ${total_cost:.2f} <= ${max_cost:.2f} ({cost_description})")
@@ -519,7 +640,7 @@ class TradingBot:
         logger.info(f"🎯 Found {len(opportunities)} trading opportunity(ies)")
         return opportunities
     
-    def execute_trade(self, opportunity: Dict[str, Any], skip_randomness: bool = False) -> bool:
+    def execute_trade(self, opportunity: Dict[str, Any], skip_randomness: bool = False) -> Optional[bool]:
         """
         Execute a trade based on opportunity with randomness factor and comprehensive logging.
         
@@ -528,19 +649,23 @@ class TradingBot:
             skip_randomness: If True, skip randomness factor (used in manual approval mode)
         
         Returns:
-            True if trade was successfully executed, False otherwise
+            True if trade was successfully executed
+            False if trade execution failed (order placement error, etc.)
+            None if trade was filtered/skipped (randomness, risk validation, trend change) - NOT a failure
         """
         symbol = opportunity['symbol']
         signal = opportunity['signal']
         
         try:
             # RANDOMNESS FACTOR: Skip in manual approval mode (user already approved)
+            # NOTE: Randomness skip is NOT a failure - it's intentional filtering
             if not skip_randomness:
                 random_value = random.random()  # 0.0 to 1.0
                 
                 if random_value < self.randomness_factor:
                     logger.info(f"🎲 {symbol}: RANDOMNESS SKIP - Random value {random_value:.3f} < threshold {self.randomness_factor} (skipping trade to avoid over-trading)")
-                    return False
+                    # Return special code to indicate this is NOT a failure (just filtering)
+                    return None  # None indicates filtered/skipped, not failed
                 else:
                     logger.info(f"🎲 {symbol}: RANDOMNESS PASS - Random value {random_value:.3f} >= threshold {self.randomness_factor} (proceeding with trade)")
             
@@ -560,7 +685,8 @@ class TradingBot:
                     trend_signal = self.trend_filter.get_trend_signal(symbol)
                     if trend_signal['signal'] != signal:
                         logger.warning(f"⚠️ {symbol}: Trend changed during delay. Original: {signal}, Current: {trend_signal['signal']}. Skipping trade.")
-                        return False
+                        # Trend change is NOT a failure - it's a safety check
+                        return None  # None indicates filtered/skipped, not failed
             
             # Determine order type (ensure both BUY and SELL work correctly)
             if signal == 'LONG':
@@ -608,22 +734,27 @@ class TradingBot:
                 self.trade_stats['failed_trades'] += 1
                 return False
             
-            # ALWAYS use the MINIMUM lot size per symbol (per user requirement)
-            # Get minimum lot size for this symbol - this is the LEAST POSSIBLE lot size
+            # CRITICAL FIX: Calculate lot size to achieve $2 risk (not always use minimum)
+            # Get symbol info for lot size calculation
             symbol_info_for_lot = self.mt5_connector.get_symbol_info(symbol)
             if not symbol_info_for_lot:
                 logger.error(f"❌ {symbol}: Cannot get symbol info for lot size calculation")
                 self.trade_stats['failed_trades'] += 1
                 return False
             
-            # Get broker minimum lot size
+            # Calculate point, pip value, and contract size
+            point = symbol_info_for_lot.get('point', 0.00001)
+            pip_value = point * 10 if symbol_info_for_lot.get('digits', 5) == 5 or symbol_info_for_lot.get('digits', 3) == 3 else point
+            contract_size = symbol_info_for_lot.get('contract_size', 1.0)
+            stop_loss_price = stop_loss_pips * pip_value
+            
+            # Get broker minimum lot size and config overrides
             symbol_min_lot = symbol_info_for_lot.get('volume_min', 0.01)
             symbol_upper = symbol.upper()
             symbol_limit_config = self.risk_manager.symbol_limits.get(symbol_upper, {})
             config_min_lot = symbol_limit_config.get('min_lot')
             
             # Determine effective minimum lot (config override or broker minimum)
-            # This is the LEAST POSSIBLE lot size for this symbol
             if config_min_lot is not None:
                 effective_min_lot = max(symbol_min_lot, config_min_lot)
                 min_source = "config"
@@ -631,26 +762,37 @@ class TradingBot:
                 effective_min_lot = symbol_min_lot
                 min_source = "broker"
             
-            # Round to volume step to ensure valid lot size
+            # Calculate lot size needed to achieve $2 risk
+            max_risk_usd = self.risk_manager.max_risk_usd  # Should be $2.0
+            if stop_loss_price > 0 and contract_size > 0:
+                calculated_lot_for_risk = max_risk_usd / (stop_loss_price * contract_size)
+            else:
+                calculated_lot_for_risk = effective_min_lot
+            
+            # Round to volume step
             volume_step = symbol_info_for_lot.get('volume_step', 0.01)
             if volume_step > 0:
+                calculated_lot_for_risk = round(calculated_lot_for_risk / volume_step) * volume_step
                 effective_min_lot = round(effective_min_lot / volume_step) * volume_step
                 if effective_min_lot < volume_step:
                     effective_min_lot = volume_step
             
-            # ALWAYS use the minimum lot size (LEAST POSSIBLE for this symbol)
-            lot_size = effective_min_lot
+            # Use the MAXIMUM of calculated lot (for $2 risk) and broker minimum
+            # This ensures we get $2 risk if possible, but never go below broker minimum
+            lot_size = max(calculated_lot_for_risk, effective_min_lot)
             
-            # CRITICAL FIX: Calculate risk using ACTUAL fill price (will be updated after order placement)
-            # For now, use requested price but we'll recalculate with actual fill price after order
-            point = symbol_info_for_lot.get('point', 0.00001)
-            pip_value = point * 10 if symbol_info_for_lot.get('digits', 5) == 5 or symbol_info_for_lot.get('digits', 3) == 3 else point
-            contract_size = symbol_info_for_lot.get('contract_size', 1.0)
-            stop_loss_price = stop_loss_pips * pip_value
-            
-            # Calculate risk with requested entry price (pre-trade validation)
-            # Note: After order placement, we'll recalculate with actual fill price
+            # Calculate actual risk with chosen lot size
             estimated_risk = lot_size * stop_loss_price * contract_size
+            
+            # CRITICAL: Log lot size decision
+            if calculated_lot_for_risk >= effective_min_lot:
+                lot_reason = f"Calculated for ${max_risk_usd:.2f} risk ({calculated_lot_for_risk:.4f})"
+            else:
+                lot_reason = f"Using minimum lot {effective_min_lot:.4f} ({min_source}) - calculated {calculated_lot_for_risk:.4f} was below minimum"
+            
+            logger.info(f"📦 {symbol}: LOT SIZE = {lot_size:.4f} | "
+                       f"Reason: {lot_reason} | "
+                       f"Estimated Risk: ${estimated_risk:.2f} (target: ${max_risk_usd:.2f})")
             
             # CRITICAL FIX: Reject trade if estimated risk (with slippage buffer) exceeds max_risk_usd
             # Add 10% slippage buffer to account for execution slippage
@@ -661,8 +803,9 @@ class TradingBot:
             if risk_with_slippage > max_risk_usd:
                 logger.warning(f"⛔ {symbol}: REJECTED - Estimated risk ${estimated_risk:.2f} (with slippage: ${risk_with_slippage:.2f}) exceeds max ${max_risk_usd:.2f} | "
                              f"Lot: {lot_size:.4f}, SL: {stop_loss_pips:.1f} pips, Contract: {contract_size}")
-                self.trade_stats['failed_trades'] += 1
-                return False
+                # Risk validation failure is NOT an execution failure - it's a pre-execution filter
+                # Don't increment failed_trades - this is expected risk management
+                return None  # None indicates filtered/skipped, not failed
             
             # Log trade execution with lot size details
             # Use estimated_risk here (actual risk will be calculated after order placement with fill price)
@@ -714,8 +857,8 @@ class TradingBot:
                 logger.warning(f"⏰ {symbol}: Market closed or not tradeable - {reason}")
                 logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
                 print(f"⛔ {symbol}: Market closed - {reason}. Re-scan when market opens.")
-                self.trade_stats['failed_trades'] += 1
-                return False
+                # Market closed is NOT a failure - it's a market condition
+                return None  # None indicates filtered/skipped, not failed
             
             # Classify error types for retry logic
             NON_RETRYABLE_ERRORS = {
@@ -759,7 +902,8 @@ class TradingBot:
                 if not is_tradeable:
                     logger.warning(f"⏰ {symbol}: Market closed during retry - {reason}")
                     logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
-                    break  # Don't retry if market is closed
+                    # Market closed is NOT a failure - it's a market condition
+                    return None  # None indicates filtered/skipped, not failed
                 
                 order_result = self.order_manager.place_order(
                     symbol=symbol,
@@ -810,8 +954,8 @@ class TradingBot:
                     logger.warning(f"⏰ {symbol}: Market closed (error 10018) - skipping trade execution")
                     logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - order rejected by broker")
                     print(f"⛔ {symbol}: Market closed - order rejected. Re-scan when market opens.")
-                    self.trade_stats['failed_trades'] += 1
-                    break  # Don't retry
+                    # Market closed is NOT a failure - it's a market condition
+                    return None  # None indicates filtered/skipped, not failed
                 
                 # Trading restrictions - don't retry (10027, 10044, etc.)
                 if error_code == -5:
@@ -1469,12 +1613,18 @@ class TradingBot:
         
         # Execute trade (skip randomness in manual mode)
         logger.info(f"🚀 Executing approved trade: {symbol} {signal}")
-        success = self.execute_trade(opportunity, skip_randomness=True)
+        result = self.execute_trade(opportunity, skip_randomness=True)
         
-        if not success:
+        # execute_trade returns True (success), False (failure), or None (filtered)
+        if result is False:
             logger.error(f"❌ {symbol}: Trade execution failed")
             print(f"❌ Execution failed for {symbol} {signal}")
             return None
+        elif result is None:
+            logger.info(f"⛔ {symbol}: Trade filtered/skipped (risk validation or safety check)")
+            print(f"⛔ {symbol}: Trade filtered - not a failure")
+            return None
+        # result is True - success, continue
         
         # Wait for position to appear (MT5 can take a moment)
         max_wait = 2.0  # seconds
@@ -1934,16 +2084,30 @@ class TradingBot:
                         continue
                     
                     # Execute trade
-                    if self.execute_trade(opportunity):
+                    result = self.execute_trade(opportunity)
+                    
+                    # execute_trade returns:
+                    # - True: Trade executed successfully
+                    # - False: Actual execution failure (order placement failed, etc.)
+                    # - None: Filtered/skipped (randomness, risk validation, trend change) - NOT a failure
+                    
+                    if result is True:
                         if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'PASS - EXECUTED':<20} | Trade executed")
                         logger.info(f"✅ {symbol}: Trade execution completed successfully")
                         trades_executed += 1
                             # DO NOT manually increment - always use get_position_count() in next iteration
-                    else:
+                    elif result is None:
+                        # Filtered/skipped - NOT a failure (randomness, risk validation, trend change)
                         if test_mode:
-                                logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | Trade execution failed")
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Trade execution failed (check logs above)")
+                                logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | Filtered (not a failure)")
+                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Trade filtered/skipped (randomness, risk validation, or trend change)")
+                        self.trade_stats['filtered_opportunities'] += 1
+                        trades_skipped += 1
+                    else:  # result is False - actual execution failure
+                        if test_mode:
+                                logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'FAILED':<20} | Trade execution failed")
+                        logger.info(f"❌ [FAILED] {symbol} | Reason: Trade execution failed (order placement error)")
                         trades_skipped += 1
                     
                     # Re-check position count after execution

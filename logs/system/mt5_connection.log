@@ -49,3 +49,31 @@
 2025-12-09 17:27:49 - mt5_connection - INFO - MT5 connection closed
 2025-12-09 17:27:50 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9978.97
 2025-12-09 17:27:50 - mt5_connection - INFO - MT5 connection closed
+2025-12-09 18:07:24 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9978.97
+2025-12-09 18:07:24 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9978.97
+2025-12-09 18:07:24 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9978.97
+2025-12-09 18:07:24 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9978.97
+2025-12-09 18:07:24 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9978.97
+2025-12-09 18:07:25 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9978.97
+2025-12-09 18:33:15 - mt5_connection - INFO - MT5 connection closed
+2025-12-09 18:33:23 - mt5_connection - WARNING - MT5 connection lost, attempting reconnect...
+2025-12-09 18:33:23 - mt5_connection - WARNING - Attempting to reconnect to MT5...
+2025-12-09 18:33:23 - mt5_connection - INFO - Reconnection attempt 1/5
+2025-12-09 18:33:23 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9979.09
+2025-12-09 18:33:23 - mt5_connection - INFO - Reconnection successful
+2025-12-09 18:33:27 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9979.09
+2025-12-09 18:33:32 - mt5_connection - INFO - MT5 connection closed
+2025-12-09 18:33:36 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9979.09
+2025-12-09 18:33:36 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9979.09
+2025-12-09 18:33:36 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9979.09
+2025-12-09 18:33:36 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9979.09
+2025-12-09 18:33:36 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9979.09
+2025-12-09 18:33:37 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9979.09
+2025-12-09 18:45:11 - mt5_connection - INFO - MT5 connection closed
+2025-12-09 18:45:19 - mt5_connection - WARNING - MT5 connection lost, attempting reconnect...
+2025-12-09 18:45:19 - mt5_connection - WARNING - Attempting to reconnect to MT5...
+2025-12-09 18:45:19 - mt5_connection - INFO - Reconnection attempt 1/5
+2025-12-09 18:45:19 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9975.17
+2025-12-09 18:45:19 - mt5_connection - INFO - Reconnection successful
+2025-12-09 18:45:21 - mt5_connection - INFO - MT5 connected successfully. Account: 259747051, Balance: 9973.65
+2025-12-09 18:45:26 - mt5_connection - INFO - MT5 connection closed

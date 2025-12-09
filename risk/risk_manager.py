@@ -21,6 +21,7 @@ class RiskManager:
         self.risk_config = config.get('risk', {})
         self.mt5_connector = mt5_connector
         self.order_manager = order_manager
+        self.bot_pnl_callback = None  # Callback to update bot's realized P/L when positions close
         
         self.max_risk_usd = self.risk_config.get('max_risk_per_trade_usd', 2.0)
         self.default_lot_size = self.risk_config.get('default_lot_size', 0.01)
@@ -83,6 +84,16 @@ class RiskManager:
         """
         self._micro_profit_engine = micro_profit_engine
         logger.info("Micro-HFT Profit Engine registered with RiskManager")
+    
+    def set_pnl_callback(self, callback):
+        """
+        Set callback function to update bot's realized P/L when positions close.
+        
+        Args:
+            callback: Function that accepts (profit: float) and updates bot's realized P/L
+        """
+        self.bot_pnl_callback = callback
+        logger.debug("P/L update callback registered with RiskManager")
     
     def calculate_minimum_lot_size_for_risk(
         self,
@@ -1186,14 +1197,26 @@ class RiskManager:
                                     
                                     duration_min = (close_time - entry_time).total_seconds() / 60
                                     
-                                    # Determine close reason
+                                    # Determine close reason with improved detection
                                     close_reason = "Unknown"
-                                    if abs(total_profit + 2.0) < 0.10:  # Close to -$2.00
+                                    # CRITICAL: Detect stop-loss closures accurately
+                                    # Allow small tolerance for rounding (within $0.05 of -$2.00)
+                                    if abs(total_profit + 2.0) <= 0.05:  # Close to -$2.00 (within $0.05 tolerance)
                                         close_reason = "Stop Loss (-$2.00)"
+                                        logger.info(f"🛑 STOP-LOSS TRIGGERED: Ticket {ticket} | {symbol} | "
+                                                  f"Profit: ${total_profit:.2f} | Reason: Hit configured stop-loss at -$2.00")
+                                    elif abs(total_profit + 1.0) <= 0.05:  # Close to -$1.00 (EARLY CLOSURE ISSUE)
+                                        close_reason = "Stop Loss (-$1.00) - EARLY CLOSURE DETECTED"
+                                        logger.warning(f"⚠️ EARLY STOP-LOSS CLOSURE: Ticket {ticket} | {symbol} | "
+                                                     f"Profit: ${total_profit:.2f} | Expected: -$2.00 | "
+                                                     f"This trade closed at -$1.00 instead of configured -$2.00 stop-loss")
                                     elif total_profit > 0:
                                         close_reason = "Take Profit or Trailing Stop"
-                                    elif total_profit < -2.0:
+                                    elif total_profit < -2.05:  # More than $0.05 below -$2.00
                                         close_reason = f"Stop Loss exceeded (${total_profit:.2f})"
+                                        logger.warning(f"⚠️ STOP-LOSS EXCEEDED: Ticket {ticket} | {symbol} | "
+                                                     f"Profit: ${total_profit:.2f} | Expected max: -$2.00 | "
+                                                     f"Loss exceeded configured stop-loss limit")
                                         # Log late exit warning
                                         trade_logger.log_late_exit_prevention(
                                             symbol=symbol,
@@ -1215,6 +1238,13 @@ class RiskManager:
                                         entry_time=entry_time,
                                         close_time=close_time
                                     )
+                                    
+                                    # Update realized P/L in trading bot via callback
+                                    if self.bot_pnl_callback and callable(self.bot_pnl_callback):
+                                        try:
+                                            self.bot_pnl_callback(total_profit, close_time)
+                                        except Exception as e:
+                                            logger.debug(f"Error updating realized P/L via callback: {e}")
             
             # Now remove tracking entries
             with self._tracking_lock:

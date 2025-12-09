@@ -10,3 +10,24 @@
 2025-12-09 17:17:10 - monitoring - INFO - Near $0.10 multiple: Ticket 470930794 (ETHUSDm) at $0.30, next multiple: $0.30
 2025-12-09 17:17:10 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470978707 (BTCXAUm) closed at $0.12
 2025-12-09 17:18:20 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470978682 (ETHUSDm) closed at $0.17
+2025-12-09 18:07:25 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470921034 (BTCXAUm) closed at $0.38
+2025-12-09 18:07:25 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470978707 (BTCXAUm) closed at $0.12
+2025-12-09 18:07:25 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470978682 (ETHUSDm) closed at $0.17
+2025-12-09 18:12:08 - monitoring - INFO - Near $0.10 multiple: Ticket 471347406 (US30_x10m) at $0.16, next multiple: $0.20
+2025-12-09 18:12:18 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 471347406 (US30_x10m) closed at $0.12
+2025-12-09 18:33:37 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470921034 (BTCXAUm) closed at $0.38
+2025-12-09 18:33:37 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470978707 (BTCXAUm) closed at $0.12
+2025-12-09 18:33:37 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 470978682 (ETHUSDm) closed at $0.17
+2025-12-09 18:33:37 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 471347406 (US30_x10m) closed at $0.12
+2025-12-09 18:37:28 - monitoring - INFO - Micro-HFT sweet spot: Order 471600452 (US30_x10m) closed at $0.06
+2025-12-09 18:39:08 - monitoring - INFO - Micro-HFT sweet spot: Order 471610720 (US30_x10m) closed at $0.07
+2025-12-09 18:39:08 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 471606275 (US30_x10m) closed at $0.14
+2025-12-09 18:40:18 - monitoring - INFO - Micro-HFT sweet spot: Order 471622382 (US30_x10m) closed at $0.04
+2025-12-09 18:40:28 - monitoring - INFO - Micro-HFT sweet spot: Order 471626762 (US30_x10m) closed at $0.08
+2025-12-09 18:41:29 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 471630509 (US30_x10m) closed at $0.19
+2025-12-09 18:41:59 - monitoring - INFO - Near $0.10 multiple: Ticket 471636530 (US30_x10m) at $0.16, next multiple: $0.20
+2025-12-09 18:42:09 - monitoring - INFO - Micro-HFT sweet spot: Order 471636530 (US30_x10m) closed at $0.07
+2025-12-09 18:42:19 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 471642939 (US30_x10m) closed at $0.19
+2025-12-09 18:42:39 - monitoring - INFO - Near $0.10 multiple: Ticket 471618230 (US30_x10m) at $0.16, next multiple: $0.20
+2025-12-09 18:42:49 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 471618230 (US30_x10m) closed at $0.12
+2025-12-09 18:42:49 - monitoring - INFO - Micro-HFT non-sweet-spot: Order 471614365 (US30_x10m) closed at $0.22

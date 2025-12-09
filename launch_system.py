@@ -352,33 +352,46 @@ class TradingSystemLauncher:
                     # Clear screen and display summary
                     clear_screen()
                     
-                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
+                    # Header
+                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
                     print(f"{Colors.BOLD}{Colors.HEADER}📊 TRADING BOT - REAL-TIME SUMMARY{Colors.END}")
-                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
-                    print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
+                    print(f"{Colors.BOLD}Time: {Colors.END}{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
                     print()
                     
-                    # Account Info
+                    # ==================== ACCOUNT INFORMATION TABLE ====================
                     if account_info:
                         balance = account_info.get('balance', 0)
                         equity = account_info.get('equity', 0)
                         profit = account_info.get('profit', 0)
                         currency = account_info.get('currency', 'USD')
+                        free_margin = account_info.get('free_margin', 0)
+                        margin = account_info.get('margin', 0)
                         
                         profit_color = Colors.GREEN if profit >= 0 else Colors.RED
                         equity_color = Colors.GREEN if equity >= balance else Colors.YELLOW
                         
-                        print(f"{Colors.BOLD}Account Information:{Colors.END}")
-                        print(f"  Balance: ${balance:.2f} {currency}")
-                        print(f"  Equity: {equity_color}${equity:.2f}{Colors.END} {currency}")
-                        print(f"  Floating P/L: {profit_color}${profit:.2f}{Colors.END} {currency}")
+                        print(f"{Colors.BOLD}{Colors.BLUE}💰 ACCOUNT INFORMATION{Colors.END}")
+                        print(f"{Colors.BLUE}{'-' * 120}{Colors.END}")
+                        print(f"{Colors.BOLD}{'Metric':<25} | {'Value':<30} | {'Status':<30}{Colors.END}")
+                        print(f"{Colors.BLUE}{'-' * 120}{Colors.END}")
+                        print(f"{'Balance':<25} | ${balance:>12,.2f} {currency:<15} | {'Base Capital'}")
+                        print(f"{'Equity':<25} | {equity_color}${equity:>12,.2f}{Colors.END} {currency:<15} | {equity_color}{'Above Balance' if equity >= balance else 'Below Balance'}{Colors.END}")
+                        print(f"{'Floating P/L':<25} | {profit_color}${profit:>12,.2f}{Colors.END} {currency:<15} | {profit_color}{'Profit' if profit >= 0 else 'Loss'}{Colors.END}")
+                        print(f"{'Free Margin':<25} | ${free_margin:>12,.2f} {currency:<15} | {'Available'}")
+                        print(f"{'Used Margin':<25} | ${margin:>12,.2f} {currency:<15} | {'In Positions'}")
+                        print(f"{Colors.BLUE}{'-' * 120}{Colors.END}")
                         print()
                     
-                    # Open Positions
+                    # ==================== OPEN POSITIONS TABLE ====================
                     print(f"{Colors.BOLD}{Colors.BLUE}📊 OPEN POSITIONS ({len(positions)}){Colors.END}")
-                    print(f"{Colors.BLUE}{'-' * 100}{Colors.END}")
+                    print(f"{Colors.BLUE}{'-' * 120}{Colors.END}")
                     
                     if positions:
+                        # Table header
+                        print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'Entry':<12} | {'Current':<12} | {'SL':<12} | {'P/L':<12} | {'Duration':<12} | {'Status'}{Colors.END}")
+                        print(f"{Colors.BLUE}{'-' * 120}{Colors.END}")
+                        
                         total_profit = 0.0
                         for pos in positions:
                             ticket = pos.get('ticket', 0)
@@ -392,71 +405,115 @@ class TradingSystemLauncher:
                             time_open = pos.get('time_open', datetime.now())
                             
                             duration = datetime.now() - time_open if isinstance(time_open, datetime) else timedelta(0)
+                            duration_str = str(duration).split('.')[0] if duration.total_seconds() > 0 else "0:00:00"
                             
                             profit_color = Colors.GREEN if profit >= 0 else Colors.RED
                             profit_symbol = "🟢" if profit >= 0 else "🔴"
                             
                             total_profit += profit
                             
-                            # Determine if Micro-HFT applicable
+                            # Determine HFT status
                             hft_status = ""
+                            hft_color = ""
                             if 0.03 <= profit <= 0.10:
-                                hft_status = f"{Colors.YELLOW}[HFT Sweet Spot]"
+                                hft_status = "HFT Sweet Spot"
+                                hft_color = Colors.YELLOW
                             elif profit > 0.10:
-                                hft_status = f"{Colors.CYAN}[HFT Target]"
+                                hft_status = "HFT Target"
+                                hft_color = Colors.CYAN
+                            else:
+                                hft_status = "Active"
+                                hft_color = Colors.BLUE
                             
-                            print(f"{profit_symbol} {Colors.BOLD}Ticket {ticket}{Colors.END} | "
-                                  f"{symbol} {pos_type} | "
-                                  f"Lot: {volume:.4f} | "
-                                  f"{profit_color}P/L: ${profit:.2f}{Colors.END} {hft_status}{Colors.END}")
-                            print(f"   Entry: {entry:.5f} → Current: {current:.5f} | "
-                                  f"SL: {sl:.5f} | "
-                                  f"Duration: {str(duration).split('.')[0]}")
-                        print(f"{Colors.BLUE}{'-' * 100}{Colors.END}")
+                            # Format entry, current, and SL prices based on symbol precision
+                            entry_str = f"{entry:.5f}" if entry < 1000 else f"{entry:.2f}"
+                            current_str = f"{current:.5f}" if current < 1000 else f"{current:.2f}"
+                            sl_str = f"{sl:.5f}" if sl < 1000 and sl > 0 else f"{sl:.2f}" if sl > 0 else "N/A"
+                            
+                            print(f"{profit_symbol} {ticket:<9} | {symbol:<12} | {pos_type:<6} | {volume:<8.4f} | {entry_str:<12} | {current_str:<12} | {sl_str:<12} | "
+                                  f"{profit_color}${profit:>10,.2f}{Colors.END} | {duration_str:<12} | {hft_color}{hft_status}{Colors.END}")
+                        
+                        print(f"{Colors.BLUE}{'-' * 120}{Colors.END}")
                         total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
-                        print(f"{Colors.BOLD}Total Floating P/L: {total_color}${total_profit:.2f}{Colors.END}")
+                        print(f"{Colors.BOLD}{'TOTAL FLOATING P/L':<25} | {total_color}${total_profit:>12,.2f}{Colors.END}")
                     else:
-                        print(f"{Colors.YELLOW}No open positions{Colors.END}")
+                        print(f"{Colors.YELLOW}{'No open positions':<120}{Colors.END}")
                     
                     print()
                     
-                    # Trade Statistics
-                    print(f"{Colors.BOLD}{Colors.CYAN}📈 TRADE STATISTICS{Colors.END}")
-                    print(f"{Colors.CYAN}{'-' * 100}{Colors.END}")
+                    # ==================== TRADE STATISTICS TABLE ====================
                     total_trades = trade_stats.get('total_trades', 0)
                     successful = trade_stats.get('successful_trades', 0)
                     failed = trade_stats.get('failed_trades', 0)
+                    filtered = trade_stats.get('filtered_opportunities', 0)
                     success_rate = (successful / total_trades * 100) if total_trades > 0 else 0
                     
-                    print(f"Total Trades: {total_trades}")
-                    print(f"{Colors.GREEN}Successful: {successful}{Colors.END}")
-                    print(f"{Colors.RED}Failed: {failed}{Colors.END}")
-                    print(f"Success Rate: {success_rate:.1f}%")
-                    print(f"Daily P/L: {Colors.GREEN if daily_pnl >= 0 else Colors.RED}${daily_pnl:.2f}{Colors.END}")
+                    # Session P/L
+                    session_pnl = getattr(self.bot, 'session_pnl', daily_pnl) if self.bot else daily_pnl
+                    session_pnl_color = Colors.GREEN if session_pnl >= 0 else Colors.RED
+                    
+                    # Daily P/L (realized + floating)
+                    realized_pnl_today = getattr(self.bot, 'realized_pnl_today', 0.0) if self.bot else 0.0
+                    floating_pnl = sum([p.get('profit', 0) for p in positions])
+                    
+                    print(f"{Colors.BOLD}{Colors.CYAN}📈 TRADE STATISTICS{Colors.END}")
+                    print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
+                    print(f"{Colors.BOLD}{'Metric':<40} | {'Value':<20} | {'Details':<55}{Colors.END}")
+                    print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
+                    
+                    success_rate_color = Colors.GREEN if success_rate >= 70 else Colors.YELLOW if success_rate >= 50 else Colors.RED
+                    print(f"{'Total Trades Executed':<40} | {total_trades:<20} | {'Trades attempted and executed'}")
+                    print(f"{'Successful Trades':<40} | {Colors.GREEN}{successful:<20}{Colors.END} | {'Trades opened successfully'}")
+                    print(f"{'Failed (Execution Errors)':<40} | {Colors.RED}{failed:<20}{Colors.END} | {'Actual order placement failures'}")
+                    print(f"{'Filtered Opportunities':<40} | {Colors.YELLOW}{filtered:<20}{Colors.END} | {'Filtered by rules (not failures)'}")
+                    print(f"{'Success Rate':<40} | {success_rate_color}{success_rate:>6.1f}%{Colors.END}{' ' * 13} | {'Successful / Total Trades'}")
+                    print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
+                    
+                    # P/L Statistics
+                    print(f"{Colors.BOLD}{'Session P/L':<40} | {session_pnl_color}${session_pnl:>12,.2f}{Colors.END}{' ' * 7} | {'From session start'}")
+                    print(f"{'Daily P/L (Total)':<40} | {Colors.GREEN if daily_pnl >= 0 else Colors.RED}${daily_pnl:>12,.2f}{Colors.END}{' ' * 7} | {'Realized + Floating'}")
+                    print(f"{'  ├─ Realized P/L':<40} | ${realized_pnl_today:>12,.2f}{' ' * 7} | {'From closed trades today'}")
+                    print(f"{'  └─ Floating P/L':<40} | ${floating_pnl:>12,.2f}{' ' * 7} | {'From open positions'}")
+                    print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
                     print()
                     
-                    # Micro-HFT Performance
+                    # ==================== MICRO-HFT PERFORMANCE TABLE ====================
                     if monitor_summary:
-                        print(f"{Colors.BOLD}{Colors.CYAN}⚡ MICRO-HFT PERFORMANCE{Colors.END}")
-                        print(f"{Colors.CYAN}{'-' * 100}{Colors.END}")
                         hft_trades = monitor_summary.get('hft_trades', 0)
                         sweet_spot_rate = monitor_summary.get('hft_sweet_spot_rate', 0)
-                        print(f"HFT Trades: {hft_trades}")
-                        print(f"Sweet Spot Rate: {Colors.GREEN if sweet_spot_rate >= 70 else Colors.YELLOW}{sweet_spot_rate:.1f}%{Colors.END}")
+                        sweet_spot_color = Colors.GREEN if sweet_spot_rate >= 70 else Colors.YELLOW if sweet_spot_rate >= 50 else Colors.RED
+                        
+                        print(f"{Colors.BOLD}{Colors.CYAN}⚡ MICRO-HFT PERFORMANCE{Colors.END}")
+                        print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
+                        print(f"{Colors.BOLD}{'Metric':<50} | {'Value':<20} | {'Target':<45}{Colors.END}")
+                        print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
+                        print(f"{'HFT Trades (Total)':<50} | {hft_trades:<20} | {'Micro-HFT trades executed'}")
+                        print(f"{'Sweet Spot Capture Rate':<50} | {sweet_spot_color}{sweet_spot_rate:>6.1f}%{Colors.END}{' ' * 13} | {'Target: ≥80% ($0.03-$0.10 profit)'}")
+                        print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
                         print()
                     
-                    # Monitoring Status
+                    # ==================== MONITORING STATUS TABLE ====================
+                    bot_status_color = Colors.GREEN if (self.bot and self.bot.running) else Colors.RED
+                    bot_status_text = 'Running' if (self.bot and self.bot.running) else 'Stopped'
+                    
+                    monitor_status_color = Colors.GREEN if (self.monitor and self.monitor.monitoring_active) else Colors.RED
+                    monitor_status_text = 'Active' if (self.monitor and self.monitor.monitoring_active) else 'Inactive'
+                    
                     print(f"{Colors.BOLD}{Colors.CYAN}🔍 MONITORING STATUS{Colors.END}")
-                    print(f"{Colors.CYAN}{'-' * 100}{Colors.END}")
-                    print(f"Bot Status: {Colors.GREEN if self.bot and self.bot.running else Colors.RED}{'Running' if self.bot and self.bot.running else 'Stopped'}{Colors.END}")
-                    print(f"Monitoring: {Colors.GREEN if self.monitor and self.monitor.monitoring_active else Colors.RED}{'Active' if self.monitor and self.monitor.monitoring_active else 'Inactive'}{Colors.END}")
-                    print(f"Reconciliation: {Colors.GREEN}Active (every {self.reconciliation_interval} min){Colors.END}")
+                    print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
+                    print(f"{Colors.BOLD}{'Component':<50} | {'Status':<20} | {'Details':<45}{Colors.END}")
+                    print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
+                    print(f"{'Bot Status':<50} | {bot_status_color}{bot_status_text:<20}{Colors.END} | {'Trading bot main loop'}")
+                    print(f"{'Real-Time Monitoring':<50} | {monitor_status_color}{monitor_status_text:<20}{Colors.END} | {'Trade monitoring system'}")
+                    print(f"{'Broker Reconciliation':<50} | {Colors.GREEN}{'Active':<20}{Colors.END} | {f'Every {self.reconciliation_interval} minutes'}")
+                    print(f"{'Comprehensive Monitor':<50} | {Colors.GREEN}{'Active':<20}{Colors.END} | {'Performance analysis'}")
+                    print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
                     print()
                     
                     # Footer
-                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
+                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
                     print(f"{Colors.YELLOW}Display updates every {summary_interval:.0f}s | Trading runs at millisecond speeds | Press Ctrl+C to stop{Colors.END}")
-                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
+                    print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
                     
                 except Exception as e:
                     logger.error(f"Error displaying trade summary: {e}", exc_info=True)

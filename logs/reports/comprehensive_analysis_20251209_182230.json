@@ -1,0 +1,52 @@
+{
+  "report_timestamp": "2025-12-09T18:22:30.868735",
+  "session_duration_minutes": 15.113630333333333,
+  "active_positions": {
+    "total": 0,
+    "positions": [],
+    "lot_size_issues": [],
+    "symbols": {},
+    "total_profit": 0.0
+  },
+  "trade_statistics": {
+    "total_trades": 18,
+    "closed_trades": 11,
+    "open_trades": 7
+  },
+  "micro_hft_performance": {
+    "capture_rate": 0.0,
+    "total_closures": 33,
+    "sweet_spot_closures": 0,
+    "missed_sweet_spot": 15,
+    "average_profit": -0.48090909090909095,
+    "min_profit": -1.01,
+    "max_profit": 0.38,
+    "below_target": true,
+    "status": "BELOW TARGET"
+  },
+  "filter_effectiveness": {
+    "statistics": {
+      "other_rejected": 104,
+      "trend_strength_rejected": 128,
+      "rsi_rejected": 25,
+      "opportunities_found": 10,
+      "lot_size_rejected": 42,
+      "volume_rejected": 30
+    },
+    "last_scan_time": "2025-12-09T18:22:30.859774"
+  },
+  "lot_size_compliance": {
+    "violations": [],
+    "max_lot_size": 0.03
+  },
+  "errors_detected": [],
+  "recommendations": [
+    {
+      "priority": "MEDIUM",
+      "category": "Micro-HFT Performance",
+      "issue": "Sweet spot capture rate: 0.00% (target: >80%)",
+      "recommendation": "Review Micro-HFT closure timing. Ensure trailing stop locks profit before closure attempts.",
+      "action": "Adjust closure logic or profit tolerance settings"
+    }
+  ]
+}

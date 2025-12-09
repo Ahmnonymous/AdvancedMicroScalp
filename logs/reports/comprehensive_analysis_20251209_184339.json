@@ -1,0 +1,85 @@
+{
+  "report_timestamp": "2025-12-09T18:43:39.506645",
+  "session_duration_minutes": 10.050981049999999,
+  "active_positions": {
+    "total": 3,
+    "positions": [
+      {
+        "ticket": 471646214,
+        "symbol": "US30_x10m",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 47768.4,
+        "current_price": 47774.1,
+        "profit": -0.57,
+        "time_open": "2025-12-09 18:42:14"
+      },
+      {
+        "ticket": 471649952,
+        "symbol": "US30_x10m",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 47766.600000000006,
+        "current_price": 47774.1,
+        "profit": -0.75,
+        "time_open": "2025-12-09 18:42:43"
+      },
+      {
+        "ticket": 471652297,
+        "symbol": "US30_x10m",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 47770.200000000004,
+        "current_price": 47774.1,
+        "profit": -0.39,
+        "time_open": "2025-12-09 18:43:08"
+      }
+    ],
+    "lot_size_issues": [],
+    "symbols": {
+      "US30_x10m": 3
+    },
+    "total_profit": -1.71
+  },
+  "trade_statistics": {
+    "total_trades": 21,
+    "closed_trades": 13,
+    "open_trades": 8
+  },
+  "micro_hft_performance": {
+    "capture_rate": 4.0,
+    "total_closures": 25,
+    "sweet_spot_closures": 1,
+    "missed_sweet_spot": 11,
+    "average_profit": -0.4044,
+    "min_profit": -1.01,
+    "max_profit": 0.38,
+    "below_target": true,
+    "status": "BELOW TARGET"
+  },
+  "filter_effectiveness": {
+    "statistics": {
+      "other_rejected": 92,
+      "rsi_rejected": 12,
+      "lot_size_rejected": 23,
+      "trend_strength_rejected": 33,
+      "volume_rejected": 14,
+      "opportunities_found": 24
+    },
+    "last_scan_time": "2025-12-09T18:43:39.504681"
+  },
+  "lot_size_compliance": {
+    "violations": [],
+    "max_lot_size": 0.03
+  },
+  "errors_detected": [],
+  "recommendations": [
+    {
+      "priority": "MEDIUM",
+      "category": "Micro-HFT Performance",
+      "issue": "Sweet spot capture rate: 4.00% (target: >80%)",
+      "recommendation": "Review Micro-HFT closure timing. Ensure trailing stop locks profit before closure attempts.",
+      "action": "Adjust closure logic or profit tolerance settings"
+    }
+  ]
+}
