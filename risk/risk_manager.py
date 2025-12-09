@@ -33,7 +33,8 @@ class RiskManager:
         
         # Continuous trailing stop configuration
         self.continuous_trailing_enabled = self.risk_config.get('continuous_trailing_enabled', True)
-        self.trailing_cycle_interval = self.risk_config.get('trailing_cycle_interval_seconds', 1.0)
+        self.trailing_cycle_interval_ms = self.risk_config.get('trailing_cycle_interval_ms', 300)  # Default 300ms
+        self.trailing_cycle_interval = self.trailing_cycle_interval_ms / 1000.0  # Convert to seconds for time.sleep
         self.big_jump_threshold_usd = self.risk_config.get('big_jump_threshold_usd', 0.40)
         
         # Staged open configuration

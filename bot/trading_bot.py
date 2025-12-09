@@ -126,7 +126,8 @@ class TradingBot:
         self.trailing_stop_thread = None
         self.trailing_stop_running = False
         self.risk_config = self.config.get('risk', {})
-        self.trailing_cycle_interval = self.risk_config.get('trailing_cycle_interval_seconds', 3.0)
+        self.trailing_cycle_interval_ms = self.risk_config.get('trailing_cycle_interval_ms', 300)  # Default 300ms
+        self.trailing_cycle_interval = self.trailing_cycle_interval_ms / 1000.0  # Convert to seconds for time.sleep
         
         # Fast trailing thread (for positions with profit >= threshold)
         self.fast_trailing_thread = None
@@ -985,7 +986,7 @@ class TradingBot:
     
     def _continuous_trailing_stop_loop(self):
         """Background thread loop for continuous trailing stop monitoring."""
-        logger.info(f"🔄 Continuous trailing stop monitor started (interval: {self.trailing_cycle_interval}s)")
+        logger.info(f"🔄 Continuous trailing stop monitor started (interval: {self.trailing_cycle_interval_ms}ms = {self.trailing_cycle_interval:.3f}s)")
         
         while self.trailing_stop_running and self.running:
             try:

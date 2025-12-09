@@ -532,12 +532,16 @@ class OrderManager:
         result = []
         dec8_date = datetime(2025, 12, 8).date()  # Dec 8, 2025 date
         
+        excluded_count = 0
         for pos in positions:
             # Get position open time
             time_open = datetime.fromtimestamp(pos.time)
+            time_open_date = time_open.date()
             
-            # Skip positions from Dec 8 if exclude_dec8 is True
-            if exclude_dec8 and time_open.date() == dec8_date:
+            # Skip positions from Dec 8, 2025 if exclude_dec8 is True (locked positions - markets closed)
+            if exclude_dec8 and time_open_date == dec8_date:
+                excluded_count += 1
+                logger.info(f"🚫 EXCLUDING Dec 8, 2025 locked position (market closed): Ticket {pos.ticket}, Symbol {pos.symbol}, Opened: {time_open} (Date: {time_open_date})")
                 continue
             
             result.append({
@@ -555,7 +559,11 @@ class OrderManager:
                 'comment': pos.comment
             })
         
+        if excluded_count > 0:
+            logger.info(f"✅ Excluded {excluded_count} Dec 8, 2025 locked position(s). Showing {len(result)} active position(s).")
+        
         return result
+            
     
     def get_position_count(self, exclude_dec8: bool = True) -> int:
         """
@@ -567,9 +575,15 @@ class OrderManager:
         positions = self.get_open_positions(exclude_dec8=exclude_dec8)
         return len(positions)
     
-    def get_position_by_ticket(self, ticket: int) -> Optional[Dict[str, Any]]:
-        """Get position by ticket number."""
-        positions = self.get_open_positions()
+    def get_position_by_ticket(self, ticket: int, exclude_dec8: bool = True) -> Optional[Dict[str, Any]]:
+        """
+        Get position by ticket number.
+        
+        Args:
+            ticket: Position ticket number
+            exclude_dec8: If True, exclude positions opened on Dec 8, 2025 (locked positions)
+        """
+        positions = self.get_open_positions(exclude_dec8=exclude_dec8)
         for pos in positions:
             if pos['ticket'] == ticket:
                 return pos

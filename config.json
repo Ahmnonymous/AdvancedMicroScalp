@@ -19,7 +19,7 @@
     "max_trade_duration_minutes": 1440,
     "min_stop_loss_pips": 10,
     "continuous_trailing_enabled": true,
-    "trailing_cycle_interval_seconds": 3.0,
+    "trailing_cycle_interval_ms": 300,
     "big_jump_threshold_usd": 0.40,
     "staged_open_enabled": true,
     "staged_open_window_seconds": 150,

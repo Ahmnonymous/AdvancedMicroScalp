@@ -1,0 +1,1217 @@
+2025-12-09 16:40:19 - system_startup - INFO - ================================================================================
+2025-12-09 16:40:19 - system_startup - INFO - TRADING SYSTEM STARTING
+2025-12-09 16:40:19 - system_startup - INFO - ================================================================================
+2025-12-09 16:40:19 - system_startup - INFO - Reconciliation Interval: 30 minutes
+2025-12-09 16:40:19 - system_startup - INFO - 
+2025-12-09 16:40:19 - system_startup - INFO - Initializing Trading Bot...
+2025-12-09 16:40:19 - system_startup - INFO - Micro-HFT Profit Engine initialized and registered
+2025-12-09 16:40:19 - system_startup - INFO - Connecting to MT5...
+2025-12-09 16:40:19 - system_startup - INFO - MT5 connection established
+2025-12-09 16:40:19 - system_startup - INFO - ✅ Trading Bot initialized and connected
+2025-12-09 16:40:19 - system_startup - INFO - Initializing Real-Time Monitor...
+2025-12-09 16:40:19 - system_startup - INFO - ✅ Real-Time Monitor initialized
+2025-12-09 16:40:19 - system_startup - INFO - Initializing Broker Reconciliation...
+2025-12-09 16:40:19 - system_startup - INFO - ✅ Broker Reconciliation initialized
+2025-12-09 16:40:19 - system_startup - INFO - Starting Trading Bot thread...
+2025-12-09 16:40:19 - system_startup - INFO - 🔄 Continuous trailing stop monitor started (interval: 3.0s)
+2025-12-09 16:40:19 - system_startup - INFO - ✅ Continuous trailing stop monitor thread started
+2025-12-09 16:40:19 - system_startup - INFO - ⚡ Fast trailing stop monitor started (interval: 0.300s = 300ms)
+2025-12-09 16:40:19 - system_startup - INFO - ✅ Fast trailing stop monitor thread started
+2025-12-09 16:40:20 - system_startup - INFO - ✅ Position closure monitor thread started
+2025-12-09 16:40:20 - system_startup - INFO - Trading Bot thread started (cycle interval: 20s)
+2025-12-09 16:40:20 - system_startup - INFO - ✅ Trading Bot thread started
+2025-12-09 16:40:20 - system_startup - INFO - Trading bot started in AUTOMATIC MODE. Cycle interval: 20s
+2025-12-09 16:40:20 - system_startup - WARNING - Continuous trailing stop already running
+2025-12-09 16:40:20 - system_startup - INFO - 🔍 Scanning 226 symbols for trading opportunities...
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XAUUSDm | Reason: Trend strength too weak (SMA separation: 0.0135% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XAUAUDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XAUEURm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XAUGBPm | Reason: Trend strength too weak (SMA separation: 0.0035% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] EURUSDm | Reason: RSI filter failed (RSI: 53.5 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] AUDUSDm | Reason: RSI filter failed (RSI: 53.2 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] USDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] GBPUSDm | Reason: Trend strength too weak (SMA separation: 0.0099% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] US30_x10m | Reason: Trend strength too weak (SMA separation: 0.0126% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] US30m | Reason: Trend strength too weak (SMA separation: 0.0126% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] DE30m | Reason: RSI filter failed (RSI: 67.4 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] USTEC_x100m | Reason: RSI filter failed (RSI: 70.1 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] USTECm | Reason: RSI filter failed (RSI: 70.1 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - Starting Real-Time Monitor thread...
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] US500_x100m | Reason: RSI filter failed (RSI: 61.0 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] US500m | Reason: RSI filter failed (RSI: 61.0 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - Monitor wrapper thread started
+2025-12-09 16:40:20 - system_startup - INFO - ✅ Real-Time Monitor started
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] JP225m | Signal: LONG | MinLot: 1.0000 | Reason: Min lot 1.0000 > 0.1 (too large for testing)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] UK100m | Reason: Trend strength too weak (SMA separation: 0.0008% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] BTCUSDm | Reason: Trend strength too weak (SMA separation: 0.0096% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ================================================================================
+2025-12-09 16:40:20 - system_startup - INFO - [OPPORTUNITY CHECK]
+2025-12-09 16:40:20 - system_startup - INFO - Symbol: FR40m
+2025-12-09 16:40:20 - system_startup - INFO - Signal: SHORT
+2025-12-09 16:40:20 - system_startup - INFO - Quality Score: 65.0 (Threshold: 50)
+2025-12-09 16:40:20 - system_startup - INFO - Trend Strength: 0.0719%
+2025-12-09 16:40:20 - system_startup - INFO - Spread: 2.03 points
+2025-12-09 16:40:20 - system_startup - INFO - Fees: Spread: $0.02, Fees: $0.00
+2025-12-09 16:40:20 - system_startup - INFO - Total Cost: $0.02 USD (PASS ≤ $0.30)
+2025-12-09 16:40:20 - system_startup - INFO - Min Lot: 0.0100
+2025-12-09 16:40:20 - system_startup - INFO - Calculated Lot: 0.0100 (PASS)
+2025-12-09 16:40:20 - system_startup - INFO - Risk: $0.00 (PASS ≤ $2.00)
+2025-12-09 16:40:20 - system_startup - INFO - Reason: Quality score 65.0 >= 50 → Trade Executed
+2025-12-09 16:40:20 - system_startup - INFO - ================================================================================
+2025-12-09 16:40:20 - system_startup - INFO - ✅ FR40m | Signal: SHORT | Quality: 65.0 | MinLot: 0.0100 | Spread: 2.0pts | Spread+Fees: $0.02 | Pass: MinLot OK, Spread+Fees OK ($0.02 <= $0.30)
+2025-12-09 16:40:20 - system_startup - INFO - 📉 FR40m: SHORT signal detected - will place SELL order
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] STOXX50m | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] BTCJPYm | Reason: Trend strength too weak (SMA separation: 0.0109% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] AUS200m | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] BTCAUDm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] ETHUSDm | Reason: Trend strength too weak (SMA separation: 0.0028% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] BTCZARm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] HK50m | Reason: RSI filter failed (RSI: 57.5 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] CADCHFm | Reason: Trend strength too weak (SMA separation: 0.0112% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XCUUSDm | Reason: Trend strength too weak (SMA separation: 0.0022% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] AUDCHFm | Reason: RSI filter failed (RSI: 51.7 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] BTCCNHm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] BTCXAGm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] USDCHFm | Reason: Trend strength too weak (SMA separation: 0.0022% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] NZDCADm | Reason: RSI filter failed (RSI: 60.6 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] EURGBPm | Reason: RSI filter failed (RSI: 62.7 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XNIUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] USDCADm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] NZDCHFm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XZNUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] NZDUSDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] USOILm | Reason: Trend strength too weak (SMA separation: 0.0451% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XALUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] AUDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] AUDNZDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] XPBUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] AUDCADm | Reason: RSI filter failed (RSI: 58.5 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] GBPJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] ZARJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] CHFJPYm | Signal: SHORT | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] TSLAm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] EURJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] GBPCHFm | Reason: Trend strength too weak (SMA separation: 0.0131% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] EURCHFm | Reason: RSI filter failed (RSI: 52.4 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] GBPAUDm | Reason: Trend strength too weak (SMA separation: 0.0085% < 0.05%)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] EURCADm | Reason: RSI filter failed (RSI: 57.3 not in range 30-50)
+2025-12-09 16:40:20 - system_startup - INFO - ⛔ [SKIP] HKDJPYm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] DXYm | Reason: Trend strength too weak (SMA separation: 0.0059% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] DKKJPYm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURAUDm | Reason: RSI filter failed (RSI: 52.3 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CADJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NZDJPYm | Reason: RSI filter failed (RSI: 52.2 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] XAGUSDm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] XAGGBPm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AMZNm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPCADm | Reason: Trend strength too weak (SMA separation: 0.0020% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AUDSGDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] DKKSGDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:21 - system_startup - INFO - Starting Broker Reconciliation thread...
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURNZDm | Reason: Trend strength too weak (SMA separation: 0.0122% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] XAGEURm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - Reconciliation thread started
+2025-12-09 16:40:21 - system_startup - INFO - ✅ Broker Reconciliation started
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPNZDm | Reason: Trend strength too weak (SMA separation: 0.0076% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ================================================================================
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] XPTUSDm | Signal: LONG | MinLot: 0.0100 | Spread: 58.3pts | Spread+Fees: $9.58 > $0.30 | Reason: Spread+Fees exceed limit (STRICT) | (Spread: $9.58, Fees: $0.00)
+2025-12-09 16:40:21 - system_startup - INFO - ALL SYSTEMS OPERATIONAL
+2025-12-09 16:40:21 - system_startup - INFO - ================================================================================
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] INTCm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:40:21 - system_startup - INFO - Starting Trade Summary Display (display-only, updates every 5 seconds)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NVDAm | Reason: RSI filter failed (RSI: 67.1 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] TSMm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NFLXm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:40:21 - system_startup - INFO - Trade Summary Display started
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] UKOILm | Reason: Trend strength too weak (SMA separation: 0.0427% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURSGDm | Reason: RSI filter failed (RSI: 56.7 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] SGDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] METAm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AMDm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] Cm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] BABAm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] MSFTm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CADMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDNOKm | Reason: RSI filter failed (RSI: 60.2 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] XAGAUDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] BTCTHBm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NZDSGDm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDSGDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDSEKm | Reason: Trend strength too weak (SMA separation: 0.0145% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CHFNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CHFSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] BAm | Reason: RSI filter failed (RSI: 14.0 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] XPDUSDm | Reason: RSI filter failed (RSI: 50.8 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NOKJPYm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CHFSGDm | Reason: RSI filter failed (RSI: 52.9 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] BIDUm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] SEKJPYm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDILSm | Reason: RSI filter failed (RSI: 84.5 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] XNGUSDm | Reason: RSI filter failed (RSI: 16.3 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDCNHm | Reason: RSI filter failed (RSI: 57.3 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDHKDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDZARm | Reason: RSI filter failed (RSI: 55.7 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] MXNJPYm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] DKKZARm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] BTCXAUm | Reason: Trend strength too weak (SMA separation: 0.0037% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPILSm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURDKKm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] DKKPLNm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDDKKm | Reason: Trend strength too weak (SMA separation: 0.0065% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDMXNm | Reason: RSI filter failed (RSI: 60.1 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AUDMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NZDMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NOKDKKm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CHFZARm | Reason: RSI filter failed (RSI: 55.3 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] SGDHKDm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CHFDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] SEKDKKm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CHFMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURPLNm | Reason: RSI filter failed (RSI: 62.0 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NZDDKKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] PLNDKKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPSGDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NZDPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AUDPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CADPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDPLNm | Reason: Trend strength too weak (SMA separation: 0.0229% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AUDZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NOKSEKm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] USDTHBm | Reason: RSI filter failed (RSI: 76.1 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AUDNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] PLNJPYm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CHFPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AUDSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURNOKm | Reason: RSI filter failed (RSI: 80.8 not in range 30-50)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NZDZARm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] AUDDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURSEKm | Reason: Trend strength too weak (SMA separation: 0.0090% < 0.05%)
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] GBPDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] PLNSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NZDNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] EURZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] NZDSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - ⛔ [SKIP] CADNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:21 - system_startup - INFO - 🎯 Found 1 trading opportunity(ies)
+2025-12-09 16:40:21 - system_startup - INFO - 📊 Opportunities sorted: Profit Probability (HIGH→LOW), Fees (LOW→HIGH)
+2025-12-09 16:40:21 - system_startup - INFO -    → Best setups (highest profit probability, lowest fees) will be traded first
+2025-12-09 16:40:21 - system_startup - INFO - 📊 Opportunities sorted by quality score (descending), then spread+fees (ascending):
+2025-12-09 16:40:21 - system_startup - INFO -   1. FR40m SHORT: Quality=65.0, Cost=$0.02 (spread: 2.0pts)
+2025-12-09 16:40:21 - system_startup - INFO - ====================================================================================================
+2025-12-09 16:40:21 - system_startup - INFO - OPPORTUNITY TABLE:
+2025-12-09 16:40:21 - system_startup - INFO - Symbol       | Signal | MinLot   | Spread     | Fees       | Status               | Reason
+2025-12-09 16:40:21 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:40:21 - system_startup - INFO - 🎯 Found 1 opportunity(ies) - evaluating all symbols (sorted by quality score and spread+fees cost) [AUTOMATIC MODE]
+2025-12-09 16:40:21 - system_startup - INFO - FR40m        | SHORT  | Q:65.0 | 0.0100   | 2.0       pts | $0.02      | Executing...         | -
+2025-12-09 16:40:21 - system_startup - INFO - 🎯 Executing approved trade: FR40m SHORT (Quality: 65.0, Spread: 2.0 points)
+2025-12-09 16:40:21 - system_startup - INFO - FR40m        | SHORT  | Q:65.0 | 0.0100   | 2.0       pts | $0.02      | Evaluating...        | -
+2025-12-09 16:40:21 - system_startup - INFO - 🎯 Evaluating opportunity: FR40m SHORT (Quality: 65.0, Spread: 2.0 points)
+2025-12-09 16:40:21 - system_startup - INFO - 🎲 FR40m: RANDOMNESS PASS - Random value 0.912 >= threshold 0.25 (proceeding with trade)
+2025-12-09 16:40:21 - system_startup - INFO - 💰 FR40m: Entry price = 8059.08000 (BID)
+2025-12-09 16:40:21 - system_startup - INFO - 🛡️ FR40m: Stop loss = 472.3 pips (broker min: 0.0 pips)
+2025-12-09 16:40:21 - system_startup - INFO - 📦 FR40m: EXECUTING WITH MINIMUM LOT SIZE = 0.0100 | Source: broker | Estimated Risk: $0.05 (with slippage: $0.05, max: $2.00) | Policy: Always use LEAST POSSIBLE lot size per symbol
+2025-12-09 16:40:21 - system_startup - INFO - 📤 FR40m: Placing SHORT order (Lot: 0.01, SL: 472.3 pips)...
+2025-12-09 16:40:22 - system_startup - INFO - FR40m        | SHORT  | Q:65.0 | 0.0100   | 2.0       pts | $0.02      | PASS - EXECUTED      | Trade executed
+2025-12-09 16:40:22 - system_startup - INFO - ✅ FR40m: Trade execution completed successfully
+2025-12-09 16:40:22 - system_startup - INFO - ⏸️  Max open trades (6) reached after trade 1
+2025-12-09 16:40:22 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:40:22 - system_startup - INFO - 📊 Cycle Summary: 1 executed, 0 skipped, 6/6 positions open
+2025-12-09 16:40:42 - system_startup - INFO - 🔍 Scanning 226 symbols for trading opportunities...
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XAUUSDm | Reason: Trend strength too weak (SMA separation: 0.0135% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XAUAUDm | Reason: Trend strength too weak (SMA separation: 0.0128% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XAUEURm | Reason: Trend strength too weak (SMA separation: 0.0087% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XAUGBPm | Reason: Trend strength too weak (SMA separation: 0.0035% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] EURUSDm | Reason: RSI filter failed (RSI: 53.5 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] AUDUSDm | Reason: RSI filter failed (RSI: 53.2 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] USDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] GBPUSDm | Reason: Trend strength too weak (SMA separation: 0.0099% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] US30_x10m | Reason: Trend strength too weak (SMA separation: 0.0126% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] US30m | Reason: Trend strength too weak (SMA separation: 0.0126% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] DE30m | Reason: RSI filter failed (RSI: 67.4 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] USTEC_x100m | Reason: RSI filter failed (RSI: 70.1 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] USTECm | Reason: RSI filter failed (RSI: 70.1 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] US500_x100m | Reason: RSI filter failed (RSI: 61.0 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] US500m | Reason: RSI filter failed (RSI: 61.0 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] JP225m | Signal: LONG | MinLot: 1.0000 | Reason: Min lot 1.0000 > 0.1 (too large for testing)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] UK100m | Reason: Trend strength too weak (SMA separation: 0.0008% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] BTCUSDm | Reason: Trend strength too weak (SMA separation: 0.0096% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ================================================================================
+2025-12-09 16:40:42 - system_startup - INFO - [OPPORTUNITY CHECK]
+2025-12-09 16:40:42 - system_startup - INFO - Symbol: FR40m
+2025-12-09 16:40:42 - system_startup - INFO - Signal: SHORT
+2025-12-09 16:40:42 - system_startup - INFO - Quality Score: 65.0 (Threshold: 50)
+2025-12-09 16:40:42 - system_startup - INFO - Trend Strength: 0.0719%
+2025-12-09 16:40:42 - system_startup - INFO - Spread: 2.03 points
+2025-12-09 16:40:42 - system_startup - INFO - Fees: Spread: $0.02, Fees: $0.00
+2025-12-09 16:40:42 - system_startup - INFO - Total Cost: $0.02 USD (PASS ≤ $0.30)
+2025-12-09 16:40:42 - system_startup - INFO - Min Lot: 0.0100
+2025-12-09 16:40:42 - system_startup - INFO - Calculated Lot: 0.0100 (PASS)
+2025-12-09 16:40:42 - system_startup - INFO - Risk: $0.00 (PASS ≤ $2.00)
+2025-12-09 16:40:42 - system_startup - INFO - Reason: Quality score 65.0 >= 50 → Trade Executed
+2025-12-09 16:40:42 - system_startup - INFO - ================================================================================
+2025-12-09 16:40:42 - system_startup - INFO - ✅ FR40m | Signal: SHORT | Quality: 65.0 | MinLot: 0.0100 | Spread: 2.0pts | Spread+Fees: $0.02 | Pass: MinLot OK, Spread+Fees OK ($0.02 <= $0.30)
+2025-12-09 16:40:42 - system_startup - INFO - 📉 FR40m: SHORT signal detected - will place SELL order
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] STOXX50m | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] BTCJPYm | Reason: Trend strength too weak (SMA separation: 0.0109% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] AUS200m | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] BTCAUDm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] ETHUSDm | Reason: Trend strength too weak (SMA separation: 0.0028% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] BTCZARm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] HK50m | Reason: RSI filter failed (RSI: 57.5 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] CADCHFm | Reason: Trend strength too weak (SMA separation: 0.0112% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XCUUSDm | Reason: Trend strength too weak (SMA separation: 0.0022% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] AUDCHFm | Reason: RSI filter failed (RSI: 51.7 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] BTCCNHm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] BTCXAGm | Reason: RSI filter failed (RSI: 55.6 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] NZDCADm | Reason: RSI filter failed (RSI: 60.6 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] USDCHFm | Reason: Trend strength too weak (SMA separation: 0.0022% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] EURGBPm | Reason: RSI filter failed (RSI: 62.7 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] USDCADm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] NZDCHFm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XNIUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XZNUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] NZDUSDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] USOILm | Reason: Trend strength too weak (SMA separation: 0.0451% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XALUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] AUDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] AUDNZDm | Reason: Trend strength too weak (SMA separation: 0.0160% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] XPBUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] GBPJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] AUDCADm | Reason: RSI filter failed (RSI: 58.5 not in range 30-50)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] ZARJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] CHFJPYm | Signal: SHORT | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] EURJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] TSLAm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] GBPCHFm | Reason: Trend strength too weak (SMA separation: 0.0131% < 0.05%)
+2025-12-09 16:40:42 - system_startup - INFO - ⛔ [SKIP] EURCHFm | Reason: RSI filter failed (RSI: 52.4 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPAUDm | Reason: Trend strength too weak (SMA separation: 0.0085% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURCADm | Reason: RSI filter failed (RSI: 57.3 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] HKDJPYm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] DXYm | Reason: Trend strength too weak (SMA separation: 0.0059% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] DKKJPYm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURAUDm | Reason: RSI filter failed (RSI: 52.3 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CADJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NZDJPYm | Reason: RSI filter failed (RSI: 52.2 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] XAGUSDm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AMZNm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] XAGGBPm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPCADm | Reason: Trend strength too weak (SMA separation: 0.0020% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AUDSGDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] DKKSGDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURNZDm | Reason: Trend strength too weak (SMA separation: 0.0122% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] XAGEURm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPNZDm | Reason: Trend strength too weak (SMA separation: 0.0076% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] XPTUSDm | Reason: Cannot open trade - Max open trades reached (no staged window)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] INTCm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NVDAm | Reason: RSI filter failed (RSI: 67.1 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] TSMm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NFLXm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] UKOILm | Reason: Trend strength too weak (SMA separation: 0.0427% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURSGDm | Reason: RSI filter failed (RSI: 56.7 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] SGDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] METAm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AMDm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] MSFTm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] Cm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CADMXNm | Reason: RSI filter failed (RSI: 55.0 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDNOKm | Reason: RSI filter failed (RSI: 60.2 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] XAGAUDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] BTCTHBm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NZDSGDm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDSGDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDSEKm | Reason: Trend strength too weak (SMA separation: 0.0145% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPNOKm | Reason: RSI filter failed (RSI: 58.5 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CHFNOKm | Reason: RSI filter failed (RSI: 73.1 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPSEKm | Reason: Trend strength too weak (SMA separation: 0.0044% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CHFSEKm | Reason: RSI filter failed (RSI: 50.5 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] BAm | Reason: RSI filter failed (RSI: 14.0 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] XPDUSDm | Reason: RSI filter failed (RSI: 50.8 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NOKJPYm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CHFSGDm | Reason: RSI filter failed (RSI: 52.9 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] BIDUm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] SEKJPYm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDILSm | Reason: RSI filter failed (RSI: 84.5 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] XNGUSDm | Reason: RSI filter failed (RSI: 16.3 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDCNHm | Reason: RSI filter failed (RSI: 57.3 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDHKDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDZARm | Reason: RSI filter failed (RSI: 55.7 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] MXNJPYm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] DKKZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] BTCXAUm | Reason: Trend strength too weak (SMA separation: 0.0037% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPILSm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURDKKm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] DKKPLNm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDDKKm | Reason: Trend strength too weak (SMA separation: 0.0065% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDMXNm | Reason: RSI filter failed (RSI: 60.1 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AUDMXNm | Reason: RSI filter failed (RSI: 62.3 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NZDMXNm | Reason: RSI filter failed (RSI: 62.2 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NOKDKKm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CHFZARm | Reason: RSI filter failed (RSI: 55.3 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] SGDHKDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURMXNm | Reason: RSI filter failed (RSI: 57.1 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CHFDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] SEKDKKm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPMXNm | Reason: Trend strength too weak (SMA separation: 0.0038% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CHFMXNm | Reason: RSI filter failed (RSI: 55.7 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURPLNm | Reason: RSI filter failed (RSI: 62.0 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NZDDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] PLNDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPSGDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NZDPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AUDPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CADPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDPLNm | Reason: Trend strength too weak (SMA separation: 0.0229% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AUDZARm | Reason: RSI filter failed (RSI: 76.7 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NOKSEKm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] USDTHBm | Reason: RSI filter failed (RSI: 76.1 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AUDNOKm | Reason: RSI filter failed (RSI: 65.8 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] PLNJPYm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CHFPLNm | Reason: RSI filter failed (RSI: 54.7 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPZARm | Reason: RSI filter failed (RSI: 61.8 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AUDSEKm | Reason: Trend strength too weak (SMA separation: 0.0148% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURNOKm | Reason: RSI filter failed (RSI: 80.8 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NZDZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] AUDDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURSEKm | Reason: Trend strength too weak (SMA separation: 0.0090% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] GBPDKKm | Reason: Trend strength too weak (SMA separation: 0.0037% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] PLNSEKm | Reason: Trend strength too weak (SMA separation: 0.0082% < 0.05%)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NZDNOKm | Reason: RSI filter failed (RSI: 74.4 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] EURZARm | Reason: RSI filter failed (RSI: 71.2 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] NZDSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:40:43 - system_startup - INFO - ⛔ [SKIP] CADNOKm | Reason: RSI filter failed (RSI: 64.8 not in range 30-50)
+2025-12-09 16:40:43 - system_startup - INFO - 🎯 Found 1 trading opportunity(ies)
+2025-12-09 16:40:43 - system_startup - INFO - 📊 Opportunities sorted: Profit Probability (HIGH→LOW), Fees (LOW→HIGH)
+2025-12-09 16:40:43 - system_startup - INFO -    → Best setups (highest profit probability, lowest fees) will be traded first
+2025-12-09 16:40:43 - system_startup - INFO - 📊 Opportunities sorted by quality score (descending), then spread+fees (ascending):
+2025-12-09 16:40:43 - system_startup - INFO -   1. FR40m SHORT: Quality=65.0, Cost=$0.02 (spread: 2.0pts)
+2025-12-09 16:40:43 - system_startup - INFO - ====================================================================================================
+2025-12-09 16:40:43 - system_startup - INFO - OPPORTUNITY TABLE:
+2025-12-09 16:40:43 - system_startup - INFO - Symbol       | Signal | MinLot   | Spread     | Fees       | Status               | Reason
+2025-12-09 16:40:43 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:40:43 - system_startup - INFO - 🎯 Found 1 opportunity(ies) - evaluating all symbols (sorted by quality score and spread+fees cost) [AUTOMATIC MODE]
+2025-12-09 16:40:43 - system_startup - INFO - ⏸️  Max open trades (6) reached - skipping remaining opportunities
+2025-12-09 16:40:43 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:40:43 - system_startup - INFO - 📊 Cycle Summary: 0 executed, 1 skipped, 6/6 positions open
+2025-12-09 16:41:04 - system_startup - INFO - 🔍 Scanning 226 symbols for trading opportunities...
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XAUUSDm | Reason: Trend strength too weak (SMA separation: 0.0135% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XAUAUDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XAUEURm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XAUGBPm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURUSDm | Reason: RSI filter failed (RSI: 53.5 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDUSDm | Reason: RSI filter failed (RSI: 53.2 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPUSDm | Reason: Trend strength too weak (SMA separation: 0.0099% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] US30_x10m | Reason: Trend strength too weak (SMA separation: 0.0126% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] US30m | Reason: Trend strength too weak (SMA separation: 0.0126% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] DE30m | Reason: RSI filter failed (RSI: 67.4 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USTEC_x100m | Reason: RSI filter failed (RSI: 70.1 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USTECm | Reason: RSI filter failed (RSI: 70.1 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] US500_x100m | Reason: RSI filter failed (RSI: 61.0 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] US500m | Reason: RSI filter failed (RSI: 61.0 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] JP225m | Signal: LONG | MinLot: 1.0000 | Reason: Min lot 1.0000 > 0.1 (too large for testing)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] UK100m | Reason: Trend strength too weak (SMA separation: 0.0008% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BTCUSDm | Reason: Trend strength too weak (SMA separation: 0.0096% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ================================================================================
+2025-12-09 16:41:04 - system_startup - INFO - [OPPORTUNITY CHECK]
+2025-12-09 16:41:04 - system_startup - INFO - Symbol: FR40m
+2025-12-09 16:41:04 - system_startup - INFO - Signal: SHORT
+2025-12-09 16:41:04 - system_startup - INFO - Quality Score: 65.0 (Threshold: 50)
+2025-12-09 16:41:04 - system_startup - INFO - Trend Strength: 0.0719%
+2025-12-09 16:41:04 - system_startup - INFO - Spread: 2.03 points
+2025-12-09 16:41:04 - system_startup - INFO - Fees: Spread: $0.02, Fees: $0.00
+2025-12-09 16:41:04 - system_startup - INFO - Total Cost: $0.02 USD (PASS ≤ $0.30)
+2025-12-09 16:41:04 - system_startup - INFO - Min Lot: 0.0100
+2025-12-09 16:41:04 - system_startup - INFO - Calculated Lot: 0.0100 (PASS)
+2025-12-09 16:41:04 - system_startup - INFO - Risk: $0.00 (PASS ≤ $2.00)
+2025-12-09 16:41:04 - system_startup - INFO - Reason: Quality score 65.0 >= 50 → Trade Executed
+2025-12-09 16:41:04 - system_startup - INFO - ================================================================================
+2025-12-09 16:41:04 - system_startup - INFO - ✅ FR40m | Signal: SHORT | Quality: 65.0 | MinLot: 0.0100 | Spread: 2.0pts | Spread+Fees: $0.02 | Pass: MinLot OK, Spread+Fees OK ($0.02 <= $0.30)
+2025-12-09 16:41:04 - system_startup - INFO - 📉 FR40m: SHORT signal detected - will place SELL order
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] STOXX50m | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BTCJPYm | Reason: Trend strength too weak (SMA separation: 0.0109% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUS200m | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BTCAUDm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] ETHUSDm | Reason: Trend strength too weak (SMA separation: 0.0028% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BTCZARm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] HK50m | Reason: RSI filter failed (RSI: 57.5 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CADCHFm | Reason: Trend strength too weak (SMA separation: 0.0112% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XCUUSDm | Reason: Trend strength too weak (SMA separation: 0.0022% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDCHFm | Reason: RSI filter failed (RSI: 51.7 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BTCCNHm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BTCXAGm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDCADm | Reason: RSI filter failed (RSI: 60.6 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDCHFm | Reason: Trend strength too weak (SMA separation: 0.0022% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURGBPm | Reason: RSI filter failed (RSI: 62.7 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDCADm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDCHFm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XNIUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XZNUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDUSDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USOILm | Reason: Trend strength too weak (SMA separation: 0.0451% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XALUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDNZDm | Reason: Trend strength too weak (SMA separation: 0.0160% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XPBUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDCADm | Reason: RSI filter failed (RSI: 58.5 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] ZARJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] TSLAm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] PYPLm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CHFJPYm | Signal: SHORT | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPCHFm | Reason: Trend strength too weak (SMA separation: 0.0131% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPAUDm | Reason: Trend strength too weak (SMA separation: 0.0085% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURCHFm | Reason: RSI filter failed (RSI: 52.4 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURCADm | Reason: RSI filter failed (RSI: 57.3 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] HKDJPYm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] DXYm | Reason: Trend strength too weak (SMA separation: 0.0059% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] DKKJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURAUDm | Reason: RSI filter failed (RSI: 52.3 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CADJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDJPYm | Reason: RSI filter failed (RSI: 52.2 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XAGUSDm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XAGGBPm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AMZNm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPCADm | Reason: Trend strength too weak (SMA separation: 0.0020% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDSGDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] DKKSGDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURNZDm | Reason: Trend strength too weak (SMA separation: 0.0122% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XAGEURm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPNZDm | Reason: Trend strength too weak (SMA separation: 0.0076% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XPTUSDm | Reason: Cannot open trade - Max open trades reached (no staged window)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] INTCm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NVDAm | Reason: RSI filter failed (RSI: 67.1 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NFLXm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] UKOILm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURSGDm | Reason: RSI filter failed (RSI: 56.7 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] SGDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] MSFTm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] Cm | Reason: Trend strength too weak (SMA separation: 0.0252% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AMDm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] METAm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CADMXNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDNOKm | Reason: RSI filter failed (RSI: 60.2 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XAGAUDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BTCTHBm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDSGDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDSGDm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDSEKm | Reason: Trend strength too weak (SMA separation: 0.0145% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CHFNOKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPSEKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CHFSEKm | Reason: RSI filter failed (RSI: 50.5 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BAm | Reason: RSI filter failed (RSI: 14.0 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XPDUSDm | Reason: RSI filter failed (RSI: 50.8 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NOKJPYm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CHFSGDm | Reason: RSI filter failed (RSI: 52.9 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BIDUm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] SEKJPYm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] PDDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDILSm | Reason: RSI filter failed (RSI: 84.5 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] XNGUSDm | Reason: RSI filter failed (RSI: 16.3 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDCNHm | Reason: RSI filter failed (RSI: 57.3 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDHKDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDZARm | Reason: RSI filter failed (RSI: 55.7 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] MXNJPYm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] DKKZARm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] BTCXAUm | Reason: Trend strength too weak (SMA separation: 0.0037% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPILSm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURDKKm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] DKKPLNm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDDKKm | Reason: Trend strength too weak (SMA separation: 0.0065% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDMXNm | Reason: RSI filter failed (RSI: 60.1 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NOKDKKm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDMXNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CHFZARm | Reason: RSI filter failed (RSI: 55.3 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] SGDHKDm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CHFDKKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] SEKDKKm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CHFMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURPLNm | Reason: RSI filter failed (RSI: 62.0 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDDKKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] PLNDKKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPSGDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CADPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDPLNm | Reason: Trend strength too weak (SMA separation: 0.0229% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDZARm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NOKSEKm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] USDTHBm | Reason: RSI filter failed (RSI: 76.1 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] PLNJPYm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CHFPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDSEKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURNOKm | Reason: RSI filter failed (RSI: 80.8 not in range 30-50)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDZARm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] AUDDKKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURSEKm | Reason: Trend strength too weak (SMA separation: 0.0090% < 0.05%)
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] GBPDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] PLNSEKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] EURZARm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] NZDSEKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:04 - system_startup - INFO - ⛔ [SKIP] CADNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:04 - system_startup - INFO - 🎯 Found 1 trading opportunity(ies)
+2025-12-09 16:41:04 - system_startup - INFO - 📊 Opportunities sorted: Profit Probability (HIGH→LOW), Fees (LOW→HIGH)
+2025-12-09 16:41:04 - system_startup - INFO -    → Best setups (highest profit probability, lowest fees) will be traded first
+2025-12-09 16:41:05 - system_startup - INFO - 📊 Opportunities sorted by quality score (descending), then spread+fees (ascending):
+2025-12-09 16:41:05 - system_startup - INFO -   1. FR40m SHORT: Quality=65.0, Cost=$0.02 (spread: 2.0pts)
+2025-12-09 16:41:05 - system_startup - INFO - ====================================================================================================
+2025-12-09 16:41:05 - system_startup - INFO - OPPORTUNITY TABLE:
+2025-12-09 16:41:05 - system_startup - INFO - Symbol       | Signal | MinLot   | Spread     | Fees       | Status               | Reason
+2025-12-09 16:41:05 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:41:05 - system_startup - INFO - 🎯 Found 1 opportunity(ies) - evaluating all symbols (sorted by quality score and spread+fees cost) [AUTOMATIC MODE]
+2025-12-09 16:41:05 - system_startup - INFO - ⏸️  Max open trades (6) reached - skipping remaining opportunities
+2025-12-09 16:41:05 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:41:05 - system_startup - INFO - 📊 Cycle Summary: 0 executed, 1 skipped, 6/6 positions open
+2025-12-09 16:41:25 - system_startup - INFO - 🔍 Scanning 226 symbols for trading opportunities...
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XAUUSDm | Reason: RSI filter failed (RSI: 53.0 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XAUAUDm | Reason: Trend strength too weak (SMA separation: 0.0128% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XAUEURm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XAUGBPm | Reason: RSI filter failed (RSI: 55.0 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] EURUSDm | Reason: RSI filter failed (RSI: 59.5 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] AUDUSDm | Reason: RSI filter failed (RSI: 59.6 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] USDJPYm | Signal: SHORT | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] GBPUSDm | Reason: Trend strength too weak (SMA separation: 0.0097% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] US30_x10m | Reason: Trend strength too weak (SMA separation: 0.0119% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] US30m | Reason: Trend strength too weak (SMA separation: 0.0119% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] DE30m | Reason: Trend strength too weak (SMA separation: 0.0183% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] USTEC_x100m | Reason: RSI filter failed (RSI: 62.9 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] USTECm | Reason: RSI filter failed (RSI: 62.9 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] US500_x100m | Reason: RSI filter failed (RSI: 53.1 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] US500m | Reason: RSI filter failed (RSI: 53.1 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] JP225m | Signal: LONG | MinLot: 1.0000 | Reason: Min lot 1.0000 > 0.1 (too large for testing)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] UK100m | Reason: Trend strength too weak (SMA separation: 0.0002% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] BTCUSDm | Reason: Trend strength too weak (SMA separation: 0.0071% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ================================================================================
+2025-12-09 16:41:25 - system_startup - INFO - [OPPORTUNITY CHECK]
+2025-12-09 16:41:25 - system_startup - INFO - Symbol: FR40m
+2025-12-09 16:41:25 - system_startup - INFO - Signal: SHORT
+2025-12-09 16:41:25 - system_startup - INFO - Quality Score: 65.0 (Threshold: 50)
+2025-12-09 16:41:25 - system_startup - INFO - Trend Strength: 0.0691%
+2025-12-09 16:41:25 - system_startup - INFO - Spread: 2.03 points
+2025-12-09 16:41:25 - system_startup - INFO - Fees: Spread: $0.02, Fees: $0.00
+2025-12-09 16:41:25 - system_startup - INFO - Total Cost: $0.02 USD (PASS ≤ $0.30)
+2025-12-09 16:41:25 - system_startup - INFO - Min Lot: 0.0100
+2025-12-09 16:41:25 - system_startup - INFO - Calculated Lot: 0.0100 (PASS)
+2025-12-09 16:41:25 - system_startup - INFO - Risk: $0.00 (PASS ≤ $2.00)
+2025-12-09 16:41:25 - system_startup - INFO - Reason: Quality score 65.0 >= 50 → Trade Executed
+2025-12-09 16:41:25 - system_startup - INFO - ================================================================================
+2025-12-09 16:41:25 - system_startup - INFO - ✅ FR40m | Signal: SHORT | Quality: 65.0 | MinLot: 0.0100 | Spread: 2.0pts | Spread+Fees: $0.02 | Pass: MinLot OK, Spread+Fees OK ($0.02 <= $0.30)
+2025-12-09 16:41:25 - system_startup - INFO - 📉 FR40m: SHORT signal detected - will place SELL order
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] STOXX50m | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] BTCJPYm | Reason: Trend strength too weak (SMA separation: 0.0081% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] BTCAUDm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] ETHUSDm | Reason: Trend strength too weak (SMA separation: 0.0023% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] HK50m | Reason: RSI filter failed (RSI: 54.5 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] CADCHFm | Reason: Trend strength too weak (SMA separation: 0.0105% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XCUUSDm | Reason: Trend strength too weak (SMA separation: 0.0023% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] AUDCHFm | Reason: RSI filter failed (RSI: 50.9 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] BTCCNHm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] BTCXAGm | Reason: RSI filter failed (RSI: 55.6 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] NZDCADm | Reason: RSI filter failed (RSI: 63.8 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] USDCHFm | Reason: Trend strength too weak (SMA separation: 0.0015% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] EURGBPm | Reason: RSI filter failed (RSI: 68.1 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XNIUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] NZDCHFm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] USDCADm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XZNUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] BTCZARm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] NZDUSDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] USOILm | Reason: Cannot open trade - Max open trades reached (no staged window)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XALUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] AUDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] AUDNZDm | Reason: Trend strength too weak (SMA separation: 0.0160% < 0.05%)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] XPBUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] AUDCADm | Reason: RSI filter failed (RSI: 63.3 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] GBPJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] ZARJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] PYPLm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] CHFJPYm | Signal: SHORT | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] EURJPYm | Reason: RSI filter failed (RSI: 51.0 not in range 30-50)
+2025-12-09 16:41:25 - system_startup - INFO - ⛔ [SKIP] TSLAm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPCHFm | Reason: Trend strength too weak (SMA separation: 0.0123% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURCHFm | Reason: RSI filter failed (RSI: 52.5 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPAUDm | Reason: Trend strength too weak (SMA separation: 0.0071% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURCADm | Reason: RSI filter failed (RSI: 58.9 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] HKDJPYm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] DXYm | Reason: Trend strength too weak (SMA separation: 0.0063% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] DKKJPYm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURAUDm | Reason: Trend strength too weak (SMA separation: 0.0039% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CADJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NZDJPYm | Reason: RSI filter failed (RSI: 54.0 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] JDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] XAGUSDm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPCADm | Reason: Trend strength too weak (SMA separation: 0.0019% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] XAGGBPm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AMZNm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AUDSGDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] DKKSGDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURNZDm | Reason: Trend strength too weak (SMA separation: 0.0121% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] XAGEURm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] XPTUSDm | Reason: RSI filter failed (RSI: 50.7 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPNZDm | Reason: Trend strength too weak (SMA separation: 0.0084% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] INTCm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NVDAm | Reason: RSI filter failed (RSI: 62.7 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] TSMm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NFLXm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] UKOILm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURSGDm | Reason: RSI filter failed (RSI: 61.8 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] SGDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] Cm | Reason: Trend strength too weak (SMA separation: 0.0252% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AMDm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] METAm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] MSFTm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CADMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDNOKm | Reason: RSI filter failed (RSI: 60.5 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] XAGAUDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] BTCTHBm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NZDSGDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDSGDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDSEKm | Reason: RSI filter failed (RSI: 53.3 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CHFNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CHFSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] XPDUSDm | Reason: RSI filter failed (RSI: 50.1 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] BAm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NOKJPYm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CHFSGDm | Reason: RSI filter failed (RSI: 56.0 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] BIDUm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] SEKJPYm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] PDDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDILSm | Reason: RSI filter failed (RSI: 82.2 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] XNGUSDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDCNHm | Reason: RSI filter failed (RSI: 53.8 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDHKDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] MXNJPYm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] BTCXAUm | Reason: Trend strength too weak (SMA separation: 0.0072% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPILSm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURDKKm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] DKKPLNm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDDKKm | Reason: Trend strength too weak (SMA separation: 0.0071% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDMXNm | Reason: RSI filter failed (RSI: 61.4 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] DKKZARm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AUDMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NZDMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NOKDKKm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] SGDHKDm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURMXNm | Reason: RSI filter failed (RSI: 57.1 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CHFDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] SEKDKKm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPMXNm | Reason: Trend strength too weak (SMA separation: 0.0038% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CHFMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURPLNm | Reason: RSI filter failed (RSI: 63.8 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NZDDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDZARm | Reason: RSI filter failed (RSI: 54.3 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] PLNDKKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPSGDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NZDPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AUDPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CADPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDPLNm | Reason: Trend strength too weak (SMA separation: 0.0222% < 0.05%)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AUDZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NOKSEKm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] USDTHBm | Reason: RSI filter failed (RSI: 72.3 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CHFZARm | Reason: RSI filter failed (RSI: 55.3 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AUDNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] PLNJPYm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CHFPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPPLNm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AUDSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURNOKm | Reason: RSI filter failed (RSI: 81.7 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NZDZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] AUDDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURSEKm | Reason: RSI filter failed (RSI: 59.1 not in range 30-50)
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] GBPDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] PLNSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NZDNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] EURZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] NZDSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - ⛔ [SKIP] CADNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:26 - system_startup - INFO - 🎯 Found 1 trading opportunity(ies)
+2025-12-09 16:41:26 - system_startup - INFO - 📊 Opportunities sorted: Profit Probability (HIGH→LOW), Fees (LOW→HIGH)
+2025-12-09 16:41:26 - system_startup - INFO -    → Best setups (highest profit probability, lowest fees) will be traded first
+2025-12-09 16:41:26 - system_startup - INFO - 📊 Opportunities sorted by quality score (descending), then spread+fees (ascending):
+2025-12-09 16:41:26 - system_startup - INFO -   1. FR40m SHORT: Quality=65.0, Cost=$0.02 (spread: 2.0pts)
+2025-12-09 16:41:26 - system_startup - INFO - ====================================================================================================
+2025-12-09 16:41:26 - system_startup - INFO - OPPORTUNITY TABLE:
+2025-12-09 16:41:26 - system_startup - INFO - Symbol       | Signal | MinLot   | Spread     | Fees       | Status               | Reason
+2025-12-09 16:41:26 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:41:26 - system_startup - INFO - 🎯 Found 1 opportunity(ies) - evaluating all symbols (sorted by quality score and spread+fees cost) [AUTOMATIC MODE]
+2025-12-09 16:41:26 - system_startup - INFO - ⏸️  Max open trades (6) reached - skipping remaining opportunities
+2025-12-09 16:41:26 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:41:26 - system_startup - INFO - 📊 Cycle Summary: 0 executed, 1 skipped, 6/6 positions open
+2025-12-09 16:41:47 - system_startup - INFO - 🔍 Scanning 226 symbols for trading opportunities...
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XAUUSDm | Reason: RSI filter failed (RSI: 53.0 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XAUAUDm | Reason: RSI filter failed (RSI: 52.2 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XAUEURm | Reason: RSI filter failed (RSI: 52.3 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XAUGBPm | Reason: RSI filter failed (RSI: 55.0 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] EURUSDm | Reason: RSI filter failed (RSI: 59.5 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] AUDUSDm | Reason: RSI filter failed (RSI: 59.6 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] GBPUSDm | Reason: Trend strength too weak (SMA separation: 0.0097% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] USDJPYm | Signal: SHORT | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] US30_x10m | Reason: Trend strength too weak (SMA separation: 0.0119% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] US30m | Reason: Trend strength too weak (SMA separation: 0.0119% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] DE30m | Reason: Trend strength too weak (SMA separation: 0.0183% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] USTEC_x100m | Reason: RSI filter failed (RSI: 62.9 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] USTECm | Reason: RSI filter failed (RSI: 62.9 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] US500_x100m | Reason: RSI filter failed (RSI: 53.1 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] US500m | Reason: RSI filter failed (RSI: 53.1 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] JP225m | Signal: LONG | MinLot: 1.0000 | Reason: Min lot 1.0000 > 0.1 (too large for testing)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] UK100m | Reason: Trend strength too weak (SMA separation: 0.0002% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] BTCUSDm | Reason: Trend strength too weak (SMA separation: 0.0071% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ================================================================================
+2025-12-09 16:41:47 - system_startup - INFO - [OPPORTUNITY CHECK]
+2025-12-09 16:41:47 - system_startup - INFO - Symbol: FR40m
+2025-12-09 16:41:47 - system_startup - INFO - Signal: SHORT
+2025-12-09 16:41:47 - system_startup - INFO - Quality Score: 65.0 (Threshold: 50)
+2025-12-09 16:41:47 - system_startup - INFO - Trend Strength: 0.0691%
+2025-12-09 16:41:47 - system_startup - INFO - Spread: 2.03 points
+2025-12-09 16:41:47 - system_startup - INFO - Fees: Spread: $0.02, Fees: $0.00
+2025-12-09 16:41:47 - system_startup - INFO - Total Cost: $0.02 USD (PASS ≤ $0.30)
+2025-12-09 16:41:47 - system_startup - INFO - Min Lot: 0.0100
+2025-12-09 16:41:47 - system_startup - INFO - Calculated Lot: 0.0100 (PASS)
+2025-12-09 16:41:47 - system_startup - INFO - Risk: $0.00 (PASS ≤ $2.00)
+2025-12-09 16:41:47 - system_startup - INFO - Reason: Quality score 65.0 >= 50 → Trade Executed
+2025-12-09 16:41:47 - system_startup - INFO - ================================================================================
+2025-12-09 16:41:47 - system_startup - INFO - ✅ FR40m | Signal: SHORT | Quality: 65.0 | MinLot: 0.0100 | Spread: 2.0pts | Spread+Fees: $0.02 | Pass: MinLot OK, Spread+Fees OK ($0.02 <= $0.30)
+2025-12-09 16:41:47 - system_startup - INFO - 📉 FR40m: SHORT signal detected - will place SELL order
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] STOXX50m | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] BTCJPYm | Reason: Trend strength too weak (SMA separation: 0.0081% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] BTCAUDm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] ETHUSDm | Reason: Trend strength too weak (SMA separation: 0.0023% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] HK50m | Reason: RSI filter failed (RSI: 54.5 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] CADCHFm | Reason: Trend strength too weak (SMA separation: 0.0105% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XCUUSDm | Reason: Trend strength too weak (SMA separation: 0.0023% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] AUDCHFm | Reason: RSI filter failed (RSI: 50.9 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] BTCCNHm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] BTCXAGm | Reason: RSI filter failed (RSI: 51.8 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] USDCHFm | Reason: Trend strength too weak (SMA separation: 0.0015% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] NZDCADm | Reason: RSI filter failed (RSI: 63.8 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] EURGBPm | Reason: RSI filter failed (RSI: 68.1 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XNIUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] USDCADm | Reason: Trend strength too weak (SMA separation: 0.0077% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] NZDCHFm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XZNUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] BTCZARm | Signal: LONG | MinLot: 0.5000 | Reason: Min lot 0.5000 > 0.1 (too large for testing)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] USOILm | Reason: Cannot open trade - Max open trades reached (no staged window)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] NZDUSDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XALUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] AUDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] AUDNZDm | Reason: Trend strength too weak (SMA separation: 0.0157% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XPBUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] AUDCADm | Reason: RSI filter failed (RSI: 63.3 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] GBPJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] ZARJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] EURJPYm | Reason: RSI filter failed (RSI: 51.0 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] PYPLm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] CHFJPYm | Signal: SHORT | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] TSLAm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] GBPCHFm | Reason: Trend strength too weak (SMA separation: 0.0123% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] GBPAUDm | Reason: Trend strength too weak (SMA separation: 0.0071% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] EURCHFm | Reason: RSI filter failed (RSI: 52.5 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] EURCADm | Reason: RSI filter failed (RSI: 58.9 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] HKDJPYm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] DXYm | Reason: Trend strength too weak (SMA separation: 0.0063% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] DKKJPYm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] EURAUDm | Reason: Trend strength too weak (SMA separation: 0.0039% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] CADJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] JDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] NZDJPYm | Reason: RSI filter failed (RSI: 54.0 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XAGUSDm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XAGGBPm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] AMZNm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] GBPCADm | Reason: Trend strength too weak (SMA separation: 0.0019% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] AUDSGDm | Reason: RSI filter failed (RSI: 61.5 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] DKKSGDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] EURNZDm | Reason: Trend strength too weak (SMA separation: 0.0121% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XAGEURm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] XPTUSDm | Reason: RSI filter failed (RSI: 50.7 not in range 30-50)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] GBPNZDm | Reason: Trend strength too weak (SMA separation: 0.0084% < 0.05%)
+2025-12-09 16:41:47 - system_startup - INFO - ⛔ [SKIP] INTCm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NVDAm | Reason: RSI filter failed (RSI: 62.7 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] TSMm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] EURSGDm | Reason: RSI filter failed (RSI: 61.8 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] UKOILm | Reason: RSI filter failed (RSI: 52.0 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] SGDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] MSFTm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] Cm | Reason: Trend strength too weak (SMA separation: 0.0252% < 0.05%)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] AMDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] METAm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CADMXNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDNOKm | Reason: RSI filter failed (RSI: 60.5 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] XAGAUDm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] BTCTHBm | Reason: RSI filter failed (RSI: 55.0 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NZDSGDm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDSGDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDSEKm | Reason: RSI filter failed (RSI: 53.3 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] GBPNOKm | Reason: RSI filter failed (RSI: 58.7 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CHFNOKm | Reason: RSI filter failed (RSI: 74.2 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] GBPSEKm | Reason: RSI filter failed (RSI: 50.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CHFSEKm | Reason: RSI filter failed (RSI: 59.0 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] XPDUSDm | Reason: RSI filter failed (RSI: 50.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] BAm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NOKJPYm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CHFSGDm | Reason: RSI filter failed (RSI: 56.0 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] BIDUm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] SEKJPYm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] PDDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDILSm | Reason: RSI filter failed (RSI: 82.2 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] XNGUSDm | Reason: RSI filter failed (RSI: 14.3 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDCNHm | Reason: RSI filter failed (RSI: 53.8 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDHKDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] MXNJPYm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] BTCXAUm | Reason: Trend strength too weak (SMA separation: 0.0072% < 0.05%)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] GBPILSm | Reason: RSI filter failed (RSI: 66.6 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] EURDKKm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] DKKPLNm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDDKKm | Reason: Trend strength too weak (SMA separation: 0.0071% < 0.05%)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDMXNm | Reason: RSI filter failed (RSI: 61.4 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] DKKZARm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] AUDMXNm | Reason: RSI filter failed (RSI: 72.0 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NZDMXNm | Reason: RSI filter failed (RSI: 71.9 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NOKDKKm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] SGDHKDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] EURMXNm | Reason: RSI filter failed (RSI: 62.8 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CHFDKKm | Reason: Trend strength too weak (SMA separation: 0.0090% < 0.05%)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] SEKDKKm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] GBPMXNm | Reason: RSI filter failed (RSI: 52.2 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CHFMXNm | Reason: RSI filter failed (RSI: 61.7 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] EURPLNm | Reason: RSI filter failed (RSI: 63.8 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NZDDKKm | Reason: RSI filter failed (RSI: 55.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDZARm | Reason: RSI filter failed (RSI: 54.3 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] PLNDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] GBPSGDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NZDPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] AUDPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CADPLNm | Reason: RSI filter failed (RSI: 51.3 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDPLNm | Reason: Trend strength too weak (SMA separation: 0.0222% < 0.05%)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] AUDZARm | Reason: RSI filter failed (RSI: 71.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NOKSEKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] USDTHBm | Reason: RSI filter failed (RSI: 72.3 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CHFZARm | Reason: RSI filter failed (RSI: 55.3 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] AUDNOKm | Reason: RSI filter failed (RSI: 60.7 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] PLNJPYm | Reason: Trend strength too weak (SMA separation: 0.0219% < 0.05%)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CHFPLNm | Reason: RSI filter failed (RSI: 59.4 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] GBPZARm | Reason: RSI filter failed (RSI: 57.0 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] GBPPLNm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] AUDSEKm | Reason: RSI filter failed (RSI: 54.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] EURNOKm | Reason: RSI filter failed (RSI: 81.7 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NZDZARm | Reason: RSI filter failed (RSI: 71.9 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] AUDDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] EURSEKm | Reason: RSI filter failed (RSI: 59.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] GBPDKKm | Reason: Trend strength too weak (SMA separation: 0.0030% < 0.05%)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] PLNSEKm | Reason: RSI filter failed (RSI: 56.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NZDNOKm | Reason: RSI filter failed (RSI: 76.9 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] EURZARm | Reason: RSI filter failed (RSI: 70.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] NZDSEKm | Reason: RSI filter failed (RSI: 60.5 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - ⛔ [SKIP] CADNOKm | Reason: RSI filter failed (RSI: 65.1 not in range 30-50)
+2025-12-09 16:41:48 - system_startup - INFO - 🎯 Found 1 trading opportunity(ies)
+2025-12-09 16:41:48 - system_startup - INFO - 📊 Opportunities sorted: Profit Probability (HIGH→LOW), Fees (LOW→HIGH)
+2025-12-09 16:41:48 - system_startup - INFO -    → Best setups (highest profit probability, lowest fees) will be traded first
+2025-12-09 16:41:48 - system_startup - INFO - 📊 Opportunities sorted by quality score (descending), then spread+fees (ascending):
+2025-12-09 16:41:48 - system_startup - INFO -   1. FR40m SHORT: Quality=65.0, Cost=$0.02 (spread: 2.0pts)
+2025-12-09 16:41:48 - system_startup - INFO - ====================================================================================================
+2025-12-09 16:41:48 - system_startup - INFO - OPPORTUNITY TABLE:
+2025-12-09 16:41:48 - system_startup - INFO - Symbol       | Signal | MinLot   | Spread     | Fees       | Status               | Reason
+2025-12-09 16:41:48 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:41:48 - system_startup - INFO - 🎯 Found 1 opportunity(ies) - evaluating all symbols (sorted by quality score and spread+fees cost) [AUTOMATIC MODE]
+2025-12-09 16:41:48 - system_startup - INFO - ⏸️  Max open trades (6) reached - skipping remaining opportunities
+2025-12-09 16:41:48 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:41:48 - system_startup - INFO - 📊 Cycle Summary: 0 executed, 1 skipped, 6/6 positions open
+2025-12-09 16:42:01 - system_startup - INFO - Received signal 2, initiating graceful shutdown...
+2025-12-09 16:42:01 - system_startup - INFO - ================================================================================
+2025-12-09 16:42:01 - system_startup - INFO - INITIATING GRACEFUL SHUTDOWN
+2025-12-09 16:42:01 - system_startup - INFO - ================================================================================
+2025-12-09 16:42:01 - system_startup - INFO - Stopping Trading Bot...
+2025-12-09 16:42:01 - system_startup - INFO - Fast trailing stop monitor stopped
+2025-12-09 16:42:02 - system_startup - INFO - Continuous trailing stop monitor stopped
+2025-12-09 16:42:02 - system_startup - INFO - Continuous trailing stop monitor thread stopped
+2025-12-09 16:42:05 - system_startup - INFO - Position closure monitor thread stopped
+2025-12-09 16:42:08 - system_startup - INFO - Shutting down trading bot...
+2025-12-09 16:42:08 - system_startup - INFO - Trading bot shutdown complete
+2025-12-09 16:42:08 - system_startup - INFO - ✅ Trading Bot stopped
+2025-12-09 16:42:08 - system_startup - INFO - Stopping Real-Time Monitor...
+2025-12-09 16:42:15 - system_startup - INFO - Stopping Trade Summary Display...
+2025-12-09 16:42:15 - system_startup - INFO - Stopping Broker Reconciliation...
+2025-12-09 16:42:15 - system_startup - INFO - Generating final reconciliation report...
+2025-12-09 16:42:15 - system_startup - INFO - Final reconciliation report: logs/reports/realtime_reconciliation_20251209_164215.txt
+2025-12-09 16:42:15 - system_startup - INFO - Generating monitoring summary...
+2025-12-09 16:42:15 - system_startup - INFO - Monitoring Summary:
+2025-12-09 16:42:15 - system_startup - INFO -   HFT Trades: 0
+2025-12-09 16:42:15 - system_startup - INFO -   HFT Sweet Spot Rate: 0.0%
+2025-12-09 16:42:15 - system_startup - INFO -   Skipped Symbols: 0
+2025-12-09 16:42:15 - system_startup - INFO - Flushing all logs...
+2025-12-09 16:42:15 - system_startup - INFO - ================================================================================
+2025-12-09 16:42:15 - system_startup - INFO - SHUTDOWN COMPLETE
+2025-12-09 16:42:15 - system_startup - INFO - ================================================================================
+2025-12-09 16:42:15 - system_startup - WARNING - Trading Bot thread died unexpectedly
+2025-12-09 16:44:48 - system_startup - INFO - ================================================================================
+2025-12-09 16:44:48 - system_startup - INFO - TRADING SYSTEM STARTING
+2025-12-09 16:44:48 - system_startup - INFO - ================================================================================
+2025-12-09 16:44:48 - system_startup - INFO - Reconciliation Interval: 30 minutes
+2025-12-09 16:44:48 - system_startup - INFO - 
+2025-12-09 16:44:48 - system_startup - INFO - Initializing Trading Bot...
+2025-12-09 16:44:48 - system_startup - INFO - Micro-HFT Profit Engine initialized and registered
+2025-12-09 16:44:48 - system_startup - INFO - Connecting to MT5...
+2025-12-09 16:44:48 - system_startup - INFO - MT5 connection established
+2025-12-09 16:44:48 - system_startup - INFO - ✅ Trading Bot initialized and connected
+2025-12-09 16:44:48 - system_startup - INFO - Initializing Real-Time Monitor...
+2025-12-09 16:44:48 - system_startup - INFO - ✅ Real-Time Monitor initialized
+2025-12-09 16:44:48 - system_startup - INFO - Initializing Broker Reconciliation...
+2025-12-09 16:44:48 - system_startup - INFO - ✅ Broker Reconciliation initialized
+2025-12-09 16:44:48 - system_startup - INFO - Starting Trading Bot thread...
+2025-12-09 16:44:48 - system_startup - INFO - 🔄 Continuous trailing stop monitor started (interval: 300ms = 0.300s)
+2025-12-09 16:44:48 - system_startup - INFO - ✅ Continuous trailing stop monitor thread started
+2025-12-09 16:44:48 - system_startup - INFO - ⚡ Fast trailing stop monitor started (interval: 0.300s = 300ms)
+2025-12-09 16:44:48 - system_startup - INFO - ✅ Fast trailing stop monitor thread started
+2025-12-09 16:44:48 - system_startup - INFO - ✅ Position closure monitor thread started
+2025-12-09 16:44:48 - system_startup - INFO - Trading Bot thread started (cycle interval: 20s)
+2025-12-09 16:44:48 - system_startup - INFO - ✅ Trading Bot thread started
+2025-12-09 16:44:48 - system_startup - INFO - Trading bot started in AUTOMATIC MODE. Cycle interval: 20s
+2025-12-09 16:44:48 - system_startup - WARNING - Continuous trailing stop already running
+2025-12-09 16:44:49 - system_startup - INFO - 🔍 Scanning 226 symbols for trading opportunities...
+2025-12-09 16:44:49 - system_startup - INFO - Starting Real-Time Monitor thread...
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XAUUSDm | Reason: Trend strength too weak (SMA separation: 0.0161% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - Monitor wrapper thread started
+2025-12-09 16:44:49 - system_startup - INFO - ✅ Real-Time Monitor started
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XAUAUDm | Reason: Trend strength too weak (SMA separation: 0.0131% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XAUEURm | Reason: Trend strength too weak (SMA separation: 0.0102% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XAUGBPm | Reason: RSI filter failed (RSI: 57.8 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] EURUSDm | Reason: RSI filter failed (RSI: 60.4 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AUDUSDm | Reason: RSI filter failed (RSI: 50.9 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] GBPUSDm | Reason: Trend strength too weak (SMA separation: 0.0080% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] USDJPYm | Signal: SHORT | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] US30_x10m | Reason: RSI filter failed (RSI: 20.5 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] US30m | Reason: RSI filter failed (RSI: 20.5 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] DE30m | Reason: Trend strength too weak (SMA separation: 0.0087% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] USTEC_x100m | Reason: RSI filter failed (RSI: 61.4 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] USTECm | Reason: RSI filter failed (RSI: 61.4 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] US500_x100m | Reason: RSI filter failed (RSI: 54.4 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] US500m | Reason: RSI filter failed (RSI: 54.4 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] JP225m | Signal: LONG | MinLot: 1.0000 | Reason: Min lot 1.0000 > 0.1 (too large for testing)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] UK100m | Reason: Trend strength too weak (SMA separation: 0.0025% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] BTCUSDm | Reason: RSI filter failed (RSI: 53.1 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ================================================================================
+2025-12-09 16:44:49 - system_startup - INFO - [OPPORTUNITY CHECK]
+2025-12-09 16:44:49 - system_startup - INFO - Symbol: FR40m
+2025-12-09 16:44:49 - system_startup - INFO - Signal: SHORT
+2025-12-09 16:44:49 - system_startup - INFO - Quality Score: 65.0 (Threshold: 50)
+2025-12-09 16:44:49 - system_startup - INFO - Trend Strength: 0.0576%
+2025-12-09 16:44:49 - system_startup - INFO - Spread: 2.04 points
+2025-12-09 16:44:49 - system_startup - INFO - Fees: Spread: $0.02, Fees: $0.00
+2025-12-09 16:44:49 - system_startup - INFO - Total Cost: $0.02 USD (PASS ≤ $0.30)
+2025-12-09 16:44:49 - system_startup - INFO - Min Lot: 0.0100
+2025-12-09 16:44:49 - system_startup - INFO - Calculated Lot: 0.0100 (PASS)
+2025-12-09 16:44:49 - system_startup - INFO - Risk: $0.00 (PASS ≤ $2.00)
+2025-12-09 16:44:49 - system_startup - INFO - Reason: Quality score 65.0 >= 50 → Trade Executed
+2025-12-09 16:44:49 - system_startup - INFO - ================================================================================
+2025-12-09 16:44:49 - system_startup - INFO - ✅ FR40m | Signal: SHORT | Quality: 65.0 | MinLot: 0.0100 | Spread: 2.0pts | Spread+Fees: $0.02 | Pass: MinLot OK, Spread+Fees OK ($0.02 <= $0.30)
+2025-12-09 16:44:49 - system_startup - INFO - 📉 FR40m: SHORT signal detected - will place SELL order
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] STOXX50m | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] BTCJPYm | Reason: RSI filter failed (RSI: 52.3 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AUS200m | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] BTCAUDm | Reason: RSI filter failed (RSI: 53.0 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] ETHUSDm | Reason: RSI filter failed (RSI: 65.5 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] BTCZARm | Reason: RSI filter failed (RSI: 58.9 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] HK50m | Reason: Trend strength too weak (SMA separation: 0.0062% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] CADCHFm | Reason: Trend strength too weak (SMA separation: 0.0068% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XCUUSDm | Reason: RSI filter failed (RSI: 21.1 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AUDCHFm | Reason: Trend strength too weak (SMA separation: 0.0058% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] BTCCNHm | Reason: RSI filter failed (RSI: 54.7 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] BTCXAGm | Reason: RSI filter failed (RSI: 57.1 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] USDCHFm | Reason: Trend strength too weak (SMA separation: 0.0017% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] NZDCADm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] EURGBPm | Reason: RSI filter failed (RSI: 84.9 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XNIUSDm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] NZDCHFm | Reason: Trend strength too weak (SMA separation: 0.0206% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - Starting Broker Reconciliation thread...
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] USDCADm | Reason: RSI filter failed (RSI: 61.6 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - Reconciliation thread started
+2025-12-09 16:44:49 - system_startup - INFO - ✅ Broker Reconciliation started
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XZNUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ================================================================================
+2025-12-09 16:44:49 - system_startup - INFO - ALL SYSTEMS OPERATIONAL
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] USOILm | Reason: RSI filter failed (RSI: 51.1 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ================================================================================
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] NZDUSDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:44:49 - system_startup - INFO - Starting Trade Summary Display (display-only, updates every 5 seconds)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XALUSDm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:44:49 - system_startup - INFO - Trade Summary Display started
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AUDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AUDNZDm | Reason: Trend strength too weak (SMA separation: 0.0144% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AAPLm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XPBUSDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] GBPJPYm | Reason: RSI filter failed (RSI: 26.9 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AUDCADm | Reason: RSI filter failed (RSI: 63.6 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] GBPCHFm | Reason: RSI filter failed (RSI: 18.6 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] PYPLm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] CHFJPYm | Reason: RSI filter failed (RSI: 61.1 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] EURJPYm | Reason: RSI filter failed (RSI: 59.1 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] ZARJPYm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] TSLAm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] GBPAUDm | Reason: Trend strength too weak (SMA separation: 0.0047% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] EURCHFm | Reason: Trend strength too weak (SMA separation: 0.0081% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] EURCADm | Reason: RSI filter failed (RSI: 68.5 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] HKDJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] DXYm | Reason: Trend strength too weak (SMA separation: 0.0051% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] DKKJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] EURAUDm | Reason: RSI filter failed (RSI: 63.3 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] CADJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] NZDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] JDm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XAGUSDm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XAGGBPm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AMZNm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] GBPCADm | Reason: Trend strength too weak (SMA separation: 0.0035% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] AUDSGDm | Reason: Trend strength too weak (SMA separation: 0.0048% < 0.05%)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] DKKSGDm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] EURNZDm | Reason: RSI filter failed (RSI: 64.4 not in range 30-50)
+2025-12-09 16:44:49 - system_startup - INFO - ⛔ [SKIP] XAGEURm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] XPTUSDm | Reason: RSI filter failed (RSI: 50.8 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPNZDm | Reason: Trend strength too weak (SMA separation: 0.0092% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] INTCm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NVDAm | Reason: RSI filter failed (RSI: 71.8 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] TSMm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] UKOILm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] EURSGDm | Reason: RSI filter failed (RSI: 62.1 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] SGDJPYm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $100.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] METAm | Reason: Insufficient tick volume: 2 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] BABAm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] AMDm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] Cm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] MSFTm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CADMXNm | Reason: Trend strength too weak (SMA separation: 0.0041% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDNOKm | Reason: RSI filter failed (RSI: 61.6 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] XAGAUDm | Signal: LONG | MinLot: 0.0100 | Reason: Min lot 0.0100 would cause risk $5.00 > $2.00 (exceeds max risk per trade)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] BTCTHBm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NZDSGDm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDSGDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NFLXm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDSEKm | Reason: RSI filter failed (RSI: 56.3 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPNOKm | Reason: Trend strength too weak (SMA separation: 0.0234% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CHFNOKm | Reason: RSI filter failed (RSI: 79.4 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] XPDUSDm | Reason: RSI filter failed (RSI: 52.1 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPSEKm | Reason: Trend strength too weak (SMA separation: 0.0024% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CHFSEKm | Reason: RSI filter failed (RSI: 67.9 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NOKJPYm | Reason: Insufficient tick volume: 3 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CHFSGDm | Reason: RSI filter failed (RSI: 60.0 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] BAm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] SEKJPYm | Reason: Insufficient tick volume: 4 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDILSm | Reason: RSI filter failed (RSI: 73.9 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] XNGUSDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDCNHm | Reason: RSI filter failed (RSI: 61.1 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDHKDm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDZARm | Reason: RSI filter failed (RSI: 58.7 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] MXNJPYm | Reason: Insufficient tick volume: 6 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] DKKZARm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] BTCXAUm | Reason: RSI filter failed (RSI: 52.5 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPILSm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] EURDKKm | Reason: Insufficient tick volume: 1 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] DKKPLNm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDDKKm | Reason: Trend strength too weak (SMA separation: 0.0062% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDMXNm | Reason: Trend strength too weak (SMA separation: 0.0083% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] AUDMXNm | Reason: RSI filter failed (RSI: 54.2 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NZDMXNm | Reason: RSI filter failed (RSI: 56.8 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NOKDKKm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CHFZARm | Reason: RSI filter failed (RSI: 61.9 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] SGDHKDm | Reason: Insufficient tick volume: 7 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] EURMXNm | Reason: RSI filter failed (RSI: 62.0 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CHFDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] SEKDKKm | Reason: Insufficient tick volume: 5 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPMXNm | Reason: Trend strength too weak (SMA separation: 0.0005% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CHFMXNm | Reason: RSI filter failed (RSI: 62.9 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] EURPLNm | Reason: RSI filter failed (RSI: 64.7 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NZDDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] PLNDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPSGDm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NZDPLNm | Reason: Trend strength too weak (SMA separation: 0.0005% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] AUDPLNm | Reason: Trend strength too weak (SMA separation: 0.0141% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CADPLNm | Reason: Trend strength too weak (SMA separation: 0.0135% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDPLNm | Reason: Trend strength too weak (SMA separation: 0.0181% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] AUDZARm | Reason: RSI filter failed (RSI: 59.7 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NOKSEKm | Reason: Insufficient tick volume: 8 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] USDTHBm | Reason: RSI filter failed (RSI: 75.9 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] AUDNOKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] PLNJPYm | Reason: RSI filter failed (RSI: 52.5 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CHFPLNm | Reason: RSI filter failed (RSI: 59.7 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPZARm | Reason: Trend strength too weak (SMA separation: 0.0143% < 0.05%)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] AUDSEKm | Reason: RSI filter failed (RSI: 60.8 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPPLNm | Reason: RSI filter failed (RSI: 23.5 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] EURNOKm | Reason: RSI filter failed (RSI: 86.9 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NZDZARm | Reason: RSI filter failed (RSI: 59.9 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] AUDDKKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] EURSEKm | Reason: RSI filter failed (RSI: 79.3 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] GBPDKKm | Reason: RSI filter failed (RSI: 17.7 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] PLNSEKm | Reason: RSI filter failed (RSI: 66.3 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NZDNOKm | Reason: RSI filter failed (RSI: 69.4 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] EURZARm | Reason: RSI filter failed (RSI: 65.5 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] NZDSEKm | Reason: Insufficient tick volume: 9 < 10
+2025-12-09 16:44:50 - system_startup - INFO - ⛔ [SKIP] CADNOKm | Reason: RSI filter failed (RSI: 58.2 not in range 30-50)
+2025-12-09 16:44:50 - system_startup - INFO - 🎯 Found 1 trading opportunity(ies)
+2025-12-09 16:44:50 - system_startup - INFO - 📊 Opportunities sorted: Profit Probability (HIGH→LOW), Fees (LOW→HIGH)
+2025-12-09 16:44:50 - system_startup - INFO -    → Best setups (highest profit probability, lowest fees) will be traded first
+2025-12-09 16:44:50 - system_startup - INFO - 📊 Opportunities sorted by quality score (descending), then spread+fees (ascending):
+2025-12-09 16:44:50 - system_startup - INFO -   1. FR40m SHORT: Quality=65.0, Cost=$0.02 (spread: 2.0pts)
+2025-12-09 16:44:50 - system_startup - INFO - ====================================================================================================
+2025-12-09 16:44:50 - system_startup - INFO - OPPORTUNITY TABLE:
+2025-12-09 16:44:50 - system_startup - INFO - Symbol       | Signal | MinLot   | Spread     | Fees       | Status               | Reason
+2025-12-09 16:44:50 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:44:50 - system_startup - INFO - 🎯 Found 1 opportunity(ies) - evaluating all symbols (sorted by quality score and spread+fees cost) [AUTOMATIC MODE]
+2025-12-09 16:44:50 - system_startup - INFO - FR40m        | SHORT  | Q:65.0 | 0.0100   | 2.0       pts | $0.02      | Executing...         | -
+2025-12-09 16:44:50 - system_startup - INFO - 🎯 Executing approved trade: FR40m SHORT (Quality: 65.0, Spread: 2.0 points)
+2025-12-09 16:44:50 - system_startup - INFO - FR40m        | SHORT  | Q:65.0 | 0.0100   | 2.0       pts | $0.02      | Evaluating...        | -
+2025-12-09 16:44:50 - system_startup - INFO - 🎯 Evaluating opportunity: FR40m SHORT (Quality: 65.0, Spread: 2.0 points)
+2025-12-09 16:44:50 - system_startup - INFO - 🎲 FR40m: RANDOMNESS PASS - Random value 0.830 >= threshold 0.25 (proceeding with trade)
+2025-12-09 16:44:50 - system_startup - INFO - 💰 FR40m: Entry price = 8058.74000 (BID)
+2025-12-09 16:44:50 - system_startup - INFO - 🛡️ FR40m: Stop loss = 416.4 pips (broker min: 0.0 pips)
+2025-12-09 16:44:50 - system_startup - INFO - 📦 FR40m: EXECUTING WITH MINIMUM LOT SIZE = 0.0100 | Source: broker | Estimated Risk: $0.04 (with slippage: $0.05, max: $2.00) | Policy: Always use LEAST POSSIBLE lot size per symbol
+2025-12-09 16:44:50 - system_startup - INFO - 📤 FR40m: Placing SHORT order (Lot: 0.01, SL: 416.4 pips)...
+2025-12-09 16:44:51 - system_startup - INFO - FR40m        | SHORT  | Q:65.0 | 0.0100   | 2.0       pts | $0.02      | PASS - EXECUTED      | Trade executed
+2025-12-09 16:44:51 - system_startup - INFO - ✅ FR40m: Trade execution completed successfully
+2025-12-09 16:44:51 - system_startup - INFO - ⏸️  Max open trades (6) reached after trade 1
+2025-12-09 16:44:51 - system_startup - INFO - ----------------------------------------------------------------------------------------------------
+2025-12-09 16:44:51 - system_startup - INFO - 📊 Cycle Summary: 1 executed, 0 skipped, 6/6 positions open
+2025-12-09 16:44:59 - system_startup - INFO - Received signal 2, initiating graceful shutdown...
+2025-12-09 16:44:59 - system_startup - INFO - ================================================================================
+2025-12-09 16:44:59 - system_startup - INFO - INITIATING GRACEFUL SHUTDOWN
+2025-12-09 16:44:59 - system_startup - INFO - ================================================================================
+2025-12-09 16:44:59 - system_startup - INFO - Stopping Trading Bot...
+2025-12-09 16:44:59 - system_startup - INFO - Continuous trailing stop monitor stopped
+2025-12-09 16:44:59 - system_startup - INFO - Continuous trailing stop monitor thread stopped
+2025-12-09 16:44:59 - system_startup - INFO - Fast trailing stop monitor stopped
+2025-12-09 16:44:59 - system_startup - INFO - Fast trailing stop monitor thread stopped
+2025-12-09 16:45:03 - system_startup - INFO - Position closure monitor thread stopped
+2025-12-09 16:45:11 - system_startup - INFO - Shutting down trading bot...
+2025-12-09 16:45:11 - system_startup - INFO - Trading bot shutdown complete
+2025-12-09 16:45:11 - system_startup - INFO - ✅ Trading Bot stopped
+2025-12-09 16:45:11 - system_startup - INFO - Stopping Real-Time Monitor...
+2025-12-09 16:45:21 - system_startup - INFO - Stopping Trade Summary Display...
+2025-12-09 16:45:21 - system_startup - INFO - Stopping Broker Reconciliation...
+2025-12-09 16:45:21 - system_startup - INFO - Generating final reconciliation report...
+2025-12-09 16:45:21 - system_startup - INFO - Final reconciliation report: logs/reports/realtime_reconciliation_20251209_164521.txt
+2025-12-09 16:45:21 - system_startup - INFO - Generating monitoring summary...
+2025-12-09 16:45:21 - system_startup - INFO - Monitoring Summary:
+2025-12-09 16:45:21 - system_startup - INFO -   HFT Trades: 0
+2025-12-09 16:45:21 - system_startup - INFO -   HFT Sweet Spot Rate: 0.0%
+2025-12-09 16:45:21 - system_startup - INFO -   Skipped Symbols: 0
+2025-12-09 16:45:21 - system_startup - INFO - Flushing all logs...
+2025-12-09 16:45:21 - system_startup - INFO - ================================================================================
+2025-12-09 16:45:21 - system_startup - INFO - SHUTDOWN COMPLETE
+2025-12-09 16:45:21 - system_startup - INFO - ================================================================================
+2025-12-09 16:45:21 - system_startup - WARNING - Trading Bot thread died unexpectedly

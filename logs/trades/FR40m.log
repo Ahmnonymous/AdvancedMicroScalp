@@ -1,0 +1,42 @@
+2025-12-09 16:40:22 - trades.FR40m - INFO - ================================================================================
+2025-12-09 16:40:22 - trades.FR40m - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Symbol: FR40m
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Direction: SHORT
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Ticket: 470773996
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Entry Price (Requested): 8059.08000
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Entry Price (Actual Fill): 8059.68000
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Entry Slippage: 0.60000
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Lot Size: 0.0100
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Stop Loss: 472.3 pips (4.72286)
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Risk: $0.05 USD
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Spread: 2.0 points
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Spread+Fees Cost: $0.02 USD
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Quality Score: 65.0
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Min Lot: 0.01
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Min Lot Source: broker
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Sma Fast: 8060.5419999999995
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Sma Slow: 8066.344
+2025-12-09 16:40:22 - trades.FR40m - INFO -    Rsi: 47.182377049179465
+2025-12-09 16:40:22 - trades.FR40m - INFO - ================================================================================
+{"timestamp": "2025-12-09 16:40:22", "symbol": "FR40m", "trade_type": "SHORT", "entry_price": 8059.68, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "470773996", "additional_info": {"entry_price_requested": 8059.08, "lot_size": 0.01, "stop_loss_pips": 472.28571428572, "stop_loss_price": 4.7228571428572, "slippage": 0.6000000000003638, "quality_score": 65, "spread_points": 2.03497173374669, "spread_fees_cost": 0.016400000000003273, "risk_usd": 0.0472285714285681, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 8060.5419999999995, "sma_slow": 8066.344, "rsi": 47.182377049179465}}
+2025-12-09 16:44:51 - trades.FR40m - INFO - ================================================================================
+2025-12-09 16:44:51 - trades.FR40m - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Symbol: FR40m
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Direction: SHORT
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Ticket: 470797031
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Entry Price (Requested): 8058.74000
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Entry Price (Actual Fill): 8058.33000
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Entry Slippage: 0.41000
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Lot Size: 0.0100
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Stop Loss: 416.4 pips (4.16429)
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Risk: $0.04 USD
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Spread: 2.0 points
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Spread+Fees Cost: $0.02 USD
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Quality Score: 65.0
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Min Lot: 0.01
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Min Lot Source: broker
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Sma Fast: 8060.1755
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Sma Slow: 8064.818200000001
+2025-12-09 16:44:51 - trades.FR40m - INFO -    Rsi: 33.12655086848561
+2025-12-09 16:44:51 - trades.FR40m - INFO - ================================================================================
+{"timestamp": "2025-12-09 16:44:51", "symbol": "FR40m", "trade_type": "SHORT", "entry_price": 8058.33, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "470797031", "additional_info": {"entry_price_requested": 8058.74, "lot_size": 0.01, "stop_loss_pips": 416.4285714285662, "stop_loss_price": 4.164285714285662, "slippage": 0.4099999999998545, "quality_score": 65, "spread_points": 2.035057589648416, "spread_fees_cost": 0.016400000000003273, "risk_usd": 0.04164285714286052, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 8060.1755, "sma_slow": 8064.818200000001, "rsi": 33.12655086848561}}
