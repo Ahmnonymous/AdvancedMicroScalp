@@ -5,12 +5,12 @@ Handles connection to MetaTrader 5 with automatic reconnection logic.
 
 import MetaTrader5 as mt5
 import time
-import logging
 import threading
 from typing import Optional, Dict, Any, Tuple
 import json
+from utils.logger_factory import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger("mt5_connection", "logs/system/mt5_connection.log")
 
 
 class MT5Connector:

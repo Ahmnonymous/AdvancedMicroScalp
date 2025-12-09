@@ -3,14 +3,14 @@ Risk Management Module
 Handles position sizing, risk calculation, and trailing stops.
 """
 
-import logging
 import threading
 from datetime import datetime, timedelta
 from typing import Optional, Dict, Any, Tuple
 from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager
+from utils.logger_factory import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger("risk_manager", "logs/engine/risk_manager.log")
 
 
 class RiskManager:

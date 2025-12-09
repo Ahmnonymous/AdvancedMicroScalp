@@ -1,12 +1,14 @@
 """
 Unified Trade Logger Module
 Provides comprehensive logging for trade execution, position closures, and trailing stops.
+Now supports both text logs (for readability) and JSONL entries (for machine processing).
 """
 
-import logging
+import os
+import json
 from datetime import datetime
 from typing import Dict, Any, Optional
-from bot.logger_setup import get_symbol_logger
+from utils.logger_factory import get_symbol_logger
 
 
 class TradeLogger:
@@ -14,7 +16,23 @@ class TradeLogger:
     
     def __init__(self, config: Dict[str, Any]):
         self.config = config
-        self.root_logger = logging.getLogger()
+        self._ensure_trades_directory()
+    
+    def _ensure_trades_directory(self):
+        """Ensure logs/trades directory exists."""
+        os.makedirs('logs/trades', exist_ok=True)
+    
+    def _write_jsonl_entry(self, symbol: str, entry: Dict[str, Any]):
+        """Write JSONL entry to symbol log file."""
+        log_file = f'logs/trades/{symbol}.log'
+        try:
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+        except Exception as e:
+            # Fallback to system error log
+            import logging
+            error_logger = logging.getLogger('system_errors')
+            error_logger.error(f"Failed to write JSONL entry to {log_file}: {e}")
     
     def log_trade_execution(
         self,
@@ -56,19 +74,8 @@ class TradeLogger:
         if slippage is None:
             slippage = abs(entry_price_actual - entry_price_requested)
         
-        # Root logger (minimal)
-        quality_log = f" | Q:{quality_score:.1f}" if quality_score is not None else ""
-        slippage_log = f" | Slippage: {slippage:.5f}" if slippage > 0.00001 else ""
-        risk_log = f" | Risk: ${risk_usd:.2f}" if risk_usd is not None else ""
-        
-        self.root_logger.info(
-            f"✅ TRADE EXECUTED: {symbol} {signal} | Ticket: {ticket} | "
-            f"Entry: {entry_price_actual:.5f} (req: {entry_price_requested:.5f}){slippage_log} | "
-            f"Lot: {lot_size:.4f} | SL: {stop_loss_pips:.1f}pips{quality_log}{risk_log}"
-        )
-        
-        # Symbol logger (detailed)
-        symbol_logger = get_symbol_logger(symbol, self.config)
+        # Symbol logger (logs to logs/trades/SYMBOL.log)
+        symbol_logger = get_symbol_logger(symbol)
         symbol_logger.info("=" * 80)
         symbol_logger.info(f"✅ TRADE EXECUTED SUCCESSFULLY")
         symbol_logger.info(f"   Symbol: {symbol}")
@@ -95,6 +102,40 @@ class TradeLogger:
                 symbol_logger.info(f"   {key.replace('_', ' ').title()}: {value}")
         
         symbol_logger.info("=" * 80)
+        
+        # Also write JSONL entry
+        jsonl_entry = {
+            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'symbol': symbol,
+            'trade_type': signal,
+            'entry_price': entry_price_actual,
+            'exit_price': None,
+            'profit_usd': None,
+            'status': 'OPEN',
+            'order_id': str(ticket),
+            'additional_info': {
+                'entry_price_requested': entry_price_requested,
+                'lot_size': lot_size,
+                'stop_loss_pips': stop_loss_pips,
+                'stop_loss_price': stop_loss_price,
+                'slippage': slippage
+            }
+        }
+        
+        if quality_score is not None:
+            jsonl_entry['additional_info']['quality_score'] = quality_score
+        if spread_points is not None:
+            jsonl_entry['additional_info']['spread_points'] = spread_points
+        if spread_fees_cost is not None:
+            jsonl_entry['additional_info']['spread_fees_cost'] = spread_fees_cost
+        if risk_usd is not None:
+            jsonl_entry['additional_info']['risk_usd'] = risk_usd
+        
+        # Add any additional kwargs
+        if kwargs:
+            jsonl_entry['additional_info'].update(kwargs)
+        
+        self._write_jsonl_entry(symbol, jsonl_entry)
     
     def log_position_closure(
         self,
@@ -124,17 +165,8 @@ class TradeLogger:
             close_time: Close timestamp
             **kwargs: Additional fields to log
         """
-        # Root logger (minimal)
-        profit_str = f"+${profit:.2f}" if profit >= 0 else f"${profit:.2f}"
-        self.root_logger.info(
-            f"🔴 POSITION CLOSED: {symbol} Ticket {ticket} | "
-            f"Entry: {entry_price:.5f} | Close: {close_price:.5f} | "
-            f"Profit: {profit_str} | Duration: {duration_minutes:.1f}min | "
-            f"Reason: {close_reason}"
-        )
-        
-        # Symbol logger (detailed)
-        symbol_logger = get_symbol_logger(symbol, self.config)
+        # Symbol logger (logs to logs/trades/SYMBOL.log)
+        symbol_logger = get_symbol_logger(symbol)
         symbol_logger.info("=" * 80)
         symbol_logger.info(f"🔴 POSITION CLOSED")
         symbol_logger.info(f"   Symbol: {symbol}")
@@ -155,6 +187,84 @@ class TradeLogger:
                 symbol_logger.info(f"   {key.replace('_', ' ').title()}: {value}")
         
         symbol_logger.info("=" * 80)
+        
+        # Also write/update JSONL entry
+        jsonl_entry = {
+            'timestamp': close_time.strftime('%Y-%m-%d %H:%M:%S') if close_time else datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'symbol': symbol,
+            'trade_type': None,  # Will be updated from existing entry
+            'entry_price': entry_price,
+            'exit_price': close_price,
+            'profit_usd': profit,
+            'status': 'CLOSED',
+            'order_id': str(ticket),
+            'additional_info': {
+                'duration_minutes': duration_minutes,
+                'close_reason': close_reason
+            }
+        }
+        
+        # Add any additional kwargs
+        if kwargs:
+            jsonl_entry['additional_info'].update(kwargs)
+        
+        # Update existing JSONL entry or append
+        self._update_jsonl_entry(symbol, ticket, jsonl_entry)
+    
+    def _update_jsonl_entry(self, symbol: str, ticket: int, closure_data: Dict[str, Any]):
+        """Update existing JSONL entry with closure data."""
+        log_file = f'logs/trades/{symbol}.log'
+        
+        if not os.path.exists(log_file):
+            # If file doesn't exist, just append
+            self._write_jsonl_entry(symbol, closure_data)
+            return
+        
+        # Read existing entries
+        entries = []
+        updated = False
+        
+        try:
+            with open(log_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and line.startswith('{'):
+                        try:
+                            entry = json.loads(line)
+                            if str(entry.get('order_id')) == str(ticket):
+                                # Update this entry
+                                entry.update({
+                                    'timestamp': closure_data['timestamp'],
+                                    'exit_price': closure_data['exit_price'],
+                                    'profit_usd': closure_data['profit_usd'],
+                                    'status': 'CLOSED'
+                                })
+                                # Merge additional_info
+                                if 'additional_info' not in entry:
+                                    entry['additional_info'] = {}
+                                entry['additional_info'].update(closure_data['additional_info'])
+                                updated = True
+                            entries.append(entry)
+                        except:
+                            pass
+            
+            # If not updated, append new entry
+            if not updated:
+                entries.append(closure_data)
+            
+            # Sort chronologically and write back
+            entries.sort(key=lambda x: x.get('timestamp', '0000-00-00 00:00:00'))
+            
+            with open(log_file, 'w', encoding='utf-8') as f:
+                for entry in entries:
+                    f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+        
+        except Exception as e:
+            # Fallback: just append
+            self._write_jsonl_entry(symbol, closure_data)
+            import logging
+            error_logger = logging.getLogger('system_errors')
+            error_logger.error(f"Failed to update JSONL entry in {log_file}: {e}")
     
     def log_trailing_stop_adjustment(
         self,
@@ -183,14 +293,8 @@ class TradeLogger:
         if timestamp is None:
             timestamp = datetime.now()
         
-        # Root logger (minimal)
-        self.root_logger.info(
-            f"📈 SL ADJUSTED: {symbol} Ticket {ticket} | "
-            f"Profit: ${current_profit:.2f} → SL: ${new_sl_profit:.2f}"
-        )
-        
-        # Symbol logger (detailed)
-        symbol_logger = get_symbol_logger(symbol, self.config)
+        # Symbol logger (logs to logs/trades/SYMBOL.log)
+        symbol_logger = get_symbol_logger(symbol)
         symbol_logger.info(
             f"📈 TRAILING STOP: Ticket {ticket} ({symbol}) | "
             f"Time: {timestamp.strftime('%H:%M:%S')} | "
@@ -208,12 +312,7 @@ class TradeLogger:
         max_risk: float
     ):
         """Log when early exit is prevented (SL would be worse than -$2.00)."""
-        self.root_logger.warning(
-            f"⚠️ PREVENTED EARLY EXIT: {symbol} Ticket {ticket} | "
-            f"Attempted SL: ${attempted_sl_profit:.2f} would exceed max risk ${max_risk:.2f}"
-        )
-        
-        symbol_logger = get_symbol_logger(symbol, self.config)
+        symbol_logger = get_symbol_logger(symbol)
         symbol_logger.warning(
             f"⚠️ PREVENTED EARLY EXIT: Ticket {ticket} | "
             f"Attempted SL profit ${attempted_sl_profit:.2f} would be worse than max risk ${max_risk:.2f} | "
@@ -229,12 +328,7 @@ class TradeLogger:
         sl_modification_failed: bool = False
     ):
         """Log when late exit is detected or prevented."""
-        self.root_logger.warning(
-            f"⚠️ LATE EXIT DETECTED: {symbol} Ticket {ticket} | "
-            f"Actual: ${actual_profit:.2f} vs Expected: ${expected_profit:.2f}"
-        )
-        
-        symbol_logger = get_symbol_logger(symbol, self.config)
+        symbol_logger = get_symbol_logger(symbol)
         if sl_modification_failed:
             symbol_logger.warning(
                 f"⚠️ LATE EXIT: Ticket {ticket} | "
@@ -268,14 +362,8 @@ class TradeLogger:
             spread_points: Spread in points
             execution_time_ms: Execution time in milliseconds
         """
-        # Root logger (minimal)
-        self.root_logger.info(
-            f"⚡ MICRO-HFT CLOSE: {symbol} Ticket {ticket} | "
-            f"Profit: ${profit:.2f} | Time: {execution_time_ms:.1f}ms"
-        )
-        
-        # Symbol logger (detailed)
-        symbol_logger = get_symbol_logger(symbol, self.config)
+        # Symbol logger (logs to logs/trades/SYMBOL.log)
+        symbol_logger = get_symbol_logger(symbol)
         symbol_logger.info("=" * 80)
         symbol_logger.info(f"⚡ MICRO-HFT PROFIT CLOSE")
         symbol_logger.info(f"   Symbol: {symbol}")
@@ -285,6 +373,32 @@ class TradeLogger:
         symbol_logger.info(f"   Profit: ${profit:.2f} USD")
         symbol_logger.info(f"   Spread: {spread_points:.1f} points")
         symbol_logger.info(f"   Execution Time: {execution_time_ms:.2f} ms")
-        symbol_logger.info(f"   Close Reason: Micro-HFT sweet spot profit ($0.03–$0.10)")
+        # Determine close reason text
+        if 0.03 <= profit <= 0.10:
+            close_reason_text = "Micro-HFT sweet spot profit ($0.03–$0.10)"
+        else:
+            close_reason_text = f"Micro-HFT multiple of $0.10 (${profit:.2f})"
+        
+        symbol_logger.info(f"   Close Reason: {close_reason_text}")
         symbol_logger.info("=" * 80)
+        
+        # Also write/update JSONL entry
+        jsonl_entry = {
+            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'symbol': symbol,
+            'trade_type': None,  # Will be preserved from existing entry
+            'entry_price': entry_price_actual,
+            'exit_price': close_price,
+            'profit_usd': profit,
+            'status': 'CLOSED',
+            'order_id': str(ticket),
+            'additional_info': {
+                'close_type': 'micro_hft',
+                'spread_points': spread_points,
+                'execution_time_ms': execution_time_ms,
+                'close_reason': close_reason_text
+            }
+        }
+        
+        self._update_jsonl_entry(symbol, ticket, jsonl_entry)
 

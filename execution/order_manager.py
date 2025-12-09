@@ -550,4 +550,99 @@ class OrderManager:
             if pos['ticket'] == ticket:
                 return pos
         return None
+    
+    def get_deal_history(self, ticket: int) -> Optional[Dict[str, Any]]:
+        """
+        Get deal history for a position ticket.
+        
+        Returns dict with entry and exit deal information.
+        """
+        if not self.mt5_connector.ensure_connected():
+            return None
+        
+        try:
+            deals = mt5.history_deals_get(position=ticket)
+            if not deals:
+                return None
+            
+            entry_deal = None
+            exit_deal = None
+            total_profit = 0.0
+            commission = 0.0
+            swap = 0.0
+            
+            for deal in deals:
+                if deal.entry == mt5.DEAL_ENTRY_IN:
+                    entry_deal = {
+                        'ticket': deal.ticket,
+                        'time': datetime.fromtimestamp(deal.time),
+                        'price': deal.price,
+                        'volume': deal.volume,
+                        'symbol': deal.symbol,
+                        'type': deal.type,
+                        'profit': deal.profit,
+                        'commission': deal.commission,
+                        'swap': deal.swap
+                    }
+                elif deal.entry == mt5.DEAL_ENTRY_OUT:
+                    exit_deal = {
+                        'ticket': deal.ticket,
+                        'time': datetime.fromtimestamp(deal.time),
+                        'price': deal.price,
+                        'volume': deal.volume,
+                        'symbol': deal.symbol,
+                        'type': deal.type,
+                        'profit': deal.profit,
+                        'commission': deal.commission,
+                        'swap': deal.swap
+                    }
+                
+                total_profit += deal.profit
+                commission += deal.commission
+                swap += deal.swap
+            
+            return {
+                'entry_deal': entry_deal,
+                'exit_deal': exit_deal,
+                'total_profit': total_profit,
+                'commission': commission,
+                'swap': swap,
+                'status': 'CLOSED' if exit_deal else 'OPEN'
+            }
+        
+        except Exception as e:
+            logger.error(f"Error getting deal history for position {ticket}: {e}", exc_info=True)
+            return None
+    
+    def get_close_reason_from_deals(self, ticket: int) -> str:
+        """
+        Determine close reason from deal history.
+        
+        Returns descriptive string like "Stop Loss", "Take Profit", "Manual Close", etc.
+        """
+        deal_info = self.get_deal_history(ticket)
+        if not deal_info or not deal_info.get('exit_deal'):
+            return "Unknown"
+        
+        exit_deal = deal_info['exit_deal']
+        total_profit = deal_info['total_profit']
+        entry_deal = deal_info.get('entry_deal')
+        
+        # Check duration for micro-HFT
+        if entry_deal:
+            duration = exit_deal['time'] - entry_deal['time']
+            duration_minutes = duration.total_seconds() / 60.0
+            
+            if duration_minutes < 5 and 0.01 <= abs(total_profit) <= 0.50:
+                return "Micro-HFT sweet spot profit"
+        
+        # Determine by profit
+        if total_profit > 0.10:
+            return "Take Profit or Trailing Stop"
+        elif total_profit < -0.10:
+            return "Stop Loss"
+        elif abs(total_profit) <= 0.10:
+            return "Small profit target or slippage"
+        else:
+            return "Broker Confirmed"
 

@@ -6,13 +6,13 @@ Uses SMA to determine trend direction and entry signals.
 import MetaTrader5 as mt5
 import pandas as pd
 import numpy as np
-import logging
 import time
 import threading
 from typing import Optional, Dict, Any, Tuple
 from execution.mt5_connector import MT5Connector
+from utils.logger_factory import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger("trend_detector", "logs/engine/trend_detector.log")
 
 
 class TrendFilter:

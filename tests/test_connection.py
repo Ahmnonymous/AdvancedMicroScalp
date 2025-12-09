@@ -7,7 +7,7 @@ Use this to verify your MT5 connection before running the main bot.
 import json
 import sys
 from execution.mt5_connector import MT5Connector
-from bot.logger_setup import setup_logging
+from utils.logger_factory import get_logger
 
 def main():
     """Test MT5 connection."""
@@ -25,7 +25,7 @@ def main():
         sys.exit(1)
     
     # Setup logging
-    logger = setup_logging(config)
+    logger = get_logger("system_startup", "logs/system/system_startup.log")
     
     # Test connection
     print("\n1. Testing MT5 Connection...")

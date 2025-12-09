@@ -8,8 +8,12 @@ The bot will ask you how many trades to take, show top setups, and require appro
 import sys
 import os
 import json
-from bot.logger_setup import setup_logging
+from utils.logger_factory import get_logger
 from bot.trading_bot import TradingBot
+
+# System startup logger
+logger = get_logger("system_startup", "logs/system/system_startup.log")
+error_logger = get_logger("system_errors", "logs/system/system_errors.log")
 
 def main():
     """Main entry point for the trading bot in manual approval mode."""
@@ -19,12 +23,9 @@ def main():
         print("Please create config.json with your MT5 credentials and settings.")
         sys.exit(1)
     
-    # Load config to setup logging
+    # Load config
     with open('config.json', 'r') as f:
         config = json.load(f)
-    
-    # Setup logging
-    logger = setup_logging(config)
     
     # Log that bot is starting in manual approval mode
     logger.info("=" * 80)
@@ -77,9 +78,10 @@ def main():
         print("\n\n✅ Bot stopped by user")
         sys.exit(0)
     except Exception as e:
-        logger.critical(f"Fatal error: {e}", exc_info=True)
+        error_logger.critical(f"Fatal error: {e}", exc_info=True)
+        logger.critical(f"Fatal error: {e}")
         print(f"\n❌ Fatal error: {e}")
-        print("Check bot_log.txt for details")
+        print("Check logs/system/system_errors.log for details")
         sys.exit(1)
 
 if __name__ == '__main__':

@@ -7,8 +7,12 @@ Run this script to start the automated trading bot.
 import sys
 import os
 import json
-from bot.logger_setup import setup_logging
+from utils.logger_factory import get_logger
 from bot.trading_bot import TradingBot
+
+# System startup logger
+logger = get_logger("system_startup", "logs/system/system_startup.log")
+error_logger = get_logger("system_errors", "logs/system/system_errors.log")
 
 def main():
     """Main entry point for the trading bot."""
@@ -18,12 +22,9 @@ def main():
         print("Please create config.json with your MT5 credentials and settings.")
         sys.exit(1)
     
-    # Load config to setup logging
+    # Load config
     with open('config.json', 'r') as f:
         config = json.load(f)
-    
-    # Setup logging
-    logger = setup_logging(config)
     
     # Log that bot is starting in background mode
     logger.info("=" * 80)
@@ -52,7 +53,8 @@ def main():
         logger.info("Bot stopped by user")
         sys.exit(0)
     except Exception as e:
-        logger.critical(f"Fatal error: {e}", exc_info=True)
+        error_logger.critical(f"Fatal error: {e}", exc_info=True)
+        logger.critical(f"Fatal error: {e}")
         sys.exit(1)
 
 if __name__ == '__main__':

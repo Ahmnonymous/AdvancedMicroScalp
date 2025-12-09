@@ -9,11 +9,9 @@ from typing import Dict, Any, Optional
 from datetime import datetime
 import MetaTrader5 as mt5
 
-# Import standard logging module (avoid conflict with logging/ folder)
-# Use absolute import to ensure we get Python's logging, not the local logging/ package
-import logging
+from utils.logger_factory import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger("hft_engine", "logs/engine/hft_engine.log")
 
 
 class MicroProfitEngine:
@@ -85,14 +83,25 @@ class MicroProfitEngine:
         # Get actual profit from MT5 (not estimated)
         current_profit = position.get('profit', 0.0)
         
-        # CRITICAL: Only close if profit is within sweet spot range ($0.03–$0.10)
-        if current_profit < self.min_profit_threshold_usd or current_profit > self.max_profit_threshold_usd:
+        # ENHANCED: Handle sweet spot and $0.10 multiples
+        # Rule 1: Close if profit is in sweet spot ($0.03–$0.10)
+        # Rule 2: Close if profit is a multiple of $0.10 (but not below $0.03)
+        # Rule 3: Never close below $0.03 (let stop-loss handle it)
+        
+        in_sweet_spot = (self.min_profit_threshold_usd <= current_profit <= self.max_profit_threshold_usd)
+        is_multiple_of_ten_cents = (current_profit > self.max_profit_threshold_usd and 
+                                     abs(current_profit % 0.10) < 0.005)  # Allow small floating point errors
+        
+        should_close = in_sweet_spot or is_multiple_of_ten_cents
+        
+        if not should_close:
             return False
         
-        # Rate limiting: Don't check same position too frequently
+        # ENHANCEMENT: More aggressive checking for Micro-HFT
+        # Reduce rate limiting for faster profit capture
         now = time.time()
         last_check = self._last_check_time.get(ticket, 0)
-        if now - last_check < 0.1:  # 100ms minimum between checks
+        if now - last_check < 0.05:  # 50ms minimum between checks (reduced from 100ms)
             return False
         
         self._last_check_time[ticket] = now
@@ -105,8 +114,21 @@ class MicroProfitEngine:
         
         fresh_profit = fresh_position.get('profit', 0.0)
         
-        # Double-check profit is within sweet spot range (may have changed)
-        if fresh_profit < self.min_profit_threshold_usd or fresh_profit > self.max_profit_threshold_usd:
+        # ENHANCED: Double-check profit with enhanced logic
+        # Rule 1: Close if profit is in sweet spot ($0.03–$0.10)
+        # Rule 2: Close if profit is a multiple of $0.10 (but not below $0.03)
+        # Rule 3: Never close below $0.03 (let stop-loss handle it)
+        # Rule 4: Never close if profit < -$2.00 (stop-loss should handle)
+        
+        # Safety: Don't close if at stop-loss
+        if fresh_profit <= -2.0:
+            return False
+        
+        in_sweet_spot = (self.min_profit_threshold_usd <= fresh_profit <= self.max_profit_threshold_usd)
+        is_multiple_of_ten_cents = (fresh_profit > self.max_profit_threshold_usd and 
+                                     abs(fresh_profit % 0.10) < 0.005)  # Allow small floating point errors
+        
+        if not (in_sweet_spot or is_multiple_of_ten_cents):
             return False
         
         # Mark as closing to prevent duplicate attempts
@@ -138,37 +160,65 @@ class MicroProfitEngine:
             if symbol_info:
                 spread_points = symbol_info.get('spread', 0) * (10 if symbol_info.get('digits', 5) in [5, 3] else 1)
             
-            # Attempt to close position with retry logic
+            # ENHANCEMENT: More aggressive retry logic for Micro-HFT
+            # Attempt to close position with fast retry logic
             execution_start = time.time()
             close_success = False
             
+            # Use fresh profit for closing (most up-to-date)
+            target_profit = fresh_profit
+            
             for attempt in range(self.max_retries):
+                # Get latest position data before each attempt
+                latest_position = self.order_manager.get_position_by_ticket(ticket)
+                if not latest_position:
+                    # Position already closed
+                    close_success = True
+                    break
+                
+                latest_profit = latest_position.get('profit', 0.0)
+                
+                # ENHANCEMENT: Be more flexible with profit range during execution
+                # Rule 1: Close if in sweet spot ($0.03–$0.10)
+                # Rule 2: Close if multiple of $0.10 (but not below $0.03)
+                # Rule 3: Never close below $0.03 or at stop-loss
+                
+                if latest_profit <= -2.0:
+                    # At stop-loss, don't close (stop-loss will handle)
+                    break
+                
+                in_sweet_spot_retry = (self.min_profit_threshold_usd <= latest_profit <= self.max_profit_threshold_usd)
+                is_multiple_retry = (latest_profit > self.max_profit_threshold_usd and 
+                                     abs(latest_profit % 0.10) < 0.005)
+                
+                if not (in_sweet_spot_retry or is_multiple_retry):
+                    # Profit moved outside acceptable range
+                    logger.debug(f"Micro-HFT: Ticket {ticket} profit moved to ${latest_profit:.2f} (outside acceptable range), skipping close")
+                    break
+                
                 # Close position using existing order_manager
                 close_success = self.order_manager.close_position(
                     ticket=ticket,
-                    comment=f"Micro-HFT sweet spot profit (${fresh_profit:.2f})"
+                    comment=f"Micro-HFT sweet spot profit (${latest_profit:.2f})"
                 )
                 
                 if close_success:
-                    break
+                    # Verify closure by checking position again
+                    time.sleep(0.01)  # Small delay to allow MT5 to process
+                    verify_position = self.order_manager.get_position_by_ticket(ticket)
+                    if verify_position is None:
+                        # Successfully closed
+                        target_profit = latest_profit  # Use the profit at closure time
+                        break
+                    else:
+                        # Closure reported success but position still exists
+                        logger.warning(f"Micro-HFT: Close reported success but position {ticket} still exists, retrying...")
+                        close_success = False
                 
                 # If failed, check if it's a retryable error
                 if attempt < self.max_retries - 1:
-                    # Small delay before retry (10ms)
-                    time.sleep(self.retry_delay_ms / 1000.0)
-                    
-                    # Re-check profit before retry (may have dropped)
-                    retry_position = self.order_manager.get_position_by_ticket(ticket)
-                    if not retry_position:
-                        # Position closed by someone else
-                        close_success = True
-                        break
-                    
-                    retry_profit = retry_position.get('profit', 0.0)
-                    if retry_profit < self.min_profit_threshold_usd or retry_profit > self.max_profit_threshold_usd:
-                        # Profit moved outside sweet spot range, don't retry
-                        logger.debug(f"Micro-HFT: Ticket {ticket} profit moved to ${retry_profit:.2f} (outside $0.03–$0.10 range), skipping close")
-                        break
+                    # Smaller delay before retry (5ms instead of 10ms for faster execution)
+                    time.sleep(0.005)  # 5ms
             
             execution_time_ms = (time.time() - execution_start) * 1000
             
@@ -185,18 +235,24 @@ class MicroProfitEngine:
                                 actual_close_price = deal.price
                                 break
                 
-                # Log micro profit close using TradeLogger
+                # Determine closure reason for logging
+                if 0.03 <= target_profit <= 0.10:
+                    close_reason = "Micro-HFT sweet spot profit ($0.03–$0.10)"
+                else:
+                    close_reason = f"Micro-HFT multiple of $0.10 (${target_profit:.2f})"
+                
+                # Log micro profit close using TradeLogger with actual profit captured
                 self.trade_logger.log_micro_profit_close(
                     ticket=ticket,
                     symbol=symbol,
-                    profit=fresh_profit,
+                    profit=target_profit,  # Use profit at closure time
                     entry_price_actual=entry_price,
                     close_price=actual_close_price,
                     spread_points=spread_points,
                     execution_time_ms=execution_time_ms
                 )
                 
-                logger.info(f"✅ Micro-HFT: Closed {symbol} Ticket {ticket} | Profit: ${fresh_profit:.2f} (sweet spot $0.03–$0.10) | Time: {execution_time_ms:.1f}ms")
+                logger.info(f"✅ Micro-HFT: Closed {symbol} Ticket {ticket} | Profit: ${target_profit:.2f} | Reason: {close_reason} | Time: {execution_time_ms:.1f}ms")
                 return True
             else:
                 logger.warning(f"⚠️ Micro-HFT: Failed to close {symbol} Ticket {ticket} after {self.max_retries} attempts")

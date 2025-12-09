@@ -1,500 +1,124 @@
-# Trading Bot - Automated Scalping System
+# Trading Bot System
 
-An automated MetaTrader 5 (MT5) trading bot designed for scalping with advanced trailing stop management, risk controls, and halal compliance features.
+A comprehensive Python-based trading bot system with real-time monitoring, broker reconciliation, and automated optimization.
 
-## Project Overview
+## Quick Start
 
-This trading bot is a sophisticated automated trading system that:
-
-- **Executes scalping trades** on forex and crypto markets via MetaTrader 5
-- **Implements trailing stops** with elastic trailing engine and fast polling for profitable positions
-- **Manages risk** with configurable lot sizes, max open trades, and per-trade risk limits
-- **Filters opportunities** using trend analysis, RSI, ADX, and volatility indicators
-- **Blocks trading during news events** to avoid high volatility periods
-- **Ensures halal compliance** with swap-free mode and time-based position limits
-- **Supports test and live modes** for safe testing before live trading
-
-## Features
-
-### Core Trading Features
-- **Trend-based entry signals** using SMA crossovers, RSI, and ADX
-- **Multi-trade staged opens** for scaling into positions
-- **Elastic trailing stops** with pullback tolerance and big jump detection
-- **Fast trailing mode** (300ms polling) when positions are profitable
-- **News event filtering** to avoid trading during high-impact news
-- **Symbol filtering** with spread, commission, and swap-free checks
-
-### Risk Management
-- Configurable maximum risk per trade (USD)
-- Maximum open trades limit
-- Symbol-specific lot size limits
-- Stop-loss validation
-- Kill switch for emergency shutdown
-- Supervisor with error cooldown and auto-restart
-
-### Halal Compliance
-- Swap-free mode enforcement
-- Maximum hold time limits
-- No overnight position holds
-- Automatic position closure before swap time
-
-### Monitoring & Logging
-- Real-time position monitoring
-- Detailed per-symbol logging
-- Trade execution logs
-- Performance analysis tools
-- Daily P/L reports
-
-## Installation
-
-### Prerequisites
-
-1. **Python 3.6-3.10** installed on your system (Python 3.11+ is NOT supported by MetaTrader5)
-   - Check version: `python --version`
-   - If you have Python 3.11+, you must use Python 3.10 or create a virtual environment with Python 3.10
-2. **Windows Operating System** (MetaTrader5 is Windows-only)
-3. **MetaTrader 5** installed and configured
-4. **MT5 account credentials** (demo or live)
-
-### Step 1: Clone or Download the Repository
-
-```bash
-git clone <repository-url>
-cd TRADING
-```
-
-### Step 2: Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-**Troubleshooting MetaTrader5 Installation:**
-
-If you encounter `ERROR: Could not find a version that satisfies the requirement MetaTrader5`:
-
-1. **Check Python version** (CRITICAL):
-   ```bash
-   python --version
-   ```
-   - MetaTrader5 only supports Python 3.6-3.10
-   - Python 3.11+ will NOT work - no wheels available
-   - If you have Python 3.11+, you must use Python 3.10
-
-2. **Solution for Python 3.11+ users:**
-   
-   **Option A: Install Python 3.10 and use it:**
-   ```bash
-   # Download Python 3.10 from python.org
-   # Then use it specifically:
-   py -3.10 -m pip install -r requirements.txt
-   ```
-   
-   **Option B: Create virtual environment with Python 3.10:**
-   ```bash
-   # If you have Python 3.10 installed:
-   py -3.10 -m venv venv
-   venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
-
-3. **Ensure you're on Windows** - MetaTrader5 is Windows-only
-
-4. **Upgrade pip first**: `python -m pip install --upgrade pip`
-
-5. **Try installing directly**: `pip install MetaTrader5`
-
-This will install:
-- `MetaTrader5` - MT5 Python API (Windows-only, Python 3.8-3.11)
-- `pandas` - Data processing
-- `numpy` - Numerical computations
-- `requests` - HTTP requests for news API
-- `beautifulsoup4` & `lxml` - Web scraping for news filtering
-
-### Step 3: Configure the Bot
-
-Create or edit `config.json` with your MT5 credentials and trading parameters:
-
-```json
-{
-  "mt5": {
-    "account": "YOUR_ACCOUNT_NUMBER",
-    "password": "YOUR_PASSWORD",
-    "server": "YOUR_BROKER_SERVER",
-    "path": "",
-    "timeout": 60000,
-    "reconnect_attempts": 5,
-    "reconnect_delay": 5
-  },
-  "risk": {
-    "max_risk_per_trade_usd": 2.0,
-    "default_lot_size": 0.01,
-    "max_open_trades": 6,
-    "trailing_stop_increment_usd": 0.1,
-    "continuous_trailing_enabled": true,
-    "trailing_cycle_interval_seconds": 3.0
-  },
-  "trading": {
-    "timeframe": "M1",
-    "cycle_interval_seconds": 20,
-    "sma_fast": 20,
-    "sma_slow": 50,
-    "rsi_period": 14
-  },
-  "news": {
-    "enabled": true,
-    "api_provider": "financialmodelingprep",
-    "api_key": "YOUR_API_KEY",
-    "block_window_minutes": 10
-  },
-  "halal": {
-    "enabled": true,
-    "swap_free_mode": true,
-    "max_hold_hours": 24
-  }
-}
-```
-
-**⚠️ Important:** Never commit `config.json` with real credentials to version control. Use a template or environment variables for sensitive data.
-
-## Configuration Guide
-
-### Key Configuration Sections
-
-#### MT5 Connection (`mt5`)
-- `account`: Your MT5 account number
-- `password`: Your MT5 account password
-- `server`: Broker server name (e.g., "Exness-MT5Trial15")
-- `path`: Path to MT5 terminal (empty for auto-detect)
-- `timeout`: Connection timeout in milliseconds
-- `reconnect_attempts`: Number of reconnection attempts
-- `reconnect_delay`: Delay between reconnection attempts (seconds)
-
-#### Risk Management (`risk`)
-- `max_risk_per_trade_usd`: Maximum USD risk per trade
-- `default_lot_size`: Default lot size for trades
-- `max_open_trades`: Maximum concurrent open positions
-- `trailing_stop_increment_usd`: Minimum increment for trailing stops
-- `trailing_cycle_interval_seconds`: How often trailing stops are checked
-- `fast_trailing_threshold_usd`: Profit threshold to enable fast trailing (300ms)
-- `elastic_trailing.enabled`: Enable elastic trailing with pullback tolerance
-
-#### Trading Parameters (`trading`)
-- `timeframe`: Chart timeframe (M1, M5, M15, etc.)
-- `cycle_interval_seconds`: Main trading cycle interval
-- `sma_fast` / `sma_slow`: Fast and slow SMA periods
-- `rsi_period`: RSI indicator period
-- `rsi_overbought` / `rsi_oversold`: RSI thresholds
-- `min_quality_score`: Minimum setup quality score required
-
-#### News Filtering (`news`)
-- `enabled`: Enable/disable news filtering
-- `api_provider`: News API provider (e.g., "financialmodelingprep")
-- `api_key`: API key for news provider
-- `block_window_minutes`: Minutes before/after news to block trading
-- `high_impact_only`: Only block high-impact news events
-
-#### Halal Compliance (`halal`)
-- `enabled`: Enable halal compliance checks
-- `swap_free_mode`: Require swap-free symbols only
-- `max_hold_hours`: Maximum position hold time in hours
-- `no_overnight_holds`: Close positions before swap time
-
-#### Pairs/Symbols (`pairs`)
-- `test_mode`: Enable test mode (ignores restrictions)
-- `test_mode_ignore_restrictions`: Ignore spread/commission checks in test mode
-- `auto_discover_symbols`: Automatically discover tradeable symbols
-- `max_spread_points`: Maximum spread in points
-- `max_spread_percent_crypto`: Maximum spread percentage for crypto
-
-See `migration/README.md` for detailed configuration options and advanced features.
-
-## Usage
-
-### Running the Bot
-
-#### Option 1: Manual Batch Trade Approval Mode (NEW)
-Interactive mode where you review and approve trades before execution:
-
-```bash
-python run_bot_manual.py
-```
-
-**Features:**
-- Prompts for batch size (1-6 trades)
-- Displays top opportunities sorted by quality score
-- Highlights best setup with 🌟
-- Approve/skip individual trades or approve all
-- Sequential execution: waits for each trade to close before next
-- Cancel batch anytime with 'C' key
-- All safety checks enforced before execution
-
-**Keyboard Shortcuts:**
-- `Y` = Approve single trade
-- `N` = Skip single trade
-- `ALL` = Approve all remaining trades
-- `C` = Cancel entire batch
-- `S` = Skip remaining trades
-
-#### Option 2: Launch System (Recommended for Automatic Mode)
-Runs bot in background with real-time monitor in foreground:
+### Launch Full System (Recommended)
 
 ```bash
 python launch_system.py
 ```
 
-For test mode (ignores restrictions):
+This command will:
+- ✅ Start the trading bot with all trading logic active
+- ✅ Enable real-time trade monitoring
+- ✅ Start automatic broker reconciliation (default: every 30 minutes)
+- ✅ Generate logs and reports automatically
+
+### Custom Reconciliation Interval
+
 ```bash
-python launch_system.py --test-mode
+# Reconciliation every 15 minutes
+python launch_system.py --reconciliation-interval 15
+
+# Reconciliation every 60 minutes
+python launch_system.py --reconciliation-interval 60
 ```
 
-#### Option 3: Run Bot Only (Automatic Mode)
-Runs bot in background mode without monitor:
+### Alternative Entry Points
 
 ```bash
+# Standard bot without monitoring
 python run_bot.py
+
+# Manual approval mode
+python run_bot_manual.py
+
+# Bot with monitoring (alternative to launch_system.py)
+python run_bot_with_monitoring.py
 ```
 
-### Manual Batch Trade Approval Mode
+## Features
 
-**Overview:**
-Manual Batch Trade Approval Mode allows you to review and approve trades before execution. The bot scans for opportunities, displays the top setups sorted by quality score, and waits for your approval before executing each trade sequentially.
-
-**How It Works:**
-1. **Batch Size Selection**: At startup, you specify how many trades to take (1-6)
-2. **Opportunity Scanning**: Bot scans all symbols and calculates quality scores
-3. **Display Top Setups**: Shows top N opportunities in a formatted table with:
-   - Rank, Symbol, Signal (LONG/SHORT), Quality Score
-   - Lot Size, Spread, Stop Loss (pips), Estimated Risk ($), Cost ($)
-   - Warnings for any issues (spread too wide, cost too high, etc.)
-   - 🌟 marks the best setup
-4. **Approval Process**: For each setup, you can:
-   - Approve (`Y`): Execute this trade
-   - Skip (`N`): Skip this trade
-   - Approve All (`ALL`): Approve all remaining trades
-   - Cancel Batch (`C`): Cancel entire batch execution
-   - Skip Remaining (`S`): Skip all remaining trades
-5. **Sequential Execution**: Approved trades execute one at a time:
-   - Each trade waits for position to close before next trade executes
-   - All safety checks are re-validated before each execution
-   - Position verification ensures trade was opened successfully
-6. **Safety Checks**: Before each approved trade executes:
-   - Portfolio risk limits
-   - Position count limits
-   - Spread and fees validation
-   - Price staleness check
-   - Halal compliance (in live mode)
-   - News filter (if enabled)
-   - Stop loss validation
-
-**Configuration:**
-Add to `config.json` under `trading` section:
-```json
-{
-  "trading": {
-    "manual_wait_for_close_timeout_seconds": 3600
-  }
-}
-```
-
-**Example Flow:**
-```
-📊 How many trades do you want to take? (1-6): 3
-
-📊 TOP TRADING OPPORTUNITIES
-================================================================================
-#    | 🌟 | Symbol      | Signal | Quality  | Lot     | Spread    | Risk $  | Cost $
---------------------------------------------------------------------------------
-1    | 🌟 | EURUSD      | LONG   | 85.3     | 0.0100  | 12.0      | $2.00   | $0.12
-2    |    | GBPUSD      | SHORT  | 72.1     | 0.0100  | 15.0      | $2.00   | $0.15
-3    |    | USDJPY      | LONG   | 68.5     | 0.0100  | 10.0      | $2.00   | $0.10
-
-❓ Do you want to trade EURUSD (LONG)? Quality: 85.3 [Y/N/ALL/C=cancel/S=skip]: Y
-✅ Approved: EURUSD LONG
-
-🚀 Executing approved trade: EURUSD LONG
-✅ Position 12345 verified for EURUSD LONG
-⏳ Waiting for position 12345 to close before next trade...
-✅ Position 12345 closed - proceeding to next trade
-
-❓ Do you want to trade GBPUSD (SHORT)? Quality: 72.1 [Y/N/ALL/C=cancel/S=skip]: ALL
-✅ Approved ALL remaining trades
-...
-```
-
-### Test Mode vs Live Mode
-
-**Test Mode:**
-- Ignores spread restrictions
-- Ignores commission checks
-- Ignores exotic currency restrictions
-- **ALWAYS ignores halal compliance** (for testing)
-- Useful for testing strategies and configurations
-
-**Live Mode:**
-- All restrictions and filters active
-- Real money trading
-- Full risk management enforced
-- Halal compliance active (if enabled)
-
-Enable test mode by setting `"test_mode": true` in `config.json` under `pairs` section, or use `--test-mode` flag with `launch_system.py`.
-
-**Note:** In Manual Batch Mode, halal compliance is automatically skipped when `test_mode=true`, regardless of other settings.
-
-### Monitoring
-
-The bot creates several log files:
-
-- **`bot_log.txt`**: Main log file with critical events (trades, SL adjustments, errors)
-- **`logs/symbols/{SYMBOL}_YYYY-MM-DD.log`**: Detailed per-symbol logs with DEBUG-level information
-
-Monitor real-time activity:
-```bash
-python monitor/monitor.py
-```
-
-Or use the integrated monitor with `launch_system.py` (recommended).
+- ✅ **Real-Time Broker Reconciliation** - Direct MT5 data fetching and comparison
+- ✅ **Enhanced Micro-HFT Engine** - Sweet spot ($0.03–$0.10) + $0.10 multiples
+- ✅ **Market Closing Filter** - 30-minute buffer before market close
+- ✅ **Volume/Liquidity Filter** - Ensures sufficient market activity
+- ✅ **Comprehensive Monitoring** - Real-time performance tracking
+- ✅ **Automated Optimization** - Performance-based suggestions
+- ✅ **Thread-Safe Operations** - All components run in parallel safely
 
 ## Project Structure
 
 ```
 TRADING/
-├── bot/                    # Core bot logic
-│   ├── trading_bot.py     # Main orchestrator
-│   ├── logger_setup.py    # Logging configuration
-│   └── config_validator.py # Config validation
-├── execution/              # Order execution
-│   ├── mt5_connector.py   # MT5 connection handler
-│   └── order_manager.py   # Order placement and management
-├── risk/                   # Risk management
-│   ├── risk_manager.py    # Risk calculations and trailing stops
-│   ├── pair_filter.py     # Symbol filtering
-│   └── halal_compliance.py # Halal compliance checks
-├── strategies/             # Trading strategies
-│   └── trend_filter.py    # Trend analysis and entry signals
-├── news_filter/            # News event filtering
-│   └── news_api.py        # News API integration
-├── monitor/                # Monitoring tools
-│   ├── monitor.py         # Real-time monitor
-│   └── analyze_bot_performance.py # Performance analysis
-├── checks/                 # Diagnostic tools
-├── find/                   # Symbol discovery tools
-├── tests/                  # Test suite
-├── config.json            # Configuration file
-├── run_bot.py             # Bot entry point
-└── launch_system.py       # System launcher with monitor
+├── launch_system.py              # Main launcher (bot + monitoring + reconciliation)
+├── run_bot.py                    # Standard bot runner
+├── run_bot_manual.py             # Manual approval mode
+├── run_bot_with_monitoring.py    # Bot with monitoring
+├── config.json                   # Configuration file
+├── README.md                     # This file
+├── requirements.txt              # Python dependencies
+│
+├── bot/                          # Core bot logic
+├── execution/                    # MT5 execution layer
+├── filters/                      # Trading filters
+├── strategies/                   # Trading strategies
+├── risk/                         # Risk management
+├── monitor/                      # Monitoring & analysis
+├── verify/                       # Verification scripts
+├── trade_logging/                # Trade logging
+├── utils/                        # Utilities
+└── logs/                         # Log files (generated during runtime)
 ```
 
-## Logs and Error Handling
+## Configuration
 
-### Logging Levels
+Edit `config.json` to customize:
+- MT5 connection settings
+- Risk management parameters
+- Filter thresholds
+- Micro-HFT settings
+- Monitoring intervals
 
-- **Root Logger** (`bot_log.txt`): INFO level - Critical events only
-  - Trade executions
-  - Trailing stop adjustments
-  - Trade closures
-  - Kill switch changes
-  - Major errors
+## Logs
 
-- **Symbol Loggers** (`logs/symbols/`): DEBUG level - Detailed analysis
-  - Symbol analysis steps
-  - Trend signals
-  - Spread checks
-  - Quality scores
-  - Trailing stop calculations
+All logs are automatically generated during runtime in the `logs/` directory:
 
-### Error Handling
+- **Trade Logs**: `logs/trades/[SYMBOL].log` (JSONL format)
+- **System Logs**: `logs/system/*.log`
+- **Reports**: `logs/reports/*.txt`
+- **Engine Logs**: `logs/engine/*.log`
 
-The bot includes several safety mechanisms:
+## Requirements
 
-1. **Supervisor System**: Monitors for consecutive errors and implements cooldown periods
-2. **Kill Switch**: Emergency shutdown mechanism
-3. **Connection Retry**: Automatic reconnection to MT5 on connection loss
-4. **Exception Handling**: Comprehensive error catching and logging
-5. **Config Validation**: Validates configuration before starting
-
-### Common Issues
-
-**Connection Failed:**
-- Verify MT5 credentials in `config.json`
-- Ensure MT5 terminal is running
-- Check broker server name is correct
-
-**No Trades Executed:**
-- Check symbol filters (spread, commission, swap-free)
-- Verify trend signals are being generated
-- Check news filter isn't blocking all trading
-- Review symbol logs for detailed analysis
-
-**Trailing Stops Not Working:**
-- Verify `continuous_trailing_enabled` is `true`
-- Check `trailing_cycle_interval_seconds` is reasonable (3.0s recommended)
-- Ensure positions have sufficient profit for trailing
-
-## Updates and Maintenance
-
-### Updating the Bot
-
-1. Pull latest changes:
-   ```bash
-   git pull origin main
-   ```
-
-2. Update dependencies:
-   ```bash
-   pip install -r requirements.txt --upgrade
-   ```
-
-3. Review `migration/README.md` for configuration changes
-
-4. Test in test mode before going live:
-   ```bash
-   python launch_system.py --test-mode
-   ```
-
-### Backup Recommendations
-
-- Regularly backup `config.json` (without credentials)
-- Archive log files periodically
-- Keep track of configuration changes
-
-## Testing
-
-Run the test suite:
+Install dependencies:
 
 ```bash
-python tests/run_all_tests.py
+pip install -r requirements.txt
 ```
 
-Individual tests:
-- `test_connection.py` - Test MT5 connection
-- `test_trade_placement.py` - Test order placement
-- `test_trailing_behavior.py` - Test trailing stop logic
-- `test_staged_open.py` - Test staged open functionality
+## Safety Features
 
-## Safety Warnings
+- Read-only monitoring (never modifies trades)
+- Automatic config backups
+- Thread-safe operations
+- Error handling with fallbacks
+- Graceful shutdown on Ctrl+C
 
-⚠️ **IMPORTANT DISCLAIMERS:**
+## Usage
 
-1. **Trading involves risk** - Only trade with money you can afford to lose
-2. **Test thoroughly** - Always test in demo/test mode before live trading
-3. **Monitor actively** - Don't leave the bot unattended for extended periods
-4. **Review configurations** - Understand all settings before enabling
-5. **Backup regularly** - Keep backups of configurations and logs
-6. **No guarantees** - Past performance does not guarantee future results
+1. **Ensure MT5 Terminal is running and logged in**
+2. **Verify `config.json` has correct MT5 credentials**
+3. **Run the system**:
+   ```bash
+   python launch_system.py
+   ```
+4. **Monitor output** in console
+5. **Check logs** in `logs/` directory
+6. **Stop with Ctrl+C** (graceful shutdown)
 
 ## License
 
-[Specify your license here]
-
-## Support
-
-For issues, questions, or contributions:
-- Check `migration/README.md` for detailed feature documentation
-- Review log files for error details
-- Run diagnostic tools in `checks/` directory
-
----
-
-**Happy Trading! 📈**
-
+See project license file for details.

@@ -3,7 +3,6 @@ Main Trading Bot Orchestrator
 Coordinates all modules and executes trading logic.
 """
 
-import logging
 import time
 import json
 import os
@@ -14,16 +13,24 @@ from typing import Dict, Any, Optional, List
 
 from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager, OrderType
+from execution.position_monitor import PositionMonitor
 from strategies.trend_filter import TrendFilter
 from risk.risk_manager import RiskManager
 from risk.pair_filter import PairFilter
 from risk.halal_compliance import HalalCompliance
 from news_filter.news_api import NewsFilter
+from filters.market_closing_filter import MarketClosingFilter
+from filters.volume_filter import VolumeFilter
 from bot.config_validator import ConfigValidator
-from bot.logger_setup import get_symbol_logger
+from utils.logger_factory import get_logger, get_symbol_logger
 from trade_logging.trade_logger import TradeLogger
 
-logger = logging.getLogger(__name__)
+# System startup logger
+logger = get_logger("system_startup", "logs/system/system_startup.log")
+# Scheduler logger for main loops
+scheduler_logger = get_logger("scheduler", "logs/system/scheduler.log")
+# System errors logger
+error_logger = get_logger("system_errors", "logs/system/system_errors.log")
 
 
 class TradingBot:
@@ -50,7 +57,14 @@ class TradingBot:
         self.pair_filter = PairFilter(self.config, self.mt5_connector)
         self.halal_compliance = HalalCompliance(self.config, self.mt5_connector, self.order_manager)
         self.news_filter = NewsFilter(self.config, self.mt5_connector)
+        self.market_closing_filter = MarketClosingFilter(self.config, self.mt5_connector)
+        self.volume_filter = VolumeFilter(self.config, self.mt5_connector)
         self.trade_logger = TradeLogger(self.config)
+        
+        # Initialize Position Monitor for closure detection
+        self.position_monitor = PositionMonitor(self.config, self.trade_logger)
+        self.position_monitor_running = False
+        self.position_monitor_thread = None
         
         # Initialize Micro-HFT Profit Engine (optional add-on)
         micro_config = self.config.get('micro_profit_engine', {})
@@ -119,6 +133,9 @@ class TradingBot:
         self.fast_trailing_running = False
         self.fast_trailing_interval_ms = self.risk_config.get('fast_trailing_interval_ms', 300)
         self.fast_trailing_threshold_usd = self.risk_config.get('fast_trailing_threshold_usd', 0.10)
+        
+        # Tracked positions for closure detection
+        self.tracked_tickets = set()
     
         # Manual approval mode settings
         self.manual_approval_mode = False
@@ -149,11 +166,13 @@ class TradingBot:
     def activate_kill_switch(self, reason: str):
         """Activate kill switch to stop all trading."""
         self.kill_switch_active = True
+        error_logger.critical(f"KILL SWITCH ACTIVATED: {reason}")
         logger.critical(f"KILL SWITCH ACTIVATED: {reason}")
         
         # Close all positions if needed
         positions = self.order_manager.get_open_positions()
         for position in positions:
+            error_logger.warning(f"Closing position {position['ticket']} due to kill switch")
             logger.warning(f"Closing position {position['ticket']} due to kill switch")
             self.order_manager.close_position(position['ticket'], comment="Kill switch activated")
     
@@ -162,10 +181,12 @@ class TradingBot:
         self.consecutive_errors += 1
         self.last_error_time = datetime.now()
         
-        logger.error(f"Error in {context}: {error}", exc_info=True)
+        error_logger.error(f"Error in {context}: {error}", exc_info=True)
+        logger.error(f"Error in {context}: {error}")
         
         if self.supervisor_enabled:
             if self.consecutive_errors >= self.max_consecutive_errors:
+                error_logger.critical(f"Too many consecutive errors ({self.consecutive_errors})")
                 logger.critical(f"Too many consecutive errors ({self.consecutive_errors})")
                 if self.kill_switch_enabled:
                     self.activate_kill_switch(f"Too many errors: {self.consecutive_errors}")
@@ -257,6 +278,18 @@ class TradingBot:
                         continue  # Skip this symbol - not tradeable right now
                     else:
                         logger.debug(f"✅ {symbol}: Symbol is tradeable and executable")
+                    
+                    # 0b. Check if market is closing soon (30 minutes filter)
+                    should_skip_close, close_reason = self.market_closing_filter.should_skip(symbol)
+                    if should_skip_close:
+                        logger.info(f"⛔ [SKIP] {symbol} | Reason: {close_reason}")
+                        continue
+                    
+                    # 0c. Check if volume/liquidity is sufficient
+                    should_skip_volume, volume_reason, volume_value = self.volume_filter.should_skip(symbol)
+                    if should_skip_volume:
+                        logger.info(f"⛔ [SKIP] {symbol} | Reason: {volume_reason}")
+                        continue
                     
                     # 1. Check if news is blocking (but allow trading if API fails)
                     news_blocking = self.news_filter.is_news_blocking(symbol)
@@ -352,7 +385,7 @@ class TradingBot:
                     )
                     if not can_open:
                         logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
-                        symbol_logger = get_symbol_logger(symbol, self.config)
+                        symbol_logger = get_symbol_logger(symbol)
                         symbol_logger.debug(f"⛔ Cannot open trade: {reason}")
                         continue
                     
@@ -931,6 +964,11 @@ class TradingBot:
                 self.trade_count_today += 1
                 self.trade_stats['total_trades'] += 1
                 self.trade_stats['successful_trades'] += 1
+                
+                # Track this position for closure monitoring
+                self.tracked_tickets.add(ticket)
+                self.position_monitor.update_tracked_positions(ticket)
+                
                 self.reset_error_count()
                 return True
             else:
@@ -1036,6 +1074,63 @@ class TradingBot:
         )
         self.fast_trailing_thread.start()
         logger.info("✅ Fast trailing stop monitor thread started")
+        
+        # Start position closure monitoring thread
+        self.start_position_monitor()
+    
+    def start_position_monitor(self):
+        """Start the position closure monitoring thread."""
+        if self.position_monitor_running:
+            logger.warning("Position monitor already running")
+            return
+        
+        self.position_monitor_running = True
+        self.position_monitor_thread = threading.Thread(
+            target=self._position_monitor_loop,
+            name="PositionMonitor",
+            daemon=True
+        )
+        self.position_monitor_thread.start()
+        logger.info("✅ Position closure monitor thread started")
+    
+    def stop_position_monitor(self):
+        """Stop the position closure monitoring thread."""
+        if not self.position_monitor_running:
+            return
+        
+        self.position_monitor_running = False
+        if self.position_monitor_thread and self.position_monitor_thread.is_alive():
+            self.position_monitor_thread.join(timeout=5.0)
+            if self.position_monitor_thread.is_alive():
+                logger.warning("Position monitor thread did not stop gracefully")
+            else:
+                logger.info("Position closure monitor thread stopped")
+    
+    def _position_monitor_loop(self):
+        """Background thread loop for position closure detection."""
+        monitor_interval = 5.0  # Check every 5 seconds
+        
+        while self.position_monitor_running:
+            try:
+                # Detect and log closures
+                logged_closures = self.position_monitor.detect_and_log_closures(self.tracked_tickets)
+                
+                if logged_closures:
+                    for closure in logged_closures:
+                        logger.info(f"🔴 Position {closure['ticket']} ({closure['symbol']}) closed - logged")
+                
+                # Update tracked tickets from current positions
+                current_positions = self.order_manager.get_open_positions()
+                current_tickets = {pos['ticket'] for pos in current_positions}
+                self.tracked_tickets.update(current_tickets)
+                
+                # Clean up closed tickets from tracking
+                self.tracked_tickets.intersection_update(current_tickets)
+                
+            except Exception as e:
+                error_logger.error(f"Error in position monitor loop: {e}", exc_info=True)
+            
+            time.sleep(monitor_interval)
     
     def stop_continuous_trailing_stop(self):
         """Stop the continuous trailing stop monitoring threads (normal + fast)."""
@@ -1057,6 +1152,9 @@ class TradingBot:
                 logger.warning("Fast trailing stop thread did not stop gracefully")
             else:
                 logger.info("Fast trailing stop monitor thread stopped")
+        
+        # Stop position monitor
+        self.stop_position_monitor()
     
     def manage_positions(self):
         """Manage open positions (halal checks, max duration, etc.)."""
@@ -1303,6 +1401,35 @@ class TradingBot:
                 elapsed = time.time() - start_time
                 logger.info(f"✅ Position {ticket} closed after {elapsed:.1f}s")
                 print(f"✅ Position {ticket} closed - proceeding to next trade")
+                
+                # Log closure if we can get deal history
+                try:
+                    deal_info = self.order_manager.get_deal_history(ticket)
+                    if deal_info and deal_info.get('exit_deal'):
+                        exit_deal = deal_info['exit_deal']
+                        entry_deal = deal_info.get('entry_deal')
+                        
+                        if entry_deal:
+                            symbol = entry_deal.get('symbol', symbol)
+                            duration = (exit_deal['time'] - entry_deal['time']).total_seconds() / 60.0
+                            close_reason = self.order_manager.get_close_reason_from_deals(ticket)
+                            
+                            self.trade_logger.log_position_closure(
+                                symbol=symbol,
+                                ticket=ticket,
+                                entry_price=entry_deal['price'],
+                                close_price=exit_deal['price'],
+                                profit=deal_info['total_profit'],
+                                duration_minutes=duration,
+                                close_reason=close_reason,
+                                entry_time=entry_deal['time'],
+                                close_time=exit_deal['time'],
+                                commission=deal_info['commission'],
+                                swap=deal_info['swap']
+                            )
+                except Exception as e:
+                    logger.warning(f"Could not log closure details for position {ticket}: {e}")
+                
                 return True
             
             # Sleep to avoid busy-waiting (allows other threads to run)
@@ -1919,7 +2046,9 @@ class TradingBot:
                 
                 # Run one trading cycle (only if not already scanning/executing in manual mode)
                 if not self.manual_approval_mode or not self.manual_trades_executing:
+                    scheduler_logger.info("Starting trading cycle")
                     self.run_cycle()
+                    scheduler_logger.info("Trading cycle completed")
                 
                 # In manual mode, ask if user wants to continue scanning (only after trades finish)
                 if self.manual_approval_mode:
@@ -1954,6 +2083,7 @@ class TradingBot:
                         time.sleep(5)
                 else:
                     # Automatic mode: wait for cycle interval
+                    scheduler_logger.debug(f"Waiting {cycle_interval_seconds}s until next cycle")
                     time.sleep(cycle_interval_seconds)
         
         except KeyboardInterrupt:
@@ -1962,6 +2092,7 @@ class TradingBot:
                 print("\n✅ Bot stopped by user")
         except Exception as e:
             self.handle_error(e, "Main loop")
+            error_logger.critical("Fatal error in main loop, shutting down", exc_info=True)
             logger.critical("Fatal error in main loop, shutting down")
         finally:
             # Restore original max_open_trades if it was overridden

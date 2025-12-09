@@ -50,8 +50,20 @@
       "enabled": true,
       "min_profit_threshold_usd": 0.03,
       "max_profit_threshold_usd": 0.10,
-      "max_retries": 3,
-      "retry_delay_ms": 10
+      "max_retries": 5,
+      "retry_delay_ms": 5
+    }
+  },
+  "filters": {
+    "market_closing": {
+      "enabled": true,
+      "minutes_before_close": 30
+    },
+    "volume": {
+      "enabled": true,
+      "min_tick_volume": 10,
+      "check_period_minutes": 5,
+      "min_avg_volume": 5.0
     }
   },
   "trading": {
@@ -121,13 +133,9 @@
   },
   "logging": {
     "level": "INFO",
-    "log_file": "bot_log.txt",
     "daily_pnl_report": true,
     "log_trades": true,
-    "log_errors": true,
-    "root_level": "INFO",
-    "symbol_log_level": "DEBUG",
-    "symbol_log_dir": "logs/symbols"
+    "log_errors": true
   },
   "telegram": {
     "enabled": false,
@@ -139,5 +147,9 @@
     "max_consecutive_errors": 5,
     "error_cooldown_minutes": 15,
     "kill_switch_enabled": true
+  },
+  "monitoring": {
+    "reconciliation_interval_minutes": 30,
+    "enabled": true
   }
 }

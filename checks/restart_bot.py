@@ -23,7 +23,7 @@ print("\n" + "=" * 60)
 print("RESTARTING TRADING BOT WITH SWAP-FREE SYMBOLS")
 print("=" * 60)
 print("\nThe bot will start in a new process.")
-print("Monitor bot_log.txt for trading activity.")
+print("Monitor logs/system/system_startup.log for trading activity.")
 print("=" * 60)
 
 # Start bot in background
@@ -32,5 +32,5 @@ subprocess.Popen([sys.executable, 'run_bot.py'],
                  stderr=subprocess.DEVNULL)
 
 print("\n✓ Bot started successfully!")
-print("Check bot_log.txt for status updates.")
+print("Check logs/system/system_startup.log for status updates.")
 

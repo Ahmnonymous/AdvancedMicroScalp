@@ -3,15 +3,15 @@ News Filter Module
 Checks for high-impact news events and blocks trading during news windows.
 """
 
-import logging
 import requests
 from datetime import datetime, timedelta
 from typing import Dict, Any, List, Optional
 import time
 from bs4 import BeautifulSoup
 import MetaTrader5 as mt5
+from utils.logger_factory import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger("news_filter", "logs/engine/news_filter.log")
 
 
 class NewsFilter:
