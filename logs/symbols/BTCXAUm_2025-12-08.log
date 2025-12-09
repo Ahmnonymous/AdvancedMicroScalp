@@ -1,0 +1,218 @@
+2025-12-08 19:42:28,639 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:42:50,996 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:43:36,669 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:43:58,953 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:44:22,291 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:45:09,467 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:46:39,145 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:47:02,390 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:47:47,631 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:09,769 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:31,768 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:54,050 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:49:39,095 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:51:10,793 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:51:33,278 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:51:55,369 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:18:11,408 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:18:33,908 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:18:56,141 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:21:32,709 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:21:54,630 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:22:16,842 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:30:31,239 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:30:53,592 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:31:16,676 - INFO - ================================================================================
+2025-12-08 20:31:16,676 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 20:31:16,676 - INFO -    Symbol: BTCXAUm
+2025-12-08 20:31:16,676 - INFO -    Direction: LONG
+2025-12-08 20:31:16,676 - INFO -    Ticket: 467211231
+2025-12-08 20:31:16,676 - INFO -    Entry Price (Requested): 21.56049
+2025-12-08 20:31:16,676 - INFO -    Entry Price (Actual Fill): 21.56648
+2025-12-08 20:31:16,676 - INFO -    Entry Slippage: 0.00599
+2025-12-08 20:31:16,676 - INFO -    Lot Size: 0.0100
+2025-12-08 20:31:16,676 - INFO -    Stop Loss: 397.1 pips (0.03971)
+2025-12-08 20:31:16,676 - INFO -    Risk: $0.00 USD
+2025-12-08 20:31:16,676 - INFO -    Spread: 665.0 points
+2025-12-08 20:31:16,676 - INFO -    Spread+Fees Cost: $0.00 USD
+2025-12-08 20:31:16,676 - INFO -    Quality Score: 80.0
+2025-12-08 20:31:16,676 - INFO -    Min Lot: 0.01
+2025-12-08 20:31:16,676 - INFO -    Min Lot Source: broker
+2025-12-08 20:31:16,676 - INFO -    Sma Fast: 21.590757500000002
+2025-12-08 20:31:16,676 - INFO -    Sma Slow: 21.567262999999997
+2025-12-08 20:31:16,676 - INFO -    Rsi: 45.60381355932209
+2025-12-08 20:31:16,676 - INFO - ================================================================================
+2025-12-08 20:31:31,224 - INFO - 📈 TRAILING STOP: Ticket 467211231 (BTCXAUm) | Time: 20:31:31 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 21.56679 (31.6 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 20:31:36,458 - INFO - 📈 TRAILING STOP: Ticket 467211231 (BTCXAUm) | Time: 20:31:36 | Profit: $0.17 | SL Profit: $0.13 | SL Price: 21.56751 (38.8 pips) | Reason: Elastic trailing (peak: $0.17, pullback: 25%)
+2025-12-08 20:31:38,794 - INFO - ================================================================================
+2025-12-08 20:31:38,794 - INFO - 🔴 POSITION CLOSED
+2025-12-08 20:31:38,794 - INFO -    Symbol: BTCXAUm
+2025-12-08 20:31:38,794 - INFO -    Ticket: 467211231
+2025-12-08 20:31:38,794 - INFO -    Entry Time: 2025-12-08 20:31:16
+2025-12-08 20:31:38,794 - INFO -    Entry Price: 21.56363
+2025-12-08 20:31:38,810 - INFO -    Close Time: 2025-12-08 20:31:38
+2025-12-08 20:31:38,810 - INFO -    Close Price: 21.56601
+2025-12-08 20:31:38,810 - INFO -    Profit/Loss: $0.10 USD
+2025-12-08 20:31:38,821 - INFO -    Duration: 0.4 minutes
+2025-12-08 20:31:38,821 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 20:31:38,821 - INFO - ================================================================================
+2025-12-08 20:32:24,509 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:33:54,593 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:34:16,886 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:34:38,949 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:35:03,438 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:35:26,277 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:35:48,372 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:36:11,340 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:36:33,845 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:36:56,252 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:37:18,700 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:37:40,952 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:04,808 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:27,249 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:49,561 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:39:11,864 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:39:34,576 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:39:56,827 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:40:19,457 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:40:41,877 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:41:05,465 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:41:27,868 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:41:50,237 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:42:12,436 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:42:34,982 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:18:56,348 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:19:18,064 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:19:39,535 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:20:02,517 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:20:25,205 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:20:46,721 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:21:08,331 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:21:29,830 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:21:51,382 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:22:12,989 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:22:34,568 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:22:56,085 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:23:17,884 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:23:39,447 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:24:01,258 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:24:23,773 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:25:07,352 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:26:33,463 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:26:55,056 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:27:16,603 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:47:02,774 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:47:24,745 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:47:46,776 - INFO - ================================================================================
+2025-12-08 21:47:46,776 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:47:46,776 - INFO -    Symbol: BTCXAUm
+2025-12-08 21:47:46,776 - INFO -    Direction: LONG
+2025-12-08 21:47:46,776 - INFO -    Ticket: 467429306
+2025-12-08 21:47:46,776 - INFO -    Entry Price (Requested): 21.75520
+2025-12-08 21:47:46,776 - INFO -    Entry Price (Actual Fill): 21.75320
+2025-12-08 21:47:46,776 - INFO -    Entry Slippage: 0.00200
+2025-12-08 21:47:46,776 - INFO -    Lot Size: 0.0100
+2025-12-08 21:47:46,776 - INFO -    Stop Loss: 271.1 pips (0.02711)
+2025-12-08 21:47:46,776 - INFO -    Risk: $0.00 USD
+2025-12-08 21:47:46,776 - INFO -    Spread: 667.0 points
+2025-12-08 21:47:46,776 - INFO -    Spread+Fees Cost: $0.00 USD
+2025-12-08 21:47:46,776 - INFO -    Quality Score: 80.0
+2025-12-08 21:47:46,776 - INFO -    Min Lot: 0.01
+2025-12-08 21:47:46,776 - INFO -    Min Lot Source: broker
+2025-12-08 21:47:46,776 - INFO -    Sma Fast: 21.7506805
+2025-12-08 21:47:46,776 - INFO -    Sma Slow: 21.702499200000002
+2025-12-08 21:47:46,776 - INFO -    Rsi: 48.83128295254892
+2025-12-08 21:47:46,776 - INFO - ================================================================================
+2025-12-08 21:48:06,863 - INFO - 📈 TRAILING STOP: Ticket 467429306 (BTCXAUm) | Time: 21:48:06 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 21.75628 (30.8 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 21:48:09,384 - INFO - 📈 TRAILING STOP: Ticket 467429306 (BTCXAUm) | Time: 21:48:09 | Profit: $0.16 | SL Profit: $0.12 | SL Price: 21.75692 (37.2 pips) | Reason: Elastic trailing (peak: $0.16, pullback: 25%)
+2025-12-08 21:48:14,872 - INFO - 📈 TRAILING STOP: Ticket 467429306 (BTCXAUm) | Time: 21:48:14 | Profit: $0.18 | SL Profit: $0.14 | SL Price: 21.75732 (41.2 pips) | Reason: Elastic trailing (peak: $0.18, pullback: 25%)
+2025-12-08 21:48:19,869 - INFO - ================================================================================
+2025-12-08 21:48:19,869 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:48:19,869 - INFO -    Symbol: BTCXAUm
+2025-12-08 21:48:19,869 - INFO -    Ticket: 467429306
+2025-12-08 21:48:19,869 - INFO -    Entry Time: 2025-12-08 21:47:46
+2025-12-08 21:48:19,869 - INFO -    Entry Price: 21.75320
+2025-12-08 21:48:19,869 - INFO -    Close Time: 2025-12-08 21:48:19
+2025-12-08 21:48:19,869 - INFO -    Close Price: 21.75732
+2025-12-08 21:48:19,869 - INFO -    Profit/Loss: $0.17 USD
+2025-12-08 21:48:19,869 - INFO -    Duration: 0.6 minutes
+2025-12-08 21:48:19,869 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 21:48:19,869 - INFO - ================================================================================
+2025-12-08 21:48:30,214 - INFO - ================================================================================
+2025-12-08 21:48:30,214 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:48:30,214 - INFO -    Symbol: BTCXAUm
+2025-12-08 21:48:30,214 - INFO -    Direction: LONG
+2025-12-08 21:48:30,214 - INFO -    Ticket: 467431228
+2025-12-08 21:48:30,214 - INFO -    Entry Price (Requested): 21.76405
+2025-12-08 21:48:30,214 - INFO -    Entry Price (Actual Fill): 21.76405
+2025-12-08 21:48:30,214 - INFO -    Lot Size: 0.0100
+2025-12-08 21:48:30,214 - INFO -    Stop Loss: 269.0 pips (0.02690)
+2025-12-08 21:48:30,214 - INFO -    Risk: $0.00 USD
+2025-12-08 21:48:30,214 - INFO -    Spread: 667.0 points
+2025-12-08 21:48:30,214 - INFO -    Spread+Fees Cost: $0.00 USD
+2025-12-08 21:48:30,214 - INFO -    Quality Score: 80.0
+2025-12-08 21:48:30,214 - INFO -    Min Lot: 0.01
+2025-12-08 21:48:30,214 - INFO -    Min Lot Source: broker
+2025-12-08 21:48:30,214 - INFO -    Sma Fast: 21.7527275
+2025-12-08 21:48:30,214 - INFO -    Sma Slow: 21.7045134
+2025-12-08 21:48:30,214 - INFO -    Rsi: 45.80070881068127
+2025-12-08 21:48:30,214 - INFO - ================================================================================
+2025-12-08 21:49:31,354 - INFO - 📈 TRAILING STOP: Ticket 467431228 (BTCXAUm) | Time: 21:49:31 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 21.76726 (32.1 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 21:49:31,605 - INFO - 📈 TRAILING STOP: Ticket 467431228 (BTCXAUm) | Time: 21:49:31 | Profit: $0.21 | SL Profit: $0.16 | SL Price: 21.76894 (48.9 pips) | Reason: Elastic trailing (peak: $0.21, pullback: 25%)
+2025-12-08 21:49:32,845 - INFO - ================================================================================
+2025-12-08 21:49:32,845 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:49:32,845 - INFO -    Symbol: BTCXAUm
+2025-12-08 21:49:32,845 - INFO -    Ticket: 467431228
+2025-12-08 21:49:32,845 - INFO -    Entry Time: 2025-12-08 21:48:30
+2025-12-08 21:49:32,845 - INFO -    Entry Price: 21.76405
+2025-12-08 21:49:32,845 - INFO -    Close Time: 2025-12-08 21:49:32
+2025-12-08 21:49:32,845 - INFO -    Close Price: 21.76894
+2025-12-08 21:49:32,845 - INFO -    Profit/Loss: $0.20 USD
+2025-12-08 21:49:32,845 - INFO -    Duration: 1.0 minutes
+2025-12-08 21:49:32,845 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 21:49:32,845 - INFO - ================================================================================
+2025-12-08 21:50:18,073 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:50:40,216 - INFO - ================================================================================
+2025-12-08 21:50:40,216 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:50:40,216 - INFO -    Symbol: BTCXAUm
+2025-12-08 21:50:40,216 - INFO -    Direction: LONG
+2025-12-08 21:50:40,216 - INFO -    Ticket: 467436619
+2025-12-08 21:50:40,216 - INFO -    Entry Price (Requested): 21.81187
+2025-12-08 21:50:40,216 - INFO -    Entry Price (Actual Fill): 21.81187
+2025-12-08 21:50:40,216 - INFO -    Lot Size: 0.0100
+2025-12-08 21:50:40,216 - INFO -    Stop Loss: 259.3 pips (0.02593)
+2025-12-08 21:50:40,216 - INFO -    Risk: $0.00 USD
+2025-12-08 21:50:40,216 - INFO -    Spread: 667.0 points
+2025-12-08 21:50:40,216 - INFO -    Spread+Fees Cost: $0.00 USD
+2025-12-08 21:50:40,216 - INFO -    Quality Score: 80.0
+2025-12-08 21:50:40,216 - INFO -    Min Lot: 0.01
+2025-12-08 21:50:40,216 - INFO -    Min Lot Source: broker
+2025-12-08 21:50:40,216 - INFO -    Sma Fast: 21.7564575
+2025-12-08 21:50:40,216 - INFO -    Sma Slow: 21.709069600000003
+2025-12-08 21:50:40,216 - INFO -    Rsi: 44.83755904752792
+2025-12-08 21:50:40,216 - INFO - ================================================================================
+2025-12-08 21:51:20,775 - INFO - ================================================================================
+2025-12-08 21:51:20,775 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:51:20,775 - INFO -    Symbol: BTCXAUm
+2025-12-08 21:51:20,775 - INFO -    Ticket: 467436619
+2025-12-08 21:51:20,775 - INFO -    Entry Time: 2025-12-08 21:50:40
+2025-12-08 21:51:20,775 - INFO -    Entry Price: 21.81187
+2025-12-08 21:51:20,775 - INFO -    Close Time: 2025-12-08 21:51:20
+2025-12-08 21:51:20,775 - INFO -    Close Price: 21.78594
+2025-12-08 21:51:20,775 - INFO -    Profit/Loss: $-1.09 USD
+2025-12-08 21:51:20,776 - INFO -    Duration: 0.7 minutes
+2025-12-08 21:51:20,776 - INFO -    Close Reason: Unknown
+2025-12-08 21:51:20,776 - INFO - ================================================================================
+2025-12-08 22:04:38,818 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:04:59,525 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:05:20,558 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:05:41,929 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:06:05,195 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:06:26,617 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:06:47,872 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:07:09,480 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:07:31,012 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:07:52,642 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:08:13,976 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:08:35,340 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:08:56,885 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)

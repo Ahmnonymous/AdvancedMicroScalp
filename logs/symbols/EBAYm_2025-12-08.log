@@ -1,0 +1,81 @@
+2025-12-08 19:40:51,534 - INFO - ================================================================================
+2025-12-08 19:40:51,534 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 19:40:51,534 - INFO -    Symbol: EBAYm
+2025-12-08 19:40:51,534 - INFO -    Direction: SHORT
+2025-12-08 19:40:51,541 - INFO -    Ticket: 467004407
+2025-12-08 19:40:51,541 - INFO -    Entry Price (Requested): 83.62000
+2025-12-08 19:40:51,541 - INFO -    Entry Price (Actual Fill): 83.62000
+2025-12-08 19:40:51,541 - INFO -    Lot Size: 0.0100
+2025-12-08 19:40:51,541 - INFO -    Stop Loss: 10.0 pips (0.10000)
+2025-12-08 19:40:51,541 - INFO -    Risk: $0.10 USD
+2025-12-08 19:40:51,541 - INFO -    Spread: 10.0 points
+2025-12-08 19:40:51,541 - INFO -    Spread+Fees Cost: $0.10 USD
+2025-12-08 19:40:51,541 - INFO -    Quality Score: 80.0
+2025-12-08 19:40:51,541 - INFO -    Min Lot: 0.01
+2025-12-08 19:40:51,541 - INFO -    Min Lot Source: broker
+2025-12-08 19:40:51,541 - INFO -    Sma Fast: 83.616
+2025-12-08 19:40:51,541 - INFO -    Sma Slow: 83.7948
+2025-12-08 19:40:51,541 - INFO -    Rsi: 37.49999999999704
+2025-12-08 19:40:51,541 - INFO - ================================================================================
+2025-12-08 19:41:17,654 - INFO - ================================================================================
+2025-12-08 19:41:17,654 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 19:41:17,654 - INFO -    Symbol: EBAYm
+2025-12-08 19:41:17,654 - INFO -    Direction: SHORT
+2025-12-08 19:41:17,654 - INFO -    Ticket: 467006234
+2025-12-08 19:41:17,654 - INFO -    Entry Price (Requested): 83.65000
+2025-12-08 19:41:17,654 - INFO -    Entry Price (Actual Fill): 83.65000
+2025-12-08 19:41:17,654 - INFO -    Lot Size: 0.0100
+2025-12-08 19:41:17,654 - INFO -    Stop Loss: 10.0 pips (0.10000)
+2025-12-08 19:41:17,654 - INFO -    Risk: $0.10 USD
+2025-12-08 19:41:17,654 - INFO -    Spread: 10.0 points
+2025-12-08 19:41:17,654 - INFO -    Spread+Fees Cost: $0.10 USD
+2025-12-08 19:41:17,654 - INFO -    Quality Score: 80.0
+2025-12-08 19:41:17,654 - INFO -    Min Lot: 0.01
+2025-12-08 19:41:17,654 - INFO -    Min Lot Source: broker
+2025-12-08 19:41:17,654 - INFO -    Sma Fast: 83.616
+2025-12-08 19:41:17,654 - INFO -    Sma Slow: 83.7948
+2025-12-08 19:41:17,654 - INFO -    Rsi: 37.49999999999704
+2025-12-08 19:41:17,654 - INFO - ================================================================================
+2025-12-08 19:43:09,874 - INFO - ================================================================================
+2025-12-08 19:43:09,874 - INFO - 🔴 POSITION CLOSED
+2025-12-08 19:43:09,874 - INFO -    Symbol: EBAYm
+2025-12-08 19:43:09,874 - INFO -    Ticket: 467004407
+2025-12-08 19:43:09,874 - INFO -    Entry Time: 2025-12-08 19:40:51
+2025-12-08 19:43:09,874 - INFO -    Entry Price: 83.62000
+2025-12-08 19:43:09,874 - INFO -    Close Time: 2025-12-08 19:43:09
+2025-12-08 19:43:09,874 - INFO -    Close Price: 83.82000
+2025-12-08 19:43:09,874 - INFO -    Profit/Loss: $-0.20 USD
+2025-12-08 19:43:09,874 - INFO -    Duration: 2.3 minutes
+2025-12-08 19:43:09,874 - INFO -    Close Reason: Unknown
+2025-12-08 19:43:09,874 - INFO - ================================================================================
+2025-12-08 19:55:39,372 - DEBUG - ⛔ Cannot open trade: Staged window expired (888s > 150s)
+2025-12-08 19:56:03,109 - DEBUG - ⛔ Cannot open trade: Staged window expired (912s > 150s)
+2025-12-08 19:56:26,298 - DEBUG - ⛔ Cannot open trade: Staged window expired (935s > 150s)
+2025-12-08 20:23:11,803 - INFO - 📈 TRAILING STOP: Ticket 467006234 (EBAYm) | Time: 20:23:11 | Profit: $0.12 | SL Profit: $0.09 | SL Price: 83.56000 (9.0 pips) | Reason: Elastic trailing (peak: $0.12, pullback: 25%)
+2025-12-08 20:26:19,476 - INFO - 📈 TRAILING STOP: Ticket 467006234 (EBAYm) | Time: 20:26:19 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 83.54500 (10.5 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 20:26:52,384 - INFO - 📈 TRAILING STOP: Ticket 467006234 (EBAYm) | Time: 20:26:52 | Profit: $0.16 | SL Profit: $0.12 | SL Price: 83.53000 (12.0 pips) | Reason: Elastic trailing (peak: $0.16, pullback: 25%)
+2025-12-08 20:28:36,725 - INFO - 📈 TRAILING STOP: Ticket 467006234 (EBAYm) | Time: 20:28:36 | Profit: $0.18 | SL Profit: $0.14 | SL Price: 83.51500 (13.5 pips) | Reason: Elastic trailing (peak: $0.18, pullback: 25%)
+2025-12-08 20:30:06,506 - INFO - 📈 TRAILING STOP: Ticket 467006234 (EBAYm) | Time: 20:30:06 | Profit: $0.19 | SL Profit: $0.14 | SL Price: 83.50750 (14.2 pips) | Reason: Elastic trailing (peak: $0.19, pullback: 25%)
+2025-12-08 20:30:25,727 - INFO - 📈 TRAILING STOP: Ticket 467006234 (EBAYm) | Time: 20:30:25 | Profit: $0.20 | SL Profit: $0.15 | SL Price: 83.50000 (15.0 pips) | Reason: Elastic trailing (peak: $0.20, pullback: 25%)
+2025-12-08 20:30:46,274 - INFO - 📈 TRAILING STOP: Ticket 467006234 (EBAYm) | Time: 20:30:46 | Profit: $0.23 | SL Profit: $0.17 | SL Price: 83.47750 (17.2 pips) | Reason: Elastic trailing (peak: $0.23, pullback: 25%)
+2025-12-08 20:32:40,867 - INFO - ================================================================================
+2025-12-08 20:32:40,867 - INFO - 🔴 POSITION CLOSED
+2025-12-08 20:32:40,867 - INFO -    Symbol: EBAYm
+2025-12-08 20:32:40,867 - INFO -    Ticket: 467006234
+2025-12-08 20:32:40,867 - INFO -    Entry Time: 2025-12-08 19:41:17
+2025-12-08 20:32:40,867 - INFO -    Entry Price: 83.65000
+2025-12-08 20:32:40,867 - INFO -    Close Time: 2025-12-08 20:32:40
+2025-12-08 20:32:40,867 - INFO -    Close Price: 83.48000
+2025-12-08 20:32:40,867 - INFO -    Profit/Loss: $0.17 USD
+2025-12-08 20:32:40,867 - INFO -    Duration: 51.4 minutes
+2025-12-08 20:32:40,870 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 20:32:40,870 - INFO - ================================================================================
+2025-12-08 20:36:09,851 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:36:32,682 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:36:55,154 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:37:17,446 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:37:39,934 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:03,349 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:25,980 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:48,483 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:39:10,730 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)

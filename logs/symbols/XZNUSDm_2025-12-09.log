@@ -1,0 +1,216 @@
+2025-12-09 01:09:36,723 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:09:58,414 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:10:20,092 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:10:41,616 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:11:04,010 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:11:25,606 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:11:47,158 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:12:08,808 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:12:30,237 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:12:51,883 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:13:13,674 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:13:35,316 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:13:57,021 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:14:40,311 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:23:46,662 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:24:08,273 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:24:29,619 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:24:51,010 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:25:12,791 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:25:55,934 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:26:17,619 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:26:39,163 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:27:01,114 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:27:26,102 - INFO - ================================================================================
+2025-12-09 01:27:26,102 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:27:26,102 - INFO -    Symbol: XZNUSDm
+2025-12-09 01:27:26,102 - INFO -    Direction: SHORT
+2025-12-09 01:27:26,102 - INFO -    Ticket: 467793591
+2025-12-09 01:27:26,102 - INFO -    Entry Price (Requested): 3118.37000
+2025-12-09 01:27:26,102 - INFO -    Entry Price (Actual Fill): 3118.37000
+2025-12-09 01:27:26,102 - INFO -    Lot Size: 0.0100
+2025-12-09 01:27:26,102 - INFO -    Stop Loss: 179.4 pips (1.79429)
+2025-12-09 01:27:26,102 - INFO -    Risk: $0.02 USD
+2025-12-09 01:27:26,102 - INFO -    Spread: 16.4 points
+2025-12-09 01:27:26,102 - INFO -    Spread+Fees Cost: $0.05 USD
+2025-12-09 01:27:26,102 - INFO -    Quality Score: 65.0
+2025-12-09 01:27:26,102 - INFO -    Min Lot: 0.01
+2025-12-09 01:27:26,102 - INFO -    Min Lot Source: broker
+2025-12-09 01:27:26,102 - INFO -    Sma Fast: 3122.6269999999995
+2025-12-09 01:27:26,102 - INFO -    Sma Slow: 3124.4303999999997
+2025-12-09 01:27:26,102 - INFO -    Rsi: 39.85932004689237
+2025-12-09 01:27:26,102 - INFO - ================================================================================
+2025-12-09 01:33:35,641 - DEBUG - ⛔ Cannot open trade: Staged window expired (370s > 150s)
+2025-12-09 01:33:57,296 - DEBUG - ⛔ Cannot open trade: Staged window expired (391s > 150s)
+2025-12-09 01:34:18,981 - DEBUG - ⛔ Cannot open trade: Staged window expired (413s > 150s)
+2025-12-09 01:41:13,754 - DEBUG - ⛔ Cannot open trade: Staged window expired (828s > 150s)
+2025-12-09 01:41:35,628 - DEBUG - ⛔ Cannot open trade: Staged window expired (850s > 150s)
+2025-12-09 01:41:57,255 - DEBUG - ⛔ Cannot open trade: Staged window expired (871s > 150s)
+2025-12-09 01:42:18,986 - DEBUG - ⛔ Cannot open trade: Staged window expired (893s > 150s)
+2025-12-09 01:42:40,632 - DEBUG - ⛔ Cannot open trade: Staged window expired (915s > 150s)
+2025-12-09 01:43:03,569 - DEBUG - ⛔ Cannot open trade: Staged window expired (937s > 150s)
+2025-12-09 01:43:25,224 - DEBUG - ⛔ Cannot open trade: Staged window expired (959s > 150s)
+2025-12-09 01:43:46,912 - DEBUG - ⛔ Cannot open trade: Staged window expired (981s > 150s)
+2025-12-09 01:44:08,489 - DEBUG - ⛔ Cannot open trade: Staged window expired (1002s > 150s)
+2025-12-09 01:44:29,895 - DEBUG - ⛔ Cannot open trade: Staged window expired (1024s > 150s)
+2025-12-09 01:44:51,491 - DEBUG - ⛔ Cannot open trade: Staged window expired (1045s > 150s)
+2025-12-09 01:45:13,176 - DEBUG - ⛔ Cannot open trade: Staged window expired (1067s > 150s)
+2025-12-09 01:46:39,634 - DEBUG - ⛔ Cannot open trade: Staged window expired (1154s > 150s)
+2025-12-09 01:47:02,552 - DEBUG - ⛔ Cannot open trade: Staged window expired (1176s > 150s)
+2025-12-09 01:47:24,951 - DEBUG - ⛔ Cannot open trade: Staged window expired (1199s > 150s)
+2025-12-09 01:47:46,616 - DEBUG - ⛔ Cannot open trade: Staged window expired (1221s > 150s)
+2025-12-09 01:48:08,565 - DEBUG - ⛔ Cannot open trade: Staged window expired (1242s > 150s)
+2025-12-09 01:48:30,021 - DEBUG - ⛔ Cannot open trade: Staged window expired (1264s > 150s)
+2025-12-09 01:48:51,669 - DEBUG - ⛔ Cannot open trade: Staged window expired (1286s > 150s)
+2025-12-09 01:49:13,194 - DEBUG - ⛔ Cannot open trade: Staged window expired (1307s > 150s)
+2025-12-09 01:49:34,663 - DEBUG - ⛔ Cannot open trade: Staged window expired (1329s > 150s)
+2025-12-09 01:49:56,310 - DEBUG - ⛔ Cannot open trade: Staged window expired (1350s > 150s)
+2025-12-09 01:50:18,025 - DEBUG - ⛔ Cannot open trade: Staged window expired (1372s > 150s)
+2025-12-09 01:50:39,836 - DEBUG - ⛔ Cannot open trade: Staged window expired (1394s > 150s)
+2025-12-09 02:01:59,227 - DEBUG - ⛔ Cannot open trade: Staged window expired (2073s > 150s)
+2025-12-09 02:02:20,809 - DEBUG - ⛔ Cannot open trade: Staged window expired (2095s > 150s)
+2025-12-09 02:02:42,367 - DEBUG - ⛔ Cannot open trade: Staged window expired (2116s > 150s)
+2025-12-09 02:17:10,241 - DEBUG - ⛔ Cannot open trade: Staged window expired (2984s > 150s)
+2025-12-09 02:17:31,849 - DEBUG - ⛔ Cannot open trade: Staged window expired (3006s > 150s)
+2025-12-09 02:17:53,522 - DEBUG - ⛔ Cannot open trade: Staged window expired (3027s > 150s)
+2025-12-09 02:59:36,737 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:59:58,300 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:00:19,720 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:02:52,256 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:03:13,769 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:03:35,224 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:03:56,656 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:04:18,236 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:04:39,834 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:05:02,069 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:05:25,350 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:05:46,961 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:06:08,557 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:06:30,128 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:06:51,694 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:07:13,160 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:07:34,740 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:07:56,277 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:16:56,396 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:17:17,813 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:17:39,413 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:18:01,158 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:18:25,070 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:18:46,413 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:19:07,926 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:19:29,538 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:19:51,196 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:20:12,614 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:20:34,113 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:20:55,604 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:21:17,085 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:21:38,775 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:22:00,181 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:23:26,435 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:23:48,027 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:24:09,415 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:35:02,574 - INFO - 📈 TRAILING STOP: Ticket 467793591 (XZNUSDm) | Time: 05:35:02 | Profit: $0.10 | SL Profit: $0.08 | SL Price: 3110.87000 (750.0 pips) | Reason: Elastic trailing (peak: $0.10, pullback: 25%)
+2025-12-09 05:38:55,928 - INFO - ================================================================================
+2025-12-09 05:38:55,928 - INFO - 🔴 POSITION CLOSED
+2025-12-09 05:38:55,928 - INFO -    Symbol: XZNUSDm
+2025-12-09 05:38:55,928 - INFO -    Ticket: 467793591
+2025-12-09 05:38:55,928 - INFO -    Entry Time: 2025-12-09 01:27:26
+2025-12-09 05:38:55,928 - INFO -    Entry Price: 3118.37000
+2025-12-09 05:38:55,928 - INFO -    Close Time: 2025-12-09 05:38:55
+2025-12-09 05:38:55,928 - INFO -    Close Price: 3111.03000
+2025-12-09 05:38:55,928 - INFO -    Profit/Loss: $0.07 USD
+2025-12-09 05:38:55,928 - INFO -    Duration: 251.5 minutes
+2025-12-09 05:38:55,928 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-09 05:38:55,928 - INFO - ================================================================================
+2025-12-09 05:39:48,678 - INFO - ================================================================================
+2025-12-09 05:39:48,678 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 05:39:48,678 - INFO -    Symbol: XZNUSDm
+2025-12-09 05:39:48,678 - INFO -    Direction: SHORT
+2025-12-09 05:39:48,678 - INFO -    Ticket: 468638302
+2025-12-09 05:39:48,678 - INFO -    Entry Price (Requested): 3106.06000
+2025-12-09 05:39:48,678 - INFO -    Entry Price (Actual Fill): 3106.06000
+2025-12-09 05:39:48,678 - INFO -    Lot Size: 0.0100
+2025-12-09 05:39:48,678 - INFO -    Stop Loss: 202.7 pips (2.02714)
+2025-12-09 05:39:48,678 - INFO -    Risk: $0.02 USD
+2025-12-09 05:39:48,678 - INFO -    Spread: 16.3 points
+2025-12-09 05:39:48,678 - INFO -    Spread+Fees Cost: $0.05 USD
+2025-12-09 05:39:48,678 - INFO -    Quality Score: 65.0
+2025-12-09 05:39:48,678 - INFO -    Min Lot: 0.01
+2025-12-09 05:39:48,678 - INFO -    Min Lot Source: broker
+2025-12-09 05:39:48,678 - INFO -    Sma Fast: 3106.9505
+2025-12-09 05:39:48,678 - INFO -    Sma Slow: 3108.7371999999996
+2025-12-09 05:39:48,678 - INFO -    Rsi: 36.66666666666485
+2025-12-09 05:39:48,678 - INFO - ================================================================================
+2025-12-09 05:42:18,825 - DEBUG - ⛔ Cannot open trade: Staged window expired (150s > 150s)
+2025-12-09 05:42:40,633 - DEBUG - ⛔ Cannot open trade: Staged window expired (172s > 150s)
+2025-12-09 05:43:03,686 - DEBUG - ⛔ Cannot open trade: Staged window expired (195s > 150s)
+2025-12-09 05:43:25,431 - DEBUG - ⛔ Cannot open trade: Staged window expired (217s > 150s)
+2025-12-09 05:43:46,900 - DEBUG - ⛔ Cannot open trade: Staged window expired (238s > 150s)
+2025-12-09 05:44:08,459 - DEBUG - ⛔ Cannot open trade: Staged window expired (260s > 150s)
+2025-12-09 05:44:30,009 - DEBUG - ⛔ Cannot open trade: Staged window expired (281s > 150s)
+2025-12-09 05:44:51,594 - DEBUG - ⛔ Cannot open trade: Staged window expired (303s > 150s)
+2025-12-09 05:45:13,333 - DEBUG - ⛔ Cannot open trade: Staged window expired (325s > 150s)
+2025-12-09 05:45:35,058 - DEBUG - ⛔ Cannot open trade: Staged window expired (346s > 150s)
+2025-12-09 05:45:56,696 - DEBUG - ⛔ Cannot open trade: Staged window expired (368s > 150s)
+2025-12-09 05:46:18,616 - DEBUG - ⛔ Cannot open trade: Staged window expired (390s > 150s)
+2025-12-09 05:46:40,213 - DEBUG - ⛔ Cannot open trade: Staged window expired (412s > 150s)
+2025-12-09 05:47:03,276 - DEBUG - ⛔ Cannot open trade: Staged window expired (435s > 150s)
+2025-12-09 05:47:25,166 - DEBUG - ⛔ Cannot open trade: Staged window expired (456s > 150s)
+2025-12-09 05:47:46,635 - DEBUG - ⛔ Cannot open trade: Staged window expired (478s > 150s)
+2025-12-09 05:48:08,362 - DEBUG - ⛔ Cannot open trade: Staged window expired (500s > 150s)
+2025-12-09 05:48:30,011 - DEBUG - ⛔ Cannot open trade: Staged window expired (521s > 150s)
+2025-12-09 05:48:51,526 - DEBUG - ⛔ Cannot open trade: Staged window expired (543s > 150s)
+2025-12-09 05:55:47,333 - DEBUG - ⛔ Cannot open trade: Staged window expired (959s > 150s)
+2025-12-09 05:56:09,050 - DEBUG - ⛔ Cannot open trade: Staged window expired (980s > 150s)
+2025-12-09 05:56:30,648 - DEBUG - ⛔ Cannot open trade: Staged window expired (1002s > 150s)
+2025-12-09 06:03:28,853 - DEBUG - ⛔ Cannot open trade: Staged window expired (1420s > 150s)
+2025-12-09 06:03:50,816 - DEBUG - ⛔ Cannot open trade: Staged window expired (1442s > 150s)
+2025-12-09 06:04:12,750 - DEBUG - ⛔ Cannot open trade: Staged window expired (1464s > 150s)
+2025-12-09 06:04:34,436 - DEBUG - ⛔ Cannot open trade: Staged window expired (1486s > 150s)
+2025-12-09 06:04:56,123 - DEBUG - ⛔ Cannot open trade: Staged window expired (1507s > 150s)
+2025-12-09 06:05:17,639 - DEBUG - ⛔ Cannot open trade: Staged window expired (1529s > 150s)
+2025-12-09 06:08:57,227 - DEBUG - ⛔ Cannot open trade: Staged window expired (1749s > 150s)
+2025-12-09 06:09:18,905 - DEBUG - ⛔ Cannot open trade: Staged window expired (1770s > 150s)
+2025-12-09 06:09:40,609 - DEBUG - ⛔ Cannot open trade: Staged window expired (1792s > 150s)
+2025-12-09 06:10:04,749 - DEBUG - ⛔ Cannot open trade: Staged window expired (1816s > 150s)
+2025-12-09 06:10:26,594 - DEBUG - ⛔ Cannot open trade: Staged window expired (1838s > 150s)
+2025-12-09 06:10:48,200 - DEBUG - ⛔ Cannot open trade: Staged window expired (1860s > 150s)
+2025-12-09 06:11:09,828 - DEBUG - ⛔ Cannot open trade: Staged window expired (1881s > 150s)
+2025-12-09 06:11:31,453 - DEBUG - ⛔ Cannot open trade: Staged window expired (1903s > 150s)
+2025-12-09 06:11:53,096 - DEBUG - ⛔ Cannot open trade: Staged window expired (1924s > 150s)
+2025-12-09 06:12:14,664 - DEBUG - ⛔ Cannot open trade: Staged window expired (1946s > 150s)
+2025-12-09 06:12:36,298 - DEBUG - ⛔ Cannot open trade: Staged window expired (1968s > 150s)
+2025-12-09 06:12:57,908 - DEBUG - ⛔ Cannot open trade: Staged window expired (1989s > 150s)
+2025-12-09 06:13:19,639 - DEBUG - ⛔ Cannot open trade: Staged window expired (2011s > 150s)
+2025-12-09 06:13:41,315 - DEBUG - ⛔ Cannot open trade: Staged window expired (2033s > 150s)
+2025-12-09 06:14:03,995 - DEBUG - ⛔ Cannot open trade: Staged window expired (2055s > 150s)
+2025-12-09 06:17:41,049 - DEBUG - ⛔ Cannot open trade: Staged window expired (2272s > 150s)
+2025-12-09 06:18:05,148 - DEBUG - ⛔ Cannot open trade: Staged window expired (2296s > 150s)
+2025-12-09 06:18:27,223 - DEBUG - ⛔ Cannot open trade: Staged window expired (2319s > 150s)
+2025-12-09 06:18:48,955 - DEBUG - ⛔ Cannot open trade: Staged window expired (2340s > 150s)
+2025-12-09 06:19:10,829 - DEBUG - ⛔ Cannot open trade: Staged window expired (2362s > 150s)
+2025-12-09 06:19:32,551 - DEBUG - ⛔ Cannot open trade: Staged window expired (2384s > 150s)
+2025-12-09 06:19:54,221 - DEBUG - ⛔ Cannot open trade: Staged window expired (2406s > 150s)
+2025-12-09 06:20:16,065 - DEBUG - ⛔ Cannot open trade: Staged window expired (2427s > 150s)
+2025-12-09 06:20:37,711 - DEBUG - ⛔ Cannot open trade: Staged window expired (2449s > 150s)
+2025-12-09 06:20:59,347 - DEBUG - ⛔ Cannot open trade: Staged window expired (2471s > 150s)
+2025-12-09 06:21:21,084 - DEBUG - ⛔ Cannot open trade: Staged window expired (2492s > 150s)
+2025-12-09 06:21:42,706 - DEBUG - ⛔ Cannot open trade: Staged window expired (2514s > 150s)
+2025-12-09 06:22:04,787 - DEBUG - ⛔ Cannot open trade: Staged window expired (2536s > 150s)
+2025-12-09 06:22:26,539 - DEBUG - ⛔ Cannot open trade: Staged window expired (2558s > 150s)
+2025-12-09 06:22:48,115 - DEBUG - ⛔ Cannot open trade: Staged window expired (2579s > 150s)
+2025-12-09 06:23:09,835 - DEBUG - ⛔ Cannot open trade: Staged window expired (2601s > 150s)
+2025-12-09 06:23:31,491 - DEBUG - ⛔ Cannot open trade: Staged window expired (2623s > 150s)
+2025-12-09 06:23:53,116 - DEBUG - ⛔ Cannot open trade: Staged window expired (2644s > 150s)
+2025-12-09 06:28:35,385 - DEBUG - ⛔ Cannot open trade: Staged window expired (2927s > 150s)
+2025-12-09 06:28:56,994 - DEBUG - ⛔ Cannot open trade: Staged window expired (2948s > 150s)
+2025-12-09 06:29:18,484 - DEBUG - ⛔ Cannot open trade: Staged window expired (2970s > 150s)
+2025-12-09 06:29:40,182 - DEBUG - ⛔ Cannot open trade: Staged window expired (2991s > 150s)
+2025-12-09 06:30:04,816 - DEBUG - ⛔ Cannot open trade: Staged window expired (3016s > 150s)
+2025-12-09 06:30:28,056 - DEBUG - ⛔ Cannot open trade: Staged window expired (3039s > 150s)
+2025-12-09 06:30:49,681 - DEBUG - ⛔ Cannot open trade: Staged window expired (3061s > 150s)
+2025-12-09 06:31:11,544 - DEBUG - ⛔ Cannot open trade: Staged window expired (3083s > 150s)
+2025-12-09 06:31:33,356 - DEBUG - ⛔ Cannot open trade: Staged window expired (3105s > 150s)
+2025-12-09 06:31:55,106 - DEBUG - ⛔ Cannot open trade: Staged window expired (3126s > 150s)
+2025-12-09 06:32:16,872 - DEBUG - ⛔ Cannot open trade: Staged window expired (3148s > 150s)
+2025-12-09 06:32:38,510 - DEBUG - ⛔ Cannot open trade: Staged window expired (3170s > 150s)

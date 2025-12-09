@@ -1,0 +1,84 @@
+2025-12-08 19:40:54,933 - INFO - ================================================================================
+2025-12-08 19:40:54,933 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 19:40:54,933 - INFO -    Symbol: USOILm
+2025-12-08 19:40:54,933 - INFO -    Direction: LONG
+2025-12-08 19:40:54,933 - INFO -    Ticket: 467004715
+2025-12-08 19:40:54,933 - INFO -    Entry Price (Requested): 58.64600
+2025-12-08 19:40:54,933 - INFO -    Entry Price (Actual Fill): 58.64600
+2025-12-08 19:40:54,933 - INFO -    Lot Size: 0.0100
+2025-12-08 19:40:54,934 - INFO -    Stop Loss: 10.0 pips (0.10000)
+2025-12-08 19:40:54,939 - INFO -    Risk: $1.00 USD
+2025-12-08 19:40:54,940 - INFO -    Spread: 18.0 points
+2025-12-08 19:40:54,940 - INFO -    Spread+Fees Cost: $0.18 USD
+2025-12-08 19:40:54,940 - INFO -    Quality Score: 65.0
+2025-12-08 19:40:54,940 - INFO -    Min Lot: 0.01
+2025-12-08 19:40:54,940 - INFO -    Min Lot Source: broker
+2025-12-08 19:40:54,940 - INFO -    Sma Fast: 58.661
+2025-12-08 19:40:54,940 - INFO -    Sma Slow: 58.61991999999999
+2025-12-08 19:40:54,940 - INFO -    Rsi: 49.61832061068657
+2025-12-08 19:40:54,940 - INFO - ================================================================================
+2025-12-08 19:43:35,509 - DEBUG - ⛔ Cannot open trade: Staged window expired (161s > 150s)
+2025-12-08 19:43:58,047 - DEBUG - ⛔ Cannot open trade: Staged window expired (183s > 150s)
+2025-12-08 19:44:21,047 - DEBUG - ⛔ Cannot open trade: Staged window expired (206s > 150s)
+2025-12-08 19:45:08,700 - DEBUG - ⛔ Cannot open trade: Staged window expired (254s > 150s)
+2025-12-08 19:45:30,986 - DEBUG - ⛔ Cannot open trade: Staged window expired (276s > 150s)
+2025-12-08 19:45:53,565 - DEBUG - ⛔ Cannot open trade: Staged window expired (299s > 150s)
+2025-12-08 19:46:15,739 - DEBUG - ⛔ Cannot open trade: Staged window expired (321s > 150s)
+2025-12-08 19:46:38,083 - DEBUG - ⛔ Cannot open trade: Staged window expired (343s > 150s)
+2025-12-08 19:47:00,829 - DEBUG - ⛔ Cannot open trade: Staged window expired (366s > 150s)
+2025-12-08 19:47:46,816 - DEBUG - ⛔ Cannot open trade: Staged window expired (412s > 150s)
+2025-12-08 19:48:09,127 - DEBUG - ⛔ Cannot open trade: Staged window expired (434s > 150s)
+2025-12-08 19:48:31,126 - DEBUG - ⛔ Cannot open trade: Staged window expired (456s > 150s)
+2025-12-08 19:48:53,221 - DEBUG - ⛔ Cannot open trade: Staged window expired (478s > 150s)
+2025-12-08 19:49:38,302 - DEBUG - ⛔ Cannot open trade: Staged window expired (523s > 150s)
+2025-12-08 20:58:12,020 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:58:12 | Profit: $0.12 | SL Profit: $0.09 | SL Price: 58.65500 (0.9 pips) | Reason: Elastic trailing (peak: $0.12, pullback: 25%)
+2025-12-08 20:58:47,392 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:58:47 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 58.65650 (1.1 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 20:58:52,223 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:58:52 | Profit: $0.16 | SL Profit: $0.12 | SL Price: 58.65800 (1.2 pips) | Reason: Elastic trailing (peak: $0.16, pullback: 25%)
+2025-12-08 20:59:00,827 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:59:00 | Profit: $0.20 | SL Profit: $0.15 | SL Price: 58.66100 (1.5 pips) | Reason: Elastic trailing (peak: $0.20, pullback: 25%)
+2025-12-08 20:59:02,096 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:59:02 | Profit: $0.22 | SL Profit: $0.17 | SL Price: 58.66250 (1.7 pips) | Reason: Elastic trailing (peak: $0.22, pullback: 25%)
+2025-12-08 20:59:11,268 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:59:11 | Profit: $0.27 | SL Profit: $0.20 | SL Price: 58.66625 (2.0 pips) | Reason: Elastic trailing (peak: $0.27, pullback: 25%)
+2025-12-08 20:59:30,798 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:59:30 | Profit: $0.29 | SL Profit: $0.22 | SL Price: 58.66775 (2.2 pips) | Reason: Elastic trailing (peak: $0.29, pullback: 25%)
+2025-12-08 20:59:37,832 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:59:37 | Profit: $0.31 | SL Profit: $0.23 | SL Price: 58.66925 (2.3 pips) | Reason: Elastic trailing (peak: $0.31, pullback: 25%)
+2025-12-08 20:59:46,031 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:59:46 | Profit: $0.34 | SL Profit: $0.26 | SL Price: 58.67150 (2.6 pips) | Reason: Elastic trailing (peak: $0.34, pullback: 25%)
+2025-12-08 20:59:55,788 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 20:59:55 | Profit: $0.36 | SL Profit: $0.27 | SL Price: 58.67300 (2.7 pips) | Reason: Elastic trailing (peak: $0.36, pullback: 25%)
+2025-12-08 21:00:06,939 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 21:00:06 | Profit: $0.39 | SL Profit: $0.29 | SL Price: 58.67525 (2.9 pips) | Reason: Elastic trailing (peak: $0.39, pullback: 25%)
+2025-12-08 21:00:10,754 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 21:00:10 | Profit: $0.42 | SL Profit: $0.32 | SL Price: 58.67750 (3.2 pips) | Reason: Elastic trailing (peak: $0.42, pullback: 25%)
+2025-12-08 21:01:13,663 - INFO - 📈 TRAILING STOP: Ticket 467004715 (USOILm) | Time: 21:01:13 | Profit: $0.46 | SL Profit: $0.35 | SL Price: 58.68050 (3.5 pips) | Reason: Elastic trailing (peak: $0.46, pullback: 25%)
+2025-12-08 21:02:31,569 - INFO - ================================================================================
+2025-12-08 21:02:31,569 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:02:31,569 - INFO -    Symbol: USOILm
+2025-12-08 21:02:31,569 - INFO -    Ticket: 467004715
+2025-12-08 21:02:31,569 - INFO -    Entry Time: 2025-12-08 19:40:54
+2025-12-08 21:02:31,569 - INFO -    Entry Price: 58.64600
+2025-12-08 21:02:31,569 - INFO -    Close Time: 2025-12-08 21:02:31
+2025-12-08 21:02:31,569 - INFO -    Close Price: 58.68100
+2025-12-08 21:02:31,569 - INFO -    Profit/Loss: $0.35 USD
+2025-12-08 21:02:31,569 - INFO -    Duration: 81.6 minutes
+2025-12-08 21:02:31,569 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 21:02:31,569 - INFO - ================================================================================
+2025-12-09 01:14:40,342 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:15:04,877 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:09:23,732 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:09:45,293 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:10:06,870 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:11:33,096 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:11:54,757 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:12:16,312 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:12:37,787 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:12:59,216 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:13:20,769 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:13:42,301 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:14:04,816 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:14:26,282 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:46:07,931 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:46:29,483 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:46:50,948 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:47:12,464 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:47:34,063 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:47:55,512 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:48:17,214 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:48:38,968 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:49:00,723 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:49:23,590 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:49:45,152 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:50:06,892 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)

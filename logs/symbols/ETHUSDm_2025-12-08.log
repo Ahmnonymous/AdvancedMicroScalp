@@ -1,0 +1,1568 @@
+2025-12-08 19:43:14,513 - INFO - ================================================================================
+2025-12-08 19:43:14,513 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 19:43:14,513 - INFO -    Symbol: ETHUSDm
+2025-12-08 19:43:14,513 - INFO -    Direction: LONG
+2025-12-08 19:43:14,513 - INFO -    Ticket: 467012733
+2025-12-08 19:43:14,513 - INFO -    Entry Price (Requested): 3113.93000
+2025-12-08 19:43:14,513 - INFO -    Entry Price (Actual Fill): 3113.93000
+2025-12-08 19:43:14,513 - INFO -    Lot Size: 0.1000
+2025-12-08 19:43:14,513 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 19:43:14,513 - INFO -    Risk: $0.50 USD
+2025-12-08 19:43:14,513 - INFO -    Spread: 4.5 points
+2025-12-08 19:43:14,513 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 19:43:14,513 - INFO -    Quality Score: 80.0
+2025-12-08 19:43:14,513 - INFO -    Min Lot: 0.1
+2025-12-08 19:43:14,513 - INFO -    Min Lot Source: broker
+2025-12-08 19:43:14,513 - INFO -    Sma Fast: 3114.809
+2025-12-08 19:43:14,513 - INFO -    Sma Slow: 3107.3046000000004
+2025-12-08 19:43:14,513 - INFO -    Rsi: 47.71212794313697
+2025-12-08 19:43:14,513 - INFO - ================================================================================
+2025-12-08 19:44:02,255 - INFO - 📈 TRAILING STOP: Ticket 467012733 (ETHUSDm) | Time: 19:44:02 | Profit: $0.11 | SL Profit: $0.08 | SL Price: 3114.75500 (82.5 pips) | Reason: Elastic trailing (peak: $0.11, pullback: 25%)
+2025-12-08 19:44:03,205 - INFO - 📈 TRAILING STOP: Ticket 467012733 (ETHUSDm) | Time: 19:44:03 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 3114.98000 (105.0 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 19:44:03,799 - INFO - 📈 TRAILING STOP: Ticket 467012733 (ETHUSDm) | Time: 19:44:03 | Profit: $0.21 | SL Profit: $0.16 | SL Price: 3115.50500 (157.5 pips) | Reason: Elastic trailing (peak: $0.21, pullback: 25%)
+2025-12-08 19:44:05,306 - INFO - 📈 TRAILING STOP: Ticket 467012733 (ETHUSDm) | Time: 19:44:05 | Profit: $0.22 | SL Profit: $0.17 | SL Price: 3115.58000 (165.0 pips) | Reason: Elastic trailing (peak: $0.22, pullback: 25%)
+2025-12-08 19:44:20,030 - INFO - 📈 TRAILING STOP: Ticket 467012733 (ETHUSDm) | Time: 19:44:20 | Profit: $0.24 | SL Profit: $0.18 | SL Price: 3115.73000 (180.0 pips) | Reason: Elastic trailing (peak: $0.24, pullback: 25%)
+2025-12-08 19:44:20,922 - INFO - 📈 TRAILING STOP: Ticket 467012733 (ETHUSDm) | Time: 19:44:20 | Profit: $0.25 | SL Profit: $0.19 | SL Price: 3115.80500 (187.5 pips) | Reason: Elastic trailing (peak: $0.25, pullback: 25%)
+2025-12-08 19:44:24,598 - INFO - ================================================================================
+2025-12-08 19:44:24,598 - INFO - 🔴 POSITION CLOSED
+2025-12-08 19:44:24,598 - INFO -    Symbol: ETHUSDm
+2025-12-08 19:44:24,598 - INFO -    Ticket: 467012733
+2025-12-08 19:44:24,598 - INFO -    Entry Time: 2025-12-08 19:43:14
+2025-12-08 19:44:24,598 - INFO -    Entry Price: 3113.93000
+2025-12-08 19:44:24,598 - INFO -    Close Time: 2025-12-08 19:44:24
+2025-12-08 19:44:24,598 - INFO -    Close Price: 3115.81000
+2025-12-08 19:44:24,598 - INFO -    Profit/Loss: $0.19 USD
+2025-12-08 19:44:24,598 - INFO -    Duration: 1.2 minutes
+2025-12-08 19:44:24,598 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 19:44:24,598 - INFO - ================================================================================
+2025-12-08 19:45:30,391 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:45:53,127 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:46:15,316 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:46:37,503 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:47:00,314 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:47:46,269 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:08,672 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:30,688 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:52,704 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:49:37,832 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:59:04,063 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:59:27,160 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:59:49,753 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:17:01,898 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:17:25,628 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:17:47,675 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:18:09,751 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:18:32,287 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:18:54,789 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:20:25,128 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:20:47,426 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:21:09,489 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:21:31,537 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:21:53,602 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:22:15,547 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:22:37,833 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:23:00,318 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:23:24,536 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:23:46,551 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:24:08,784 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:24:30,770 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:25:59,365 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:26:22,520 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:26:44,486 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:28:14,130 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:28:36,762 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:28:58,960 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:30:29,713 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:30:52,275 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:31:37,288 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:32:23,289 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:33:08,451 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:33:30,992 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:33:53,149 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:34:15,679 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:34:37,741 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:34:59,844 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:35:25,101 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:35:47,149 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:04:48,645 - INFO - ================================================================================
+2025-12-08 21:04:48,645 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:04:48,645 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:04:48,645 - INFO -    Direction: LONG
+2025-12-08 21:04:48,645 - INFO -    Ticket: 467343090
+2025-12-08 21:04:48,645 - INFO -    Entry Price (Requested): 3134.14000
+2025-12-08 21:04:48,645 - INFO -    Entry Price (Actual Fill): 3134.14000
+2025-12-08 21:04:48,645 - INFO -    Lot Size: 0.1000
+2025-12-08 21:04:48,645 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 21:04:48,645 - INFO -    Risk: $0.50 USD
+2025-12-08 21:04:48,645 - INFO -    Spread: 4.5 points
+2025-12-08 21:04:48,645 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 21:04:48,645 - INFO -    Quality Score: 65.0
+2025-12-08 21:04:48,645 - INFO -    Min Lot: 0.1
+2025-12-08 21:04:48,645 - INFO -    Min Lot Source: broker
+2025-12-08 21:04:48,645 - INFO -    Sma Fast: 3133.3115000000003
+2025-12-08 21:04:48,645 - INFO -    Sma Slow: 3130.204
+2025-12-08 21:04:48,645 - INFO -    Rsi: 49.27897947864611
+2025-12-08 21:04:48,645 - INFO - ================================================================================
+2025-12-08 21:05:19,993 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:19 | Profit: $0.11 | SL Profit: $0.08 | SL Price: 3134.96500 (82.5 pips) | Reason: Elastic trailing (peak: $0.11, pullback: 25%)
+2025-12-08 21:05:22,806 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:22 | Profit: $0.12 | SL Profit: $0.09 | SL Price: 3135.04000 (90.0 pips) | Reason: Elastic trailing (peak: $0.12, pullback: 25%)
+2025-12-08 21:05:23,651 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:23 | Profit: $0.16 | SL Profit: $0.12 | SL Price: 3135.34000 (120.0 pips) | Reason: Elastic trailing (peak: $0.16, pullback: 25%)
+2025-12-08 21:05:25,561 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:25 | Profit: $0.29 | SL Profit: $0.22 | SL Price: 3136.31500 (217.5 pips) | Reason: Elastic trailing (peak: $0.29, pullback: 25%)
+2025-12-08 21:05:26,132 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:26 | Profit: $0.32 | SL Profit: $0.24 | SL Price: 3136.54000 (240.0 pips) | Reason: Elastic trailing (peak: $0.32, pullback: 25%)
+2025-12-08 21:05:26,695 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:26 | Profit: $0.40 | SL Profit: $0.30 | SL Price: 3137.14000 (300.0 pips) | Reason: Elastic trailing (peak: $0.40, pullback: 25%)
+2025-12-08 21:05:29,146 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:29 | Profit: $0.41 | SL Profit: $0.31 | SL Price: 3137.21500 (307.5 pips) | Reason: Elastic trailing (peak: $0.41, pullback: 25%)
+2025-12-08 21:05:30,086 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:30 | Profit: $0.43 | SL Profit: $0.32 | SL Price: 3137.36500 (322.5 pips) | Reason: Elastic trailing (peak: $0.43, pullback: 25%)
+2025-12-08 21:05:30,728 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:30 | Profit: $0.49 | SL Profit: $0.37 | SL Price: 3137.81500 (367.5 pips) | Reason: Elastic trailing (peak: $0.49, pullback: 25%)
+2025-12-08 21:05:31,338 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:31 | Profit: $0.51 | SL Profit: $0.40 | SL Price: 3138.14000 (400.0 pips) | Reason: Elastic trailing (peak: $0.51, pullback: 25%)
+2025-12-08 21:05:34,086 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:34 | Profit: $0.55 | SL Profit: $0.41 | SL Price: 3138.26500 (412.5 pips) | Reason: Elastic trailing (peak: $0.55, pullback: 25%)
+2025-12-08 21:05:35,512 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:35 | Profit: $0.56 | SL Profit: $0.42 | SL Price: 3138.34000 (420.0 pips) | Reason: Elastic trailing (peak: $0.56, pullback: 25%)
+2025-12-08 21:05:40,709 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:40 | Profit: $0.57 | SL Profit: $0.43 | SL Price: 3138.41500 (427.5 pips) | Reason: Elastic trailing (peak: $0.57, pullback: 25%)
+2025-12-08 21:05:41,789 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:41 | Profit: $0.59 | SL Profit: $0.44 | SL Price: 3138.56500 (442.5 pips) | Reason: Elastic trailing (peak: $0.59, pullback: 25%)
+2025-12-08 21:05:43,021 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:43 | Profit: $0.66 | SL Profit: $0.50 | SL Price: 3139.14000 (500.0 pips) | Reason: Elastic trailing (peak: $0.66, pullback: 25%)
+2025-12-08 21:05:43,600 - INFO - 📈 TRAILING STOP: Ticket 467343090 (ETHUSDm) | Time: 21:05:43 | Profit: $0.68 | SL Profit: $0.51 | SL Price: 3139.24000 (510.0 pips) | Reason: Elastic trailing (peak: $0.68, pullback: 25%)
+2025-12-08 21:05:45,768 - INFO - ================================================================================
+2025-12-08 21:05:45,768 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:05:45,768 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:05:45,768 - INFO -    Ticket: 467343090
+2025-12-08 21:05:45,768 - INFO -    Entry Time: 2025-12-08 21:04:48
+2025-12-08 21:05:45,768 - INFO -    Entry Price: 3134.14000
+2025-12-08 21:05:45,768 - INFO -    Close Time: 2025-12-08 21:05:45
+2025-12-08 21:05:45,768 - INFO -    Close Price: 3139.24000
+2025-12-08 21:05:45,768 - INFO -    Profit/Loss: $0.51 USD
+2025-12-08 21:05:45,768 - INFO -    Duration: 0.9 minutes
+2025-12-08 21:05:45,768 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 21:05:45,768 - INFO - ================================================================================
+2025-12-08 21:08:26,169 - INFO - ================================================================================
+2025-12-08 21:08:26,169 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:08:26,169 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:08:26,169 - INFO -    Direction: LONG
+2025-12-08 21:08:26,169 - INFO -    Ticket: 467352828
+2025-12-08 21:08:26,169 - INFO -    Entry Price (Requested): 3139.75000
+2025-12-08 21:08:26,169 - INFO -    Entry Price (Actual Fill): 3140.03000
+2025-12-08 21:08:26,169 - INFO -    Entry Slippage: 0.28000
+2025-12-08 21:08:26,169 - INFO -    Lot Size: 0.1000
+2025-12-08 21:08:26,169 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 21:08:26,169 - INFO -    Risk: $0.50 USD
+2025-12-08 21:08:26,169 - INFO -    Spread: 4.5 points
+2025-12-08 21:08:26,169 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 21:08:26,169 - INFO -    Quality Score: 80.0
+2025-12-08 21:08:26,169 - INFO -    Min Lot: 0.1
+2025-12-08 21:08:26,169 - INFO -    Min Lot Source: broker
+2025-12-08 21:08:26,169 - INFO -    Sma Fast: 3135.1565
+2025-12-08 21:08:26,169 - INFO -    Sma Slow: 3131.072
+2025-12-08 21:08:26,169 - INFO -    Rsi: 44.23076923076912
+2025-12-08 21:08:26,169 - INFO - ================================================================================
+2025-12-08 21:10:42,462 - INFO - ================================================================================
+2025-12-08 21:10:42,462 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:10:42,462 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:10:42,462 - INFO -    Ticket: 467352828
+2025-12-08 21:10:42,462 - INFO -    Entry Time: 2025-12-08 21:08:26
+2025-12-08 21:10:42,462 - INFO -    Entry Price: 3139.45000
+2025-12-08 21:10:42,462 - INFO -    Close Time: 2025-12-08 21:10:42
+2025-12-08 21:10:42,462 - INFO -    Close Price: 3135.03000
+2025-12-08 21:10:42,462 - INFO -    Profit/Loss: $-0.45 USD
+2025-12-08 21:10:42,462 - INFO -    Duration: 2.3 minutes
+2025-12-08 21:10:42,462 - INFO -    Close Reason: Unknown
+2025-12-08 21:10:42,462 - INFO - ================================================================================
+2025-12-08 21:10:57,009 - INFO - ================================================================================
+2025-12-08 21:10:57,013 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:10:57,013 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:10:57,013 - INFO -    Direction: LONG
+2025-12-08 21:10:57,014 - INFO -    Ticket: 467359148
+2025-12-08 21:10:57,014 - INFO -    Entry Price (Requested): 3135.89000
+2025-12-08 21:10:57,014 - INFO -    Entry Price (Actual Fill): 3136.44000
+2025-12-08 21:10:57,014 - INFO -    Entry Slippage: 0.55000
+2025-12-08 21:10:57,014 - INFO -    Lot Size: 0.1000
+2025-12-08 21:10:57,014 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 21:10:57,014 - INFO -    Risk: $0.50 USD
+2025-12-08 21:10:57,015 - INFO -    Spread: 4.5 points
+2025-12-08 21:10:57,015 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 21:10:57,015 - INFO -    Quality Score: 80.0
+2025-12-08 21:10:57,015 - INFO -    Min Lot: 0.1
+2025-12-08 21:10:57,017 - INFO -    Min Lot Source: broker
+2025-12-08 21:10:57,017 - INFO -    Sma Fast: 3135.7365
+2025-12-08 21:10:57,017 - INFO -    Sma Slow: 3131.3101999999994
+2025-12-08 21:10:57,017 - INFO -    Rsi: 46.223839854413356
+2025-12-08 21:10:57,017 - INFO - ================================================================================
+2025-12-08 21:13:21,248 - INFO - ================================================================================
+2025-12-08 21:13:21,248 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:13:21,249 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:13:21,249 - INFO -    Ticket: 467359148
+2025-12-08 21:13:21,249 - INFO -    Entry Time: 2025-12-08 21:10:56
+2025-12-08 21:13:21,249 - INFO -    Entry Price: 3136.44000
+2025-12-08 21:13:21,249 - INFO -    Close Time: 2025-12-08 21:13:20
+2025-12-08 21:13:21,249 - INFO -    Close Price: 3131.44000
+2025-12-08 21:13:21,250 - INFO -    Profit/Loss: $-0.50 USD
+2025-12-08 21:13:21,250 - INFO -    Duration: 2.4 minutes
+2025-12-08 21:13:21,251 - INFO -    Close Reason: Unknown
+2025-12-08 21:13:21,251 - INFO - ================================================================================
+2025-12-08 21:13:52,094 - INFO - ================================================================================
+2025-12-08 21:13:52,094 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:13:52,094 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:13:52,094 - INFO -    Direction: LONG
+2025-12-08 21:13:52,094 - INFO -    Ticket: 467365254
+2025-12-08 21:13:52,094 - INFO -    Entry Price (Requested): 3132.39000
+2025-12-08 21:13:52,094 - INFO -    Entry Price (Actual Fill): 3132.39000
+2025-12-08 21:13:52,094 - INFO -    Lot Size: 0.1000
+2025-12-08 21:13:52,094 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 21:13:52,094 - INFO -    Risk: $0.50 USD
+2025-12-08 21:13:52,094 - INFO -    Spread: 4.5 points
+2025-12-08 21:13:52,094 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 21:13:52,094 - INFO -    Quality Score: 80.0
+2025-12-08 21:13:52,094 - INFO -    Min Lot: 0.1
+2025-12-08 21:13:52,094 - INFO -    Min Lot Source: broker
+2025-12-08 21:13:52,094 - INFO -    Sma Fast: 3135.2645
+2025-12-08 21:13:52,094 - INFO -    Sma Slow: 3131.5352000000003
+2025-12-08 21:13:52,094 - INFO -    Rsi: 42.2144112478026
+2025-12-08 21:13:52,094 - INFO - ================================================================================
+2025-12-08 21:14:20,297 - INFO - ================================================================================
+2025-12-08 21:14:20,297 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:14:20,297 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:14:20,297 - INFO -    Ticket: 467365254
+2025-12-08 21:14:20,297 - INFO -    Entry Time: 2025-12-08 21:13:52
+2025-12-08 21:14:20,297 - INFO -    Entry Price: 3132.41000
+2025-12-08 21:14:20,297 - INFO -    Close Time: 2025-12-08 21:14:20
+2025-12-08 21:14:20,297 - INFO -    Close Price: 3127.39000
+2025-12-08 21:14:20,297 - INFO -    Profit/Loss: $-0.50 USD
+2025-12-08 21:14:20,297 - INFO -    Duration: 0.5 minutes
+2025-12-08 21:14:20,297 - INFO -    Close Reason: Unknown
+2025-12-08 21:14:20,297 - INFO - ================================================================================
+2025-12-08 21:14:35,688 - INFO - ================================================================================
+2025-12-08 21:14:35,688 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:14:35,688 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:14:35,688 - INFO -    Direction: LONG
+2025-12-08 21:14:35,688 - INFO -    Ticket: 467366322
+2025-12-08 21:14:35,688 - INFO -    Entry Price (Requested): 3129.27000
+2025-12-08 21:14:35,688 - INFO -    Entry Price (Actual Fill): 3129.24000
+2025-12-08 21:14:35,688 - INFO -    Entry Slippage: 0.03000
+2025-12-08 21:14:35,688 - INFO -    Lot Size: 0.1000
+2025-12-08 21:14:35,688 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 21:14:35,688 - INFO -    Risk: $0.50 USD
+2025-12-08 21:14:35,688 - INFO -    Spread: 4.5 points
+2025-12-08 21:14:35,688 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 21:14:35,688 - INFO -    Quality Score: 80.0
+2025-12-08 21:14:35,688 - INFO -    Min Lot: 0.1
+2025-12-08 21:14:35,688 - INFO -    Min Lot Source: broker
+2025-12-08 21:14:35,688 - INFO -    Sma Fast: 3134.6325
+2025-12-08 21:14:35,688 - INFO -    Sma Slow: 3131.4263999999994
+2025-12-08 21:14:35,688 - INFO -    Rsi: 45.75238095238085
+2025-12-08 21:14:35,688 - INFO - ================================================================================
+2025-12-08 21:17:07,159 - DEBUG - ⛔ Cannot open trade: Staged window expired (151s > 150s)
+2025-12-08 21:17:28,551 - DEBUG - ⛔ Cannot open trade: Staged window expired (173s > 150s)
+2025-12-08 21:17:50,190 - DEBUG - ⛔ Cannot open trade: Staged window expired (195s > 150s)
+2025-12-08 21:18:08,520 - INFO - 📈 TRAILING STOP: Ticket 467366322 (ETHUSDm) | Time: 21:18:08 | Profit: $0.12 | SL Profit: $0.09 | SL Price: 3130.14000 (90.0 pips) | Reason: Elastic trailing (peak: $0.12, pullback: 25%)
+2025-12-08 21:18:09,757 - INFO - 📈 TRAILING STOP: Ticket 467366322 (ETHUSDm) | Time: 21:18:09 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 3130.29000 (105.0 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 21:18:10,314 - INFO - 📈 TRAILING STOP: Ticket 467366322 (ETHUSDm) | Time: 21:18:10 | Profit: $0.15 | SL Profit: $0.11 | SL Price: 3130.36500 (112.5 pips) | Reason: Elastic trailing (peak: $0.15, pullback: 25%)
+2025-12-08 21:18:11,724 - DEBUG - ⛔ Cannot open trade: Staged window expired (216s > 150s)
+2025-12-08 21:18:13,181 - INFO - ================================================================================
+2025-12-08 21:18:13,182 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:18:13,182 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:18:13,182 - INFO -    Ticket: 467366322
+2025-12-08 21:18:13,182 - INFO -    Entry Time: 2025-12-08 21:14:35
+2025-12-08 21:18:13,182 - INFO -    Entry Price: 3129.24000
+2025-12-08 21:18:13,182 - INFO -    Close Time: 2025-12-08 21:18:13
+2025-12-08 21:18:13,183 - INFO -    Close Price: 3130.37000
+2025-12-08 21:18:13,183 - INFO -    Profit/Loss: $0.12 USD
+2025-12-08 21:18:13,183 - INFO -    Duration: 3.6 minutes
+2025-12-08 21:18:13,183 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 21:18:13,183 - INFO - ================================================================================
+2025-12-08 21:18:55,690 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:19:17,408 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:19:38,972 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:45:36,074 - INFO - ================================================================================
+2025-12-08 21:45:36,074 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:45:36,074 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:45:36,074 - INFO -    Direction: LONG
+2025-12-08 21:45:36,074 - INFO -    Ticket: 467425414
+2025-12-08 21:45:36,074 - INFO -    Entry Price (Requested): 3145.48000
+2025-12-08 21:45:36,074 - INFO -    Entry Price (Actual Fill): 3145.45000
+2025-12-08 21:45:36,074 - INFO -    Entry Slippage: 0.03000
+2025-12-08 21:45:36,074 - INFO -    Lot Size: 0.1000
+2025-12-08 21:45:36,074 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 21:45:36,074 - INFO -    Risk: $0.50 USD
+2025-12-08 21:45:36,074 - INFO -    Spread: 4.5 points
+2025-12-08 21:45:36,074 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 21:45:36,074 - INFO -    Quality Score: 80.0
+2025-12-08 21:45:36,074 - INFO -    Min Lot: 0.1
+2025-12-08 21:45:36,074 - INFO -    Min Lot Source: broker
+2025-12-08 21:45:36,074 - INFO -    Sma Fast: 3139.2920000000004
+2025-12-08 21:45:36,074 - INFO -    Sma Slow: 3135.675
+2025-12-08 21:45:36,074 - INFO -    Rsi: 43.565525383706856
+2025-12-08 21:45:36,074 - INFO - ================================================================================
+2025-12-08 21:47:31,420 - INFO - ================================================================================
+2025-12-08 21:47:31,420 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:47:31,420 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:47:31,420 - INFO -    Ticket: 467425414
+2025-12-08 21:47:31,420 - INFO -    Entry Time: 2025-12-08 21:45:36
+2025-12-08 21:47:31,420 - INFO -    Entry Price: 3145.45000
+2025-12-08 21:47:31,420 - INFO -    Close Time: 2025-12-08 21:47:31
+2025-12-08 21:47:31,420 - INFO -    Close Price: 3140.45000
+2025-12-08 21:47:31,420 - INFO -    Profit/Loss: $-0.50 USD
+2025-12-08 21:47:31,420 - INFO -    Duration: 1.9 minutes
+2025-12-08 21:47:31,420 - INFO -    Close Reason: Unknown
+2025-12-08 21:47:31,420 - INFO - ================================================================================
+2025-12-08 21:48:07,446 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:48:50,751 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:49:12,425 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 21:49:35,256 - INFO - ================================================================================
+2025-12-08 21:49:35,256 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 21:49:35,256 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:49:35,256 - INFO -    Direction: LONG
+2025-12-08 21:49:35,256 - INFO -    Ticket: 467433350
+2025-12-08 21:49:35,256 - INFO -    Entry Price (Requested): 3143.18000
+2025-12-08 21:49:35,256 - INFO -    Entry Price (Actual Fill): 3143.07000
+2025-12-08 21:49:35,256 - INFO -    Entry Slippage: 0.11000
+2025-12-08 21:49:35,256 - INFO -    Lot Size: 0.1000
+2025-12-08 21:49:35,256 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 21:49:35,256 - INFO -    Risk: $0.50 USD
+2025-12-08 21:49:35,256 - INFO -    Spread: 4.5 points
+2025-12-08 21:49:35,256 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 21:49:35,256 - INFO -    Quality Score: 80.0
+2025-12-08 21:49:35,256 - INFO -    Min Lot: 0.1
+2025-12-08 21:49:35,256 - INFO -    Min Lot Source: broker
+2025-12-08 21:49:35,256 - INFO -    Sma Fast: 3140.9915
+2025-12-08 21:49:35,256 - INFO -    Sma Slow: 3136.1620000000003
+2025-12-08 21:49:35,256 - INFO -    Rsi: 44.98319731156926
+2025-12-08 21:49:35,256 - INFO - ================================================================================
+2025-12-08 21:50:25,955 - INFO - 📈 TRAILING STOP: Ticket 467433350 (ETHUSDm) | Time: 21:50:25 | Profit: $0.11 | SL Profit: $0.08 | SL Price: 3143.89500 (82.5 pips) | Reason: Elastic trailing (peak: $0.11, pullback: 25%)
+2025-12-08 21:50:27,776 - INFO - 📈 TRAILING STOP: Ticket 467433350 (ETHUSDm) | Time: 21:50:27 | Profit: $0.23 | SL Profit: $0.17 | SL Price: 3144.79500 (172.5 pips) | Reason: Elastic trailing (peak: $0.23, pullback: 25%)
+2025-12-08 21:50:28,386 - INFO - 📈 TRAILING STOP: Ticket 467433350 (ETHUSDm) | Time: 21:50:28 | Profit: $0.25 | SL Profit: $0.19 | SL Price: 3144.94500 (187.5 pips) | Reason: Elastic trailing (peak: $0.25, pullback: 25%)
+2025-12-08 21:50:29,028 - INFO - 📈 TRAILING STOP: Ticket 467433350 (ETHUSDm) | Time: 21:50:29 | Profit: $0.30 | SL Profit: $0.22 | SL Price: 3145.32000 (225.0 pips) | Reason: Elastic trailing (peak: $0.30, pullback: 25%)
+2025-12-08 21:50:33,933 - INFO - 📈 TRAILING STOP: Ticket 467433350 (ETHUSDm) | Time: 21:50:33 | Profit: $0.36 | SL Profit: $0.27 | SL Price: 3145.77000 (270.0 pips) | Reason: Elastic trailing (peak: $0.36, pullback: 25%)
+2025-12-08 21:50:35,747 - INFO - ================================================================================
+2025-12-08 21:50:35,747 - INFO - 🔴 POSITION CLOSED
+2025-12-08 21:50:35,747 - INFO -    Symbol: ETHUSDm
+2025-12-08 21:50:35,747 - INFO -    Ticket: 467433350
+2025-12-08 21:50:35,747 - INFO -    Entry Time: 2025-12-08 21:49:35
+2025-12-08 21:50:35,747 - INFO -    Entry Price: 3143.07000
+2025-12-08 21:50:35,747 - INFO -    Close Time: 2025-12-08 21:50:35
+2025-12-08 21:50:35,747 - INFO -    Close Price: 3145.77000
+2025-12-08 21:50:35,747 - INFO -    Profit/Loss: $0.27 USD
+2025-12-08 21:50:35,747 - INFO -    Duration: 1.0 minutes
+2025-12-08 21:50:35,747 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 21:50:35,747 - INFO - ================================================================================
+2025-12-08 21:51:00,807 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:04:18,148 - INFO - ================================================================================
+2025-12-08 22:04:18,148 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:04:18,148 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:04:18,148 - INFO -    Direction: LONG
+2025-12-08 22:04:18,148 - INFO -    Ticket: 467448137
+2025-12-08 22:04:18,148 - INFO -    Entry Price (Requested): 3142.96000
+2025-12-08 22:04:18,148 - INFO -    Entry Price (Actual Fill): 3143.32000
+2025-12-08 22:04:18,148 - INFO -    Entry Slippage: 0.36000
+2025-12-08 22:04:18,148 - INFO -    Lot Size: 0.1000
+2025-12-08 22:04:18,148 - INFO -    Stop Loss: 451.4 pips (4.51429)
+2025-12-08 22:04:18,148 - INFO -    Risk: $0.45 USD
+2025-12-08 22:04:18,148 - INFO -    Spread: 4.5 points
+2025-12-08 22:04:18,148 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:04:18,148 - INFO -    Quality Score: 80.0
+2025-12-08 22:04:18,148 - INFO -    Min Lot: 0.1
+2025-12-08 22:04:18,148 - INFO -    Min Lot Source: broker
+2025-12-08 22:04:18,148 - INFO -    Sma Fast: 3143.8985000000002
+2025-12-08 22:04:18,148 - INFO -    Sma Slow: 3139.3714
+2025-12-08 22:04:18,148 - INFO -    Rsi: 42.309490416082156
+2025-12-08 22:04:18,148 - INFO - ================================================================================
+2025-12-08 22:07:08,741 - DEBUG - ⛔ Cannot open trade: Staged window expired (171s > 150s)
+2025-12-08 22:07:30,199 - DEBUG - ⛔ Cannot open trade: Staged window expired (192s > 150s)
+2025-12-08 22:07:51,789 - DEBUG - ⛔ Cannot open trade: Staged window expired (214s > 150s)
+2025-12-08 22:08:13,413 - DEBUG - ⛔ Cannot open trade: Staged window expired (235s > 150s)
+2025-12-08 22:08:34,635 - DEBUG - ⛔ Cannot open trade: Staged window expired (256s > 150s)
+2025-12-08 22:08:56,132 - DEBUG - ⛔ Cannot open trade: Staged window expired (278s > 150s)
+2025-12-08 22:09:07,116 - INFO - ================================================================================
+2025-12-08 22:09:07,116 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:09:07,116 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:09:07,116 - INFO -    Ticket: 467448137
+2025-12-08 22:09:07,116 - INFO -    Entry Time: 2025-12-08 22:04:18
+2025-12-08 22:09:07,116 - INFO -    Entry Price: 3143.78000
+2025-12-08 22:09:07,116 - INFO -    Close Time: 2025-12-08 22:09:07
+2025-12-08 22:09:07,116 - INFO -    Close Price: 3138.81000
+2025-12-08 22:09:07,116 - INFO -    Profit/Loss: $-0.50 USD
+2025-12-08 22:09:07,116 - INFO -    Duration: 4.8 minutes
+2025-12-08 22:09:07,116 - INFO -    Close Reason: Unknown
+2025-12-08 22:09:07,116 - INFO - ================================================================================
+2025-12-08 22:09:19,227 - INFO - ================================================================================
+2025-12-08 22:09:19,227 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:09:19,227 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:09:19,227 - INFO -    Direction: LONG
+2025-12-08 22:09:19,227 - INFO -    Ticket: 467449969
+2025-12-08 22:09:19,227 - INFO -    Entry Price (Requested): 3140.97000
+2025-12-08 22:09:19,227 - INFO -    Entry Price (Actual Fill): 3140.97000
+2025-12-08 22:09:19,227 - INFO -    Lot Size: 0.1000
+2025-12-08 22:09:19,227 - INFO -    Stop Loss: 374.3 pips (3.74286)
+2025-12-08 22:09:19,227 - INFO -    Risk: $0.37 USD
+2025-12-08 22:09:19,227 - INFO -    Spread: 4.5 points
+2025-12-08 22:09:19,227 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:09:19,227 - INFO -    Quality Score: 80.0
+2025-12-08 22:09:19,227 - INFO -    Min Lot: 0.1
+2025-12-08 22:09:19,227 - INFO -    Min Lot Source: broker
+2025-12-08 22:09:19,227 - INFO -    Sma Fast: 3144.1614999999997
+2025-12-08 22:09:19,227 - INFO -    Sma Slow: 3140.4238
+2025-12-08 22:09:19,227 - INFO -    Rsi: 33.510285335101685
+2025-12-08 22:09:19,227 - INFO - ================================================================================
+2025-12-08 22:10:27,486 - INFO - ================================================================================
+2025-12-08 22:10:27,486 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:10:27,486 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:10:27,486 - INFO -    Ticket: 467449969
+2025-12-08 22:10:27,486 - INFO -    Entry Time: 2025-12-08 22:09:19
+2025-12-08 22:10:27,486 - INFO -    Entry Price: 3140.97000
+2025-12-08 22:10:27,486 - INFO -    Close Time: 2025-12-08 22:10:27
+2025-12-08 22:10:27,486 - INFO -    Close Price: 3137.23000
+2025-12-08 22:10:27,486 - INFO -    Profit/Loss: $-0.38 USD
+2025-12-08 22:10:27,486 - INFO -    Duration: 1.1 minutes
+2025-12-08 22:10:27,486 - INFO -    Close Reason: Unknown
+2025-12-08 22:10:27,486 - INFO - ================================================================================
+2025-12-08 22:23:46,442 - INFO - ================================================================================
+2025-12-08 22:23:46,442 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:23:46,442 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:23:46,442 - INFO -    Direction: SHORT
+2025-12-08 22:23:46,442 - INFO -    Ticket: 467455902
+2025-12-08 22:23:46,442 - INFO -    Entry Price (Requested): 3132.21000
+2025-12-08 22:23:46,442 - INFO -    Entry Price (Actual Fill): 3132.21000
+2025-12-08 22:23:46,442 - INFO -    Lot Size: 0.1000
+2025-12-08 22:23:46,442 - INFO -    Stop Loss: 447.3 pips (4.47286)
+2025-12-08 22:23:46,442 - INFO -    Risk: $0.45 USD
+2025-12-08 22:23:46,442 - INFO -    Spread: 4.5 points
+2025-12-08 22:23:46,442 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:23:46,442 - INFO -    Quality Score: 80.0
+2025-12-08 22:23:46,442 - INFO -    Min Lot: 0.1
+2025-12-08 22:23:46,442 - INFO -    Min Lot Source: broker
+2025-12-08 22:23:46,442 - INFO -    Sma Fast: 3136.466
+2025-12-08 22:23:46,442 - INFO -    Sma Slow: 3140.0285999999996
+2025-12-08 22:23:46,442 - INFO -    Rsi: 31.4450867052023
+2025-12-08 22:23:46,442 - INFO - ================================================================================
+2025-12-08 22:26:16,554 - DEBUG - ⛔ Cannot open trade: Staged window expired (150s > 150s)
+2025-12-08 22:26:37,681 - INFO - 📈 TRAILING STOP: Ticket 467455902 (ETHUSDm) | Time: 22:26:37 | Profit: $0.13 | SL Profit: $0.10 | SL Price: 3131.23500 (97.5 pips) | Reason: Elastic trailing (peak: $0.13, pullback: 25%)
+2025-12-08 22:26:38,116 - DEBUG - ⛔ Cannot open trade: Staged window expired (172s > 150s)
+2025-12-08 22:26:41,415 - INFO - 📈 TRAILING STOP: Ticket 467455902 (ETHUSDm) | Time: 22:26:41 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 3131.16000 (105.0 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 22:26:47,022 - INFO - 📈 TRAILING STOP: Ticket 467455902 (ETHUSDm) | Time: 22:26:47 | Profit: $0.15 | SL Profit: $0.11 | SL Price: 3131.08500 (112.5 pips) | Reason: Elastic trailing (peak: $0.15, pullback: 25%)
+2025-12-08 22:26:47,335 - INFO - 📈 TRAILING STOP: Ticket 467455902 (ETHUSDm) | Time: 22:26:47 | Profit: $0.20 | SL Profit: $0.15 | SL Price: 3130.71000 (150.0 pips) | Reason: Elastic trailing (peak: $0.20, pullback: 25%)
+2025-12-08 22:26:48,572 - INFO - 📈 TRAILING STOP: Ticket 467455902 (ETHUSDm) | Time: 22:26:48 | Profit: $0.22 | SL Profit: $0.17 | SL Price: 3130.56000 (165.0 pips) | Reason: Elastic trailing (peak: $0.22, pullback: 25%)
+2025-12-08 22:26:50,653 - INFO - 📈 TRAILING STOP: Ticket 467455902 (ETHUSDm) | Time: 22:26:50 | Profit: $0.24 | SL Profit: $0.18 | SL Price: 3130.41000 (180.0 pips) | Reason: Elastic trailing (peak: $0.24, pullback: 25%)
+2025-12-08 22:26:51,212 - INFO - 📈 TRAILING STOP: Ticket 467455902 (ETHUSDm) | Time: 22:26:51 | Profit: $0.26 | SL Profit: $0.20 | SL Price: 3130.26000 (195.0 pips) | Reason: Elastic trailing (peak: $0.26, pullback: 25%)
+2025-12-08 22:26:51,822 - INFO - 📈 TRAILING STOP: Ticket 467455902 (ETHUSDm) | Time: 22:26:51 | Profit: $0.27 | SL Profit: $0.20 | SL Price: 3130.18500 (202.5 pips) | Reason: Elastic trailing (peak: $0.27, pullback: 25%)
+2025-12-08 22:26:59,544 - INFO - ================================================================================
+2025-12-08 22:26:59,544 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:26:59,544 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:26:59,544 - INFO -    Ticket: 467455902
+2025-12-08 22:26:59,544 - INFO -    Entry Time: 2025-12-08 22:23:46
+2025-12-08 22:26:59,544 - INFO -    Entry Price: 3132.21000
+2025-12-08 22:26:59,544 - INFO -    Close Time: 2025-12-08 22:26:59
+2025-12-08 22:26:59,554 - INFO -    Close Price: 3130.19000
+2025-12-08 22:26:59,554 - INFO -    Profit/Loss: $0.20 USD
+2025-12-08 22:26:59,554 - INFO -    Duration: 3.2 minutes
+2025-12-08 22:26:59,554 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 22:26:59,554 - INFO - ================================================================================
+2025-12-08 22:28:26,960 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:28:48,587 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:29:11,746 - INFO - ================================================================================
+2025-12-08 22:29:11,746 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:29:11,746 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:29:11,746 - INFO -    Direction: SHORT
+2025-12-08 22:29:11,746 - INFO -    Ticket: 467457902
+2025-12-08 22:29:11,746 - INFO -    Entry Price (Requested): 3129.62000
+2025-12-08 22:29:11,746 - INFO -    Entry Price (Actual Fill): 3130.08000
+2025-12-08 22:29:11,746 - INFO -    Entry Slippage: 0.46000
+2025-12-08 22:29:11,746 - INFO -    Lot Size: 0.1000
+2025-12-08 22:29:11,746 - INFO -    Stop Loss: 303.1 pips (3.03143)
+2025-12-08 22:29:11,746 - INFO -    Risk: $0.30 USD
+2025-12-08 22:29:11,746 - INFO -    Spread: 4.5 points
+2025-12-08 22:29:11,746 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:29:11,746 - INFO -    Quality Score: 80.0
+2025-12-08 22:29:11,746 - INFO -    Min Lot: 0.1
+2025-12-08 22:29:11,746 - INFO -    Min Lot Source: broker
+2025-12-08 22:29:11,746 - INFO -    Sma Fast: 3133.171
+2025-12-08 22:29:11,746 - INFO -    Sma Slow: 3138.9188
+2025-12-08 22:29:11,746 - INFO -    Rsi: 30.914231856737473
+2025-12-08 22:29:11,746 - INFO - ================================================================================
+2025-12-08 22:30:48,402 - INFO - 📈 TRAILING STOP: Ticket 467457902 (ETHUSDm) | Time: 22:30:48 | Profit: $0.17 | SL Profit: $0.13 | SL Price: 3128.80500 (127.5 pips) | Reason: Elastic trailing (peak: $0.17, pullback: 25%)
+2025-12-08 22:30:49,261 - INFO - 📈 TRAILING STOP: Ticket 467457902 (ETHUSDm) | Time: 22:30:49 | Profit: $0.18 | SL Profit: $0.14 | SL Price: 3128.73000 (135.0 pips) | Reason: Elastic trailing (peak: $0.18, pullback: 25%)
+2025-12-08 22:30:52,855 - INFO - 📈 TRAILING STOP: Ticket 467457902 (ETHUSDm) | Time: 22:30:52 | Profit: $0.22 | SL Profit: $0.17 | SL Price: 3128.43000 (165.0 pips) | Reason: Elastic trailing (peak: $0.22, pullback: 25%)
+2025-12-08 22:30:57,723 - INFO - ================================================================================
+2025-12-08 22:30:57,723 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:30:57,723 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:30:57,723 - INFO -    Ticket: 467457902
+2025-12-08 22:30:57,723 - INFO -    Entry Time: 2025-12-08 22:29:11
+2025-12-08 22:30:57,724 - INFO -    Entry Price: 3130.08000
+2025-12-08 22:30:57,724 - INFO -    Close Time: 2025-12-08 22:30:57
+2025-12-08 22:30:57,724 - INFO -    Close Price: 3128.43000
+2025-12-08 22:30:57,724 - INFO -    Profit/Loss: $0.17 USD
+2025-12-08 22:30:57,724 - INFO -    Duration: 1.8 minutes
+2025-12-08 22:30:57,724 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 22:30:57,724 - INFO - ================================================================================
+2025-12-08 22:30:59,855 - INFO - ================================================================================
+2025-12-08 22:30:59,855 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:30:59,855 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:30:59,855 - INFO -    Direction: SHORT
+2025-12-08 22:30:59,855 - INFO -    Ticket: 467459118
+2025-12-08 22:30:59,855 - INFO -    Entry Price (Requested): 3127.11000
+2025-12-08 22:30:59,855 - INFO -    Entry Price (Actual Fill): 3127.11000
+2025-12-08 22:30:59,855 - INFO -    Lot Size: 0.1000
+2025-12-08 22:30:59,855 - INFO -    Stop Loss: 330.3 pips (3.30286)
+2025-12-08 22:30:59,855 - INFO -    Risk: $0.33 USD
+2025-12-08 22:30:59,855 - INFO -    Spread: 4.5 points
+2025-12-08 22:30:59,855 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:30:59,855 - INFO -    Quality Score: 80.0
+2025-12-08 22:30:59,855 - INFO -    Min Lot: 0.1
+2025-12-08 22:30:59,855 - INFO -    Min Lot Source: broker
+2025-12-08 22:30:59,855 - INFO -    Sma Fast: 3132.858
+2025-12-08 22:30:59,855 - INFO -    Sma Slow: 3138.8066
+2025-12-08 22:30:59,855 - INFO -    Rsi: 33.05936073059317
+2025-12-08 22:30:59,855 - INFO - ================================================================================
+2025-12-08 22:32:48,756 - INFO - ================================================================================
+2025-12-08 22:32:48,756 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:32:48,756 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:32:48,763 - INFO -    Ticket: 467459118
+2025-12-08 22:32:48,763 - INFO -    Entry Time: 2025-12-08 22:30:59
+2025-12-08 22:32:48,763 - INFO -    Entry Price: 3127.11000
+2025-12-08 22:32:48,763 - INFO -    Close Time: 2025-12-08 22:32:48
+2025-12-08 22:32:48,763 - INFO -    Close Price: 3131.81000
+2025-12-08 22:32:48,763 - INFO -    Profit/Loss: $-0.47 USD
+2025-12-08 22:32:48,779 - INFO -    Duration: 1.8 minutes
+2025-12-08 22:32:48,779 - INFO -    Close Reason: Unknown
+2025-12-08 22:32:48,779 - INFO - ================================================================================
+2025-12-08 22:32:49,327 - INFO - ================================================================================
+2025-12-08 22:32:49,327 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:32:49,327 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:32:49,327 - INFO -    Direction: SHORT
+2025-12-08 22:32:49,327 - INFO -    Ticket: 467459965
+2025-12-08 22:32:49,327 - INFO -    Entry Price (Requested): 3130.31000
+2025-12-08 22:32:49,327 - INFO -    Entry Price (Actual Fill): 3130.49000
+2025-12-08 22:32:49,327 - INFO -    Entry Slippage: 0.18000
+2025-12-08 22:32:49,327 - INFO -    Lot Size: 0.1000
+2025-12-08 22:32:49,327 - INFO -    Stop Loss: 355.4 pips (3.55429)
+2025-12-08 22:32:49,327 - INFO -    Risk: $0.36 USD
+2025-12-08 22:32:49,327 - INFO -    Spread: 4.5 points
+2025-12-08 22:32:49,327 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:32:49,327 - INFO -    Quality Score: 80.0
+2025-12-08 22:32:49,327 - INFO -    Min Lot: 0.1
+2025-12-08 22:32:49,327 - INFO -    Min Lot Source: broker
+2025-12-08 22:32:49,327 - INFO -    Sma Fast: 3131.6695
+2025-12-08 22:32:49,327 - INFO -    Sma Slow: 3138.3178000000003
+2025-12-08 22:32:49,327 - INFO -    Rsi: 30.137981118373972
+2025-12-08 22:32:49,327 - INFO - ================================================================================
+2025-12-08 22:34:22,550 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:22 | Profit: $0.11 | SL Profit: $0.08 | SL Price: 3129.66500 (82.5 pips) | Reason: Elastic trailing (peak: $0.11, pullback: 25%)
+2025-12-08 22:34:30,317 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:30 | Profit: $0.12 | SL Profit: $0.09 | SL Price: 3129.59000 (90.0 pips) | Reason: Elastic trailing (peak: $0.12, pullback: 25%)
+2025-12-08 22:34:39,095 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:39 | Profit: $0.16 | SL Profit: $0.12 | SL Price: 3129.29000 (120.0 pips) | Reason: Elastic trailing (peak: $0.16, pullback: 25%)
+2025-12-08 22:34:39,732 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:39 | Profit: $0.17 | SL Profit: $0.13 | SL Price: 3129.21500 (127.5 pips) | Reason: Elastic trailing (peak: $0.17, pullback: 25%)
+2025-12-08 22:34:40,295 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:40 | Profit: $0.19 | SL Profit: $0.14 | SL Price: 3129.06500 (142.5 pips) | Reason: Elastic trailing (peak: $0.19, pullback: 25%)
+2025-12-08 22:34:42,079 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:42 | Profit: $0.20 | SL Profit: $0.15 | SL Price: 3128.99000 (150.0 pips) | Reason: Elastic trailing (peak: $0.20, pullback: 25%)
+2025-12-08 22:34:42,657 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:42 | Profit: $0.22 | SL Profit: $0.17 | SL Price: 3128.84000 (165.0 pips) | Reason: Elastic trailing (peak: $0.22, pullback: 25%)
+2025-12-08 22:34:47,326 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:47 | Profit: $0.24 | SL Profit: $0.18 | SL Price: 3128.69000 (180.0 pips) | Reason: Elastic trailing (peak: $0.24, pullback: 25%)
+2025-12-08 22:34:54,062 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:54 | Profit: $0.26 | SL Profit: $0.20 | SL Price: 3128.54000 (195.0 pips) | Reason: Elastic trailing (peak: $0.26, pullback: 25%)
+2025-12-08 22:34:54,969 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:54 | Profit: $0.27 | SL Profit: $0.20 | SL Price: 3128.46500 (202.5 pips) | Reason: Elastic trailing (peak: $0.27, pullback: 25%)
+2025-12-08 22:34:55,532 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:55 | Profit: $0.31 | SL Profit: $0.23 | SL Price: 3128.16500 (232.5 pips) | Reason: Elastic trailing (peak: $0.31, pullback: 25%)
+2025-12-08 22:34:56,450 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:56 | Profit: $0.35 | SL Profit: $0.26 | SL Price: 3127.86500 (262.5 pips) | Reason: Elastic trailing (peak: $0.35, pullback: 25%)
+2025-12-08 22:34:57,029 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:57 | Profit: $0.37 | SL Profit: $0.28 | SL Price: 3127.71500 (277.5 pips) | Reason: Elastic trailing (peak: $0.37, pullback: 25%)
+2025-12-08 22:34:57,656 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:57 | Profit: $0.43 | SL Profit: $0.32 | SL Price: 3127.26500 (322.5 pips) | Reason: Elastic trailing (peak: $0.43, pullback: 25%)
+2025-12-08 22:34:58,280 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:58 | Profit: $0.45 | SL Profit: $0.34 | SL Price: 3127.11500 (337.5 pips) | Reason: Elastic trailing (peak: $0.45, pullback: 25%)
+2025-12-08 22:34:59,470 - INFO - 📈 TRAILING STOP: Ticket 467459965 (ETHUSDm) | Time: 22:34:59 | Profit: $0.50 | SL Profit: $0.40 | SL Price: 3126.49000 (400.0 pips) | Reason: Elastic trailing (peak: $0.50, pullback: 25%)
+2025-12-08 22:35:20,530 - DEBUG - ⛔ Cannot open trade: Staged window expired (151s > 150s)
+2025-12-08 22:35:26,269 - INFO - ================================================================================
+2025-12-08 22:35:26,269 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:35:26,269 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:35:26,269 - INFO -    Ticket: 467459965
+2025-12-08 22:35:26,269 - INFO -    Entry Time: 2025-12-08 22:32:49
+2025-12-08 22:35:26,269 - INFO -    Entry Price: 3130.49000
+2025-12-08 22:35:26,269 - INFO -    Close Time: 2025-12-08 22:35:26
+2025-12-08 22:35:26,269 - INFO -    Close Price: 3126.49000
+2025-12-08 22:35:26,269 - INFO -    Profit/Loss: $0.40 USD
+2025-12-08 22:35:26,269 - INFO -    Duration: 2.6 minutes
+2025-12-08 22:35:26,269 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 22:35:26,269 - INFO - ================================================================================
+2025-12-08 22:35:43,594 - INFO - ================================================================================
+2025-12-08 22:35:43,594 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:35:43,594 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:35:43,594 - INFO -    Direction: SHORT
+2025-12-08 22:35:43,594 - INFO -    Ticket: 467461588
+2025-12-08 22:35:43,594 - INFO -    Entry Price (Requested): 3125.31000
+2025-12-08 22:35:43,594 - INFO -    Entry Price (Actual Fill): 3125.31000
+2025-12-08 22:35:43,594 - INFO -    Lot Size: 0.1000
+2025-12-08 22:35:43,594 - INFO -    Stop Loss: 496.1 pips (4.96143)
+2025-12-08 22:35:43,594 - INFO -    Risk: $0.50 USD
+2025-12-08 22:35:43,594 - INFO -    Spread: 4.5 points
+2025-12-08 22:35:43,594 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:35:43,594 - INFO -    Quality Score: 80.0
+2025-12-08 22:35:43,594 - INFO -    Min Lot: 0.1
+2025-12-08 22:35:43,594 - INFO -    Min Lot Source: broker
+2025-12-08 22:35:43,594 - INFO -    Sma Fast: 3130.8125
+2025-12-08 22:35:43,594 - INFO -    Sma Slow: 3137.407
+2025-12-08 22:35:43,594 - INFO -    Rsi: 32.90120697362477
+2025-12-08 22:35:43,594 - INFO - ================================================================================
+2025-12-08 22:36:20,337 - INFO - 📈 TRAILING STOP: Ticket 467461588 (ETHUSDm) | Time: 22:36:20 | Profit: $0.20 | SL Profit: $0.15 | SL Price: 3123.81000 (150.0 pips) | Reason: Elastic trailing (peak: $0.20, pullback: 25%)
+2025-12-08 22:36:20,649 - INFO - 📈 TRAILING STOP: Ticket 467461588 (ETHUSDm) | Time: 22:36:20 | Profit: $0.24 | SL Profit: $0.18 | SL Price: 3123.51000 (180.0 pips) | Reason: Elastic trailing (peak: $0.24, pullback: 25%)
+2025-12-08 22:36:21,228 - INFO - 📈 TRAILING STOP: Ticket 467461588 (ETHUSDm) | Time: 22:36:21 | Profit: $0.27 | SL Profit: $0.20 | SL Price: 3123.28500 (202.5 pips) | Reason: Elastic trailing (peak: $0.27, pullback: 25%)
+2025-12-08 22:36:21,869 - INFO - 📈 TRAILING STOP: Ticket 467461588 (ETHUSDm) | Time: 22:36:21 | Profit: $0.32 | SL Profit: $0.24 | SL Price: 3122.91000 (240.0 pips) | Reason: Elastic trailing (peak: $0.32, pullback: 25%)
+2025-12-08 22:36:23,842 - INFO - ================================================================================
+2025-12-08 22:36:23,842 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:36:23,842 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:36:23,842 - INFO -    Ticket: 467461588
+2025-12-08 22:36:23,842 - INFO -    Entry Time: 2025-12-08 22:35:43
+2025-12-08 22:36:23,842 - INFO -    Entry Price: 3125.31000
+2025-12-08 22:36:23,842 - INFO -    Close Time: 2025-12-08 22:36:23
+2025-12-08 22:36:23,842 - INFO -    Close Price: 3122.91000
+2025-12-08 22:36:23,842 - INFO -    Profit/Loss: $0.24 USD
+2025-12-08 22:36:23,842 - INFO -    Duration: 0.7 minutes
+2025-12-08 22:36:23,842 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 22:36:23,842 - INFO - ================================================================================
+2025-12-08 22:36:27,280 - INFO - ================================================================================
+2025-12-08 22:36:27,280 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:36:27,280 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:36:27,280 - INFO -    Direction: SHORT
+2025-12-08 22:36:27,280 - INFO -    Ticket: 467462045
+2025-12-08 22:36:27,280 - INFO -    Entry Price (Requested): 3121.91000
+2025-12-08 22:36:27,280 - INFO -    Entry Price (Actual Fill): 3122.02000
+2025-12-08 22:36:27,280 - INFO -    Entry Slippage: 0.11000
+2025-12-08 22:36:27,280 - INFO -    Lot Size: 0.1000
+2025-12-08 22:36:27,280 - INFO -    Stop Loss: 496.1 pips (4.96143)
+2025-12-08 22:36:27,280 - INFO -    Risk: $0.50 USD
+2025-12-08 22:36:27,280 - INFO -    Spread: 4.5 points
+2025-12-08 22:36:27,280 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:36:27,280 - INFO -    Quality Score: 80.0
+2025-12-08 22:36:27,280 - INFO -    Min Lot: 0.1
+2025-12-08 22:36:27,280 - INFO -    Min Lot Source: broker
+2025-12-08 22:36:27,280 - INFO -    Sma Fast: 3130.8125
+2025-12-08 22:36:27,280 - INFO -    Sma Slow: 3137.407
+2025-12-08 22:36:27,280 - INFO -    Rsi: 32.90120697362477
+2025-12-08 22:36:27,280 - INFO - ================================================================================
+2025-12-08 22:38:35,222 - DEBUG - ⛔ Cannot open trade: First trade profit $-0.54 < minimum $-0.5
+2025-12-08 22:39:17,629 - DEBUG - ⛔ Cannot open trade: Staged window expired (170s > 150s)
+2025-12-08 22:39:39,111 - DEBUG - ⛔ Cannot open trade: Staged window expired (192s > 150s)
+2025-12-08 22:40:00,409 - DEBUG - ⛔ Cannot open trade: Staged window expired (213s > 150s)
+2025-12-08 22:40:23,923 - DEBUG - ⛔ Cannot open trade: Staged window expired (237s > 150s)
+2025-12-08 22:40:45,203 - DEBUG - ⛔ Cannot open trade: Staged window expired (258s > 150s)
+2025-12-08 22:41:06,380 - DEBUG - ⛔ Cannot open trade: Staged window expired (279s > 150s)
+2025-12-08 22:41:27,600 - DEBUG - ⛔ Cannot open trade: Staged window expired (300s > 150s)
+2025-12-08 22:41:49,064 - DEBUG - ⛔ Cannot open trade: Staged window expired (322s > 150s)
+2025-12-08 22:42:10,444 - DEBUG - ⛔ Cannot open trade: Staged window expired (343s > 150s)
+2025-12-08 22:42:31,908 - DEBUG - ⛔ Cannot open trade: Staged window expired (365s > 150s)
+2025-12-08 22:42:53,129 - DEBUG - ⛔ Cannot open trade: Staged window expired (386s > 150s)
+2025-12-08 22:43:14,455 - DEBUG - ⛔ Cannot open trade: Staged window expired (407s > 150s)
+2025-12-08 22:43:35,987 - DEBUG - ⛔ Cannot open trade: Staged window expired (429s > 150s)
+2025-12-08 22:43:57,129 - DEBUG - ⛔ Cannot open trade: Staged window expired (450s > 150s)
+2025-12-08 22:44:18,242 - DEBUG - ⛔ Cannot open trade: Staged window expired (471s > 150s)
+2025-12-08 22:44:39,738 - DEBUG - ⛔ Cannot open trade: Staged window expired (492s > 150s)
+2025-12-08 22:45:01,467 - DEBUG - ⛔ Cannot open trade: Staged window expired (514s > 150s)
+2025-12-08 22:45:22,149 - INFO - ================================================================================
+2025-12-08 22:45:22,149 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:45:22,149 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:45:22,149 - INFO -    Ticket: 467462045
+2025-12-08 22:45:22,149 - INFO -    Entry Time: 2025-12-08 22:36:27
+2025-12-08 22:45:22,149 - INFO -    Entry Price: 3122.02000
+2025-12-08 22:45:22,149 - INFO -    Close Time: 2025-12-08 22:45:22
+2025-12-08 22:45:22,149 - INFO -    Close Price: 3128.38000
+2025-12-08 22:45:22,149 - INFO -    Profit/Loss: $-0.64 USD
+2025-12-08 22:45:22,149 - INFO -    Duration: 8.9 minutes
+2025-12-08 22:45:22,149 - INFO -    Close Reason: Unknown
+2025-12-08 22:45:22,149 - INFO - ================================================================================
+2025-12-08 22:46:29,602 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:46:50,926 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 22:47:13,549 - INFO - ================================================================================
+2025-12-08 22:47:13,549 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 22:47:13,549 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:47:13,549 - INFO -    Direction: SHORT
+2025-12-08 22:47:13,549 - INFO -    Ticket: 467466661
+2025-12-08 22:47:13,565 - INFO -    Entry Price (Requested): 3128.18000
+2025-12-08 22:47:13,565 - INFO -    Entry Price (Actual Fill): 3129.43000
+2025-12-08 22:47:13,565 - INFO -    Entry Slippage: 1.25000
+2025-12-08 22:47:13,565 - INFO -    Lot Size: 0.1000
+2025-12-08 22:47:13,565 - INFO -    Stop Loss: 465.3 pips (4.65286)
+2025-12-08 22:47:13,565 - INFO -    Risk: $0.47 USD
+2025-12-08 22:47:13,565 - INFO -    Spread: 4.5 points
+2025-12-08 22:47:13,565 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 22:47:13,565 - INFO -    Quality Score: 80.0
+2025-12-08 22:47:13,565 - INFO -    Min Lot: 0.1
+2025-12-08 22:47:13,565 - INFO -    Min Lot Source: broker
+2025-12-08 22:47:13,565 - INFO -    Sma Fast: 3126.6455
+2025-12-08 22:47:13,565 - INFO -    Sma Slow: 3133.3706
+2025-12-08 22:47:13,565 - INFO -    Rsi: 44.97695852534586
+2025-12-08 22:47:13,565 - INFO - ================================================================================
+2025-12-08 22:48:56,526 - INFO - ================================================================================
+2025-12-08 22:48:56,526 - INFO - 🔴 POSITION CLOSED
+2025-12-08 22:48:56,526 - INFO -    Symbol: ETHUSDm
+2025-12-08 22:48:56,526 - INFO -    Ticket: 467466661
+2025-12-08 22:48:56,526 - INFO -    Entry Time: 2025-12-08 22:47:13
+2025-12-08 22:48:56,526 - INFO -    Entry Price: 3129.43000
+2025-12-08 22:48:56,526 - INFO -    Close Time: 2025-12-08 22:48:56
+2025-12-08 22:48:56,526 - INFO -    Close Price: 3135.48000
+2025-12-08 22:48:56,526 - INFO -    Profit/Loss: $-0.61 USD
+2025-12-08 22:48:56,526 - INFO -    Duration: 1.7 minutes
+2025-12-08 22:48:56,526 - INFO -    Close Reason: Unknown
+2025-12-08 22:48:56,526 - INFO - ================================================================================
+2025-12-08 23:13:55,407 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:14:17,347 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:14:38,950 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:15:00,645 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:15:23,245 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:15:44,781 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:16:06,842 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:16:28,701 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:16:51,532 - INFO - ================================================================================
+2025-12-08 23:16:51,532 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 23:16:51,532 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:16:51,532 - INFO -    Direction: LONG
+2025-12-08 23:16:51,532 - INFO -    Ticket: 467514278
+2025-12-08 23:16:51,532 - INFO -    Entry Price (Requested): 3128.49000
+2025-12-08 23:16:51,532 - INFO -    Entry Price (Actual Fill): 3128.38000
+2025-12-08 23:16:51,532 - INFO -    Entry Slippage: 0.11000
+2025-12-08 23:16:51,532 - INFO -    Lot Size: 0.1000
+2025-12-08 23:16:51,532 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 23:16:51,532 - INFO -    Risk: $0.50 USD
+2025-12-08 23:16:51,532 - INFO -    Spread: 4.5 points
+2025-12-08 23:16:51,532 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 23:16:51,532 - INFO -    Quality Score: 65.0
+2025-12-08 23:16:51,532 - INFO -    Min Lot: 0.1
+2025-12-08 23:16:51,532 - INFO -    Min Lot Source: broker
+2025-12-08 23:16:51,532 - INFO -    Sma Fast: 3130.808
+2025-12-08 23:16:51,532 - INFO -    Sma Slow: 3128.867
+2025-12-08 23:16:51,532 - INFO -    Rsi: 31.375166889186417
+2025-12-08 23:16:51,532 - INFO - ================================================================================
+2025-12-08 23:19:47,511 - INFO - ================================================================================
+2025-12-08 23:19:47,511 - INFO - 🔴 POSITION CLOSED
+2025-12-08 23:19:47,511 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:19:47,511 - INFO -    Ticket: 467514278
+2025-12-08 23:19:47,511 - INFO -    Entry Time: 2025-12-08 23:16:51
+2025-12-08 23:19:47,511 - INFO -    Entry Price: 3128.38000
+2025-12-08 23:19:47,511 - INFO -    Close Time: 2025-12-08 23:19:47
+2025-12-08 23:19:47,511 - INFO -    Close Price: 3123.38000
+2025-12-08 23:19:47,511 - INFO -    Profit/Loss: $-0.50 USD
+2025-12-08 23:19:47,511 - INFO -    Duration: 2.9 minutes
+2025-12-08 23:19:47,511 - INFO -    Close Reason: Unknown
+2025-12-08 23:19:47,511 - INFO - ================================================================================
+2025-12-08 23:27:42,935 - INFO - ================================================================================
+2025-12-08 23:27:42,935 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 23:27:42,935 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:27:42,935 - INFO -    Direction: SHORT
+2025-12-08 23:27:42,935 - INFO -    Ticket: 467536293
+2025-12-08 23:27:42,935 - INFO -    Entry Price (Requested): 3118.93000
+2025-12-08 23:27:42,935 - INFO -    Entry Price (Actual Fill): 3119.10000
+2025-12-08 23:27:42,935 - INFO -    Entry Slippage: 0.17000
+2025-12-08 23:27:42,935 - INFO -    Lot Size: 0.1000
+2025-12-08 23:27:42,935 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 23:27:42,935 - INFO -    Risk: $0.50 USD
+2025-12-08 23:27:42,935 - INFO -    Spread: 4.5 points
+2025-12-08 23:27:42,935 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 23:27:42,935 - INFO -    Quality Score: 65.0
+2025-12-08 23:27:42,935 - INFO -    Min Lot: 0.1
+2025-12-08 23:27:42,935 - INFO -    Min Lot Source: broker
+2025-12-08 23:27:42,935 - INFO -    Sma Fast: 3124.5715
+2025-12-08 23:27:42,935 - INFO -    Sma Slow: 3127.3256
+2025-12-08 23:27:42,935 - INFO -    Rsi: 35.219352193522056
+2025-12-08 23:27:42,935 - INFO - ================================================================================
+2025-12-08 23:29:09,045 - DEBUG - ⛔ Cannot open trade: First trade profit $-0.52 < minimum $-0.5
+2025-12-08 23:29:14,432 - INFO - ================================================================================
+2025-12-08 23:29:14,432 - INFO - 🔴 POSITION CLOSED
+2025-12-08 23:29:14,432 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:29:14,432 - INFO -    Ticket: 467536293
+2025-12-08 23:29:14,432 - INFO -    Entry Time: 2025-12-08 23:27:42
+2025-12-08 23:29:14,432 - INFO -    Entry Price: 3119.10000
+2025-12-08 23:29:14,432 - INFO -    Close Time: 2025-12-08 23:29:14
+2025-12-08 23:29:14,432 - INFO -    Close Price: 3125.50000
+2025-12-08 23:29:14,432 - INFO -    Profit/Loss: $-0.64 USD
+2025-12-08 23:29:14,432 - INFO -    Duration: 1.5 minutes
+2025-12-08 23:29:14,432 - INFO -    Close Reason: Unknown
+2025-12-08 23:29:14,432 - INFO - ================================================================================
+2025-12-08 23:29:31,998 - INFO - ================================================================================
+2025-12-08 23:29:31,998 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 23:29:31,998 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:29:31,998 - INFO -    Direction: SHORT
+2025-12-08 23:29:32,013 - INFO -    Ticket: 467539496
+2025-12-08 23:29:32,013 - INFO -    Entry Price (Requested): 3123.15000
+2025-12-08 23:29:32,013 - INFO -    Entry Price (Actual Fill): 3123.15000
+2025-12-08 23:29:32,013 - INFO -    Lot Size: 0.1000
+2025-12-08 23:29:32,013 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 23:29:32,013 - INFO -    Risk: $0.50 USD
+2025-12-08 23:29:32,013 - INFO -    Spread: 4.5 points
+2025-12-08 23:29:32,013 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 23:29:32,013 - INFO -    Quality Score: 80.0
+2025-12-08 23:29:32,013 - INFO -    Min Lot: 0.1
+2025-12-08 23:29:32,013 - INFO -    Min Lot Source: broker
+2025-12-08 23:29:32,013 - INFO -    Sma Fast: 3123.944
+2025-12-08 23:29:32,013 - INFO -    Sma Slow: 3127.2919999999995
+2025-12-08 23:29:32,013 - INFO -    Rsi: 38.52140077821006
+2025-12-08 23:29:32,013 - INFO - ================================================================================
+2025-12-08 23:30:36,155 - DEBUG - ⛔ Cannot open trade: First trade profit $-0.52 < minimum $-0.5
+2025-12-08 23:30:37,459 - INFO - ================================================================================
+2025-12-08 23:30:37,459 - INFO - 🔴 POSITION CLOSED
+2025-12-08 23:30:37,459 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:30:37,459 - INFO -    Ticket: 467539496
+2025-12-08 23:30:37,459 - INFO -    Entry Time: 2025-12-08 23:29:31
+2025-12-08 23:30:37,460 - INFO -    Entry Price: 3123.15000
+2025-12-08 23:30:37,460 - INFO -    Close Time: 2025-12-08 23:30:37
+2025-12-08 23:30:37,460 - INFO -    Close Price: 3129.55000
+2025-12-08 23:30:37,460 - INFO -    Profit/Loss: $-0.64 USD
+2025-12-08 23:30:37,460 - INFO -    Duration: 1.1 minutes
+2025-12-08 23:30:37,460 - INFO -    Close Reason: Unknown
+2025-12-08 23:30:37,460 - INFO - ================================================================================
+2025-12-08 23:30:59,374 - INFO - ================================================================================
+2025-12-08 23:30:59,374 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 23:30:59,374 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:30:59,374 - INFO -    Direction: SHORT
+2025-12-08 23:30:59,374 - INFO -    Ticket: 467541679
+2025-12-08 23:30:59,374 - INFO -    Entry Price (Requested): 3126.91000
+2025-12-08 23:30:59,374 - INFO -    Entry Price (Actual Fill): 3126.75000
+2025-12-08 23:30:59,374 - INFO -    Entry Slippage: 0.16000
+2025-12-08 23:30:59,374 - INFO -    Lot Size: 0.1000
+2025-12-08 23:30:59,374 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-08 23:30:59,374 - INFO -    Risk: $0.50 USD
+2025-12-08 23:30:59,374 - INFO -    Spread: 4.5 points
+2025-12-08 23:30:59,374 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 23:30:59,374 - INFO -    Quality Score: 80.0
+2025-12-08 23:30:59,374 - INFO -    Min Lot: 0.1
+2025-12-08 23:30:59,374 - INFO -    Min Lot Source: broker
+2025-12-08 23:30:59,374 - INFO -    Sma Fast: 3123.376
+2025-12-08 23:30:59,374 - INFO -    Sma Slow: 3127.3374
+2025-12-08 23:30:59,374 - INFO -    Rsi: 49.377732929700834
+2025-12-08 23:30:59,374 - INFO - ================================================================================
+2025-12-08 23:34:04,108 - INFO - 📈 TRAILING STOP: Ticket 467541679 (ETHUSDm) | Time: 23:34:04 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 3125.70000 (105.0 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-08 23:34:05,021 - INFO - ================================================================================
+2025-12-08 23:34:05,021 - INFO - 🔴 POSITION CLOSED
+2025-12-08 23:34:05,021 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:34:05,021 - INFO -    Ticket: 467541679
+2025-12-08 23:34:05,021 - INFO -    Entry Time: 2025-12-08 23:30:59
+2025-12-08 23:34:05,021 - INFO -    Entry Price: 3126.75000
+2025-12-08 23:34:05,021 - INFO -    Close Time: 2025-12-08 23:34:04
+2025-12-08 23:34:05,021 - INFO -    Close Price: 3125.70000
+2025-12-08 23:34:05,021 - INFO -    Profit/Loss: $0.11 USD
+2025-12-08 23:34:05,021 - INFO -    Duration: 3.1 minutes
+2025-12-08 23:34:05,021 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 23:34:05,021 - INFO - ================================================================================
+2025-12-08 23:44:08,961 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:44:30,956 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:44:52,692 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 23:46:00,034 - INFO - ================================================================================
+2025-12-08 23:46:00,034 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 23:46:00,048 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:46:00,048 - INFO -    Direction: SHORT
+2025-12-08 23:46:00,048 - INFO -    Ticket: 467572744
+2025-12-08 23:46:00,048 - INFO -    Entry Price (Requested): 3125.14000
+2025-12-08 23:46:00,048 - INFO -    Entry Price (Actual Fill): 3125.14000
+2025-12-08 23:46:00,048 - INFO -    Lot Size: 0.1000
+2025-12-08 23:46:00,048 - INFO -    Stop Loss: 395.4 pips (3.95429)
+2025-12-08 23:46:00,048 - INFO -    Risk: $0.40 USD
+2025-12-08 23:46:00,048 - INFO -    Spread: 4.5 points
+2025-12-08 23:46:00,048 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-08 23:46:00,062 - INFO -    Quality Score: 65.0
+2025-12-08 23:46:00,062 - INFO -    Min Lot: 0.1
+2025-12-08 23:46:00,062 - INFO -    Min Lot Source: broker
+2025-12-08 23:46:00,062 - INFO -    Sma Fast: 3124.1870000000004
+2025-12-08 23:46:00,062 - INFO -    Sma Slow: 3126.3888
+2025-12-08 23:46:00,062 - INFO -    Rsi: 44.23897581792374
+2025-12-08 23:46:00,062 - INFO - ================================================================================
+2025-12-08 23:56:16,324 - INFO - 📈 TRAILING STOP: Ticket 467572744 (ETHUSDm) | Time: 23:56:16 | Profit: $0.11 | SL Profit: $0.08 | SL Price: 3124.31500 (82.5 pips) | Reason: Elastic trailing (peak: $0.11, pullback: 25%)
+2025-12-08 23:56:40,336 - INFO - ================================================================================
+2025-12-08 23:56:40,336 - INFO - 🔴 POSITION CLOSED
+2025-12-08 23:56:40,336 - INFO -    Symbol: ETHUSDm
+2025-12-08 23:56:40,336 - INFO -    Ticket: 467572744
+2025-12-08 23:56:40,336 - INFO -    Entry Time: 2025-12-08 23:45:59
+2025-12-08 23:56:40,336 - INFO -    Entry Price: 3125.14000
+2025-12-08 23:56:40,336 - INFO -    Close Time: 2025-12-08 23:56:40
+2025-12-08 23:56:40,336 - INFO -    Close Price: 3124.32000
+2025-12-08 23:56:40,336 - INFO -    Profit/Loss: $0.08 USD
+2025-12-08 23:56:40,336 - INFO -    Duration: 10.7 minutes
+2025-12-08 23:56:40,336 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-08 23:56:40,336 - INFO - ================================================================================
+2025-12-09 00:31:15,061 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:31:36,807 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:31:58,528 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:37:48,248 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:38:09,917 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:38:31,956 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:38:53,785 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:39:15,662 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:39:37,241 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:44:24,632 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:44:46,445 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:45:08,027 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:45:29,480 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:46:12,856 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:46:34,531 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:46:56,325 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:47:17,922 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:47:39,772 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:48:03,303 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:48:25,751 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:48:47,345 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:49:09,030 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:49:30,406 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:49:52,032 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:50:13,735 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:50:35,306 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:50:56,880 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:51:18,468 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:51:39,924 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:52:02,396 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:52:25,049 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:52:46,684 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:53:08,218 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:53:29,594 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:53:50,986 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:54:15,504 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 00:54:38,545 - INFO - ================================================================================
+2025-12-09 00:54:38,545 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 00:54:38,545 - INFO -    Symbol: ETHUSDm
+2025-12-09 00:54:38,545 - INFO -    Direction: SHORT
+2025-12-09 00:54:38,545 - INFO -    Ticket: 467700627
+2025-12-09 00:54:38,545 - INFO -    Entry Price (Requested): 3114.53000
+2025-12-09 00:54:38,545 - INFO -    Entry Price (Actual Fill): 3114.86000
+2025-12-09 00:54:38,545 - INFO -    Entry Slippage: 0.33000
+2025-12-09 00:54:38,545 - INFO -    Lot Size: 0.1000
+2025-12-09 00:54:38,545 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 00:54:38,545 - INFO -    Risk: $0.50 USD
+2025-12-09 00:54:38,545 - INFO -    Spread: 4.5 points
+2025-12-09 00:54:38,545 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 00:54:38,545 - INFO -    Quality Score: 80.0
+2025-12-09 00:54:38,545 - INFO -    Min Lot: 0.1
+2025-12-09 00:54:38,545 - INFO -    Min Lot Source: broker
+2025-12-09 00:54:38,545 - INFO -    Sma Fast: 3121.7110000000002
+2025-12-09 00:54:38,545 - INFO -    Sma Slow: 3128.039
+2025-12-09 00:54:38,545 - INFO -    Rsi: 39.21425973081059
+2025-12-09 00:54:38,545 - INFO - ================================================================================
+2025-12-09 00:55:13,415 - INFO - ================================================================================
+2025-12-09 00:55:13,415 - INFO - 🔴 POSITION CLOSED
+2025-12-09 00:55:13,415 - INFO -    Symbol: ETHUSDm
+2025-12-09 00:55:13,415 - INFO -    Ticket: 467700627
+2025-12-09 00:55:13,415 - INFO -    Entry Time: 2025-12-09 00:54:38
+2025-12-09 00:55:13,415 - INFO -    Entry Price: 3115.04000
+2025-12-09 00:55:13,415 - INFO -    Close Time: 2025-12-09 00:55:13
+2025-12-09 00:55:13,415 - INFO -    Close Price: 3121.26000
+2025-12-09 00:55:13,415 - INFO -    Profit/Loss: $-0.63 USD
+2025-12-09 00:55:13,415 - INFO -    Duration: 0.6 minutes
+2025-12-09 00:55:13,415 - INFO -    Close Reason: Unknown
+2025-12-09 00:55:13,415 - INFO - ================================================================================
+2025-12-09 00:55:22,082 - INFO - ================================================================================
+2025-12-09 00:55:22,082 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 00:55:22,082 - INFO -    Symbol: ETHUSDm
+2025-12-09 00:55:22,082 - INFO -    Direction: SHORT
+2025-12-09 00:55:22,082 - INFO -    Ticket: 467703168
+2025-12-09 00:55:22,082 - INFO -    Entry Price (Requested): 3120.36000
+2025-12-09 00:55:22,082 - INFO -    Entry Price (Actual Fill): 3120.51000
+2025-12-09 00:55:22,082 - INFO -    Entry Slippage: 0.15000
+2025-12-09 00:55:22,082 - INFO -    Lot Size: 0.1000
+2025-12-09 00:55:22,082 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 00:55:22,082 - INFO -    Risk: $0.50 USD
+2025-12-09 00:55:22,082 - INFO -    Spread: 4.5 points
+2025-12-09 00:55:22,082 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 00:55:22,082 - INFO -    Quality Score: 80.0
+2025-12-09 00:55:22,082 - INFO -    Min Lot: 0.1
+2025-12-09 00:55:22,082 - INFO -    Min Lot Source: broker
+2025-12-09 00:55:22,082 - INFO -    Sma Fast: 3121.3375
+2025-12-09 00:55:22,082 - INFO -    Sma Slow: 3127.8636000000006
+2025-12-09 00:55:22,082 - INFO -    Rsi: 49.16788321167858
+2025-12-09 00:55:22,082 - INFO - ================================================================================
+2025-12-09 00:57:53,061 - DEBUG - ⛔ Cannot open trade: Staged window expired (151s > 150s)
+2025-12-09 00:58:14,599 - DEBUG - ⛔ Cannot open trade: Staged window expired (173s > 150s)
+2025-12-09 00:58:36,175 - DEBUG - ⛔ Cannot open trade: Staged window expired (194s > 150s)
+2025-12-09 00:58:58,704 - DEBUG - ⛔ Cannot open trade: Staged window expired (217s > 150s)
+2025-12-09 00:59:20,238 - DEBUG - ⛔ Cannot open trade: Staged window expired (238s > 150s)
+2025-12-09 00:59:41,692 - DEBUG - ⛔ Cannot open trade: Staged window expired (260s > 150s)
+2025-12-09 01:00:06,538 - DEBUG - ⛔ Cannot open trade: Staged window expired (284s > 150s)
+2025-12-09 01:00:29,444 - INFO - 📈 TRAILING STOP: Ticket 467703168 (ETHUSDm) | Time: 01:00:29 | Profit: $0.10 | SL Profit: $0.08 | SL Price: 3119.76000 (75.0 pips) | Reason: Elastic trailing (peak: $0.10, pullback: 25%)
+2025-12-09 01:00:29,595 - DEBUG - ⛔ Cannot open trade: Staged window expired (308s > 150s)
+2025-12-09 01:00:30,453 - INFO - 📈 TRAILING STOP: Ticket 467703168 (ETHUSDm) | Time: 01:00:30 | Profit: $0.11 | SL Profit: $0.08 | SL Price: 3119.68500 (82.5 pips) | Reason: Elastic trailing (peak: $0.11, pullback: 25%)
+2025-12-09 01:00:31,111 - INFO - 📈 TRAILING STOP: Ticket 467703168 (ETHUSDm) | Time: 01:00:31 | Profit: $0.13 | SL Profit: $0.10 | SL Price: 3119.53500 (97.5 pips) | Reason: Elastic trailing (peak: $0.13, pullback: 25%)
+2025-12-09 01:00:32,780 - INFO - 📈 TRAILING STOP: Ticket 467703168 (ETHUSDm) | Time: 01:00:32 | Profit: $0.16 | SL Profit: $0.12 | SL Price: 3119.31000 (120.0 pips) | Reason: Elastic trailing (peak: $0.16, pullback: 25%)
+2025-12-09 01:00:39,110 - INFO - 📈 TRAILING STOP: Ticket 467703168 (ETHUSDm) | Time: 01:00:39 | Profit: $0.19 | SL Profit: $0.14 | SL Price: 3119.08500 (142.5 pips) | Reason: Elastic trailing (peak: $0.19, pullback: 25%)
+2025-12-09 01:00:46,798 - INFO - 📈 TRAILING STOP: Ticket 467703168 (ETHUSDm) | Time: 01:00:46 | Profit: $0.22 | SL Profit: $0.17 | SL Price: 3118.86000 (165.0 pips) | Reason: Elastic trailing (peak: $0.22, pullback: 25%)
+2025-12-09 01:00:52,108 - INFO - 📈 TRAILING STOP: Ticket 467703168 (ETHUSDm) | Time: 01:00:52 | Profit: $0.24 | SL Profit: $0.18 | SL Price: 3118.71000 (180.0 pips) | Reason: Elastic trailing (peak: $0.24, pullback: 25%)
+2025-12-09 01:00:52,140 - DEBUG - ⛔ Cannot open trade: Staged window expired (330s > 150s)
+2025-12-09 01:00:56,426 - INFO - 📈 TRAILING STOP: Ticket 467703168 (ETHUSDm) | Time: 01:00:56 | Profit: $0.25 | SL Profit: $0.19 | SL Price: 3118.63500 (187.5 pips) | Reason: Elastic trailing (peak: $0.25, pullback: 25%)
+2025-12-09 01:01:04,120 - INFO - ================================================================================
+2025-12-09 01:01:04,120 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:01:04,120 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:01:04,120 - INFO -    Ticket: 467703168
+2025-12-09 01:01:04,120 - INFO -    Entry Time: 2025-12-09 00:55:22
+2025-12-09 01:01:04,120 - INFO -    Entry Price: 3120.51000
+2025-12-09 01:01:04,120 - INFO -    Close Time: 2025-12-09 01:01:03
+2025-12-09 01:01:04,120 - INFO -    Close Price: 3118.64000
+2025-12-09 01:01:04,120 - INFO -    Profit/Loss: $0.19 USD
+2025-12-09 01:01:04,120 - INFO -    Duration: 5.7 minutes
+2025-12-09 01:01:04,120 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-09 01:01:04,136 - INFO - ================================================================================
+2025-12-09 01:01:15,000 - INFO - ================================================================================
+2025-12-09 01:01:15,000 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:01:15,000 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:01:15,000 - INFO -    Direction: SHORT
+2025-12-09 01:01:15,000 - INFO -    Ticket: 467721166
+2025-12-09 01:01:15,000 - INFO -    Entry Price (Requested): 3117.46000
+2025-12-09 01:01:15,000 - INFO -    Entry Price (Actual Fill): 3117.41000
+2025-12-09 01:01:15,000 - INFO -    Entry Slippage: 0.05000
+2025-12-09 01:01:15,000 - INFO -    Lot Size: 0.1000
+2025-12-09 01:01:15,000 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:01:15,000 - INFO -    Risk: $0.50 USD
+2025-12-09 01:01:15,000 - INFO -    Spread: 4.5 points
+2025-12-09 01:01:15,000 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:01:15,000 - INFO -    Quality Score: 80.0
+2025-12-09 01:01:15,000 - INFO -    Min Lot: 0.1
+2025-12-09 01:01:15,000 - INFO -    Min Lot Source: broker
+2025-12-09 01:01:15,000 - INFO -    Sma Fast: 3119.7425
+2025-12-09 01:01:15,000 - INFO -    Sma Slow: 3126.949
+2025-12-09 01:01:15,000 - INFO -    Rsi: 45.940014630578226
+2025-12-09 01:01:15,000 - INFO - ================================================================================
+2025-12-09 01:02:06,489 - INFO - ================================================================================
+2025-12-09 01:02:06,489 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:02:06,489 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:02:06,489 - INFO -    Ticket: 467721166
+2025-12-09 01:02:06,490 - INFO -    Entry Time: 2025-12-09 01:01:14
+2025-12-09 01:02:06,490 - INFO -    Entry Price: 3117.62000
+2025-12-09 01:02:06,490 - INFO -    Close Time: 2025-12-09 01:02:06
+2025-12-09 01:02:06,490 - INFO -    Close Price: 3123.81000
+2025-12-09 01:02:06,490 - INFO -    Profit/Loss: $-0.62 USD
+2025-12-09 01:02:06,491 - INFO -    Duration: 0.9 minutes
+2025-12-09 01:02:06,491 - INFO -    Close Reason: Unknown
+2025-12-09 01:02:06,491 - INFO - ================================================================================
+2025-12-09 01:02:41,406 - INFO - ================================================================================
+2025-12-09 01:02:41,406 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:02:41,406 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:02:41,406 - INFO -    Direction: SHORT
+2025-12-09 01:02:41,406 - INFO -    Ticket: 467727409
+2025-12-09 01:02:41,406 - INFO -    Entry Price (Requested): 3117.94000
+2025-12-09 01:02:41,406 - INFO -    Entry Price (Actual Fill): 3117.82000
+2025-12-09 01:02:41,406 - INFO -    Entry Slippage: 0.12000
+2025-12-09 01:02:41,406 - INFO -    Lot Size: 0.1000
+2025-12-09 01:02:41,406 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:02:41,406 - INFO -    Risk: $0.50 USD
+2025-12-09 01:02:41,406 - INFO -    Spread: 4.5 points
+2025-12-09 01:02:41,406 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:02:41,406 - INFO -    Quality Score: 80.0
+2025-12-09 01:02:41,406 - INFO -    Min Lot: 0.1
+2025-12-09 01:02:41,406 - INFO -    Min Lot Source: broker
+2025-12-09 01:02:41,406 - INFO -    Sma Fast: 3119.6875
+2025-12-09 01:02:41,406 - INFO -    Sma Slow: 3126.7552
+2025-12-09 01:02:41,406 - INFO -    Rsi: 49.91624790619811
+2025-12-09 01:02:41,406 - INFO - ================================================================================
+2025-12-09 01:03:06,752 - INFO - 📈 TRAILING STOP: Ticket 467727409 (ETHUSDm) | Time: 01:03:06 | Profit: $0.24 | SL Profit: $0.18 | SL Price: 3115.68000 (180.0 pips) | Reason: Elastic trailing (peak: $0.24, pullback: 25%)
+2025-12-09 01:03:09,501 - INFO - 📈 TRAILING STOP: Ticket 467727409 (ETHUSDm) | Time: 01:03:09 | Profit: $0.25 | SL Profit: $0.19 | SL Price: 3115.60500 (187.5 pips) | Reason: Elastic trailing (peak: $0.25, pullback: 25%)
+2025-12-09 01:03:10,080 - INFO - 📈 TRAILING STOP: Ticket 467727409 (ETHUSDm) | Time: 01:03:10 | Profit: $0.27 | SL Profit: $0.20 | SL Price: 3115.45500 (202.5 pips) | Reason: Elastic trailing (peak: $0.27, pullback: 25%)
+2025-12-09 01:03:10,721 - INFO - 📈 TRAILING STOP: Ticket 467727409 (ETHUSDm) | Time: 01:03:10 | Profit: $0.33 | SL Profit: $0.25 | SL Price: 3115.00500 (247.5 pips) | Reason: Elastic trailing (peak: $0.33, pullback: 25%)
+2025-12-09 01:03:13,754 - INFO - 📈 TRAILING STOP: Ticket 467727409 (ETHUSDm) | Time: 01:03:13 | Profit: $0.34 | SL Profit: $0.26 | SL Price: 3114.93000 (255.0 pips) | Reason: Elastic trailing (peak: $0.34, pullback: 25%)
+2025-12-09 01:03:14,348 - INFO - 📈 TRAILING STOP: Ticket 467727409 (ETHUSDm) | Time: 01:03:14 | Profit: $0.35 | SL Profit: $0.26 | SL Price: 3114.85500 (262.5 pips) | Reason: Elastic trailing (peak: $0.35, pullback: 25%)
+2025-12-09 01:03:18,339 - INFO - ================================================================================
+2025-12-09 01:03:18,339 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:03:18,339 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:03:18,339 - INFO -    Ticket: 467727409
+2025-12-09 01:03:18,339 - INFO -    Entry Time: 2025-12-09 01:02:41
+2025-12-09 01:03:18,339 - INFO -    Entry Price: 3117.48000
+2025-12-09 01:03:18,339 - INFO -    Close Time: 2025-12-09 01:03:18
+2025-12-09 01:03:18,339 - INFO -    Close Price: 3114.86000
+2025-12-09 01:03:18,339 - INFO -    Profit/Loss: $0.26 USD
+2025-12-09 01:03:18,339 - INFO -    Duration: 0.6 minutes
+2025-12-09 01:03:18,339 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-09 01:03:18,339 - INFO - ================================================================================
+2025-12-09 01:03:26,171 - INFO - ================================================================================
+2025-12-09 01:03:26,171 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:03:26,171 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:03:26,171 - INFO -    Direction: SHORT
+2025-12-09 01:03:26,171 - INFO -    Ticket: 467732295
+2025-12-09 01:03:26,171 - INFO -    Entry Price (Requested): 3114.43000
+2025-12-09 01:03:26,171 - INFO -    Entry Price (Actual Fill): 3114.43000
+2025-12-09 01:03:26,171 - INFO -    Lot Size: 0.1000
+2025-12-09 01:03:26,171 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:03:26,171 - INFO -    Risk: $0.50 USD
+2025-12-09 01:03:26,171 - INFO -    Spread: 4.5 points
+2025-12-09 01:03:26,171 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:03:26,171 - INFO -    Quality Score: 80.0
+2025-12-09 01:03:26,171 - INFO -    Min Lot: 0.1
+2025-12-09 01:03:26,171 - INFO -    Min Lot Source: broker
+2025-12-09 01:03:26,171 - INFO -    Sma Fast: 3118.9224999999997
+2025-12-09 01:03:26,171 - INFO -    Sma Slow: 3126.185
+2025-12-09 01:03:26,171 - INFO -    Rsi: 45.275242861348225
+2025-12-09 01:03:26,171 - INFO - ================================================================================
+2025-12-09 01:03:49,194 - INFO - 📈 TRAILING STOP: Ticket 467732295 (ETHUSDm) | Time: 01:03:49 | Profit: $0.11 | SL Profit: $0.08 | SL Price: 3113.60500 (82.5 pips) | Reason: Elastic trailing (peak: $0.11, pullback: 25%)
+2025-12-09 01:03:50,698 - INFO - 📈 TRAILING STOP: Ticket 467732295 (ETHUSDm) | Time: 01:03:50 | Profit: $0.16 | SL Profit: $0.12 | SL Price: 3113.23000 (120.0 pips) | Reason: Elastic trailing (peak: $0.16, pullback: 25%)
+2025-12-09 01:03:51,004 - INFO - ================================================================================
+2025-12-09 01:03:51,004 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:03:51,004 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:03:51,004 - INFO -    Ticket: 467732295
+2025-12-09 01:03:51,004 - INFO -    Entry Time: 2025-12-09 01:03:26
+2025-12-09 01:03:51,004 - INFO -    Entry Price: 3114.43000
+2025-12-09 01:03:51,004 - INFO -    Close Time: 2025-12-09 01:03:50
+2025-12-09 01:03:51,004 - INFO -    Close Price: 3113.28000
+2025-12-09 01:03:51,004 - INFO -    Profit/Loss: $0.11 USD
+2025-12-09 01:03:51,004 - INFO -    Duration: 0.4 minutes
+2025-12-09 01:03:51,004 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-09 01:03:51,004 - INFO - ================================================================================
+2025-12-09 01:04:09,554 - INFO - ================================================================================
+2025-12-09 01:04:09,554 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:04:09,554 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:04:09,554 - INFO -    Direction: SHORT
+2025-12-09 01:04:09,554 - INFO -    Ticket: 467734724
+2025-12-09 01:04:09,554 - INFO -    Entry Price (Requested): 3110.10000
+2025-12-09 01:04:09,554 - INFO -    Entry Price (Actual Fill): 3109.13000
+2025-12-09 01:04:09,554 - INFO -    Entry Slippage: 0.97000
+2025-12-09 01:04:09,554 - INFO -    Lot Size: 0.1000
+2025-12-09 01:04:09,554 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:04:09,554 - INFO -    Risk: $0.50 USD
+2025-12-09 01:04:09,554 - INFO -    Spread: 4.5 points
+2025-12-09 01:04:09,554 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:04:09,554 - INFO -    Quality Score: 80.0
+2025-12-09 01:04:09,554 - INFO -    Min Lot: 0.1
+2025-12-09 01:04:09,554 - INFO -    Min Lot Source: broker
+2025-12-09 01:04:09,554 - INFO -    Sma Fast: 3118.1865
+2025-12-09 01:04:09,554 - INFO -    Sma Slow: 3125.708
+2025-12-09 01:04:09,554 - INFO -    Rsi: 32.736063708760284
+2025-12-09 01:04:09,554 - INFO - ================================================================================
+2025-12-09 01:04:51,724 - DEBUG - ⛔ Cannot open trade: First trade profit $-0.51 < minimum $-0.5
+2025-12-09 01:05:02,051 - INFO - ================================================================================
+2025-12-09 01:05:02,051 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:05:02,051 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:05:02,051 - INFO -    Ticket: 467734724
+2025-12-09 01:05:02,051 - INFO -    Entry Time: 2025-12-09 01:04:09
+2025-12-09 01:05:02,051 - INFO -    Entry Price: 3109.19000
+2025-12-09 01:05:02,051 - INFO -    Close Time: 2025-12-09 01:05:01
+2025-12-09 01:05:02,051 - INFO -    Close Price: 3115.53000
+2025-12-09 01:05:02,051 - INFO -    Profit/Loss: $-0.63 USD
+2025-12-09 01:05:02,051 - INFO -    Duration: 0.9 minutes
+2025-12-09 01:05:02,051 - INFO -    Close Reason: Unknown
+2025-12-09 01:05:02,051 - INFO - ================================================================================
+2025-12-09 01:05:14,750 - INFO - ================================================================================
+2025-12-09 01:05:14,750 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:05:14,750 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:05:14,750 - INFO -    Direction: SHORT
+2025-12-09 01:05:14,750 - INFO -    Ticket: 467738645
+2025-12-09 01:05:14,750 - INFO -    Entry Price (Requested): 3114.73000
+2025-12-09 01:05:14,750 - INFO -    Entry Price (Actual Fill): 3114.62000
+2025-12-09 01:05:14,750 - INFO -    Entry Slippage: 0.11000
+2025-12-09 01:05:14,750 - INFO -    Lot Size: 0.1000
+2025-12-09 01:05:14,750 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:05:14,750 - INFO -    Risk: $0.50 USD
+2025-12-09 01:05:14,750 - INFO -    Spread: 4.5 points
+2025-12-09 01:05:14,750 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:05:14,750 - INFO -    Quality Score: 80.0
+2025-12-09 01:05:14,750 - INFO -    Min Lot: 0.1
+2025-12-09 01:05:14,750 - INFO -    Min Lot Source: broker
+2025-12-09 01:05:14,750 - INFO -    Sma Fast: 3117.8615
+2025-12-09 01:05:14,750 - INFO -    Sma Slow: 3125.3941999999997
+2025-12-09 01:05:14,750 - INFO -    Rsi: 39.379407616360865
+2025-12-09 01:05:14,750 - INFO - ================================================================================
+2025-12-09 01:06:01,805 - INFO - ================================================================================
+2025-12-09 01:06:01,805 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:06:01,805 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:06:01,805 - INFO -    Ticket: 467738645
+2025-12-09 01:06:01,817 - INFO -    Entry Time: 2025-12-09 01:05:14
+2025-12-09 01:06:01,817 - INFO -    Entry Price: 3114.62000
+2025-12-09 01:06:01,822 - INFO -    Close Time: 2025-12-09 01:06:01
+2025-12-09 01:06:01,828 - INFO -    Close Price: 3121.02000
+2025-12-09 01:06:01,831 - INFO -    Profit/Loss: $-0.64 USD
+2025-12-09 01:06:01,832 - INFO -    Duration: 0.8 minutes
+2025-12-09 01:06:01,832 - INFO -    Close Reason: Unknown
+2025-12-09 01:06:01,832 - INFO - ================================================================================
+2025-12-09 01:07:49,600 - INFO - ================================================================================
+2025-12-09 01:07:49,600 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:07:49,600 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:07:49,600 - INFO -    Direction: SHORT
+2025-12-09 01:07:49,600 - INFO -    Ticket: 467746820
+2025-12-09 01:07:49,600 - INFO -    Entry Price (Requested): 3111.50000
+2025-12-09 01:07:49,600 - INFO -    Entry Price (Actual Fill): 3111.50000
+2025-12-09 01:07:49,600 - INFO -    Lot Size: 0.1000
+2025-12-09 01:07:49,600 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:07:49,600 - INFO -    Risk: $0.50 USD
+2025-12-09 01:07:49,600 - INFO -    Spread: 4.5 points
+2025-12-09 01:07:49,600 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:07:49,600 - INFO -    Quality Score: 80.0
+2025-12-09 01:07:49,600 - INFO -    Min Lot: 0.1
+2025-12-09 01:07:49,600 - INFO -    Min Lot Source: broker
+2025-12-09 01:07:49,600 - INFO -    Sma Fast: 3117.452
+2025-12-09 01:07:49,616 - INFO -    Sma Slow: 3124.7032
+2025-12-09 01:07:49,616 - INFO -    Rsi: 47.21922246220313
+2025-12-09 01:07:49,616 - INFO - ================================================================================
+2025-12-09 01:10:19,936 - DEBUG - ⛔ Cannot open trade: Staged window expired (150s > 150s)
+2025-12-09 01:10:41,459 - DEBUG - ⛔ Cannot open trade: Staged window expired (172s > 150s)
+2025-12-09 01:11:03,822 - DEBUG - ⛔ Cannot open trade: Staged window expired (194s > 150s)
+2025-12-09 01:11:25,429 - DEBUG - ⛔ Cannot open trade: Staged window expired (216s > 150s)
+2025-12-09 01:11:47,001 - DEBUG - ⛔ Cannot open trade: Staged window expired (237s > 150s)
+2025-12-09 01:12:08,667 - DEBUG - ⛔ Cannot open trade: Staged window expired (259s > 150s)
+2025-12-09 01:12:30,096 - DEBUG - ⛔ Cannot open trade: Staged window expired (280s > 150s)
+2025-12-09 01:12:51,689 - DEBUG - ⛔ Cannot open trade: Staged window expired (302s > 150s)
+2025-12-09 01:13:13,533 - DEBUG - ⛔ Cannot open trade: Staged window expired (324s > 150s)
+2025-12-09 01:13:35,174 - DEBUG - ⛔ Cannot open trade: Staged window expired (346s > 150s)
+2025-12-09 01:13:56,886 - DEBUG - ⛔ Cannot open trade: Staged window expired (367s > 150s)
+2025-12-09 01:14:05,967 - INFO - ================================================================================
+2025-12-09 01:14:05,967 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:14:05,967 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:14:05,967 - INFO -    Ticket: 467746820
+2025-12-09 01:14:05,967 - INFO -    Entry Time: 2025-12-09 01:07:49
+2025-12-09 01:14:05,967 - INFO -    Entry Price: 3111.50000
+2025-12-09 01:14:05,967 - INFO -    Close Time: 2025-12-09 01:14:05
+2025-12-09 01:14:05,967 - INFO -    Close Price: 3117.90000
+2025-12-09 01:14:05,967 - INFO -    Profit/Loss: $-0.64 USD
+2025-12-09 01:14:05,967 - INFO -    Duration: 6.3 minutes
+2025-12-09 01:14:05,967 - INFO -    Close Reason: Unknown
+2025-12-09 01:14:05,967 - INFO - ================================================================================
+2025-12-09 01:14:19,629 - INFO - ================================================================================
+2025-12-09 01:14:19,629 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:14:19,629 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:14:19,629 - INFO -    Direction: SHORT
+2025-12-09 01:14:19,629 - INFO -    Ticket: 467764226
+2025-12-09 01:14:19,629 - INFO -    Entry Price (Requested): 3117.78000
+2025-12-09 01:14:19,629 - INFO -    Entry Price (Actual Fill): 3117.78000
+2025-12-09 01:14:19,629 - INFO -    Lot Size: 0.1000
+2025-12-09 01:14:19,629 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:14:19,629 - INFO -    Risk: $0.50 USD
+2025-12-09 01:14:19,629 - INFO -    Spread: 4.5 points
+2025-12-09 01:14:19,629 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:14:19,629 - INFO -    Quality Score: 80.0
+2025-12-09 01:14:19,629 - INFO -    Min Lot: 0.1
+2025-12-09 01:14:19,629 - INFO -    Min Lot Source: broker
+2025-12-09 01:14:19,629 - INFO -    Sma Fast: 3115.9900000000002
+2025-12-09 01:14:19,629 - INFO -    Sma Slow: 3121.6533999999997
+2025-12-09 01:14:19,629 - INFO -    Rsi: 44.58977407847817
+2025-12-09 01:14:19,629 - INFO - ================================================================================
+2025-12-09 01:15:02,389 - INFO - 📈 TRAILING STOP: Ticket 467764226 (ETHUSDm) | Time: 01:15:02 | Profit: $0.11 | SL Profit: $0.08 | SL Price: 3116.95500 (82.5 pips) | Reason: Elastic trailing (peak: $0.11, pullback: 25%)
+2025-12-09 01:15:06,193 - INFO - 📈 TRAILING STOP: Ticket 467764226 (ETHUSDm) | Time: 01:15:06 | Profit: $0.14 | SL Profit: $0.11 | SL Price: 3116.73000 (105.0 pips) | Reason: Elastic trailing (peak: $0.14, pullback: 25%)
+2025-12-09 01:15:10,148 - INFO - 📈 TRAILING STOP: Ticket 467764226 (ETHUSDm) | Time: 01:15:10 | Profit: $0.15 | SL Profit: $0.11 | SL Price: 3116.65500 (112.5 pips) | Reason: Elastic trailing (peak: $0.15, pullback: 25%)
+2025-12-09 01:15:11,342 - INFO - 📈 TRAILING STOP: Ticket 467764226 (ETHUSDm) | Time: 01:15:11 | Profit: $0.22 | SL Profit: $0.17 | SL Price: 3116.13000 (165.0 pips) | Reason: Elastic trailing (peak: $0.22, pullback: 25%)
+2025-12-09 01:15:11,750 - INFO - 📈 TRAILING STOP: Ticket 467764226 (ETHUSDm) | Time: 01:15:11 | Profit: $0.23 | SL Profit: $0.17 | SL Price: 3116.05500 (172.5 pips) | Reason: Elastic trailing (peak: $0.23, pullback: 25%)
+2025-12-09 01:15:12,047 - INFO - 📈 TRAILING STOP: Ticket 467764226 (ETHUSDm) | Time: 01:15:12 | Profit: $0.26 | SL Profit: $0.20 | SL Price: 3115.83000 (195.0 pips) | Reason: Elastic trailing (peak: $0.26, pullback: 25%)
+2025-12-09 01:15:17,765 - INFO - ================================================================================
+2025-12-09 01:15:17,765 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:15:17,765 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:15:17,765 - INFO -    Ticket: 467764226
+2025-12-09 01:15:17,765 - INFO -    Entry Time: 2025-12-09 01:14:19
+2025-12-09 01:15:17,765 - INFO -    Entry Price: 3117.78000
+2025-12-09 01:15:17,765 - INFO -    Close Time: 2025-12-09 01:15:17
+2025-12-09 01:15:17,765 - INFO -    Close Price: 3115.83000
+2025-12-09 01:15:17,765 - INFO -    Profit/Loss: $0.20 USD
+2025-12-09 01:15:17,765 - INFO -    Duration: 1.0 minutes
+2025-12-09 01:15:17,765 - INFO -    Close Reason: Take Profit or Trailing Stop
+2025-12-09 01:15:17,765 - INFO - ================================================================================
+2025-12-09 01:15:28,328 - INFO - ================================================================================
+2025-12-09 01:15:28,328 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:15:28,328 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:15:28,328 - INFO -    Direction: SHORT
+2025-12-09 01:15:28,328 - INFO -    Ticket: 467767430
+2025-12-09 01:15:28,328 - INFO -    Entry Price (Requested): 3114.56000
+2025-12-09 01:15:28,328 - INFO -    Entry Price (Actual Fill): 3114.69000
+2025-12-09 01:15:28,328 - INFO -    Entry Slippage: 0.13000
+2025-12-09 01:15:28,328 - INFO -    Lot Size: 0.1000
+2025-12-09 01:15:28,328 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:15:28,328 - INFO -    Risk: $0.50 USD
+2025-12-09 01:15:28,328 - INFO -    Spread: 4.5 points
+2025-12-09 01:15:28,328 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:15:28,328 - INFO -    Quality Score: 80.0
+2025-12-09 01:15:28,328 - INFO -    Min Lot: 0.1
+2025-12-09 01:15:28,328 - INFO -    Min Lot Source: broker
+2025-12-09 01:15:28,328 - INFO -    Sma Fast: 3115.839
+2025-12-09 01:15:28,328 - INFO -    Sma Slow: 3120.7873999999997
+2025-12-09 01:15:28,328 - INFO -    Rsi: 39.97071742313293
+2025-12-09 01:15:28,328 - INFO - ================================================================================
+2025-12-09 01:17:49,289 - INFO - ================================================================================
+2025-12-09 01:17:49,289 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:17:49,289 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:17:49,289 - INFO -    Ticket: 467767430
+2025-12-09 01:17:49,289 - INFO -    Entry Time: 2025-12-09 01:15:28
+2025-12-09 01:17:49,289 - INFO -    Entry Price: 3114.69000
+2025-12-09 01:17:49,289 - INFO -    Close Time: 2025-12-09 01:17:48
+2025-12-09 01:17:49,289 - INFO -    Close Price: 3121.09000
+2025-12-09 01:17:49,289 - INFO -    Profit/Loss: $-0.64 USD
+2025-12-09 01:17:49,291 - INFO -    Duration: 2.3 minutes
+2025-12-09 01:17:49,291 - INFO -    Close Reason: Unknown
+2025-12-09 01:17:49,291 - INFO - ================================================================================
+2025-12-09 01:19:49,098 - INFO - ================================================================================
+2025-12-09 01:19:49,098 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-09 01:19:49,098 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:19:49,098 - INFO -    Direction: SHORT
+2025-12-09 01:19:49,098 - INFO -    Ticket: 467776941
+2025-12-09 01:19:49,098 - INFO -    Entry Price (Requested): 3117.85000
+2025-12-09 01:19:49,098 - INFO -    Entry Price (Actual Fill): 3117.85000
+2025-12-09 01:19:49,098 - INFO -    Lot Size: 0.1000
+2025-12-09 01:19:49,098 - INFO -    Stop Loss: 500.0 pips (5.00000)
+2025-12-09 01:19:49,098 - INFO -    Risk: $0.50 USD
+2025-12-09 01:19:49,098 - INFO -    Spread: 4.5 points
+2025-12-09 01:19:49,098 - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-09 01:19:49,098 - INFO -    Quality Score: 80.0
+2025-12-09 01:19:49,098 - INFO -    Min Lot: 0.1
+2025-12-09 01:19:49,098 - INFO -    Min Lot Source: broker
+2025-12-09 01:19:49,098 - INFO -    Sma Fast: 3115.6045000000004
+2025-12-09 01:19:49,098 - INFO -    Sma Slow: 3119.3070000000002
+2025-12-09 01:19:49,098 - INFO -    Rsi: 49.83093829247594
+2025-12-09 01:19:49,098 - INFO - ================================================================================
+2025-12-09 01:25:17,793 - INFO - ================================================================================
+2025-12-09 01:25:17,793 - INFO - 🔴 POSITION CLOSED
+2025-12-09 01:25:17,793 - INFO -    Symbol: ETHUSDm
+2025-12-09 01:25:17,793 - INFO -    Ticket: 467776941
+2025-12-09 01:25:17,793 - INFO -    Entry Time: 2025-12-09 01:19:49
+2025-12-09 01:25:17,793 - INFO -    Entry Price: 3117.85000
+2025-12-09 01:25:17,793 - INFO -    Close Time: 2025-12-09 01:25:17
+2025-12-09 01:25:17,793 - INFO -    Close Price: 3124.25000
+2025-12-09 01:25:17,793 - INFO -    Profit/Loss: $-0.64 USD
+2025-12-09 01:25:17,793 - INFO -    Duration: 5.5 minutes
+2025-12-09 01:25:17,793 - INFO -    Close Reason: Unknown
+2025-12-09 01:25:17,793 - INFO - ================================================================================
+2025-12-09 01:39:03,451 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:39:25,650 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:39:47,285 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:40:08,983 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:40:30,470 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:40:51,910 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:41:13,582 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:41:35,487 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:41:57,130 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:42:18,845 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:42:40,491 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:43:03,285 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:43:25,068 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:43:46,787 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:44:08,363 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:45:34,513 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:45:56,226 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:46:17,963 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:46:39,477 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:47:01,488 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:47:24,784 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:48:51,497 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:49:13,053 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:49:34,537 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:49:56,154 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:50:17,884 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:50:39,664 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:52:07,868 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:52:30,199 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:52:51,811 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:54:18,791 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:54:40,263 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:55:04,655 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:56:32,923 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:56:54,361 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:57:15,726 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:57:37,050 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:57:58,457 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:58:19,928 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:58:41,285 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:59:03,991 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:59:26,022 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 01:59:47,492 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:00:10,418 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:00:33,024 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:01:59,055 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:02:20,667 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:02:42,210 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:21:30,430 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:21:52,019 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:22:13,652 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:22:35,152 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:22:56,792 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 02:23:18,323 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:01:47,707 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:02:09,222 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:02:30,722 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:02:52,113 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:03:13,627 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:03:35,082 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:05:01,552 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:05:25,209 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:05:46,836 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:06:08,394 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:06:30,003 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:06:51,568 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:07:13,035 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:07:34,630 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:07:56,151 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:08:17,711 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:08:39,309 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:09:00,941 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:09:23,543 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:09:45,137 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:10:06,666 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:10:28,153 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:10:49,721 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:11:11,355 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:11:32,893 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:11:54,581 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:12:16,139 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:14:47,531 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:15:08,979 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:15:30,645 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:15:52,038 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:16:13,494 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:16:34,942 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:16:56,271 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:17:17,704 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:17:39,248 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:19:07,725 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:19:29,396 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:19:51,071 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:20:12,472 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:20:33,988 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:20:55,457 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:22:21,709 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:22:43,147 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:23:04,616 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:23:26,294 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:23:47,917 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:24:09,305 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:26:39,842 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:27:02,419 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:27:25,231 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:28:51,248 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:29:12,742 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 03:29:34,259 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:10:03,445 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:10:26,857 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:10:48,232 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:11:09,599 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:11:31,265 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:11:52,717 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:12:14,208 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:12:35,827 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:12:57,187 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:13:18,685 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:13:40,272 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:14:03,588 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:14:25,313 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:14:46,782 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:15:08,358 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:15:29,866 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:15:51,439 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:16:12,810 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:16:34,249 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:16:55,861 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:17:17,268 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:21:56,656 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:22:18,205 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:22:39,724 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:25:12,203 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:25:33,927 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:25:55,334 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:45:46,088 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:46:07,759 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:46:29,326 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:46:50,792 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:47:12,279 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:47:33,912 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:47:55,340 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:48:17,011 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:48:38,811 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:49:00,551 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:49:23,449 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:49:44,966 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:52:16,282 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:52:38,016 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:52:59,674 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:55:30,963 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:55:52,536 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:56:14,117 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:56:35,742 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:56:57,285 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 04:57:18,874 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:04:11,950 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:04:33,654 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:04:55,151 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:06:23,297 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:06:44,920 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:07:06,679 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:07:28,482 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:07:50,120 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:08:11,794 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:08:33,499 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:08:55,309 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:09:17,127 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:09:38,641 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:10:00,679 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:10:25,155 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:11:51,779 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:12:13,421 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:12:34,984 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:12:56,703 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:13:18,591 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:13:40,254 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:14:03,967 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:14:26,332 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:14:47,828 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:15:09,282 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:15:30,966 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:15:52,831 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:18:26,299 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:18:48,044 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:19:09,923 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:20:36,582 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:20:58,235 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:21:20,139 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:21:41,913 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:22:04,036 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:22:25,680 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:22:47,161 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:23:08,771 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:23:30,369 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:26:01,167 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:26:25,060 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:26:46,543 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:29:17,262 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:29:38,765 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:30:00,614 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:51:00,932 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:51:24,702 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:51:46,225 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:52:07,939 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:52:29,641 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:52:51,138 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:53:12,832 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:53:34,359 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:53:56,035 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:54:17,472 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:54:39,000 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:55:00,973 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:55:25,486 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:55:47,208 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:56:08,910 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:57:35,191 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:57:56,928 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:58:18,490 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:58:40,133 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:59:02,695 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 05:59:25,452 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:03:06,380 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:03:28,696 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:03:50,619 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:23:52,960 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:24:14,573 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:24:36,179 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:24:57,691 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:25:19,491 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:25:41,163 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:27:09,165 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:27:30,735 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:27:52,322 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:28:13,705 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:28:35,211 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:28:56,854 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:29:18,327 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:29:40,041 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:30:04,296 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:30:27,900 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:30:49,509 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:31:11,372 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:31:33,168 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:31:54,902 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:32:16,667 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:32:38,319 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:33:00,109 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:33:21,777 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:33:43,434 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:34:04,862 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:34:26,437 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:34:48,048 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:35:09,555 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:35:31,202 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:35:52,888 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:36:14,677 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:36:36,470 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:36:58,060 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:37:19,750 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:37:41,425 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:39:08,579 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:39:30,567 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:39:52,406 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:40:14,063 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:40:35,989 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:40:57,511 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:41:19,364 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:41:41,192 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:42:05,023 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:42:26,816 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:42:48,338 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:43:10,160 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:43:31,822 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:43:53,536 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:44:15,442 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:44:37,287 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:44:58,972 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-09 06:45:20,671 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)

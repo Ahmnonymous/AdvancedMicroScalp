@@ -1,0 +1,60 @@
+2025-12-08 19:40:51,865 - INFO - ================================================================================
+2025-12-08 19:40:51,865 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 19:40:51,866 - INFO -    Symbol: GILDm
+2025-12-08 19:40:51,866 - INFO -    Direction: LONG
+2025-12-08 19:40:51,866 - INFO -    Ticket: 467004428
+2025-12-08 19:40:51,866 - INFO -    Entry Price (Requested): 120.44000
+2025-12-08 19:40:51,866 - INFO -    Entry Price (Actual Fill): 120.44000
+2025-12-08 19:40:51,866 - INFO -    Lot Size: 0.0100
+2025-12-08 19:40:51,866 - INFO -    Stop Loss: 16.7 pips (0.16714)
+2025-12-08 19:40:51,867 - INFO -    Risk: $0.17 USD
+2025-12-08 19:40:51,868 - INFO -    Spread: 16.0 points
+2025-12-08 19:40:51,868 - INFO -    Spread+Fees Cost: $0.16 USD
+2025-12-08 19:40:51,868 - INFO -    Quality Score: 80.0
+2025-12-08 19:40:51,868 - INFO -    Min Lot: 0.01
+2025-12-08 19:40:51,868 - INFO -    Min Lot Source: broker
+2025-12-08 19:40:51,868 - INFO -    Sma Fast: 120.35849999999998
+2025-12-08 19:40:51,868 - INFO -    Sma Slow: 120.181
+2025-12-08 19:40:51,868 - INFO -    Rsi: 49.47368421052603
+2025-12-08 19:40:51,868 - INFO - ================================================================================
+2025-12-08 19:41:44,423 - INFO - ================================================================================
+2025-12-08 19:41:44,423 - INFO - 🔴 POSITION CLOSED
+2025-12-08 19:41:44,423 - INFO -    Symbol: GILDm
+2025-12-08 19:41:44,423 - INFO -    Ticket: 467004428
+2025-12-08 19:41:44,423 - INFO -    Entry Time: 2025-12-08 19:40:51
+2025-12-08 19:41:44,423 - INFO -    Entry Price: 120.44000
+2025-12-08 19:41:44,423 - INFO -    Close Time: 2025-12-08 19:41:44
+2025-12-08 19:41:44,423 - INFO -    Close Price: 120.27000
+2025-12-08 19:41:44,423 - INFO -    Profit/Loss: $-0.17 USD
+2025-12-08 19:41:44,423 - INFO -    Duration: 0.9 minutes
+2025-12-08 19:41:44,423 - INFO -    Close Reason: Unknown
+2025-12-08 19:41:44,423 - INFO - ================================================================================
+2025-12-08 19:42:27,673 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:42:49,866 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:43:35,446 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:43:57,969 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:44:21,000 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:45:08,653 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:45:30,892 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:45:53,518 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:46:15,677 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:46:38,005 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:47:00,767 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:47:46,691 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:09,032 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:31,048 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:55:39,575 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:56:03,506 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:56:26,486 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:36:10,260 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:36:32,995 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:36:55,436 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:37:17,791 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:37:40,169 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:03,758 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:26,294 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:38:48,715 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:39:10,949 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:39:33,573 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:39:55,997 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:40:18,372 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)

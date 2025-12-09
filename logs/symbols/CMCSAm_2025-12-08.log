@@ -1,0 +1,97 @@
+2025-12-08 19:46:37,534 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:47:00,361 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:47:46,300 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:08,704 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:30,704 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:48:52,735 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 19:49:17,264 - INFO - ================================================================================
+2025-12-08 19:49:17,264 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 19:49:17,264 - INFO -    Symbol: CMCSAm
+2025-12-08 19:49:17,264 - INFO -    Direction: LONG
+2025-12-08 19:49:17,264 - INFO -    Ticket: 467041931
+2025-12-08 19:49:17,264 - INFO -    Entry Price (Requested): 26.58000
+2025-12-08 19:49:17,264 - INFO -    Entry Price (Actual Fill): 26.59000
+2025-12-08 19:49:17,264 - INFO -    Entry Slippage: 0.01000
+2025-12-08 19:49:17,264 - INFO -    Lot Size: 0.0100
+2025-12-08 19:49:17,264 - INFO -    Stop Loss: 10.0 pips (0.10000)
+2025-12-08 19:49:17,267 - INFO -    Risk: $0.10 USD
+2025-12-08 19:49:17,267 - INFO -    Spread: 7.0 points
+2025-12-08 19:49:17,267 - INFO -    Spread+Fees Cost: $0.07 USD
+2025-12-08 19:49:17,267 - INFO -    Quality Score: 80.0
+2025-12-08 19:49:17,268 - INFO -    Min Lot: 0.01
+2025-12-08 19:49:17,268 - INFO -    Min Lot Source: broker
+2025-12-08 19:49:17,268 - INFO -    Sma Fast: 26.512
+2025-12-08 19:49:17,268 - INFO -    Sma Slow: 26.476000000000003
+2025-12-08 19:49:17,268 - INFO -    Rsi: 47.0588235294114
+2025-12-08 19:49:17,268 - INFO - ================================================================================
+2025-12-08 19:53:25,165 - DEBUG - ⛔ Cannot open trade: Staged window expired (248s > 150s)
+2025-12-08 19:53:47,698 - DEBUG - ⛔ Cannot open trade: Staged window expired (270s > 150s)
+2025-12-08 19:54:09,965 - DEBUG - ⛔ Cannot open trade: Staged window expired (293s > 150s)
+2025-12-08 19:54:32,182 - DEBUG - ⛔ Cannot open trade: Staged window expired (315s > 150s)
+2025-12-08 19:54:54,717 - DEBUG - ⛔ Cannot open trade: Staged window expired (337s > 150s)
+2025-12-08 19:55:17,059 - DEBUG - ⛔ Cannot open trade: Staged window expired (360s > 150s)
+2025-12-08 19:55:39,215 - DEBUG - ⛔ Cannot open trade: Staged window expired (382s > 150s)
+2025-12-08 19:56:02,547 - DEBUG - ⛔ Cannot open trade: Staged window expired (405s > 150s)
+2025-12-08 19:56:26,173 - DEBUG - ⛔ Cannot open trade: Staged window expired (429s > 150s)
+2025-12-08 19:56:48,656 - DEBUG - ⛔ Cannot open trade: Staged window expired (451s > 150s)
+2025-12-08 19:57:11,374 - DEBUG - ⛔ Cannot open trade: Staged window expired (474s > 150s)
+2025-12-08 19:57:33,421 - DEBUG - ⛔ Cannot open trade: Staged window expired (496s > 150s)
+2025-12-08 19:57:55,660 - DEBUG - ⛔ Cannot open trade: Staged window expired (518s > 150s)
+2025-12-08 19:58:18,110 - DEBUG - ⛔ Cannot open trade: Staged window expired (541s > 150s)
+2025-12-08 19:58:40,234 - DEBUG - ⛔ Cannot open trade: Staged window expired (563s > 150s)
+2025-12-08 19:59:04,118 - DEBUG - ⛔ Cannot open trade: Staged window expired (587s > 150s)
+2025-12-08 19:59:27,191 - DEBUG - ⛔ Cannot open trade: Staged window expired (610s > 150s)
+2025-12-08 19:59:49,784 - DEBUG - ⛔ Cannot open trade: Staged window expired (633s > 150s)
+2025-12-08 20:04:40,786 - DEBUG - ⛔ Cannot open trade: Staged window expired (924s > 150s)
+2025-12-08 20:05:04,181 - DEBUG - ⛔ Cannot open trade: Staged window expired (947s > 150s)
+2025-12-08 20:05:26,977 - DEBUG - ⛔ Cannot open trade: Staged window expired (970s > 150s)
+2025-12-08 20:05:49,477 - DEBUG - ⛔ Cannot open trade: Staged window expired (992s > 150s)
+2025-12-08 20:06:08,310 - INFO - ================================================================================
+2025-12-08 20:06:08,310 - INFO - 🔴 POSITION CLOSED
+2025-12-08 20:06:08,310 - INFO -    Symbol: CMCSAm
+2025-12-08 20:06:08,310 - INFO -    Ticket: 467041931
+2025-12-08 20:06:08,310 - INFO -    Entry Time: 2025-12-08 19:49:17
+2025-12-08 20:06:08,310 - INFO -    Entry Price: 26.59000
+2025-12-08 20:06:08,310 - INFO -    Close Time: 2025-12-08 20:06:08
+2025-12-08 20:06:08,310 - INFO -    Close Price: 26.49000
+2025-12-08 20:06:08,310 - INFO -    Profit/Loss: $-0.10 USD
+2025-12-08 20:06:08,310 - INFO -    Duration: 16.9 minutes
+2025-12-08 20:06:08,310 - INFO -    Close Reason: Unknown
+2025-12-08 20:06:08,310 - INFO - ================================================================================
+2025-12-08 20:06:34,711 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:28:14,162 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:28:36,788 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:28:58,992 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:30:29,744 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:30:52,306 - DEBUG - ⛔ Cannot open trade: Max open trades reached (no staged window)
+2025-12-08 20:32:47,883 - INFO - ================================================================================
+2025-12-08 20:32:47,883 - INFO - ✅ TRADE EXECUTED SUCCESSFULLY
+2025-12-08 20:32:47,883 - INFO -    Symbol: CMCSAm
+2025-12-08 20:32:47,883 - INFO -    Direction: SHORT
+2025-12-08 20:32:47,883 - INFO -    Ticket: 467220620
+2025-12-08 20:32:47,883 - INFO -    Entry Price (Requested): 26.41000
+2025-12-08 20:32:47,883 - INFO -    Entry Price (Actual Fill): 26.41000
+2025-12-08 20:32:47,883 - INFO -    Lot Size: 0.0100
+2025-12-08 20:32:47,883 - INFO -    Stop Loss: 10.0 pips (0.10000)
+2025-12-08 20:32:47,883 - INFO -    Risk: $0.10 USD
+2025-12-08 20:32:47,883 - INFO -    Spread: 6.0 points
+2025-12-08 20:32:47,883 - INFO -    Spread+Fees Cost: $0.06 USD
+2025-12-08 20:32:47,883 - INFO -    Quality Score: 80.0
+2025-12-08 20:32:47,883 - INFO -    Min Lot: 0.01
+2025-12-08 20:32:47,883 - INFO -    Min Lot Source: broker
+2025-12-08 20:32:47,883 - INFO -    Sma Fast: 26.428000000000004
+2025-12-08 20:32:47,883 - INFO -    Sma Slow: 26.4784
+2025-12-08 20:32:47,883 - INFO -    Rsi: 39.99999999999953
+2025-12-08 20:32:47,883 - INFO - ================================================================================
+2025-12-08 20:39:32,901 - DEBUG - ⛔ Cannot open trade: Staged window expired (405s > 150s)
+2025-12-08 20:39:55,561 - DEBUG - ⛔ Cannot open trade: Staged window expired (428s > 150s)
+2025-12-08 20:40:17,856 - DEBUG - ⛔ Cannot open trade: Staged window expired (450s > 150s)
+2025-12-08 20:40:40,519 - DEBUG - ⛔ Cannot open trade: Staged window expired (473s > 150s)
+2025-12-08 20:41:03,894 - DEBUG - ⛔ Cannot open trade: Staged window expired (496s > 150s)
+2025-12-08 20:41:26,385 - DEBUG - ⛔ Cannot open trade: Staged window expired (519s > 150s)
+2025-12-08 20:41:48,875 - DEBUG - ⛔ Cannot open trade: Staged window expired (541s > 150s)
+2025-12-08 20:42:11,216 - DEBUG - ⛔ Cannot open trade: Staged window expired (563s > 150s)
+2025-12-08 20:42:33,405 - DEBUG - ⛔ Cannot open trade: Staged window expired (586s > 150s)
+2025-12-08 20:42:55,861 - DEBUG - ⛔ Cannot open trade: Staged window expired (608s > 150s)
+2025-12-08 20:43:18,576 - DEBUG - ⛔ Cannot open trade: Staged window expired (631s > 150s)
+2025-12-08 20:43:40,545 - DEBUG - ⛔ Cannot open trade: Staged window expired (653s > 150s)
