@@ -30,9 +30,21 @@ class VolumeFilter:
         # Configuration
         filter_config = config.get('filters', {}).get('volume', {})
         self.enabled = filter_config.get('enabled', True)
+        self.volume_filter_mode = filter_config.get('volume_filter', 'medium')  # 'low', 'medium', 'high'
         self.min_tick_volume = filter_config.get('min_tick_volume', 10)
         self.check_period_minutes = filter_config.get('check_period_minutes', 5)
-        self.min_avg_volume = filter_config.get('min_avg_volume', 5.0)
+        self.min_avg_volume = filter_config.get('min_avg_volume', 3.0)
+        
+        # Adjust thresholds based on filter mode
+        if self.volume_filter_mode == 'medium':
+            # Medium sensitivity: slightly higher threshold than low
+            self.min_tick_volume = max(self.min_tick_volume, 5)
+            self.min_avg_volume = max(self.min_avg_volume, 3.0)
+        elif self.volume_filter_mode == 'high':
+            # High sensitivity: higher threshold
+            self.min_tick_volume = max(self.min_tick_volume, 10)
+            self.min_avg_volume = max(self.min_avg_volume, 5.0)
+        # 'low' mode uses defaults (more permissive)
         
         # Initialize skipped pairs logger
         os.makedirs('logs/system', exist_ok=True)

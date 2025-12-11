@@ -5,6 +5,7 @@ Handles order placement, modification, and tracking.
 
 import MetaTrader5 as mt5
 import logging
+import time
 from typing import Optional, Dict, Any, List
 from datetime import datetime
 from enum import Enum
@@ -284,8 +285,16 @@ class OrderManager:
                 # Log order details for other errors
                 logger.error(f"   Symbol: {symbol}, Order Type: {order_type.name}, Price: {price:.5f}, SL: {sl_price:.5f}, Lot: {lot_size}")
                 logger.error(f"   Error code: {result.retcode} | Comment: {result.comment}")
+                
+                # CRITICAL FIX: Handle specific error codes appropriately
+                # 10031: Network connection error - this is transient and should be retried
+                if result.retcode == 10031:
+                    logger.warning(f"⚠️ Network connection error (10031) - this is transient, will retry")
+                    return {'error': -2}  # Retryable error
+                
                 # Check if error is likely a restriction (10000-10099 range, some are restrictions)
-                if 10027 <= result.retcode <= 10099:
+                # Exclude 10031 (network) and 10029 (rate limit) as they're retryable
+                if 10027 <= result.retcode <= 10099 and result.retcode not in [10031, 10029]:
                     # Likely a trading restriction, don't retry
                     logger.error(f"   This appears to be a trading restriction - not retrying")
                     return {'error': -5}
@@ -343,11 +352,18 @@ class OrderManager:
         if not self.mt5_connector.ensure_connected():
             return False
         
-        # Get position info
+        # Get position info - retry once if position not found (race condition handling)
         position = mt5.positions_get(ticket=ticket)
         if position is None or len(position) == 0:
-            logger.error(f"Position {ticket} not found")
-            return False
+            # CRITICAL FIX: Retry once after short delay to handle race conditions
+            # Position might have been temporarily unavailable due to broker processing
+            import time
+            time.sleep(0.05)  # 50ms delay
+            position = mt5.positions_get(ticket=ticket)
+            if position is None or len(position) == 0:
+                # Position truly not found - likely closed or never existed
+                logger.debug(f"Position {ticket} not found (after retry) - may have been closed")
+                return False
         
         position = position[0]
         symbol = position.symbol
@@ -424,6 +440,7 @@ class OrderManager:
                     return False
             
             if result.retcode == mt5.TRADE_RETCODE_DONE:
+                logger.info(f"✅ SL UPDATE SUCCESS: Ticket={ticket} Symbol={symbol} NewSL={new_sl:.5f} OldSL={current_sl:.5f}")
                 logger.info(f"Order {ticket} modified: SL {new_sl:.5f}, TP {new_tp:.5f}")
                 return True
             
@@ -436,11 +453,55 @@ class OrderManager:
                 logger.error(f"Modify order failed for ticket {ticket}: Trading disabled (error {result.retcode})")
                 return False
             
+            # CRITICAL FIX: Handle error 10029 (position too close to market) and 10013 (invalid request)
+            if result.retcode == 10029:  # Modification failed due to order or position being close to market
+                # Verify position is still open before retrying
+                verify_position = mt5.positions_get(ticket=ticket)
+                if verify_position is None or len(verify_position) == 0:
+                    logger.warning(f"Position {ticket} no longer exists (may have been closed) - skipping modification")
+                    return False
+                # Position still exists, but too close to market - retry with backoff
+                if attempt < max_retries - 1:
+                    logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - Position too close to market. Retrying...")
+                    import time
+                    time.sleep(0.2 * (attempt + 1))  # Longer backoff for market proximity issues
+                    continue
+                else:
+                    logger.error(f"Modify order failed for ticket {ticket} after {max_retries} attempts: {result.retcode} - Position too close to market")
+                    return False
+            
+            if result.retcode == 10013:  # Invalid request
+                # Verify position state before retrying
+                verify_position = mt5.positions_get(ticket=ticket)
+                if verify_position is None or len(verify_position) == 0:
+                    logger.warning(f"Position {ticket} no longer exists (may have been closed) - invalid request")
+                    return False
+                # Check if SL/TP values are within valid range
+                symbol_info = self.mt5_connector.get_symbol_info(symbol)
+                if symbol_info:
+                    freeze_level = symbol_info.get('freeze_level', 0)
+                    point = symbol_info.get('point', 0.00001)
+                    current_price = verify_position[0].price_current
+                    # Check if SL is too close to current price (within freeze level)
+                    if abs(new_sl - current_price) < (freeze_level * point):
+                        logger.warning(f"SL {new_sl:.5f} too close to current price {current_price:.5f} (freeze level: {freeze_level * point:.5f})")
+                        return False
+                # Invalid request for other reason - retry once
+                if attempt < max_retries - 1:
+                    logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - Invalid request. Retrying...")
+                    import time
+                    time.sleep(0.1 * (attempt + 1))
+                    continue
+                else:
+                    logger.error(f"Modify order failed for ticket {ticket} after {max_retries} attempts: {result.retcode} - Invalid request")
+                    return False
+            
             if attempt < max_retries - 1:
                 logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - {result.comment}. Retrying...")
                 import time
                 time.sleep(0.1 * (attempt + 1))  # Increasing backoff
             else:
+                logger.error(f"❌ SL UPDATE FAILED: Ticket={ticket} Symbol={symbol} Code={result.retcode} Reason={result.comment} Attempts={max_retries}")
                 logger.error(f"Modify order failed for ticket {ticket} after {max_retries} attempts: {result.retcode} - {result.comment}")
                 return False
         
@@ -448,16 +509,45 @@ class OrderManager:
     
     def close_position(self, ticket: int, comment: str = "Close by bot") -> bool:
         """Close an open position."""
+        from utils.execution_tracer import get_tracer
+        tracer = get_tracer()
+        
+        tracer.trace(
+            function_name="OrderManager.close_position",
+            expected=f"Close position Ticket {ticket}",
+            actual=f"Attempting to close position Ticket {ticket}",
+            status="OK",
+            ticket=ticket,
+            comment=comment
+        )
+        
         if not self.mt5_connector.ensure_connected():
+            tracer.trace(
+                function_name="OrderManager.close_position",
+                expected=f"Close position Ticket {ticket}",
+                actual="MT5 not connected",
+                status="ERROR",
+                ticket=ticket,
+                reason="MT5 connection failed"
+            )
             return False
         
         position = mt5.positions_get(ticket=ticket)
         if position is None or len(position) == 0:
             logger.error(f"Position {ticket} not found")
+            tracer.trace(
+                function_name="OrderManager.close_position",
+                expected=f"Close position Ticket {ticket}",
+                actual="Position not found",
+                status="ERROR",
+                ticket=ticket,
+                reason="Position not found in MT5"
+            )
             return False
         
         position = position[0]
         symbol = position.symbol
+        profit = position.profit
         symbol_info = self.mt5_connector.get_symbol_info(symbol)
         if symbol_info is None:
             return False
@@ -507,18 +597,59 @@ class OrderManager:
             "type_filling": filling_type,
         }
         
+        # Track execution time for slow execution detection
+        execution_start = time.time()
         result = mt5.order_send(request)
+        execution_time_ms = (time.time() - execution_start) * 1000
         
         if result is None:
             error = mt5.last_error()
             logger.error(f"Close position send returned None. MT5 error: {error}")
+            tracer.trace(
+                function_name="OrderManager.close_position",
+                expected=f"Close position Ticket {ticket} ({symbol})",
+                actual="Close order send returned None",
+                status="ERROR",
+                ticket=ticket,
+                symbol=symbol,
+                profit=profit,
+                reason=f"MT5 error: {error}",
+                execution_time_ms=execution_time_ms
+            )
             return False
         
         if result.retcode != mt5.TRADE_RETCODE_DONE:
             logger.error(f"Close position failed: {result.retcode} - {result.comment}")
+            tracer.trace(
+                function_name="OrderManager.close_position",
+                expected=f"Close position Ticket {ticket} ({symbol})",
+                actual=f"Close order failed with retcode {result.retcode}",
+                status="ERROR",
+                ticket=ticket,
+                symbol=symbol,
+                profit=profit,
+                reason=f"MT5 retcode: {result.retcode} - {result.comment}",
+                execution_time_ms=execution_time_ms
+            )
             return False
         
         logger.info(f"Position {ticket} closed successfully")
+        tracer.trace(
+            function_name="OrderManager.close_position",
+            expected=f"Close position Ticket {ticket} ({symbol})",
+            actual=f"Position closed successfully",
+            status="OK",
+            ticket=ticket,
+            symbol=symbol,
+            profit=profit,
+            execution_time_ms=execution_time_ms,
+            comment=comment
+        )
+        
+        # Log slow execution if > 300ms
+        if execution_time_ms > 300:
+            logger.warning(f"Slow close execution: {execution_time_ms:.0f}ms for ticket {ticket}")
+        
         return True
     
     def get_open_positions(self, exclude_dec8: bool = True) -> List[Dict[str, Any]]:

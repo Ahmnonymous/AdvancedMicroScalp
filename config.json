@@ -10,24 +10,42 @@
   },
   "risk": {
     "max_risk_per_trade_usd": 2.0,
+    "risk_per_trade_usd": 2.0,
     "default_lot_size": 0.01,
     "max_open_trades": 6,
+    "max_open_trades_strict": true,
     "max_portfolio_risk_pct": 15.0,
     "max_portfolio_risk_usd": null,
     "high_quality_setup_override": true,
     "trailing_stop_increment_usd": 0.1,
     "max_trade_duration_minutes": 1440,
-    "min_stop_loss_pips": 10,
+    "use_usd_stoploss": true,
+    "min_pip_stoploss": null,
     "continuous_trailing_enabled": true,
-    "trailing_cycle_interval_ms": 300,
+    "trailing_cycle_interval_ms": 50,
+    "lock_acquisition_timeout_seconds": 1.0,
+    "profit_locking_lock_timeout_seconds": 2.0,
+    "sl_update_min_interval_ms": 100,
     "big_jump_threshold_usd": 0.40,
     "staged_open_enabled": true,
     "staged_open_window_seconds": 150,
     "staged_quality_threshold": 30.0,
     "staged_min_profit_usd": -0.50,
     "fast_trailing_threshold_usd": 0.10,
-    "fast_trailing_interval_ms": 300,
+    "fast_trailing_interval_ms": 0,
     "fast_trailing_debounce_cycles": 3,
+    "trailing": {
+      "enabled": true,
+      "frequency_ms": 0,
+      "fast_frequency_ms": 0,
+      "trigger_on_tick": true,
+      "instant_trailing": true
+    },
+    "entry_conditions": {
+      "require_strong_signal": true,
+      "require_trend_alignment": true,
+      "require_volume_medium": true
+    },
     "symbol_limits": {
       "XAUUSDT": {"min_lot": 0.01, "max_lot": 1.0},
       "XAUUSD": {"min_lot": 0.01, "max_lot": 1.0},
@@ -52,6 +70,34 @@
       "max_profit_threshold_usd": 0.10,
       "max_retries": 5,
       "retry_delay_ms": 5
+    },
+    "profit_locking": {
+      "enabled": true,
+      "min_profit_threshold_usd": 0.03,
+      "max_profit_threshold_usd": 0.10,
+      "lock_step_usd": 0.10,
+      "lock_tolerance_usd": 0.02,
+      "max_lock_retries": 3,
+      "lock_retry_delay_ms": 100,
+      "dynamic_sweet_spot": {
+        "enabled": true,
+        "min_duration_seconds": 0.0,
+        "apply_immediately": true,
+        "poll_interval_ms": 50,
+        "sweet_spot_min_profit": 0.03,
+        "sweet_spot_max_profit": 0.10,
+        "retry_attempts": 3,
+        "retry_backoff_ms": [50, 100, 200],
+        "track_minimum_profit": true,
+        "never_decrease_sl": true
+      }
+    },
+    "dynamic_break_even": {
+      "enabled": true,
+      "positive_profit_duration_seconds": 2.0,
+      "lock_at_entry_price": true,
+      "sweet_spot_lock_enabled": true,
+      "sweet_spot_lock_threshold_usd": 0.03
     }
   },
   "filters": {
@@ -61,6 +107,7 @@
     },
     "volume": {
       "enabled": true,
+      "volume_filter": "medium",
       "min_tick_volume": 5,
       "check_period_minutes": 5,
       "min_avg_volume": 3.0
@@ -98,7 +145,13 @@
   "execution": {
     "order_timeout_seconds": 2.0,
     "order_max_retries": 3,
-    "order_retry_backoff_base_seconds": 1.0
+    "order_retry_backoff_base_seconds": 0.1,
+    "sl_verification_delay_seconds": 0.1,
+    "verification": {
+      "effective_profit_tolerance_usd": 1.0,
+      "price_tolerance_multiplier": 1.0,
+      "use_exponential_backoff": true
+    }
   },
   "news": {
     "enabled": true,
@@ -149,7 +202,12 @@
     "kill_switch_enabled": true
   },
   "monitoring": {
-    "reconciliation_interval_minutes": 30,
+    "reconciliation_interval_minutes": null,
     "enabled": true
+  },
+  "reconciliation": {
+    "enabled": true,
+    "interval_minutes": null,
+    "run_at_session_end": true
   }
 }

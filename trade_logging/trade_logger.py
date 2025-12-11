@@ -373,13 +373,17 @@ class TradeLogger:
         symbol_logger.info(f"   Profit: ${profit:.2f} USD")
         symbol_logger.info(f"   Spread: {spread_points:.1f} points")
         symbol_logger.info(f"   Execution Time: {execution_time_ms:.2f} ms")
-        # Determine close reason text
-        if 0.03 <= profit <= 0.10:
+        # CRITICAL FIX 1.3: Determine close reason based on ACTUAL profit
+        # If profit is negative, this is an error condition
+        if profit <= 0:
+            close_reason_text = f"Micro-HFT ERROR: Negative profit attempted (${profit:.2f}) - This should never happen"
+            symbol_logger.error(f"   ⚠️ CLOSE REASON: {close_reason_text}")
+        elif 0.03 <= profit <= 0.10:
             close_reason_text = "Micro-HFT sweet spot profit ($0.03–$0.10)"
+            symbol_logger.info(f"   Close Reason: {close_reason_text}")
         else:
             close_reason_text = f"Micro-HFT multiple of $0.10 (${profit:.2f})"
-        
-        symbol_logger.info(f"   Close Reason: {close_reason_text}")
+            symbol_logger.info(f"   Close Reason: {close_reason_text}")
         symbol_logger.info("=" * 80)
         
         # Also write/update JSONL entry

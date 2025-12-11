@@ -1,0 +1,62 @@
+---
+alwaysApply: true
+---
+# ================= CURSOR AI BOT RULES =================
+# Persistent rules file. Always include in every prompt.
+
+# 1️⃣ System Integrity
+- The bot must never enter an abnormal state.
+- All operations must maintain a fully functional trading system.
+- No silent failures or untracked updates are allowed.
+
+# 2️⃣ Stop Loss & Profit Locking
+- `_sl_worker_loop()` is the **single source of truth** for SL updates.
+- SL Priority:
+  1. Strict loss: -$2.00
+  2. Break-even: $0.00-$0.03 after 2 seconds
+  3. Sweet spot: $0.03-$0.10 → trigger `ProfitLockingEngine.check_and_lock_profit()` **once per position**
+  4. Trailing stop: >$0.10
+- Disabled symbols may lock profits, but cannot reduce losses.
+- Never call `update_sl_atomic()` outside `_sl_worker_loop()`.
+
+# 3️⃣ Threading & Concurrency
+- SLManager, Trailing Stop, Position Monitor threads must **start correctly and run continuously**.
+- Use **per-position locks** to prevent simultaneous updates.
+- Gracefully handle lock timeouts; never let a failure freeze the system.
+- No duplicate SL or profit-lock calls allowed.
+
+# 4️⃣ Metrics & Logging
+- Track and enforce metrics automatically:
+  - SL update success ≥95%
+  - Profit-lock activation ≤500ms
+  - Duplicate updates = 0
+  - Lock contention <5%
+- Log every SL update, profit lock, skipped position, and lock failure.
+- Log metrics **periodically every 30 seconds**.
+
+# 5️⃣ Safety Rules
+- Never remove or alter `_sl_worker_loop()` as the SL source of truth.
+- No redundant code or dead code allowed.
+- All amounts, positions, and symbols must come from **verified sources**.
+- Only suggest changes that **increase stability, correctness, or performance**.
+
+# 6️⃣ Auto-Fix Requirements
+- Automatically detect and fix:
+  - Duplicate SL/profit-lock calls
+  - Threading or lock issues
+  - Missing metrics or logging
+  - Disabled symbols failing to lock profits
+- Always verify that the system remains fully functional after any edit.
+
+# 7️⃣ Verification & Testing
+- Ensure only **one SL update per position per cycle**.
+- Profitable trades must lock profits even for disabled symbols.
+- All threads must be active and running.
+- Metrics targets must always be met.
+
+# 8️⃣ Behavior Enforcement
+- Treat this rules file as **immutable and non-negotiable**.
+- Include in every prompt given to Cursor AI.
+- Never allow the bot to perform actions that violate these rules.
+
+# ========================================================

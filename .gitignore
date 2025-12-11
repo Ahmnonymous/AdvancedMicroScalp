@@ -51,3 +51,7 @@ backtest_results/
 .env
 .env.local
 
+# git add .
+# git commit -m "Advanced Micro Scalp System"
+# git push -u origin main
+# clear

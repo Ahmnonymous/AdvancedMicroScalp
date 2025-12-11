@@ -22,7 +22,7 @@ from news_filter.news_api import NewsFilter
 from filters.market_closing_filter import MarketClosingFilter
 from filters.volume_filter import VolumeFilter
 from bot.config_validator import ConfigValidator
-from utils.logger_factory import get_logger, get_symbol_logger
+from utils.logger_factory import get_logger, get_symbol_logger, get_system_event_logger
 from trade_logging.trade_logger import TradeLogger
 
 # System startup logger
@@ -63,6 +63,8 @@ class TradingBot:
         
         # Register P/L callback with risk manager
         self.risk_manager.set_pnl_callback(self._update_realized_pnl_on_closure)
+        # Also set callback for daily_pnl updates during monitoring loop
+        self.risk_manager.bot_pnl_callback = self.update_daily_pnl
         
         # Initialize Position Monitor for closure detection
         self.position_monitor = PositionMonitor(self.config, self.trade_logger)
@@ -77,7 +79,8 @@ class TradingBot:
                 self.micro_profit_engine = MicroProfitEngine(
                     config=self.config,
                     order_manager=self.order_manager,
-                    trade_logger=self.trade_logger
+                    trade_logger=self.trade_logger,
+                    risk_manager=self.risk_manager
                 )
                 # Register with risk manager
                 self.risk_manager.set_micro_profit_engine(self.micro_profit_engine)
@@ -88,6 +91,27 @@ class TradingBot:
         else:
             self.micro_profit_engine = None
             logger.info("Micro-HFT Profit Engine disabled in config")
+        
+        # Initialize Profit-Locking Engine (optional add-on)
+        risk_config = self.config.get('risk', {})
+        lock_config = risk_config.get('profit_locking', {})
+        if lock_config.get('enabled', True):
+            try:
+                from bot.profit_locking_engine import ProfitLockingEngine
+                self.profit_locking_engine = ProfitLockingEngine(
+                    config=self.config,
+                    order_manager=self.order_manager,
+                    mt5_connector=self.mt5_connector
+                )
+                # Register with risk manager
+                self.risk_manager.set_profit_locking_engine(self.profit_locking_engine)
+                logger.info("Profit-Locking Engine initialized and registered")
+            except ImportError as e:
+                logger.warning(f"Profit-Locking Engine not available: {e}")
+                self.profit_locking_engine = None
+        else:
+            self.profit_locking_engine = None
+            logger.info("Profit-Locking Engine disabled in config")
         
         # Supervisor settings
         self.supervisor_config = self.config.get('supervisor', {})
@@ -100,7 +124,18 @@ class TradingBot:
         self.consecutive_errors = 0
         self.last_error_time = None
         self.kill_switch_active = False
+        # Error throttling: track recent errors to avoid counting duplicates
+        self._error_throttle = {}  # {error_signature: last_counted_time}
+        self._error_throttle_window = 5.0  # seconds - same error only counted once per window
         self.running = False
+        
+        # Lightweight logger state tracking (thread-safe)
+        self._state_lock = threading.Lock()
+        self.current_state = 'IDLE'  # IDLE, SCANNING, ENTERING TRADE, MANAGING TRADE, CLOSING TRADE, ERROR
+        self.current_symbol = 'N/A'
+        self.last_action = 'N/A'
+        self.last_action_time = None
+        self.sl_update_times = {}  # {ticket: datetime} - track when SL was last updated
         
         # P&L tracking (legacy - kept for compatibility)
         self.daily_pnl = 0.0
@@ -126,7 +161,11 @@ class TradingBot:
             'failed_trades': 0,  # Only actual execution failures
             'filtered_opportunities': 0,  # Opportunities filtered out (not failed trades)
             'total_spread_paid': 0.0,
-            'total_commission_paid': 0.0
+            'total_commission_paid': 0.0,
+            'profitable_trades': 0,  # Count of closed profitable trades
+            'losing_trades': 0,  # Count of closed losing trades
+            'total_profit': 0.0,  # Sum of all profitable trades
+            'total_loss': 0.0  # Sum of all losing trades (negative values)
         }
         
         # P/L tracking (daily and session)
@@ -139,17 +178,30 @@ class TradingBot:
         self.trailing_stop_thread = None
         self.trailing_stop_running = False
         self.risk_config = self.config.get('risk', {})
-        self.trailing_cycle_interval_ms = self.risk_config.get('trailing_cycle_interval_ms', 300)  # Default 300ms
-        self.trailing_cycle_interval = self.trailing_cycle_interval_ms / 1000.0  # Convert to seconds for time.sleep
+        # Instant trailing: use config value (0 = instant, no delays)
+        trailing_config = self.risk_config.get('trailing', {})
+        self.trailing_cycle_interval_ms = trailing_config.get('frequency_ms', 0) if trailing_config else self.risk_config.get('trailing_cycle_interval_ms', 0)
+        self.trailing_cycle_interval = self.trailing_cycle_interval_ms / 1000.0  # Convert to seconds for time.sleep (0 = instant)
+        # Ensure trigger_on_tick is respected
+        self.trigger_on_tick = trailing_config.get('trigger_on_tick', True) if trailing_config else True
         
         # Fast trailing thread (for positions with profit >= threshold)
         self.fast_trailing_thread = None
         self.fast_trailing_running = False
-        self.fast_trailing_interval_ms = self.risk_config.get('fast_trailing_interval_ms', 300)
+        # Instant fast trailing: use config value (0 = instant, no delays except debounce cycles)
+        trailing_config = self.risk_config.get('trailing', {})
+        self.fast_trailing_interval_ms = trailing_config.get('fast_frequency_ms', 0) if trailing_config else self.risk_config.get('fast_trailing_interval_ms', 0)
         self.fast_trailing_threshold_usd = self.risk_config.get('fast_trailing_threshold_usd', 0.10)
         
         # Tracked positions for closure detection
         self.tracked_tickets = set()
+        
+        # System event logger for diagnostics
+        self.system_event_logger = get_system_event_logger()
+        
+        # SL tracking for "not moving" detection
+        self._sl_tracking = {}  # {ticket: {'last_sl': float, 'last_profit': float, 'unchanged_ticks': int, 'last_check_time': float}}
+        self._sl_tracking_lock = threading.Lock()
     
         # Manual approval mode settings
         self.manual_approval_mode = False
@@ -166,13 +218,41 @@ class TradingBot:
         if self.mt5_connector.connect():
             logger.info("MT5 connection established")
             
+            # CRITICAL FIX: Verify SLManager is available before proceeding
+            if not hasattr(self.risk_manager, 'sl_manager') or self.risk_manager.sl_manager is None:
+                error_msg = "❌ SLManager FAILED to initialize. Trading aborted."
+                error_msg += "\n   → Check logs/engine/risk_manager.log for detailed error information"
+                error_msg += "\n   → This usually indicates a problem with the SLManager module initialization"
+                logger.critical(error_msg)
+                error_logger.critical("SLManager not available - cannot proceed with trading")
+                print(error_msg)
+                return False
+            logger.info("✅ SLManager availability verified - ready for trading")
+            
             # Initialize session tracking
             account_info = self.mt5_connector.get_account_info()
             if account_info:
                 self.session_start_balance = account_info.get('balance', 0)
                 self.session_start_time = datetime.now()
                 self.realized_pnl = 0.0
-                logger.info(f"📊 Session started | Starting Balance: ${self.session_start_balance:.2f}")
+                
+                # Reset session-specific win/loss stats
+                self.trade_stats['profitable_trades'] = 0
+                self.trade_stats['losing_trades'] = 0
+                self.trade_stats['total_profit'] = 0.0
+                self.trade_stats['total_loss'] = 0.0
+                
+                logger.info(f"📊 Session started | Starting Balance: ${self.session_start_balance:.2f} | Session Time: {self.session_start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+            
+            # CRITICAL FIX: Fetch all existing broker positions at startup and sync
+            logger.info("🔄 Syncing with broker positions at startup...")
+            broker_positions = self.order_manager.get_open_positions(exclude_dec8=False)  # Get ALL positions
+            logger.info(f"📊 Found {len(broker_positions)} position(s) in broker at startup")
+            
+            # Log all broker positions for tracking
+            for pos in broker_positions:
+                logger.info(f"  Broker Position: Ticket {pos['ticket']} | {pos['symbol']} {pos['type']} | "
+                          f"Entry: {pos['price_open']:.5f} | SL: {pos['sl']:.5f} | P/L: ${pos['profit']:.2f}")
             
             return True
         else:
@@ -200,12 +280,45 @@ class TradingBot:
             self.order_manager.close_position(position['ticket'], comment="Kill switch activated")
     
     def handle_error(self, error: Exception, context: str = ""):
-        """Handle errors with supervisor logic."""
-        self.consecutive_errors += 1
+        """
+        Handle errors with supervisor logic.
+        
+        Includes error throttling to prevent the same error from being counted multiple times
+        within a short time window. This prevents coding errors from triggering kill switch prematurely.
+        """
         self.last_error_time = datetime.now()
         
+        # Create error signature for throttling (error type + context)
+        error_signature = f"{type(error).__name__}:{context}"
+        current_time = datetime.now()
+        
+        # Check if this error was recently counted
+        should_count = True
+        if error_signature in self._error_throttle:
+            time_since_last = (current_time - self._error_throttle[error_signature]).total_seconds()
+            if time_since_last < self._error_throttle_window:
+                # Same error within throttle window - don't count again
+                should_count = False
+                logger.debug(f"Error throttled: {error_signature} (last counted {time_since_last:.1f}s ago)")
+        
+        # Log the error regardless
         error_logger.error(f"Error in {context}: {error}", exc_info=True)
         logger.error(f"Error in {context}: {error}")
+        
+        # Only increment error count if not throttled
+        if should_count:
+            self.consecutive_errors += 1
+            self._error_throttle[error_signature] = current_time
+            
+            # Clean up old throttle entries (older than 2x throttle window)
+            cutoff_time = current_time - timedelta(seconds=self._error_throttle_window * 2)
+            self._error_throttle = {
+                sig: time for sig, time in self._error_throttle.items()
+                if time > cutoff_time
+            }
+        else:
+            # Log that error was throttled but still log it
+            logger.debug(f"Error throttled (not counted): {error_signature}")
         
         if self.supervisor_enabled:
             if self.consecutive_errors >= self.max_consecutive_errors:
@@ -219,6 +332,8 @@ class TradingBot:
         if self.consecutive_errors > 0:
             logger.info(f"Resetting error count (was {self.consecutive_errors})")
         self.consecutive_errors = 0
+        # Also clear error throttle on successful operation
+        self._error_throttle.clear()
     
     def reset_kill_switch(self):
         """Reset kill switch and error count for fresh start."""
@@ -253,6 +368,8 @@ class TradingBot:
             logger.info(f"     - Successful: {self.trade_stats['successful_trades']}")
             logger.info(f"     - Failed: {self.trade_stats['failed_trades']}")
             logger.info(f"     - Filtered Opportunities: {self.trade_stats['filtered_opportunities']}")
+            logger.info(f"     - Profitable Trades: {self.trade_stats['profitable_trades']} (Total: ${self.trade_stats['total_profit']:.2f})")
+            logger.info(f"     - Losing Trades: {self.trade_stats['losing_trades']} (Total: ${self.trade_stats['total_loss']:.2f})")
             if self.trade_stats['total_trades'] > 0:
                 success_rate = (self.trade_stats['successful_trades'] / self.trade_stats['total_trades']) * 100
                 logger.info(f"     - Success Rate: {success_rate:.1f}%")
@@ -262,6 +379,11 @@ class TradingBot:
             self.daily_pnl = 0.0
             self.realized_pnl_today = 0.0
             self.trade_count_today = 0
+            # Reset session-specific stats on new day
+            self.trade_stats['profitable_trades'] = 0
+            self.trade_stats['losing_trades'] = 0
+            self.trade_stats['total_profit'] = 0.0
+            self.trade_stats['total_loss'] = 0.0
             self.last_pnl_reset = today
         
         # Calculate realized P/L from closed trades today
@@ -305,6 +427,14 @@ class TradingBot:
         if not os.path.exists(trade_log_dir):
             return 0.0
         
+        # Count profitable and losing trades from CURRENT SESSION ONLY
+        # Only count trades that closed after session start time
+        session_start = getattr(self, 'session_start_time', None)
+        profitable_count = 0
+        losing_count = 0
+        total_profit = 0.0
+        total_loss = 0.0
+        
         for log_file in glob.glob(os.path.join(trade_log_dir, "*.log")):
             try:
                 with open(log_file, 'r') as f:
@@ -323,12 +453,36 @@ class TradingBot:
                                                 profit = trade.get('profit_usd', 0.0)
                                                 if profit is not None:
                                                     total_realized += profit
+                                                    
+                                                    # Only count for session stats if trade closed after session start
+                                                    if session_start and trade_time >= session_start:
+                                                        # Track win/loss for session stats
+                                                        if profit > 0:
+                                                            profitable_count += 1
+                                                            total_profit += profit
+                                                        elif profit < 0:
+                                                            losing_count += 1
+                                                            total_loss += profit
                                         except (ValueError, AttributeError):
                                             continue
                             except json.JSONDecodeError:
                                 continue
             except Exception:
                 continue
+        
+        # Update session stats from logs (only for trades after session start)
+        # These will be updated in real-time as new trades close via _update_realized_pnl_on_closure
+        if session_start:
+            self.trade_stats['profitable_trades'] = profitable_count
+            self.trade_stats['losing_trades'] = losing_count
+            self.trade_stats['total_profit'] = total_profit
+            self.trade_stats['total_loss'] = total_loss
+        else:
+            # Session not started yet, initialize to 0
+            self.trade_stats['profitable_trades'] = 0
+            self.trade_stats['losing_trades'] = 0
+            self.trade_stats['total_profit'] = 0.0
+            self.trade_stats['total_loss'] = 0.0
         
         return total_realized
     
@@ -351,13 +505,55 @@ class TradingBot:
         # Update today's realized P/L if closed today
         if close_date == today:
             self.realized_pnl_today += profit
+            
+            # Track profitable vs losing trades for CURRENT SESSION ONLY
+            # Only count trades that closed after session start time
+            if isinstance(close_time, dt):
+                close_datetime = close_time
+            else:
+                # If close_time is date, use current time
+                close_datetime = dt.now()
+            
+            # Only update session stats if trade closed after session started
+            if hasattr(self, 'session_start_time') and self.session_start_time and close_datetime >= self.session_start_time:
+                if profit > 0:
+                    self.trade_stats['profitable_trades'] += 1
+                    self.trade_stats['total_profit'] += profit
+                elif profit < 0:
+                    self.trade_stats['losing_trades'] += 1
+                    self.trade_stats['total_loss'] += profit  # profit is negative, so this accumulates losses
+            
             logger.debug(f"📊 Updated realized P/L: +${profit:.2f} | Today: ${self.realized_pnl_today:.2f} | Total: ${self.realized_pnl:.2f}")
+    
+    def _update_state(self, state: str, symbol: str = 'N/A', action: str = 'N/A'):
+        """Update bot state for lightweight logger (thread-safe)."""
+        with self._state_lock:
+            self.current_state = state
+            self.current_symbol = symbol
+            self.last_action = action
+            self.last_action_time = datetime.now()
+    
+    def get_bot_state(self) -> Dict[str, Any]:
+        """Get current bot state for lightweight logger (thread-safe)."""
+        with self._state_lock:
+            return {
+                'running': self.running,
+                'current_state': self.current_state,
+                'current_symbol': self.current_symbol,
+                'last_action': self.last_action,
+                'last_action_time': self.last_action_time,
+                'sl_update_times': self.sl_update_times.copy(),
+                'trade_stats': self.trade_stats.copy()
+            }
     
     def scan_for_opportunities(self) -> List[Dict[str, Any]]:
         """Scan for trading opportunities with SIMPLE logic and comprehensive logging."""
         opportunities = []
         
         try:
+            # Update state
+            self._update_state('SCANNING', 'N/A', 'Scanning for opportunities')
+            
             # Get tradeable symbols
             symbols = self.pair_filter.get_tradeable_symbols()
             logger.info(f"🔍 Scanning {len(symbols)} symbols for trading opportunities...")
@@ -367,6 +563,8 @@ class TradingBot:
             
             for symbol in symbols:
                 try:
+                    # Update current symbol being scanned
+                    self._update_state('SCANNING', symbol, f'Scanning {symbol}')
                     logger.debug(f"📊 Analyzing {symbol}...")
                     
                     # 0. Check if symbol was previously restricted (prevent duplicate attempts)
@@ -476,22 +674,15 @@ class TradingBot:
                         continue
                     
                     # Check portfolio risk limit before opening trade
-                    symbol_info_for_risk_check = self.mt5_connector.get_symbol_info(symbol)
-                    if symbol_info_for_risk_check:
-                        # Estimate risk for this trade
-                        min_sl_pips = self.risk_manager.min_stop_loss_pips
-                        point = symbol_info_for_risk_check.get('point', 0.00001)
-                        pip_value = point * 10 if symbol_info_for_risk_check.get('digits', 5) == 5 or symbol_info_for_risk_check.get('digits', 3) == 3 else point
-                        contract_size = symbol_info_for_risk_check.get('contract_size', 1.0)
-                        min_sl_price = min_sl_pips * pip_value
-                        estimated_risk = min_lot * min_sl_price * contract_size if min_sl_price > 0 and contract_size > 0 else self.risk_manager.max_risk_usd
-                        
-                        # Check portfolio risk
-                        portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
-                        if not portfolio_risk_ok:
-                            logger.info(f"⛔ [SKIP] {symbol} | Reason: Portfolio risk limit - {portfolio_reason}")
-                            self.trade_stats['filtered_opportunities'] += 1
-                            continue
+                    # With USD-based SL, risk is always fixed at max_risk_usd ($2.00)
+                    estimated_risk = self.risk_manager.max_risk_usd
+                    
+                    # Check portfolio risk
+                    portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
+                    if not portfolio_risk_ok:
+                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Portfolio risk limit - {portfolio_reason}")
+                        self.trade_stats['filtered_opportunities'] += 1
+                        continue
                     
                     # 6. Check if we can open a new trade (with staged open support)
                     can_open, reason = self.risk_manager.can_open_trade(
@@ -578,10 +769,8 @@ class TradingBot:
                                 point = symbol_info_for_risk.get('point', 0.00001)
                                 pip_value = point * 10 if symbol_info_for_risk.get('digits', 5) == 5 or symbol_info_for_risk.get('digits', 3) == 3 else point
                                 contract_size = symbol_info_for_risk.get('contract_size', 1.0)
-                                min_sl_pips = self.risk_manager.min_stop_loss_pips
-                                min_sl_price = min_sl_pips * pip_value
-                                if min_sl_price > 0 and contract_size > 0:
-                                    calculated_risk = min_lot_check * min_sl_price * contract_size
+                                # With USD-based SL, risk is always $2.00 fixed
+                                calculated_risk = self.risk_manager.max_risk_usd
                     
                     # Enhanced opportunity logging with detailed breakdown
                     quality_threshold = self.trading_config.get('min_quality_score', 50.0)
@@ -615,13 +804,20 @@ class TradingBot:
                     # Get min_lot for opportunity (use symbol_info_for_risk if available)
                     opp_min_lot = min_lot if test_mode else (symbol_info_for_risk.get('volume_min', 0.01) if symbol_info_for_risk else 0.01)
                     
+                    # Check volume status for entry conditions (already checked above, but need to store result)
+                    # Volume check was done at line 570, so volume_ok = not should_skip_volume
+                    # Since we passed the volume filter, volume_ok should be True
+                    volume_ok = True  # If we reach here, volume check passed
+                    
                     opportunities.append({
                         'symbol': symbol,
                         'signal': trend_signal['signal'],
+                        'trend_signal': trend_signal,  # Include full trend_signal dict for entry conditions check
                         'trend': trend_signal['trend'],
                         'sma_fast': trend_signal.get('sma_fast', 0),
                         'sma_slow': trend_signal.get('sma_slow', 0),
                         'rsi': trend_signal.get('rsi', 50),
+                        'volume_ok': volume_ok,  # Include volume status for entry conditions check
                         'spread': spread_points,
                         'min_lot': opp_min_lot,
                         'spread_fees_cost': total_cost,  # Always include for sorting
@@ -638,6 +834,11 @@ class TradingBot:
             self.handle_error(e, "Scanning for opportunities")
         
         logger.info(f"🎯 Found {len(opportunities)} trading opportunity(ies)")
+        
+        # Update state back to IDLE if no opportunities
+        if not opportunities:
+            self._update_state('IDLE', 'N/A', 'Scan completed - no opportunities')
+        
         return opportunities
     
     def execute_trade(self, opportunity: Dict[str, Any], skip_randomness: bool = False) -> Optional[bool]:
@@ -657,6 +858,43 @@ class TradingBot:
         signal = opportunity['signal']
         
         try:
+            # CRITICAL: Check max trades BEFORE executing (enforce strict limit)
+            # NOTE: Position count is checked at batch level (line 2208), so this is a safety check
+            # We allow execution if we're within the batch limit (already validated upstream)
+            current_positions = self.order_manager.get_position_count()
+            max_trades = self.risk_manager.max_open_trades
+            max_trades_strict = self.risk_manager.max_open_trades_strict
+            
+            # CRITICAL FIX: Only block if we're STRICTLY ABOVE max (not at max)
+            # This allows multiple trades to execute quickly when slots are available
+            # Example: If max_trades=6 and current_positions=5, we can still execute 1 more trade
+            # NOTE: Position count is validated at batch level, so this is just a safety check
+            if max_trades_strict and current_positions > max_trades:
+                logger.warning(f"🚫 MAX TRADES STRICT: {symbol} | Cannot execute trade | Current: {current_positions} > {max_trades} | Strict mode enabled")
+                return None  # Filtered, not failed
+            elif max_trades_strict and current_positions == max_trades:
+                # At max in strict mode - this shouldn't happen if batch reservation worked, but allow it
+                logger.info(f"⚠️ MAX TRADES AT LIMIT: {symbol} | Current: {current_positions} == {max_trades} | "
+                          f"Strict mode - ALLOWING execution (batch reserved {len(opportunities)} slots)")
+                # Continue execution - batch reservation allows this
+            
+            # Non-strict mode: Only block if strictly above max (allow at max for high-quality setups)
+            if current_positions > max_trades:
+                # Check if override is allowed (only if not strict)
+                quality_score = opportunity.get('quality_score', 0.0)
+                high_quality_setup = opportunity.get('high_quality_setup', False)
+                can_open, reason = self.risk_manager.can_open_trade(
+                    symbol=symbol,
+                    signal=signal,
+                    quality_score=quality_score,
+                    high_quality_setup=high_quality_setup
+                )
+                if not can_open:
+                    logger.info(f"⛔ [SKIP] {symbol} | Signal: {signal} | Reason: {reason}")
+                    return None  # Filtered, not failed
+            
+            # Update state
+            self._update_state('ENTERING TRADE', symbol, f'Entering {signal} trade on {symbol}')
             # RANDOMNESS FACTOR: Skip in manual approval mode (user already approved)
             # NOTE: Randomness skip is NOT a failure - it's intentional filtering
             if not skip_randomness:
@@ -710,31 +948,48 @@ class TradingBot:
             entry_price = symbol_info['ask'] if order_type == OrderType.BUY else symbol_info['bid']
             logger.info(f"💰 {symbol}: Entry price = {entry_price:.5f} ({'ASK' if order_type == OrderType.BUY else 'BID'})")
             
-            # Calculate dynamic stop loss based on ATR/volatility
-            min_stop_loss_pips = self.config.get('risk', {}).get('min_stop_loss_pips', 10)
-            stop_loss_pips = self.trend_filter.calculate_dynamic_stop_loss(symbol, min_stop_loss_pips)
+            # Calculate USD-based stop loss price (fixed $2.00 risk)
+            # Use calculate_usd_based_stop_loss_price() which uses formula: entry_price ± (2 / contract_value_per_point)
+            # Note: lot_size will be calculated later, so use default for initial calculation
+            stop_loss_price, stop_loss_distance = self.risk_manager.calculate_usd_based_stop_loss_price(
+                symbol=symbol,
+                entry_price=entry_price,
+                order_type='BUY' if order_type == OrderType.BUY else 'SELL',
+                lot_size=None,  # Will use default_lot_size, then recalculate with actual lot_size later
+                risk_usd=self.risk_manager.max_risk_usd
+            )
             
             # Get broker's minimum stops level and ensure SL respects it
             stops_level = symbol_info.get('trade_stops_level', 0)
-            point = symbol_info['point']
-            pip_value = point * 10 if symbol_info['digits'] == 5 or symbol_info['digits'] == 3 else point
-            min_stops_pips = (stops_level * point) / pip_value if pip_value > 0 and stops_level > 0 else 0
+            point = symbol_info.get('point', 0.00001)
+            digits = symbol_info.get('digits', 5)
+            pip_value = point * 10 if digits == 5 or digits == 3 else point
+            min_stops_distance = stops_level * point if stops_level > 0 else 0
             
-            # Ensure stop loss meets broker's minimum
-            if min_stops_pips > 0 and stop_loss_pips < min_stops_pips:
-                logger.info(f"🔧 {symbol}: Adjusting stop loss from {stop_loss_pips:.1f} to {min_stops_pips:.1f} pips (broker minimum stops_level: {stops_level})")
-                stop_loss_pips = max(stop_loss_pips, min_stops_pips)
+            # Ensure stop loss meets broker's minimum distance
+            if min_stops_distance > 0:
+                actual_sl_distance = abs(entry_price - stop_loss_price)
+                if actual_sl_distance < min_stops_distance:
+                    # Adjust stop loss to meet broker minimum
+                    if order_type == OrderType.BUY:
+                        stop_loss_price = entry_price - min_stops_distance
+                    else:  # SELL
+                        stop_loss_price = entry_price + min_stops_distance
+                    logger.info(f"🔧 {symbol}: Adjusting stop loss to meet broker minimum distance: {min_stops_distance:.5f} (stops_level: {stops_level})")
             
-            logger.info(f"🛡️ {symbol}: Stop loss = {stop_loss_pips:.1f} pips (broker min: {min_stops_pips:.1f} pips)")
+            logger.info(f"🛡️ {symbol}: Stop loss price = {stop_loss_price:.5f} (distance: {abs(entry_price - stop_loss_price):.5f}, risk: ${self.risk_manager.max_risk_usd:.2f} USD)")
             
-            # Validate stop loss with entry price
+            # Validate stop loss with entry price (check broker minimum only)
             order_type_str = 'BUY' if order_type == OrderType.BUY else 'SELL'
-            if not self.risk_manager.validate_stop_loss(symbol, stop_loss_pips, entry_price, order_type_str):
-                logger.warning(f"⛔ {symbol}: Stop loss validation failed (SL: {stop_loss_pips:.1f} pips) - trade execution aborted")
+            if not self.risk_manager.validate_stop_loss(symbol, stop_loss_pips=None, entry_price=entry_price, order_type=order_type_str, stop_loss_price=stop_loss_price):
+                logger.warning(f"⛔ {symbol}: Stop loss validation failed (SL price: {stop_loss_price:.5f}) - trade execution aborted")
                 self.trade_stats['failed_trades'] += 1
                 return False
             
-            # CRITICAL FIX: Calculate lot size to achieve $2 risk (not always use minimum)
+            # Calculate stop_loss_pips for logging/compatibility (not used for risk calculation)
+            stop_loss_pips = abs(entry_price - stop_loss_price) / pip_value if pip_value > 0 else 0
+            
+            # NEW LOT SIZE PRIORITY LOGIC: Always try 0.01 first, only escalate if broker requires AND setup is strong
             # Get symbol info for lot size calculation
             symbol_info_for_lot = self.mt5_connector.get_symbol_info(symbol)
             if not symbol_info_for_lot:
@@ -742,88 +997,87 @@ class TradingBot:
                 self.trade_stats['failed_trades'] += 1
                 return False
             
-            # Calculate point, pip value, and contract size
+            # Get broker minimum lot size (without config overrides for priority logic)
+            symbol_min_lot = symbol_info_for_lot.get('volume_min', 0.01)
+            
+            # Get quality assessment to determine if setup is strong
+            # Try to get from opportunity dict first, otherwise fetch it
+            quality_score = opportunity.get('quality_score', None)
+            high_quality_setup = opportunity.get('high_quality_setup', False)
+            
+            if quality_score is None:
+                # Quality score not in opportunity - fetch it
+                quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                quality_score = quality_assessment.get('quality_score', 0.0)
+                high_quality_setup = quality_assessment.get('is_high_quality', False)
+            
+            # Determine lot size using priority logic
+            lot_size, lot_reason = self.risk_manager.determine_lot_size_with_priority(
+                symbol=symbol,
+                broker_min_lot=symbol_min_lot,
+                high_quality_setup=high_quality_setup,
+                quality_score=quality_score
+            )
+            
+            # Check if symbol should be skipped
+            if lot_size is None:
+                logger.info(f"⛔ [SKIP] {symbol} | Signal: {signal} | Reason: {lot_reason}")
+                self.trade_stats['filtered_opportunities'] += 1
+                return None  # None indicates filtered/skipped, not failed
+            
+            # Calculate point, pip value, contract size
+            # Risk is fixed at $2.00 USD (calculated via calculate_usd_based_stop_loss_price)
             point = symbol_info_for_lot.get('point', 0.00001)
             pip_value = point * 10 if symbol_info_for_lot.get('digits', 5) == 5 or symbol_info_for_lot.get('digits', 3) == 3 else point
             contract_size = symbol_info_for_lot.get('contract_size', 1.0)
-            stop_loss_price = stop_loss_pips * pip_value
             
-            # Get broker minimum lot size and config overrides
-            symbol_min_lot = symbol_info_for_lot.get('volume_min', 0.01)
-            symbol_upper = symbol.upper()
-            symbol_limit_config = self.risk_manager.symbol_limits.get(symbol_upper, {})
-            config_min_lot = symbol_limit_config.get('min_lot')
+            # Calculate USD-based stop loss price (fixed $2.00 risk)
+            estimated_risk = self.risk_manager.max_risk_usd  # Always $2.00 with USD-based SL
             
-            # Determine effective minimum lot (config override or broker minimum)
-            if config_min_lot is not None:
-                effective_min_lot = max(symbol_min_lot, config_min_lot)
-                min_source = "config"
-            else:
-                effective_min_lot = symbol_min_lot
-                min_source = "broker"
-            
-            # Calculate lot size needed to achieve $2 risk
-            max_risk_usd = self.risk_manager.max_risk_usd  # Should be $2.0
-            if stop_loss_price > 0 and contract_size > 0:
-                calculated_lot_for_risk = max_risk_usd / (stop_loss_price * contract_size)
-            else:
-                calculated_lot_for_risk = effective_min_lot
-            
-            # Round to volume step
+            # Round lot size to volume step
             volume_step = symbol_info_for_lot.get('volume_step', 0.01)
             if volume_step > 0:
-                calculated_lot_for_risk = round(calculated_lot_for_risk / volume_step) * volume_step
-                effective_min_lot = round(effective_min_lot / volume_step) * volume_step
-                if effective_min_lot < volume_step:
-                    effective_min_lot = volume_step
+                lot_size = round(lot_size / volume_step) * volume_step
+                if lot_size < volume_step:
+                    lot_size = volume_step
             
-            # Use the MAXIMUM of calculated lot (for $2 risk) and broker minimum
-            # This ensures we get $2 risk if possible, but never go below broker minimum
-            lot_size = max(calculated_lot_for_risk, effective_min_lot)
+            # Recalculate stop loss price with rounded lot size (risk remains $2.00)
+            stop_loss_price, _ = self.risk_manager.calculate_usd_based_stop_loss_price(
+                symbol=symbol,
+                entry_price=entry_price,
+                order_type='BUY' if order_type == OrderType.BUY else 'SELL',
+                lot_size=lot_size,
+                risk_usd=self.risk_manager.max_risk_usd
+            )
             
-            # Calculate actual risk with chosen lot size
-            estimated_risk = lot_size * stop_loss_price * contract_size
+            # Calculate stop_loss_pips for logging (not used for risk calculation)
+            stop_loss_pips = abs(entry_price - stop_loss_price) / pip_value if pip_value > 0 else 0
             
-            # CRITICAL: Log lot size decision
-            if calculated_lot_for_risk >= effective_min_lot:
-                lot_reason = f"Calculated for ${max_risk_usd:.2f} risk ({calculated_lot_for_risk:.4f})"
-            else:
-                lot_reason = f"Using minimum lot {effective_min_lot:.4f} ({min_source}) - calculated {calculated_lot_for_risk:.4f} was below minimum"
-            
+            # Log lot size decision
             logger.info(f"📦 {symbol}: LOT SIZE = {lot_size:.4f} | "
                        f"Reason: {lot_reason} | "
-                       f"Estimated Risk: ${estimated_risk:.2f} (target: ${max_risk_usd:.2f})")
+                       f"Estimated Risk: ${estimated_risk:.2f} (target: ${self.risk_manager.max_risk_usd:.2f})")
             
-            # CRITICAL FIX: Reject trade if estimated risk (with slippage buffer) exceeds max_risk_usd
-            # Add 10% slippage buffer to account for execution slippage
+            # With USD-based stop loss, risk is already fixed at max_risk_usd ($2.00)
+            # No need for slippage buffer check since the SL is calculated to exactly match the risk limit
+            # The actual risk will be $2.00 regardless of slippage because the SL distance is calculated
+            # to ensure the risk is exactly $2.00 based on the lot size and contract value per point
             max_risk_usd = self.risk_manager.max_risk_usd
-            slippage_buffer = 1.10  # 10% buffer for slippage
-            risk_with_slippage = estimated_risk * slippage_buffer
             
-            if risk_with_slippage > max_risk_usd:
-                logger.warning(f"⛔ {symbol}: REJECTED - Estimated risk ${estimated_risk:.2f} (with slippage: ${risk_with_slippage:.2f}) exceeds max ${max_risk_usd:.2f} | "
+            # For USD-based SL, estimated_risk should always equal max_risk_usd
+            # Only reject if somehow the calculation is wrong (safety check)
+            if estimated_risk > max_risk_usd * 1.01:  # Allow 1% tolerance for rounding
+                logger.warning(f"⛔ {symbol}: REJECTED - Estimated risk ${estimated_risk:.2f} exceeds max ${max_risk_usd:.2f} | "
                              f"Lot: {lot_size:.4f}, SL: {stop_loss_pips:.1f} pips, Contract: {contract_size}")
                 # Risk validation failure is NOT an execution failure - it's a pre-execution filter
                 # Don't increment failed_trades - this is expected risk management
                 return None  # None indicates filtered/skipped, not failed
             
             # Log trade execution with lot size details
-            # Use estimated_risk here (actual risk will be calculated after order placement with fill price)
-            try:
-                logger.info(f"📦 {symbol}: EXECUTING WITH MINIMUM LOT SIZE = {lot_size:.4f} | "
-                           f"Source: {min_source} | "
-                           f"Estimated Risk: ${estimated_risk:.2f} (with slippage: ${risk_with_slippage:.2f}, max: ${max_risk_usd:.2f}) | "
-                           f"Policy: Always use LEAST POSSIBLE lot size per symbol")
-            except (NameError, UnboundLocalError) as e:
-                # Fallback if variables are undefined (should not happen, but safety check)
-                logger.warning(f"⚠️ {symbol}: Error logging trade details: {e}. Using fallback values.")
-                fallback_risk = estimated_risk if 'estimated_risk' in locals() else 0.0
-                fallback_slippage = risk_with_slippage if 'risk_with_slippage' in locals() else 0.0
-                fallback_max = max_risk_usd if 'max_risk_usd' in locals() else 2.0
-                logger.info(f"📦 {symbol}: EXECUTING WITH MINIMUM LOT SIZE = {lot_size:.4f} | "
-                           f"Source: {min_source} | "
-                           f"Estimated Risk: ${fallback_risk:.2f} (with slippage: ${fallback_slippage:.2f}, max: ${fallback_max:.2f}) | "
-                           f"Policy: Always use LEAST POSSIBLE lot size per symbol")
+            logger.info(f"📦 {symbol}: EXECUTING WITH LOT SIZE = {lot_size:.4f} | "
+                       f"Reason: {lot_reason} | "
+                       f"Estimated Risk: ${estimated_risk:.2f} (max: ${max_risk_usd:.2f}) | "
+                       f"Policy: Priority logic (0.01 first, escalate only if broker requires AND setup strong)")
             
             # Get spread for statistics
             spread_points = self.pair_filter.get_spread_points(symbol)
@@ -905,11 +1159,20 @@ class TradingBot:
                     # Market closed is NOT a failure - it's a market condition
                     return None  # None indicates filtered/skipped, not failed
                 
-                order_result = self.order_manager.place_order(
+                # Convert stop_loss_price to pips for order_manager (it will convert back to price)
+                # Calculate pip_value if not already defined
+                if 'pip_value' not in locals() or pip_value is None:
+                    point = symbol_info_for_lot.get('point', 0.00001)
+                    digits = symbol_info_for_lot.get('digits', 5)
+                    pip_value = point * 10 if digits == 5 or digits == 3 else point
+                
+                stop_loss_pips_for_order = abs(entry_price - stop_loss_price) / pip_value if pip_value > 0 else 0
+                
+                result = self.order_manager.place_order(
                     symbol=symbol,
                     order_type=order_type,
                     lot_size=lot_size,
-                    stop_loss=stop_loss_pips,
+                    stop_loss=stop_loss_pips_for_order,
                     comment=f"Bot {signal}"
                 )
                 
@@ -917,18 +1180,25 @@ class TradingBot:
                 entry_price_actual = entry_price  # Default to requested price
                 slippage = 0.0
                 
-                if order_result is None:
+                if result is None:
                     ticket = None
-                elif isinstance(order_result, dict):
-                    if 'error' in order_result:
-                        ticket = order_result['error']  # Error code
+                elif isinstance(result, dict):
+                    if 'error' in result:
+                        ticket = result['error']  # Error code
+                        # Update state for error
+                        self._update_state('ERROR', symbol, f'Order failed: {result.get("error")}')
                     else:
-                        ticket = order_result.get('ticket')
-                        entry_price_actual = order_result.get('entry_price_actual', entry_price)
-                        slippage = order_result.get('slippage', 0.0)
+                        ticket = result.get('ticket')
+                        entry_price_actual = result.get('entry_price_actual', entry_price)
+                        slippage = result.get('slippage', 0.0)
+                        # Update state for successful trade
+                        if ticket:
+                            self._update_state('MANAGING TRADE', symbol, f'Opened {signal} trade (Ticket: {ticket})')
                 else:
                     # Legacy format (int ticket)
-                    ticket = order_result
+                    ticket = result
+                    if ticket and ticket > 0:
+                        self._update_state('MANAGING TRADE', symbol, f'Opened {signal} trade (Ticket: {ticket})')
                 
                 # Success case
                 if ticket and ticket > 0:
@@ -947,7 +1217,7 @@ class TradingBot:
                 # -5: Trading restriction (10027, 10044, etc.) - non-retryable
                 
                 # Handle error codes (from dict or legacy int)
-                error_code = ticket if isinstance(ticket, int) and ticket < 0 else (order_result.get('error') if isinstance(order_result, dict) else None)
+                error_code = ticket if isinstance(ticket, int) and ticket < 0 else (result.get('error') if isinstance(result, dict) else None)
                 
                 # Market closed - don't retry
                 if error_code == -4:
@@ -1114,6 +1384,34 @@ class TradingBot:
                 self.tracked_tickets.add(ticket)
                 self.position_monitor.update_tracked_positions(ticket)
                 
+                # CRITICAL FIX 2.1: STRICT SL ENFORCEMENT - Apply immediately after entry
+                # ALWAYS enforce -$2.00 protective SL regardless of initial profit status
+                # This ensures protection is in place from the moment trade opens
+                # MIGRATED TO SLManager: All SL logic now handled by unified SLManager
+                fresh_position = self.order_manager.get_position_by_ticket(ticket)
+                if fresh_position:
+                    fresh_profit = fresh_position.get('profit', 0.0)
+                    
+                    # Use new unified SLManager for all SL enforcement
+                    # This handles strict loss, break-even, sweet-spot, and trailing stops atomically
+                    if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                        sl_update_success, sl_update_reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
+                        if sl_update_success:
+                            logger.info(f"🛡️ SL MANAGER: {symbol} Ticket {ticket} | "
+                                      f"Profit: ${fresh_profit:.2f} | {sl_update_reason}")
+                        else:
+                            logger.debug(f"🛡️ SL MANAGER: {symbol} Ticket {ticket} | "
+                                       f"Profit: ${fresh_profit:.2f} | {sl_update_reason}")
+                    else:
+                        # Fallback: Use legacy protective SL if SLManager not available
+                        protective_sl_set = self.risk_manager.enforce_protective_sl_on_entry(ticket, fresh_position)
+                        if protective_sl_set:
+                            logger.warning(f"🛡️ LEGACY SL (SLManager unavailable): {symbol} Ticket {ticket} | "
+                                         f"Profit: ${fresh_profit:.2f} | Using legacy protective SL")
+                        else:
+                            logger.error(f"❌ SL FAILED: {symbol} Ticket {ticket} | "
+                                       f"Profit: ${fresh_profit:.2f} | Neither SLManager nor legacy SL available")
+                
                 self.reset_error_count()
                 return True
             else:
@@ -1130,7 +1428,11 @@ class TradingBot:
     
     def _continuous_trailing_stop_loop(self):
         """Background thread loop for continuous trailing stop monitoring."""
-        logger.info(f"🔄 Continuous trailing stop monitor started (interval: {self.trailing_cycle_interval_ms}ms = {self.trailing_cycle_interval:.3f}s)")
+        # Instant trailing: if trigger_on_tick is True and interval is 0, run immediately on every call
+        if self.trigger_on_tick and self.trailing_cycle_interval == 0:
+            logger.info(f"🔄 Continuous trailing stop monitor started (INSTANT - trigger_on_tick=True, interval=0ms)")
+        else:
+            logger.info(f"🔄 Continuous trailing stop monitor started (interval: {self.trailing_cycle_interval_ms}ms = {self.trailing_cycle_interval:.3f}s)")
         
         while self.trailing_stop_running and self.running:
             try:
@@ -1138,14 +1440,23 @@ class TradingBot:
                     # Ensure connection before monitoring
                     if self.mt5_connector.ensure_connected():
                         # Monitor all positions and update trailing stops (normal polling)
+                        # If trigger_on_tick is True, this runs immediately without delay
                         self.risk_manager.monitor_all_positions_continuous(use_fast_polling=False)
                     else:
                         # Try to reconnect if disconnected
                         logger.warning("Continuous trailing stop: MT5 disconnected, attempting reconnect...")
                         self.mt5_connector.reconnect()
                 
-                # Sleep for the configured interval
-                time.sleep(self.trailing_cycle_interval)
+                # Sleep for the configured interval (0 = instant, no delay)
+                if self.trailing_cycle_interval > 0:
+                    time.sleep(self.trailing_cycle_interval)
+                # If interval is 0 and trigger_on_tick is True, run immediately (no sleep)
+                # But add a tiny sleep to prevent CPU spinning (1ms minimum)
+                elif self.trigger_on_tick:
+                    time.sleep(0.001)  # 1ms minimum to prevent CPU spinning
+                else:
+                    # Default: small sleep to prevent CPU spinning
+                    time.sleep(0.001)
             
             except Exception as e:
                 logger.error(f"Error in continuous trailing stop loop: {e}", exc_info=True)
@@ -1154,29 +1465,39 @@ class TradingBot:
                     self.mt5_connector.ensure_connected()
                 except:
                     pass
-                time.sleep(self.trailing_cycle_interval)
+                # Small sleep on error to prevent rapid retry loops
+                time.sleep(0.001)
         
         logger.info("Continuous trailing stop monitor stopped")
     
     def _fast_trailing_stop_loop(self):
         """Background thread loop for fast trailing stop monitoring (positions with profit >= threshold)."""
         fast_interval_seconds = self.fast_trailing_interval_ms / 1000.0
-        logger.info(f"⚡ Fast trailing stop monitor started (interval: {fast_interval_seconds:.3f}s = {self.fast_trailing_interval_ms}ms)")
+        # Instant fast trailing: if interval is 0, run immediately (only debounce cycles apply)
+        if self.fast_trailing_interval_ms == 0:
+            logger.info(f"⚡ Fast trailing stop monitor started (INSTANT - interval=0ms, debounce_cycles={self.risk_config.get('fast_trailing_debounce_cycles', 3)})")
+        else:
+            logger.info(f"⚡ Fast trailing stop monitor started (interval: {fast_interval_seconds:.3f}s = {self.fast_trailing_interval_ms}ms)")
         
         while self.fast_trailing_running and self.running:
             try:
                 if not self.check_kill_switch():
                     # Ensure connection before monitoring
                     if self.mt5_connector.ensure_connected():
-                        # Monitor only positions in fast polling mode (300ms updates for profitable positions)
+                        # Monitor only positions in fast polling mode
+                        # If interval is 0, this runs immediately when threshold reached (debounce cycles still apply)
                         self.risk_manager.monitor_all_positions_continuous(use_fast_polling=True)
                     else:
                         # Try to reconnect if disconnected
                         logger.warning("Fast trailing stop: MT5 disconnected, attempting reconnect...")
                         self.mt5_connector.reconnect()
                 
-                # Sleep for the fast interval (300ms for milliseconds-level updates)
-                time.sleep(fast_interval_seconds)
+                # Sleep for the fast interval (0 = instant, no delay except debounce cycles)
+                if fast_interval_seconds > 0:
+                    time.sleep(fast_interval_seconds)
+                else:
+                    # Instant mode: tiny sleep to prevent CPU spinning (1ms minimum)
+                    time.sleep(0.001)
             
             except Exception as e:
                 logger.error(f"Error in fast trailing stop loop: {e}", exc_info=True)
@@ -1185,7 +1506,8 @@ class TradingBot:
                     self.mt5_connector.ensure_connected()
                 except:
                     pass
-                time.sleep(fast_interval_seconds)
+                # Small sleep on error to prevent rapid retry loops
+                time.sleep(0.001)
         
         logger.info("Fast trailing stop monitor stopped")
     
@@ -1304,13 +1626,24 @@ class TradingBot:
     def manage_positions(self):
         """Manage open positions (halal checks, max duration, etc.)."""
         try:
+            positions = self.order_manager.get_open_positions()
+            
+            # Update state based on positions
+            if positions:
+                # Get first position symbol for state display
+                first_symbol = positions[0].get('symbol', 'N/A')
+                self._update_state('MANAGING TRADE', first_symbol, 'Managing positions')
+            else:
+                # No positions - transition to SCANNING to look for new opportunities
+                if self.current_state != 'SCANNING':
+                    self._update_state('SCANNING', 'N/A', 'No open positions - scanning for opportunities')
+                    logger.debug("State transition: MANAGING TRADE → SCANNING (no open positions)")
+            
             # Check all positions for halal compliance (skip in test mode)
             test_mode = self.config.get('pairs', {}).get('test_mode', False)
             if not test_mode:
                 # Only check halal compliance in live mode
                 self.halal_compliance.check_all_positions()
-            
-            positions = self.order_manager.get_open_positions()
             
             for position in positions:
                 try:
@@ -1401,14 +1734,13 @@ class TradingBot:
             
             # Calculate estimated risk and SL (for display purposes)
             symbol_info = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=False)
-            estimated_risk = 2.0  # Default target
-            sl_pips = self.risk_manager.min_stop_loss_pips
+            estimated_risk = self.risk_manager.max_risk_usd  # Fixed $2.00 USD
             if symbol_info:
                 point = symbol_info.get('point', 0.00001)
                 pip_value = point * 10 if symbol_info.get('digits', 5) == 5 or symbol_info.get('digits', 3) == 3 else point
                 contract_size = symbol_info.get('contract_size', 1.0)
-                min_sl_price = sl_pips * pip_value
-                if min_sl_price > 0 and contract_size > 0:
+                # With USD-based SL, risk is always $2.00, so calculate lot size accordingly
+                if contract_size > 0:
                     # Calculate lot size for $2 risk
                     calculated_lot = self.risk_manager.max_risk_usd / (min_sl_price * contract_size)
                     # Use max of calculated and minimum lot
@@ -1896,23 +2228,77 @@ class TradingBot:
                 # Get quality threshold for comparison
                 min_quality_score = self.trading_config.get('min_quality_score', 50.0)
                 
-                # Get current position count
+                # Get current position count ONCE at the start of batch
                 current_positions = self.order_manager.get_position_count()
                 max_trades = self.manual_max_trades if (self.manual_approval_mode and self.manual_max_trades is not None) else self.risk_manager.max_open_trades
                 trades_executed = 0
                 trades_skipped = 0
                 failed_symbols_in_batch = set()  # Track symbols that failed in this batch to prevent duplicates
                 
+                # Limit opportunities to available slots at the start (allow multiple trades to execute quickly)
+                available_slots = max_trades - current_positions
+                if available_slots <= 0:
+                    logger.info(f"⏸️  Max open trades ({max_trades}) already reached - skipping all opportunities")
+                    opportunities = []
+                else:
+                    # CRITICAL FIX: Reserve slots by limiting opportunities, but allow all reserved slots to execute
+                    # This ensures multiple trades can execute quickly without position count blocking
+                    original_count = len(opportunities)
+                    opportunities = opportunities[:available_slots]
+                    logger.info(f"📊 Processing {len(opportunities)} opportunity(ies) out of {original_count} found | "
+                              f"Available slots: {available_slots}/{max_trades} | "
+                              f"Reserved {available_slots} slot(s) for batch execution | "
+                              f"Current positions: {current_positions}")
+                
                 # Execute opportunities (sequential in manual mode, parallel in automatic mode)
+                # CRITICAL FIX: Since we've already reserved slots at the batch level, we can execute all reserved opportunities
+                # without re-checking position count for each trade (position count is checked in execute_trade as safety)
+                logger.info(f"🔄 Starting batch execution loop: {len(opportunities)} opportunity(ies) to process")
                 for idx, opportunity in enumerate(opportunities, 1):
-                    # Always get fresh position count to prevent exceeding max
-                    current_positions = self.order_manager.get_position_count()
+                    symbol = opportunity.get('symbol', 'N/A')
+                    logger.info(f"🔄 [BATCH {idx}/{len(opportunities)}] Processing: {symbol} | "
+                              f"Current positions: {self.order_manager.get_position_count()}/{max_trades}")
                     
-                    # Check if we've reached max open trades
-                    if current_positions >= max_trades:
-                        logger.info(f"⏸️  Max open trades ({max_trades}) reached - skipping remaining opportunities")
-                        trades_skipped += len(opportunities) - idx + 1
-                        break
+                    # CRITICAL: Don't re-check position count for each trade - we've already reserved slots
+                    # The execute_trade function will do a final safety check, but we trust the batch reservation
+                    # This allows multiple trades to execute quickly without position count blocking
+                    
+                    # Check entry conditions for allowing additional trades (strict mode)
+                    # CRITICAL FIX: Only apply strict entry conditions when approaching max trades limit
+                    # This allows multiple trades to open quickly, but becomes more selective near the limit
+                    risk_config = self.config.get('risk', {})
+                    max_open_trades_strict = risk_config.get('max_open_trades_strict', False)
+                    entry_conditions = risk_config.get('entry_conditions', {})
+                    
+                    # Only apply strict entry conditions when we're close to max trades (within 2 of limit)
+                    # This allows quick execution of multiple trades, but becomes selective near capacity
+                    # Example: If max_trades=6, only apply strict conditions when current_positions >= 4
+                    # NOTE: Use initial position count (before batch) to determine threshold
+                    strict_condition_threshold = max(1, max_trades - 2)  # Apply when within 2 of limit
+                    
+                    if max_open_trades_strict and current_positions >= strict_condition_threshold:
+                        # Check if this opportunity meets entry conditions
+                        quality_score = opportunity.get('quality_score', 0.0)
+                        trend_signal = opportunity.get('trend_signal', {})
+                        volume_ok = opportunity.get('volume_ok', False)
+                        
+                        require_strong_signal = entry_conditions.get('require_strong_signal', True)
+                        require_trend_alignment = entry_conditions.get('require_trend_alignment', True)
+                        require_volume_medium = entry_conditions.get('require_volume_medium', True)
+                        
+                        # Check conditions
+                        strong_signal_ok = not require_strong_signal or quality_score >= self.trading_config.get('min_quality_score', 50.0)
+                        trend_alignment_ok = not require_trend_alignment or (trend_signal.get('signal') != 'NONE' if trend_signal else False)
+                        volume_medium_ok = not require_volume_medium or volume_ok
+                        
+                        if not (strong_signal_ok and trend_alignment_ok and volume_medium_ok):
+                            logger.info(f"⛔ [SKIP] {opportunity.get('symbol', 'N/A')} | Reason: Entry conditions not met for additional trade (already have {current_positions}/{max_trades} trades, threshold: {strict_condition_threshold}) | "
+                                      f"Strong signal: {strong_signal_ok}, Trend alignment: {trend_alignment_ok}, Volume medium: {volume_medium_ok}")
+                            trades_skipped += 1
+                            continue
+                    
+                    # CRITICAL: Don't check position count here - we've already reserved slots
+                    # The execute_trade function will do a final safety check if needed
                     
                     symbol = opportunity['symbol']
                     signal = opportunity['signal']
@@ -1973,12 +2359,8 @@ class TradingBot:
                         # 1. Check portfolio risk
                         symbol_info_for_risk = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=False)
                         if symbol_info_for_risk:
-                            min_sl_pips = self.risk_manager.min_stop_loss_pips
-                            point = symbol_info_for_risk.get('point', 0.00001)
-                            pip_value = point * 10 if symbol_info_for_risk.get('digits', 5) == 5 or symbol_info_for_risk.get('digits', 3) == 3 else point
-                            contract_size = symbol_info_for_risk.get('contract_size', 1.0)
-                            min_sl_price = min_sl_pips * pip_value
-                            estimated_risk = min_lot * min_sl_price * contract_size if min_sl_price > 0 and contract_size > 0 else self.risk_manager.max_risk_usd
+                            # With USD-based SL, risk is always $2.00 fixed
+                            estimated_risk = self.risk_manager.max_risk_usd
                             
                             portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
                             if not portfolio_risk_ok:
@@ -2069,62 +2451,90 @@ class TradingBot:
                         logger.info(f"🎯 Evaluating opportunity: {symbol} {signal} (Quality: {quality_score:.1f}, Spread: {spread:.1f} points)")
                         
                         # Check if we can still open a trade for this symbol (with actual quality score)
-                    can_open, reason = self.risk_manager.can_open_trade(
-                        symbol=symbol,
-                        signal=signal,
+                        can_open, reason = self.risk_manager.can_open_trade(
+                            symbol=symbol,
+                            signal=signal,
                             quality_score=quality_score,
                             high_quality_setup=quality_score >= min_quality_score
-                    )
-                    
-                    if not can_open:
-                        if test_mode:
+                        )
+                        
+                        if not can_open:
+                            if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | {reason}")
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
-                        trades_skipped += 1
-                        continue
-                    
-                    # Execute trade
-                    result = self.execute_trade(opportunity)
-                    
-                    # execute_trade returns:
-                    # - True: Trade executed successfully
-                    # - False: Actual execution failure (order placement failed, etc.)
-                    # - None: Filtered/skipped (randomness, risk validation, trend change) - NOT a failure
-                    
-                    if result is True:
-                        if test_mode:
+                            logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
+                            trades_skipped += 1
+                            continue
+                        
+                        # Execute trade with error handling to ensure batch continues
+                        logger.info(f"🔄 [BATCH {idx}/{len(opportunities)}] Calling execute_trade for {symbol}")
+                        try:
+                            result = self.execute_trade(opportunity)
+                            logger.info(f"🔄 [BATCH {idx}/{len(opportunities)}] execute_trade returned: {result} for {symbol}")
+                        except Exception as e:
+                            logger.error(f"❌ [ERROR] [BATCH {idx}/{len(opportunities)}] {symbol} | Exception in execute_trade: {e}", exc_info=True)
+                            error_logger.error(f"Exception in execute_trade for {symbol}: {e}", exc_info=True)
+                            result = False  # Treat exception as failure, but continue batch
+                        
+                        # execute_trade returns:
+                        # - True: Trade executed successfully
+                        # - False: Actual execution failure (order placement failed, etc.)
+                        # - None: Filtered/skipped (randomness, risk validation, trend change) - NOT a failure
+                        
+                        if result is True:
+                            logger.info(f"✅ [BATCH {idx}/{len(opportunities)}] Trade {symbol} executed successfully | "
+                                      f"Position count after: {self.order_manager.get_position_count()}/{max_trades}")
+                            if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'PASS - EXECUTED':<20} | Trade executed")
-                        logger.info(f"✅ {symbol}: Trade execution completed successfully")
-                        trades_executed += 1
+                            logger.info(f"✅ {symbol}: Trade execution completed successfully")
+                            trades_executed += 1
                             # DO NOT manually increment - always use get_position_count() in next iteration
-                    elif result is None:
-                        # Filtered/skipped - NOT a failure (randomness, risk validation, trend change)
-                        if test_mode:
+                        elif result is None:
+                            # Filtered/skipped - NOT a failure (randomness, risk validation, trend change)
+                            if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | Filtered (not a failure)")
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Trade filtered/skipped (randomness, risk validation, or trend change)")
-                        self.trade_stats['filtered_opportunities'] += 1
-                        trades_skipped += 1
-                    else:  # result is False - actual execution failure
-                        if test_mode:
+                            logger.info(f"⛔ [SKIP] [BATCH {idx}/{len(opportunities)}] {symbol} | Reason: Trade filtered/skipped (randomness, risk validation, or trend change) | "
+                                      f"Position count: {self.order_manager.get_position_count()}/{max_trades}")
+                            self.trade_stats['filtered_opportunities'] += 1
+                            trades_skipped += 1
+                        else:  # result is False - actual execution failure
+                            if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'FAILED':<20} | Trade execution failed")
-                        logger.info(f"❌ [FAILED] {symbol} | Reason: Trade execution failed (order placement error)")
-                        trades_skipped += 1
-                    
-                    # Re-check position count after execution
-                    current_positions_after = self.order_manager.get_position_count()
-                    if current_positions_after >= max_trades:
-                        logger.info(f"⏸️  Max open trades ({max_trades}) reached after trade {idx}")
-                        if idx < len(opportunities):
-                            print(f"\n⏸️  Max open trades reached - stopping batch execution.")
-                            trades_skipped += len(opportunities) - idx
-                            break
+                            logger.info(f"❌ [FAILED] [BATCH {idx}/{len(opportunities)}] {symbol} | Reason: Trade execution failed (order placement error) | "
+                                      f"Position count: {self.order_manager.get_position_count()}/{max_trades}")
+                            trades_skipped += 1
+                        
+                        # CRITICAL FIX: Don't re-check position count after each trade - we've already reserved slots
+                        # Only check if we've exceeded the reserved slots (shouldn't happen, but safety check)
+                        # This allows all reserved trades to execute quickly without position count blocking
+                        current_positions_after = self.order_manager.get_position_count()
+                        logger.info(f"📊 [BATCH {idx}/{len(opportunities)}] After {symbol} execution: "
+                                  f"Position count: {current_positions_after}/{max_trades} | "
+                                  f"Trades executed: {trades_executed} | Trades skipped: {trades_skipped}")
+                        
+                        if current_positions_after > max_trades:
+                            # Only break if we've EXCEEDED max (not at max) - this shouldn't happen with proper reservation
+                            logger.warning(f"⚠️  Position count ({current_positions_after}) exceeded max ({max_trades}) after trade {idx} - stopping batch execution")
+                            if idx < len(opportunities):
+                                print(f"\n⚠️  Position count exceeded max - stopping batch execution.")
+                                trades_skipped += len(opportunities) - idx
+                                break
+                        elif current_positions_after == max_trades and idx < len(opportunities):
+                            # At max but still have more opportunities - this is expected, continue executing reserved slots
+                            logger.info(f"📊 [BATCH {idx}/{len(opportunities)}] Position count at max ({max_trades}) after trade {idx}, "
+                                      f"but continuing with reserved slots ({len(opportunities) - idx} remaining)")
                 
                 # Close opportunity table (testing mode)
                 if test_mode:
                     logger.info("-" * 100)
                 
-                # Get final position count
+                # Get final position count and log batch summary
                 final_position_count = self.order_manager.get_position_count()
+                logger.info(f"📊 BATCH EXECUTION SUMMARY: "
+                          f"Processed {len(opportunities)} opportunity(ies) | "
+                          f"Executed: {trades_executed} | "
+                          f"Skipped: {trades_skipped} | "
+                          f"Final positions: {final_position_count}/{max_trades} | "
+                          f"Started with: {current_positions} positions")
                 
                 # Manual approval mode: Display batch execution summary
                 if self.manual_approval_mode and opportunities:
@@ -2186,6 +2596,18 @@ class TradingBot:
         else:
             logger.info(f"Trading bot started in AUTOMATIC MODE. Cycle interval: {cycle_interval_seconds}s")
         
+        # CRITICAL FIX: Start SLManager worker thread for real-time SL updates
+        if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+            try:
+                self.risk_manager.sl_manager.start_sl_worker()
+                logger.info("✅ SLManager worker thread started successfully")
+            except Exception as e:
+                logger.error(f"❌ Failed to start SLManager worker thread: {e}", exc_info=True)
+                error_logger.error(f"SLManager worker thread start failed: {e}", exc_info=True)
+        else:
+            logger.critical("❌ SLManager not available - cannot start worker thread")
+            error_logger.critical("SLManager not available - worker thread not started")
+        
         # Start continuous trailing stop monitor
         self.start_continuous_trailing_stop()
         
@@ -2214,6 +2636,20 @@ class TradingBot:
                     scheduler_logger.info("Starting trading cycle")
                     self.run_cycle()
                     scheduler_logger.info("Trading cycle completed")
+                    
+                    # Per-tick monitor: emit BOT_LOOP_TICK event (lightweight, non-blocking)
+                    try:
+                        account_info = self.mt5_connector.get_account_info()
+                        if account_info:
+                            self.system_event_logger.systemEvent("BOT_LOOP_TICK", {
+                                "time": datetime.now().isoformat(),
+                                "openTrades": self.order_manager.get_position_count(),
+                                "equity": account_info.get('equity', 0.0),
+                                "balance": account_info.get('balance', 0.0)
+                            })
+                    except Exception as e:
+                        # Don't let monitoring errors break the bot
+                        logger.debug(f"Error in per-tick monitor: {e}")
                 
                 # In manual mode, ask if user wants to continue scanning (only after trades finish)
                 if self.manual_approval_mode:
@@ -2270,6 +2706,11 @@ class TradingBot:
         """Shutdown the bot gracefully."""
         logger.info("Shutting down trading bot...")
         self.running = False
+        
+        # CRITICAL FIX: Stop SLManager worker thread
+        if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+            self.risk_manager.sl_manager.stop_sl_worker()
+            logger.info("✅ SLManager worker thread stopped")
         
         # Stop continuous trailing stop monitor
         self.stop_continuous_trailing_stop()

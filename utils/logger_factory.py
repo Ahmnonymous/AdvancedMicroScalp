@@ -6,7 +6,7 @@ Provides a centralized logging utility with file rotation, UTF-8 encoding, and t
 import logging
 import os
 from logging.handlers import RotatingFileHandler
-from typing import Optional
+from typing import Optional, Dict, Any
 
 
 # Cache for loggers to prevent duplicate handlers
@@ -89,3 +89,57 @@ def get_symbol_logger(symbol: str, level: int = logging.DEBUG) -> logging.Logger
     logger_name = f"trades.{symbol}"
     return get_logger(logger_name, logfile_path, level)
 
+
+class SystemEventLogger:
+    """
+    System event logger for diagnostic events.
+    Logs to a dedicated system events log file.
+    """
+    
+    def __init__(self):
+        self.logger = get_logger("system_events", "logs/system/system_events.log")
+        self._valid_tags = {
+            # SL & Trailing Diagnostics
+            "SL_UPDATE_SKIPPED", "SL_UPDATE_FAILED", "SL_NOT_MOVING",
+            "TRAILING_TRIGGERED", "TRAILING_SKIPPED", "TRAILING_EXECUTED",
+            "FAST_TRAILING_EXECUTED", "SWEET_SPOT_ENTERED", "SWEET_SPOT_LOCKED",
+            # MT5 Execution Diagnostics
+            "ORDER_REJECTED", "ORDER_SLIPPAGE", "ORDER_FILLED_DELAYED",
+            "CLOSE_FAILED", "MODIFY_FAILED",
+            # Price & Spread Issues
+            "SPREAD_TOO_HIGH", "PRICE_JUMP_DETECTED", "BIG_JUMP_NOT_CAUGHT",
+            # System Health / Session
+            "SESSION_END_RECONCILIATION", "RECONCILIATION_MISMATCH", "BOT_LOOP_TICK"
+        }
+    
+    def systemEvent(self, tag: str, details: Dict[str, Any]):
+        """
+        Log a system event.
+        
+        Args:
+            tag: Event tag (must be one of the valid tags)
+            details: Event details dictionary (only essential values, no giant objects)
+        """
+        if tag not in self._valid_tags:
+            self.logger.warning(f"Invalid system event tag: {tag}")
+            return
+        
+        # Format details as JSON for structured logging
+        import json
+        try:
+            details_str = json.dumps(details, default=str)
+            self.logger.info(f"[{tag}] {details_str}")
+        except Exception as e:
+            # Fallback to string representation if JSON fails
+            self.logger.info(f"[{tag}] {str(details)}")
+
+
+# Global system event logger instance
+_system_event_logger = None
+
+def get_system_event_logger() -> SystemEventLogger:
+    """Get the global system event logger instance."""
+    global _system_event_logger
+    if _system_event_logger is None:
+        _system_event_logger = SystemEventLogger()
+    return _system_event_logger

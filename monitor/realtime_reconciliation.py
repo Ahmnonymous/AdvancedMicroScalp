@@ -25,30 +25,44 @@ logger = get_logger("realtime_recon", "logs/system/realtime_reconciliation.log")
 class RealtimeReconciliation:
     """Real-time reconciliation between bot logs and MT5 broker data."""
     
-    def __init__(self, config: Dict[str, Any], interval_minutes: int = 30):
+    def __init__(self, config: Dict[str, Any], interval_minutes: Optional[int] = None, session_start_time: Optional[datetime] = None):
         """
         Initialize real-time reconciliation.
         
         Args:
             config: Configuration dictionary
-            interval_minutes: Interval between reconciliation checks
+            interval_minutes: Interval between reconciliation checks (deprecated - now uses session end only)
+            session_start_time: Bot session start time - only reconcile trades from this session
         """
         self.config = config
-        self.interval_minutes = interval_minutes
+        reconciliation_config = config.get('reconciliation', {})
+        self.run_at_session_end = reconciliation_config.get('run_at_session_end', True)
+        self.interval_minutes = interval_minutes  # Kept for backward compatibility but not used if run_at_session_end=True
         self.broker_fetcher = RealtimeBrokerFetcher(config)
         self.discrepancies = []
         self.last_check_time = None
+        self.session_start_time = session_start_time  # Only reconcile trades from this session
         
         # Setup discrepancy logging
         os.makedirs('logs/system', exist_ok=True)
         self.discrepancy_logger = get_logger("discrepancies", "logs/system/discrepancies.log")
     
+    def set_session_start_time(self, session_start_time: datetime):
+        """
+        Set the bot session start time for filtering trades.
+        
+        Args:
+            session_start_time: Bot session start datetime
+        """
+        self.session_start_time = session_start_time
+        logger.info(f"Reconciliation session start time set to: {session_start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    
     def parse_bot_logs_realtime(self) -> Dict[str, Dict[str, Any]]:
         """
-        Parse bot trade logs in real-time.
+        Parse bot trade logs in real-time, filtering by session start time.
         
         Returns:
-            Dictionary mapping order_id to trade data
+            Dictionary mapping order_id to trade data (only trades from current session)
         """
         trades_dir = Path('logs/trades')
         bot_trades = {}
@@ -67,6 +81,25 @@ class RealtimeReconciliation:
                         if line and line.startswith('{'):
                             try:
                                 trade = json.loads(line)
+                                
+                                # Filter by session start time if set
+                                if self.session_start_time:
+                                    trade_timestamp_str = trade.get('timestamp', '')
+                                    if trade_timestamp_str:
+                                        try:
+                                            # Parse timestamp (format: 'YYYY-MM-DD HH:MM:SS' or 'YYYY-MM-DD HH:MM:SS.microseconds')
+                                            if '.' in trade_timestamp_str:
+                                                trade_time = datetime.strptime(trade_timestamp_str.split('.')[0], '%Y-%m-%d %H:%M:%S')
+                                            else:
+                                                trade_time = datetime.strptime(trade_timestamp_str, '%Y-%m-%d %H:%M:%S')
+                                            
+                                            # Only include trades from current session
+                                            if trade_time < self.session_start_time:
+                                                continue  # Skip trades before session start
+                                        except (ValueError, AttributeError) as e:
+                                            logger.debug(f"Could not parse trade timestamp '{trade_timestamp_str}': {e}")
+                                            # If we can't parse, include it (fail-safe)
+                                
                                 order_id = str(trade.get('order_id', ''))
                                 if order_id:
                                     # If multiple entries for same order_id, keep the latest
@@ -76,6 +109,11 @@ class RealtimeReconciliation:
                                 pass
             except:
                 pass
+        
+        if self.session_start_time:
+            logger.info(f"Parsed {len(bot_trades)} bot trades from current session (since {self.session_start_time.strftime('%Y-%m-%d %H:%M:%S')})")
+        else:
+            logger.info(f"Parsed {len(bot_trades)} bot trades (no session filter)")
         
         return bot_trades
     
@@ -92,8 +130,18 @@ class RealtimeReconciliation:
         
         logger.info("Starting real-time reconciliation...")
         
-        # Get broker positions from deals
-        broker_positions = self.broker_fetcher.get_positions_from_deals(hours_back=24)
+        # Get broker positions from deals, filtered by session start time
+        if self.session_start_time:
+            logger.info(f"Filtering broker trades to session start time: {self.session_start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+            # Calculate hours back from session start (with some buffer)
+            hours_back = max(24, int((datetime.now() - self.session_start_time).total_seconds() / 3600) + 1)
+            broker_positions = self.broker_fetcher.get_positions_from_deals(
+                hours_back=hours_back,
+                session_start_time=self.session_start_time
+            )
+        else:
+            # No session filter - use default 24 hours
+            broker_positions = self.broker_fetcher.get_positions_from_deals(hours_back=24)
         
         # Get bot trades
         bot_trades = self.parse_bot_logs_realtime()
@@ -173,9 +221,17 @@ class RealtimeReconciliation:
                                f"Trade in bot logs but not in broker")
         
         self.last_check_time = datetime.now()
-        logger.info(f"Reconciliation complete: {len(results['matched'])} matched, "
+        
+        # Log session filter info
+        session_info = ""
+        if self.session_start_time:
+            session_info = f" (session since {self.session_start_time.strftime('%Y-%m-%d %H:%M:%S')})"
+        
+        logger.info(f"Reconciliation complete{session_info}: {len(results['matched'])} matched, "
                    f"{len(results['status_mismatches'])} status mismatches, "
-                   f"{len(results['profit_discrepancies'])} profit discrepancies")
+                   f"{len(results['profit_discrepancies'])} profit discrepancies, "
+                   f"{len(results['only_in_broker'])} only in broker, "
+                   f"{len(results['only_in_bot'])} only in bot")
         
         return results
     
@@ -231,28 +287,95 @@ class RealtimeReconciliation:
         
         return report_file
     
+    def is_session_ending(self) -> bool:
+        """
+        Check if trading session is ending soon.
+        Uses market closing filter logic to detect session end.
+        """
+        try:
+            from filters.market_closing_filter import MarketClosingFilter
+            from execution.mt5_connector import MT5Connector
+            
+            # Create a temporary connector for checking (or use existing one if available)
+            mt5_connector = MT5Connector(self.config)
+            if not mt5_connector.ensure_connected():
+                return False
+            
+            market_filter = MarketClosingFilter(self.config, mt5_connector)
+            
+            # Check if any major symbols are closing (indicates session end)
+            major_symbols = ['EURUSD', 'GBPUSD', 'USDJPY', 'AUDUSD', 'USDCAD']
+            for symbol in major_symbols:
+                is_closing, reason = market_filter.is_market_closing_soon(symbol)
+                if is_closing:
+                    logger.info(f"Session ending detected via {symbol}: {reason}")
+                    return True
+            
+            # Also check if it's Friday near market close (end of week)
+            from datetime import datetime, timezone
+            gmt_now = datetime.now(timezone.utc)
+            if gmt_now.weekday() == 4:  # Friday
+                # Check if near Friday close (22:00 GMT)
+                friday_close = gmt_now.replace(hour=22, minute=0, second=0, microsecond=0)
+                if gmt_now < friday_close:
+                    minutes_until_close = (friday_close - gmt_now).total_seconds() / 60.0
+                    if minutes_until_close <= 30:  # Within 30 minutes of close
+                        logger.info(f"Session ending: Friday market close in {minutes_until_close:.1f} minutes")
+                        return True
+            
+            return False
+        except Exception as e:
+            logger.debug(f"Error checking session end: {e}")
+            return False
+    
     def run_continuous(self, stop_event=None):
         """
         Run continuous reconciliation.
+        If run_at_session_end is True, only runs at end of session.
+        Otherwise, runs on interval (backward compatibility).
         
         Args:
             stop_event: Threading event to stop the loop
         """
-        logger.info(f"Starting continuous reconciliation (interval: {self.interval_minutes} minutes)")
+        if self.run_at_session_end:
+            logger.info("Starting reconciliation - will run only at end of trading session")
+        else:
+            logger.info(f"Starting continuous reconciliation (interval: {self.interval_minutes} minutes)")
         
         try:
+            import time
             while stop_event is None or not stop_event.is_set():
-                results = self.reconcile()
-                if results:
-                    report_file = self.generate_realtime_report(results)
-                    logger.info(f"Real-time reconciliation report: {report_file}")
-                
-                # Wait for next interval
-                import time
-                if stop_event:
-                    stop_event.wait(self.interval_minutes * 60)
+                if self.run_at_session_end:
+                    # Check if session is ending
+                    if self.is_session_ending():
+                        logger.info("Session ending detected - running reconciliation...")
+                        results = self.reconcile()
+                        if results:
+                            report_file = self.generate_realtime_report(results)
+                            logger.info(f"End-of-session reconciliation report: {report_file}")
+                        # Wait a bit before checking again (avoid rapid re-runs)
+                        if stop_event:
+                            stop_event.wait(60)  # Check every minute
+                        else:
+                            time.sleep(60)
+                    else:
+                        # Session not ending - wait and check again
+                        if stop_event:
+                            stop_event.wait(60)  # Check every minute
+                        else:
+                            time.sleep(60)
                 else:
-                    time.sleep(self.interval_minutes * 60)
+                    # Interval-based mode (backward compatibility)
+                    results = self.reconcile()
+                    if results:
+                        report_file = self.generate_realtime_report(results)
+                        logger.info(f"Real-time reconciliation report: {report_file}")
+                    
+                    # Wait for next interval
+                    if stop_event:
+                        stop_event.wait(self.interval_minutes * 60 if self.interval_minutes else 1800)
+                    else:
+                        time.sleep(self.interval_minutes * 60 if self.interval_minutes else 1800)
         
         except KeyboardInterrupt:
             logger.info("Reconciliation stopped by user")

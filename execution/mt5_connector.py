@@ -35,10 +35,58 @@ class MT5Connector:
         """Connect to MT5 terminal."""
         if self.connected and mt5.terminal_info() is not None:
             return True
+        
+        # Check if MT5 terminal is running first
+        mt5_path = self.mt5_config.get('path', '')
+        if mt5_path:
+            logger.info(f"Attempting to connect to MT5 at: {mt5_path}")
+        else:
+            logger.info("Attempting to connect to MT5 (using default installation path)")
             
         # Try to initialize MT5
-        if not mt5.initialize(path=self.mt5_config.get('path', '')):
-            logger.error(f"MT5 initialization failed: {mt5.last_error()}")
+        if not mt5.initialize(path=mt5_path):
+            error_info = mt5.last_error()
+            
+            # MT5.last_error() returns a tuple (retcode, description)
+            retcode = None
+            description = str(error_info)
+            
+            if isinstance(error_info, tuple) and len(error_info) >= 2:
+                retcode = error_info[0]
+                description = error_info[1]
+            elif hasattr(error_info, 'retcode'):
+                retcode = error_info.retcode
+                if hasattr(error_info, 'description'):
+                    description = error_info.description
+            
+            # Get more detailed error information
+            error_msg = f"MT5 initialization failed"
+            if retcode is not None:
+                error_msg += f" (Error code: {retcode})"
+            if description:
+                error_msg += f": {description}"
+            
+            # Common error codes:
+            # - (1, 'RES_S_OK') = Success
+            # - (10004, 'Failed to connect to MetaTrader 5 terminal') = Terminal not running
+            # - (10019, 'Wrong version of the terminal') = Wrong MT5 version
+            
+            if retcode == 10004:
+                error_msg += "\n   → MT5 Terminal is not running. Please start MetaTrader 5 terminal first."
+            elif retcode == 10019:
+                error_msg += "\n   → Wrong MT5 version. Please update MetaTrader 5 terminal."
+            elif retcode is not None and retcode != 0:
+                error_msg += f"\n   → Error code: {retcode}. Check MT5 terminal installation and path."
+            
+            if mt5_path:
+                error_msg += f"\n   → Tried path: {mt5_path}"
+                error_msg += "\n   → Tip: Make sure the path points to terminal64.exe or terminal.exe"
+            else:
+                error_msg += "\n   → Tip: If MT5 is installed in a non-standard location, specify the path in config.json"
+                error_msg += "\n   → Example: \"path\": \"C:\\Program Files\\MetaTrader 5\\terminal64.exe\""
+            
+            logger.error(error_msg)
+            print(f"❌ {error_msg}")
             return False
         
         # Try to login if credentials provided
@@ -50,10 +98,13 @@ class MT5Connector:
             try:
                 account_num = int(account)
             except (ValueError, TypeError):
-                logger.error(f"Invalid account number: {account}")
+                error_msg = f"Invalid account number: {account}"
+                logger.error(error_msg)
+                print(f"❌ {error_msg}")
                 mt5.shutdown()
                 return False
             
+            logger.info(f"Attempting to login to account {account_num} on server {server}...")
             authorized = mt5.login(
                 login=account_num,
                 password=password,
@@ -62,25 +113,69 @@ class MT5Connector:
             )
             
             if not authorized:
-                logger.error(f"MT5 login failed: {mt5.last_error()}")
+                error_info = mt5.last_error()
+                
+                # MT5.last_error() returns a tuple (retcode, description)
+                retcode = None
+                description = str(error_info)
+                
+                if isinstance(error_info, tuple) and len(error_info) >= 2:
+                    retcode = error_info[0]
+                    description = error_info[1]
+                elif hasattr(error_info, 'retcode'):
+                    retcode = error_info.retcode
+                    if hasattr(error_info, 'description'):
+                        description = error_info.description
+                
+                error_msg = f"MT5 login failed"
+                
+                if retcode == 10004:
+                    error_msg += ": Failed to connect to terminal"
+                elif retcode == 10013:
+                    error_msg += ": Invalid account or password"
+                elif retcode == 10014:
+                    error_msg += ": Invalid server name"
+                elif retcode == 10015:
+                    error_msg += ": Connection timeout"
+                elif retcode is not None:
+                    error_msg += f" (Error code: {retcode})"
+                
+                if description and retcode is None:
+                    error_msg += f": {description}"
+                
+                error_msg += f"\n   → Account: {account_num}"
+                error_msg += f"\n   → Server: {server}"
+                error_msg += "\n   → Please verify your credentials in config.json"
+                
+                logger.error(error_msg)
+                print(f"❌ {error_msg}")
                 mt5.shutdown()
                 return False
         else:
             # Use existing terminal session
+            logger.info("No credentials provided, using existing MT5 terminal session...")
             account_info = mt5.account_info()
             if account_info is None:
-                logger.warning("No MT5 credentials provided and no active session found")
+                error_msg = "No MT5 credentials provided and no active session found"
+                error_msg += "\n   → Either provide credentials in config.json, or login to MT5 terminal manually first"
+                logger.warning(error_msg)
+                print(f"⚠️  {error_msg}")
+                mt5.shutdown()
                 return False
         
         # Verify connection
         account_info = mt5.account_info()
         if account_info is None:
-            logger.error("Failed to get account info after login")
+            error_msg = "Failed to get account info after login"
+            logger.error(error_msg)
+            print(f"❌ {error_msg}")
             mt5.shutdown()
             return False
         
         self.connected = True
-        logger.info(f"MT5 connected successfully. Account: {account_info.login}, Balance: {account_info.balance}")
+        success_msg = f"✅ MT5 connected successfully. Account: {account_info.login}, Balance: {account_info.balance}"
+        logger.info(success_msg)
+        print(success_msg)
         return True
     
     def reconnect(self) -> bool:
@@ -200,6 +295,8 @@ class MT5Connector:
             'trade_stops_level': symbol_info.trade_stops_level,
             'trade_freeze_level': symbol_info.trade_freeze_level,
             'contract_size': symbol_info.trade_contract_size,
+            'trade_tick_value': getattr(symbol_info, 'trade_tick_value', None),  # For indices/crypto
+            'trade_tick_size': getattr(symbol_info, 'trade_tick_size', None),  # For indices/crypto
             'margin_initial': symbol_info.margin_initial,
             'swap_mode': symbol_info.swap_mode,
             'swap_long': symbol_info.swap_long,
@@ -315,6 +412,44 @@ class MT5Connector:
         # For now, we rely on bid/ask validity which is the most reliable indicator
         
         return True, ""
+    
+    def get_symbol_info_tick(self, symbol: str):
+        """
+        Get current tick data (BID/ASK prices) for a symbol.
+        
+        This method returns the raw MT5 tick object which contains:
+        - bid: Current BID price
+        - ask: Current ASK price
+        - time: Tick timestamp
+        - volume: Tick volume
+        
+        Args:
+            symbol: Trading symbol (e.g., 'EURUSD')
+        
+        Returns:
+            MT5 tick object with bid, ask, time attributes, or None if:
+            - MT5 is not connected
+            - Symbol is not found
+            - Tick data is unavailable
+        """
+        if not self.ensure_connected():
+            return None
+        
+        tick = mt5.symbol_info_tick(symbol)
+        if tick is None:
+            logger.debug(f"Tick data not available for {symbol}")
+            return None
+        
+        # Validate tick data
+        if tick.bid <= 0 or tick.ask <= 0:
+            logger.warning(f"Invalid tick data for {symbol}: bid={tick.bid}, ask={tick.ask}")
+            return None
+        
+        if tick.bid >= tick.ask:
+            logger.warning(f"Invalid spread for {symbol}: bid={tick.bid} >= ask={tick.ask}")
+            return None
+        
+        return tick
     
     def is_swap_free(self, symbol: str) -> bool:
         """Check if symbol is swap-free (Islamic account)."""

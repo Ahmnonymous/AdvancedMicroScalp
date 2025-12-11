@@ -156,10 +156,10 @@ try:
         print("   [PASS] Daily summary has all required fields")
     
     if save_daily_summary():
-    today = date.today().strftime('%Y-%m-%d')
-    json_file = f"../logs/reports/summary_{today}.json"
-    txt_file = f"../logs/reports/summary_{today}.txt"
-    if os.path.exists(json_file) and os.path.exists(txt_file):
+        today = date.today().strftime('%Y-%m-%d')
+        json_file = f"../logs/reports/summary_{today}.json"
+        txt_file = f"../logs/reports/summary_{today}.txt"
+        if os.path.exists(json_file) and os.path.exists(txt_file):
             print("   [PASS] Reports saved successfully")
         else:
             print("   [FAIL] Report files not created")
