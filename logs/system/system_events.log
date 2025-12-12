@@ -1,0 +1,140 @@
+2025-12-11 20:16:31 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:16:32 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:16:33 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:16:34 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:16:35 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:16:47 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:16:58 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.11, "is_profit_locking": false}
+2025-12-11 20:17:09 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.13, "is_profit_locking": false}
+2025-12-11 20:17:20 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.14, "is_profit_locking": false}
+2025-12-11 20:17:31 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.12, "is_profit_locking": false}
+2025-12-11 20:17:42 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.12, "is_profit_locking": false}
+2025-12-11 20:17:53 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.12, "is_profit_locking": false}
+2025-12-11 20:18:05 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.12, "is_profit_locking": false}
+2025-12-11 20:18:16 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:18:27 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:18:38 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:18:49 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:19:00 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:19:12 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:19:23 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:19:34 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:19:45 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:19:56 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:20:07 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:20:18 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:20:29 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.1, "is_profit_locking": false}
+2025-12-11 20:20:40 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:20:52 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:21:03 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.08, "is_profit_locking": false}
+2025-12-11 20:21:14 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:21:25 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:21:36 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:21:47 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.11, "is_profit_locking": false}
+2025-12-11 20:21:58 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.11, "is_profit_locking": false}
+2025-12-11 20:22:10 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:22:21 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:22:32 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.09, "is_profit_locking": false}
+2025-12-11 20:22:43 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.06, "is_profit_locking": false}
+2025-12-11 20:22:54 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.07, "is_profit_locking": false}
+2025-12-11 20:23:05 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.07, "is_profit_locking": false}
+2025-12-11 20:23:17 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.06, "is_profit_locking": false}
+2025-12-11 20:23:28 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.06, "is_profit_locking": false}
+2025-12-11 20:23:39 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Lock acquisition timeout (1000ms)", "reason": "Lock timeout", "profit": -0.07, "is_profit_locking": false}
+2025-12-11 20:23:43 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:43 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:45 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:46 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:47 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:49 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:50 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:51 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:51 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:53 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:53 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:55 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:55 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:56 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:58 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:59 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:59 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:23:59 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:02 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:04 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:24:05 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:07 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:08 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:09 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:09 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:11 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:12 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:14 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:15 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:16 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:18 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:18 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:18 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:19 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:19 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:21 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:22 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:24 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:25 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:26 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:26 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:28 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:28 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:30 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}
+2025-12-11 20:24:32 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:33 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:35 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:36 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:38 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:39 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:39 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:40 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:40 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:42 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:43 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:44 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:46 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:47 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:49 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:50 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:51 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:51 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:53 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:24:54 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:24:56 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:24:57 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:24:57 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:24:59 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:00 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:00 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:02 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:03 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:03 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:04 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:05 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:06 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:07 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:09 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:10 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:12 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:13 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:15 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:16 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:16 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:17 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:19 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:20 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:22 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:23 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:25 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:26 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:27 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:29 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:29 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.05000000000001}
+2025-12-11 20:25:30 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:25:32 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.04}
+2025-12-11 20:25:33 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 491673414, "symbol": "KOm", "error": "Verification failed after all retries", "targetSL": 69.03}

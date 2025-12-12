@@ -1,0 +1,40 @@
+{
+  "report_timestamp": "2025-12-12T01:07:44.296532",
+  "session_duration_minutes": 291.97809111666663,
+  "active_positions": {
+    "total": 0,
+    "positions": [],
+    "lot_size_issues": [],
+    "symbols": {},
+    "total_profit": 0.0
+  },
+  "trade_statistics": {
+    "total_trades": 1,
+    "closed_trades": 0,
+    "open_trades": 1
+  },
+  "micro_hft_performance": {
+    "capture_rate": 0.0,
+    "total_closures": 0,
+    "sweet_spot_closures": 0,
+    "missed_sweet_spot": 0,
+    "status": "No closures yet"
+  },
+  "filter_effectiveness": {
+    "statistics": {
+      "trend_strength_rejected": 64,
+      "other_rejected": 55,
+      "lot_size_rejected": 2,
+      "rsi_rejected": 18,
+      "volume_rejected": 39,
+      "opportunities_found": 41
+    },
+    "last_scan_time": "2025-12-12T01:07:44.296532"
+  },
+  "lot_size_compliance": {
+    "violations": [],
+    "max_lot_size": 0.03
+  },
+  "errors_detected": [],
+  "recommendations": []
+}
