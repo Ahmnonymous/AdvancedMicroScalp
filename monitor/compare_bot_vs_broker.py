@@ -41,7 +41,7 @@ class BotBrokerComparator:
     def log_error(self, message: str):
         """Log error message."""
         self.errors.append(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}: {message}")
-        print(f"⚠️  ERROR: {message}")
+        print(f"[WARNING]  ERROR: {message}")
     
     def parse_broker_html(self) -> List[Dict[str, Any]]:
         """Parse broker HTML report and extract all trades."""
@@ -232,7 +232,7 @@ class BotBrokerComparator:
         return trades
     
     def parse_bot_logs(self) -> Tuple[List[Dict[str, Any]], Optional[datetime], Optional[datetime]]:
-        """Parse all bot trade logs from logs/trades/*.log files.
+        """Parse all bot trade logs from logs/live/trades/*.log files.
         
         Returns:
             Tuple of (trades_list, earliest_timestamp, latest_timestamp)
@@ -317,7 +317,7 @@ class BotBrokerComparator:
     def filter_broker_trades_by_time(self, broker_trades: List[Dict], start_time: Optional[datetime], end_time: Optional[datetime]) -> List[Dict]:
         """Filter broker trades to only include those within bot trading period."""
         if not start_time or not end_time:
-            print("  ⚠️  No bot trading time range detected - comparing all broker trades")
+            print("  [WARNING]  No bot trading time range detected - comparing all broker trades")
             return broker_trades
         
         # Add small buffer (5 minutes before/after) to account for timing differences
@@ -511,7 +511,7 @@ class BotBrokerComparator:
         print("Generating reports...")
         
         os.makedirs('logs/reports', exist_ok=True)
-        os.makedirs('logs/system', exist_ok=True)
+        # Log directory is created by logger_factory
         
         date_str = datetime.now().strftime('%Y-%m-%d')
         
@@ -525,7 +525,7 @@ class BotBrokerComparator:
         
         # Write error log
         if self.errors:
-            error_file = 'logs/system/broker_comparison_errors.log'
+            error_file = 'logs/live/system/broker_comparison_errors.log'
             with open(error_file, 'a', encoding='utf-8') as f:
                 f.write(f"\n{'='*80}\n")
                 f.write(f"Comparison Run: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
@@ -547,7 +547,7 @@ class BotBrokerComparator:
             f.write("=" * 80 + "\n")
             f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write(f"Broker Report: {self.broker_html_file}\n")
-            f.write(f"Bot Logs: logs/trades/*.log\n")
+            f.write(f"Bot Logs: logs/live/trades/*.log\n")
             if bot_start_time and bot_end_time:
                 f.write(f"Bot Trading Period: {bot_start_time.strftime('%Y-%m-%d %H:%M:%S')} to {bot_end_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
                 f.write(f"Broker trades filtered to bot trading period only.\n")
@@ -617,7 +617,7 @@ class BotBrokerComparator:
                         f.write(f"Order ID: {match['order_id']}\n")
                         f.write(f"  Symbol: {match['broker']['symbol']} | Type: {match['broker']['trade_type']}\n")
                         for disc in match['discrepancies']:
-                            f.write(f"  ⚠️  {disc}\n")
+                            f.write(f"  [WARNING]  {disc}\n")
                         f.write("\n")
                         
                         if discrepancy_count >= 50:  # Limit output
@@ -722,7 +722,7 @@ class BotBrokerComparator:
         # Parse bot logs first to determine trading time range
         bot_trades, bot_start_time, bot_end_time = self.parse_bot_logs()
         if not bot_trades:
-            print("⚠️  No bot trades found. Cannot proceed with comparison.")
+            print("[WARNING]  No bot trades found. Cannot proceed with comparison.")
             return
         
         print()
@@ -730,7 +730,7 @@ class BotBrokerComparator:
         # Parse broker report
         all_broker_trades = self.parse_broker_html()
         if not all_broker_trades:
-            print("⚠️  No broker trades found. Cannot proceed with comparison.")
+            print("[WARNING]  No broker trades found. Cannot proceed with comparison.")
             return
         
         print()

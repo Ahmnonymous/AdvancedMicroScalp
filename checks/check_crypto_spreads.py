@@ -32,7 +32,7 @@ for symbol_name in symbols:
         bid_ask_spread = symbol_info.ask - symbol_info.bid
         spread_percent = (bid_ask_spread / symbol_info.bid) * 100 if symbol_info.bid > 0 else 0
         
-        status = "✓ PASS" if spread_points <= max_spread else "✗ FAIL"
+        status = "[OK] PASS" if spread_points <= max_spread else "✗ FAIL"
         print(f"{symbol_name:12s} - Spread: {spread_points:15.1f} points | "
               f"Bid-Ask: ${bid_ask_spread:.5f} ({spread_percent:.3f}%) - {status}")
 

@@ -141,23 +141,23 @@ def test_elastic_trailing_sequence():
     tracking = risk_manager._get_position_tracking(ticket)
     peak_profit = tracking.get('peak_profit', 0.0)
     assert peak_profit == 1.10, f"Peak profit should be 1.10, got {peak_profit}"
-    print(f"✅ Peak profit tracking: {peak_profit}")
+    print(f"[OK] Peak profit tracking: {peak_profit}")
     
     # Check 2: Pullback tolerance (0.34 should not move SL down from peak)
     # When profit drops from 0.56 to 0.34, SL should not move backward
-    print(f"✅ Pullback tolerance: Profit dropped but SL maintained")
+    print(f"[OK] Pullback tolerance: Profit dropped but SL maintained")
     
     # Check 3: Big jump detection (0.34 → 0.88 is > 0.40 threshold)
     big_jump_found = any("Big jump" in b['reason'] for b in expected_behavior)
     assert big_jump_found, "Big jump should be detected"
-    print(f"✅ Big jump detection: Found")
+    print(f"[OK] Big jump detection: Found")
     
     # Check 4: Max peak lock (when profit >= 1.0, lock at 0.80)
     final_sl = expected_behavior[-1]['sl_profit']
-    print(f"✅ Final SL profit: ${final_sl:.2f} (should be >= 0.80 for profit >= 1.0)")
+    print(f"[OK] Final SL profit: ${final_sl:.2f} (should be >= 0.80 for profit >= 1.0)")
     
     print("\n" + "=" * 80)
-    print("✅ ALL TESTS PASSED")
+    print("[OK] ALL TESTS PASSED")
     print("=" * 80)
     return True
 
@@ -165,9 +165,9 @@ def test_elastic_trailing_sequence():
 if __name__ == '__main__':
     try:
         test_elastic_trailing_sequence()
-        print("\n✅ Test completed successfully!")
+        print("\n[OK] Test completed successfully!")
     except Exception as e:
-        print(f"\n❌ Test failed: {e}")
+        print(f"\n[ERROR] Test failed: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

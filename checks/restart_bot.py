@@ -23,14 +23,18 @@ print("\n" + "=" * 60)
 print("RESTARTING TRADING BOT WITH SWAP-FREE SYMBOLS")
 print("=" * 60)
 print("\nThe bot will start in a new process.")
-print("Monitor logs/system/system_startup.log for trading activity.")
+print("Monitor logs/live/system/system_startup.log for trading activity.")
 print("=" * 60)
 
 # Start bot in background
-subprocess.Popen([sys.executable, 'run_bot.py'], 
+# Get project root directory (parent of checks directory)
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+run_bot_path = os.path.join(project_root, 'scripts', 'run_bot.py')
+subprocess.Popen([sys.executable, run_bot_path], 
                  stdout=subprocess.DEVNULL, 
-                 stderr=subprocess.DEVNULL)
+                 stderr=subprocess.DEVNULL,
+                 cwd=project_root)
 
-print("\n✓ Bot started successfully!")
-print("Check logs/system/system_startup.log for status updates.")
+print("\n[OK] Bot started successfully!")
+print("Check logs/live/system/system_startup.log for status updates.")
 

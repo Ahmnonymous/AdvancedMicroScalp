@@ -36,11 +36,11 @@ class TradeAnalyzer:
         
         for line_num, line in enumerate(lines, 1):
             # Parse trade execution
-            if "✅ TRADE EXECUTED:" in line or "Order placed successfully:" in line:
+            if "[OK] TRADE EXECUTED:" in line or "Order placed successfully:" in line:
                 self._parse_trade_execution(line, line_num)
             
             # Parse SL adjustments
-            if "📈 SL ADJUSTED:" in line:
+            if "[STATS] SL ADJUSTED:" in line:
                 self._parse_sl_adjustment(line, line_num)
             
             # Parse trade closures (need to check for position closed messages)
@@ -48,7 +48,7 @@ class TradeAnalyzer:
                 self._parse_trade_closure(line, line_num)
             
             # Parse errors
-            if "ERROR" in line or "❌" in line or "failed" in line.lower():
+            if "ERROR" in line or "[ERROR]" in line or "failed" in line.lower():
                 self._parse_error(line, line_num)
             
             # Parse modification errors for specific tickets
@@ -57,8 +57,8 @@ class TradeAnalyzer:
     
     def _parse_trade_execution(self, line: str, line_num: int):
         """Parse trade execution log line."""
-        # Pattern: ✅ TRADE EXECUTED: SYMBOL DIRECTION | Ticket: TICKET | Entry: PRICE | Lot: SIZE | SL: PIPS | Spread+Fees: $COST
-        match = re.search(r'✅ TRADE EXECUTED: (\w+)\s+(LONG|SHORT)\s+\|\s+Ticket:\s+(\d+)\s+\|\s+Entry:\s+([\d.]+)\s+\|\s+Lot:\s+([\d.]+).*?SL:\s+([\d.]+)pips', line)
+        # Pattern: [OK] TRADE EXECUTED: SYMBOL DIRECTION | Ticket: TICKET | Entry: PRICE | Lot: SIZE | SL: PIPS | Spread+Fees: $COST
+        match = re.search(r'[OK] TRADE EXECUTED: (\w+)\s+(LONG|SHORT)\s+\|\s+Ticket:\s+(\d+)\s+\|\s+Entry:\s+([\d.]+)\s+\|\s+Lot:\s+([\d.]+).*?SL:\s+([\d.]+)pips', line)
         if not match:
             # Try alternative pattern from "Order placed successfully"
             match = re.search(r'Order placed successfully: Ticket (\d+), Symbol (\w+), Type (BUY|SELL)', line)
@@ -125,8 +125,8 @@ class TradeAnalyzer:
     
     def _parse_sl_adjustment(self, line: str, line_num: int):
         """Parse SL adjustment log line."""
-        # Pattern: 📈 SL ADJUSTED: SYMBOL Ticket TICKET | Profit: $X → SL: $Y
-        match = re.search(r'📈 SL ADJUSTED: (\w+)\s+Ticket\s+(\d+)\s+\|\s+Profit:\s+\$([\d.]+)\s+→\s+SL:\s+\$([\d.]+)', line)
+        # Pattern: [STATS] SL ADJUSTED: SYMBOL Ticket TICKET | Profit: $X → SL: $Y
+        match = re.search(r'[STATS] SL ADJUSTED: (\w+)\s+Ticket\s+(\d+)\s+\|\s+Profit:\s+\$([\d.]+)\s+→\s+SL:\s+\$([\d.]+)', line)
         if not match:
             return
         
@@ -491,7 +491,7 @@ class TradeAnalyzer:
             report.append(f"Min Risk: ${min_risk:.2f}")
             risk_violations = [r for r in risks if r > 2.5]
             if risk_violations:
-                report.append(f"⚠️  Trades with risk > $2.50: {len(risk_violations)}")
+                report.append(f"[WARNING]  Trades with risk > $2.50: {len(risk_violations)}")
         report.append("")
         
         # 6. DETAILED TRADE LIST

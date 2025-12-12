@@ -8,7 +8,7 @@ Converts:
 - logs/symbols/*.log (old symbol-based logs)
 
 To:
-- logs/trades/SYMBOL.log (JSONL format)
+- logs/live/trades/SYMBOL.log (JSONL format)
 """
 
 import os
@@ -67,7 +67,7 @@ class LegacyLogConverter:
             timestamp_str = timestamp_match.group(1) if timestamp_match else None
             
             # Start of trade execution block
-            if "✅ TRADE EXECUTED SUCCESSFULLY" in line:
+            if "[OK] TRADE EXECUTED SUCCESSFULLY" in line:
                 if current_trade:
                     # Save previous incomplete trade
                     trades.append(current_trade)
@@ -161,7 +161,7 @@ class LegacyLogConverter:
                         current_trade = None
             
             # Start of position closure block
-            elif "🔴 POSITION CLOSED" in line:
+            elif "[-] POSITION CLOSED" in line:
                 in_closure_block = True
                 current_block_lines = [line]
                 closure_ticket = None  # Will be extracted from closure block
@@ -237,7 +237,7 @@ class LegacyLogConverter:
                     current_block_lines = []
             
             # Parse micro-HFT profit close
-            elif "⚡ MICRO-HFT PROFIT CLOSE" in line:
+            elif "[FAST] MICRO-HFT PROFIT CLOSE" in line:
                 if current_trade:
                     trades.append(current_trade)
                 current_trade = {
@@ -380,10 +380,10 @@ class LegacyLogConverter:
                         trade['additional_info']['stop_loss_price'] = float(sl_match.group(1))
             
             # Parse trade execution (simple format)
-            # ✅ TRADE EXECUTED: EBAYm SHORT | Ticket: 466976692 | Entry: 83.59000 (req: 83.59000) | Lot: 0.0100 | SL: 10.0pips | Q:80.0 | Risk: $0.10
-            elif "✅ TRADE EXECUTED:" in line:
+            # [OK] TRADE EXECUTED: EBAYm SHORT | Ticket: 466976692 | Entry: 83.59000 (req: 83.59000) | Lot: 0.0100 | SL: 10.0pips | Q:80.0 | Risk: $0.10
+            elif "[OK] TRADE EXECUTED:" in line:
                 match = re.search(
-                    r'✅ TRADE EXECUTED:\s+(\w+)\s+(LONG|SHORT)\s+\|\s+Ticket:\s+(\d+)\s+\|\s+Entry:\s+([\d.]+)',
+                    r'[OK] TRADE EXECUTED:\s+(\w+)\s+(LONG|SHORT)\s+\|\s+Ticket:\s+(\d+)\s+\|\s+Entry:\s+([\d.]+)',
                     line
                 )
                 if match:
@@ -422,10 +422,10 @@ class LegacyLogConverter:
                     open_trades[ticket] = trade
             
             # Parse position closure (if any in bot_log.txt)
-            # Format: 🔴 POSITION CLOSED: ETHUSDm Ticket 467012733 | Entry: 3113.93000 | Close: 3115.81000 | Profit: +$0.19 | Duration: 1.2min | Reason: Take Profit or Trailing Stop
-            elif "🔴 POSITION CLOSED:" in line:
+            # Format: [-] POSITION CLOSED: ETHUSDm Ticket 467012733 | Entry: 3113.93000 | Close: 3115.81000 | Profit: +$0.19 | Duration: 1.2min | Reason: Take Profit or Trailing Stop
+            elif "[-] POSITION CLOSED:" in line:
                 match = re.search(
-                    r'🔴 POSITION CLOSED:\s+(\w+)\s+Ticket\s+(\d+)\s+\|\s+Entry:\s+([\d.]+)\s+\|\s+Close:\s+([\d.]+)\s+\|\s+Profit:\s+([+-]?\$?)([\d.]+)',
+                    r'[-] POSITION CLOSED:\s+(\w+)\s+Ticket\s+(\d+)\s+\|\s+Entry:\s+([\d.]+)\s+\|\s+Close:\s+([\d.]+)\s+\|\s+Profit:\s+([+-]?\$?)([\d.]+)',
                     line
                 )
                 if match:
@@ -477,7 +477,7 @@ class LegacyLogConverter:
                         if reason_match:
                             trade['additional_info']['close_reason'] = reason_match.group(1).strip()
                         trades.append(trade)
-            elif "POSITION CLOSED" in line and "🔴" not in line:
+            elif "POSITION CLOSED" in line and "[-]" not in line:
                 ticket_match = re.search(r'Ticket[:\s]+(\d+)', line)
                 if ticket_match:
                     ticket = ticket_match.group(1)
@@ -549,8 +549,9 @@ class LegacyLogConverter:
         print()
         
         # Ensure output directory exists
-        os.makedirs('logs/trades', exist_ok=True)
-        os.makedirs('logs/system', exist_ok=True)
+        # Legacy conversion - create directories as needed
+        os.makedirs('logs/live/trades', exist_ok=True)
+        os.makedirs('logs/live/system', exist_ok=True)
         
         # Step 1: Parse bot_log.txt
         if os.path.exists('bot_log.txt'):
@@ -590,9 +591,9 @@ class LegacyLogConverter:
             self.trades[symbol].sort(key=lambda x: x.get('timestamp') or '0000-00-00 00:00:00')
         
         # Step 4: Write to new format
-        print("\nWriting to logs/trades/SYMBOL.log...")
+        print("\nWriting to logs/live/trades/SYMBOL.log...")
         for symbol, symbol_trades in self.trades.items():
-            output_file = f'logs/trades/{symbol}.log'
+            output_file = f'logs/live/trades/{symbol}.log'
             
             # Check if file already exists (for backup)
             backup_file = None
@@ -654,7 +655,7 @@ class LegacyLogConverter:
         
         # Step 5: Write error log
         if self.errors:
-            error_log_path = 'logs/system/conversion_errors.log'
+            error_log_path = 'logs/live/system/conversion_errors.log'
             with open(error_log_path, 'w', encoding='utf-8') as f:
                 f.write(f"Legacy Log Conversion Errors\n")
                 f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
@@ -663,7 +664,7 @@ class LegacyLogConverter:
                     f.write(f"{error}\n")
             
             self.stats['errors'] = len(self.errors)
-            print(f"\n⚠️  {len(self.errors)} errors encountered, see {error_log_path}")
+            print(f"\n[WARNING]  {len(self.errors)} errors encountered, see {error_log_path}")
         
         # Step 6: Print summary
         print("\n" + "=" * 80)

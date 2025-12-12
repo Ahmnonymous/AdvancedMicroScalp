@@ -11,7 +11,7 @@ import MetaTrader5 as mt5
 
 from utils.logger_factory import get_logger
 
-logger = get_logger("hft_engine", "logs/engine/hft_engine.log")
+logger = get_logger("hft_engine", "logs/live/engine/hft_engine.log")
 
 
 class MicroProfitEngine:
@@ -102,6 +102,11 @@ class MicroProfitEngine:
         # CRITICAL FIX: Account for spread/slippage - require minimum profit buffer
         # Spread can cause profit to go negative on close, so require profit > buffer to account for spread
         # This ensures actual closing profit will be positive even after spread/slippage
+        # CRITICAL FIX: Round profit to symbol digits for accurate comparison
+        symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+        symbol_digits = symbol_info.get('digits', 5) if symbol_info else 5
+        current_profit = round(current_profit, symbol_digits)
+        
         if current_profit <= self.min_profit_buffer:
             logger.debug(f"Micro-HFT: Ticket {ticket} has profit ${current_profit:.2f} <= ${self.min_profit_buffer:.2f} buffer - "
                        f"REJECTING - Insufficient profit to cover spread/slippage (CHECKPOINT 1)")
@@ -409,7 +414,7 @@ class MicroProfitEngine:
                 )
                 
                 if close_success:
-                    logger.info(f"✅ MICRO PROFIT CLOSURE SUCCESS: Ticket={ticket} Symbol={symbol} Profit=${final_pre_close_profit:.2f}")
+                    logger.info(f"[OK] MICRO PROFIT CLOSURE SUCCESS: Ticket={ticket} Symbol={symbol} Profit=${final_pre_close_profit:.2f}")
                     # Verify closure by checking position again
                     time.sleep(0.01)  # Small delay to allow MT5 to process
                     verify_position = self.order_manager.get_position_by_ticket(ticket)
@@ -420,10 +425,10 @@ class MicroProfitEngine:
                         break
                     else:
                         # Closure reported success but position still exists
-                        logger.warning(f"⚠️ Micro-HFT: Close reported success but position {ticket} still exists, retrying...")
+                        logger.warning(f"[WARNING] Micro-HFT: Close reported success but position {ticket} still exists, retrying...")
                         close_success = False
                 else:
-                    logger.warning(f"❌ MICRO PROFIT CLOSURE FAILED: Ticket={ticket} Symbol={symbol} Attempt={attempt+1}/{self.max_retries}")
+                    logger.warning(f"[ERROR] MICRO PROFIT CLOSURE FAILED: Ticket={ticket} Symbol={symbol} Attempt={attempt+1}/{self.max_retries}")
                 
                 # If failed, check if it's a retryable error
                 if attempt < self.max_retries - 1:
@@ -466,7 +471,10 @@ class MicroProfitEngine:
                 # But log a warning since this is less reliable
                 if actual_closing_profit == -999.0:
                     actual_closing_profit = target_profit
-                    logger.warning(f"⚠️ Micro-HFT: Ticket {ticket} | Deal history unavailable, using pre-close estimate: ${actual_closing_profit:.2f}")
+                    logger.warning(f"[WARNING] Micro-HFT: Ticket {ticket} | Deal history unavailable, using pre-close estimate: ${actual_closing_profit:.2f}")
+                
+                # CRITICAL FIX: Round actual closing profit to symbol digits for accurate comparison
+                actual_closing_profit = round(actual_closing_profit, symbol_digits)
                 
                 # CRITICAL FIX 1.3: Determine close_reason based on ACTUAL closing profit
                 # If actual profit is negative, this is an error condition
@@ -474,7 +482,7 @@ class MicroProfitEngine:
                 logger.info(f"🔍 Micro-HFT: Ticket {ticket} | Actual closing profit from deals: ${actual_closing_profit:.2f} | Pre-close estimate: ${target_profit:.2f}")
                 if actual_closing_profit <= 0:
                     close_reason = f"Micro-HFT error prevented: negative profit attempted (actual: ${actual_closing_profit:.2f})"
-                    logger.error(f"❌ Micro-HFT ERROR: Ticket {ticket} closed with negative profit ${actual_closing_profit:.2f} | "
+                    logger.error(f"[ERROR] Micro-HFT ERROR: Ticket {ticket} closed with negative profit ${actual_closing_profit:.2f} | "
                                f"Decision profit was ${target_profit:.2f} | "
                                f"This should never happen - closing profit validation failed")
                 elif 0.03 <= actual_closing_profit <= 0.10:
@@ -493,18 +501,18 @@ class MicroProfitEngine:
                     execution_time_ms=execution_time_ms
                 )
                 
-                logger.info(f"✅ Micro-HFT: Closed {symbol} Ticket {ticket} | "
+                logger.info(f"[OK] Micro-HFT: Closed {symbol} Ticket {ticket} | "
                           f"Decision profit: ${target_profit:.2f} | "
                           f"Actual closing profit: ${actual_closing_profit:.2f} | "
                           f"Reason: {close_reason} | "
                           f"Time: {execution_time_ms:.1f}ms")
                 return True
             else:
-                logger.warning(f"⚠️ Micro-HFT: Failed to close {symbol} Ticket {ticket} after {self.max_retries} attempts")
+                logger.warning(f"[WARNING] Micro-HFT: Failed to close {symbol} Ticket {ticket} after {self.max_retries} attempts")
                 return False
         
         except Exception as e:
-            logger.error(f"❌ Micro-HFT: Error closing position {ticket}: {e}", exc_info=True)
+            logger.error(f"[ERROR] Micro-HFT: Error closing position {ticket}: {e}", exc_info=True)
             return False
         
         finally:

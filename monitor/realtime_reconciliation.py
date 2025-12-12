@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from monitor.realtime_broker_fetcher import RealtimeBrokerFetcher
 from utils.logger_factory import get_logger
 
-logger = get_logger("realtime_recon", "logs/system/realtime_reconciliation.log")
+logger = get_logger("realtime_recon", "logs/live/system/realtime_reconciliation.log")
 
 
 class RealtimeReconciliation:
@@ -44,8 +44,8 @@ class RealtimeReconciliation:
         self.session_start_time = session_start_time  # Only reconcile trades from this session
         
         # Setup discrepancy logging
-        os.makedirs('logs/system', exist_ok=True)
-        self.discrepancy_logger = get_logger("discrepancies", "logs/system/discrepancies.log")
+        # Log directory is created by logger_factory
+        self.discrepancy_logger = get_logger("discrepancies", "logs/live/system/discrepancies.log")
     
     def set_session_start_time(self, session_start_time: datetime):
         """

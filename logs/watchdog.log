@@ -1,6 +1,0 @@
-2025-12-11 20:16:13 - watchdog - INFO - SL Watchdog initialized
-2025-12-11 20:16:14 - watchdog - INFO - Watchdog loop started
-2025-12-11 20:16:14 - watchdog - INFO - ✅ SL Watchdog started
-2025-12-12 08:21:19 - watchdog - WARNING - ⚠️ SL Worker not running - attempting restart
-2025-12-12 08:21:20 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: Worker not running | Restarts in last 10min: 0
-2025-12-12 08:21:23 - watchdog - INFO - ✅ SL Worker restarted successfully

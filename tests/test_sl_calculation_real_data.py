@@ -27,7 +27,7 @@ def test_us30m_sl_calculation():
     # Initialize components
     mt5_connector = MT5Connector(config)
     if not mt5_connector.connect():
-        print("❌ Failed to connect to MT5")
+        print("[ERROR] Failed to connect to MT5")
         return False
     
     order_manager = OrderManager(mt5_connector)
@@ -37,7 +37,7 @@ def test_us30m_sl_calculation():
     symbol = 'US30m'
     symbol_info = mt5_connector.get_symbol_info(symbol)
     if not symbol_info:
-        print(f"❌ Could not get symbol info for {symbol}")
+        print(f"[ERROR] Could not get symbol info for {symbol}")
         return False
     
     print(f"\n{symbol} Symbol Info:")
@@ -49,7 +49,7 @@ def test_us30m_sl_calculation():
     # Get current tick
     tick = mt5_connector.get_symbol_info_tick(symbol)
     if not tick:
-        print(f"❌ Could not get tick data for {symbol}")
+        print(f"[ERROR] Could not get tick data for {symbol}")
         return False
     
     print(f"\nCurrent Market Prices:")
@@ -75,17 +75,17 @@ def test_us30m_sl_calculation():
             entry_price, target_loss, order_type, lot_size, symbol_info
         )
         
-        print(f"\n✅ SL Calculation Result:")
+        print(f"\n[OK] SL Calculation Result:")
         print(f"  Target SL: {target_sl}")
         print(f"  SL Distance: {entry_price - target_sl} points")
         print(f"  SL Distance %: {((entry_price - target_sl) / entry_price) * 100:.2f}%")
         
         # Verify SL is below entry for BUY
         if target_sl >= entry_price:
-            print(f"  ❌ ERROR: SL ({target_sl}) is not below entry ({entry_price}) for BUY")
+            print(f"  [ERROR] ERROR: SL ({target_sl}) is not below entry ({entry_price}) for BUY")
             return False
         else:
-            print(f"  ✅ SL is correctly below entry")
+            print(f"  [OK] SL is correctly below entry")
         
         # Calculate effective SL profit
         test_position = {
@@ -104,15 +104,15 @@ def test_us30m_sl_calculation():
         
         # Check if effective SL is close to target
         if abs(effective_sl_profit - target_loss) < 0.50:  # Within $0.50
-            print(f"  ✅ Effective SL is close to target (within $0.50)")
+            print(f"  [OK] Effective SL is close to target (within $0.50)")
             return True
         else:
-            print(f"  ⚠️  Effective SL differs from target by ${abs(effective_sl_profit - target_loss):.2f}")
+            print(f"  [WARNING]  Effective SL differs from target by ${abs(effective_sl_profit - target_loss):.2f}")
             print(f"     This might be due to spread or calculation differences")
             return False
             
     except Exception as e:
-        print(f"❌ Error calculating SL: {e}")
+        print(f"[ERROR] Error calculating SL: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -131,7 +131,7 @@ def test_forex_sl_calculation():
     # Initialize components
     mt5_connector = MT5Connector(config)
     if not mt5_connector.connect():
-        print("❌ Failed to connect to MT5")
+        print("[ERROR] Failed to connect to MT5")
         return False
     
     order_manager = OrderManager(mt5_connector)
@@ -141,7 +141,7 @@ def test_forex_sl_calculation():
     symbol = 'EURUSD'
     symbol_info = mt5_connector.get_symbol_info(symbol)
     if not symbol_info:
-        print(f"❌ Could not get symbol info for {symbol}")
+        print(f"[ERROR] Could not get symbol info for {symbol}")
         return False
     
     print(f"\n{symbol} Symbol Info:")
@@ -152,7 +152,7 @@ def test_forex_sl_calculation():
     # Get current tick
     tick = mt5_connector.get_symbol_info_tick(symbol)
     if not tick:
-        print(f"❌ Could not get tick data for {symbol}")
+        print(f"[ERROR] Could not get tick data for {symbol}")
         return False
     
     print(f"\nCurrent Market Prices:")
@@ -176,7 +176,7 @@ def test_forex_sl_calculation():
             entry_price, target_loss, order_type, lot_size, symbol_info
         )
         
-        print(f"\n✅ SL Calculation Result:")
+        print(f"\n[OK] SL Calculation Result:")
         print(f"  Target SL: {target_sl}")
         print(f"  SL Distance: {entry_price - target_sl} pips")
         
@@ -196,14 +196,14 @@ def test_forex_sl_calculation():
         print(f"Target Loss: ${target_loss:.2f}")
         
         if abs(effective_sl_profit - target_loss) < 0.50:
-            print(f"  ✅ Effective SL is close to target")
+            print(f"  [OK] Effective SL is close to target")
             return True
         else:
-            print(f"  ⚠️  Effective SL differs from target")
+            print(f"  [WARNING]  Effective SL differs from target")
             return False
             
     except Exception as e:
-        print(f"❌ Error calculating SL: {e}")
+        print(f"[ERROR] Error calculating SL: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -222,7 +222,7 @@ def test_rate_limiting():
     # Initialize components
     mt5_connector = MT5Connector(config)
     if not mt5_connector.connect():
-        print("❌ Failed to connect to MT5")
+        print("[ERROR] Failed to connect to MT5")
         return False
     
     order_manager = OrderManager(mt5_connector)
@@ -236,9 +236,9 @@ def test_rate_limiting():
     print(f"\nDisabled Symbols (Safety):")
     if sl_manager._disabled_symbols:
         print(f"  {', '.join(sl_manager._disabled_symbols)}")
-        print(f"  ✅ Safety measures active")
+        print(f"  [OK] Safety measures active")
     else:
-        print(f"  ⚠️  No symbols disabled")
+        print(f"  [WARNING]  No symbols disabled")
     
     return True
 
@@ -264,14 +264,14 @@ if __name__ == '__main__':
     print("TEST SUMMARY")
     print("=" * 80)
     for test_name, result in results:
-        status = "✅ PASS" if result else "❌ FAIL"
+        status = "[OK] PASS" if result else "[ERROR] FAIL"
         print(f"{status}: {test_name}")
     
     all_passed = all(result for _, result in results)
     print("\n" + "=" * 80)
     if all_passed:
-        print("✅ ALL TESTS PASSED")
+        print("[OK] ALL TESTS PASSED")
     else:
-        print("❌ SOME TESTS FAILED")
+        print("[ERROR] SOME TESTS FAILED")
     print("=" * 80)
 

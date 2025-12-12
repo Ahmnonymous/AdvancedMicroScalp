@@ -47,9 +47,10 @@ class VolumeFilter:
         # 'low' mode uses defaults (more permissive)
         
         # Initialize skipped pairs logger
-        os.makedirs('logs/system', exist_ok=True)
+        # Log directory is created by logger_factory
+        log_dir = 'logs/backtest/system' if self.config.get('mode') == 'backtest' else 'logs/live/system'
         self.skipped_logger = logging.getLogger('skipped_pairs_volume')
-        skipped_handler = logging.FileHandler('logs/system/skipped_pairs.log')
+        skipped_handler = logging.FileHandler(f'{log_dir}/skipped_pairs.log')
         skipped_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
         self.skipped_logger.addHandler(skipped_handler)
         self.skipped_logger.setLevel(logging.INFO)
@@ -217,7 +218,7 @@ class VolumeFilter:
         
         if not has_volume:
             self.skipped_logger.info(f"{symbol}: LOW_VOLUME - {reason} (Volume: {volume_value})")
-            logger.info(f"⛔ [SKIP] {symbol} | Reason: {reason}")
+            logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {reason}")
         
         return not has_volume, reason, volume_value
 

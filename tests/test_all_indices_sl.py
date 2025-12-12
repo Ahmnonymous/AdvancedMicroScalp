@@ -23,7 +23,7 @@ def test_index_sl_calculation(symbol, sl_manager, mt5_connector):
     # Get symbol info
     symbol_info = mt5_connector.get_symbol_info(symbol)
     if not symbol_info:
-        print(f"❌ Could not get symbol info for {symbol}")
+        print(f"[ERROR] Could not get symbol info for {symbol}")
         return False, None
     
     print(f"\n{symbol} Symbol Info:")
@@ -35,7 +35,7 @@ def test_index_sl_calculation(symbol, sl_manager, mt5_connector):
     # Get current tick
     tick = mt5_connector.get_symbol_info_tick(symbol)
     if not tick:
-        print(f"❌ Could not get tick data for {symbol}")
+        print(f"[ERROR] Could not get tick data for {symbol}")
         return False, None
     
     print(f"\nCurrent Market Prices:")
@@ -61,7 +61,7 @@ def test_index_sl_calculation(symbol, sl_manager, mt5_connector):
             entry_price_buy, target_loss, order_type, lot_size, symbol_info
         )
         
-        print(f"\n✅ BUY SL Calculation:")
+        print(f"\n[OK] BUY SL Calculation:")
         print(f"  Target SL: {target_sl_buy}")
         print(f"  SL Distance: {entry_price_buy - target_sl_buy} points")
         sl_diff_pct = ((entry_price_buy - target_sl_buy) / entry_price_buy) * 100
@@ -69,10 +69,10 @@ def test_index_sl_calculation(symbol, sl_manager, mt5_connector):
         
         # Verify SL is below entry for BUY
         if target_sl_buy >= entry_price_buy:
-            print(f"  ❌ ERROR: SL ({target_sl_buy}) is not below entry ({entry_price_buy}) for BUY")
+            print(f"  [ERROR] ERROR: SL ({target_sl_buy}) is not below entry ({entry_price_buy}) for BUY")
             results['buy'] = False
         else:
-            print(f"  ✅ SL is correctly below entry")
+            print(f"  [OK] SL is correctly below entry")
             
             # Calculate effective SL profit
             test_position = {
@@ -90,15 +90,15 @@ def test_index_sl_calculation(symbol, sl_manager, mt5_connector):
             print(f"  Target Loss: ${target_loss:.2f}")
             
             if abs(effective_sl_profit - target_loss) < 0.50:
-                print(f"  ✅ Effective SL matches target (within $0.50)")
+                print(f"  [OK] Effective SL matches target (within $0.50)")
                 results['buy'] = True
                 results['buy_effective_sl'] = effective_sl_profit
             else:
-                print(f"  ⚠️  Effective SL differs by ${abs(effective_sl_profit - target_loss):.2f}")
+                print(f"  [WARNING]  Effective SL differs by ${abs(effective_sl_profit - target_loss):.2f}")
                 results['buy'] = False
                 results['buy_effective_sl'] = effective_sl_profit
     except Exception as e:
-        print(f"  ❌ Error: {e}")
+        print(f"  [ERROR] Error: {e}")
         results['buy'] = False
     
     # Test SELL position
@@ -115,7 +115,7 @@ def test_index_sl_calculation(symbol, sl_manager, mt5_connector):
             entry_price_sell, target_loss, order_type, lot_size, symbol_info
         )
         
-        print(f"\n✅ SELL SL Calculation:")
+        print(f"\n[OK] SELL SL Calculation:")
         print(f"  Target SL: {target_sl_sell}")
         print(f"  SL Distance: {target_sl_sell - entry_price_sell} points")
         sl_diff_pct = ((target_sl_sell - entry_price_sell) / entry_price_sell) * 100
@@ -123,10 +123,10 @@ def test_index_sl_calculation(symbol, sl_manager, mt5_connector):
         
         # Verify SL is above entry for SELL
         if target_sl_sell <= entry_price_sell:
-            print(f"  ❌ ERROR: SL ({target_sl_sell}) is not above entry ({entry_price_sell}) for SELL")
+            print(f"  [ERROR] ERROR: SL ({target_sl_sell}) is not above entry ({entry_price_sell}) for SELL")
             results['sell'] = False
         else:
-            print(f"  ✅ SL is correctly above entry")
+            print(f"  [OK] SL is correctly above entry")
             
             # Calculate effective SL profit
             test_position = {
@@ -144,15 +144,15 @@ def test_index_sl_calculation(symbol, sl_manager, mt5_connector):
             print(f"  Target Loss: ${target_loss:.2f}")
             
             if abs(effective_sl_profit - target_loss) < 0.50:
-                print(f"  ✅ Effective SL matches target (within $0.50)")
+                print(f"  [OK] Effective SL matches target (within $0.50)")
                 results['sell'] = True
                 results['sell_effective_sl'] = effective_sl_profit
             else:
-                print(f"  ⚠️  Effective SL differs by ${abs(effective_sl_profit - target_loss):.2f}")
+                print(f"  [WARNING]  Effective SL differs by ${abs(effective_sl_profit - target_loss):.2f}")
                 results['sell'] = False
                 results['sell_effective_sl'] = effective_sl_profit
     except Exception as e:
-        print(f"  ❌ Error: {e}")
+        print(f"  [ERROR] Error: {e}")
         results['sell'] = False
     
     return results.get('buy', False) and results.get('sell', False), results
@@ -171,7 +171,7 @@ def main():
     # Initialize components
     mt5_connector = MT5Connector(config)
     if not mt5_connector.connect():
-        print("❌ Failed to connect to MT5")
+        print("[ERROR] Failed to connect to MT5")
         return
     
     order_manager = OrderManager(mt5_connector)
@@ -195,16 +195,16 @@ def main():
     
     all_passed = True
     for symbol, result in results.items():
-        status = "✅ PASS" if result['success'] else "❌ FAIL"
+        status = "[OK] PASS" if result['success'] else "[ERROR] FAIL"
         print(f"{status}: {symbol}")
         if not result['success']:
             all_passed = False
     
     print("\n" + "=" * 80)
     if all_passed:
-        print("✅ ALL INDEX TESTS PASSED")
+        print("[OK] ALL INDEX TESTS PASSED")
     else:
-        print("❌ SOME INDEX TESTS FAILED")
+        print("[ERROR] SOME INDEX TESTS FAILED")
     print("=" * 80)
     
     return results

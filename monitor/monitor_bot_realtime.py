@@ -34,7 +34,7 @@ def get_open_positions():
 def monitor_bot():
     """Monitor bot activity in real-time."""
     print("=" * 80)
-    print("🤖 TRADING BOT REAL-TIME MONITOR")
+    print("[BOT] TRADING BOT REAL-TIME MONITOR")
     print("=" * 80)
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("Monitoring interval: Every 5 seconds")
@@ -81,7 +81,7 @@ def monitor_bot():
                     if positions:
                         print(f"📊 Open Positions: {len(positions)}")
                         for pos in positions:
-                            pnl_color = "🟢" if pos['profit'] >= 0 else "🔴"
+                            pnl_color = "[+]" if pos['profit'] >= 0 else "[-]"
                             print(f"  {pnl_color} Ticket {pos['ticket']}: {pos['symbol']} {pos['type']} | "
                                   f"P/L: ${pos['profit']:.2f} | SL: {pos['sl']:.5f}")
                     else:
@@ -89,7 +89,7 @@ def monitor_bot():
                     
                     # New trades
                     if new_trades:
-                        print(f"\n✅ New Trades ({len(new_trades)}):")
+                        print(f"\n[OK] New Trades ({len(new_trades)}):")
                         for trade in new_trades[-3:]:  # Show last 3
                             match = re.search(r'Ticket (\d+).*?(\w+)\s+(LONG|SHORT)', trade)
                             if match:
@@ -97,7 +97,7 @@ def monitor_bot():
                     
                     # Trailing stop adjustments
                     if trailing_stops:
-                        print(f"\n📈 Trailing Stop Adjustments ({len(trailing_stops)}):")
+                        print(f"\n[STATS] Trailing Stop Adjustments ({len(trailing_stops)}):")
                         for adj in trailing_stops[-3:]:  # Show last 3
                             match = re.search(r'Ticket (\d+).*?Profit: \$([\d.]+).*?SL Profit: \$([\d.]+)', adj)
                             if match:
@@ -105,11 +105,11 @@ def monitor_bot():
                     
                     # Big jumps
                     if big_jumps:
-                        print(f"\n🚀 Big Jumps Detected ({len(big_jumps)}):")
+                        print(f"\n[JUMP] Big Jumps Detected ({len(big_jumps)}):")
                         for jump in big_jumps[-2:]:  # Show last 2
                             match = re.search(r'Ticket (\d+)', jump)
                             if match:
-                                print(f"  ⚡ Ticket {match.group(1)}: Big profit jump detected!")
+                                print(f"  [FAST] Ticket {match.group(1)}: Big profit jump detected!")
                     
                     if not trailing_stops and not new_trades and not big_jumps and not positions:
                         print("  ⏳ Waiting for activity...")
@@ -117,9 +117,9 @@ def monitor_bot():
                     print("-" * 80)
             
             except FileNotFoundError:
-                print(f"[{timestamp}] ⚠️  Log file not found, waiting...")
+                print(f"[{timestamp}] [WARNING]  Log file not found, waiting...")
             except Exception as e:
-                print(f"[{timestamp}] ⚠️  Error: {e}")
+                print(f"[{timestamp}] [WARNING]  Error: {e}")
             
             time.sleep(5)  # Check every 5 seconds
     

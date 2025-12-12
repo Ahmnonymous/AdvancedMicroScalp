@@ -33,7 +33,7 @@ for symbol_name in symbols_to_check:
     rates = mt5.copy_rates_from_pos(symbol_name, mt5.TIMEFRAME_M1, 0, 10)
     if rates is not None and len(rates) > 0:
         active_symbols.append(symbol_name)
-        logger.info(f"✓ {symbol_name}: Active (spread: {symbol_info.spread/symbol_info.point:.1f} points)")
+        logger.info(f"[OK] {symbol_name}: Active (spread: {symbol_info.spread/symbol_info.point:.1f} points)")
     else:
         logger.warning(f"✗ {symbol_name}: No market data available")
 

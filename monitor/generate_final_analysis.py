@@ -103,8 +103,8 @@ def parse_bot_trades(log_file, start_time, end_time):
         except:
             continue
         
-        if "✅ TRADE EXECUTED:" in line:
-            match = re.search(r'✅ TRADE EXECUTED: (\w+)\s+(LONG|SHORT)\s+\|\s+Ticket:\s+(\d+)\s+\|\s+Entry:\s+([\d.]+)', line)
+        if "[OK] TRADE EXECUTED:" in line:
+            match = re.search(r'[OK] TRADE EXECUTED: (\w+)\s+(LONG|SHORT)\s+\|\s+Ticket:\s+(\d+)\s+\|\s+Entry:\s+([\d.]+)', line)
             if match:
                 trades.append({
                     'ticket': match.group(3),

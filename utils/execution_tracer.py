@@ -26,7 +26,7 @@ _tracer_lock = threading.Lock()
 class ExecutionTracer:
     """Tracks function execution, expected vs actual behavior, and failures."""
     
-    def __init__(self, max_entries: int = 1000, log_file: str = "logs/system/execution_tracer.log"):
+    def __init__(self, max_entries: int = 1000, log_file: str = "logs/live/system/execution_tracer.log"):
         self.max_entries = max_entries
         self.entries = deque(maxlen=max_entries)
         self.function_stats = {}  # Track call counts per function
@@ -108,9 +108,9 @@ class ExecutionTracer:
         
         # Format log message
         status_emoji = {
-            "OK": "✅",
-            "WARNING": "⚠️",
-            "ERROR": "❌",
+            "OK": "[OK]",
+            "WARNING": "[WARNING]",
+            "ERROR": "[ERROR]",
             "FAILED": "🚨"
         }.get(status, "🔍")
         

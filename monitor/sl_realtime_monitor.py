@@ -26,12 +26,12 @@ try:
     RICH_AVAILABLE = True
 except ImportError:
     RICH_AVAILABLE = False
-    print("⚠️  Warning: 'rich' library not found. Install with: pip install rich")
+    print("[WARNING]  Warning: 'rich' library not found. Install with: pip install rich")
     print("   Falling back to basic console output")
 
 from utils.logger_factory import get_logger
 
-logger = get_logger("sl_monitor", "logs/sl_monitor.log")
+logger = get_logger("sl_monitor", "logs/live/monitor/sl_monitor.log")
 
 
 class SLRealtimeMonitor:
@@ -388,7 +388,7 @@ class SLRealtimeMonitor:
         Returns Rich renderable (Table or Layout) for Live display.
         """
         # Create main table
-        table = Table(title="🛡️ Real-Time Stop-Loss Monitor", show_header=True, header_style="bold cyan")
+        table = Table(title="[SL] Real-Time Stop-Loss Monitor", show_header=True, header_style="bold cyan")
         
         table.add_column("Ticket", style="cyan", width=8)
         table.add_column("Symbol", style="magenta", width=10)
@@ -425,29 +425,29 @@ class SLRealtimeMonitor:
             
             # Determine status color
             status_color = "green"
-            status_text = "✓ OK"
+            status_text = "[OK] OK"
             if violations:
                 critical = any(v.get('severity') == 'critical' for v in violations)
                 status_color = "red" if critical else "yellow"
-                status_text = "⚠ VIOLATION" if critical else "⚠ WARNING"
+                status_text = "[W] VIOLATION" if critical else "[W] WARNING"
             elif current_profit < 0:
                 # Check if SL is at strict loss
                 sl_manager = self._get_sl_manager()
                 max_risk = sl_manager.max_risk_usd if sl_manager else 2.0
                 if abs(effective_sl + max_risk) < 0.05:
                     status_color = "green"
-                    status_text = "✓ Protected"
+                    status_text = "[OK] Protected"
                 else:
                     status_color = "yellow"
-                    status_text = "⚠ Pending"
+                    status_text = "[W] Pending"
             elif current_profit >= 0.03:
                 # Check if SL is verified
                 if effective_sl >= 0.03:
                     status_color = "green"
-                    status_text = "✓ Locked"
+                    status_text = "[OK] Locked"
                 else:
                     status_color = "yellow"
-                    status_text = "⚠ Pending"
+                    status_text = "[W] Pending"
             
             # Format prices
             entry_str = f"{entry_price:.5f}" if entry_price < 1000 else f"{entry_price:.2f}"
@@ -530,7 +530,7 @@ class SLRealtimeMonitor:
         """Create basic console dashboard (fallback)."""
         output = []
         output.append("=" * 120)
-        output.append("🛡️ REAL-TIME STOP-LOSS MONITOR")
+        output.append("[SL] REAL-TIME STOP-LOSS MONITOR")
         output.append("=" * 120)
         output.append(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         output.append("")
@@ -563,22 +563,22 @@ class SLRealtimeMonitor:
                 self._log_violations(violations)
             
             # Determine status
-            status = "✓ OK"
+            status = "[OK] OK"
             if violations:
                 critical = any(v.get('severity') == 'critical' for v in violations)
-                status = "⚠ VIOLATION" if critical else "⚠ WARNING"
+                status = "[W] VIOLATION" if critical else "[W] WARNING"
             elif current_profit < 0:
                 sl_manager = self._get_sl_manager()
                 max_risk = sl_manager.max_risk_usd if sl_manager else 2.0
                 if abs(effective_sl + max_risk) < 0.05:
-                    status = "✓ Protected"
+                    status = "[OK] Protected"
                 else:
-                    status = "⚠ Pending"
+                    status = "[W] Pending"
             elif current_profit >= 0.03:
                 if effective_sl >= 0.03:
-                    status = "✓ Locked"
+                    status = "[OK] Locked"
                 else:
-                    status = "⚠ Pending"
+                    status = "[W] Pending"
             
             # Format values
             entry_str = f"{entry_price:.5f}" if entry_price < 1000 else f"{entry_price:.2f}"

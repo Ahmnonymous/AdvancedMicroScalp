@@ -151,7 +151,7 @@ def diagnose_sl_manager():
     with open(output_file, 'w') as f:
         json.dump(diagnostics, f, indent=2, default=str)
     
-    print(f"✅ Diagnostics saved to: {output_file}")
+    print(f"[OK] Diagnostics saved to: {output_file}")
     print()
     print("SUMMARY:")
     print(f"  Open Positions: {diagnostics['open_positions']}")
@@ -174,9 +174,9 @@ def diagnose_sl_manager():
             print(f"    Last Update: {time_str}")
             print(f"    Last Reason: {info['last_sl_reason']}")
             if info['is_disabled']:
-                print(f"    ⚠️  SYMBOL DISABLED")
+                print(f"    [WARNING]  SYMBOL DISABLED")
             if info['in_manual_review']:
-                print(f"    ⚠️  MANUAL REVIEW REQUIRED")
+                print(f"    [WARNING]  MANUAL REVIEW REQUIRED")
             print()
     
     return diagnostics
@@ -186,7 +186,7 @@ if __name__ == '__main__':
         diagnostics = diagnose_sl_manager()
         sys.exit(0)
     except Exception as e:
-        print(f"❌ Error running diagnostics: {e}", file=sys.stderr)
+        print(f"[ERROR] Error running diagnostics: {e}", file=sys.stderr)
         import traceback
         traceback.print_exc()
         sys.exit(1)

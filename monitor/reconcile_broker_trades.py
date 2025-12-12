@@ -43,8 +43,10 @@ class TradeReconciler:
         })
         
         # Also write to discrepancy log file
-        os.makedirs('logs/system', exist_ok=True)
-        with open('logs/system/discrepancies.log', 'a', encoding='utf-8') as f:
+        # Log directory is created by logger_factory
+        # Note: This class doesn't have config, but reconcile_broker_trades is only used in live mode
+        # If needed in backtest, pass config to __init__ and use mode-aware path
+        with open('logs/live/system/discrepancies.log', 'a', encoding='utf-8') as f:
             f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | Order: {order_id} | Type: {discrepancy_type} | {details}\n")
     
     def reconcile_trades(self, create_backup: bool = True) -> Dict[str, Any]:
@@ -60,7 +62,7 @@ class TradeReconciler:
         bot_trades, bot_start_time, bot_end_time = self.comparator.parse_bot_logs()
         
         if not broker_trades or not bot_trades:
-            print("❌ Cannot reconcile - missing trade data")
+            print("[ERROR] Cannot reconcile - missing trade data")
             return {}
         
         print()
@@ -91,7 +93,7 @@ class TradeReconciler:
         for bot_trade in bot_trades:
             order_id = bot_trade['order_id']
             symbol = bot_trade['symbol']
-            log_file = f'logs/trades/{symbol}.log'
+            log_file = f'logs/live/trades/{symbol}.log'
             
             if order_id in broker_by_id:
                 # Trade exists in broker - reconcile

@@ -12,7 +12,7 @@ from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager
 from utils.logger_factory import get_logger
 
-logger = get_logger("risk_manager", "logs/engine/risk_manager.log")
+logger = get_logger("risk_manager", "logs/live/engine/risk_manager.log")
 
 
 class RiskManager:
@@ -112,14 +112,14 @@ class RiskManager:
             self.sl_manager = SLManager(config, mt5_connector, order_manager)
             # CRITICAL FIX: Connect SLManager to RiskManager for ProfitLockingEngine/MicroProfitEngine access
             self.sl_manager._risk_manager = self
-            logger.info("✅ SLManager initialized successfully")
+            logger.info("[OK] SLManager initialized successfully")
             logger.info(f"SLManager instance: {self.sl_manager}")
             logger.info(f"SLManager available: {self.sl_manager is not None}")
         except Exception as e:
             self._sl_manager_error = str(e)
             import traceback
             error_traceback = traceback.format_exc()
-            logger.error(f"❌ Failed to initialize Unified SL Manager: {e}", exc_info=True)
+            logger.error(f"[ERROR] Failed to initialize Unified SL Manager: {e}", exc_info=True)
             logger.error(f"SLManager initialization traceback:\n{error_traceback}")
             self.sl_manager = None
             logger.critical("CRITICAL: SLManager initialization FAILED - SL updates will not work!")
@@ -274,18 +274,18 @@ class RiskManager:
             # Recalculate actual risk with minimum lot
             actual_risk_with_min = effective_min_lot * stop_loss_price * contract_size
             if actual_risk_with_min > risk_usd:
-                logger.warning(f"⚠️ {symbol}: Using minimum lot {effective_min_lot:.4f} results in risk ${actual_risk_with_min:.2f} > ${risk_usd:.2f}")
+                logger.warning(f"[WARNING] {symbol}: Using minimum lot {effective_min_lot:.4f} results in risk ${actual_risk_with_min:.2f} > ${risk_usd:.2f}")
                 # Still use minimum lot (per user requirement), but log the risk
         
         # CRITICAL: Enforce maximum lot limit to prevent invalid volume errors
         if final_lot_size > effective_max_lot:
-            logger.warning(f"⚠️ {symbol}: Calculated lot {final_lot_size:.4f} exceeds max {effective_max_lot:.4f}, "
+            logger.warning(f"[WARNING] {symbol}: Calculated lot {final_lot_size:.4f} exceeds max {effective_max_lot:.4f}, "
                           f"capping to max. This may result in risk < ${risk_usd:.2f}")
             final_lot_size = effective_max_lot
             # Recalculate actual risk with capped lot size
             if stop_loss_price > 0 and contract_size > 0:
                 actual_risk_capped = final_lot_size * stop_loss_price * contract_size
-                logger.warning(f"⚠️ {symbol}: Actual risk with capped lot: ${actual_risk_capped:.2f} (target: ${risk_usd:.2f})")
+                logger.warning(f"[WARNING] {symbol}: Actual risk with capped lot: ${actual_risk_capped:.2f} (target: ${risk_usd:.2f})")
         
         # Calculate actual risk with final lot size
         actual_risk = 0.0
@@ -510,7 +510,7 @@ class RiskManager:
         """
         # DEPRECATION WARNING
         symbol = position.get('symbol', 'UNKNOWN')
-        logger.warning(f"⚠️ DEPRECATED: _enforce_strict_loss_limit() called for {symbol} Ticket {ticket} | "
+        logger.warning(f"[WARNING] DEPRECATED: _enforce_strict_loss_limit() called for {symbol} Ticket {ticket} | "
                       f"This method is deprecated. All SL logic should use SLManager.update_sl_atomic() | "
                       f"Please update calling code to use sl_manager.update_sl_atomic() directly")
         
@@ -519,18 +519,18 @@ class RiskManager:
             try:
                 sl_success, sl_reason = self.sl_manager.update_sl_atomic(ticket, position)
                 if sl_success:
-                    logger.info(f"✅ DEPRECATED METHOD REDIRECTED: {symbol} Ticket {ticket} | "
+                    logger.info(f"[OK] DEPRECATED METHOD REDIRECTED: {symbol} Ticket {ticket} | "
                               f"SL updated via SLManager: {sl_reason}")
                     return True
                 else:
-                    logger.warning(f"⚠️ DEPRECATED METHOD REDIRECTED: {symbol} Ticket {ticket} | "
+                    logger.warning(f"[WARNING] DEPRECATED METHOD REDIRECTED: {symbol} Ticket {ticket} | "
                                 f"SLManager update skipped: {sl_reason}")
                     return False
             except Exception as e:
-                logger.error(f"❌ DEPRECATED METHOD ERROR: Failed to redirect to SLManager: {e}", exc_info=True)
+                logger.error(f"[ERROR] DEPRECATED METHOD ERROR: Failed to redirect to SLManager: {e}", exc_info=True)
                 return False
         else:
-            logger.error(f"❌ DEPRECATED METHOD ERROR: SLManager not available for {symbol} Ticket {ticket}")
+            logger.error(f"[ERROR] DEPRECATED METHOD ERROR: SLManager not available for {symbol} Ticket {ticket}")
             return False
         # CRITICAL: Only enforce for losing trades (profit < 0)
         # Do not enforce for profitable trades - let profit-locking and trailing handle those
@@ -718,7 +718,7 @@ class RiskManager:
         
         # Warn if actual loss is significantly different from -$2.00
         if abs(actual_loss + self.max_risk_usd) > 0.10:  # More than $0.10 difference
-            logger.warning(f"⚠️ STRICT SL WARNING: {symbol} Ticket {ticket} | "
+            logger.warning(f"[WARNING] STRICT SL WARNING: {symbol} Ticket {ticket} | "
                          f"Calculated SL will result in ${actual_loss:.2f} loss (target: -$2.00) | "
                          f"Difference: ${abs(actual_loss + self.max_risk_usd):.2f} | "
                          f"This may be due to spread or rounding")
@@ -775,7 +775,7 @@ class RiskManager:
                           f"SL set to exactly -$2.00 (price: {target_sl_price:.5f})")
                 return True
             else:
-                logger.error(f"❌ STRICT SL ENFORCEMENT FAILED after {max_retries} attempts: {symbol} Ticket {ticket} | "
+                logger.error(f"[ERROR] STRICT SL ENFORCEMENT FAILED after {max_retries} attempts: {symbol} Ticket {ticket} | "
                            f"Could not set SL to -$2.00 (current: {current_sl:.5f}, target: {target_sl_price:.5f}) | "
                            f"This position may be at risk - monitoring will retry")
                 return False
@@ -810,7 +810,7 @@ class RiskManager:
                           f"SL adjusted to exactly -$2.00 (price: {target_sl_price:.5f})")
                 return True
             else:
-                logger.error(f"❌ STRICT SL FORCE-ENFORCEMENT FAILED: {symbol} Ticket {ticket} | "
+                logger.error(f"[ERROR] STRICT SL FORCE-ENFORCEMENT FAILED: {symbol} Ticket {ticket} | "
                            f"Could not force SL to -$2.00")
                 return False
         
@@ -893,11 +893,11 @@ class RiskManager:
                     time.sleep(0.1 * (attempt + 1))
             
             if success:
-                logger.info(f"🛡️ PROTECTIVE SL SET (on entry): {symbol} Ticket {ticket} | "
+                logger.info(f"[SL] PROTECTIVE SL SET (on entry): {symbol} Ticket {ticket} | "
                           f"SL set to exactly -$2.00 (price: {target_sl_price:.5f})")
                 return True
             else:
-                logger.warning(f"⚠️ PROTECTIVE SL SET FAILED (on entry): {symbol} Ticket {ticket} | "
+                logger.warning(f"[WARNING] PROTECTIVE SL SET FAILED (on entry): {symbol} Ticket {ticket} | "
                              f"Could not set protective -$2.00 SL")
                 return False
         
@@ -1059,7 +1059,7 @@ class RiskManager:
             # SL already at or better than break-even
             with self._tracking_lock:
                 tracking['break_even_sl_applied'] = True
-            logger.debug(f"✅ Break-Even Already Set: {symbol} Ticket {ticket} | "
+            logger.debug(f"[OK] Break-Even Already Set: {symbol} Ticket {ticket} | "
                        f"Current SL ({current_sl:.5f}) already at/better than entry ({entry_price:.5f})")
             return False, "SL already at break-even or better"
         
@@ -1084,7 +1084,7 @@ class RiskManager:
             else:
                 sl_pips = (target_sl_price - entry_price) / pip_value if pip_value > 0 else 0
             
-            logger.info(f"✅ DYNAMIC BREAK-EVEN SL APPLIED: {symbol} Ticket {ticket} | "
+            logger.info(f"[OK] DYNAMIC BREAK-EVEN SL APPLIED: {symbol} Ticket {ticket} | "
                       f"Profit: ${current_profit:.2f} | "
                       f"Positive duration: {positive_duration:.2f}s | "
                       f"SL set to entry: {target_sl_price:.5f} ({sl_pips:.1f} pips)")
@@ -1104,7 +1104,7 @@ class RiskManager:
             
             return True, f"Break-even SL applied after {positive_duration:.2f}s positive profit"
         else:
-            logger.warning(f"⚠️ Break-Even SL Failed: {symbol} Ticket {ticket} | "
+            logger.warning(f"[WARNING] Break-Even SL Failed: {symbol} Ticket {ticket} | "
                          f"Could not set SL to break-even after {max_retries} attempts")
             return False, f"Failed to apply break-even SL after {max_retries} attempts"
     
@@ -1824,7 +1824,7 @@ class RiskManager:
         # If profit is negative, strict -$2.00 SL enforcement handles it
         # Trailing stop should ONLY run on profitable trades
         if current_profit_usd < 0:
-            logger.debug(f"⛔ Trailing Stop BLOCKED: Ticket {ticket} | "
+            logger.debug(f"[SKIP] Trailing Stop BLOCKED: Ticket {ticket} | "
                        f"Profit: ${current_profit_usd:.2f} (negative) | "
                        f"Trailing stop does not run on losing trades - strict -$2.00 SL enforcement active")
             return False, "Trade in loss zone - trailing stop blocked, strict SL enforcement active"
@@ -1919,7 +1919,7 @@ class RiskManager:
                     # Log big jump to root (critical event) - get symbol from position
                     symbol = position['symbol']
                     root_logger = logging.getLogger()
-                    root_logger.info(f"🚀 BIG JUMP: {symbol} Ticket {ticket} | ${last_profit:.2f} → ${current_profit_usd:.2f} (+${profit_increase:.2f})")
+                    root_logger.info(f"[JUMP] BIG JUMP: {symbol} Ticket {ticket} | ${last_profit:.2f} → ${current_profit_usd:.2f} (+${profit_increase:.2f})")
                 else:
                     # Normal elastic trailing
                     target_lock = elastic_lock
@@ -1968,7 +1968,7 @@ class RiskManager:
                         attempted_sl_profit=target_sl_profit,
                         max_risk=self.max_risk_usd
                     )
-                    logger.warning(f"⚠️  Ticket {ticket}: Target SL profit ${target_sl_profit:.2f} would exceed max risk ${self.max_risk_usd:.2f}, preventing early exit")
+                    logger.warning(f"[WARNING]  Ticket {ticket}: Target SL profit ${target_sl_profit:.2f} would exceed max risk ${self.max_risk_usd:.2f}, preventing early exit")
                     tracking['last_profit'] = current_profit_usd
                     return False, f"Prevented early exit: SL would exceed max risk ${self.max_risk_usd:.2f}"
                 
@@ -1988,13 +1988,13 @@ class RiskManager:
                     attempted_sl_profit=target_sl_profit,
                     max_risk=self.max_risk_usd
                 )
-                logger.warning(f"⚠️  Ticket {ticket}: Target SL profit ${target_sl_profit:.2f} would exceed max risk ${self.max_risk_usd:.2f}, preventing early exit")
+                logger.warning(f"[WARNING]  Ticket {ticket}: Target SL profit ${target_sl_profit:.2f} would exceed max risk ${self.max_risk_usd:.2f}, preventing early exit")
                 tracking['last_profit'] = current_profit_usd
                 return False, f"Prevented early exit: SL would exceed max risk ${self.max_risk_usd:.2f}"
             
             # Ensure we never move SL backward
             if target_sl_profit < last_sl_profit:
-                logger.warning(f"⚠️  Ticket {ticket}: Attempted to move SL backward (${last_sl_profit:.2f} → ${target_sl_profit:.2f}), preventing")
+                logger.warning(f"[WARNING]  Ticket {ticket}: Attempted to move SL backward (${last_sl_profit:.2f} → ${target_sl_profit:.2f}), preventing")
                 tracking['last_profit'] = current_profit_usd
                 return False, "Prevented backward SL movement"
             
@@ -2087,7 +2087,7 @@ class RiskManager:
             
             # If SL modification failed after all retries, manually close position to prevent late exit
             if not success:
-                logger.error(f"❌ Ticket {ticket}: SL modification failed after {max_retries} attempts. "
+                logger.error(f"[ERROR] Ticket {ticket}: SL modification failed after {max_retries} attempts. "
                            f"Manually closing position to prevent late exit. Error: {last_error}")
                 
                 # Calculate expected loss (should be -$2.00)
@@ -2096,7 +2096,7 @@ class RiskManager:
                 # Close position manually
                 close_success = self.order_manager.close_position(ticket, comment="SL modification failed - prevent late exit")
                 if close_success:
-                    logger.warning(f"⚠️ Ticket {ticket}: Position closed manually due to SL modification failure")
+                    logger.warning(f"[WARNING] Ticket {ticket}: Position closed manually due to SL modification failure")
                     # Log late exit prevention
                     from trade_logging.trade_logger import TradeLogger
                     trade_logger = TradeLogger(self.config)
@@ -2111,7 +2111,7 @@ class RiskManager:
                         sl_modification_failed=True
                     )
                 else:
-                    logger.error(f"❌ Ticket {ticket}: Failed to close position manually after SL modification failure")
+                    logger.error(f"[ERROR] Ticket {ticket}: Failed to close position manually after SL modification failure")
                 
                 tracking['last_profit'] = current_profit_usd
                 return False, f"SL modification failed after {max_retries} attempts, position closed manually"
@@ -2129,7 +2129,7 @@ class RiskManager:
                 
                 # Log to root (minimal) - only critical events
                 root_logger = logging.getLogger()
-                root_logger.info(f"📈 SL ADJUSTED: {symbol} Ticket {ticket} | Profit: ${current_profit_usd:.2f} → SL: ${target_sl_profit:.2f}")
+                root_logger.info(f"[STATS] SL ADJUSTED: {symbol} Ticket {ticket} | Profit: ${current_profit_usd:.2f} → SL: ${target_sl_profit:.2f}")
                 
                 # Use unified trade logger for trailing stop adjustments
                 from trade_logging.trade_logger import TradeLogger
@@ -2250,14 +2250,14 @@ class RiskManager:
                                                   f"Profit: ${total_profit:.2f} | Reason: Hit configured stop-loss at -$2.00")
                                     elif abs(total_profit + 1.0) <= 0.05:  # Close to -$1.00 (EARLY CLOSURE ISSUE)
                                         close_reason = "Stop Loss (-$1.00) - EARLY CLOSURE DETECTED"
-                                        logger.warning(f"⚠️ EARLY STOP-LOSS CLOSURE: Ticket {ticket} | {symbol} | "
+                                        logger.warning(f"[WARNING] EARLY STOP-LOSS CLOSURE: Ticket {ticket} | {symbol} | "
                                                      f"Profit: ${total_profit:.2f} | Expected: -$2.00 | "
                                                      f"This trade closed at -$1.00 instead of configured -$2.00 stop-loss")
                                     elif total_profit > 0:
                                         close_reason = "Take Profit or Trailing Stop"
                                     elif total_profit < -2.05:  # More than $0.05 below -$2.00
                                         close_reason = f"Stop Loss exceeded (${total_profit:.2f})"
-                                        logger.warning(f"⚠️ STOP-LOSS EXCEEDED: Ticket {ticket} | {symbol} | "
+                                        logger.warning(f"[WARNING] STOP-LOSS EXCEEDED: Ticket {ticket} | {symbol} | "
                                                      f"Profit: ${total_profit:.2f} | Expected max: -$2.00 | "
                                                      f"Loss exceeded configured stop-loss limit")
                                         # Log late exit warning

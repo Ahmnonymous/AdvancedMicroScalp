@@ -11,7 +11,7 @@ from collections import deque
 
 from utils.logger_factory import get_logger
 
-watchdog_logger = get_logger("watchdog", "logs/watchdog.log")
+watchdog_logger = get_logger("watchdog", "logs/live/monitor/watchdog.log")
 
 
 class SLWatchdog:
@@ -64,7 +64,7 @@ class SLWatchdog:
             daemon=True
         )
         self.watchdog_thread.start()
-        watchdog_logger.info("✅ SL Watchdog started")
+        watchdog_logger.info("[OK] SL Watchdog started")
     
     def stop(self):
         """Stop the watchdog thread."""
@@ -86,13 +86,13 @@ class SLWatchdog:
                 worker_status = self.sl_manager.get_worker_status()
                 
                 if not worker_status.get('running', False):
-                    watchdog_logger.warning("⚠️ SL Worker not running - attempting restart")
+                    watchdog_logger.warning("[WARNING] SL Worker not running - attempting restart")
                     self._restart_worker("Worker not running")
                     self.shutdown_event.wait(self.check_interval)
                     continue
                 
                 if not worker_status.get('thread_alive', False):
-                    watchdog_logger.warning("⚠️ SL Worker thread not alive - attempting restart")
+                    watchdog_logger.warning("[WARNING] SL Worker thread not alive - attempting restart")
                     self._restart_worker("Worker thread not alive")
                     self.shutdown_event.wait(self.check_interval)
                     continue
@@ -127,7 +127,7 @@ class SLWatchdog:
                         updates_per_sec = total_updates / self.sl_updates_window_seconds if total_updates > 0 else 0
                     
                     if updates_per_sec < self.sl_updates_per_sec_threshold:
-                        watchdog_logger.warning(f"⚠️ SL update rate too low: {updates_per_sec:.1f} updates/sec "
+                        watchdog_logger.warning(f"[WARNING] SL update rate too low: {updates_per_sec:.1f} updates/sec "
                                               f"(threshold: {self.sl_updates_per_sec_threshold})")
                         self._restart_worker(f"Low update rate: {updates_per_sec:.1f} updates/sec")
                 
@@ -146,7 +146,7 @@ class SLWatchdog:
                                     stale_tickets.append((ticket, time_since_update))
                     
                     if stale_tickets:
-                        watchdog_logger.warning(f"⚠️ Stale SL updates detected: {len(stale_tickets)} tickets")
+                        watchdog_logger.warning(f"[WARNING] Stale SL updates detected: {len(stale_tickets)} tickets")
                         for ticket, staleness in stale_tickets[:5]:  # Log first 5
                             watchdog_logger.warning(f"   Ticket {ticket}: {staleness:.1f}s since last update")
                         
@@ -201,9 +201,9 @@ class SLWatchdog:
                 # Track restart
                 self._restart_timestamps.append(current_time)
                 
-                watchdog_logger.info(f"✅ SL Worker restarted successfully")
+                watchdog_logger.info(f"[OK] SL Worker restarted successfully")
             except Exception as e:
-                watchdog_logger.error(f"❌ Failed to restart SL worker: {e}", exc_info=True)
+                watchdog_logger.error(f"[ERROR] Failed to restart SL worker: {e}", exc_info=True)
     
     def track_sl_update(self, ticket: int):
         """Track an SL update for rate monitoring."""

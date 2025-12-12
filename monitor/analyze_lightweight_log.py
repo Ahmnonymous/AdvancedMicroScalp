@@ -131,9 +131,9 @@ def analyze_lightweight_log(log_file_path: str) -> Dict[str, Any]:
             analysis['losses'] = max(analysis['losses'], int(losses_match.group(1)))
         
         # Extract events
-        if '🟢 Entered SWEET SPOT zone' in entry_text:
+        if '[+] Entered SWEET SPOT zone' in entry_text:
             # Find all sweet spot entries in this log entry
-            sweet_spot_matches = re.findall(r'🟢 Entered SWEET SPOT zone \(\$(\d+\.\d+) profit\)', entry_text)
+            sweet_spot_matches = re.findall(r'[+] Entered SWEET SPOT zone \(\$(\d+\.\d+) profit\)', entry_text)
             for profit_str in sweet_spot_matches:
                 analysis['events']['sweet_spot_entries'].append({
                     'timestamp': timestamp if 'timestamp' in locals() else None,
@@ -149,7 +149,7 @@ def analyze_lightweight_log(log_file_path: str) -> Dict[str, Any]:
                     'profit': float(profit_str)
                 })
         
-        if '⚠️ SL NOT UPDATED FOR >2s' in entry_text:
+        if '[WARNING] SL NOT UPDATED FOR >2s' in entry_text:
             sl_match = re.search(r'Ticket (\d+), ([\d.]+)s', entry_text)
             if sl_match:
                 analysis['events']['sl_not_updating'].append({
@@ -158,12 +158,12 @@ def analyze_lightweight_log(log_file_path: str) -> Dict[str, Any]:
                     'duration': float(sl_match.group(2))
                 })
         
-        if '❌ Failed close attempt' in entry_text:
+        if '[ERROR] Failed close attempt' in entry_text:
             analysis['events']['close_failures'].append({
                 'timestamp': timestamp if 'timestamp' in locals() else None
             })
         
-        if '❌ Execution Error:' in entry_text:
+        if '[ERROR] Execution Error:' in entry_text:
             analysis['events']['execution_errors'].append({
                 'timestamp': timestamp if 'timestamp' in locals() else None
             })
@@ -215,7 +215,7 @@ def generate_summary_report(analysis: Dict[str, Any]) -> str:
     report.append("")
     
     # Bot States
-    report.append("🤖 BOT STATE DISTRIBUTION")
+    report.append("[BOT] BOT STATE DISTRIBUTION")
     report.append("-" * 80)
     for state, count in sorted(analysis['states'].items(), key=lambda x: x[1], reverse=True):
         percentage = (count / analysis['total_entries']) * 100 if analysis['total_entries'] > 0 else 0
@@ -276,7 +276,7 @@ def generate_summary_report(analysis: Dict[str, Any]) -> str:
     # Event Summary
     report.append("🎯 EVENT SUMMARY")
     report.append("-" * 80)
-    report.append(f"🟢 Sweet Spot Entries: {len(analysis['events']['sweet_spot_entries'])}")
+    report.append(f"[+] Sweet Spot Entries: {len(analysis['events']['sweet_spot_entries'])}")
     if analysis['events']['sweet_spot_entries']:
         profits = [e['profit'] for e in analysis['events']['sweet_spot_entries']]
         report.append(f"   Profit Range: ${min(profits):.2f} - ${max(profits):.2f}")
@@ -286,20 +286,20 @@ def generate_summary_report(analysis: Dict[str, Any]) -> str:
         profits = [e['profit'] for e in analysis['events']['trailing_zone_entries']]
         report.append(f"   Profit Range: ${min(profits):.2f} - ${max(profits):.2f}")
     
-    report.append(f"⚠️  SL Not Updating Warnings: {len(analysis['events']['sl_not_updating'])}")
+    report.append(f"[WARNING]  SL Not Updating Warnings: {len(analysis['events']['sl_not_updating'])}")
     if analysis['events']['sl_not_updating']:
         durations = [e['duration'] for e in analysis['events']['sl_not_updating']]
         report.append(f"   Duration Range: {min(durations):.1f}s - {max(durations):.1f}s")
         report.append(f"   Average Duration: {sum(durations) / len(durations):.1f}s")
     
-    report.append(f"❌ Close Failures: {len(analysis['events']['close_failures'])}")
-    report.append(f"❌ Execution Errors: {len(analysis['events']['execution_errors'])}")
+    report.append(f"[ERROR] Close Failures: {len(analysis['events']['close_failures'])}")
+    report.append(f"[ERROR] Execution Errors: {len(analysis['events']['execution_errors'])}")
     report.append(f"🟠 Slow Executions: {len(analysis['events']['slow_executions'])}")
     report.append("")
     
     # SL Update Issues Detail
     if analysis['sl_update_issues']:
-        report.append("⚠️  SL UPDATE ISSUES DETAIL")
+        report.append("[WARNING]  SL UPDATE ISSUES DETAIL")
         report.append("-" * 80)
         for issue in analysis['sl_update_issues']:
             report.append(f"Ticket {issue['ticket']}:")
@@ -315,26 +315,26 @@ def generate_summary_report(analysis: Dict[str, Any]) -> str:
     observations = []
     
     if analysis['max_profit'] >= 0.10:
-        observations.append(f"✅ Trade reached trailing zone (max profit: ${analysis['max_profit']:.2f})")
+        observations.append(f"[OK] Trade reached trailing zone (max profit: ${analysis['max_profit']:.2f})")
     
     if analysis['max_profit'] >= 0.03:
-        observations.append(f"✅ Trade entered sweet spot zone (max profit: ${analysis['max_profit']:.2f})")
+        observations.append(f"[OK] Trade entered sweet spot zone (max profit: ${analysis['max_profit']:.2f})")
     
     if len(analysis['events']['sl_not_updating']) > 0:
         max_sl_duration = max([e['duration'] for e in analysis['events']['sl_not_updating']])
-        observations.append(f"⚠️  SL update delays detected (max: {max_sl_duration:.1f}s)")
+        observations.append(f"[WARNING]  SL update delays detected (max: {max_sl_duration:.1f}s)")
     
     if len(analysis['events']['close_failures']) > 0:
-        observations.append(f"❌ Close failures detected: {len(analysis['events']['close_failures'])}")
+        observations.append(f"[ERROR] Close failures detected: {len(analysis['events']['close_failures'])}")
     
     if len(analysis['events']['execution_errors']) > 0:
-        observations.append(f"❌ Execution errors detected: {len(analysis['events']['execution_errors'])}")
+        observations.append(f"[ERROR] Execution errors detected: {len(analysis['events']['execution_errors'])}")
     
     if len(analysis['events']['slow_executions']) > 0:
         observations.append(f"🟠 Slow executions detected: {len(analysis['events']['slow_executions'])}")
     
     if not observations:
-        observations.append("✅ No major issues detected")
+        observations.append("[OK] No major issues detected")
     
     for obs in observations:
         report.append(f"  {obs}")
@@ -347,7 +347,7 @@ def generate_summary_report(analysis: Dict[str, Any]) -> str:
 
 def main():
     """Main function to analyze log and print summary."""
-    log_file = "logs/system/lightweight_realtime.log"
+    log_file = "logs/live/system/lightweight_realtime.log"
     
     print("Analyzing lightweight real-time log...")
     analysis = analyze_lightweight_log(log_file)
@@ -363,7 +363,7 @@ def main():
     with open(report_file, 'w', encoding='utf-8') as f:
         f.write(report)
     
-    print(f"\n✅ Analysis saved to: {report_file}")
+    print(f"\n[OK] Analysis saved to: {report_file}")
 
 
 if __name__ == "__main__":

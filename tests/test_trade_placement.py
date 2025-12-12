@@ -73,15 +73,15 @@ result = mt5.order_send(request)
 
 if result is None:
     error = mt5.last_error()
-    print(f"❌ Order send returned None")
+    print(f"[ERROR] Order send returned None")
     print(f"Error: {error}")
 else:
     print(f"Result Code: {result.retcode}")
     print(f"Comment: {result.comment}")
     if result.retcode == mt5.TRADE_RETCODE_DONE:
-        print("✅ Order placed successfully!")
+        print("[OK] Order placed successfully!")
     else:
-        print(f"❌ Order failed: {result.retcode} - {result.comment}")
+        print(f"[ERROR] Order failed: {result.retcode} - {result.comment}")
 
 mt5.shutdown()
 

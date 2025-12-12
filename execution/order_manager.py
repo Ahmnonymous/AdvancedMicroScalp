@@ -13,7 +13,7 @@ from enum import Enum
 # Use logger factory for proper logging
 from utils.logger_factory import get_logger
 
-logger = get_logger("order_manager", "logs/system/order_manager.log")
+logger = get_logger("order_manager", "logs/live/system/order_manager.log")
 
 
 class OrderType(Enum):
@@ -243,7 +243,7 @@ class OrderManager:
             
             # Detailed logging for stop loss errors (10016)
             if result.retcode == 10016:  # Invalid stops
-                logger.error(f"❌ {error_msg}")
+                logger.error(f"[ERROR] {error_msg}")
                 logger.error(f"   Symbol: {symbol}, Order Type: {order_type.name}")
                 logger.error(f"   Entry Price: {price:.5f} ({'ASK' if order_type == OrderType.BUY else 'BID'})")
                 logger.error(f"   Stop Loss Price: {sl_price:.5f} ({'below entry' if order_type == OrderType.BUY else 'above entry'})")
@@ -261,22 +261,22 @@ class OrderManager:
                 # Return error dict for market closed (non-retryable)
                 return {'error': -4}
             elif result.retcode == 10014:  # Invalid volume
-                logger.error(f"❌ {error_msg} - Volume {lot_size} is invalid for {symbol}")
+                logger.error(f"[ERROR] {error_msg} - Volume {lot_size} is invalid for {symbol}")
                 # Return error dict to indicate volume issue
                 return {'error': -1}  # Special return value to indicate volume error (retryable once)
             elif result.retcode == 10027:  # Trade disabled
-                logger.error(f"❌ {error_msg} - Trading is disabled for {symbol}")
+                logger.error(f"[ERROR] {error_msg} - Trading is disabled for {symbol}")
                 logger.error(f"   This symbol cannot be traded (account or symbol restriction)")
                 # Return error dict for trade disabled (non-retryable)
                 return {'error': -5}
             elif result.retcode == 10044:  # Trading restriction (broker-specific, often means trading not allowed)
-                logger.error(f"❌ {error_msg} - Trading restriction for {symbol} {order_type.name}")
+                logger.error(f"[ERROR] {error_msg} - Trading restriction for {symbol} {order_type.name}")
                 logger.error(f"   Symbol: {symbol}, Order Type: {order_type.name}, Price: {price:.5f}, SL: {sl_price:.5f}, Lot: {lot_size}")
                 logger.error(f"   This symbol/order type may not be tradeable due to account or broker restrictions")
                 # Return error dict for trading restrictions (non-retryable)
                 return {'error': -5}
             elif result.retcode == 10029:  # Too many requests
-                logger.error(f"❌ {error_msg} - Too many requests for {symbol}")
+                logger.error(f"[ERROR] {error_msg} - Too many requests for {symbol}")
                 logger.error(f"   Rate limit exceeded - wait before retrying")
                 # Return error dict for rate limiting (retryable with backoff)
                 return {'error': -2}
@@ -289,7 +289,7 @@ class OrderManager:
                 # CRITICAL FIX: Handle specific error codes appropriately
                 # 10031: Network connection error - this is transient and should be retried
                 if result.retcode == 10031:
-                    logger.warning(f"⚠️ Network connection error (10031) - this is transient, will retry")
+                    logger.warning(f"[WARNING] Network connection error (10031) - this is transient, will retry")
                     return {'error': -2}  # Retryable error
                 
                 # Check if error is likely a restriction (10000-10099 range, some are restrictions)
@@ -316,7 +316,7 @@ class OrderManager:
                         actual_entry_price = deal.price
                         slippage = abs(actual_entry_price - price)
                         if slippage > 0.00001:  # Significant slippage
-                            logger.warning(f"⚠️ {symbol}: Entry slippage detected - Requested: {price:.5f}, Filled: {actual_entry_price:.5f}, Slippage: {slippage:.5f}")
+                            logger.warning(f"[WARNING] {symbol}: Entry slippage detected - Requested: {price:.5f}, Filled: {actual_entry_price:.5f}, Slippage: {slippage:.5f}")
                         break
         
         logger.info(f"Order placed successfully: Ticket {result.order}, Symbol {symbol}, "
@@ -415,6 +415,41 @@ class OrderManager:
         else:
             new_tp = position.tp
         
+        # CRITICAL FIX: Pre-validate position exists and price distance from market meets broker constraints
+        # Get fresh tick data to check freeze level
+        tick = mt5.symbol_info_tick(symbol)
+        if tick is None:
+            logger.warning(f"Cannot get tick data for {symbol} - skipping modification")
+            return False
+        
+        current_bid = tick.bid
+        current_ask = tick.ask
+        freeze_level = symbol_info.get('freeze_level', 0)
+        stops_level = symbol_info.get('trade_stops_level', 0)
+        point = symbol_info.get('point', 0.00001)
+        
+        # Check if position still exists
+        verify_position = mt5.positions_get(ticket=ticket)
+        if verify_position is None or len(verify_position) == 0:
+            logger.debug(f"Position {ticket} no longer exists - skipping modification")
+            return False
+        
+        # Validate SL distance from market (freeze level check)
+        if position.type == mt5.ORDER_TYPE_BUY:
+            # For BUY: SL must be below current BID by at least freeze_level
+            min_allowed_sl = current_bid - (freeze_level * point) if freeze_level > 0 else current_bid - (stops_level * point)
+            if new_sl >= min_allowed_sl:
+                logger.warning(f"SL {new_sl:.5f} too close to market (BID: {current_bid:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level})")
+                # Schedule retry with backoff - position may move away from market
+                return False  # Will be retried by caller with backoff
+        else:  # SELL
+            # For SELL: SL must be above current ASK by at least freeze_level
+            min_allowed_sl = current_ask + (freeze_level * point) if freeze_level > 0 else current_ask + (stops_level * point)
+            if new_sl <= min_allowed_sl:
+                logger.warning(f"SL {new_sl:.5f} too close to market (ASK: {current_ask:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level})")
+                # Schedule retry with backoff - position may move away from market
+                return False  # Will be retried by caller with backoff
+        
         request = {
             "action": mt5.TRADE_ACTION_SLTP,
             "symbol": symbol,
@@ -423,7 +458,7 @@ class OrderManager:
             "tp": new_tp,
         }
         
-        # CRITICAL FIX: Retry logic for SL modification (up to 3 attempts)
+        # CRITICAL FIX: Retry logic for SL modification (up to 3 attempts with exponential backoff + jitter)
         max_retries = 3
         for attempt in range(max_retries):
             result = mt5.order_send(request)
@@ -440,7 +475,7 @@ class OrderManager:
                     return False
             
             if result.retcode == mt5.TRADE_RETCODE_DONE:
-                logger.info(f"✅ SL UPDATE SUCCESS: Ticket={ticket} Symbol={symbol} NewSL={new_sl:.5f} OldSL={current_sl:.5f}")
+                logger.info(f"[OK] SL UPDATE SUCCESS: Ticket={ticket} Symbol={symbol} NewSL={new_sl:.5f} OldSL={current_sl:.5f}")
                 logger.info(f"Order {ticket} modified: SL {new_sl:.5f}, TP {new_tp:.5f}")
                 return True
             
@@ -464,7 +499,10 @@ class OrderManager:
                 if attempt < max_retries - 1:
                     logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - Position too close to market. Retrying...")
                     import time
-                    time.sleep(0.2 * (attempt + 1))  # Longer backoff for market proximity issues
+                    import random
+                    backoff = 0.2 * (2 ** attempt)  # Exponential: 0.2s, 0.4s, 0.8s
+                    jitter = random.uniform(0, 0.1)  # Random jitter up to 100ms
+                    time.sleep(backoff + jitter)
                     continue
                 else:
                     logger.error(f"Modify order failed for ticket {ticket} after {max_retries} attempts: {result.retcode} - Position too close to market")
@@ -499,9 +537,12 @@ class OrderManager:
             if attempt < max_retries - 1:
                 logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - {result.comment}. Retrying...")
                 import time
-                time.sleep(0.1 * (attempt + 1))  # Increasing backoff
+                import random
+                backoff = 0.1 * (2 ** attempt)  # Exponential: 0.1s, 0.2s, 0.4s
+                jitter = random.uniform(0, 0.05)  # Random jitter up to 50ms
+                time.sleep(backoff + jitter)
             else:
-                logger.error(f"❌ SL UPDATE FAILED: Ticket={ticket} Symbol={symbol} Code={result.retcode} Reason={result.comment} Attempts={max_retries}")
+                logger.error(f"[ERROR] SL UPDATE FAILED: Ticket={ticket} Symbol={symbol} Code={result.retcode} Reason={result.comment} Attempts={max_retries}")
                 logger.error(f"Modify order failed for ticket {ticket} after {max_retries} attempts: {result.retcode} - {result.comment}")
                 return False
         
@@ -722,7 +763,7 @@ class OrderManager:
             })
         
         if excluded_count > 0:
-            logger.info(f"✅ Excluded {excluded_count} locked/old position(s) (Dec 8 or >{max_age_hours}h old). Showing {len(result)} active position(s).")
+            logger.info(f"[OK] Excluded {excluded_count} locked/old position(s) (Dec 8 or >{max_age_hours}h old). Showing {len(result)} active position(s).")
         
         return result
             

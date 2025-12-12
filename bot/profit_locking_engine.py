@@ -11,7 +11,7 @@ from datetime import datetime
 
 from utils.logger_factory import get_logger
 
-logger = get_logger("profit_locking", "logs/engine/profit_locking.log")
+logger = get_logger("profit_locking", "logs/live/engine/profit_locking.log")
 
 
 class ProfitLockingEngine:
@@ -120,7 +120,7 @@ class ProfitLockingEngine:
             # Reset sweet spot tracking if profit goes negative
             if ticket in self._sweet_spot_min_profit:
                 self._sweet_spot_min_profit.pop(ticket)
-            logger.debug(f"⛔ Profit-Locking BLOCKED: {symbol} Ticket {ticket} | "
+            logger.debug(f"[SKIP] Profit-Locking BLOCKED: {symbol} Ticket {ticket} | "
                        f"Profit: ${current_profit:.2f} (negative) | "
                        f"Trade in loss zone - strict -$2.00 SL enforcement active, NO profit-locking allowed")
             return False, f"Trade in loss zone (${current_profit:.2f}) - profit-locking blocked, strict SL enforcement active"
@@ -177,7 +177,7 @@ class ProfitLockingEngine:
         if target_lock_profit is None:
             # Log skipped update with reason
             if is_sweet_spot_lock:
-                logger.debug(f"⏭️ SWEET SPOT LOCK SKIPPED: {symbol} Ticket {ticket} | "
+                logger.debug(f"[SKIP] SWEET SPOT LOCK SKIPPED: {symbol} Ticket {ticket} | "
                            f"Current profit: ${current_profit:.2f} | "
                            f"Current locked: ${current_locked_profit:.2f} | "
                            f"Reason: No lock needed (target lock calculation returned None)")
@@ -187,7 +187,7 @@ class ProfitLockingEngine:
         if target_lock_profit <= current_locked_profit + 0.01:
             # Log skipped update with reason
             if is_sweet_spot_lock:
-                logger.debug(f"⏭️ SWEET SPOT LOCK SKIPPED: {symbol} Ticket {ticket} | "
+                logger.debug(f"[SKIP] SWEET SPOT LOCK SKIPPED: {symbol} Ticket {ticket} | "
                            f"Current profit: ${current_profit:.2f} | "
                            f"Target lock: ${target_lock_profit:.2f} | "
                            f"Current locked: ${current_locked_profit:.2f} | "
@@ -257,20 +257,20 @@ class ProfitLockingEngine:
                 min_profit_info = ""
                 if self.dynamic_sweet_spot_enabled and ticket in self._sweet_spot_min_profit:
                     min_profit_info = f" | Min in sweet spot: ${self._sweet_spot_min_profit[ticket]:.2f}"
-                verification_status = "✓ VERIFIED" if self._locked_positions[ticket].get('sl_verified', False) else "⚠ PENDING"
-                logger.info(f"✅ SWEET SPOT LOCK APPLIED: {symbol} Ticket {ticket} | "
+                verification_status = "[OK] VERIFIED" if self._locked_positions[ticket].get('sl_verified', False) else "[W] PENDING"
+                logger.info(f"[OK] SWEET SPOT LOCK APPLIED: {symbol} Ticket {ticket} | "
                           f"Current profit: ${current_profit:.2f} | "
                           f"Locked at: ${target_lock_profit:.2f} | "
                           f"Target SL: {target_sl_price:.5f}{min_profit_info} | "
                           f"Status: {verification_status}")
             else:
-                logger.info(f"✅ Profit locked: {symbol} Ticket {ticket} | "
+                logger.info(f"[OK] Profit locked: {symbol} Ticket {ticket} | "
                           f"Profit: ${current_profit:.2f} | "
                           f"Locked at: ${target_lock_profit:.2f} | "
                           f"Target SL: {target_sl_price:.5f}")
             return True, f"Locked at ${target_lock_profit:.2f}"
         else:
-            logger.warning(f"⚠️ SWEET SPOT LOCK FAILED: {symbol} Ticket {ticket} | "
+            logger.warning(f"[WARNING] SWEET SPOT LOCK FAILED: {symbol} Ticket {ticket} | "
                          f"Profit: ${current_profit:.2f} | "
                          f"Target lock: ${target_lock_profit:.2f} | "
                          f"Target SL: {target_sl_price:.5f} | "
@@ -558,7 +558,7 @@ class ProfitLockingEngine:
         # Get symbol info for final validation
         symbol_info = self.mt5_connector.get_symbol_info(symbol)
         if symbol_info is None:
-            logger.warning(f"⚠️ Cannot get symbol info for {symbol} Ticket {ticket} during profit lock")
+            logger.warning(f"[WARNING] Cannot get symbol info for {symbol} Ticket {ticket} during profit lock")
             return False
         
         point = symbol_info.get('point', 0.00001)
@@ -586,13 +586,13 @@ class ProfitLockingEngine:
                 # CRITICAL: Get fresh position data before each attempt to ensure accuracy
                 fresh_position = self.order_manager.get_position_by_ticket(ticket)
                 if not fresh_position:
-                    logger.warning(f"⚠️ Position {ticket} not found during profit lock attempt {attempt + 1}")
+                    logger.warning(f"[WARNING] Position {ticket} not found during profit lock attempt {attempt + 1}")
                     return False  # Position closed
                 
                 # Verify profit is still in acceptable range
                 fresh_profit = fresh_position.get('profit', 0.0)
                 if fresh_profit < self.min_profit_threshold_usd:
-                    logger.debug(f"⚠️ Profit dropped below threshold during lock attempt: ${fresh_profit:.2f}")
+                    logger.debug(f"[WARNING] Profit dropped below threshold during lock attempt: ${fresh_profit:.2f}")
                     return False
                 
                 # Attempt to modify order with broker
@@ -601,9 +601,9 @@ class ProfitLockingEngine:
                 logger.info(f"🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket={ticket} Symbol={symbol} OldSL={current_sl:.5f} NewSL={target_sl_price:.5f} TargetLock=${target_lock_profit:.2f}")
                 success = self.order_manager.modify_order(ticket, stop_loss_price=target_sl_price)
                 if success:
-                    logger.info(f"✅ SL UPDATE SUCCESS (ProfitLockingEngine): Ticket={ticket} Symbol={symbol} NewSL={target_sl_price:.5f}")
+                    logger.info(f"[OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket={ticket} Symbol={symbol} NewSL={target_sl_price:.5f}")
                 else:
-                    logger.error(f"❌ SL UPDATE FAILED (ProfitLockingEngine): Ticket={ticket} Symbol={symbol} TargetSL={target_sl_price:.5f}")
+                    logger.error(f"[ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket={ticket} Symbol={symbol} TargetSL={target_sl_price:.5f}")
                 
                 if success:
                     # Verify SL was actually applied by getting fresh position
@@ -620,7 +620,7 @@ class ProfitLockingEngine:
                             self._locked_positions[ticket]['sl_verified'] = True
                             self._locked_positions[ticket]['applied_sl_price'] = applied_sl
                             
-                            logger.info(f"✅ SWEET SPOT LOCK APPLIED (BROKER VERIFIED): {symbol} Ticket {ticket} | "
+                            logger.info(f"[OK] SWEET SPOT LOCK APPLIED (BROKER VERIFIED): {symbol} Ticket {ticket} | "
                                       f"Attempt {attempt + 1}/{retry_count} | "
                                       f"Current profit: ${current_profit:.2f} | "
                                       f"Locked at: ${target_lock_profit:.2f} | "
@@ -628,7 +628,7 @@ class ProfitLockingEngine:
                                       f"Applied SL: {applied_sl:.5f} | SUCCESS")
                             return True
                         else:
-                            logger.warning(f"⚠️ SL modification reported success but SL not updated correctly: "
+                            logger.warning(f"[WARNING] SL modification reported success but SL not updated correctly: "
                                          f"Target: {target_sl_price:.5f}, Applied: {applied_sl:.5f} | Retrying...")
                             # Mark as unverified
                             if ticket not in self._locked_positions:
@@ -643,7 +643,7 @@ class ProfitLockingEngine:
                 error = mt5.last_error()
                 if error and error[0] != 0:
                     last_error = error
-                    logger.debug(f"⚠️ Lock attempt {attempt + 1}/{retry_count} failed: "
+                    logger.debug(f"[WARNING] Lock attempt {attempt + 1}/{retry_count} failed: "
                                f"{symbol} Ticket {ticket} | Error: {error} | "
                                f"Target lock: ${target_lock_profit:.2f} | Target SL: {target_sl_price:.5f}")
                 
@@ -658,7 +658,7 @@ class ProfitLockingEngine:
             self._locked_positions[ticket]['sl_verified'] = False
             
             # Log failure
-            logger.error(f"❌ SWEET SPOT LOCK FAILED: {symbol} Ticket {ticket} | "
+            logger.error(f"[ERROR] SWEET SPOT LOCK FAILED: {symbol} Ticket {ticket} | "
                        f"After {retry_count} attempts | "
                        f"Target lock: ${target_lock_profit:.2f} | "
                        f"Target SL: {target_sl_price:.5f} | "

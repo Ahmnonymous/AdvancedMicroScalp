@@ -10,7 +10,7 @@ from typing import Optional, Dict, Any, Tuple
 import json
 from utils.logger_factory import get_logger
 
-logger = get_logger("mt5_connection", "logs/system/mt5_connection.log")
+logger = get_logger("mt5_connection", "logs/live/system/mt5_connection.log")
 
 
 class MT5Connector:
@@ -86,7 +86,7 @@ class MT5Connector:
                 error_msg += "\n   → Example: \"path\": \"C:\\Program Files\\MetaTrader 5\\terminal64.exe\""
             
             logger.error(error_msg)
-            print(f"❌ {error_msg}")
+            print(f"[ERROR] {error_msg}")
             return False
         
         # Try to login if credentials provided
@@ -100,7 +100,7 @@ class MT5Connector:
             except (ValueError, TypeError):
                 error_msg = f"Invalid account number: {account}"
                 logger.error(error_msg)
-                print(f"❌ {error_msg}")
+                print(f"[ERROR] {error_msg}")
                 mt5.shutdown()
                 return False
             
@@ -148,7 +148,7 @@ class MT5Connector:
                 error_msg += "\n   → Please verify your credentials in config.json"
                 
                 logger.error(error_msg)
-                print(f"❌ {error_msg}")
+                print(f"[ERROR] {error_msg}")
                 mt5.shutdown()
                 return False
         else:
@@ -159,7 +159,7 @@ class MT5Connector:
                 error_msg = "No MT5 credentials provided and no active session found"
                 error_msg += "\n   → Either provide credentials in config.json, or login to MT5 terminal manually first"
                 logger.warning(error_msg)
-                print(f"⚠️  {error_msg}")
+                print(f"[WARNING]  {error_msg}")
                 mt5.shutdown()
                 return False
         
@@ -168,12 +168,12 @@ class MT5Connector:
         if account_info is None:
             error_msg = "Failed to get account info after login"
             logger.error(error_msg)
-            print(f"❌ {error_msg}")
+            print(f"[ERROR] {error_msg}")
             mt5.shutdown()
             return False
         
         self.connected = True
-        success_msg = f"✅ MT5 connected successfully. Account: {account_info.login}, Balance: {account_info.balance}"
+        success_msg = f"[OK] MT5 connected successfully. Account: {account_info.login}, Balance: {account_info.balance}"
         logger.info(success_msg)
         print(success_msg)
         return True

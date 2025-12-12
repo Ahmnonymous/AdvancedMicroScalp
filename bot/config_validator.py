@@ -236,16 +236,16 @@ class ConfigValidator:
             logger.error("=" * 60)
             logger.error("CONFIGURATION ERRORS (must fix):")
             for error in self.errors:
-                logger.error(f"  ❌ {error}")
+                logger.error(f"  [ERROR] {error}")
             logger.error("=" * 60)
         
         if self.warnings:
             logger.warning("=" * 60)
             logger.warning("CONFIGURATION WARNINGS:")
             for warning in self.warnings:
-                logger.warning(f"  ⚠️  {warning}")
+                logger.warning(f"  [WARNING] {warning}")
             logger.warning("=" * 60)
         
         if not self.errors and not self.warnings:
-            logger.info("✅ Configuration validation passed with no issues")
+            logger.info("[OK] Configuration validation passed with no issues")
 

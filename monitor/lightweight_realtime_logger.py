@@ -258,7 +258,7 @@ def start_realtime_logger(mt5_connector, bot_state_getter, shutdown_event: threa
                                         time_since_update = f"{time_diff:.1f}s"
                                     else:
                                         time_since_update = f"{time_diff/60:.1f}m"
-                                    last_update_result = '✓'
+                                    last_update_result = '[OK]'
                                 else:
                                     time_since_update = 'N/A'
                             elif last_sl_attempt:
@@ -268,28 +268,28 @@ def start_realtime_logger(mt5_connector, bot_state_getter, shutdown_event: threa
                                         time_since_update = f"{time_diff:.1f}s"
                                     else:
                                         time_since_update = f"{time_diff/60:.1f}m"
-                                    last_update_result = '⚠'
+                                    last_update_result = '[W]'
                             
                             # Determine SL status
-                            sl_status = '✓'
+                            sl_status = '[OK]'
                             if consecutive_failures >= 5:
-                                sl_status = '⚠ VIOLATION'
+                                sl_status = '[W] VIOLATION'
                             elif circuit_breaker:
                                 if isinstance(circuit_breaker, datetime):
                                     if current_time < circuit_breaker:
-                                        sl_status = '⚠ CB'
+                                        sl_status = '[W] CB'
                                 else:
-                                    sl_status = '⚠'
+                                    sl_status = '[W]'
                             elif time_since_update != 'N/A':
                                 try:
                                     time_val = float(time_since_update.replace('s', '').replace('m', ''))
                                     if 'm' in time_since_update:
                                         time_val *= 60
-                                    # CRITICAL FIX: Only show "⚠" if time > 5s AND last_update_result is "⚠" (failed update)
-                                    # If last_update_result is "✓" (successful or no update needed), keep "✓" even if > 5s
-                                    if time_val > 5.0 and last_update_result == '⚠':
-                                        sl_status = '⚠'
-                                    # If last_update_result is "✓", keep "✓" regardless of time (SL is correct)
+                                    # CRITICAL FIX: Only show "[W]" if time > 5s AND last_update_result is "[W]" (failed update)
+                                    # If last_update_result is "[OK]" (successful or no update needed), keep "[OK]" even if > 5s
+                                    if time_val > 5.0 and last_update_result == '[W]':
+                                        sl_status = '[W]'
+                                    # If last_update_result is "[OK]", keep "[OK]" regardless of time (SL is correct)
                                 except:
                                     pass
                             
@@ -315,7 +315,7 @@ def start_realtime_logger(mt5_connector, bot_state_getter, shutdown_event: threa
                                 if circuit_breaker:
                                     status_line += f" | Circuit Breaker: ON"
                                 if in_sweet_spot:
-                                    status_line += f" | 🟢 Sweet Spot"
+                                    status_line += f" | [+] Sweet Spot"
                                 if in_trailing_zone:
                                     status_line += f" | 🔵 Trailing"
                                 print(status_line)
@@ -368,19 +368,19 @@ def start_realtime_logger(mt5_connector, bot_state_getter, shutdown_event: threa
                         events_summary = []
                         if sweet_spot_entries:
                             for e in sweet_spot_entries[-3:]:
-                                events_summary.append(f"🟢 Sweet Spot: Ticket {e['ticket']} @ ${e['profit']:.2f}")
+                                events_summary.append(f"[+] Sweet Spot: Ticket {e['ticket']} @ ${e['profit']:.2f}")
                         if trailing_zone_entries:
                             for e in trailing_zone_entries[-3:]:
                                 events_summary.append(f"🔵 Trailing: Ticket {e['ticket']} @ ${e['profit']:.2f}")
                         if sl_not_updating:
                             for e in sl_not_updating[-3:]:
-                                events_summary.append(f"⚠️ SL Not Updated: Ticket {e['ticket']} ({e['time_since_update']:.1f}s)")
+                                events_summary.append(f"[WARNING] SL Not Updated: Ticket {e['ticket']} ({e['time_since_update']:.1f}s)")
                         if close_failures:
                             for e in close_failures[-3:]:
-                                events_summary.append(f"❌ Close Failed: Ticket {e.get('ticket', 'N/A')}")
+                                events_summary.append(f"[ERROR] Close Failed: Ticket {e.get('ticket', 'N/A')}")
                         if execution_errors:
                             for e in execution_errors[-3:]:
-                                events_summary.append(f"❌ Execution Error: {e.get('message', 'Unknown')[:50]}")
+                                events_summary.append(f"[ERROR] Execution Error: {e.get('message', 'Unknown')[:50]}")
                         
                         if events_summary:
                             print(f"\n📊 RECENT EVENTS (last 60s):")

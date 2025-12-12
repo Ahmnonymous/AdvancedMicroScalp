@@ -42,7 +42,7 @@ for symbol_name in symbols_to_check:
         # Check if we can get rates
         rates = mt5.copy_rates_from_pos(symbol_name, mt5.TIMEFRAME_M1, 0, 1)
         
-        status = "🟢 OPEN" if tick and rates and len(rates) > 0 else "🔴 CLOSED"
+        status = "[+] OPEN" if tick and rates and len(rates) > 0 else "[-] CLOSED"
         
         bid = tick.bid if tick else 0
         ask = tick.ask if tick else 0

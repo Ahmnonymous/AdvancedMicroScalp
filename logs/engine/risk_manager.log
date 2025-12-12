@@ -1,8 +1,0 @@
-2025-12-11 20:15:45 - risk_manager - INFO - Initializing SLManager...
-2025-12-11 20:15:45 - risk_manager - INFO - ✅ SLManager initialized successfully
-2025-12-11 20:15:45 - risk_manager - INFO - SLManager instance: <risk.sl_manager.SLManager object at 0x00000203268F2C50>
-2025-12-11 20:15:45 - risk_manager - INFO - SLManager available: True
-2025-12-11 20:15:45 - risk_manager - INFO - Micro-HFT Profit Engine registered with RiskManager
-2025-12-11 20:15:45 - risk_manager - INFO - Profit-Locking Engine registered with RiskManager
-2025-12-11 20:16:30 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: KOm Ticket 491673414 | Entry: 69.18000 | Immediately integrating into monitoring loop
-2025-12-11 20:16:30 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: KOm Ticket 491673414 | Entry: 69.18000 | Immediately integrating into monitoring loop

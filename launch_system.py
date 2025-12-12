@@ -19,7 +19,7 @@ try:
     TABULATE_AVAILABLE = True
 except ImportError:
     TABULATE_AVAILABLE = False
-    print("⚠️  Warning: 'tabulate' library not found. Install with: pip install tabulate")
+    print("[WARNING] 'tabulate' library not found. Install with: pip install tabulate")
 
 # Add project root to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -46,8 +46,8 @@ class Colors:
     UNDERLINE = '\033[4m'
 
 # Setup logging
-logger = get_logger("system_startup", "logs/system/system_startup.log")
-error_logger = get_logger("system_errors", "logs/system/system_errors.log")
+logger = get_logger("system_startup", "logs/live/system/system_startup.log")
+error_logger = get_logger("system_errors", "logs/live/system/system_errors.log")
 
 
 class TradingSystemLauncher:
@@ -166,7 +166,7 @@ class TradingSystemLauncher:
                     reason=error_msg,
                     component="MT5"
                 )
-                print(f"❌ {error_msg}")
+                print(f"[ERROR] {error_msg}")
                 return False
             
             tracer.trace(
@@ -176,31 +176,31 @@ class TradingSystemLauncher:
                 status="OK",
                 component="MT5"
             )
-            logger.info("✅ Trading Bot initialized and connected")
+            logger.info("[OK] Trading Bot initialized and connected")
             
             # Initialize Real-Time Monitor
             logger.info("Initializing Real-Time Monitor...")
             self.monitor = RealtimeBotMonitor(self.config, self.reconciliation_interval)
-            logger.info("✅ Real-Time Monitor initialized")
+            logger.info("[OK] Real-Time Monitor initialized")
             
             # Initialize Broker Reconciliation
             logger.info("Initializing Broker Reconciliation...")
             # Get bot session start time for filtering trades
             bot_session_start = self.bot.session_start_time if self.bot and hasattr(self.bot, 'session_start_time') else None
             self.reconciliation = RealtimeReconciliation(self.config, self.reconciliation_interval, session_start_time=bot_session_start)
-            logger.info("✅ Broker Reconciliation initialized")
+            logger.info("[OK] Broker Reconciliation initialized")
             if bot_session_start:
                 logger.info(f"   Session start time: {bot_session_start.strftime('%Y-%m-%d %H:%M:%S')} - only reconciling trades from this session")
             
             # Initialize Comprehensive Bot Monitor
             logger.info("Initializing Comprehensive Bot Monitor...")
             self.comprehensive_monitor = ComprehensiveBotMonitor(self.config_path)
-            logger.info("✅ Comprehensive Bot Monitor initialized")
+            logger.info("[OK] Comprehensive Bot Monitor initialized")
             
             # Initialize SL Realtime Monitor
             logger.info("Initializing SL Realtime Monitor...")
             self.sl_monitor = SLRealtimeMonitor(self.bot)
-            logger.info("✅ SL Realtime Monitor initialized")
+            logger.info("[OK] SL Realtime Monitor initialized")
             
             # Set running flag
             self.running = True
@@ -218,7 +218,7 @@ class TradingSystemLauncher:
                 daemon=False
             )
             self.bot_thread.start()
-            logger.info("✅ Trading Bot thread started")
+            logger.info("[OK] Trading Bot thread started")
             time.sleep(0.5)  # Brief delay for bot initialization
             
             # Start Real-Time Monitor in separate thread
@@ -232,7 +232,7 @@ class TradingSystemLauncher:
                 daemon=False
             )
             self.monitor_thread.start()
-            logger.info("✅ Real-Time Monitor started")
+            logger.info("[OK] Real-Time Monitor started")
             time.sleep(0.5)
             
             # Start Broker Reconciliation in separate thread
@@ -246,13 +246,13 @@ class TradingSystemLauncher:
                 daemon=False
             )
             self.reconciliation_thread.start()
-            logger.info("✅ Broker Reconciliation started")
+            logger.info("[OK] Broker Reconciliation started")
             time.sleep(0.5)
             
             # Start Comprehensive Bot Monitor
             logger.info("Starting Comprehensive Bot Monitor...")
             self.comprehensive_monitor.start()
-            logger.info("✅ Comprehensive Bot Monitor started")
+            logger.info("[OK] Comprehensive Bot Monitor started")
             
             # Start SL Worker (500ms cadence)
             logger.info("Starting SL Worker...")
@@ -268,7 +268,7 @@ class TradingSystemLauncher:
                     
                     # Start SL worker with watchdog
                     sl_manager.start_sl_worker(watchdog=watchdog)
-                    logger.info("✅ SL Worker started (500ms cadence)")
+                    logger.info("[OK] SL Worker started (500ms cadence)")
                 else:
                     logger.warning("SL Manager is None - skipping SL Worker")
             else:
@@ -277,7 +277,7 @@ class TradingSystemLauncher:
             # Start SL Realtime Monitor (integrated mode, no separate console output)
             logger.info("Starting SL Realtime Monitor...")
             self.sl_monitor.start(standalone_display=False)
-            logger.info("✅ SL Realtime Monitor started")
+            logger.info("[OK] SL Realtime Monitor started")
             
             logger.info("=" * 80)
             logger.info("ALL SYSTEMS OPERATIONAL")
@@ -332,7 +332,7 @@ class TradingSystemLauncher:
                 sl_manager=sl_manager,
                 console_output=False  # Disable console output
             )
-            logger.info("✅ Lightweight Real-Time Logger started (file logging only)")
+            logger.info("[OK] Lightweight Real-Time Logger started (file logging only)")
             
             # Keep main thread alive until shutdown
             try:
@@ -358,7 +358,7 @@ class TradingSystemLauncher:
             error_msg = f"Error starting system: {e}"
             logger.error(error_msg, exc_info=True)
             error_logger.critical(error_msg, exc_info=True)
-            print(f"❌ {error_msg}")
+            print(f"[ERROR] {error_msg}")
             self.stop()
             return False
     
@@ -531,7 +531,7 @@ class TradingSystemLauncher:
                             duration_str = str(duration).split('.')[0] if duration.total_seconds() > 0 else "0:00:00"
                             
                             profit_color = Colors.GREEN if profit >= 0 else Colors.RED
-                            profit_symbol = "🟢" if profit >= 0 else "🔴"
+                            profit_symbol = "[+]" if profit >= 0 else "[-]"
                             
                             total_profit += profit
                             
@@ -598,7 +598,7 @@ class TradingSystemLauncher:
                                                     # Log violations
                                                     self.sl_monitor._log_violations(violations)
                                                     # Violation takes priority - set status indicator
-                                                    sl_status_indicator = f"{Colors.RED}⚠{Colors.END}" if critical else f"{Colors.YELLOW}⚠{Colors.END}"
+                                                    sl_status_indicator = f"{Colors.RED}[V]{Colors.END}" if critical else f"{Colors.YELLOW}[W]{Colors.END}"
                                                 else:
                                                     # No violations - determine normal status based on profit and SL
                                                     if current_profit < 0:
@@ -606,41 +606,41 @@ class TradingSystemLauncher:
                                                         sl_manager = self.bot.risk_manager.sl_manager if hasattr(self.bot.risk_manager, 'sl_manager') else None
                                                         max_risk = sl_manager.max_risk_usd if sl_manager else 2.0
                                                         if abs(effective_sl_profit + max_risk) < 0.05:
-                                                            sl_status_indicator = f"{Colors.GREEN}✓{Colors.END}"  # Protected at -$2.00
+                                                            sl_status_indicator = f"{Colors.GREEN}[OK]{Colors.END}"  # Protected at -$2.00
                                                         else:
-                                                            sl_status_indicator = f"{Colors.YELLOW}⚠{Colors.END}"  # Pending strict loss
+                                                            sl_status_indicator = f"{Colors.YELLOW}[W]{Colors.END}"  # Pending strict loss
                                                     elif 0.03 <= current_profit <= 0.10:
                                                         # In sweet spot - check verification status
                                                         if is_verified and effective_sl_profit >= 0.03:
-                                                            sl_status_indicator = f"{Colors.GREEN}✓{Colors.END}"  # Locked and verified
+                                                            sl_status_indicator = f"{Colors.GREEN}[OK]{Colors.END}"  # Locked and verified
                                                         else:
-                                                            sl_status_indicator = f"{Colors.YELLOW}⚠{Colors.END}"  # Pending lock
+                                                            sl_status_indicator = f"{Colors.YELLOW}[W]{Colors.END}"  # Pending lock
                                                     elif effective_sl_profit >= 0.03:
                                                         # Above sweet spot - verified lock
-                                                        sl_status_indicator = f"{Colors.GREEN}✓{Colors.END}" if is_verified else f"{Colors.YELLOW}⚠{Colors.END}"
+                                                        sl_status_indicator = f"{Colors.GREEN}[OK]{Colors.END}" if is_verified else f"{Colors.YELLOW}[W]{Colors.END}"
                                                     else:
                                                         # Small positive profit (< $0.03) - check if break-even applied
                                                         if abs(effective_sl_profit) < 0.01:
-                                                            sl_status_indicator = f"{Colors.GREEN}✓{Colors.END}"  # Break-even applied
+                                                            sl_status_indicator = f"{Colors.GREEN}[OK]{Colors.END}"  # Break-even applied
                                                         else:
-                                                            sl_status_indicator = f"{Colors.YELLOW}⚠{Colors.END}"  # Waiting for break-even
+                                                            sl_status_indicator = f"{Colors.YELLOW}[W]{Colors.END}"  # Waiting for break-even
                                             except Exception as e:
                                                 # If SL monitoring fails, use basic status
                                                 logger.debug(f"Error in SL monitoring for ticket {ticket}: {e}")
                                                 if current_profit < 0:
-                                                    sl_status_indicator = f"{Colors.YELLOW}⚠{Colors.END}"
+                                                    sl_status_indicator = f"{Colors.YELLOW}[W]{Colors.END}"
                                                 elif current_profit >= 0.03:
-                                                    sl_status_indicator = f"{Colors.GREEN}✓{Colors.END}" if is_verified else f"{Colors.YELLOW}⚠{Colors.END}"
+                                                    sl_status_indicator = f"{Colors.GREEN}[OK]{Colors.END}" if is_verified else f"{Colors.YELLOW}[W]{Colors.END}"
                                                 else:
-                                                    sl_status_indicator = f"{Colors.YELLOW}⚠{Colors.END}"
+                                                    sl_status_indicator = f"{Colors.YELLOW}[W]{Colors.END}"
                                         else:
                                             # SL monitor not available - use basic status determination
-                                            if current_profit < 0:
-                                                sl_status_indicator = f"{Colors.YELLOW}⚠{Colors.END}"
-                                            elif current_profit >= 0.03:
-                                                sl_status_indicator = f"{Colors.GREEN}✓{Colors.END}" if is_verified else f"{Colors.YELLOW}⚠{Colors.END}"
-                                            else:
-                                                sl_status_indicator = f"{Colors.YELLOW}⚠{Colors.END}"
+                                                if current_profit < 0:
+                                                    sl_status_indicator = f"{Colors.YELLOW}[W]{Colors.END}"
+                                                elif current_profit >= 0.03:
+                                                    sl_status_indicator = f"{Colors.GREEN}[OK]{Colors.END}" if is_verified else f"{Colors.YELLOW}[W]{Colors.END}"
+                                                else:
+                                                    sl_status_indicator = f"{Colors.YELLOW}[W]{Colors.END}"
                                     else:
                                         # Position closed - use last known profit
                                         effective_sl_profit, is_verified = self.bot.risk_manager.calculate_effective_sl_in_profit_terms(pos, check_pending=True)
@@ -682,7 +682,7 @@ class TradingSystemLauncher:
                             # Add SL violation indicator to status if needed
                             status_display = hft_status
                             if sl_violation:
-                                status_display = f"{Colors.RED}⚠ VIOLATION{Colors.END}"
+                                status_display = f"{Colors.RED}[V] VIOLATION{Colors.END}"
                             
                             positions_table.append([
                                 f"{profit_symbol} {ticket}",
@@ -754,7 +754,7 @@ class TradingSystemLauncher:
                     success_rate_color = Colors.GREEN if success_rate >= 70 else Colors.YELLOW if success_rate >= 50 else Colors.RED
                     sweet_spot_color = Colors.GREEN if sweet_spot_rate >= 70 else Colors.YELLOW if sweet_spot_rate >= 50 else Colors.RED
                     
-                    print(f"{Colors.BOLD}{Colors.CYAN}📈 TRADE STATISTICS{Colors.END}")
+                    print(f"{Colors.BOLD}{Colors.CYAN}[STATS] TRADE STATISTICS{Colors.END}")
                     
                     if TABULATE_AVAILABLE:
                         stats_table = [[
@@ -806,7 +806,7 @@ class TradingSystemLauncher:
                                 if time_since_update > 5.0:
                                     critical_warnings.append({
                                         'severity': 'warning',
-                                        'message': f"⚠️  {symbol} Ticket {ticket} SL not updated for {time_since_update:.1f}s"
+                                        'message': f"[WARNING] {symbol} Ticket {ticket} SL not updated for {time_since_update:.1f}s"
                                     })
                             
                             # Check if SL is invalid (BUY SL >= entry or SELL SL <= entry)
@@ -837,13 +837,13 @@ class TradingSystemLauncher:
                     # Footer
                     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
                     print(f"{Colors.YELLOW}Display updates every {summary_interval:.0f}s | Trading runs at millisecond speeds | Press Ctrl+C to stop{Colors.END}")
-                    print(f"{Colors.YELLOW}SL Status: {Colors.GREEN}✓{Colors.END} = OK/Protected, {Colors.YELLOW}⚠{Colors.END} = Pending/Warning, {Colors.RED}⚠{Colors.END} = Violation | Updates tracked in real-time{Colors.END}")
+                    print(f"{Colors.YELLOW}SL Status: {Colors.GREEN}[OK]{Colors.END} = OK/Protected, {Colors.YELLOW}[W]{Colors.END} = Pending/Warning, {Colors.RED}[V]{Colors.END} = Violation | Updates tracked in real-time{Colors.END}")
                     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
                     
                     # ==================== LOG SUMMARY METRICS TO FILE ====================
                     # Log all summary metrics every 5 seconds to a dedicated log file for review
                     try:
-                        summary_logger = get_logger("summary_metrics", "logs/system/summary_metrics.log")
+                        summary_logger = get_logger("summary_metrics", "logs/live/system/summary_metrics.log")
                         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                         
                         # Prepare summary metrics dictionary
@@ -991,7 +991,7 @@ class TradingSystemLauncher:
                 if hasattr(sl_manager, 'stop_sl_worker'):
                     sl_manager.stop_sl_worker()
                 time.sleep(0.5)
-        logger.info("✅ SL Worker and Watchdog stopped")
+        logger.info("[OK] SL Worker and Watchdog stopped")
         
         # Stop Trading Bot
         logger.info("Stopping Trading Bot...")
@@ -1004,7 +1004,7 @@ class TradingSystemLauncher:
             if self.bot_thread.is_alive():
                 logger.warning("Trading Bot thread did not stop within timeout")
             else:
-                logger.info("✅ Trading Bot stopped")
+                logger.info("[OK] Trading Bot stopped")
         
         # Stop Real-Time Monitor
         logger.info("Stopping Real-Time Monitor...")
@@ -1015,7 +1015,7 @@ class TradingSystemLauncher:
             if self.monitor_thread.is_alive():
                 logger.warning("Monitor thread did not stop within timeout")
             else:
-                logger.info("✅ Real-Time Monitor stopped")
+                logger.info("[OK] Real-Time Monitor stopped")
         
         # Stop Trade Summary Display
         logger.info("Stopping Trade Summary Display...")
@@ -1024,7 +1024,7 @@ class TradingSystemLauncher:
             if self.summary_thread.is_alive():
                 logger.warning("Summary thread did not stop within timeout")
             else:
-                logger.info("✅ Trade Summary Display stopped")
+                logger.info("[OK] Trade Summary Display stopped")
         
         # Display final summary before stopping
         self._display_final_summary()
@@ -1033,7 +1033,7 @@ class TradingSystemLauncher:
         logger.info("Stopping Comprehensive Bot Monitor...")
         if self.comprehensive_monitor:
             self.comprehensive_monitor.stop()
-            logger.info("✅ Comprehensive Bot Monitor stopped")
+            logger.info("[OK] Comprehensive Bot Monitor stopped")
         
         # Stop SL Realtime Monitor (if running separately)
         if self.sl_monitor:
@@ -1148,7 +1148,7 @@ class TradingSystemLauncher:
             if self.reconciliation_thread.is_alive():
                 logger.warning("Reconciliation thread did not stop within timeout")
             else:
-                logger.info("✅ Broker Reconciliation stopped")
+                logger.info("[OK] Broker Reconciliation stopped")
         
         # Generate final reconciliation report
         logger.info("Generating final reconciliation report...")
@@ -1179,7 +1179,7 @@ class TradingSystemLauncher:
             import logging
             for handler in logging.root.handlers[:]:
                 handler.flush()
-            logger.info("✅ Logs flushed")
+            logger.info("[OK] Logs flushed")
         except Exception as e:
             logger.error(f"Error flushing logs: {e}", exc_info=True)
         
@@ -1226,7 +1226,7 @@ Examples:
     
     # Validate reconciliation interval
     if args.reconciliation_interval < 1:
-        print("❌ Error: Reconciliation interval must be at least 1 minute")
+        print("[ERROR] Reconciliation interval must be at least 1 minute")
         sys.exit(1)
     
     # Handle monitor-only mode
@@ -1276,7 +1276,7 @@ Examples:
         monitor = SLRealtimeMonitor(mock_bot)
         monitor.start(standalone_display=True)
         
-        print("✅ SL Monitor started in standalone mode")
+        print("[OK] SL Monitor started in standalone mode")
         print("   Press Ctrl+C to stop")
         print()
         
@@ -1286,7 +1286,7 @@ Examples:
         except KeyboardInterrupt:
             print("\nStopping SL Monitor...")
             monitor.stop()
-            print("✅ SL Monitor stopped")
+            print("[OK] SL Monitor stopped")
         
         sys.exit(0)
     
@@ -1305,7 +1305,7 @@ Examples:
         sys.exit(0)
     except Exception as e:
         error_logger.critical(f"Fatal error: {e}", exc_info=True)
-        print(f"❌ Fatal error: {e}")
+        print(f"[ERROR] Fatal error: {e}")
         launcher.stop()
         sys.exit(1)
 

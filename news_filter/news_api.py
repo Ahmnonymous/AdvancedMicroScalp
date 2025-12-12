@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 import MetaTrader5 as mt5
 from utils.logger_factory import get_logger
 
-logger = get_logger("news_filter", "logs/engine/news_filter.log")
+logger = get_logger("news_filter", "logs/live/engine/news_filter.log")
 
 
 class NewsFilter:
@@ -388,7 +388,7 @@ class NewsFilter:
             
             # Block 10 minutes before and 10 minutes after high-impact news
             if -block_window_minutes <= time_diff <= block_window_minutes:
-                logger.warning(f"⛔ NEWS BLOCKING trade for {symbol}: {event.get('event', 'Unknown')} "
+                logger.warning(f"[SKIP] NEWS BLOCKING trade for {symbol}: {event.get('event', 'Unknown')} "
                              f"at {event_time.strftime('%Y-%m-%d %H:%M')} (HIGH IMPACT, "
                              f"time diff: {time_diff:.1f} min, block window: ±{block_window_minutes} min)")
                 return True

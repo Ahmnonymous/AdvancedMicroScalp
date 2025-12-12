@@ -115,9 +115,9 @@ def monitor_trades():
     
     # Initialize MT5 connection
     if not mt5.initialize():
-        print("⚠️  Warning: Could not initialize MT5. Will only monitor logs.")
+        print("[WARNING]  Warning: Could not initialize MT5. Will only monitor logs.")
     else:
-        print("✅ MT5 connection established for position checking")
+        print("[OK] MT5 connection established for position checking")
     
     print()
     
@@ -157,7 +157,7 @@ def monitor_trades():
                                         'sl_price': event['sl_price'],
                                         'reason': event['reason']
                                     })
-                                    print(f"📈 SL ADJUSTMENT: Ticket {ticket} | Profit: ${event['profit']:.2f} | SL Profit: ${event['sl_profit']:.2f} | Reason: {event['reason']}")
+                                    print(f"[STATS] SL ADJUSTMENT: Ticket {ticket} | Profit: ${event['profit']:.2f} | SL Profit: ${event['sl_profit']:.2f} | Reason: {event['reason']}")
                             
                             elif event['type'] == 'big_jump':
                                 ticket = event['ticket']
@@ -169,14 +169,14 @@ def monitor_trades():
                                 if ticket in trades:
                                     trades[ticket]['status'] = 'closed'
                                     trades[ticket]['close_time'] = event['timestamp']
-                                    print(f"🔴 TRADE CLOSED: Ticket {ticket}")
+                                    print(f"[-] TRADE CLOSED: Ticket {ticket}")
             
             except FileNotFoundError:
-                print("⚠️  Log file not found, waiting...")
+                print("[WARNING]  Log file not found, waiting...")
                 time.sleep(1)
                 continue
             except Exception as e:
-                print(f"⚠️  Error reading log: {e}")
+                print(f"[WARNING]  Error reading log: {e}")
                 time.sleep(1)
                 continue
             
@@ -211,14 +211,14 @@ def monitor_trades():
                     if trades[ticket]['status'] == 'open' and ticket not in current_tickets:
                         trades[ticket]['status'] = 'closed'
                         trades[ticket]['close_time'] = datetime.now()
-                        print(f"🔴 TRADE CLOSED: Ticket {ticket} | {trades[ticket]['symbol']}")
+                        print(f"[-] TRADE CLOSED: Ticket {ticket} | {trades[ticket]['symbol']}")
                 
                 # Display current status every 10 seconds
                 if int(time.time()) % 10 == 0:
                     print_status_summary(positions)
             
             except Exception as e:
-                print(f"⚠️  Error checking MT5 positions: {e}")
+                print(f"[WARNING]  Error checking MT5 positions: {e}")
             
             time.sleep(1)
     

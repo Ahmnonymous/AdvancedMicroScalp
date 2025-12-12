@@ -25,12 +25,26 @@ from bot.config_validator import ConfigValidator
 from utils.logger_factory import get_logger, get_symbol_logger, get_system_event_logger
 from trade_logging.trade_logger import TradeLogger
 
-# System startup logger
-logger = get_logger("system_startup", "logs/system/system_startup.log")
-# Scheduler logger for main loops
-scheduler_logger = get_logger("scheduler", "logs/system/scheduler.log")
-# System errors logger
-error_logger = get_logger("system_errors", "logs/system/system_errors.log")
+# Module-level loggers - will be initialized based on config mode
+logger = None
+scheduler_logger = None
+error_logger = None
+
+
+def _get_log_paths(is_backtest: bool):
+    """Get log paths based on mode."""
+    if is_backtest:
+        return {
+            'system_startup': 'logs/backtest/system_startup.log',
+            'scheduler': 'logs/backtest/scheduler.log',
+            'system_errors': 'logs/backtest/system_errors.log'
+        }
+    else:
+        return {
+            'system_startup': 'logs/live/system/system_startup.log',
+            'scheduler': 'logs/live/system/scheduler.log',
+            'system_errors': 'logs/live/system/system_errors.log'
+        }
 
 
 class TradingBot:
@@ -40,6 +54,16 @@ class TradingBot:
         # Load configuration
         with open(config_path, 'r') as f:
             self.config = json.load(f)
+        
+        # Determine if we're in backtest mode
+        self.is_backtest = self.config.get('mode') == 'backtest'
+        
+        # Initialize module-level loggers based on mode
+        global logger, scheduler_logger, error_logger
+        log_paths = _get_log_paths(self.is_backtest)
+        logger = get_logger("system_startup", log_paths['system_startup'])
+        scheduler_logger = get_logger("scheduler", log_paths['scheduler'])
+        error_logger = get_logger("system_errors", log_paths['system_errors'])
         
         # Validate configuration
         validator = ConfigValidator(self.config)
@@ -136,6 +160,10 @@ class TradingBot:
         self.last_action = 'N/A'
         self.last_action_time = None
         self.sl_update_times = {}  # {ticket: datetime} - track when SL was last updated
+        self._state_entry_ts = {}  # {state: timestamp} - track when each state was entered
+        self._stuck_tickets = {}  # {ticket: {'skip_until': timestamp, 'reason': str}} - tickets to skip
+        self._state_watchdog_running = False
+        self._state_watchdog_thread = None
         
         # P&L tracking (legacy - kept for compatibility)
         self.daily_pnl = 0.0
@@ -220,14 +248,14 @@ class TradingBot:
             
             # CRITICAL FIX: Verify SLManager is available before proceeding
             if not hasattr(self.risk_manager, 'sl_manager') or self.risk_manager.sl_manager is None:
-                error_msg = "❌ SLManager FAILED to initialize. Trading aborted."
-                error_msg += "\n   → Check logs/engine/risk_manager.log for detailed error information"
+                error_msg = "[ERROR] SLManager FAILED to initialize. Trading aborted."
+                error_msg += "\n   → Check logs/live/engine/risk_manager.log for detailed error information"
                 error_msg += "\n   → This usually indicates a problem with the SLManager module initialization"
                 logger.critical(error_msg)
                 error_logger.critical("SLManager not available - cannot proceed with trading")
                 print(error_msg)
                 return False
-            logger.info("✅ SLManager availability verified - ready for trading")
+            logger.info("[OK] SLManager availability verified - ready for trading")
             
             # Initialize session tracking
             account_info = self.mt5_connector.get_account_info()
@@ -528,6 +556,10 @@ class TradingBot:
     def _update_state(self, state: str, symbol: str = 'N/A', action: str = 'N/A'):
         """Update bot state for lightweight logger (thread-safe)."""
         with self._state_lock:
+            # Track state entry timestamp for watchdog
+            if self.current_state != state:
+                self._state_entry_ts[state] = time.time()
+                logger.debug(f"🔄 State transition: {self.current_state} → {state} | Symbol: {symbol}")
             self.current_state = state
             self.current_symbol = symbol
             self.last_action = action
@@ -546,6 +578,98 @@ class TradingBot:
                 'trade_stats': self.trade_stats.copy()
             }
     
+    def _force_unstick(self, ticket: int, symbol: str):
+        """Force unstick a stuck MANAGING_TRADE state."""
+        logger.critical(f"🔧 FORCE UNSTICK: Ticket {ticket} | Symbol: {symbol} | "
+                       f"MANAGING_TRADE stuck > 30 minutes")
+        
+        # Check if position still exists
+        position = self.order_manager.get_position_by_ticket(ticket)
+        if not position:
+            logger.info(f"[OK] Position {ticket} no longer exists - transitioning to SCANNING")
+            self._update_state('SCANNING', 'N/A', 'Position closed - scanning for opportunities')
+            return
+        
+        # Position exists - attempt emergency SL via alternate path
+        logger.warning(f"[WARNING] Position {ticket} still exists - attempting emergency SL update")
+        try:
+            if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                # Force SL update via emergency path
+                success, reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, position)
+                if success:
+                    logger.info(f"[OK] Emergency SL update succeeded for stuck ticket {ticket}")
+                else:
+                    logger.warning(f"[WARNING] Emergency SL update failed for stuck ticket {ticket}: {reason}")
+        except Exception as e:
+            logger.error(f"[ERROR] Error in force_unstick for ticket {ticket}: {e}", exc_info=True)
+        
+        # Add to skip list with exponential backoff
+        skip_duration = 300  # 5 minutes initial skip
+        skip_until = time.time() + skip_duration
+        self._stuck_tickets[ticket] = {
+            'skip_until': skip_until,
+            'reason': f'Stuck MANAGING_TRADE > 30 minutes',
+            'attempts': self._stuck_tickets.get(ticket, {}).get('attempts', 0) + 1
+        }
+        
+        # Force transition to SCANNING
+        self._update_state('SCANNING', 'N/A', f'Force transition from stuck MANAGING_TRADE (ticket {ticket})')
+        logger.info(f"🔄 Forced transition to SCANNING | Ticket {ticket} skipped for {skip_duration/60:.1f} minutes")
+    
+    def _state_watchdog_loop(self):
+        """Watchdog loop to detect stuck states."""
+        logger.info("State watchdog started")
+        while self._state_watchdog_running:
+            try:
+                time.sleep(60)  # Check every minute
+                
+                with self._state_lock:
+                    current_state = self.current_state
+                    if current_state == 'MANAGING TRADE' and 'MANAGING TRADE' in self._state_entry_ts:
+                        state_duration = time.time() - self._state_entry_ts['MANAGING TRADE']
+                        if state_duration > 1800:  # 30 minutes
+                            # Get current positions
+                            positions = self.order_manager.get_open_positions()
+                            if positions:
+                                first_ticket = positions[0].get('ticket', 0)
+                                first_symbol = positions[0].get('symbol', 'N/A')
+                                
+                                # Check if already in skip list
+                                if first_ticket in self._stuck_tickets:
+                                    skip_info = self._stuck_tickets[first_ticket]
+                                    if time.time() < skip_info['skip_until']:
+                                        continue  # Still in skip period
+                                
+                                logger.warning(f"[WARNING] State watchdog: MANAGING_TRADE stuck for {state_duration/60:.1f} minutes | "
+                                            f"Ticket: {first_ticket} | Symbol: {first_symbol}")
+                                # Force unstick
+                                self._force_unstick(first_ticket, first_symbol)
+            except Exception as e:
+                logger.error(f"Error in state watchdog: {e}", exc_info=True)
+        
+        logger.info("State watchdog stopped")
+    
+    def start_state_watchdog(self):
+        """Start state watchdog thread."""
+        if self._state_watchdog_running:
+            return
+        
+        self._state_watchdog_running = True
+        self._state_watchdog_thread = threading.Thread(
+            target=self._state_watchdog_loop,
+            name="StateWatchdog",
+            daemon=True
+        )
+        self._state_watchdog_thread.start()
+        logger.info("State watchdog thread started")
+    
+    def stop_state_watchdog(self):
+        """Stop state watchdog thread."""
+        self._state_watchdog_running = False
+        if self._state_watchdog_thread:
+            self._state_watchdog_thread.join(timeout=5)
+        logger.info("State watchdog thread stopped")
+    
     def scan_for_opportunities(self) -> List[Dict[str, Any]]:
         """Scan for trading opportunities with SIMPLE logic and comprehensive logging."""
         opportunities = []
@@ -559,7 +683,7 @@ class TradingBot:
             logger.info(f"🔍 Scanning {len(symbols)} symbols for trading opportunities...")
             
             if not symbols:
-                logger.warning("⚠️ No tradeable symbols found! Check symbol filters.")
+                logger.warning("[WARNING] No tradeable symbols found! Check symbol filters.")
             
             for symbol in symbols:
                 try:
@@ -569,7 +693,7 @@ class TradingBot:
                     
                     # 0. Check if symbol was previously restricted (prevent duplicate attempts)
                     if hasattr(self, '_restricted_symbols') and symbol.upper() in self._restricted_symbols:
-                        logger.debug(f"⛔ [SKIP] {symbol} | Reason: Previously restricted - skipping to avoid duplicate attempts")
+                        logger.debug(f"[SKIP] [SKIP] {symbol} | Reason: Previously restricted - skipping to avoid duplicate attempts")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -577,47 +701,47 @@ class TradingBot:
                     # This prevents non-executable symbols from appearing in opportunity lists
                     is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
                     if not is_tradeable:
-                        logger.debug(f"⛔ [SKIP] {symbol} | Reason: NOT EXECUTABLE - {reason}")
+                        logger.debug(f"[SKIP] [SKIP] {symbol} | Reason: NOT EXECUTABLE - {reason}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue  # Skip this symbol - not tradeable right now
                     else:
-                        logger.debug(f"✅ {symbol}: Symbol is tradeable and executable")
+                        logger.debug(f"[OK] {symbol}: Symbol is tradeable and executable")
                     
                     # 0b. Check if market is closing soon (30 minutes filter)
                     should_skip_close, close_reason = self.market_closing_filter.should_skip(symbol)
                     if should_skip_close:
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: {close_reason}")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {close_reason}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 0c. Check if volume/liquidity is sufficient
                     should_skip_volume, volume_reason, volume_value = self.volume_filter.should_skip(symbol)
                     if should_skip_volume:
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: {volume_reason}")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {volume_reason}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 1. Check if news is blocking (but allow trading if API fails)
                     news_blocking = self.news_filter.is_news_blocking(symbol)
                     if news_blocking:
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: NEWS BLOCKING (high-impact news within 10 min window)")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: NEWS BLOCKING (high-impact news within 10 min window)")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     else:
-                        logger.debug(f"✅ {symbol}: No news blocking")
+                        logger.debug(f"[OK] {symbol}: No news blocking")
                     
                     # 2. Get SIMPLE trend signal (SMA20 vs SMA50 only)
                     trend_signal = self.trend_filter.get_trend_signal(symbol)
                     
                     if trend_signal['signal'] == 'NONE':
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: No trend signal (SMA20 == SMA50 or invalid data)")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: No trend signal (SMA20 == SMA50 or invalid data)")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 2a. Check RSI filter (30-50 range for entries)
                     if self.trend_filter.use_rsi_filter and not trend_signal.get('rsi_filter_passed', True):
                         rsi_value = trend_signal.get('rsi', 50)
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: RSI filter failed (RSI: {rsi_value:.1f} not in range {self.trend_filter.rsi_entry_range_min}-{self.trend_filter.rsi_entry_range_max})")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: RSI filter failed (RSI: {rsi_value:.1f} not in range {self.trend_filter.rsi_entry_range_min}-{self.trend_filter.rsi_entry_range_max})")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -626,11 +750,11 @@ class TradingBot:
                     
                     if test_mode:
                         # Test mode: ALWAYS ignore halal checks (per requirements)
-                        logger.debug(f"✅ {symbol}: Halal check skipped (test mode)")
+                        logger.debug(f"[OK] {symbol}: Halal check skipped (test mode)")
                     else:
                         # Live mode: enforce halal if enabled
                         if not self.halal_compliance.validate_trade(symbol, trend_signal['signal']):
-                            logger.info(f"⛔ [SKIP] {symbol} | Reason: HALAL COMPLIANCE CHECK FAILED")
+                            logger.info(f"[SKIP] [SKIP] {symbol} | Reason: HALAL COMPLIANCE CHECK FAILED")
                             self.trade_stats['filtered_opportunities'] += 1
                             continue
                     
@@ -641,15 +765,15 @@ class TradingBot:
                     if test_mode:
                         min_lot_valid, min_lot, min_lot_reason = self.risk_manager.check_min_lot_size_for_testing(symbol)
                         if not min_lot_valid:
-                            logger.info(f"⛔ [SKIP] {symbol} | Signal: {trend_signal['signal']} | "
+                            logger.info(f"[SKIP] [SKIP] {symbol} | Signal: {trend_signal['signal']} | "
                                       f"MinLot: {min_lot:.4f} | Reason: {min_lot_reason}")
                             self.trade_stats['filtered_opportunities'] += 1
                             continue
-                        logger.debug(f"✅ {symbol}: Min lot check passed - {min_lot_reason}")
+                        logger.debug(f"[OK] {symbol}: Min lot check passed - {min_lot_reason}")
                     
                     # 4. SIMPLIFIED setup validation (only checks if signal != NONE)
                     if not self.trend_filter.is_setup_valid_for_scalping(symbol, trend_signal):
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Setup validation failed (signal is NONE)")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Setup validation failed (signal is NONE)")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -657,7 +781,7 @@ class TradingBot:
                     sma_separation_pct = abs((trend_signal.get('sma_fast', 0) - trend_signal.get('sma_slow', 0)) / trend_signal.get('sma_slow', 1) * 100) if trend_signal.get('sma_slow', 0) > 0 else 0
                     min_trend_strength_pct = self.trading_config.get('min_trend_strength_pct', 0.05)  # Default 0.05%
                     if sma_separation_pct < min_trend_strength_pct:
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Trend strength too weak (SMA separation: {sma_separation_pct:.4f}% < {min_trend_strength_pct}%)")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Trend strength too weak (SMA separation: {sma_separation_pct:.4f}% < {min_trend_strength_pct}%)")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -669,7 +793,7 @@ class TradingBot:
                     
                     # Filter by quality score - only trade high-quality setups
                     if quality_score < min_quality_score:
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Quality score {quality_score:.1f} < threshold {min_quality_score} | Details: {', '.join(quality_assessment.get('reasons', []))}")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Quality score {quality_score:.1f} < threshold {min_quality_score} | Details: {', '.join(quality_assessment.get('reasons', []))}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -680,7 +804,7 @@ class TradingBot:
                     # Check portfolio risk
                     portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
                     if not portfolio_risk_ok:
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Portfolio risk limit - {portfolio_reason}")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Portfolio risk limit - {portfolio_reason}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -692,23 +816,23 @@ class TradingBot:
                         high_quality_setup=high_quality_setup
                     )
                     if not can_open:
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
-                        symbol_logger = get_symbol_logger(symbol)
-                        symbol_logger.debug(f"⛔ Cannot open trade: {reason}")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
+                        symbol_logger = get_symbol_logger(symbol, is_backtest=self.is_backtest)
+                        symbol_logger.debug(f"[SKIP] Cannot open trade: {reason}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # 7. Check spread
                     spread_points = self.pair_filter.get_spread_points(symbol)
                     if spread_points is None:
-                        logger.warning(f"⚠️ {symbol}: Cannot get spread information - skipping")
+                        logger.warning(f"[WARNING] {symbol}: Cannot get spread information - skipping")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
                     # Check spread acceptability
                     if not self.pair_filter.check_spread(symbol):
                         max_spread = self.pair_filter.max_spread_points
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Spread {spread_points:.2f} points > {max_spread} limit")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Spread {spread_points:.2f} points > {max_spread} limit")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -727,7 +851,7 @@ class TradingBot:
                         
                         # STRICT ENFORCEMENT: Reject if spread+fees > $0.30
                         if total_cost > max_cost:
-                            logger.info(f"⛔ [SKIP] {symbol} | Signal: {trend_signal['signal']} | "
+                            logger.info(f"[SKIP] [SKIP] {symbol} | Signal: {trend_signal['signal']} | "
                                       f"MinLot: {min_lot:.4f} | Spread: {spread_points:.1f}pts | "
                                       f"Spread+Fees: ${total_cost:.2f} > ${max_cost:.2f} | "
                                       f"Reason: Spread+Fees exceed limit (STRICT) | ({cost_description})")
@@ -735,7 +859,7 @@ class TradingBot:
                             continue
                             continue
                         
-                        logger.debug(f"✅ {symbol}: Spread+Fees check passed - ${total_cost:.2f} <= ${max_cost:.2f} ({cost_description})")
+                        logger.debug(f"[OK] {symbol}: Spread+Fees check passed - ${total_cost:.2f} <= ${max_cost:.2f} ({cost_description})")
                     else:
                         # Non-test mode: still calculate for sorting, but don't enforce strict limit
                         total_cost, cost_description = self.risk_manager.calculate_spread_and_fees_cost(symbol, min_lot if min_lot_valid else 0.01)
@@ -792,14 +916,14 @@ class TradingBot:
                     logger.info("=" * 80)
                     
                     # Legacy concise logging
-                    logger.info(f"✅ {symbol} | Signal: {signal_type} | Quality: {quality_score:.1f} | MinLot: {min_lot:.4f} | "
+                    logger.info(f"[OK] {symbol} | Signal: {signal_type} | Quality: {quality_score:.1f} | MinLot: {min_lot:.4f} | "
                               f"Spread: {spread_points:.1f}pts{spread_fees_info} | Pass: {pass_reason}")
                     
                     # Log signal type for debugging trade direction
                     if signal_type == 'SHORT':
                         logger.info(f"📉 {symbol}: SHORT signal detected - will place SELL order")
                     elif signal_type == 'LONG':
-                        logger.info(f"📈 {symbol}: LONG signal detected - will place BUY order")
+                        logger.info(f"[STATS] {symbol}: LONG signal detected - will place BUY order")
                     
                     # Get min_lot for opportunity (use symbol_info_for_risk if available)
                     opp_min_lot = min_lot if test_mode else (symbol_info_for_risk.get('volume_min', 0.01) if symbol_info_for_risk else 0.01)
@@ -825,12 +949,12 @@ class TradingBot:
                     })
                     
                 except Exception as e:
-                    logger.error(f"❌ Error scanning {symbol}: {e}", exc_info=True)
+                    logger.error(f"[ERROR] Error scanning {symbol}: {e}", exc_info=True)
                     self.handle_error(e, f"Scanning {symbol}")
                     continue
         
         except Exception as e:
-            logger.error(f"❌ Error in scan_for_opportunities: {e}", exc_info=True)
+            logger.error(f"[ERROR] Error in scan_for_opportunities: {e}", exc_info=True)
             self.handle_error(e, "Scanning for opportunities")
         
         logger.info(f"🎯 Found {len(opportunities)} trading opportunity(ies)")
@@ -874,7 +998,7 @@ class TradingBot:
                 return None  # Filtered, not failed
             elif max_trades_strict and current_positions == max_trades:
                 # At max in strict mode - this shouldn't happen if batch reservation worked, but allow it
-                logger.info(f"⚠️ MAX TRADES AT LIMIT: {symbol} | Current: {current_positions} == {max_trades} | "
+                logger.info(f"[WARNING] MAX TRADES AT LIMIT: {symbol} | Current: {current_positions} == {max_trades} | "
                           f"Strict mode - ALLOWING execution (batch reserved {len(opportunities)} slots)")
                 # Continue execution - batch reservation allows this
             
@@ -890,7 +1014,7 @@ class TradingBot:
                     high_quality_setup=high_quality_setup
                 )
                 if not can_open:
-                    logger.info(f"⛔ [SKIP] {symbol} | Signal: {signal} | Reason: {reason}")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Signal: {signal} | Reason: {reason}")
                     return None  # Filtered, not failed
             
             # Update state
@@ -916,32 +1040,32 @@ class TradingBot:
                 max_delay = min(self.max_delay_seconds, int(execution_timeout * 0.8))
                 delay_seconds = random.randint(0, max_delay)
                 if delay_seconds > 0:
-                    logger.info(f"⏱️ {symbol}: Random delay of {delay_seconds}s before executing {signal}")
+                    logger.info(f"[DELAY] {symbol}: Random delay of {delay_seconds}s before executing {signal}")
                     time.sleep(delay_seconds)
                     
                     # Re-check trend signal after delay (trend might have changed)
                     trend_signal = self.trend_filter.get_trend_signal(symbol)
                     if trend_signal['signal'] != signal:
-                        logger.warning(f"⚠️ {symbol}: Trend changed during delay. Original: {signal}, Current: {trend_signal['signal']}. Skipping trade.")
+                        logger.warning(f"[WARNING] {symbol}: Trend changed during delay. Original: {signal}, Current: {trend_signal['signal']}. Skipping trade.")
                         # Trend change is NOT a failure - it's a safety check
                         return None  # None indicates filtered/skipped, not failed
             
             # Determine order type (ensure both BUY and SELL work correctly)
             if signal == 'LONG':
                 order_type = OrderType.BUY
-                logger.debug(f"📈 {symbol}: Signal LONG → OrderType.BUY")
+                logger.debug(f"[STATS] {symbol}: Signal LONG → OrderType.BUY")
             elif signal == 'SHORT':
                 order_type = OrderType.SELL
                 logger.debug(f"📉 {symbol}: Signal SHORT → OrderType.SELL")
             else:
-                logger.error(f"❌ {symbol}: Invalid signal '{signal}' - must be LONG or SHORT")
+                logger.error(f"[ERROR] {symbol}: Invalid signal '{signal}' - must be LONG or SHORT")
                 self.trade_stats['failed_trades'] += 1
                 return False
             
             # Get current price for entry
             symbol_info = self.mt5_connector.get_symbol_info(symbol)
             if symbol_info is None:
-                logger.error(f"❌ {symbol}: Cannot get symbol info - trade execution failed")
+                logger.error(f"[ERROR] {symbol}: Cannot get symbol info - trade execution failed")
                 self.trade_stats['failed_trades'] += 1
                 return False
             
@@ -977,12 +1101,12 @@ class TradingBot:
                         stop_loss_price = entry_price + min_stops_distance
                     logger.info(f"🔧 {symbol}: Adjusting stop loss to meet broker minimum distance: {min_stops_distance:.5f} (stops_level: {stops_level})")
             
-            logger.info(f"🛡️ {symbol}: Stop loss price = {stop_loss_price:.5f} (distance: {abs(entry_price - stop_loss_price):.5f}, risk: ${self.risk_manager.max_risk_usd:.2f} USD)")
+            logger.info(f"[SL] {symbol}: Stop loss price = {stop_loss_price:.5f} (distance: {abs(entry_price - stop_loss_price):.5f}, risk: ${self.risk_manager.max_risk_usd:.2f} USD)")
             
             # Validate stop loss with entry price (check broker minimum only)
             order_type_str = 'BUY' if order_type == OrderType.BUY else 'SELL'
             if not self.risk_manager.validate_stop_loss(symbol, stop_loss_pips=None, entry_price=entry_price, order_type=order_type_str, stop_loss_price=stop_loss_price):
-                logger.warning(f"⛔ {symbol}: Stop loss validation failed (SL price: {stop_loss_price:.5f}) - trade execution aborted")
+                logger.warning(f"[SKIP] {symbol}: Stop loss validation failed (SL price: {stop_loss_price:.5f}) - trade execution aborted")
                 self.trade_stats['failed_trades'] += 1
                 return False
             
@@ -993,7 +1117,7 @@ class TradingBot:
             # Get symbol info for lot size calculation
             symbol_info_for_lot = self.mt5_connector.get_symbol_info(symbol)
             if not symbol_info_for_lot:
-                logger.error(f"❌ {symbol}: Cannot get symbol info for lot size calculation")
+                logger.error(f"[ERROR] {symbol}: Cannot get symbol info for lot size calculation")
                 self.trade_stats['failed_trades'] += 1
                 return False
             
@@ -1021,7 +1145,7 @@ class TradingBot:
             
             # Check if symbol should be skipped
             if lot_size is None:
-                logger.info(f"⛔ [SKIP] {symbol} | Signal: {signal} | Reason: {lot_reason}")
+                logger.info(f"[SKIP] [SKIP] {symbol} | Signal: {signal} | Reason: {lot_reason}")
                 self.trade_stats['filtered_opportunities'] += 1
                 return None  # None indicates filtered/skipped, not failed
             
@@ -1067,7 +1191,7 @@ class TradingBot:
             # For USD-based SL, estimated_risk should always equal max_risk_usd
             # Only reject if somehow the calculation is wrong (safety check)
             if estimated_risk > max_risk_usd * 1.01:  # Allow 1% tolerance for rounding
-                logger.warning(f"⛔ {symbol}: REJECTED - Estimated risk ${estimated_risk:.2f} exceeds max ${max_risk_usd:.2f} | "
+                logger.warning(f"[SKIP] {symbol}: REJECTED - Estimated risk ${estimated_risk:.2f} exceeds max ${max_risk_usd:.2f} | "
                              f"Lot: {lot_size:.4f}, SL: {stop_loss_pips:.1f} pips, Contract: {contract_size}")
                 # Risk validation failure is NOT an execution failure - it's a pre-execution filter
                 # Don't increment failed_trades - this is expected risk management
@@ -1109,8 +1233,8 @@ class TradingBot:
             is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
             if not is_tradeable:
                 logger.warning(f"⏰ {symbol}: Market closed or not tradeable - {reason}")
-                logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
-                print(f"⛔ {symbol}: Market closed - {reason}. Re-scan when market opens.")
+                logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Market closed - {reason}")
+                print(f"[SKIP] {symbol}: Market closed - {reason}. Re-scan when market opens.")
                 # Market closed is NOT a failure - it's a market condition
                 return None  # None indicates filtered/skipped, not failed
             
@@ -1134,13 +1258,13 @@ class TradingBot:
                 
                 # Check if we're within execution timeout
                 if elapsed > execution_timeout and attempt > 0:
-                    logger.warning(f"⚠️ {symbol}: Execution timeout ({elapsed:.3f}s > {execution_timeout}s) on attempt {attempt + 1}/{max_retries}")
+                    logger.warning(f"[WARNING] {symbol}: Execution timeout ({elapsed:.3f}s > {execution_timeout}s) on attempt {attempt + 1}/{max_retries}")
                 
                 # Ensure MT5 is connected before placing order
                 if not self.mt5_connector.ensure_connected():
-                    logger.warning(f"⚠️ {symbol}: MT5 disconnected, attempting reconnect...")
+                    logger.warning(f"[WARNING] {symbol}: MT5 disconnected, attempting reconnect...")
                     if not self.mt5_connector.reconnect():
-                        logger.error(f"❌ {symbol}: Failed to reconnect to MT5 (attempt {attempt + 1}/{max_retries})")
+                        logger.error(f"[ERROR] {symbol}: Failed to reconnect to MT5 (attempt {attempt + 1}/{max_retries})")
                         if attempt < max_retries - 1:
                             # Exponential backoff for connection issues
                             backoff_delay = backoff_base * (2 ** attempt)
@@ -1148,14 +1272,14 @@ class TradingBot:
                             time.sleep(backoff_delay)
                             continue
                         else:
-                            logger.error(f"❌ {symbol}: Connection failed after {max_retries} attempts")
+                            logger.error(f"[ERROR] {symbol}: Connection failed after {max_retries} attempts")
                             break
                 
                 # Re-check market status before each retry (market may have closed)
                 is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
                 if not is_tradeable:
                     logger.warning(f"⏰ {symbol}: Market closed during retry - {reason}")
-                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Market closed - {reason}")
                     # Market closed is NOT a failure - it's a market condition
                     return None  # None indicates filtered/skipped, not failed
                 
@@ -1204,9 +1328,9 @@ class TradingBot:
                 if ticket and ticket > 0:
                     elapsed = time.time() - execution_start
                     if elapsed > execution_timeout:
-                        logger.warning(f"⚠️ {symbol}: Order placed but exceeded timeout ({elapsed:.3f}s > {execution_timeout}s)")
+                        logger.warning(f"[WARNING] {symbol}: Order placed but exceeded timeout ({elapsed:.3f}s > {execution_timeout}s)")
                     else:
-                        logger.debug(f"✅ {symbol}: Order placed within timeout ({elapsed:.3f}s < {execution_timeout}s)")
+                        logger.debug(f"[OK] {symbol}: Order placed within timeout ({elapsed:.3f}s < {execution_timeout}s)")
                     break
                 
                 # Error code classification:
@@ -1222,16 +1346,16 @@ class TradingBot:
                 # Market closed - don't retry
                 if error_code == -4:
                     logger.warning(f"⏰ {symbol}: Market closed (error 10018) - skipping trade execution")
-                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - order rejected by broker")
-                    print(f"⛔ {symbol}: Market closed - order rejected. Re-scan when market opens.")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Market closed - order rejected by broker")
+                    print(f"[SKIP] {symbol}: Market closed - order rejected. Re-scan when market opens.")
                     # Market closed is NOT a failure - it's a market condition
                     return None  # None indicates filtered/skipped, not failed
                 
                 # Trading restrictions - don't retry (10027, 10044, etc.)
                 if error_code == -5:
-                    logger.error(f"❌ {symbol}: Trading restriction (error 10027/10044) - trade not allowed")
-                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Trading restriction - symbol/order type not tradeable")
-                    print(f"❌ {symbol}: Trading restriction - this symbol cannot be traded. Check account permissions or symbol restrictions.")
+                    logger.error(f"[ERROR] {symbol}: Trading restriction (error 10027/10044) - trade not allowed")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Trading restriction - symbol/order type not tradeable")
+                    print(f"[ERROR] {symbol}: Trading restriction - this symbol cannot be traded. Check account permissions or symbol restrictions.")
                     self.trade_stats['failed_trades'] += 1
                     # Mark symbol as restricted to prevent future attempts in this session
                     if not hasattr(self, '_restricted_symbols'):
@@ -1241,8 +1365,8 @@ class TradingBot:
                 
                 # Invalid stops - don't retry
                 if error_code == -3:
-                    logger.error(f"❌ {symbol}: Invalid stops (error 10016) - trade failed")
-                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Invalid stops - check stop loss configuration")
+                    logger.error(f"[ERROR] {symbol}: Invalid stops (error 10016) - trade failed")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Invalid stops - check stop loss configuration")
                     self.trade_stats['failed_trades'] += 1
                     break  # Don't retry
                 
@@ -1250,7 +1374,7 @@ class TradingBot:
                 if error_code == -1:
                     if not volume_error_occurred:  # Only retry once
                         volume_error_occurred = True
-                        logger.warning(f"⚠️ {symbol}: Invalid volume error (lot: {lot_size:.4f}), retrying once with broker minimum lot...")
+                        logger.warning(f"[WARNING] {symbol}: Invalid volume error (lot: {lot_size:.4f}), retrying once with broker minimum lot...")
                         # Get minimum lot and retry
                     symbol_info_retry = self.mt5_connector.get_symbol_info(symbol)
                     if symbol_info_retry:
@@ -1276,12 +1400,12 @@ class TradingBot:
                         time.sleep(0.1)
                         continue
                     else:
-                        logger.error(f"❌ {symbol}: Cannot get symbol info for retry")
+                        logger.error(f"[ERROR] {symbol}: Cannot get symbol info for retry")
                         break
                 else:
                     # Already retried once - fail and log
-                    logger.error(f"❌ {symbol}: Invalid volume error persisted after retry with broker minimum lot - trade failed")
-                    logger.info(f"⛔ [SKIP] {symbol} | Reason: Invalid volume - retry with minimum lot failed")
+                    logger.error(f"[ERROR] {symbol}: Invalid volume error persisted after retry with broker minimum lot - trade failed")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Invalid volume - retry with minimum lot failed")
                     self.trade_stats['failed_trades'] += 1
                     break
                 
@@ -1290,13 +1414,13 @@ class TradingBot:
                     if attempt < max_retries - 1:
                         # Exponential backoff for transient errors
                         backoff_delay = backoff_base * (2 ** attempt)
-                        logger.warning(f"⚠️ {symbol}: Order placement failed (attempt {attempt + 1}/{max_retries}), retrying in {backoff_delay:.1f}s...")
+                        logger.warning(f"[WARNING] {symbol}: Order placement failed (attempt {attempt + 1}/{max_retries}), retrying in {backoff_delay:.1f}s...")
                         logger.info(f"⏳ {symbol}: Exponential backoff delay: {backoff_delay:.1f}s")
                         time.sleep(backoff_delay)
                         continue
                     else:
-                        logger.error(f"❌ {symbol}: Order placement failed after {max_retries} attempts with exponential backoff")
-                        logger.info(f"⛔ [SKIP] {symbol} | Reason: Order placement failed after {max_retries} retries")
+                        logger.error(f"[ERROR] {symbol}: Order placement failed after {max_retries} attempts with exponential backoff")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Order placement failed after {max_retries} retries")
                         self.trade_stats['failed_trades'] += 1
                         break
             
@@ -1346,10 +1470,10 @@ class TradingBot:
                     max_risk_usd_actual = self.risk_manager.max_risk_usd
                     risk_with_slippage_actual = actual_risk_with_fill * 1.10  # 10% buffer
                     if risk_with_slippage_actual > max_risk_usd_actual:
-                        logger.warning(f"⚠️ {symbol}: Actual risk ${actual_risk_with_fill:.2f} (with buffer: ${risk_with_slippage_actual:.2f}) exceeds max ${max_risk_usd_actual:.2f} after fill")
+                        logger.warning(f"[WARNING] {symbol}: Actual risk ${actual_risk_with_fill:.2f} (with buffer: ${risk_with_slippage_actual:.2f}) exceeds max ${max_risk_usd_actual:.2f} after fill")
                         # Log but don't reject - trade already placed, just warn
                 except (NameError, TypeError, ValueError) as e:
-                    logger.error(f"❌ {symbol}: Error calculating actual risk: {e}. Using estimated risk as fallback.")
+                    logger.error(f"[ERROR] {symbol}: Error calculating actual risk: {e}. Using estimated risk as fallback.")
                     # Fallback to estimated risk if calculation fails
                     actual_risk_with_fill = estimated_risk if 'estimated_risk' in locals() else lot_size * stop_loss_pips * 0.10
                     risk_with_slippage_actual = risk_with_slippage if 'risk_with_slippage' in locals() else actual_risk_with_fill * 1.10
@@ -1397,31 +1521,31 @@ class TradingBot:
                     if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
                         sl_update_success, sl_update_reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
                         if sl_update_success:
-                            logger.info(f"🛡️ SL MANAGER: {symbol} Ticket {ticket} | "
+                            logger.info(f"[SL] SL MANAGER: {symbol} Ticket {ticket} | "
                                       f"Profit: ${fresh_profit:.2f} | {sl_update_reason}")
                         else:
-                            logger.debug(f"🛡️ SL MANAGER: {symbol} Ticket {ticket} | "
+                            logger.debug(f"[SL] SL MANAGER: {symbol} Ticket {ticket} | "
                                        f"Profit: ${fresh_profit:.2f} | {sl_update_reason}")
                     else:
                         # Fallback: Use legacy protective SL if SLManager not available
                         protective_sl_set = self.risk_manager.enforce_protective_sl_on_entry(ticket, fresh_position)
                         if protective_sl_set:
-                            logger.warning(f"🛡️ LEGACY SL (SLManager unavailable): {symbol} Ticket {ticket} | "
+                            logger.warning(f"[SL] LEGACY SL (SLManager unavailable): {symbol} Ticket {ticket} | "
                                          f"Profit: ${fresh_profit:.2f} | Using legacy protective SL")
                         else:
-                            logger.error(f"❌ SL FAILED: {symbol} Ticket {ticket} | "
+                            logger.error(f"[ERROR] SL FAILED: {symbol} Ticket {ticket} | "
                                        f"Profit: ${fresh_profit:.2f} | Neither SLManager nor legacy SL available")
                 
                 self.reset_error_count()
                 return True
             else:
-                logger.error(f"❌ {symbol}: TRADE EXECUTION FAILED after {max_retries} attempts")
+                logger.error(f"[ERROR] {symbol}: TRADE EXECUTION FAILED after {max_retries} attempts")
                 logger.error(f"   Symbol: {symbol}, Signal: {signal}, Lot: {lot_size}, SL: {stop_loss_pips:.1f} pips")
                 self.trade_stats['failed_trades'] += 1
                 return False
         
         except Exception as e:
-            logger.error(f"❌ {symbol}: Exception during trade execution: {e}", exc_info=True)
+            logger.error(f"[ERROR] {symbol}: Exception during trade execution: {e}", exc_info=True)
             self.handle_error(e, f"Executing trade {symbol}")
             self.trade_stats['failed_trades'] += 1
             return False
@@ -1475,9 +1599,9 @@ class TradingBot:
         fast_interval_seconds = self.fast_trailing_interval_ms / 1000.0
         # Instant fast trailing: if interval is 0, run immediately (only debounce cycles apply)
         if self.fast_trailing_interval_ms == 0:
-            logger.info(f"⚡ Fast trailing stop monitor started (INSTANT - interval=0ms, debounce_cycles={self.risk_config.get('fast_trailing_debounce_cycles', 3)})")
+            logger.info(f"[FAST] Fast trailing stop monitor started (INSTANT - interval=0ms, debounce_cycles={self.risk_config.get('fast_trailing_debounce_cycles', 3)})")
         else:
-            logger.info(f"⚡ Fast trailing stop monitor started (interval: {fast_interval_seconds:.3f}s = {self.fast_trailing_interval_ms}ms)")
+            logger.info(f"[FAST] Fast trailing stop monitor started (interval: {fast_interval_seconds:.3f}s = {self.fast_trailing_interval_ms}ms)")
         
         while self.fast_trailing_running and self.running:
             try:
@@ -1530,7 +1654,7 @@ class TradingBot:
             daemon=True
         )
         self.trailing_stop_thread.start()
-        logger.info("✅ Continuous trailing stop monitor thread started")
+        logger.info("[OK] Continuous trailing stop monitor thread started")
         
         # Start fast trailing stop thread
         self.fast_trailing_running = True
@@ -1540,7 +1664,7 @@ class TradingBot:
             daemon=True
         )
         self.fast_trailing_thread.start()
-        logger.info("✅ Fast trailing stop monitor thread started")
+        logger.info("[OK] Fast trailing stop monitor thread started")
         
         # Start position closure monitoring thread
         self.start_position_monitor()
@@ -1558,7 +1682,7 @@ class TradingBot:
             daemon=True
         )
         self.position_monitor_thread.start()
-        logger.info("✅ Position closure monitor thread started")
+        logger.info("[OK] Position closure monitor thread started")
     
     def stop_position_monitor(self):
         """Stop the position closure monitoring thread."""
@@ -1584,7 +1708,7 @@ class TradingBot:
                 
                 if logged_closures:
                     for closure in logged_closures:
-                        logger.info(f"🔴 Position {closure['ticket']} ({closure['symbol']}) closed - logged")
+                        logger.info(f"[-] Position {closure['ticket']} ({closure['symbol']}) closed - logged")
                 
                 # Update tracked tickets from current positions
                 current_positions = self.order_manager.get_open_positions()
@@ -1630,6 +1754,8 @@ class TradingBot:
             
             # Update state based on positions
             if positions:
+                # Get first position symbol for state display
+                first_symbol = positions[0].get('symbol', 'N/A')
                 # Get first position symbol for state display
                 first_symbol = positions[0].get('symbol', 'N/A')
                 self._update_state('MANAGING TRADE', first_symbol, 'Managing positions')
@@ -1691,11 +1817,11 @@ class TradingBot:
                 if 1 <= trade_count <= 6:
                     return trade_count
                 else:
-                    print("⚠️  Please enter a number between 1 and 6.")
+                    print("[WARNING]  Please enter a number between 1 and 6.")
             except ValueError:
-                print("⚠️  Invalid input. Please enter a number between 1 and 6.")
+                print("[WARNING]  Invalid input. Please enter a number between 1 and 6.")
             except (EOFError, KeyboardInterrupt):
-                print("\n⚠️  Input cancelled. Using default from config.")
+                print("\n[WARNING]  Input cancelled. Using default from config.")
                 return self.risk_manager.max_open_trades
     
     def display_opportunities(self, opportunities: List[Dict[str, Any]], max_count: int) -> None:
@@ -1704,7 +1830,7 @@ class TradingBot:
         Shows quality score, lot size, spread, fees, risk, and any warnings.
         """
         if not opportunities:
-            print("\n❌ No trading opportunities found.")
+            print("\n[ERROR] No trading opportunities found.")
             return
         
         # Sort by quality score (descending) if not already sorted
@@ -1802,9 +1928,9 @@ class TradingBot:
                 elif user_input in ['S', 'SKIP']:
                     return 'SKIP'  # Skip remaining
                 else:
-                    print("⚠️  Please enter Y (Yes), N (No), ALL (approve all), C (cancel batch), or S (skip remaining).")
+                    print("[WARNING]  Please enter Y (Yes), N (No), ALL (approve all), C (cancel batch), or S (skip remaining).")
             except (EOFError, KeyboardInterrupt):
-                print("\n⚠️  Input cancelled. Skipping trade.")
+                print("\n[WARNING]  Input cancelled. Skipping trade.")
                 return False
     
     def verify_position_opened(self, ticket: int, symbol: str, max_wait_seconds: float = 2.0) -> bool:
@@ -1828,7 +1954,7 @@ class TradingBot:
             positions = self.order_manager.get_open_positions()
             for position in positions:
                 if position.get('ticket') == ticket:
-                    logger.debug(f"✅ {symbol}: Position {ticket} verified - confirmed open")
+                    logger.debug(f"[OK] {symbol}: Position {ticket} verified - confirmed open")
                     return True
             
             time.sleep(check_interval)
@@ -1837,10 +1963,10 @@ class TradingBot:
         positions = self.order_manager.get_open_positions()
         for position in positions:
             if position.get('ticket') == ticket:
-                logger.debug(f"✅ {symbol}: Position {ticket} verified - confirmed open")
+                logger.debug(f"[OK] {symbol}: Position {ticket} verified - confirmed open")
                 return True
         
-        logger.warning(f"⚠️ {symbol}: Position {ticket} not found after {max_wait_seconds}s wait")
+        logger.warning(f"[WARNING] {symbol}: Position {ticket} not found after {max_wait_seconds}s wait")
         return False
     
     def wait_for_position_close(self, ticket: int, symbol: str, timeout_seconds: Optional[float] = None) -> bool:
@@ -1876,8 +2002,8 @@ class TradingBot:
             position = self.order_manager.get_position_by_ticket(ticket)
             if position is None:
                 elapsed = time.time() - start_time
-                logger.info(f"✅ Position {ticket} closed after {elapsed:.1f}s")
-                print(f"✅ Position {ticket} closed - proceeding to next trade")
+                logger.info(f"[OK] Position {ticket} closed after {elapsed:.1f}s")
+                print(f"[OK] Position {ticket} closed - proceeding to next trade")
                 
                 # Log closure if we can get deal history
                 try:
@@ -1944,17 +2070,17 @@ class TradingBot:
         position_tickets_before = {p.get('ticket') for p in positions_before if p.get('ticket')}
         
         # Execute trade (skip randomness in manual mode)
-        logger.info(f"🚀 Executing approved trade: {symbol} {signal}")
+        logger.info(f"[JUMP] Executing approved trade: {symbol} {signal}")
         result = self.execute_trade(opportunity, skip_randomness=True)
         
         # execute_trade returns True (success), False (failure), or None (filtered)
         if result is False:
-            logger.error(f"❌ {symbol}: Trade execution failed")
-            print(f"❌ Execution failed for {symbol} {signal}")
+            logger.error(f"[ERROR] {symbol}: Trade execution failed")
+            print(f"[ERROR] Execution failed for {symbol} {signal}")
             return None
         elif result is None:
-            logger.info(f"⛔ {symbol}: Trade filtered/skipped (risk validation or safety check)")
-            print(f"⛔ {symbol}: Trade filtered - not a failure")
+            logger.info(f"[SKIP] {symbol}: Trade filtered/skipped (risk validation or safety check)")
+            print(f"[SKIP] {symbol}: Trade filtered - not a failure")
             return None
         # result is True - success, continue
         
@@ -2002,8 +2128,8 @@ class TradingBot:
                 break
         
         if position_found and new_ticket:
-            logger.info(f"✅ {symbol}: Position {new_ticket} confirmed open and verified")
-            print(f"✅ Position {new_ticket} verified for {symbol} {signal}")
+            logger.info(f"[OK] {symbol}: Position {new_ticket} confirmed open and verified")
+            print(f"[OK] Position {new_ticket} verified for {symbol} {signal}")
             
             # Wait for position to close if requested
             if wait_for_close:
@@ -2015,15 +2141,15 @@ class TradingBot:
             # Check if position count increased at all
             position_count_after = self.order_manager.get_position_count()
             if position_count_after > position_count_before:
-                logger.warning(f"⚠️ {symbol}: Position count increased but specific position not verified (may have different symbol)")
-                print(f"⚠️  Position verification uncertain for {symbol} (position count changed)")
+                logger.warning(f"[WARNING] {symbol}: Position count increased but specific position not verified (may have different symbol)")
+                print(f"[WARNING]  Position verification uncertain for {symbol} (position count changed)")
                 # If wait_for_close is True but we don't have a ticket, we can't wait
                 if not wait_for_close:
                     return -1  # Special value indicating success but no ticket
                 return None
             else:
-                logger.warning(f"⚠️ {symbol}: Trade executed but position not found after {max_wait}s")
-                print(f"⚠️  Position not verified for {symbol} {signal} after {max_wait}s")
+                logger.warning(f"[WARNING] {symbol}: Trade executed but position not found after {max_wait}s")
+                print(f"[WARNING]  Position not verified for {symbol} {signal} after {max_wait}s")
                 # Position might have closed immediately - if wait_for_close, we're done
                 if not wait_for_close:
                     return -1  # Special value indicating success but no ticket
@@ -2042,19 +2168,19 @@ class TradingBot:
             for reconnect_attempt in range(max_reconnect_attempts):
                 if self.mt5_connector.reconnect():
                     reconnect_success = True
-                    logger.info(f"✅ MT5 reconnected successfully (attempt {reconnect_attempt + 1})")
+                    logger.info(f"[OK] MT5 reconnected successfully (attempt {reconnect_attempt + 1})")
                     break
                 else:
                     # Exponential backoff: 2^attempt seconds
                     backoff_delay = 2 ** reconnect_attempt
-                    logger.warning(f"⚠️ Reconnection attempt {reconnect_attempt + 1}/{max_reconnect_attempts} failed, retrying in {backoff_delay}s...")
+                    logger.warning(f"[WARNING] Reconnection attempt {reconnect_attempt + 1}/{max_reconnect_attempts} failed, retrying in {backoff_delay}s...")
                     time.sleep(backoff_delay)
             
             if not reconnect_success:
                 error_msg = f"MT5 reconnection failed after {max_reconnect_attempts} attempts"
-                logger.error(f"❌ {error_msg}")
+                logger.error(f"[ERROR] {error_msg}")
                 if self.manual_approval_mode:
-                    print(f"\n❌ {error_msg} - Aborting batch execution")
+                    print(f"\n[ERROR] {error_msg} - Aborting batch execution")
                     self.manual_batch_cancelled = True
                 self.handle_error(Exception(error_msg), "Connection check")
                 return
@@ -2128,7 +2254,7 @@ class TradingBot:
                     if display_count > 0:
                         self.display_opportunities(opportunities, display_count)
                     else:
-                        print(f"\n⚠️  No available trade slots. Current positions: {initial_positions}/{max_trades}")
+                        print(f"\n[WARNING]  No available trade slots. Current positions: {initial_positions}/{max_trades}")
                         opportunities = []  # Clear opportunities
                     
                     # Get user approval for each trade
@@ -2136,7 +2262,7 @@ class TradingBot:
                     approve_all = False
                     
                     if remaining_slots <= 0:
-                        print(f"\n⏸️  Max open trades ({max_trades}) already reached - cannot take more trades.")
+                        print(f"\n[PAUSE]  Max open trades ({max_trades}) already reached - cannot take more trades.")
                         opportunities = []  # Clear opportunities
                     else:
                         # Limit opportunities to remaining slots
@@ -2149,7 +2275,7 @@ class TradingBot:
                             # Check if we've reached max open trades (re-check after each approval)
                             current_positions = self.order_manager.get_position_count()
                             if current_positions >= max_trades:
-                                print(f"\n⏸️  Max open trades ({max_trades}) reached - cannot take more trades.")
+                                print(f"\n[PAUSE]  Max open trades ({max_trades}) reached - cannot take more trades.")
                                 break
                             
                             if not approve_all:
@@ -2173,13 +2299,13 @@ class TradingBot:
                                     logger.info("Manual batch cancelled by user")
                                     break
                                 elif approval == 'SKIP':
-                                    print(f"⏭️  Skipping remaining trades")
+                                    print(f"[SKIP]  Skipping remaining trades")
                                     logger.info("User skipped remaining trades")
                                     break
                                 elif approval == 'ALL':
                                     approve_all = True
                                     approved_opportunities.append(opp)
-                                    print(f"✅ Approved ALL remaining trades")
+                                    print(f"[OK] Approved ALL remaining trades")
                                     # Add all remaining opportunities to approved list
                                     remaining_in_batch = available_opps[idx:]
                                     for remaining_opp in remaining_in_batch:
@@ -2191,9 +2317,9 @@ class TradingBot:
                                     break
                                 elif approval:
                                     approved_opportunities.append(opp)
-                                    print(f"✅ Approved: {symbol} {signal}")
+                                    print(f"[OK] Approved: {symbol} {signal}")
                                 else:
-                                    print(f"❌ Skipped: {symbol} {signal}")
+                                    print(f"[ERROR] Skipped: {symbol} {signal}")
                             else:
                                 # Already approved all
                                 approved_opportunities.append(opp)
@@ -2212,7 +2338,7 @@ class TradingBot:
                             self.manual_trades_executing = True
                             print(f"\n📊 Approved {len(opportunities)} trade(s) for sequential execution.\n")
                         else:
-                            print(f"\n⚠️  No trades approved for execution.\n")
+                            print(f"\n[WARNING]  No trades approved for execution.\n")
                 
                 
                 # Log opportunity table header (testing mode)
@@ -2238,7 +2364,7 @@ class TradingBot:
                 # Limit opportunities to available slots at the start (allow multiple trades to execute quickly)
                 available_slots = max_trades - current_positions
                 if available_slots <= 0:
-                    logger.info(f"⏸️  Max open trades ({max_trades}) already reached - skipping all opportunities")
+                    logger.info(f"[PAUSE]  Max open trades ({max_trades}) already reached - skipping all opportunities")
                     opportunities = []
                 else:
                     # CRITICAL FIX: Reserve slots by limiting opportunities, but allow all reserved slots to execute
@@ -2292,7 +2418,7 @@ class TradingBot:
                         volume_medium_ok = not require_volume_medium or volume_ok
                         
                         if not (strong_signal_ok and trend_alignment_ok and volume_medium_ok):
-                            logger.info(f"⛔ [SKIP] {opportunity.get('symbol', 'N/A')} | Reason: Entry conditions not met for additional trade (already have {current_positions}/{max_trades} trades, threshold: {strict_condition_threshold}) | "
+                            logger.info(f"[SKIP] [SKIP] {opportunity.get('symbol', 'N/A')} | Reason: Entry conditions not met for additional trade (already have {current_positions}/{max_trades} trades, threshold: {strict_condition_threshold}) | "
                                       f"Strong signal: {strong_signal_ok}, Trend alignment: {trend_alignment_ok}, Volume medium: {volume_medium_ok}")
                             trades_skipped += 1
                             continue
@@ -2320,28 +2446,28 @@ class TradingBot:
                         
                         # Prevent duplicate attempts for symbols that already failed in this batch
                         if symbol.upper() in failed_symbols_in_batch:
-                            logger.info(f"⏭️ {symbol}: Skipping - already failed in this batch")
-                            print(f"⏭️ {symbol}: Skipped - already attempted and failed in this batch")
+                            logger.info(f"[SKIP] {symbol}: Skipping - already failed in this batch")
+                            print(f"[SKIP] {symbol}: Skipped - already attempted and failed in this batch")
                             trades_skipped += 1
                             continue
                         
                         # Check if symbol was previously restricted
                         if hasattr(self, '_restricted_symbols') and symbol.upper() in self._restricted_symbols:
-                            logger.info(f"⏭️ {symbol}: Skipping - symbol is restricted")
-                            print(f"⏭️ {symbol}: Skipped - symbol is restricted (cannot be traded)")
+                            logger.info(f"[SKIP] {symbol}: Skipping - symbol is restricted")
+                            print(f"[SKIP] {symbol}: Skipped - symbol is restricted (cannot be traded)")
                             trades_skipped += 1
                             continue
                         
                         print(f"\n{'='*80}")
-                        print(f"📈 Executing Trade {idx}/{len(opportunities)}: {symbol} {signal}")
+                        print(f"[STATS] Executing Trade {idx}/{len(opportunities)}: {symbol} {signal}")
                         print(f"{'='*80}")
                         
                         # Comprehensive safety checks before executing approved trade
                         # 0. Check if symbol was previously restricted (prevent duplicate attempts)
                         if hasattr(self, '_restricted_symbols') and symbol.upper() in self._restricted_symbols:
                             logger.warning(f"⏰ {symbol}: Symbol is restricted - skipping execution")
-                            logger.info(f"⛔ [SKIP] {symbol} | Reason: Symbol restricted - cannot be traded")
-                            print(f"⛔ {symbol}: Symbol is restricted - cannot be traded. Skipped.")
+                            logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Symbol restricted - cannot be traded")
+                            print(f"[SKIP] {symbol}: Symbol is restricted - cannot be traded. Skipped.")
                             failed_symbols_in_batch.add(symbol.upper())
                             trades_skipped += 1
                             continue
@@ -2350,8 +2476,8 @@ class TradingBot:
                         is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
                         if not is_tradeable:
                             logger.warning(f"⏰ {symbol}: Market closed or not tradeable - {reason}")
-                            logger.info(f"⛔ [SKIP] {symbol} | Reason: Market closed - {reason}")
-                            print(f"⛔ {symbol}: Market closed - {reason}. Skipped. Re-scan when market opens.")
+                            logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Market closed - {reason}")
+                            print(f"[SKIP] {symbol}: Market closed - {reason}. Skipped. Re-scan when market opens.")
                             failed_symbols_in_batch.add(symbol.upper())
                             trades_skipped += 1
                             continue
@@ -2364,8 +2490,8 @@ class TradingBot:
                             
                             portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
                             if not portfolio_risk_ok:
-                                logger.warning(f"⛔ {symbol}: Portfolio risk limit - {portfolio_reason}")
-                                print(f"⛔ {symbol}: Cannot execute - {portfolio_reason}")
+                                logger.warning(f"[SKIP] {symbol}: Portfolio risk limit - {portfolio_reason}")
+                                print(f"[SKIP] {symbol}: Cannot execute - {portfolio_reason}")
                                 trades_skipped += 1
                                 continue
                         
@@ -2377,8 +2503,8 @@ class TradingBot:
                             high_quality_setup=quality_score >= min_quality_score
                         )
                         if not can_open:
-                            logger.warning(f"⛔ {symbol}: Cannot open trade - {reason}")
-                            print(f"⛔ {symbol}: Cannot execute - {reason}")
+                            logger.warning(f"[SKIP] {symbol}: Cannot open trade - {reason}")
+                            print(f"[SKIP] {symbol}: Cannot execute - {reason}")
                             trades_skipped += 1
                             continue
                         
@@ -2386,16 +2512,16 @@ class TradingBot:
                         if not self.pair_filter.check_spread(symbol):
                             spread_points = self.pair_filter.get_spread_points(symbol)
                             max_spread = self.pair_filter.max_spread_points
-                            logger.warning(f"⛔ {symbol}: Spread {spread_points:.2f} points > {max_spread} limit")
-                            print(f"⛔ {symbol}: Spread too wide - cannot execute")
+                            logger.warning(f"[SKIP] {symbol}: Spread {spread_points:.2f} points > {max_spread} limit")
+                            print(f"[SKIP] {symbol}: Spread too wide - cannot execute")
                             trades_skipped += 1
                             continue
                         
                         # 4. Check price staleness
                         symbol_info_fresh = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=True)
                         if symbol_info_fresh is None:
-                            logger.warning(f"⛔ {symbol}: Price is stale or symbol info unavailable")
-                            print(f"⛔ {symbol}: Price stale - cannot execute")
+                            logger.warning(f"[SKIP] {symbol}: Price is stale or symbol info unavailable")
+                            print(f"[SKIP] {symbol}: Price stale - cannot execute")
                             trades_skipped += 1
                             continue
                         
@@ -2403,8 +2529,8 @@ class TradingBot:
                         test_mode = self.config.get('pairs', {}).get('test_mode', False)
                         if not test_mode:
                             if not self.halal_compliance.validate_trade(symbol, signal):
-                                logger.warning(f"⛔ {symbol}: Halal compliance check failed")
-                                print(f"⛔ {symbol}: Halal compliance failed - cannot execute")
+                                logger.warning(f"[SKIP] {symbol}: Halal compliance check failed")
+                                print(f"[SKIP] {symbol}: Halal compliance failed - cannot execute")
                                 trades_skipped += 1
                                 continue
                     
@@ -2420,19 +2546,19 @@ class TradingBot:
                         if ticket and ticket > 0 and ticket != -1:
                             if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'EXECUTED & CLOSED':<20} | Trade executed and closed")
-                            logger.info(f"✅ {symbol}: Trade {idx}/{len(opportunities)} executed and closed successfully")
-                            print(f"✅ Trade {idx}/{len(opportunities)} completed and closed: {symbol} {signal}")
+                            logger.info(f"[OK] {symbol}: Trade {idx}/{len(opportunities)} executed and closed successfully")
+                            print(f"[OK] Trade {idx}/{len(opportunities)} completed and closed: {symbol} {signal}")
                             trades_executed += 1
                         elif ticket == -1:
                             # Position opened but couldn't verify ticket (might have closed immediately)
-                            logger.info(f"✅ {symbol}: Trade {idx}/{len(opportunities)} executed (position closed immediately)")
-                            print(f"✅ Trade {idx}/{len(opportunities)} executed: {symbol} {signal}")
+                            logger.info(f"[OK] {symbol}: Trade {idx}/{len(opportunities)} executed (position closed immediately)")
+                            print(f"[OK] Trade {idx}/{len(opportunities)} executed: {symbol} {signal}")
                             trades_executed += 1
                         else:
                             if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'FAILED':<20} | Trade execution failed")
-                            logger.error(f"❌ {symbol}: Trade {idx}/{len(opportunities)} execution failed (check logs above)")
-                            print(f"❌ Trade {idx}/{len(opportunities)} failed: {symbol} {signal}")
+                            logger.error(f"[ERROR] {symbol}: Trade {idx}/{len(opportunities)} execution failed (check logs above)")
+                            print(f"[ERROR] Trade {idx}/{len(opportunities)} failed: {symbol} {signal}")
                             # Mark symbol as failed to prevent duplicate attempts
                             failed_symbols_in_batch.add(symbol.upper())
                             trades_skipped += 1
@@ -2461,7 +2587,7 @@ class TradingBot:
                         if not can_open:
                             if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | {reason}")
-                            logger.info(f"⛔ [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
+                            logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
                             trades_skipped += 1
                             continue
                         
@@ -2471,7 +2597,7 @@ class TradingBot:
                             result = self.execute_trade(opportunity)
                             logger.info(f"🔄 [BATCH {idx}/{len(opportunities)}] execute_trade returned: {result} for {symbol}")
                         except Exception as e:
-                            logger.error(f"❌ [ERROR] [BATCH {idx}/{len(opportunities)}] {symbol} | Exception in execute_trade: {e}", exc_info=True)
+                            logger.error(f"[ERROR] [ERROR] [BATCH {idx}/{len(opportunities)}] {symbol} | Exception in execute_trade: {e}", exc_info=True)
                             error_logger.error(f"Exception in execute_trade for {symbol}: {e}", exc_info=True)
                             result = False  # Treat exception as failure, but continue batch
                         
@@ -2481,25 +2607,25 @@ class TradingBot:
                         # - None: Filtered/skipped (randomness, risk validation, trend change) - NOT a failure
                         
                         if result is True:
-                            logger.info(f"✅ [BATCH {idx}/{len(opportunities)}] Trade {symbol} executed successfully | "
+                            logger.info(f"[OK] [BATCH {idx}/{len(opportunities)}] Trade {symbol} executed successfully | "
                                       f"Position count after: {self.order_manager.get_position_count()}/{max_trades}")
                             if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'PASS - EXECUTED':<20} | Trade executed")
-                            logger.info(f"✅ {symbol}: Trade execution completed successfully")
+                            logger.info(f"[OK] {symbol}: Trade execution completed successfully")
                             trades_executed += 1
                             # DO NOT manually increment - always use get_position_count() in next iteration
                         elif result is None:
                             # Filtered/skipped - NOT a failure (randomness, risk validation, trend change)
                             if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'SKIP':<20} | Filtered (not a failure)")
-                            logger.info(f"⛔ [SKIP] [BATCH {idx}/{len(opportunities)}] {symbol} | Reason: Trade filtered/skipped (randomness, risk validation, or trend change) | "
+                            logger.info(f"[SKIP] [SKIP] [BATCH {idx}/{len(opportunities)}] {symbol} | Reason: Trade filtered/skipped (randomness, risk validation, or trend change) | "
                                       f"Position count: {self.order_manager.get_position_count()}/{max_trades}")
                             self.trade_stats['filtered_opportunities'] += 1
                             trades_skipped += 1
                         else:  # result is False - actual execution failure
                             if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'FAILED':<20} | Trade execution failed")
-                            logger.info(f"❌ [FAILED] [BATCH {idx}/{len(opportunities)}] {symbol} | Reason: Trade execution failed (order placement error) | "
+                            logger.info(f"[ERROR] [FAILED] [BATCH {idx}/{len(opportunities)}] {symbol} | Reason: Trade execution failed (order placement error) | "
                                       f"Position count: {self.order_manager.get_position_count()}/{max_trades}")
                             trades_skipped += 1
                         
@@ -2513,9 +2639,9 @@ class TradingBot:
                         
                         if current_positions_after > max_trades:
                             # Only break if we've EXCEEDED max (not at max) - this shouldn't happen with proper reservation
-                            logger.warning(f"⚠️  Position count ({current_positions_after}) exceeded max ({max_trades}) after trade {idx} - stopping batch execution")
+                            logger.warning(f"[WARNING]  Position count ({current_positions_after}) exceeded max ({max_trades}) after trade {idx} - stopping batch execution")
                             if idx < len(opportunities):
-                                print(f"\n⚠️  Position count exceeded max - stopping batch execution.")
+                                print(f"\n[WARNING]  Position count exceeded max - stopping batch execution.")
                                 trades_skipped += len(opportunities) - idx
                                 break
                         elif current_positions_after == max_trades and idx < len(opportunities):
@@ -2550,7 +2676,7 @@ class TradingBot:
                 logger.info(f"📊 Cycle Summary: {trades_executed} executed, {trades_skipped} skipped, {final_position_count}/{max_trades} positions open")
             else:
                 if self.manual_approval_mode:
-                    print("\n⚠️  No trading opportunities found this cycle.")
+                    print("\n[WARNING]  No trading opportunities found this cycle.")
                     print("   (Check logs for reasons: quality score, spread, portfolio risk, etc.)\n")
                 logger.info("ℹ️  No trading opportunities found this cycle (check logs above for reasons)")
             
@@ -2590,7 +2716,7 @@ class TradingBot:
             self.risk_manager.max_open_trades = self.manual_max_trades
             
             logger.info(f"Trading bot started in MANUAL APPROVAL MODE. Max trades: {self.manual_max_trades}, Cycle interval: {cycle_interval_seconds}s")
-            print(f"\n✅ Manual Approval Mode Enabled")
+            print(f"\n[OK] Manual Approval Mode Enabled")
             print(f"   Max Trades: {self.manual_max_trades}")
             print(f"   Cycle Interval: {cycle_interval_seconds}s")
         else:
@@ -2600,16 +2726,19 @@ class TradingBot:
         if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
             try:
                 self.risk_manager.sl_manager.start_sl_worker()
-                logger.info("✅ SLManager worker thread started successfully")
+                logger.info("[OK] SLManager worker thread started successfully")
             except Exception as e:
-                logger.error(f"❌ Failed to start SLManager worker thread: {e}", exc_info=True)
+                logger.error(f"[ERROR] Failed to start SLManager worker thread: {e}", exc_info=True)
                 error_logger.error(f"SLManager worker thread start failed: {e}", exc_info=True)
         else:
-            logger.critical("❌ SLManager not available - cannot start worker thread")
+            logger.critical("[ERROR] SLManager not available - cannot start worker thread")
             error_logger.critical("SLManager not available - worker thread not started")
         
         # Start continuous trailing stop monitor
         self.start_continuous_trailing_stop()
+        
+        # Start state watchdog
+        self.start_state_watchdog()
         
         try:
             while self.running:
@@ -2628,7 +2757,7 @@ class TradingBot:
                         # All trades finished, reset state
                         self.manual_trades_executing = False
                         self.manual_scan_completed = False
-                        print(f"\n✅ All trades finished. Ready for new scan.")
+                        print(f"\n[OK] All trades finished. Ready for new scan.")
                         logger.info("All trades finished - ready for new scan")
                 
                 # Run one trading cycle (only if not already scanning/executing in manual mode)
@@ -2661,7 +2790,7 @@ class TradingBot:
                             print("=" * 100)
                             
                             if continue_choice in ['N', 'NO']:
-                                print("\n✅ Stopping bot as requested by user...")
+                                print("\n[OK] Stopping bot as requested by user...")
                                 logger.info("Manual batch approval mode stopped by user")
                                 break
                             # If Y or Enter, continue to next cycle
@@ -2673,10 +2802,10 @@ class TradingBot:
                                 time.sleep(1)
                             else:
                                 # Invalid input, default to continuing
-                                print(f"⚠️  Invalid input. Continuing scan...\n")
+                                print(f"[WARNING]  Invalid input. Continuing scan...\n")
                                 time.sleep(1)
                         except (EOFError, KeyboardInterrupt):
-                            print("\n\n✅ Bot stopped by user (Ctrl+C)")
+                            print("\n\n[OK] Bot stopped by user (Ctrl+C)")
                             logger.info("Manual batch approval mode stopped by user (KeyboardInterrupt)")
                             break
                     else:
@@ -2690,7 +2819,7 @@ class TradingBot:
         except KeyboardInterrupt:
             logger.info("Trading bot stopped by user")
             if self.manual_approval_mode:
-                print("\n✅ Bot stopped by user")
+                print("\n[OK] Bot stopped by user")
         except Exception as e:
             self.handle_error(e, "Main loop")
             error_logger.critical("Fatal error in main loop, shutting down", exc_info=True)
@@ -2710,10 +2839,13 @@ class TradingBot:
         # CRITICAL FIX: Stop SLManager worker thread
         if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
             self.risk_manager.sl_manager.stop_sl_worker()
-            logger.info("✅ SLManager worker thread stopped")
+            logger.info("[OK] SLManager worker thread stopped")
         
         # Stop continuous trailing stop monitor
         self.stop_continuous_trailing_stop()
+        
+        # Stop state watchdog
+        self.stop_state_watchdog()
         
         self.mt5_connector.shutdown()
         logger.info("Trading bot shutdown complete")

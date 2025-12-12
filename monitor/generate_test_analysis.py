@@ -21,7 +21,7 @@ def parse_trades_from_log(log_file='bot_log.txt'):
         
         for line in lines:
             # Parse trade executions
-            if "Trade executed:" in line or "🧪 TEST MODE: ✅ Trade executed:" in line:
+            if "Trade executed:" in line or "[TEST] TEST MODE: [OK] Trade executed:" in line:
                 match = re.search(r'Ticket (\d+).*?(\w+)\s+(LONG|SHORT).*?Lot: ([\d.]+).*?SL: ([\d.]+)', line)
                 if match:
                     quality_match = re.search(r'Quality[:\s]+([\d.]+)', line)
@@ -40,8 +40,8 @@ def parse_trades_from_log(log_file='bot_log.txt'):
                     })
             
             # Parse symbols analyzed (test mode)
-            if "🧪 TEST MODE:" in line and "✅" in line:
-                match = re.search(r'✅\s+(\w+):\s+Signal=(\w+).*?RSI=([\d.]+).*?Spread=([\d.]+).*?Quality.*?Score:\s+([\d.]+)', line)
+            if "[TEST] TEST MODE:" in line and "[OK]" in line:
+                match = re.search(r'[OK]\s+(\w+):\s+Signal=(\w+).*?RSI=([\d.]+).*?Spread=([\d.]+).*?Quality.*?Score:\s+([\d.]+)', line)
                 if match:
                     symbols_analyzed[match.group(1)].append({
                         'signal': match.group(2),
@@ -69,7 +69,7 @@ def generate_report(trades: List[Dict], symbols_analyzed: Dict[str, List]):
     
     # Trade statistics
     print("=" * 100)
-    print("📈 TRADE STATISTICS")
+    print("[STATS] TRADE STATISTICS")
     print("=" * 100)
     print(f"Total Trades Executed: {len(trades)}")
     

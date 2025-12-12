@@ -72,7 +72,7 @@ def test_staged_open_basic():
     print("\nTest 1: First trade")
     can_open, reason = risk_manager.can_open_trade(symbol=symbol, signal=signal, quality_score=quality_score)
     assert can_open, f"First trade should be allowed, got: {reason}"
-    print(f"✅ First trade allowed: {reason}")
+    print(f"[OK] First trade allowed: {reason}")
     
     # Simulate opening first trade
     ticket1 = 1001
@@ -88,7 +88,7 @@ def test_staged_open_basic():
     print("\nTest 2: Second trade within window")
     can_open, reason = risk_manager.can_open_trade(symbol=symbol, signal=signal, quality_score=quality_score)
     assert can_open, f"Second trade should be allowed within window, got: {reason}"
-    print(f"✅ Second trade allowed: {reason}")
+    print(f"[OK] Second trade allowed: {reason}")
     
     # Simulate opening second trade
     ticket2 = 1002
@@ -104,29 +104,29 @@ def test_staged_open_basic():
     print("\nTest 3: Third trade (should be blocked)")
     can_open, reason = risk_manager.can_open_trade(symbol=symbol, signal=signal, quality_score=quality_score)
     assert not can_open, f"Third trade should be blocked, got: {reason}"
-    print(f"✅ Third trade blocked: {reason}")
+    print(f"[OK] Third trade blocked: {reason}")
     
     # Test 4: Different trend should be blocked
     print("\nTest 4: Different trend (should be blocked)")
     can_open, reason = risk_manager.can_open_trade(symbol=symbol, signal='SHORT', quality_score=quality_score)
     assert not can_open, f"Different trend should be blocked, got: {reason}"
-    print(f"✅ Different trend blocked: {reason}")
+    print(f"[OK] Different trend blocked: {reason}")
     
     # Test 5: Low quality score should be blocked
     print("\nTest 5: Low quality score (should be blocked)")
     can_open, reason = risk_manager.can_open_trade(symbol=symbol, signal=signal, quality_score=30.0)
     assert not can_open, f"Low quality should be blocked, got: {reason}"
-    print(f"✅ Low quality blocked: {reason}")
+    print(f"[OK] Low quality blocked: {reason}")
     
     # Test 6: First trade with loss below threshold should block second
     print("\nTest 6: First trade with loss below threshold")
     order_manager.positions[ticket1]['profit'] = -0.15  # Below -0.10 threshold
     can_open, reason = risk_manager.can_open_trade(symbol=symbol, signal=signal, quality_score=quality_score)
     assert not can_open, f"Second trade should be blocked if first trade loss < threshold, got: {reason}"
-    print(f"✅ Blocked due to first trade loss: {reason}")
+    print(f"[OK] Blocked due to first trade loss: {reason}")
     
     print("\n" + "=" * 80)
-    print("✅ ALL TESTS PASSED")
+    print("[OK] ALL TESTS PASSED")
     print("=" * 80)
     return True
 
@@ -174,10 +174,10 @@ def test_staged_open_window_expiry():
     print("\nTest: Second trade after window expiry")
     can_open, reason = risk_manager.can_open_trade(symbol=symbol, signal=signal, quality_score=75.0)
     assert not can_open, f"Second trade should be blocked after window expiry, got: {reason}"
-    print(f"✅ Window expiry detected: {reason}")
+    print(f"[OK] Window expiry detected: {reason}")
     
     print("\n" + "=" * 80)
-    print("✅ ALL TESTS PASSED")
+    print("[OK] ALL TESTS PASSED")
     print("=" * 80)
     return True
 
@@ -186,9 +186,9 @@ if __name__ == '__main__':
     try:
         test_staged_open_basic()
         test_staged_open_window_expiry()
-        print("\n✅ All tests completed successfully!")
+        print("\n[OK] All tests completed successfully!")
     except Exception as e:
-        print(f"\n❌ Test failed: {e}")
+        print(f"\n[ERROR] Test failed: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

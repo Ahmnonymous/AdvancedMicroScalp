@@ -28,7 +28,7 @@ from monitor.realtime_broker_fetcher import RealtimeBrokerFetcher
 from monitor.realtime_reconciliation import RealtimeReconciliation
 from utils.logger_factory import get_logger
 
-logger = get_logger("realtime_monitor", "logs/system/realtime_monitor.log")
+logger = get_logger("realtime_monitor", "logs/live/system/realtime_monitor.log")
 
 
 class RealtimeBotMonitor:
@@ -58,8 +58,8 @@ class RealtimeBotMonitor:
         self.missed_opportunities = []  # Missed profit opportunities
         
         # Setup monitoring log
-        os.makedirs('logs/system', exist_ok=True)
-        self.monitoring_logger = get_logger("monitoring", "logs/system/realtime_monitoring.log")
+        # Log directory is created by logger_factory
+        self.monitoring_logger = get_logger("monitoring", "logs/live/system/realtime_monitoring.log")
     
     def start_monitoring(self):
         """Start real-time monitoring."""
@@ -76,7 +76,7 @@ class RealtimeBotMonitor:
             daemon=True
         )
         self.monitor_thread.start()
-        logger.info("✅ Real-time monitoring started")
+        logger.info("[OK] Real-time monitoring started")
         
         # Start reconciliation thread
         self.reconciliation_thread = threading.Thread(
@@ -85,7 +85,7 @@ class RealtimeBotMonitor:
             daemon=True
         )
         self.reconciliation_thread.start()
-        logger.info("✅ Real-time reconciliation started")
+        logger.info("[OK] Real-time reconciliation started")
     
     def stop_monitoring(self):
         """Stop real-time monitoring."""
@@ -161,7 +161,7 @@ class RealtimeBotMonitor:
     
     def _monitor_skipped_symbols(self):
         """Monitor skipped symbols from filter logs."""
-        skipped_log = 'logs/system/skipped_pairs.log'
+        skipped_log = 'logs/live/system/skipped_pairs.log'
         
         if not os.path.exists(skipped_log):
             return

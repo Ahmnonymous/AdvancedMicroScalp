@@ -19,7 +19,7 @@ from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager
 from utils.logger_factory import get_logger
 
-logger = get_logger("comprehensive_monitor", "logs/system/comprehensive_monitor.log")
+logger = get_logger("comprehensive_monitor", "logs/live/system/comprehensive_monitor.log")
 
 
 class ComprehensiveBotMonitor:
@@ -109,7 +109,7 @@ class ComprehensiveBotMonitor:
         return analysis
     
     def analyze_trade_logs(self) -> Dict[str, Any]:
-        """Analyze trade logs from logs/trades/ directory."""
+        """Analyze trade logs from logs/live/trades/ directory."""
         trade_log_dir = "logs/trades"
         all_trades = []
         closed_trades = []
@@ -157,7 +157,7 @@ class ComprehensiveBotMonitor:
     
     def analyze_filter_effectiveness(self) -> Dict[str, Any]:
         """Analyze filter effectiveness from system logs."""
-        log_file = "logs/system/system_startup.log"
+        log_file = "logs/live/system/system_startup.log"
         filter_stats = defaultdict(int)
         last_scan_time = None
         
@@ -235,7 +235,7 @@ class ComprehensiveBotMonitor:
     
     def detect_errors(self) -> List[Dict[str, Any]]:
         """Detect errors from system error logs."""
-        error_log = "logs/system/system_errors.log"
+        error_log = "logs/live/system/system_errors.log"
         errors = []
         
         try:
@@ -334,7 +334,7 @@ class ComprehensiveBotMonitor:
                 "category": "System Errors",
                 "issue": f"{len(analysis['errors'])} errors detected",
                 "recommendation": "Review error logs and resolve critical issues",
-                "action": "Check logs/system/system_errors.log for details"
+                "action": "Check logs/live/system/system_errors.log for details"
             })
         
         return recommendations
@@ -383,7 +383,7 @@ class ComprehensiveBotMonitor:
         with open(report_path, 'w') as f:
             json.dump(report, f, indent=2, default=str)
         
-        logger.info(f"✓ Report saved: {report_path}")
+        logger.info(f"[OK] Report saved: {report_path}")
         
         # Generate CSV summary
         self._generate_csv_summary(report, report_filename.replace('.json', '.csv'))
@@ -423,7 +423,7 @@ class ComprehensiveBotMonitor:
             for rec in report['recommendations']:
                 f.write(f"Recommendation,{rec['priority']},{rec['issue']},{rec['category']}\n")
         
-        logger.info(f"✓ CSV summary saved: {csv_path}")
+        logger.info(f"[OK] CSV summary saved: {csv_path}")
     
     def monitor_loop(self):
         """Main monitoring loop."""
@@ -461,7 +461,7 @@ class ComprehensiveBotMonitor:
         self.running = True
         self.monitor_thread = threading.Thread(target=self.monitor_loop, daemon=True)
         self.monitor_thread.start()
-        logger.info("✓ Comprehensive monitor started")
+        logger.info("[OK] Comprehensive monitor started")
     
     def stop(self):
         """Stop the monitoring system."""
@@ -472,7 +472,7 @@ class ComprehensiveBotMonitor:
         
         # Generate final report
         self.generate_report()
-        logger.info("✓ Comprehensive monitor stopped")
+        logger.info("[OK] Comprehensive monitor stopped")
 
 
 if __name__ == "__main__":

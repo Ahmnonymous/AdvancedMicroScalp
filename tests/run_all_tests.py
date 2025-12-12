@@ -64,10 +64,10 @@ def main():
         
         if success:
             passed += 1
-            print(f"\n✅ {module}: PASSED")
+            print(f"\n[OK] {module}: PASSED")
         else:
             failed += 1
-            print(f"\n❌ {module}: FAILED")
+            print(f"\n[ERROR] {module}: FAILED")
             if error:
                 print(f"   Error: {error}")
     
@@ -82,10 +82,10 @@ def main():
     print("=" * 80)
     
     if failed > 0:
-        print("\n❌ SOME TESTS FAILED")
+        print("\n[ERROR] SOME TESTS FAILED")
         sys.exit(1)
     else:
-        print("\n✅ ALL TESTS PASSED")
+        print("\n[OK] ALL TESTS PASSED")
         sys.exit(0)
 
 

@@ -16,9 +16,9 @@ from datetime import datetime
 print("Testing SLManager import...")
 try:
     from risk.sl_manager import SLManager
-    print("✅ SLManager import successful")
+    print("[OK] SLManager import successful")
 except ImportError as e:
-    print(f"❌ SLManager import failed: {e}")
+    print(f"[ERROR] SLManager import failed: {e}")
     sys.exit(1)
 
 # Test configuration
@@ -48,12 +48,12 @@ print("TEST 1: SLManager Instantiation")
 print("="*80)
 try:
     sl_manager = SLManager(config, mock_mt5_connector, mock_order_manager)
-    print("✅ SLManager instantiated successfully")
+    print("[OK] SLManager instantiated successfully")
     print(f"   Max risk: ${sl_manager.max_risk_usd:.2f}")
     print(f"   Break-even enabled: {sl_manager.break_even_enabled}")
     print(f"   Sweet-spot range: ${sl_manager.sweet_spot_min:.2f}-${sl_manager.sweet_spot_max:.2f}")
 except Exception as e:
-    print(f"❌ SLManager instantiation failed: {e}")
+    print(f"[ERROR] SLManager instantiation failed: {e}")
     import traceback
     traceback.print_exc()
     sys.exit(1)
@@ -92,9 +92,9 @@ position = mock_order_manager.get_position_by_ticket.return_value
 success, reason = sl_manager.update_sl_atomic(123456, position)
 print(f"   Result: success={success}, reason={reason}")
 if success:
-    print("✅ BUY strict loss enforcement working")
+    print("[OK] BUY strict loss enforcement working")
 else:
-    print(f"⚠️  BUY strict loss enforcement: {reason}")
+    print(f"[WARNING]  BUY strict loss enforcement: {reason}")
 
 # Test 3: SELL trade strict loss
 print("\n" + "="*80)
@@ -113,9 +113,9 @@ position = mock_order_manager.get_position_by_ticket.return_value
 success, reason = sl_manager.update_sl_atomic(123457, position)
 print(f"   Result: success={success}, reason={reason}")
 if success:
-    print("✅ SELL strict loss enforcement working")
+    print("[OK] SELL strict loss enforcement working")
 else:
-    print(f"⚠️  SELL strict loss enforcement: {reason}")
+    print(f"[WARNING]  SELL strict loss enforcement: {reason}")
 
 # Test 4: Contract size correction
 print("\n" + "="*80)
@@ -141,9 +141,9 @@ corrected_size = sl_manager._get_corrected_contract_size('BTCXAUm', 22.34929, 0.
 print(f"   Reported contract size: 1.0")
 print(f"   Corrected contract size: {corrected_size}")
 if corrected_size > 1.0:
-    print("✅ Contract size auto-correction working")
+    print("[OK] Contract size auto-correction working")
 else:
-    print("⚠️  Contract size correction may not be needed for this symbol")
+    print("[WARNING]  Contract size correction may not be needed for this symbol")
 
 # Test 5: Effective SL calculation
 print("\n" + "="*80)
@@ -164,14 +164,14 @@ print(f"   Entry: {position_with_sl['price_open']:.5f}")
 print(f"   SL: {position_with_sl['sl']:.5f}")
 print(f"   Effective SL profit: ${effective_sl:.2f}")
 if abs(effective_sl + 2.0) < 0.10:
-    print("✅ Effective SL calculation correct (≈ -$2.00)")
+    print("[OK] Effective SL calculation correct (≈ -$2.00)")
 else:
-    print(f"⚠️  Effective SL calculation: ${effective_sl:.2f} (expected ≈ -$2.00)")
+    print(f"[WARNING]  Effective SL calculation: ${effective_sl:.2f} (expected ≈ -$2.00)")
 
 print("\n" + "="*80)
 print("ALL TESTS COMPLETED")
 print("="*80)
-print("✅ SLManager class is functional")
-print("✅ All core methods are available")
-print("✅ Ready for live trading")
+print("[OK] SLManager class is functional")
+print("[OK] All core methods are available")
+print("[OK] Ready for live trading")
 

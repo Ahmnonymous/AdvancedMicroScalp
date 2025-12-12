@@ -66,7 +66,7 @@ for symbol_name in symbols:
             result = mt5.order_send(request)
             if result:
                 if result.retcode == mt5.TRADE_RETCODE_DONE:
-                    print(f"  ✅ Lot {test_lot} - WORKS! (Code: {result.retcode})")
+                    print(f"  [OK] Lot {test_lot} - WORKS! (Code: {result.retcode})")
                     # Close immediately
                     close_request = {
                         "action": mt5.TRADE_ACTION_DEAL,
@@ -83,9 +83,9 @@ for symbol_name in symbols:
                     mt5.order_send(close_request)
                     break
                 elif result.retcode == 10014:
-                    print(f"  ❌ Lot {test_lot} - Invalid volume (Code: {result.retcode})")
+                    print(f"  [ERROR] Lot {test_lot} - Invalid volume (Code: {result.retcode})")
                 else:
-                    print(f"  ⚠️  Lot {test_lot} - Code: {result.retcode} - {result.comment}")
+                    print(f"  [WARNING]  Lot {test_lot} - Code: {result.retcode} - {result.comment}")
 
 mt5.shutdown()
 

@@ -94,22 +94,22 @@ def analyze_bot_logs(log_file='bot_log.txt'):
     print()
     
     if skip_reasons:
-        print(f"⏭️  SKIP REASONS:")
+        print(f"[SKIP]  SKIP REASONS:")
         for reason, count in sorted(skip_reasons.items(), key=lambda x: -x[1]):
             print(f"   {reason}: {count}")
         print()
     
     if spread_issues:
-        print(f"⚠️  SPREAD CALCULATION ISSUES ({len(spread_issues)} found):")
+        print(f"[WARNING]  SPREAD CALCULATION ISSUES ({len(spread_issues)} found):")
         for issue, spread in spread_issues[:5]:  # Show first 5
             print(f"   Spread: {spread:.0f} points - {issue[:80]}")
         print()
     
     if trades_executed > 0:
         success_rate = (trades_executed / trades_attempted * 100) if trades_attempted > 0 else 0
-        print(f"✅ SUCCESS RATE: {success_rate:.1f}% ({trades_executed}/{trades_attempted})")
+        print(f"[OK] SUCCESS RATE: {success_rate:.1f}% ({trades_executed}/{trades_attempted})")
     else:
-        print(f"❌ NO TRADES EXECUTED - Reasons:")
+        print(f"[ERROR] NO TRADES EXECUTED - Reasons:")
         for reason, count in sorted(skip_reasons.items(), key=lambda x: -x[1]):
             print(f"   - {reason}: {count} times")
     

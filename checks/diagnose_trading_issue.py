@@ -119,7 +119,7 @@ for symbol_name in symbols_to_test:
                 if not working_mode:
                     working_mode = f"Error {result.retcode}: {result.comment[:30]}"
     
-    status = "🟢 TRADEABLE" if tradeable else "🔴 NOT TRADEABLE"
+    status = "[+] TRADEABLE" if tradeable else "[-] NOT TRADEABLE"
     mode_info = f" (Mode: {working_mode})" if working_mode else f" (Modes: {', '.join(filling_modes)})"
     
     print(f"{symbol_name:12s} - {status:15s} {mode_info}")

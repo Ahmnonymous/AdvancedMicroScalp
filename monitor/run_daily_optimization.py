@@ -24,7 +24,7 @@ def main():
     
     # Check if broker report exists
     if not os.path.exists(broker_report):
-        print(f"⚠️  Warning: Broker report not found: {broker_report}")
+        print(f"[WARNING]  Warning: Broker report not found: {broker_report}")
         print("   Continuing with analysis without broker alignment check...")
         print()
     
@@ -51,7 +51,7 @@ def main():
             print(f"     {suggestion.get('reason', '')[:70]}...")
         print()
     
-    print("✅ Daily optimization complete")
+    print("[OK] Daily optimization complete")
     return 0
 
 if __name__ == "__main__":

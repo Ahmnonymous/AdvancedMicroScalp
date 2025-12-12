@@ -77,9 +77,10 @@ class BotPerformanceOptimizer:
         self.suggestions = []
         
         # Setup logging
-        os.makedirs('logs/system', exist_ok=True)
+        # Log directory is created by logger_factory
+        log_dir = 'logs/backtest/system' if self.config.get('mode') == 'backtest' else 'logs/live/system'
         self.logger = logging.getLogger('performance_optimizer')
-        handler = logging.FileHandler('logs/system/optimization.log')
+        handler = logging.FileHandler(f'{log_dir}/optimization.log')
         handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
         self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO)
@@ -154,7 +155,7 @@ class BotPerformanceOptimizer:
     
     def _analyze_filter_performance(self) -> Dict[str, Any]:
         """Analyze filter skip rates and patterns."""
-        skipped_log = 'logs/system/skipped_pairs.log'
+        skipped_log = 'logs/live/system/skipped_pairs.log'
         
         analysis = {
             'market_closing_skips': 0,

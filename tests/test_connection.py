@@ -25,14 +25,14 @@ def main():
         sys.exit(1)
     
     # Setup logging
-    logger = get_logger("system_startup", "logs/system/system_startup.log")
+    logger = get_logger("system_startup", "logs/live/system/system_startup.log")
     
     # Test connection
     print("\n1. Testing MT5 Connection...")
     connector = MT5Connector(config)
     
     if connector.connect():
-        print("   ✓ MT5 Connected Successfully")
+        print("   [OK] MT5 Connected Successfully")
         
         # Get account info
         print("\n2. Retrieving Account Information...")

@@ -32,7 +32,7 @@ from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager
 from utils.logger_factory import get_logger
 
-logger = get_logger("sweet_spot_test", "logs/system/sweet_spot_test.log")
+logger = get_logger("sweet_spot_test", "logs/live/system/sweet_spot_test.log")
 
 # Audit log for detected issues and fixes
 audit_log: List[Dict[str, Any]] = []
@@ -93,7 +93,7 @@ def test_immediate_application():
                      "ERROR")
             return False
         
-        logger.info("✅ Config settings correct: min_duration_seconds=0.0, apply_immediately=True")
+        logger.info("[OK] Config settings correct: min_duration_seconds=0.0, apply_immediately=True")
         return True
         
     except Exception as e:
@@ -129,7 +129,7 @@ def test_retry_logic():
                      "ERROR")
             return False
         
-        logger.info(f"✅ Retry logic correct: attempts={retry_attempts}, backoff={retry_backoff}")
+        logger.info(f"[OK] Retry logic correct: attempts={retry_attempts}, backoff={retry_backoff}")
         return True
         
     except Exception as e:
@@ -195,7 +195,7 @@ def test_monitoring_loop_integration():
                      "ERROR")
             return False
         
-        logger.info("✅ Monitoring loop integration correct")
+        logger.info("[OK] Monitoring loop integration correct")
         return True
         
     except Exception as e:
@@ -233,7 +233,7 @@ def test_effective_sl_calculation():
                      "calculate_effective_sl_in_profit_terms should return is_verified",
                      "WARNING")
         
-        logger.info("✅ Effective SL calculation methods exist")
+        logger.info("[OK] Effective SL calculation methods exist")
         return True
         
     except Exception as e:
@@ -284,7 +284,7 @@ def test_display_enhancements():
                      "Color coding not found in display",
                      "WARNING")
         
-        logger.info("✅ Display enhancements present")
+        logger.info("[OK] Display enhancements present")
         return True
         
     except Exception as e:
@@ -343,7 +343,7 @@ def test_profit_locking_engine():
                      "ERROR")
             return False
         
-        logger.info("✅ Profit locking engine implementation correct")
+        logger.info("[OK] Profit locking engine implementation correct")
         return True
         
     except Exception as e:
@@ -357,7 +357,7 @@ def generate_audit_report():
     logger.info("AUDIT REPORT")
     logger.info("=" * 80)
     
-    report_path = f"logs/system/sweet_spot_audit_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    report_path = f"logs/live/system/sweet_spot_audit_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     
     report = {
         "test_timestamp": datetime.now().isoformat(),
@@ -371,7 +371,7 @@ def generate_audit_report():
     with open(report_path, 'w') as f:
         json.dump(report, f, indent=2)
     
-    logger.info(f"✅ Audit report saved to: {report_path}")
+    logger.info(f"[OK] Audit report saved to: {report_path}")
     logger.info(f"Total issues detected: {report['total_issues']}")
     logger.info(f"Total fixes applied: {report['total_fixes']}")
     
@@ -425,7 +425,7 @@ def main():
     logger.info(f"Failed: {total - passed}/{total}")
     
     for test_name, result in results.items():
-        status = "✅ PASS" if result else "❌ FAIL"
+        status = "[OK] PASS" if result else "[ERROR] FAIL"
         logger.info(f"{status}: {test_name}")
     
     logger.info("=" * 80)

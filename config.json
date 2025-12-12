@@ -1,4 +1,5 @@
 {
+  "mode": "live",
   "mt5": {
     "account": "259747051",
     "password": "B7k4ERWAp.8bzfe",
@@ -209,5 +210,28 @@
     "enabled": true,
     "interval_minutes": null,
     "run_at_session_end": true
+  },
+  "backtest": {
+    "symbols": [
+      "EURUSDm",
+      "GBPUSDm",
+      "USDJPYm",
+      "XAUUSDm",
+      "BTCUSDm",
+      "ETHUSDm",
+      "US30m",
+      "JP225m",
+      "AUS200m"
+    ],
+    "start_date": "2024-01-01T00:00:00",
+    "end_date": "2024-01-02T00:00:00",
+    "timeframe": "M1",
+    "use_ticks": false,
+    "stress_tests": [],
+    "initial_balance": 10000.0,
+    "slippage_pips": 1.0,
+    "spread_multiplier": 1.0,
+    "fill_delay_ms": 0,
+    "partial_fills_enabled": false
   }
 }

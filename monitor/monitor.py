@@ -118,7 +118,7 @@ def parse_log_events(log_file='bot_log.txt'):
                         })
                 
                 # Trade executions (including test mode)
-                if ("Trade executed:" in line or "🧪 TEST MODE: ✅ Trade executed:" in line) and "Ticket" in line:
+                if ("Trade executed:" in line or "[TEST] TEST MODE: [OK] Trade executed:" in line) and "Ticket" in line:
                     match = re.search(r'Ticket (\d+).*?(\w+)\s+(LONG|SHORT)', line)
                     if match:
                         time_match = re.search(r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})', line)
@@ -140,9 +140,9 @@ def parse_log_events(log_file='bot_log.txt'):
                         })
                 
                 # Symbol analysis (test mode - symbols being considered)
-                if "🧪 TEST MODE:" in line and "✅" in line and "Signal=" in line:
+                if "[TEST] TEST MODE:" in line and "[OK]" in line and "Signal=" in line:
                     # This shows symbols that passed all filters
-                    match = re.search(r'✅\s+(\w+):\s+Signal=(\w+).*?RSI=([\d.]+).*?Spread=([\d.]+).*?Quality.*?Score:\s+([\d.]+)', line)
+                    match = re.search(r'[OK]\s+(\w+):\s+Signal=(\w+).*?RSI=([\d.]+).*?Spread=([\d.]+).*?Quality.*?Score:\s+([\d.]+)', line)
                     if match:
                         if 'symbols_analyzed' not in events:
                             events['symbols_analyzed'] = []
@@ -172,13 +172,13 @@ def display_header(account_info):
         with open('config.json', 'r') as f:
             config = json.load(f)
         test_mode = config.get('pairs', {}).get('test_mode', False)
-        test_mode_indicator = f" {Colors.YELLOW}🧪 TEST MODE{Colors.END}" if test_mode else ""
+        test_mode_indicator = f" {Colors.YELLOW}[TEST] TEST MODE{Colors.END}" if test_mode else ""
     except:
         test_mode = False
         test_mode_indicator = ""
     
     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
-    print(f"{Colors.BOLD}{Colors.CYAN}🤖 TRADING BOT - REAL-TIME MONITOR{test_mode_indicator}{Colors.END}")
+    print(f"{Colors.BOLD}{Colors.CYAN}[BOT] TRADING BOT - REAL-TIME MONITOR{test_mode_indicator}{Colors.END}")
     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}")
     print(f"{Colors.BOLD}Time: {Colors.END}{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     if account_info:
@@ -191,7 +191,7 @@ def display_header(account_info):
           f"{Colors.BOLD}Trailing Stop Interval: {Colors.END}3.0 seconds")
     
     if test_mode:
-        print(f"{Colors.YELLOW}⚠️  TEST MODE: Testing ALL available symbols (spread/exotic/halal restrictions ignored){Colors.END}")
+        print(f"{Colors.YELLOW}[WARNING]  TEST MODE: Testing ALL available symbols (spread/exotic/halal restrictions ignored){Colors.END}")
         print(f"{Colors.YELLOW}   Scalping filters (trend, RSI, choppiness, ADX) still active for quality{Colors.END}")
     
     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 100}{Colors.END}\n")
@@ -209,7 +209,7 @@ def display_positions(positions):
     for pos in positions:
         duration = datetime.now() - pos['time']
         profit_color = Colors.GREEN if pos['profit'] >= 0 else Colors.RED
-        profit_symbol = "🟢" if pos['profit'] >= 0 else "🔴"
+        profit_symbol = "[+]" if pos['profit'] >= 0 else "[-]"
         
         total_profit += pos['profit']
         
@@ -237,7 +237,7 @@ def display_recent_events(events):
     # Recent trailing stops
     if events['trailing_stops']:
         recent_sl = events['trailing_stops'][-5:]  # Last 5
-        print(f"{Colors.BOLD}{Colors.YELLOW}📈 RECENT TRAILING STOP ADJUSTMENTS ({len(events['trailing_stops'])} total){Colors.END}")
+        print(f"{Colors.BOLD}{Colors.YELLOW}[STATS] RECENT TRAILING STOP ADJUSTMENTS ({len(events['trailing_stops'])} total){Colors.END}")
         print(f"{Colors.YELLOW}{'-' * 100}{Colors.END}")
         for adj in recent_sl:
             time_str = adj['time'].strftime('%H:%M:%S')
@@ -249,7 +249,7 @@ def display_recent_events(events):
     # Big jumps
     if events['big_jumps']:
         recent_jumps = events['big_jumps'][-3:]  # Last 3
-        print(f"{Colors.BOLD}{Colors.RED}🚀 BIG JUMPS DETECTED ({len(events['big_jumps'])} total){Colors.END}")
+        print(f"{Colors.BOLD}{Colors.RED}[JUMP] BIG JUMPS DETECTED ({len(events['big_jumps'])} total){Colors.END}")
         print(f"{Colors.RED}{'-' * 100}{Colors.END}")
         for jump in recent_jumps:
             time_str = jump['time'].strftime('%H:%M:%S')
@@ -259,7 +259,7 @@ def display_recent_events(events):
     # Recent trades
     if events['trades_executed']:
         recent_trades = events['trades_executed'][-5:]  # Last 5
-        print(f"{Colors.BOLD}{Colors.GREEN}✅ RECENT TRADES ({len(events['trades_executed'])} total){Colors.END}")
+        print(f"{Colors.BOLD}{Colors.GREEN}[OK] RECENT TRADES ({len(events['trades_executed'])} total){Colors.END}")
         print(f"{Colors.GREEN}{'-' * 100}{Colors.END}")
         for trade in recent_trades:
             time_str = trade['time'].strftime('%H:%M:%S')
@@ -329,7 +329,7 @@ def monitor():
                 elif len(current_tickets) < len(last_positions):
                     closed_tickets = set(last_positions.keys()) - current_tickets
                     for ticket in closed_tickets:
-                        print(f"{Colors.RED}🔴 Position closed: Ticket {ticket}{Colors.END}")
+                        print(f"{Colors.RED}[-] Position closed: Ticket {ticket}{Colors.END}")
             
             last_positions = {p['ticket']: p for p in positions}
             

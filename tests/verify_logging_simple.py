@@ -25,11 +25,11 @@ except Exception as e:
 # Test 2: Module logging paths
 print("\n2. Verifying module logging paths...")
 modules = [
-    ("../bot/micro_profit_engine.py", "logs/engine/hft_engine.log"),
-    ("../strategies/trend_filter.py", "logs/engine/trend_detector.log"),
-    ("../news_filter/news_api.py", "logs/engine/news_filter.log"),
-    ("../risk/risk_manager.py", "logs/engine/risk_manager.log"),
-    ("../execution/mt5_connector.py", "logs/system/mt5_connection.log"),
+    ("../bot/micro_profit_engine.py", "logs/live/engine/hft_engine.log"),
+    ("../strategies/trend_filter.py", "logs/live/engine/trend_detector.log"),
+    ("../news_filter/news_api.py", "logs/live/engine/news_filter.log"),
+    ("../risk/risk_manager.py", "logs/live/engine/risk_manager.log"),
+    ("../execution/mt5_connector.py", "logs/live/system/mt5_connection.log"),
 ]
 
 all_pass = True
@@ -51,9 +51,9 @@ if os.path.exists("../bot/trading_bot.py"):
     with open("../bot/trading_bot.py", 'r', encoding='utf-8') as f:
         content = f.read()
         required_logs = [
-            "logs/system/system_startup.log",
-            "logs/system/scheduler.log",
-            "logs/system/system_errors.log"
+            "logs/live/system/system_startup.log",
+            "logs/live/system/scheduler.log",
+            "logs/live/system/system_errors.log"
         ]
         for log_path in required_logs:
             if log_path in content:
@@ -106,9 +106,9 @@ else:
 print("\n6. Testing logger creation...")
 try:
     test_loggers = [
-        ("test_engine", "logs/engine/test.log"),
-        ("test_system", "logs/system/test.log"),
-        ("test_trade", "logs/trades/TEST.log"),
+        ("test_engine", "logs/live/engine/test.log"),
+        ("test_system", "logs/live/system/test.log"),
+        ("test_trade", "logs/live/trades/TEST.log"),
     ]
     for name, path in test_loggers:
         # Adjust path for tests/ folder location
@@ -127,7 +127,7 @@ except Exception as e:
 # Test 7: Rotation
 print("\n7. Testing log rotation...")
 try:
-    rot_logger = get_logger("rotation_test", "../logs/system/rotation_test.log")
+    rot_logger = get_logger("rotation_test", "../logs/live/system/rotation_test.log")
     # Write enough to trigger rotation (6MB)
     large_msg = "X" * 100
     for i in range(60000):

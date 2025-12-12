@@ -16,15 +16,18 @@ class TradeLogger:
     
     def __init__(self, config: Dict[str, Any]):
         self.config = config
+        # Determine if we're in backtest mode
+        self.is_backtest = config.get('mode') == 'backtest'
+        self.trades_log_dir = 'logs/backtest/trades' if self.is_backtest else 'logs/live/trades'
         self._ensure_trades_directory()
     
     def _ensure_trades_directory(self):
-        """Ensure logs/trades directory exists."""
-        os.makedirs('logs/trades', exist_ok=True)
+        """Ensure trades directory exists."""
+        os.makedirs(self.trades_log_dir, exist_ok=True)
     
     def _write_jsonl_entry(self, symbol: str, entry: Dict[str, Any]):
         """Write JSONL entry to symbol log file."""
-        log_file = f'logs/trades/{symbol}.log'
+        log_file = f'{self.trades_log_dir}/{symbol}.log'
         try:
             with open(log_file, 'a', encoding='utf-8') as f:
                 f.write(json.dumps(entry, ensure_ascii=False) + '\n')
@@ -74,10 +77,10 @@ class TradeLogger:
         if slippage is None:
             slippage = abs(entry_price_actual - entry_price_requested)
         
-        # Symbol logger (logs to logs/trades/SYMBOL.log)
-        symbol_logger = get_symbol_logger(symbol)
+        # Symbol logger (logs to logs/live/trades/SYMBOL.log or logs/backtest/trades/SYMBOL.log)
+        symbol_logger = get_symbol_logger(symbol, is_backtest=self.is_backtest)
         symbol_logger.info("=" * 80)
-        symbol_logger.info(f"✅ TRADE EXECUTED SUCCESSFULLY")
+        symbol_logger.info(f"[OK] TRADE EXECUTED SUCCESSFULLY")
         symbol_logger.info(f"   Symbol: {symbol}")
         symbol_logger.info(f"   Direction: {signal}")
         symbol_logger.info(f"   Ticket: {ticket}")
@@ -165,10 +168,10 @@ class TradeLogger:
             close_time: Close timestamp
             **kwargs: Additional fields to log
         """
-        # Symbol logger (logs to logs/trades/SYMBOL.log)
-        symbol_logger = get_symbol_logger(symbol)
+        # Symbol logger (logs to logs/live/trades/SYMBOL.log or logs/backtest/trades/SYMBOL.log)
+        symbol_logger = get_symbol_logger(symbol, is_backtest=self.is_backtest)
         symbol_logger.info("=" * 80)
-        symbol_logger.info(f"🔴 POSITION CLOSED")
+        symbol_logger.info(f"[-] POSITION CLOSED")
         symbol_logger.info(f"   Symbol: {symbol}")
         symbol_logger.info(f"   Ticket: {ticket}")
         if entry_time:
@@ -213,7 +216,7 @@ class TradeLogger:
     
     def _update_jsonl_entry(self, symbol: str, ticket: int, closure_data: Dict[str, Any]):
         """Update existing JSONL entry with closure data."""
-        log_file = f'logs/trades/{symbol}.log'
+        log_file = f'{self.trades_log_dir}/{symbol}.log'
         
         if not os.path.exists(log_file):
             # If file doesn't exist, just append
@@ -293,10 +296,10 @@ class TradeLogger:
         if timestamp is None:
             timestamp = datetime.now()
         
-        # Symbol logger (logs to logs/trades/SYMBOL.log)
-        symbol_logger = get_symbol_logger(symbol)
+        # Symbol logger (logs to logs/live/trades/SYMBOL.log or logs/backtest/trades/SYMBOL.log)
+        symbol_logger = get_symbol_logger(symbol, is_backtest=self.is_backtest)
         symbol_logger.info(
-            f"📈 TRAILING STOP: Ticket {ticket} ({symbol}) | "
+            f"[STATS] TRAILING STOP: Ticket {ticket} ({symbol}) | "
             f"Time: {timestamp.strftime('%H:%M:%S')} | "
             f"Profit: ${current_profit:.2f} | "
             f"SL Profit: ${new_sl_profit:.2f} | "
@@ -312,9 +315,9 @@ class TradeLogger:
         max_risk: float
     ):
         """Log when early exit is prevented (SL would be worse than -$2.00)."""
-        symbol_logger = get_symbol_logger(symbol)
+        symbol_logger = get_symbol_logger(symbol, is_backtest=self.is_backtest)
         symbol_logger.warning(
-            f"⚠️ PREVENTED EARLY EXIT: Ticket {ticket} | "
+            f"[WARNING] PREVENTED EARLY EXIT: Ticket {ticket} | "
             f"Attempted SL profit ${attempted_sl_profit:.2f} would be worse than max risk ${max_risk:.2f} | "
             f"SL update skipped to prevent early exit"
         )
@@ -328,15 +331,15 @@ class TradeLogger:
         sl_modification_failed: bool = False
     ):
         """Log when late exit is detected or prevented."""
-        symbol_logger = get_symbol_logger(symbol)
+        symbol_logger = get_symbol_logger(symbol, is_backtest=self.is_backtest)
         if sl_modification_failed:
             symbol_logger.warning(
-                f"⚠️ LATE EXIT: Ticket {ticket} | "
+                f"[WARNING] LATE EXIT: Ticket {ticket} | "
                 f"SL modification failed, position closed at ${actual_profit:.2f} (expected: ${expected_profit:.2f})"
             )
         else:
             symbol_logger.warning(
-                f"⚠️ LATE EXIT: Ticket {ticket} | "
+                f"[WARNING] LATE EXIT: Ticket {ticket} | "
                 f"Position closed at ${actual_profit:.2f} (expected: ${expected_profit:.2f})"
             )
     
@@ -362,10 +365,10 @@ class TradeLogger:
             spread_points: Spread in points
             execution_time_ms: Execution time in milliseconds
         """
-        # Symbol logger (logs to logs/trades/SYMBOL.log)
-        symbol_logger = get_symbol_logger(symbol)
+        # Symbol logger (logs to logs/live/trades/SYMBOL.log or logs/backtest/trades/SYMBOL.log)
+        symbol_logger = get_symbol_logger(symbol, is_backtest=self.is_backtest)
         symbol_logger.info("=" * 80)
-        symbol_logger.info(f"⚡ MICRO-HFT PROFIT CLOSE")
+        symbol_logger.info(f"[FAST] MICRO-HFT PROFIT CLOSE")
         symbol_logger.info(f"   Symbol: {symbol}")
         symbol_logger.info(f"   Ticket: {ticket}")
         symbol_logger.info(f"   Entry Price (Actual Fill): {entry_price_actual:.5f}")
@@ -377,7 +380,7 @@ class TradeLogger:
         # If profit is negative, this is an error condition
         if profit <= 0:
             close_reason_text = f"Micro-HFT ERROR: Negative profit attempted (${profit:.2f}) - This should never happen"
-            symbol_logger.error(f"   ⚠️ CLOSE REASON: {close_reason_text}")
+            symbol_logger.error(f"   [WARNING] CLOSE REASON: {close_reason_text}")
         elif 0.03 <= profit <= 0.10:
             close_reason_text = "Micro-HFT sweet spot profit ($0.03–$0.10)"
             symbol_logger.info(f"   Close Reason: {close_reason_text}")
@@ -405,4 +408,3 @@ class TradeLogger:
         }
         
         self._update_jsonl_entry(symbol, ticket, jsonl_entry)
-

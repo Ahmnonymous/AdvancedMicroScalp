@@ -12,7 +12,7 @@ from typing import Optional, Dict, Any, Tuple
 from execution.mt5_connector import MT5Connector
 from utils.logger_factory import get_logger
 
-logger = get_logger("trend_detector", "logs/engine/trend_detector.log")
+logger = get_logger("trend_detector", "logs/live/engine/trend_detector.log")
 
 
 class TrendFilter:
@@ -80,13 +80,119 @@ class TrendFilter:
                     return cached_df.copy()  # Return copy to prevent mutation
         
         # Fetch fresh data
-        rates = mt5.copy_rates_from_pos(symbol, self.timeframe, 0, count)
+        # Check if mt5_connector has copy_rates_from_pos method (backtest mode)
+        if hasattr(self.mt5_connector, 'copy_rates_from_pos'):
+            # Backtest mode - use wrapper method
+            rates = self.mt5_connector.copy_rates_from_pos(symbol, self.timeframe, 0, count)
+        else:
+            # Live mode - use MT5 directly
+            rates = mt5.copy_rates_from_pos(symbol, self.timeframe, 0, count)
+        
         if rates is None or len(rates) == 0:
             logger.error(f"Failed to get rates for {symbol}")
             return None
         
-        df = pd.DataFrame(rates)
-        df['time'] = pd.to_datetime(df['time'], unit='s')
+        # Convert NumPy structured array to DataFrame
+        # Handle both NumPy structured arrays and regular arrays
+        try:
+            if isinstance(rates, np.ndarray) and hasattr(rates.dtype, 'names') and rates.dtype.names is not None:
+                # Structured array - extract fields explicitly
+                field_dict = {}
+                for field_name in ['time', 'open', 'high', 'low', 'close']:
+                    if field_name in rates.dtype.names:
+                        field_dict[field_name] = rates[field_name]
+                    else:
+                        logger.error(f"Missing field '{field_name}' in structured array for {symbol}")
+                        return None
+                
+                # Optional fields
+                if 'tick_volume' in rates.dtype.names:
+                    field_dict['tick_volume'] = rates['tick_volume']
+                elif 'real_volume' in rates.dtype.names:
+                    field_dict['tick_volume'] = rates['real_volume']
+                else:
+                    field_dict['tick_volume'] = np.zeros(len(rates), dtype='int64')
+                
+                if 'spread' in rates.dtype.names:
+                    field_dict['spread'] = rates['spread']
+                else:
+                    field_dict['spread'] = np.zeros(len(rates), dtype='int32')
+                
+                if 'real_volume' in rates.dtype.names:
+                    field_dict['real_volume'] = rates['real_volume']
+                else:
+                    field_dict['real_volume'] = field_dict.get('tick_volume', np.zeros(len(rates), dtype='int64'))
+                
+                df = pd.DataFrame(field_dict)
+            else:
+                # Regular array or list - convert normally
+                df = pd.DataFrame(rates)
+                # If columns are numeric indices, try to infer MT5 structure
+                if len(df.columns) > 0 and isinstance(df.columns[0], (int, np.integer)):
+                    if len(df.columns) >= 5:
+                        df.columns = ['time', 'open', 'high', 'low', 'close'][:len(df.columns)] + list(df.columns[5:])
+        except Exception as e:
+            logger.error(f"Error converting rates to DataFrame for {symbol}: {e}", exc_info=True)
+            return None
+        
+        # Validate data
+        if len(df) == 0:
+            logger.error(f"Empty DataFrame returned for {symbol}")
+            return None
+        
+        # Ensure we have required columns
+        if 'close' not in df.columns:
+            logger.error(f"Missing 'close' column in rates for {symbol}. Columns: {list(df.columns)}")
+            return None
+        
+        # Check for NaN values in critical columns
+        if df['close'].isna().all() or df['close'].isnull().all():
+            logger.error(f"All close prices are NaN for {symbol}")
+            return None
+        
+        # Remove rows with NaN close prices
+        df = df.dropna(subset=['close'])
+        if len(df) == 0:
+            logger.error(f"No valid close prices for {symbol}")
+            return None
+        
+        # Convert time to datetime
+        if 'time' in df.columns:
+            # Time might be Unix timestamp (int) or datetime
+            if df['time'].dtype in ['int64', 'int32', 'int']:
+                df['time'] = pd.to_datetime(df['time'], unit='s')
+            elif not pd.api.types.is_datetime64_any_dtype(df['time']):
+                # Try to convert if it's not already datetime
+                try:
+                    df['time'] = pd.to_datetime(df['time'], unit='s')
+                except:
+                    logger.warning(f"Could not convert time column for {symbol}")
+        
+        # Ensure numeric columns are float and fill NaN
+        for col in ['open', 'high', 'low', 'close']:
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors='coerce')
+                # Fill any remaining NaN with forward fill then backward fill
+                if df[col].isna().any():
+                    df[col] = df[col].ffill().bfill()
+                    # If still NaN, use close price (or previous row)
+                    if df[col].isna().any():
+                        if col != 'close':
+                            df[col] = df[col].fillna(df['close'])
+                        else:
+                            # For close, use previous close
+                            df[col] = df[col].fillna(df[col].shift(1))
+                            df[col] = df[col].fillna(df[col].shift(-1))  # Backward fill
+        
+        # Final validation - ensure we have valid data
+        if df['close'].isna().any() or len(df) < 2:
+            logger.error(f"Invalid data after processing for {symbol}: {len(df)} rows, NaN count: {df['close'].isna().sum()}")
+            return None
+        
+        # Ensure we have enough data for SMA calculation
+        if len(df) < self.sma_slow:
+            logger.debug(f"{symbol}: Only {len(df)} bars available, need {self.sma_slow} for SMA calculation")
+            # Still return the data, but SMA will have NaN for early periods (this is expected)
         
         # Update cache
         with self._rates_cache_lock:
@@ -344,7 +450,7 @@ class TrendFilter:
         
         # Apply maximum cap
         if stop_loss_pips > max_stop_loss_pips:
-            logger.warning(f"⚠️ {symbol}: Stop loss {stop_loss_pips:.1f} pips exceeds maximum {max_stop_loss_pips:.1f} pips, capping to maximum")
+            logger.warning(f"[WARNING] {symbol}: Stop loss {stop_loss_pips:.1f} pips exceeds maximum {max_stop_loss_pips:.1f} pips, capping to maximum")
             stop_loss_pips = max_stop_loss_pips
         
         logger.debug(f"{symbol}: ATR={latest_atr:.5f}, ATR pips={atr_pips:.1f}, Final SL={stop_loss_pips:.1f} pips (max: {max_stop_loss_pips:.1f})")
@@ -370,8 +476,8 @@ class TrendFilter:
             }
         """
         df = self.get_rates(symbol, count=100)
-        if df is None or len(df) < self.sma_slow:
-            logger.warning(f"{symbol}: Insufficient data for trend analysis (need {self.sma_slow} candles, got {len(df) if df is not None else 0})")
+        if df is None or len(df) == 0:
+            logger.debug(f"{symbol}: No data available for trend analysis")
             return {
                 'signal': 'NONE',
                 'trend': 'NEUTRAL',
@@ -381,19 +487,49 @@ class TrendFilter:
                 'rsi_filter_passed': True
             }
         
+        # Check if we have enough data for SMA calculation
+        if len(df) < self.sma_slow:
+            # Not enough data yet - this is normal at the start of backtest
+            logger.debug(f"{symbol}: Insufficient data for trend analysis (need {self.sma_slow} candles, got {len(df)}) - waiting for more data")
+            return {
+                'signal': 'NONE',
+                'trend': 'NEUTRAL',
+                'sma_fast': 0,
+                'sma_slow': 0,
+                'rsi': 50,
+                'rsi_filter_passed': True
+            }
+        
+        # Validate data quality before calculation
+        if df['close'].isna().any() or df['close'].isnull().any():
+            # Try to fix NaN values
+            df['close'] = df['close'].ffill().bfill()
+            if df['close'].isna().any():
+                logger.warning(f"{symbol}: Still have NaN in close prices after fill, skipping trend analysis")
+                return {
+                    'signal': 'NONE',
+                    'trend': 'NEUTRAL',
+                    'sma_fast': 0,
+                    'sma_slow': 0,
+                    'rsi': 50,
+                    'rsi_filter_passed': True
+                }
+        
         # Calculate indicators
         sma_fast = self.calculate_sma(df, self.sma_fast)
         sma_slow = self.calculate_sma(df, self.sma_slow)
         rsi = self.calculate_rsi(df, self.rsi_period)
         
         # Get latest values (handle NaN)
-        latest_sma_fast = sma_fast.iloc[-1]
-        latest_sma_slow = sma_slow.iloc[-1]
-        latest_rsi = rsi.iloc[-1] if not pd.isna(rsi.iloc[-1]) else 50
+        latest_sma_fast = sma_fast.iloc[-1] if len(sma_fast) > 0 else np.nan
+        latest_sma_slow = sma_slow.iloc[-1] if len(sma_slow) > 0 else np.nan
+        latest_rsi = rsi.iloc[-1] if len(rsi) > 0 and not pd.isna(rsi.iloc[-1]) else 50
         
-        # Handle NaN values
+        # Handle NaN values - check if we have enough data for valid SMA
         if pd.isna(latest_sma_fast) or pd.isna(latest_sma_slow):
-            logger.warning(f"{symbol}: SMA values are NaN, cannot determine trend")
+            # This is expected if we don't have enough data yet
+            # Only log as debug to reduce noise
+            logger.debug(f"{symbol}: SMA values are NaN (have {len(df)} bars, need {self.sma_slow} for SMA{self.sma_slow})")
             return {
                 'signal': 'NONE',
                 'trend': 'NEUTRAL',
@@ -410,15 +546,15 @@ class TrendFilter:
         if latest_sma_fast > latest_sma_slow:
             trend = 'BULLISH'
             signal = 'LONG'
-            logger.info(f"{symbol}: ✅ TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+            logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
         elif latest_sma_fast < latest_sma_slow:
             trend = 'BEARISH'
             signal = 'SHORT'
-            logger.info(f"{symbol}: ✅ TREND SIGNAL = SHORT (SMA20={latest_sma_fast:.5f} < SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+            logger.info(f"{symbol}: [OK] TREND SIGNAL = SHORT (SMA20={latest_sma_fast:.5f} < SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
         else:
             trend = 'NEUTRAL'
             signal = 'NONE'
-            logger.info(f"{symbol}: ⚠️ TREND SIGNAL = NONE (SMA20={latest_sma_fast:.5f} == SMA50={latest_sma_slow:.5f})")
+            logger.info(f"{symbol}: [WARNING] TREND SIGNAL = NONE (SMA20={latest_sma_fast:.5f} == SMA50={latest_sma_slow:.5f})")
         
         # RSI filter: Use 30-50 range for entries (per user requirement)
         rsi_filter_passed = True

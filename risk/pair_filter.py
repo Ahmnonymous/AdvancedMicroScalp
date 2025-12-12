@@ -199,24 +199,15 @@ class PairFilter:
         """
         # In test mode with ignore restrictions, only check basic tradeability
         if self.test_mode and self.test_mode_ignore_restrictions:
-            # Only check if symbol has market data and is tradeable
+            # Only check if symbol has market data (skip trade_mode check in backtest)
             symbol_info = self.mt5_connector.get_symbol_info(symbol)
             if symbol_info is None:
+                logger.debug(f"{symbol}: No symbol info available")
                 return False
             
-            # Check if symbol is tradeable (mode 4 = enabled)
-            trade_mode = symbol_info.get('trade_mode', 0)
-            if trade_mode != 4:
-                logger.debug(f"{symbol}: Not tradeable (mode: {trade_mode})")
-                return False
-            
-            # Try to get rates to verify market data is available
-            import MetaTrader5 as mt5
-            rates = mt5.copy_rates_from_pos(symbol, mt5.TIMEFRAME_M1, 0, 1)
-            if rates is None or len(rates) == 0:
-                logger.debug(f"{symbol}: No market data available")
-                return False
-            
+            # In backtest mode, we don't need to check trade_mode (historical data is always available)
+            # Just verify we can get symbol info
+            logger.debug(f"{symbol}: Test mode - symbol info available, allowing trade")
             return True
         
         # Normal mode - check all criteria
@@ -279,10 +270,19 @@ class PairFilter:
                 return []
             symbols_to_check = [s.name for s in symbols]
         
-        # Check each symbol
-        for symbol in symbols_to_check:
-            if self.is_tradeable(symbol, check_halal=False):  # Halal check done separately
-                tradeable.append(symbol)
+        # In test mode with ignore restrictions, use allowed symbols directly if available
+        if self.test_mode and self.test_mode_ignore_restrictions and self.allowed_symbols:
+            # Just verify symbols have market data, skip all other filters
+            for symbol in self.allowed_symbols:
+                symbol_info = self.mt5_connector.get_symbol_info(symbol)
+                if symbol_info is not None:
+                    tradeable.append(symbol)
+                    symbol_scores[symbol] = 0  # No prioritization in test mode
+        else:
+            # Check each symbol
+            for symbol in symbols_to_check:
+                if self.is_tradeable(symbol, check_halal=False):  # Halal check done separately
+                    tradeable.append(symbol)
                 
                 # Calculate priority score (lower is better)
                 score = 0
@@ -303,7 +303,7 @@ class PairFilter:
             tradeable.sort(key=lambda s: symbol_scores.get(s, 999))
         
         if self.test_mode:
-            logger.info(f"🧪 TEST MODE: Found {len(tradeable)} tradeable symbols (all restrictions ignored)")
+            logger.info(f"[TEST] TEST MODE: Found {len(tradeable)} tradeable symbols (all restrictions ignored)")
             if len(tradeable) > 0:
                 logger.info(f"   Sample symbols: {', '.join(tradeable[:10])}")
         else:

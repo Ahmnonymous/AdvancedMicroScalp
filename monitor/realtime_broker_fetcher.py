@@ -13,7 +13,7 @@ from typing import Dict, List, Any, Optional
 from execution.mt5_connector import MT5Connector
 from utils.logger_factory import get_logger
 
-logger = get_logger("broker_fetcher", "logs/system/broker_fetcher.log")
+logger = get_logger("broker_fetcher", "logs/live/system/broker_fetcher.log")
 
 
 class RealtimeBrokerFetcher:

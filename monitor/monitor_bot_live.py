@@ -21,7 +21,7 @@ def monitor_bot_live(log_file='bot_log.txt', check_interval=10):
     log_path = os.path.join(root_dir, log_file)
     
     print("=" * 80)
-    print("🤖 LIVE BOT MONITORING")
+    print("[BOT] LIVE BOT MONITORING")
     print("=" * 80)
     print(f"Monitoring: {log_path}")
     print(f"Check interval: {check_interval} seconds")
@@ -52,10 +52,10 @@ def monitor_bot_live(log_file='bot_log.txt', check_interval=10):
                     if "OPPORTUNITY FOUND" in line:
                         opportunities_count += 1
                         cycle_count += 1
-                        symbol_match = re.search(r'✅ (\w+): OPPORTUNITY', line)
+                        symbol_match = re.search(r'[OK] (\w+): OPPORTUNITY', line)
                         if symbol_match:
                             symbol = symbol_match.group(1)
-                            print(f"🟢 [{datetime.now().strftime('%H:%M:%S')}] Opportunity: {symbol}")
+                            print(f"[+] [{datetime.now().strftime('%H:%M:%S')}] Opportunity: {symbol}")
                     
                     # Track trade attempts
                     if "RANDOMNESS PASS" in line:
@@ -70,7 +70,7 @@ def monitor_bot_live(log_file='bot_log.txt', check_interval=10):
                         symbol_match = re.search(r'(\w+): RANDOMNESS SKIP', line)
                         if symbol_match:
                             symbol = symbol_match.group(1)
-                            print(f"⏭️  [{datetime.now().strftime('%H:%M:%S')}] Skipped: {symbol} (randomness)")
+                            print(f"[SKIP]  [{datetime.now().strftime('%H:%M:%S')}] Skipped: {symbol} (randomness)")
                     
                     # Track successful trades
                     if "TRADE EXECUTED SUCCESSFULLY" in line:
@@ -92,7 +92,7 @@ def monitor_bot_live(log_file='bot_log.txt', check_interval=10):
                             })
                             
                             print(f"\n{'='*80}")
-                            print(f"✅ TRADE OPENED!")
+                            print(f"[OK] TRADE OPENED!")
                             print(f"   Ticket: {ticket}")
                             print(f"   Symbol: {symbol}")
                             print(f"   Direction: {direction}")
@@ -101,7 +101,7 @@ def monitor_bot_live(log_file='bot_log.txt', check_interval=10):
                     
                     # Track failed trades
                     if "TRADE EXECUTION FAILED" in line:
-                        print(f"❌ [{datetime.now().strftime('%H:%M:%S')}] Trade execution failed")
+                        print(f"[ERROR] [{datetime.now().strftime('%H:%M:%S')}] Trade execution failed")
                     
                     # Track market closed
                     if "Market closed" in line:
@@ -118,7 +118,7 @@ def monitor_bot_live(log_file='bot_log.txt', check_interval=10):
                     
                     # Track trailing stop updates
                     if "TRAILING STOP" in line:
-                        print(f"📈 [{datetime.now().strftime('%H:%M:%S')}] Trailing stop updated")
+                        print(f"[STATS] [{datetime.now().strftime('%H:%M:%S')}] Trailing stop updated")
                 
                 else:
                     # No new lines, wait a bit

@@ -27,8 +27,7 @@ class PositionMonitor:
     
     def _ensure_system_directories(self):
         """Ensure system directories exist."""
-        os.makedirs('logs/system', exist_ok=True)
-        os.makedirs('logs/trades', exist_ok=True)
+        # Log directories are created by logger_factory, no need to create here
     
     def get_deal_history_for_position(self, ticket: int) -> Optional[Dict[str, Any]]:
         """
