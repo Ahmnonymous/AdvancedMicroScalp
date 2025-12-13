@@ -1,0 +1,68 @@
+2025-12-12 19:40:05 - system_errors - ERROR - Error in Executing trade CSCOm: name 'traceback' is not defined
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 1522, in execute_trade
+    sl_update_success, sl_update_reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 2632, in update_sl_atomic
+    lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 461, in _acquire_ticket_lock_with_timeout
+    stack_trace = ''.join(traceback.format_stack()[-5:-1])  # Last 4 frames
+                          ^^^^^^^^^
+NameError: name 'traceback' is not defined
+2025-12-12 19:40:05 - system_errors - ERROR - Error in Executing trade TSLAm: name 'traceback' is not defined
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 1522, in execute_trade
+    sl_update_success, sl_update_reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 2632, in update_sl_atomic
+    lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 461, in _acquire_ticket_lock_with_timeout
+    stack_trace = ''.join(traceback.format_stack()[-5:-1])  # Last 4 frames
+                          ^^^^^^^^^
+NameError: name 'traceback' is not defined
+2025-12-12 19:40:05 - system_errors - ERROR - Error in Executing trade ORCLm: name 'traceback' is not defined
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 1522, in execute_trade
+    sl_update_success, sl_update_reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 2632, in update_sl_atomic
+    lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 461, in _acquire_ticket_lock_with_timeout
+    stack_trace = ''.join(traceback.format_stack()[-5:-1])  # Last 4 frames
+                          ^^^^^^^^^
+NameError: name 'traceback' is not defined
+2025-12-12 19:40:06 - system_errors - ERROR - Error in Executing trade BTCUSDm: name 'traceback' is not defined
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 1522, in execute_trade
+    sl_update_success, sl_update_reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 2632, in update_sl_atomic
+    lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 461, in _acquire_ticket_lock_with_timeout
+    stack_trace = ''.join(traceback.format_stack()[-5:-1])  # Last 4 frames
+                          ^^^^^^^^^
+NameError: name 'traceback' is not defined
+2025-12-12 19:40:07 - system_errors - ERROR - Error in Executing trade PMm: name 'traceback' is not defined
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 1522, in execute_trade
+    sl_update_success, sl_update_reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 2632, in update_sl_atomic
+    lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 461, in _acquire_ticket_lock_with_timeout
+    stack_trace = ''.join(traceback.format_stack()[-5:-1])  # Last 4 frames
+                          ^^^^^^^^^
+NameError: name 'traceback' is not defined
+2025-12-12 19:40:07 - system_errors - CRITICAL - Too many consecutive errors (5)
+2025-12-12 19:40:07 - system_errors - CRITICAL - KILL SWITCH ACTIVATED: Too many errors: 5
+2025-12-12 19:40:07 - system_errors - WARNING - Closing position 499999913 due to kill switch
+2025-12-12 19:40:07 - system_errors - WARNING - Closing position 500000226 due to kill switch
+2025-12-12 19:40:07 - system_errors - WARNING - Closing position 500000255 due to kill switch
+2025-12-12 19:40:08 - system_errors - WARNING - Closing position 500000270 due to kill switch
+2025-12-12 19:40:08 - system_errors - WARNING - Closing position 500000292 due to kill switch
+2025-12-12 19:40:08 - system_errors - WARNING - Closing position 500000325 due to kill switch

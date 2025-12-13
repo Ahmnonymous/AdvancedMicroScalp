@@ -1,0 +1,1 @@
+{"timestamp": "2025-12-12T19:40:03.803539", "ticket": 499999913, "event": "acquire_attempt", "thread_name": "TradingBot", "thread_id": 7668, "duration_ms": 3770.2791690826416, "is_profit_locking": false, "success": false, "holder_thread": "Unknown", "holder_stack": "N/A"}

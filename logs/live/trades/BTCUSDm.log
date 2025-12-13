@@ -1,0 +1,20 @@
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO - ================================================================================
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO - [OK] TRADE EXECUTED SUCCESSFULLY
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Symbol: BTCUSDm
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Direction: LONG
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Ticket: 500000292
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Entry Price (Requested): 90219.99000
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Entry Price (Actual Fill): 90219.99000
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Lot Size: 0.0100
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Stop Loss: 20000.0 pips (90019.99000)
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Risk: $2.00 USD
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Spread: 2.0 points
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Spread+Fees Cost: $0.18 USD
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Quality Score: 80.0
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Min Lot: 0.01
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Min Lot Source: broker
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Sma Fast: 91354.404
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Sma Slow: 91242.71
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO -    Rsi: 63.17768504282816
+2025-12-12 19:40:06 - trades.BTCUSDm - INFO - ================================================================================
+{"timestamp": "2025-12-12 19:40:06", "symbol": "BTCUSDm", "trade_type": "LONG", "entry_price": 90219.99, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "500000292", "additional_info": {"entry_price_requested": 90219.99, "lot_size": 0.01, "stop_loss_pips": 20000.0, "stop_loss_price": 90019.99, "slippage": 0.0, "quality_score": 80, "spread_points": 1.995521384838627, "spread_fees_cost": 0.18, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 91354.404, "sma_slow": 91242.71, "rsi": 63.17768504282816}}

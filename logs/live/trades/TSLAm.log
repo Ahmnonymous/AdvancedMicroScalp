@@ -1,0 +1,20 @@
+2025-12-12 19:40:05 - trades.TSLAm - INFO - ================================================================================
+2025-12-12 19:40:05 - trades.TSLAm - INFO - [OK] TRADE EXECUTED SUCCESSFULLY
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Symbol: TSLAm
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Direction: SHORT
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Ticket: 500000255
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Entry Price (Requested): 451.76000
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Entry Price (Actual Fill): 451.76000
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Lot Size: 0.0100
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Stop Loss: 200.0 pips (453.76000)
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Risk: $2.00 USD
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Spread: 11.0 points
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Spread+Fees Cost: $0.11 USD
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Quality Score: 80.0
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Min Lot: 0.01
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Min Lot Source: broker
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Sma Fast: 451.2700000000001
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Sma Slow: 452.53159999999997
+2025-12-12 19:40:05 - trades.TSLAm - INFO -    Rsi: 57.97101449275326
+2025-12-12 19:40:05 - trades.TSLAm - INFO - ================================================================================
+{"timestamp": "2025-12-12 19:40:05", "symbol": "TSLAm", "trade_type": "SHORT", "entry_price": 451.76, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "500000255", "additional_info": {"entry_price_requested": 451.76, "lot_size": 0.01, "stop_loss_pips": 200.0, "stop_loss_price": 453.76, "slippage": 0.0, "quality_score": 80, "spread_points": 11.000000000001364, "spread_fees_cost": 0.11000000000001364, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 451.2700000000001, "sma_slow": 452.53159999999997, "rsi": 57.97101449275326}}

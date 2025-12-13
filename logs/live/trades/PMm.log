@@ -1,0 +1,20 @@
+2025-12-12 19:40:07 - trades.PMm - INFO - ================================================================================
+2025-12-12 19:40:07 - trades.PMm - INFO - [OK] TRADE EXECUTED SUCCESSFULLY
+2025-12-12 19:40:07 - trades.PMm - INFO -    Symbol: PMm
+2025-12-12 19:40:07 - trades.PMm - INFO -    Direction: LONG
+2025-12-12 19:40:07 - trades.PMm - INFO -    Ticket: 500000325
+2025-12-12 19:40:07 - trades.PMm - INFO -    Entry Price (Requested): 153.04000
+2025-12-12 19:40:07 - trades.PMm - INFO -    Entry Price (Actual Fill): 153.04000
+2025-12-12 19:40:07 - trades.PMm - INFO -    Lot Size: 0.0100
+2025-12-12 19:40:07 - trades.PMm - INFO -    Stop Loss: 200.0 pips (151.04000)
+2025-12-12 19:40:07 - trades.PMm - INFO -    Risk: $2.00 USD
+2025-12-12 19:40:07 - trades.PMm - INFO -    Spread: 20.0 points
+2025-12-12 19:40:07 - trades.PMm - INFO -    Spread+Fees Cost: $0.20 USD
+2025-12-12 19:40:07 - trades.PMm - INFO -    Quality Score: 80.0
+2025-12-12 19:40:07 - trades.PMm - INFO -    Min Lot: 0.01
+2025-12-12 19:40:07 - trades.PMm - INFO -    Min Lot Source: broker
+2025-12-12 19:40:07 - trades.PMm - INFO -    Sma Fast: 150.7925
+2025-12-12 19:40:07 - trades.PMm - INFO -    Sma Slow: 150.6328
+2025-12-12 19:40:07 - trades.PMm - INFO -    Rsi: 37.20930232558001
+2025-12-12 19:40:07 - trades.PMm - INFO - ================================================================================
+{"timestamp": "2025-12-12 19:40:07", "symbol": "PMm", "trade_type": "LONG", "entry_price": 153.04, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "500000325", "additional_info": {"entry_price_requested": 153.04, "lot_size": 0.01, "stop_loss_pips": 200.0, "stop_loss_price": 151.04, "slippage": 0.0, "quality_score": 80, "spread_points": 19.999999999998863, "spread_fees_cost": 0.19999999999998863, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 150.7925, "sma_slow": 150.6328, "rsi": 37.20930232558001}}

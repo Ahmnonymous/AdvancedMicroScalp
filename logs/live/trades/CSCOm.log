@@ -1,0 +1,20 @@
+2025-12-12 19:40:04 - trades.CSCOm - INFO - ================================================================================
+2025-12-12 19:40:04 - trades.CSCOm - INFO - [OK] TRADE EXECUTED SUCCESSFULLY
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Symbol: CSCOm
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Direction: SHORT
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Ticket: 500000226
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Entry Price (Requested): 77.64000
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Entry Price (Actual Fill): 77.64000
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Lot Size: 0.0100
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Stop Loss: 200.0 pips (79.64000)
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Risk: $2.00 USD
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Spread: 10.0 points
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Spread+Fees Cost: $0.10 USD
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Quality Score: 80.0
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Min Lot: 0.01
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Min Lot Source: broker
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Sma Fast: 78.9745
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Sma Slow: 79.0848
+2025-12-12 19:40:04 - trades.CSCOm - INFO -    Rsi: 38.46153846154098
+2025-12-12 19:40:04 - trades.CSCOm - INFO - ================================================================================
+{"timestamp": "2025-12-12 19:40:04", "symbol": "CSCOm", "trade_type": "SHORT", "entry_price": 77.64, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "500000226", "additional_info": {"entry_price_requested": 77.64, "lot_size": 0.01, "stop_loss_pips": 200.0, "stop_loss_price": 79.64, "slippage": 0.0, "quality_score": 80, "spread_points": 9.999999999999432, "spread_fees_cost": 0.09999999999999432, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 78.9745, "sma_slow": 79.0848, "rsi": 38.46153846154098}}

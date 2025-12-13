@@ -1,0 +1,997 @@
+2025-12-12 19:39:16 - risk_manager - INFO - Initializing SLManager...
+2025-12-12 19:39:16 - risk_manager - INFO - [OK] SLManager initialized successfully
+2025-12-12 19:39:16 - risk_manager - INFO - SLManager instance: <risk.sl_manager.SLManager object at 0x000001DDEC825650>
+2025-12-12 19:39:16 - risk_manager - INFO - SLManager available: True
+2025-12-12 19:39:16 - risk_manager - INFO - Micro-HFT Profit Engine registered with RiskManager
+2025-12-12 19:39:16 - risk_manager - INFO - Profit-Locking Engine registered with RiskManager
+2025-12-12 19:39:59 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: MDLZm Ticket 499999913 | Entry: 53.91000 | Immediately integrating into monitoring loop
+2025-12-12 19:39:59 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: MDLZm Ticket 499999913 | Entry: 53.91000 | Immediately integrating into monitoring loop
+2025-12-12 19:39:59 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:39:59 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:39:59 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:39:59 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:00 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:01 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:01 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:01 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:01 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:01 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:01 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:02 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:03 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:04 - risk_manager - ERROR - Error in micro-HFT profit engine: cannot access local variable 'symbol' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\risk_manager.py", line 2414, in monitor_all_positions_continuous
+    was_closed = self._micro_profit_engine.check_and_close(fresh_position, self.mt5_connector)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\bot\micro_profit_engine.py", line 106, in check_and_close
+    symbol_info = mt5_connector.get_symbol_info(symbol) if mt5_connector else None
+                                                ^^^^^^
+UnboundLocalError: cannot access local variable 'symbol' where it is not associated with a value
+2025-12-12 19:40:05 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: CSCOm Ticket 500000226 | Entry: 77.65000 | Immediately integrating into monitoring loop
+2025-12-12 19:40:10 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: ORCLm Ticket 500000270 | Entry: 189.62000 | Immediately integrating into monitoring loop
+2025-12-12 19:40:10 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: TSLAm Ticket 500000255 | Entry: 451.76000 | Immediately integrating into monitoring loop
+2025-12-12 19:40:10 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: BTCUSDm Ticket 500000292 | Entry: 90219.99000 | Immediately integrating into monitoring loop
+2025-12-12 19:51:39 - risk_manager - INFO - Initializing SLManager...
+2025-12-12 19:51:39 - risk_manager - INFO - [OK] SLManager initialized successfully
+2025-12-12 19:51:39 - risk_manager - INFO - SLManager instance: <risk.sl_manager.SLManager object at 0x000001F258C84890>
+2025-12-12 19:51:39 - risk_manager - INFO - SLManager available: True

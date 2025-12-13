@@ -1,0 +1,20 @@
+2025-12-12 19:40:05 - trades.ORCLm - INFO - ================================================================================
+2025-12-12 19:40:05 - trades.ORCLm - INFO - [OK] TRADE EXECUTED SUCCESSFULLY
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Symbol: ORCLm
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Direction: SHORT
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Ticket: 500000270
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Entry Price (Requested): 189.62000
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Entry Price (Actual Fill): 189.62000
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Lot Size: 0.0100
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Stop Loss: 200.0 pips (191.62000)
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Risk: $2.00 USD
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Spread: 14.0 points
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Spread+Fees Cost: $0.14 USD
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Quality Score: 80.0
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Min Lot: 0.01
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Min Lot Source: broker
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Sma Fast: 198.43
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Sma Slow: 198.9754
+2025-12-12 19:40:05 - trades.ORCLm - INFO -    Rsi: 61.82572614107871
+2025-12-12 19:40:05 - trades.ORCLm - INFO - ================================================================================
+{"timestamp": "2025-12-12 19:40:05", "symbol": "ORCLm", "trade_type": "SHORT", "entry_price": 189.62, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "500000270", "additional_info": {"entry_price_requested": 189.62, "lot_size": 0.01, "stop_loss_pips": 200.0, "stop_loss_price": 191.62, "slippage": 0.0, "quality_score": 80, "spread_points": 13.999999999998636, "spread_fees_cost": 0.13999999999998636, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 198.43, "sma_slow": 198.9754, "rsi": 61.82572614107871}}
