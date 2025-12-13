@@ -13,18 +13,19 @@
 **Changes**:
 - `backtest_runner.py` lines 100-134: Now collects valid/invalid symbols and continues with valid ones
 
-### 2. Date Range Too Large (Full Year 2024)
-**Problem**: Requesting 1 full year of historical data when MT5 only has ~100 bars available.
+### 2. Date Range Configuration (Updated to 24 Months)
+**Problem**: Initially set to full year 2024, then changed to 30 days. User requested 24 months.
 
 **Fix**: 
-- Changed default date range to last 30 days (more reasonable)
+- Changed default date range to last 24 months
 - Updated `config_backtest.json` to use empty date strings (auto-calculated)
-- Updated `backtest_runner.py` and `run_backtest.py` to default to 30 days if not specified
+- Updated `backtest_runner.py` and `run_backtest.py` to default to 24 months if not specified
+- Missing symbols are skipped with warnings (already implemented)
 
 **Changes**:
 - `config_backtest.json`: Changed `start_date` and `end_date` to empty strings
-- `backtest_runner.py` lines 53-65: Added logic to default to 30 days if dates not provided
-- `run_backtest.py` lines 112-123: Updated to handle empty date strings
+- `backtest_runner.py` lines 59-63: Defaults to 24 months (24 * 30 days) if dates not provided
+- `run_backtest.py` lines 114-116: Updated to default to 24 months
 
 ### 3. Required Bars Too High (1000)
 **Problem**: Validation required 1000 bars but only ~100 were available.

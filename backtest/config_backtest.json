@@ -41,6 +41,8 @@
     },
     
     "_config_notes": {
+      "start_date": "Empty string = auto-calculate (defaults to 24 months ago)",
+      "end_date": "Empty string = auto-calculate (defaults to yesterday)",
       "real_speed": "true = match broker timing, false = accelerated replay",
       "timeframe": "M1, M5, M15, M30, H1, H4, D1",
       "stress_tests": "high_volatility, extreme_spread, fast_reversals, tick_gaps, slippage_spikes, market_dead, candle_anomalies"

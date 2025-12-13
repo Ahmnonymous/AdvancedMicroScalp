@@ -56,9 +56,9 @@ class BacktestRunner:
         end_date_str = self.backtest_config.get('end_date', '')
         
         if not start_date_str:
-            # Default to 30 days ago
+            # Default to 24 months ago
             end_date = datetime.now() - timedelta(days=1)
-            start_date = end_date - timedelta(days=30)
+            start_date = end_date - timedelta(days=24 * 30)  # 24 months (approximate)
             self.start_date = start_date
             self.end_date = end_date
         else:

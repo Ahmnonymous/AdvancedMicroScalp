@@ -81,14 +81,16 @@ Example `config_backtest.json`:
 {
   "backtest": {
     "symbols": ["EURUSDm", "GBPUSDm", "XAUUSDm", "BTCUSDm"],
-    "start_date": "2024-01-01T00:00:00",
-    "end_date": "2024-12-31T23:59:59",
+    "start_date": "",
+    "end_date": "",
     "timeframe": "M1",
     "real_speed": false,
     "stress_tests": []
   }
 }
 ```
+
+**Note**: Empty `start_date` and `end_date` will default to the last 24 months of data. Missing symbols are automatically skipped with warnings.
 
 ## Features
 

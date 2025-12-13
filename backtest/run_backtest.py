@@ -110,9 +110,9 @@ Examples:
     if args.start:
         backtest_config['start_date'] = args.start
     elif 'start_date' not in backtest_config or not backtest_config.get('start_date'):
-        # Default to 30 days ago (more reasonable than full year)
+        # Default to 24 months ago
         end_date = datetime.now() - timedelta(days=1)
-        start_date = end_date - timedelta(days=30)
+        start_date = end_date - timedelta(days=24 * 30)  # 24 months (approximate)
         backtest_config['start_date'] = start_date.isoformat()
     
     if args.end:
