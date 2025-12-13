@@ -1,0 +1,50 @@
+{
+  "_comment": "Backtest Configuration - Production-Like Environment",
+  "_note": "This config extends the main config.json with backtest-specific settings",
+  
+  "mode": "backtest",
+  
+  "backtest": {
+    "symbols": [
+      "EURUSDm",
+      "GBPUSDm",
+      "USDJPYm",
+      "AUDUSDm",
+      "USDCADm",
+      "EURGBPm",
+      "XAUUSDm",
+      "XAGUSDm",
+      "BTCUSDm",
+      "ETHUSDm",
+      "US30m",
+      "US500m",
+      "JP225m",
+      "AUS200m"
+    ],
+    "start_date": "",
+    "end_date": "",
+    "timeframe": "M1",
+    "use_ticks": false,
+    "real_speed": false,
+    "stress_tests": [],
+    "initial_balance": 10000.0,
+    "slippage_pips": 1.0,
+    "spread_multiplier": 1.0,
+    "fill_delay_ms": 0,
+    "partial_fills_enabled": false,
+    
+    "_symbol_groups": {
+      "forex": ["EURUSDm", "GBPUSDm", "USDJPYm", "AUDUSDm", "USDCADm", "EURGBPm"],
+      "metals": ["XAUUSDm", "XAGUSDm"],
+      "crypto": ["BTCUSDm", "ETHUSDm"],
+      "indices": ["US30m", "US500m", "JP225m", "AUS200m"]
+    },
+    
+    "_config_notes": {
+      "real_speed": "true = match broker timing, false = accelerated replay",
+      "timeframe": "M1, M5, M15, M30, H1, H4, D1",
+      "stress_tests": "high_volatility, extreme_spread, fast_reversals, tick_gaps, slippage_spikes, market_dead, candle_anomalies"
+    }
+  }
+}
+

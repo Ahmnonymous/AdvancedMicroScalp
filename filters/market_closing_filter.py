@@ -34,8 +34,9 @@ class MarketClosingFilter:
         self.minutes_before_close = filter_config.get('minutes_before_close', 30)
         
         # Initialize skipped pairs logger
-        # Log directory is created by logger_factory
+        # Ensure log directory exists before creating FileHandler
         log_dir = 'logs/backtest/system' if self.config.get('mode') == 'backtest' else 'logs/live/system'
+        os.makedirs(log_dir, exist_ok=True)  # Create directory if it doesn't exist
         self.skipped_logger = logging.getLogger('skipped_pairs')
         skipped_handler = logging.FileHandler(f'{log_dir}/skipped_pairs.log')
         skipped_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))

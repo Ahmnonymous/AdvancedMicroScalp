@@ -50,8 +50,20 @@ class BacktestRunner:
         # Backtest configuration
         self.backtest_config = self.config.get('backtest', {})
         self.symbols = self.backtest_config.get('symbols', ['EURUSD'])
-        self.start_date = datetime.fromisoformat(self.backtest_config.get('start_date', '2024-01-01T00:00:00'))
-        self.end_date = datetime.fromisoformat(self.backtest_config.get('end_date', '2024-01-02T00:00:00'))
+        
+        # Handle empty date strings (will be set by run_backtest.py if not provided)
+        start_date_str = self.backtest_config.get('start_date', '')
+        end_date_str = self.backtest_config.get('end_date', '')
+        
+        if not start_date_str:
+            # Default to 30 days ago
+            end_date = datetime.now() - timedelta(days=1)
+            start_date = end_date - timedelta(days=30)
+            self.start_date = start_date
+            self.end_date = end_date
+        else:
+            self.start_date = datetime.fromisoformat(start_date_str)
+            self.end_date = datetime.fromisoformat(end_date_str) if end_date_str else (datetime.now() - timedelta(days=1))
         self.timeframe = self.backtest_config.get('timeframe', 'M1')
         self.use_ticks = self.backtest_config.get('use_ticks', False)
         self.stress_tests = self.backtest_config.get('stress_tests', [])
@@ -77,7 +89,61 @@ class BacktestRunner:
     
     def setup_backtest_environment(self):
         """Set up the backtest environment."""
-        logger.info("Setting up backtest environment...")
+        logger.info("mode=BACKTEST | Setting up backtest environment...")
+        
+        # CRITICAL: Run data preflight validation before loading data
+        from backtest.data_preflight_validator import BacktestDataPreflightValidator
+        from execution.mt5_connector import MT5Connector
+        
+        # Initialize MT5 connector for validation
+        mt5_connector = MT5Connector(self.config)
+        if not mt5_connector.ensure_connected():
+            raise RuntimeError("Cannot connect to MT5 for data validation. Make sure MT5 terminal is running and logged in.")
+        
+        # Convert timeframe string to MT5 constant
+        from backtest.utils import parse_timeframe
+        timeframe_int = parse_timeframe(self.timeframe)
+        # Note: Validator expects MT5 constant, not numeric value
+        
+        # Validate data for each symbol - skip missing symbols with warnings instead of aborting
+        validator = BacktestDataPreflightValidator(self.config, mt5_connector)
+        valid_symbols = []
+        invalid_symbols = []
+        
+        for symbol in self.symbols:
+            is_valid, errors, warnings = validator.validate(
+                symbol=symbol,
+                timeframe=timeframe_int,
+                start_date=self.start_date,
+                end_date=self.end_date,
+                required_bars=50  # Reduced from 1000 to 50 - more reasonable for limited historical data
+            )
+            
+            validator.log_results(mode="BACKTEST")
+            
+            if not is_valid:
+                # Check if it's just a missing symbol (treat as warning, not fatal)
+                is_missing_symbol = any("not found in MT5" in str(err) for err in errors)
+                if is_missing_symbol:
+                    logger.warning(f"mode=BACKTEST | symbol={symbol} | SKIPPING: Symbol not found in MT5")
+                    invalid_symbols.append(symbol)
+                else:
+                    # Other validation errors are still critical
+                    logger.critical(f"mode=BACKTEST | symbol={symbol} | DATA PREFLIGHT VALIDATION FAILED")
+                    logger.critical(f"mode=BACKTEST | Errors: {errors}")
+                    invalid_symbols.append(symbol)
+            else:
+                valid_symbols.append(symbol)
+        
+        # Update symbols list to only include valid symbols
+        if invalid_symbols:
+            logger.warning(f"mode=BACKTEST | Skipping {len(invalid_symbols)} invalid symbols: {', '.join(invalid_symbols)}")
+            self.symbols = valid_symbols
+        
+        if len(valid_symbols) == 0:
+            raise RuntimeError("Data preflight validation failed. No valid symbols found. Cannot proceed with backtest. See logs for details.")
+        
+        logger.info(f"mode=BACKTEST | Data preflight validation complete: {len(valid_symbols)} valid symbols, {len(invalid_symbols)} skipped")
         
         # Initialize replay engine
         self.replay_engine = HistoricalReplayEngine(
@@ -137,7 +203,9 @@ class BacktestRunner:
         # Update market data provider time
         self.market_data_provider.set_current_time(current_time)
         
-        # Check for SL/TP hits
+        # CRITICAL: Check for SL/TP hits FIRST, before any other operations
+        # This ensures positions are closed at the correct SL/TP price
+        # This must be called on EVERY tick/bar to catch SL hits accurately
         closed_positions = self.order_execution_provider.check_sl_tp_hits()
         for closed_pos in closed_positions:
             self.performance_reporter.record_trade_closed(
@@ -147,6 +215,10 @@ class BacktestRunner:
                 profit=closed_pos['profit'],
                 time=current_time
             )
+        
+        # Execute thread callbacks (SL worker, run_cycle, position monitor)
+        # NOTE: These should NOT close positions directly - only check_sl_tp_hits() should do that
+        self.threading_manager.execute_threads(current_time)
         
         # Update account
         account_info = self.market_data_provider.get_account_info()
@@ -262,6 +334,19 @@ class BacktestRunner:
         # CRITICAL: Update market data provider time FIRST so all data queries use correct time
         if self.market_data_provider:
             self.market_data_provider.set_current_time(current_time)
+        
+        # CRITICAL: Check for SL/TP hits on EVERY step BEFORE any other operations
+        # This ensures positions are closed at the correct SL/TP price when hit
+        # This must be called on EVERY step to catch SL hits accurately
+        closed_positions = self.order_execution_provider.check_sl_tp_hits()
+        for closed_pos in closed_positions:
+            self.performance_reporter.record_trade_closed(
+                ticket=closed_pos['ticket'],
+                close_price=closed_pos['close_price'],
+                close_reason=closed_pos['close_reason'],
+                profit=closed_pos['profit'],
+                time=current_time
+            )
         
         # Time-based progress logging (Issue #10 fix)
         current_time_sec = time.time()

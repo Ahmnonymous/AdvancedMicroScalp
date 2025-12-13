@@ -73,6 +73,45 @@ class TradingBot:
         if not is_valid:
             raise ValueError(f"Configuration validation failed. Fix errors before starting bot.")
         
+        # CRITICAL: Validate config alignment for backtest mode
+        if self.is_backtest:
+            from utils.config_alignment_validator import ConfigAlignmentValidator
+            alignment_validator = ConfigAlignmentValidator(config_path=config_path)
+            is_aligned, mismatches, alignment_warnings = alignment_validator.validate_alignment()
+            alignment_validator.log_results(mode="BACKTEST")
+            
+            if not is_aligned:
+                logger.critical("=" * 80)
+                logger.critical("BACKTEST CONFIG ALIGNMENT FAILED - ABORTING")
+                logger.critical("=" * 80)
+                logger.critical("Backtest config must match live config exactly for deterministic reproduction.")
+                logger.critical("Mismatches found:")
+                for mismatch in mismatches:
+                    logger.critical(f"  - {mismatch}")
+                logger.critical("=" * 80)
+                raise ValueError(f"Backtest config alignment failed. {len(mismatches)} critical mismatches found.")
+            
+            # Log all critical config values for verification
+            mode_str = "BACKTEST"
+        else:
+            mode_str = "LIVE"
+        
+        # Consolidated config verification logging (shared for both backtest and live)
+        logger.info("=" * 80)
+        logger.info(f"CONFIG VERIFICATION (mode={mode_str}) - Critical Values")
+        logger.info("=" * 80)
+        risk_config = self.config.get('risk', {})
+        logger.info(f"mode={mode_str} | max_risk_per_trade_usd: {risk_config.get('max_risk_per_trade_usd')}")
+        logger.info(f"mode={mode_str} | trailing_cycle_interval_ms: {risk_config.get('trailing_cycle_interval_ms')}")
+        logger.info(f"mode={mode_str} | lock_acquisition_timeout_seconds: {risk_config.get('lock_acquisition_timeout_seconds')}")
+        logger.info(f"mode={mode_str} | profit_locking_lock_timeout_seconds: {risk_config.get('profit_locking_lock_timeout_seconds')}")
+        logger.info(f"mode={mode_str} | sl_update_min_interval_ms: {risk_config.get('sl_update_min_interval_ms')}")
+        logger.info(f"mode={mode_str} | max_open_trades: {risk_config.get('max_open_trades')}")
+        trading_config = self.config.get('trading', {})
+        cycle_interval = trading_config.get('cycle_interval_seconds', 60)
+        logger.info(f"mode={mode_str} | run_cycle_interval_seconds: {cycle_interval}")
+        logger.info("=" * 80)
+        
         # Initialize components
         self.mt5_connector = MT5Connector(self.config)
         self.order_manager = OrderManager(self.mt5_connector)
@@ -239,6 +278,15 @@ class TradingBot:
         self.manual_scan_completed = False  # Track if scan has been completed in this session
         self.manual_approved_trades = []  # Track approved trades waiting to execute
         self.manual_trades_executing = False  # Track if trades are currently executing
+        
+        # Initialize Limit Entry Dry-Run System (DRY-RUN ONLY - no execution impact)
+        try:
+            from entry.limit_entry_dry_run import LimitEntryDryRun
+            self.limit_entry_dry_run = LimitEntryDryRun(self.config, self.mt5_connector)
+            logger.info(f"mode={'BACKTEST' if self.is_backtest else 'LIVE'} | [INIT] Limit entry system loaded in DRY-RUN mode only — no execution impact")
+        except Exception as e:
+            logger.warning(f"Limit Entry Dry-Run system initialization failed: {e}")
+            self.limit_entry_dry_run = None
     
     def connect(self) -> bool:
         """Connect to MT5."""
@@ -739,11 +787,19 @@ class TradingBot:
                         continue
                     
                     # 2a. Check RSI filter (30-50 range for entries)
-                    if self.trend_filter.use_rsi_filter and not trend_signal.get('rsi_filter_passed', True):
+                    # FOR BACKTEST MODE: Force disable RSI filter to allow trade execution for verification
+                    if self.is_backtest:
+                        # In backtest mode, skip RSI filter check to allow trades for logic verification
+                        logger.debug(f"[BACKTEST] {symbol}: RSI filter check skipped (backtest mode - allowing trade for verification)")
+                    elif self.trend_filter.use_rsi_filter and not trend_signal.get('rsi_filter_passed', True):
+                        # Live mode: Apply RSI filter normally
                         rsi_value = trend_signal.get('rsi', 50)
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: RSI filter failed (RSI: {rsi_value:.1f} not in range {self.trend_filter.rsi_entry_range_min}-{self.trend_filter.rsi_entry_range_max})")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
+                    # If RSI filter is disabled in config, log it for verification
+                    elif not self.trend_filter.use_rsi_filter:
+                        logger.debug(f"[OK] {symbol}: RSI filter disabled in config - allowing trade regardless of RSI value")
                     
                     # 3. Check halal compliance (ALWAYS skip in test mode per requirements)
                     test_mode = self.config.get('pairs', {}).get('test_mode', False)
@@ -948,6 +1004,29 @@ class TradingBot:
                         'quality_score': quality_score  # Include quality score for sorting
                     })
                     
+                    # DRY-RUN ONLY: Analyze limit entry (does NOT affect execution)
+                    if hasattr(self, 'limit_entry_dry_run') and self.limit_entry_dry_run is not None:
+                        try:
+                            # Get current market price
+                            symbol_info_for_limit = self.mt5_connector.get_symbol_info(symbol)
+                            if symbol_info_for_limit:
+                                market_price = symbol_info_for_limit.get('ask' if signal_type == 'LONG' else 'bid', 0.0)
+                                if market_price > 0:
+                                    # Convert signal to direction
+                                    direction = 'BUY' if signal_type == 'LONG' else 'SELL'
+                                    
+                                    # Analyze limit entry (dry-run only)
+                                    self.limit_entry_dry_run.analyze_limit_entry(
+                                        symbol=symbol,
+                                        direction=direction,
+                                        market_price=market_price,
+                                        quality_score=quality_score,
+                                        entry_time=datetime.now()
+                                    )
+                        except Exception as e:
+                            # Don't let dry-run errors affect real execution
+                            logger.debug(f"Limit entry dry-run analysis failed for {symbol}: {e}")
+                    
                 except Exception as e:
                     logger.error(f"[ERROR] Error scanning {symbol}: {e}", exc_info=True)
                     self.handle_error(e, f"Scanning {symbol}")
@@ -989,47 +1068,66 @@ class TradingBot:
             max_trades = self.risk_manager.max_open_trades
             max_trades_strict = self.risk_manager.max_open_trades_strict
             
-            # CRITICAL FIX: Only block if we're STRICTLY ABOVE max (not at max)
-            # This allows multiple trades to execute quickly when slots are available
-            # Example: If max_trades=6 and current_positions=5, we can still execute 1 more trade
-            # NOTE: Position count is validated at batch level, so this is just a safety check
-            if max_trades_strict and current_positions > max_trades:
-                logger.warning(f"🚫 MAX TRADES STRICT: {symbol} | Cannot execute trade | Current: {current_positions} > {max_trades} | Strict mode enabled")
-                return None  # Filtered, not failed
-            elif max_trades_strict and current_positions == max_trades:
-                # At max in strict mode - this shouldn't happen if batch reservation worked, but allow it
-                logger.info(f"[WARNING] MAX TRADES AT LIMIT: {symbol} | Current: {current_positions} == {max_trades} | "
-                          f"Strict mode - ALLOWING execution (batch reserved {len(opportunities)} slots)")
-                # Continue execution - batch reservation allows this
-            
-            # Non-strict mode: Only block if strictly above max (allow at max for high-quality setups)
-            if current_positions > max_trades:
-                # Check if override is allowed (only if not strict)
-                quality_score = opportunity.get('quality_score', 0.0)
-                high_quality_setup = opportunity.get('high_quality_setup', False)
-                can_open, reason = self.risk_manager.can_open_trade(
-                    symbol=symbol,
-                    signal=signal,
-                    quality_score=quality_score,
-                    high_quality_setup=high_quality_setup
-                )
-                if not can_open:
-                    logger.info(f"[SKIP] [SKIP] {symbol} | Signal: {signal} | Reason: {reason}")
+            # If max_open_trades is None, unlimited trades allowed
+            if max_trades is None:
+                # Unlimited trades - skip max trade checks (unless strict mode is enabled, which shouldn't make sense)
+                if max_trades_strict:
+                    logger.warning(f"⚠️ WARNING: {symbol} | max_open_trades_strict=True but max_open_trades=unlimited - strict mode ignored")
+                # Continue execution
+            else:
+                # CRITICAL FIX: Only block if we're STRICTLY ABOVE max (not at max)
+                # This allows multiple trades to execute quickly when slots are available
+                # Example: If max_trades=6 and current_positions=5, we can still execute 1 more trade
+                # NOTE: Position count is validated at batch level, so this is just a safety check
+                if max_trades_strict and current_positions > max_trades:
+                    logger.warning(f"🚫 MAX TRADES STRICT: {symbol} | Cannot execute trade | Current: {current_positions} > {max_trades} | Strict mode enabled")
                     return None  # Filtered, not failed
+                elif max_trades_strict and current_positions == max_trades:
+                    # At max in strict mode - this shouldn't happen if batch reservation worked, but allow it
+                    logger.info(f"[WARNING] MAX TRADES AT LIMIT: {symbol} | Current: {current_positions} == {max_trades} | "
+                              f"Strict mode - ALLOWING execution (batch reserved {len(opportunities)} slots)")
+                    # Continue execution - batch reservation allows this
+                
+                # Non-strict mode: Only block if strictly above max (allow at max for high-quality setups)
+                if current_positions > max_trades:
+                    # Check if override is allowed (only if not strict)
+                    quality_score = opportunity.get('quality_score', 0.0)
+                    high_quality_setup = opportunity.get('high_quality_setup', False)
+                    can_open, reason = self.risk_manager.can_open_trade(
+                        symbol=symbol,
+                        signal=signal,
+                        quality_score=quality_score,
+                        high_quality_setup=high_quality_setup
+                    )
+                    if not can_open:
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Signal: {signal} | Reason: {reason}")
+                        return None  # Filtered, not failed
             
             # Update state
             self._update_state('ENTERING TRADE', symbol, f'Entering {signal} trade on {symbol}')
             # RANDOMNESS FACTOR: Skip in manual approval mode (user already approved)
+            # CRITICAL: In backtest mode, randomness must be deterministic for reproducibility
             # NOTE: Randomness skip is NOT a failure - it's intentional filtering
             if not skip_randomness:
-                random_value = random.random()  # 0.0 to 1.0
+                # CRITICAL FIX: Use deterministic random in backtest mode
+                if self.is_backtest:
+                    # Use symbol + timestamp as seed for deterministic randomness
+                    import hashlib
+                    seed_str = f"{symbol}_{int(time.time())}"
+                    seed = int(hashlib.md5(seed_str.encode()).hexdigest()[:8], 16)
+                    random.seed(seed)
+                    random_value = random.random()  # 0.0 to 1.0
+                    mode_str = "BACKTEST"
+                else:
+                    random_value = random.random()  # 0.0 to 1.0
+                    mode_str = "LIVE"
                 
                 if random_value < self.randomness_factor:
-                    logger.info(f"🎲 {symbol}: RANDOMNESS SKIP - Random value {random_value:.3f} < threshold {self.randomness_factor} (skipping trade to avoid over-trading)")
+                    logger.info(f"mode={mode_str} | symbol={symbol} | RANDOMNESS SKIP - Random value {random_value:.3f} < threshold {self.randomness_factor} (skipping trade to avoid over-trading)")
                     # Return special code to indicate this is NOT a failure (just filtering)
                     return None  # None indicates filtered/skipped, not failed
                 else:
-                    logger.info(f"🎲 {symbol}: RANDOMNESS PASS - Random value {random_value:.3f} >= threshold {self.randomness_factor} (proceeding with trade)")
+                    logger.info(f"mode={mode_str} | symbol={symbol} | RANDOMNESS PASS - Random value {random_value:.3f} >= threshold {self.randomness_factor} (proceeding with trade)")
             
             # Apply randomized delay if enabled (but ensure execution within 0.3 seconds)
             execution_timeout = self.trading_config.get('execution_timeout_seconds', 0.3)
@@ -1038,9 +1136,21 @@ class TradingBot:
             if self.randomize_timing:
                 # Limit delay to ensure execution within timeout
                 max_delay = min(self.max_delay_seconds, int(execution_timeout * 0.8))
-                delay_seconds = random.randint(0, max_delay)
+                # CRITICAL FIX: Use deterministic random in backtest mode
+                if self.is_backtest:
+                    # Use symbol + signal as seed for deterministic delay
+                    import hashlib
+                    seed_str = f"{symbol}_{signal}_{int(time.time())}"
+                    seed = int(hashlib.md5(seed_str.encode()).hexdigest()[:8], 16)
+                    random.seed(seed)
+                    delay_seconds = random.randint(0, max_delay)
+                    mode_str = "BACKTEST"
+                else:
+                    delay_seconds = random.randint(0, max_delay)
+                    mode_str = "LIVE"
+                
                 if delay_seconds > 0:
-                    logger.info(f"[DELAY] {symbol}: Random delay of {delay_seconds}s before executing {signal}")
+                    logger.info(f"mode={mode_str} | symbol={symbol} | [DELAY] Random delay of {delay_seconds}s before executing {signal}")
                     time.sleep(delay_seconds)
                     
                     # Re-check trend signal after delay (trend might have changed)
@@ -2157,7 +2267,15 @@ class TradingBot:
     
     def run_cycle(self):
         """Execute one trading cycle."""
+        mode = "BACKTEST" if self.is_backtest else "LIVE"
+        cycle_start_time = time.time()
+        cycle_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+        
+        logger.info(f"mode={mode} | [RUN_CYCLE] Starting trading cycle at {cycle_timestamp}")
+        scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Cycle start timestamp: {cycle_timestamp}")
+        
         if self.check_kill_switch():
+            logger.warning(f"mode={mode} | [RUN_CYCLE] Cycle aborted - kill switch active")
             return
         
         # Ensure MT5 connection with retry logic and exponential backoff
@@ -2684,6 +2802,19 @@ class TradingBot:
         
         except Exception as e:
             self.handle_error(e, "Trading cycle")
+        finally:
+            # Log cycle completion with timing
+            cycle_duration = time.time() - cycle_start_time
+            mode = "BACKTEST" if self.is_backtest else "LIVE"
+            cycle_end_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+            
+            logger.info(f"mode={mode} | [RUN_CYCLE] Cycle completed at {cycle_end_timestamp} | Duration: {cycle_duration:.3f}s")
+            scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Cycle end timestamp: {cycle_end_timestamp} | Duration: {cycle_duration:.3f}s")
+            
+            # Warn if cycle took too long
+            if cycle_duration > 60.0:
+                logger.warning(f"mode={mode} | [RUN_CYCLE] WARNING: Cycle duration ({cycle_duration:.3f}s) exceeds target (60s)")
+                scheduler_logger.warning(f"mode={mode} | [RUN_CYCLE] WARNING: Cycle overrun detected")
     
     def run(self, cycle_interval_seconds: int = 60, manual_approval: bool = False, manual_max_trades: Optional[int] = None):
         """
@@ -2813,8 +2944,12 @@ class TradingBot:
                         time.sleep(5)
                 else:
                     # Automatic mode: wait for cycle interval
-                    scheduler_logger.debug(f"Waiting {cycle_interval_seconds}s until next cycle")
+                    mode = "BACKTEST" if self.is_backtest else "LIVE"
+                    sleep_start = time.time()
+                    scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Waiting {cycle_interval_seconds}s until next cycle")
                     time.sleep(cycle_interval_seconds)
+                    sleep_duration = time.time() - sleep_start
+                    scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Sleep completed | Duration: {sleep_duration:.3f}s (target: {cycle_interval_seconds}s)")
         
         except KeyboardInterrupt:
             logger.info("Trading bot stopped by user")

@@ -33,17 +33,8 @@ from monitor.lightweight_realtime_logger import start_realtime_logger
 from utils.logger_factory import get_logger
 from utils.execution_tracer import get_tracer, trace_function
 
-# ANSI color codes for terminal (fix for Colors not defined error)
-class Colors:
-    HEADER = '\033[95m'
-    BLUE = '\033[94m'
-    CYAN = '\033[96m'
-    GREEN = '\033[92m'
-    YELLOW = '\033[93m'
-    RED = '\033[91m'
-    END = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+# Import shared Colors utility
+from utils.colors import Colors
 
 # Setup logging
 logger = get_logger("system_startup", "logs/live/system/system_startup.log")

@@ -72,6 +72,12 @@
       "max_retries": 5,
       "retry_delay_ms": 5
     },
+    "use_limit_entries": false,
+    "limit_entry_dry_run": true,
+    "min_entry_score": 0.0,
+    "limit_entry_buffer_pips": 0.5,
+    "limit_entry_ttl_seconds": 60,
+    "limit_entry_max_spread_pips": 2.0,
     "profit_locking": {
       "enabled": true,
       "min_profit_threshold_usd": 0.03,
@@ -136,7 +142,7 @@
     "max_choppiness": 0.85,
     "min_adx": 10,
     "use_volatility_filter": false,
-    "min_quality_score": 50,
+    "min_quality_score": 60,
     "use_price_action_confirmation": true,
     "use_volume_confirmation": true,
     "execution_timeout_seconds": 2.0,

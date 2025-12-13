@@ -112,6 +112,10 @@ class SimulatedOrderExecutionProvider(OrderExecutionProvider):
         self.next_ticket = 1000
         self._lock = threading.Lock()
         
+        # CRITICAL: Track closure reasons to prevent premature closures
+        self._closure_reasons = {}  # {ticket: 'SL'|'TP'|'MANUAL'|'UNKNOWN'}
+        self._positions_closed_by_check = set()  # Track positions closed by check_sl_tp_hits()
+        
         # Track execution metrics
         self.execution_metrics = {
             'orders_placed': 0,
@@ -548,21 +552,164 @@ class SimulatedOrderExecutionProvider(OrderExecutionProvider):
             return position.copy()
     
     def close_position(self, ticket: int, comment: str = None) -> bool:
-        """Close a simulated position."""
+        """
+        Close a simulated position.
+        
+        CRITICAL: This method should ONLY be called for manual closures or when we're certain
+        the position should be closed. For SL/TP hits, use check_sl_tp_hits() instead.
+        
+        If position is being closed and SL/TP was hit, use SL/TP price for profit calculation.
+        Otherwise, use current market price.
+        
+        WARNING: If a position was already closed by check_sl_tp_hits(), this will return False
+        to prevent duplicate closures.
+        """
         with self._lock:
+            # CRITICAL: Check if position was already closed by check_sl_tp_hits()
+            if ticket in self._positions_closed_by_check:
+                logger.warning(f"[WARNING] Attempted to close position {ticket} that was already closed by check_sl_tp_hits() | "
+                             f"Ignoring duplicate close request | Comment: {comment}")
+                return False
+            
             if ticket not in self.positions:
+                # Position might have been closed by check_sl_tp_hits() already
+                if ticket in self._closure_reasons:
+                    logger.debug(f"Position {ticket} already closed (reason: {self._closure_reasons.get(ticket, 'UNKNOWN')})")
                 return False
             
             position = self.positions.pop(ticket)
+            symbol = position['symbol']
+            entry_price = position['price_open']
+            volume = position['volume']
+            sl_price = position.get('sl', 0.0)
+            tp_price = position.get('tp', 0.0)
+            
+            # Get symbol info for contract size
+            symbol_info = self.market_data_provider.get_symbol_info(symbol)
+            contract_size = 100000  # Default
+            if symbol_info:
+                contract_size = symbol_info.get('contract_size', 100000)
+            
+            # CRITICAL FIX: ALWAYS check if SL/TP was hit before closing
+            # If SL/TP was hit, use SL/TP price for profit calculation (ensures exact $2.00 loss)
+            # This is essential because positions might be closed by other mechanisms (SL worker, position monitor)
+            # but we must still use the SL price if it was hit, not the current market price
+            tick = self.market_data_provider.get_symbol_info_tick(symbol)
+            current_bar = None
+            if hasattr(self.market_data_provider, '_get_current_bar'):
+                current_bar = self.market_data_provider._get_current_bar(symbol)
+            
+            # Check if SL/TP was hit using candle high/low (most accurate for backtesting)
+            hit_sl = False
+            hit_tp = False
+            close_price = position.get('price_current', entry_price)
+            
+            # Get candle high/low for accurate SL/TP detection
+            candle_low = None
+            candle_high = None
+            if current_bar:
+                candle_low = current_bar.get('low')
+                candle_high = current_bar.get('high')
+            
+            # Get tick data as fallback
+            tick_bid = None
+            tick_ask = None
+            if tick:
+                tick_bid = tick.get('bid') if isinstance(tick, dict) else getattr(tick, 'bid', None)
+                tick_ask = tick.get('ask') if isinstance(tick, dict) else getattr(tick, 'ask', None)
+            
+            # CRITICAL: Check SL/TP hits using candle high/low (preferred) or tick (fallback)
+            if position['type'] == 'BUY':
+                # BUY: SL below entry, TP above entry
+                if sl_price > 0:
+                    # Check if candle low touched SL (most accurate)
+                    if candle_low is not None and not math.isnan(candle_low):
+                        if candle_low <= sl_price:
+                            hit_sl = True
+                            close_price = sl_price
+                            logger.debug(f"[SL HIT] Ticket {ticket} | BUY | Candle low {candle_low:.5f} <= SL {sl_price:.5f}")
+                    # Fallback to tick if no candle data
+                    elif tick_bid is not None and not math.isnan(tick_bid) and tick_bid <= sl_price:
+                        hit_sl = True
+                        close_price = sl_price
+                        logger.debug(f"[SL HIT] Ticket {ticket} | BUY | Tick bid {tick_bid:.5f} <= SL {sl_price:.5f}")
+                
+                if not hit_sl and tp_price > 0:
+                    # Check if candle high touched TP
+                    if candle_high is not None and not math.isnan(candle_high):
+                        if candle_high >= tp_price:
+                            hit_tp = True
+                            close_price = tp_price
+                            logger.debug(f"[TP HIT] Ticket {ticket} | BUY | Candle high {candle_high:.5f} >= TP {tp_price:.5f}")
+                    # Fallback to tick if no candle data
+                    elif tick_bid is not None and not math.isnan(tick_bid) and tick_bid >= tp_price:
+                        hit_tp = True
+                        close_price = tp_price
+                        logger.debug(f"[TP HIT] Ticket {ticket} | BUY | Tick bid {tick_bid:.5f} >= TP {tp_price:.5f}")
+            else:  # SELL
+                # SELL: SL above entry, TP below entry
+                if sl_price > 0:
+                    # Check if candle high touched SL (most accurate)
+                    if candle_high is not None and not math.isnan(candle_high):
+                        if candle_high >= sl_price:
+                            hit_sl = True
+                            close_price = sl_price
+                            logger.debug(f"[SL HIT] Ticket {ticket} | SELL | Candle high {candle_high:.5f} >= SL {sl_price:.5f}")
+                    # Fallback to tick if no candle data
+                    elif tick_ask is not None and not math.isnan(tick_ask) and tick_ask >= sl_price:
+                        hit_sl = True
+                        close_price = sl_price
+                        logger.debug(f"[SL HIT] Ticket {ticket} | SELL | Tick ask {tick_ask:.5f} >= SL {sl_price:.5f}")
+                
+                if not hit_sl and tp_price > 0:
+                    # Check if candle low touched TP
+                    if candle_low is not None and not math.isnan(candle_low):
+                        if candle_low <= tp_price:
+                            hit_tp = True
+                            close_price = tp_price
+                            logger.debug(f"[TP HIT] Ticket {ticket} | SELL | Candle low {candle_low:.5f} <= TP {tp_price:.5f}")
+                    # Fallback to tick if no candle data
+                    elif tick_ask is not None and not math.isnan(tick_ask) and tick_ask <= tp_price:
+                        hit_tp = True
+                        close_price = tp_price
+                        logger.debug(f"[TP HIT] Ticket {ticket} | SELL | Tick ask {tick_ask:.5f} <= TP {tp_price:.5f}")
+            
+            # Calculate profit using close_price (SL/TP if hit, otherwise current price)
+            if position['type'] == 'BUY':
+                price_diff = close_price - entry_price
+            else:  # SELL
+                price_diff = entry_price - close_price
+            
+            profit = price_diff * volume * contract_size
+            
+            # Validate profit is not NaN
+            if math.isnan(profit):
+                profit = 0.0
+            
+            close_reason_str = ""
+            if hit_sl:
+                close_reason_str = " (SL hit)"
+            elif hit_tp:
+                close_reason_str = " (TP hit)"
+            
+            # CRITICAL: Mark closure reason
+            closure_reason = 'SL' if hit_sl else ('TP' if hit_tp else 'MANUAL')
+            self._closure_reasons[ticket] = closure_reason
+            
             comment_str = f" ({comment})" if comment else ""
             logger.info(f"[OK] SIMULATED POSITION CLOSED: Ticket {ticket} | {position['symbol']} | "
-                       f"Profit: ${position.get('profit', 0.0):.2f}{comment_str}")
+                       f"Profit: ${profit:.2f}{close_reason_str}{comment_str} | "
+                       f"Closure method: close_position() | "
+                       f"SL hit: {hit_sl} | TP hit: {hit_tp}")
             
             return True
     
     def check_sl_tp_hits(self) -> List[Dict[str, Any]]:
         """
         Check if any positions hit SL or TP.
+        
+        CRITICAL: For backtesting, we must check if the candle's LOW (for BUY) or HIGH (for SELL)
+        touched the SL/TP, not just the current close price. This ensures accurate SL enforcement.
         
         Returns:
             List of closed positions with closure reason
@@ -572,15 +719,38 @@ class SimulatedOrderExecutionProvider(OrderExecutionProvider):
         with self._lock:
             for ticket, position in list(self.positions.items()):
                 symbol = position['symbol']
+                
+                # CRITICAL FIX: Get current candle data (not just tick) to check high/low
+                # This is essential for accurate SL enforcement in backtesting
+                current_bar = None
+                if hasattr(self.market_data_provider, '_get_current_bar'):
+                    current_bar = self.market_data_provider._get_current_bar(symbol)
+                
+                # Fallback to tick if candle data not available
                 tick = self.market_data_provider.get_symbol_info_tick(symbol)
-                if not tick:
+                if not tick and not current_bar:
                     continue
                 
                 # CRITICAL FIX: Handle both dict and object tick formats
-                tick_bid = tick.get('bid') if isinstance(tick, dict) else getattr(tick, 'bid', None)
-                tick_ask = tick.get('ask') if isinstance(tick, dict) else getattr(tick, 'ask', None)
+                tick_bid = None
+                tick_ask = None
+                if tick:
+                    tick_bid = tick.get('bid') if isinstance(tick, dict) else getattr(tick, 'bid', None)
+                    tick_ask = tick.get('ask') if isinstance(tick, dict) else getattr(tick, 'ask', None)
                 
-                # Validate tick data
+                # Get candle high/low if available
+                candle_low = None
+                candle_high = None
+                if current_bar:
+                    candle_low = current_bar.get('low')
+                    candle_high = current_bar.get('high')
+                    # Use tick as fallback if candle data incomplete
+                    if tick_bid is None and candle_low:
+                        tick_bid = candle_low
+                    if tick_ask is None and candle_high:
+                        tick_ask = candle_high
+                
+                # Validate we have price data
                 if tick_bid is None or tick_ask is None or math.isnan(tick_bid) or math.isnan(tick_ask):
                     continue
                 
@@ -588,36 +758,71 @@ class SimulatedOrderExecutionProvider(OrderExecutionProvider):
                 tp_price = position.get('tp', 0.0)
                 entry_price = position['price_open']
                 
-                # Check SL/TP hits
+                # CRITICAL FIX: Check SL/TP hits using candle high/low, not just close price
+                # For BUY: Check if candle LOW touched SL (price went below SL)
+                # For SELL: Check if candle HIGH touched SL (price went above SL)
                 hit_sl = False
                 hit_tp = False
                 close_reason = ""
                 
                 if position['type'] == 'BUY':
                     # BUY: SL below entry, TP above entry
-                    if sl_price > 0 and tick_bid <= sl_price:
-                        hit_sl = True
-                        close_reason = "SL"
-                    elif tp_price > 0 and tick_bid >= tp_price:
-                        hit_tp = True
-                        close_reason = "TP"
+                    # Check if candle low touched SL (most accurate for backtesting)
+                    if sl_price > 0:
+                        if candle_low is not None and not math.isnan(candle_low):
+                            # Use candle low for accurate SL check
+                            if candle_low <= sl_price:
+                                hit_sl = True
+                                close_reason = "SL"
+                        elif tick_bid <= sl_price:
+                            # Fallback to tick if no candle data
+                            hit_sl = True
+                            close_reason = "SL"
+                    
+                    if not hit_sl and tp_price > 0:
+                        if candle_high is not None and not math.isnan(candle_high):
+                            # Use candle high for TP check
+                            if candle_high >= tp_price:
+                                hit_tp = True
+                                close_reason = "TP"
+                        elif tick_bid >= tp_price:
+                            # Fallback to tick if no candle data
+                            hit_tp = True
+                            close_reason = "TP"
                 else:  # SELL
                     # SELL: SL above entry, TP below entry
-                    if sl_price > 0 and tick_ask >= sl_price:
-                        hit_sl = True
-                        close_reason = "SL"
-                    elif tp_price > 0 and tick_ask <= tp_price:
-                        hit_tp = True
-                        close_reason = "TP"
+                    # Check if candle high touched SL (most accurate for backtesting)
+                    if sl_price > 0:
+                        if candle_high is not None and not math.isnan(candle_high):
+                            # Use candle high for accurate SL check
+                            if candle_high >= sl_price:
+                                hit_sl = True
+                                close_reason = "SL"
+                        elif tick_ask >= sl_price:
+                            # Fallback to tick if no candle data
+                            hit_sl = True
+                            close_reason = "SL"
+                    
+                    if not hit_sl and tp_price > 0:
+                        if candle_low is not None and not math.isnan(candle_low):
+                            # Use candle low for TP check
+                            if candle_low <= tp_price:
+                                hit_tp = True
+                                close_reason = "TP"
+                        elif tick_ask <= tp_price:
+                            # Fallback to tick if no candle data
+                            hit_tp = True
+                            close_reason = "TP"
                 
                 if hit_sl or hit_tp:
-                    # Update final price and profit
+                    # CRITICAL: Close at SL/TP price, not current market price
+                    # This ensures exact $2.00 loss when SL is hit
                     if position['type'] == 'BUY':
                         position['price_current'] = sl_price if hit_sl else tp_price
                     else:  # SELL
                         position['price_current'] = sl_price if hit_sl else tp_price
                     
-                    # Calculate final profit
+                    # Calculate final profit using SL/TP price
                     entry_price = position['price_open']
                     current_price = position['price_current']
                     volume = position['volume']
@@ -634,6 +839,16 @@ class SimulatedOrderExecutionProvider(OrderExecutionProvider):
                     
                     profit = price_diff * volume * contract_size
                     position['profit'] = profit
+                    
+                    # CRITICAL: Mark this position as closed by check_sl_tp_hits()
+                    # This prevents other mechanisms from closing it prematurely
+                    self._positions_closed_by_check.add(ticket)
+                    self._closure_reasons[ticket] = close_reason
+                    
+                    # Log SL/TP hit for debugging
+                    logger.info(f"[SL/TP HIT] Ticket {ticket} | {symbol} {position['type']} | "
+                               f"Reason: {close_reason} | Entry: {entry_price:.5f} | "
+                               f"Close: {current_price:.5f} | Profit: ${profit:.2f}")
                     
                     closed_positions.append({
                         'ticket': ticket,

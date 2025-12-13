@@ -24,7 +24,8 @@ class NewsFilter:
         self.enabled = self.news_config.get('enabled', True)
         self.api_provider = self.news_config.get('api_provider', 'financialmodelingprep')
         self.api_key = self.news_config.get('api_key', '')
-        self.block_window_minutes = self.news_config.get('block_window_minutes', 20)
+        # STEP 2a: News avoidance ±10 minutes around news events (per requirements)
+        self.block_window_minutes = self.news_config.get('block_window_minutes', 10)
         self.high_impact_only = self.news_config.get('high_impact_only', True)
         self.check_interval = self.news_config.get('check_interval_seconds', 60)
         self.fallback_to_mt5 = self.news_config.get('fallback_to_mt5', True)
@@ -367,8 +368,8 @@ class NewsFilter:
                 logger.warning(f"{symbol}: News API check failed ({e}), allowing trade (fail-safe)")
                 return False
         
-        # Block window: 10 minutes before and after (hardcoded per requirements)
-        block_window_minutes = 10
+        # STEP 2a: Block window: ±10 minutes around news events (per requirements)
+        block_window_minutes = self.block_window_minutes
         
         # Check if any HIGH-IMPACT event is within blocking window
         for event in events:

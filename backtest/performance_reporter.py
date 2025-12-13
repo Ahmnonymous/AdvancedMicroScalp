@@ -56,7 +56,7 @@ class PerformanceReporter:
             'profit_lock_activation_rate_min': 95.0
         }
     
-    def record_trade_opened(self, ticket: int, symbol: str, direction: str, 
+    def record_trade_opened(self, ticket: int, symbol: str, direction: str,
                            entry_price: float, lot_size: float, sl_price: float,
                            time: datetime):
         """Record a trade opening."""
@@ -77,7 +77,7 @@ class PerformanceReporter:
         self.trades.append(trade)
         logger.debug(f"Trade opened: {ticket} {symbol} {direction}")
     
-    def record_trade_closed(self, ticket: int, close_price: float, 
+    def record_trade_closed(self, ticket: int, close_price: float,
                            close_reason: str, profit: float, time: datetime):
         """Record a trade closure."""
         # Find trade
@@ -97,7 +97,7 @@ class PerformanceReporter:
         else:
             logger.warning(f"Trade {ticket} closed but not found in tracking")
     
-    def record_sl_update(self, ticket: int, symbol: str, old_sl: float, 
+    def record_sl_update(self, ticket: int, symbol: str, old_sl: float,
                         new_sl: float, reason: str, success: bool,
                         duration_ms: float, time: datetime):
         """Record an SL update."""
@@ -116,7 +116,7 @@ class PerformanceReporter:
         # Check for duplicates (same ticket, same new_sl within short time)
         if len(self.sl_updates) > 1:
             prev_update = self.sl_updates[-2]
-            if (prev_update['ticket'] == ticket and 
+            if (prev_update['ticket'] == ticket and
                 prev_update['new_sl'] == new_sl and
                 (time - prev_update['time']).total_seconds() < 1.0):
                 self.duplicate_sl_updates += 1
@@ -153,7 +153,7 @@ class PerformanceReporter:
                 'time': time
             })
     
-    def record_account_snapshot(self, balance: float, equity: float, 
+    def record_account_snapshot(self, balance: float, equity: float,
                                profit: float, time: datetime):
         """Record account snapshot for equity curve."""
         snapshot = {
@@ -205,7 +205,7 @@ class PerformanceReporter:
                 'time': time
             })
     
-    def record_exception(self, exception_type: str, message: str, 
+    def record_exception(self, exception_type: str, message: str,
                         traceback: str, time: datetime):
         """Record runtime exception."""
         exc = {
@@ -369,22 +369,22 @@ class PerformanceReporter:
         checks = {}
         
         checks['sl_update_success_rate'] = (
-            metrics.get('sl_update_success_rate', 0.0) >= 
+            metrics.get('sl_update_success_rate', 0.0) >=
             self.thresholds['sl_update_success_rate_min']
         )
         
         checks['lock_contention_rate'] = (
-            metrics.get('lock_contention_rate', 0.0) <= 
+            metrics.get('lock_contention_rate', 0.0) <=
             self.thresholds['lock_contention_rate_max']
         )
         
         checks['worker_loop_timing'] = (
-            metrics.get('worker_loop_max_duration_ms', 0.0) <= 
+            metrics.get('worker_loop_max_duration_ms', 0.0) <=
             self.thresholds['worker_loop_duration_max_ms']
         )
         
         checks['profit_lock_activation_rate'] = (
-            metrics.get('profit_lock_activation_rate', 0.0) >= 
+            metrics.get('profit_lock_activation_rate', 0.0) >=
             self.thresholds['profit_lock_activation_rate_min']
         )
         

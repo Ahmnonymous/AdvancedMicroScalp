@@ -72,7 +72,7 @@ class LiveMarketDataProvider(MarketDataProvider):
 class HistoricalMarketDataProvider(MarketDataProvider):
     """Historical market data provider for backtesting."""
     
-    def __init__(self, historical_data: Dict[str, pd.DataFrame], current_time: datetime, 
+    def __init__(self, historical_data: Dict[str, pd.DataFrame], current_time: datetime,
                  account_balance: float = 10000.0):
         """
         Initialize historical market data provider.
@@ -413,7 +413,7 @@ class HistoricalMarketDataProvider(MarketDataProvider):
             if col not in result_df.columns:
                 if col == 'time':
                     # Create time index if missing
-                    result_df['time'] = pd.date_range(start=self.current_time - timedelta(minutes=len(result_df)), 
+                    result_df['time'] = pd.date_range(start=self.current_time - timedelta(minutes=len(result_df)),
                                                      periods=len(result_df), freq='1min')
                 else:
                     logger.warning(f"Missing required column '{col}' in historical data for {symbol}")
@@ -471,4 +471,5 @@ class HistoricalMarketDataProvider(MarketDataProvider):
                 self.account_equity = equity
             if profit is not None:
                 self.account_profit = profit
+
 

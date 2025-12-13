@@ -27,7 +27,12 @@ class RiskManager:
         
         self.max_risk_usd = self.risk_config.get('max_risk_per_trade_usd', 2.0)
         self.default_lot_size = self.risk_config.get('default_lot_size', 0.01)
-        self.max_open_trades = self.risk_config.get('max_open_trades', 1)
+        # Max open trades: None or -1 means unlimited (configurable)
+        max_trades_config = self.risk_config.get('max_open_trades', 1)
+        if max_trades_config is None or max_trades_config == -1:
+            self.max_open_trades = None  # Unlimited
+        else:
+            self.max_open_trades = max_trades_config
         self.max_open_trades_strict = self.risk_config.get('max_open_trades_strict', False)
         self.trailing_increment_usd = self.risk_config.get('trailing_stop_increment_usd', 0.10)
         self.use_usd_stoploss = self.risk_config.get('use_usd_stoploss', True)
@@ -383,55 +388,40 @@ class RiskManager:
     ) -> Tuple[Optional[float], str]:
         """
         Determine lot size using priority logic:
-        - Always try 0.01 first
-        - Only increase to 0.02/0.03 if broker requires it AND setup is strong
-        - Skip if broker min lot > 0.03
-        - Skip if broker min lot = 0.02/0.03 but setup is weak
+        - Default lot size = 0.01
+        - Increase up to 0.05 only if minimum lot allows (broker requires it)
+        - Always try 0.01 first, only escalate if broker minimum lot > 0.01
         
         Args:
             symbol: Trading symbol
             broker_min_lot: Broker's minimum lot size requirement
-            high_quality_setup: Whether setup is high-quality
-            quality_score: Optional quality score for additional validation
+            high_quality_setup: Whether setup is high-quality (not used, kept for compatibility)
+            quality_score: Optional quality score (not used, kept for compatibility)
         
         Returns:
             Tuple of (lot_size, reason)
             - lot_size: Lot size to use (None if symbol should be skipped)
             - reason: Explanation of decision
         """
-        # Always try 0.01 first
-        preferred_lot = 0.01
+        # Default lot size = 0.01
+        default_lot = self.default_lot_size  # 0.01
         
-        # Check if broker requires higher minimum
-        if broker_min_lot <= preferred_lot:
+        # Check if broker allows default lot size
+        if broker_min_lot <= default_lot:
             # Broker allows 0.01 - use it
-            return preferred_lot, f"Using preferred lot {preferred_lot:.2f} (broker min: {broker_min_lot:.2f})"
+            return default_lot, f"Using default lot {default_lot:.2f} (broker min: {broker_min_lot:.2f})"
         
         # Broker requires > 0.01
-        if broker_min_lot > 0.03:
-            # Skip symbols with broker min lot > 0.03
-            return None, f"SKIP: Broker min lot {broker_min_lot:.2f} > 0.03 (exceeds limit)"
+        # Allow up to 0.05 only if broker minimum lot requires it
+        max_allowed_lot = 0.05
         
-        # Broker requires 0.02 or 0.03 - only use if setup is strong
-        if broker_min_lot in [0.02, 0.03]:
-            if high_quality_setup:
-                # Strong setup - allow higher lot
-                return broker_min_lot, f"Using broker min lot {broker_min_lot:.2f} (broker requirement) with high-quality setup"
-            else:
-                # Weak setup - skip
-                return None, f"SKIP: Broker min lot {broker_min_lot:.2f} but setup is weak (not high-quality)"
+        if broker_min_lot > max_allowed_lot:
+            # Skip symbols with broker min lot > 0.05
+            return None, f"SKIP: Broker min lot {broker_min_lot:.2f} > {max_allowed_lot:.2f} (exceeds limit)"
         
-        # Broker min lot is between 0.01 and 0.02, or exactly 0.02/0.03 but validation failed above
-        # This shouldn't happen, but handle it
-        if 0.01 < broker_min_lot < 0.02:
-            # Round up to 0.02 if needed, but require strong setup
-            if high_quality_setup:
-                return 0.02, f"Using {0.02:.2f} (broker min: {broker_min_lot:.2f}) with high-quality setup"
-            else:
-                return None, f"SKIP: Broker min lot {broker_min_lot:.2f} requires escalation but setup is weak"
-        
-        # Fallback
-        return broker_min_lot, f"Using broker min lot {broker_min_lot:.2f} (fallback)"
+        # Broker requires between 0.01 and 0.05 - use broker minimum
+        # Note: We only increase if broker requires it, not based on setup quality
+        return broker_min_lot, f"Using broker min lot {broker_min_lot:.2f} (broker requirement, within 0.01-0.05 range)"
     
     def check_min_lot_size_for_testing(self, symbol: str) -> Tuple[bool, float, str]:
         """
@@ -532,289 +522,6 @@ class RiskManager:
         else:
             logger.error(f"[ERROR] DEPRECATED METHOD ERROR: SLManager not available for {symbol} Ticket {ticket}")
             return False
-        # CRITICAL: Only enforce for losing trades (profit < 0)
-        # Do not enforce for profitable trades - let profit-locking and trailing handle those
-        if current_profit >= 0:
-            return False
-        
-        symbol = position.get('symbol', '')
-        entry_price = position.get('price_open', 0.0)
-        order_type = position.get('type', '')
-        lot_size = position.get('volume', 0.01)
-        current_sl = position.get('sl', 0.0)
-        
-        if not symbol or entry_price <= 0 or lot_size <= 0:
-            return False
-        
-        # Get symbol info
-        symbol_info = self.mt5_connector.get_symbol_info(symbol)
-        if symbol_info is None:
-            return False
-        
-        # Calculate required SL price to achieve exactly -$2.00 loss
-        contract_size = symbol_info.get('contract_size', 1.0)
-        point = symbol_info.get('point', 0.00001)
-        
-        # CRITICAL: Get current market prices to account for spread
-        # MT5 SL execution rules:
-        # - BUY orders: SL triggers when BID price reaches or goes BELOW SL price
-        # - SELL orders: SL triggers when ASK price reaches or goes ABOVE SL price
-        symbol_info_with_prices = self.mt5_connector.get_symbol_info(symbol)
-        if symbol_info_with_prices is None:
-            logger.error(f"🛑 Cannot get symbol info for {symbol} - cannot calculate accurate SL")
-            return False
-        
-        current_bid = symbol_info_with_prices.get('bid', entry_price)
-        current_ask = symbol_info_with_prices.get('ask', entry_price)
-        spread = current_ask - current_bid
-        
-        # CRITICAL FIX: Use corrected contract_size (same helper function as calculate_effective_sl_in_profit_terms)
-        contract_size = self._get_corrected_contract_size(symbol, entry_price, lot_size, self.max_risk_usd)
-        
-        # Calculate price difference needed for $2.00 loss
-        # Loss = lot_size * price_diff * contract_size
-        # price_diff = Loss / (lot_size * contract_size)
-        price_diff = abs(self.max_risk_usd) / (lot_size * contract_size)
-        
-        # Log if contract_size was corrected (for debugging)
-        original_contract_size = symbol_info.get('contract_size', 1.0)
-        if abs(contract_size - original_contract_size) > 0.01:
-            logger.info(f"🛑 STRICT SL: {symbol} Ticket {ticket} | "
-                       f"Using corrected contract_size {contract_size} (MT5 reported {original_contract_size}) | "
-                       f"Price_diff: {price_diff:.5f}")
-        
-        # CRITICAL FIX: Calculate SL based on the price that will actually trigger
-        # MT5 execution rules:
-        # - BUY orders: SL triggers when BID price reaches or goes BELOW SL price
-        # - SELL orders: SL triggers when ASK price reaches or goes ABOVE SL price
-        # 
-        # Important: The entry_price is the actual fill price (may have slippage)
-        # We calculate SL to result in exactly -$2.00 loss when triggered
-        
-        if order_type == 'BUY':
-            # For BUY: Entry is at ASK (fill price), SL triggers when BID reaches SL
-            # Loss calculation: Loss = (entry_ask - sl_bid) * lot * contract
-            # To get -$2.00: sl_bid = entry_ask - price_diff
-            target_sl_price = entry_price - price_diff
-            
-            # CRITICAL: For BUY, SL must be below current BID to be triggerable
-            # If calculated SL is above current BID, the trade is already at a loss
-            # In this case, we should set SL at or slightly below current BID to trigger immediately
-            # But we need to recalculate to ensure loss is still close to -$2.00
-            if target_sl_price >= current_bid:
-                # Trade is already at loss - set SL to trigger immediately
-                # Calculate what loss we'll get if we set SL at current BID
-                loss_at_current_bid = -(entry_price - current_bid) * lot_size * contract_size
-                if loss_at_current_bid <= -self.max_risk_usd:
-                    # Current loss is already at or worse than -$2.00
-                    # Set SL slightly below current BID to trigger immediately
-                    target_sl_price = current_bid - (point * 5)  # 0.5 pip below to ensure trigger
-                    logger.warning(f"🛑 BUY SL URGENT: {symbol} Ticket {ticket} | "
-                                 f"Trade already at ${loss_at_current_bid:.2f} loss | "
-                                 f"Setting SL at {target_sl_price:.5f} (below current BID {current_bid:.5f}) to trigger immediately")
-                else:
-                    # Loss is less than -$2.00, but SL won't trigger until BID drops
-                    # Keep calculated SL - it will trigger when BID reaches it
-                    logger.info(f"🛑 BUY SL INFO: {symbol} Ticket {ticket} | "
-                              f"Calculated SL {target_sl_price:.5f} above current BID {current_bid:.5f} | "
-                              f"SL will trigger when BID drops to SL level")
-        else:  # SELL
-            # For SELL: Entry is at BID (fill price), SL triggers when ASK reaches SL
-            # Loss calculation: Loss = (sl_ask - entry_bid) * lot * contract
-            # To get -$2.00: sl_ask = entry_bid + price_diff
-            target_sl_price = entry_price + price_diff
-            
-            # CRITICAL: For SELL, SL must be above current ASK to be triggerable
-            # If calculated SL is below current ASK, the trade is already at a loss
-            # In this case, we should set SL at or slightly above current ASK to trigger immediately
-            # But we need to recalculate to ensure loss is still close to -$2.00
-            if target_sl_price <= current_ask:
-                # Trade is already at loss - set SL to trigger immediately
-                # Calculate what loss we'll get if we set SL at current ASK
-                loss_at_current_ask = -(current_ask - entry_price) * lot_size * contract_size
-                if loss_at_current_ask <= -self.max_risk_usd:
-                    # Current loss is already at or worse than -$2.00
-                    # Set SL slightly above current ASK to trigger immediately
-                    target_sl_price = current_ask + (point * 5)  # 0.5 pip above to ensure trigger
-                    logger.warning(f"🛑 SELL SL URGENT: {symbol} Ticket {ticket} | "
-                                 f"Trade already at ${loss_at_current_ask:.2f} loss | "
-                                 f"Setting SL at {target_sl_price:.5f} (above current ASK {current_ask:.5f}) to trigger immediately")
-                else:
-                    # Loss is less than -$2.00, but SL won't trigger until ASK rises
-                    # Keep calculated SL - it will trigger when ASK reaches it
-                    logger.info(f"🛑 SELL SL INFO: {symbol} Ticket {ticket} | "
-                              f"Calculated SL {target_sl_price:.5f} below current ASK {current_ask:.5f} | "
-                              f"SL will trigger when ASK rises to SL level")
-        
-        # CRITICAL: Check broker's stops_level (minimum distance from current price)
-        stops_level = symbol_info.get('trade_stops_level', 0)
-        if stops_level > 0:
-            min_distance = stops_level * point
-            if order_type == 'BUY':
-                # For BUY: SL must be at least min_distance below current BID
-                min_allowed_sl = current_bid - min_distance
-                if target_sl_price > min_allowed_sl:
-                    # SL is too close to current price - adjust to minimum distance
-                    target_sl_price = min_allowed_sl
-                    logger.warning(f"🛑 BUY SL STOPS_LEVEL: {symbol} Ticket {ticket} | "
-                                 f"SL adjusted to respect stops_level ({stops_level} points) | "
-                                 f"New SL: {target_sl_price:.5f} (min distance: {min_distance:.5f} from BID {current_bid:.5f})")
-            else:  # SELL
-                # For SELL: SL must be at least min_distance above current ASK
-                min_allowed_sl = current_ask + min_distance
-                if target_sl_price < min_allowed_sl:
-                    # SL is too close to current price - adjust to minimum distance
-                    target_sl_price = min_allowed_sl
-                    logger.warning(f"🛑 SELL SL STOPS_LEVEL: {symbol} Ticket {ticket} | "
-                                 f"SL adjusted to respect stops_level ({stops_level} points) | "
-                                 f"New SL: {target_sl_price:.5f} (min distance: {min_distance:.5f} from ASK {current_ask:.5f})")
-        
-        # Normalize SL price to point precision
-        digits = symbol_info.get('digits', 5)
-        if digits in [5, 3]:
-            target_sl_price = round(target_sl_price / point) * point
-        else:
-            target_sl_price = round(target_sl_price, digits)
-        
-        # CRITICAL: Verify the calculated SL will result in approximately -$2.00 loss
-        # Account for spread and actual trigger price
-        if order_type == 'BUY':
-            # When BID hits SL, loss = (entry_ask - sl_bid) * lot * contract
-            # But entry might have slippage, so use actual entry_price
-            actual_loss = -(entry_price - target_sl_price) * lot_size * contract_size
-        else:  # SELL
-            # When ASK hits SL, loss = (sl_ask - entry_bid) * lot * contract
-            actual_loss = -(target_sl_price - entry_price) * lot_size * contract_size
-        
-        # Throttled logging: Only log if SL changed significantly or enough time has passed
-        should_log = False
-        current_time = time.time()
-        
-        with self._sl_log_throttle_lock:
-            throttle_key = ticket
-            if throttle_key not in self._sl_log_throttle:
-                # First time logging for this ticket
-                should_log = True
-                self._sl_log_throttle[throttle_key] = {
-                    'last_log_time': current_time,
-                    'last_sl_price': target_sl_price
-                }
-            else:
-                throttle_data = self._sl_log_throttle[throttle_key]
-                time_since_last_log = current_time - throttle_data['last_log_time']
-                sl_price_changed = abs(target_sl_price - throttle_data['last_sl_price']) > (point * 10)  # More than 1 pip change
-                
-                # Log if: enough time passed OR SL price changed significantly
-                if time_since_last_log >= self._sl_log_interval_seconds or sl_price_changed:
-                    should_log = True
-                    throttle_data['last_log_time'] = current_time
-                    throttle_data['last_sl_price'] = target_sl_price
-        
-        if should_log:
-            logger.info(f"🛑 STRICT SL CALCULATION: {symbol} Ticket {ticket} | "
-                       f"Entry: {entry_price:.5f} | Target SL: {target_sl_price:.5f} | "
-                       f"Expected Loss: ${actual_loss:.2f} | "
-                       f"Current BID: {current_bid:.5f} | Current ASK: {current_ask:.5f} | Spread: {spread:.5f}")
-        
-        # Warn if actual loss is significantly different from -$2.00
-        if abs(actual_loss + self.max_risk_usd) > 0.10:  # More than $0.10 difference
-            logger.warning(f"[WARNING] STRICT SL WARNING: {symbol} Ticket {ticket} | "
-                         f"Calculated SL will result in ${actual_loss:.2f} loss (target: -$2.00) | "
-                         f"Difference: ${abs(actual_loss + self.max_risk_usd):.2f} | "
-                         f"This may be due to spread or rounding")
-        
-        # CRITICAL: Check if current SL needs adjustment to exactly -$2.00
-        # We need to ALWAYS set SL to exactly -$2.00 if profit < 0, regardless of current SL
-        # Only skip if current SL is already exactly at target (within tolerance)
-        needs_adjustment = False
-        sl_tolerance = point * 10  # 1 pip tolerance for comparison
-        
-        if current_sl <= 0:
-            # No SL set - needs adjustment
-            needs_adjustment = True
-        else:
-            # Check if current SL is already at target (within tolerance)
-            if abs(current_sl - target_sl_price) <= sl_tolerance:
-                # SL is already at target - no adjustment needed
-                needs_adjustment = False
-                logger.debug(f"🛑 STRICT SL CHECK: {symbol} Ticket {ticket} | "
-                           f"Current SL ({current_sl:.5f}) already at target ({target_sl_price:.5f}) | "
-                           f"Profit: ${current_profit:.2f} | No adjustment needed")
-            else:
-                # CRITICAL: SL is different from target - MUST adjust to exactly -$2.00
-                # This applies whether current SL is better OR worse than -$2.00
-                # For losing trades, SL MUST be exactly -$2.00, no exceptions
-                needs_adjustment = True
-                
-                # Calculate current SL profit to show what it currently locks
-                if order_type == 'BUY':
-                    current_sl_profit = -(entry_price - current_sl) * lot_size * contract_size
-                else:  # SELL
-                    current_sl_profit = -(current_sl - entry_price) * lot_size * contract_size
-                
-                logger.warning(f"🛑 STRICT SL ADJUSTMENT REQUIRED: {symbol} Ticket {ticket} | "
-                             f"Current SL: {current_sl:.5f} (profit: ${current_sl_profit:.2f}) | "
-                             f"Target SL: {target_sl_price:.5f} (profit: -$2.00) | "
-                             f"Trade P/L: ${current_profit:.2f} | "
-                             f"Current SL is NOT at -$2.00 - ENFORCING NOW (regardless of whether better or worse)")
-        
-        if needs_adjustment:
-            # Apply strict -$2.00 SL with retry logic
-            max_retries = 3
-            success = False
-            for attempt in range(max_retries):
-                success = self.order_manager.modify_order(ticket, stop_loss_price=target_sl_price)
-                if success:
-                    break
-                if attempt < max_retries - 1:
-                    time.sleep(0.1 * (attempt + 1))  # Increasing backoff
-            
-            if success:
-                logger.info(f"🛑 STRICT SL ENFORCED: {symbol} Ticket {ticket} | "
-                          f"Profit: ${current_profit:.2f} | "
-                          f"SL set to exactly -$2.00 (price: {target_sl_price:.5f})")
-                return True
-            else:
-                logger.error(f"[ERROR] STRICT SL ENFORCEMENT FAILED after {max_retries} attempts: {symbol} Ticket {ticket} | "
-                           f"Could not set SL to -$2.00 (current: {current_sl:.5f}, target: {target_sl_price:.5f}) | "
-                           f"This position may be at risk - monitoring will retry")
-                return False
-        
-        # If we reach here, SL is already at target (within tolerance)
-        # But we should still verify it's actually -$2.00 by checking the profit
-        # Calculate actual SL profit to verify
-        if order_type == 'BUY':
-            actual_sl_profit = -(entry_price - current_sl) * lot_size * contract_size
-        else:  # SELL
-            actual_sl_profit = -(current_sl - entry_price) * lot_size * contract_size
-        
-        # Verify it's actually -$2.00 (within $0.05 tolerance)
-        if abs(actual_sl_profit + self.max_risk_usd) > 0.05:
-            # SL is not actually at -$2.00, force adjustment
-            logger.warning(f"🛑 STRICT SL VERIFICATION FAILED: {symbol} Ticket {ticket} | "
-                         f"SL price ({current_sl:.5f}) appears correct but profit is ${actual_sl_profit:.2f} (not -$2.00) | "
-                         f"Forcing adjustment to exactly -$2.00")
-            needs_adjustment = True
-            # Re-apply with retry logic
-            max_retries = 3
-            success = False
-            for attempt in range(max_retries):
-                success = self.order_manager.modify_order(ticket, stop_loss_price=target_sl_price)
-                if success:
-                    break
-                if attempt < max_retries - 1:
-                    import time
-                    time.sleep(0.1 * (attempt + 1))
-            if success:
-                logger.info(f"🛑 STRICT SL FORCE-ENFORCED: {symbol} Ticket {ticket} | "
-                          f"SL adjusted to exactly -$2.00 (price: {target_sl_price:.5f})")
-                return True
-            else:
-                logger.error(f"[ERROR] STRICT SL FORCE-ENFORCEMENT FAILED: {symbol} Ticket {ticket} | "
-                           f"Could not force SL to -$2.00")
-                return False
-        
-        return False  # No adjustment needed (SL is already at -$2.00)
     
     def enforce_protective_sl_on_entry(self, ticket: int, position: Dict[str, Any]) -> bool:
         """
@@ -1221,7 +928,7 @@ class RiskManager:
         # Calculate effective SL in profit terms (USD) using ACTUAL broker SL
         # CRITICAL FIX: Properly handle BUY vs SELL order types
         if order_type == 'BUY':
-            # For BUY: 
+            # For BUY:
             # - SL below entry = loss protection (negative P/L)
             #   Loss = (entry_price - sl_price) * lot * contract
             #   effective_sl_profit = -(entry_price - sl_price) * lot * contract
@@ -1353,31 +1060,52 @@ class RiskManager:
         """
         current_positions = self.order_manager.get_position_count()
         
-        # CRITICAL: If strict mode is enabled, NEVER allow more than max_open_trades
-        if self.max_open_trades_strict:
-            if current_positions >= self.max_open_trades:
-                logger.warning(f"🚫 MAX TRADES STRICT: Cannot open new trade | Current: {current_positions}/{self.max_open_trades} | Strict mode enabled - no overrides allowed")
-                return False, f"Max open trades ({self.max_open_trades}) reached (strict mode - no overrides)"
+        # If max_open_trades is None or -1, unlimited trades allowed
+        if self.max_open_trades is None:
+            # Unlimited trades - no limit check needed (unless strict mode is enabled, which shouldn't make sense with unlimited)
+            if self.max_open_trades_strict:
+                logger.warning(f"⚠️ WARNING: max_open_trades_strict=True but max_open_trades=unlimited - strict mode ignored")
+            return True, "Unlimited trades allowed"
         
-        # If we're below max, we can always open
-        if current_positions < self.max_open_trades:
-            return True, "Below max open trades limit"
-        
-        # If we're at max and staged open is disabled, check override
-        if not self.staged_open_enabled:
-            if high_quality_setup and self.risk_config.get('high_quality_setup_override', True):
-                return True, "High quality setup override"
-            return False, f"Max open trades ({self.max_open_trades}) reached"
+        # If max_open_trades is None, unlimited trades allowed
+        if self.max_open_trades is None:
+            # Unlimited trades - skip max trade limit checks
+            # Staged open logic still applies if enabled
+            if not self.staged_open_enabled:
+                return True, "Unlimited trades allowed"
+            # Continue to staged open logic below
+        else:
+            # CRITICAL: If strict mode is enabled, NEVER allow more than max_open_trades
+            if self.max_open_trades_strict:
+                if current_positions >= self.max_open_trades:
+                    logger.warning(f"🚫 MAX TRADES STRICT: Cannot open new trade | Current: {current_positions}/{self.max_open_trades} | Strict mode enabled - no overrides allowed")
+                    return False, f"Max open trades ({self.max_open_trades}) reached (strict mode - no overrides)"
+            
+            # If we're below max, we can always open (unless staged open is enabled, in which case check staged logic)
+            if current_positions < self.max_open_trades:
+                if not self.staged_open_enabled:
+                    return True, "Below max open trades limit"
+                # Continue to staged open logic below
+            
+            # If we're at max and staged open is disabled, check override
+            if not self.staged_open_enabled:
+                if high_quality_setup and self.risk_config.get('high_quality_setup_override', True):
+                    return True, "High quality setup override"
+                return False, f"Max open trades ({self.max_open_trades}) reached"
         
         # Staged open logic: check if we can open additional trade within window
         if symbol is None or signal is None:
+            # If unlimited trades, allow it even without symbol/signal for staged open
+            if self.max_open_trades is None:
+                return True, "Unlimited trades allowed"
             return False, "Symbol and signal required for staged open"
         
         # Get existing positions for this symbol
         positions = self.order_manager.get_open_positions()
         symbol_positions = [p for p in positions if p['symbol'] == symbol]
         
-        if len(symbol_positions) >= self.max_open_trades:
+        # If unlimited trades, skip symbol-specific max check
+        if self.max_open_trades is not None and len(symbol_positions) >= self.max_open_trades:
             return False, f"Max trades for {symbol} reached"
         
         # Check if we have any staged trades for this symbol
@@ -1415,8 +1143,8 @@ class RiskManager:
                     if first_profit < self.staged_min_profit_usd:
                         return False, f"First trade profit ${first_profit:.2f} < minimum ${self.staged_min_profit_usd}"
             
-            # Check if we can open another staged trade
-            if len(existing_tickets) >= self.max_open_trades:
+            # Check if we can open another staged trade (skip if unlimited)
+            if self.max_open_trades is not None and len(existing_tickets) >= self.max_open_trades:
                 return False, f"Max staged trades ({self.max_open_trades}) for {symbol} reached"
             
             return True, f"Staged open allowed (window: {time_since_first:.0f}s, trades: {len(existing_tickets)})"
@@ -2377,7 +2105,7 @@ class RiskManager:
                 # CRITICAL FIX: SL updates are now handled EXCLUSIVELY by SLManager._sl_worker_loop()
                 # This eliminates duplicate SL update attempts and lock contention
                 # The _sl_worker_loop() runs every 500ms (or instant) and is the single source of truth for SL updates
-                # 
+                #
                 # DO NOT call sl_manager.update_sl_atomic() here - it causes:
                 # 1. Duplicate SL update attempts (redundancy)
                 # 2. Lock contention between threads
@@ -2426,4 +2154,6 @@ class RiskManager:
         
         except Exception as e:
             logger.error(f"Error in continuous trailing stop monitoring: {e}", exc_info=True)
+
+
 

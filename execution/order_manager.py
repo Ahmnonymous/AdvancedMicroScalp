@@ -229,16 +229,37 @@ class OrderManager:
         if tp_price <= 0:
             request.pop('tp', None)
         
+        # Get mode from config if available
+        mode = "UNKNOWN"
+        if hasattr(self.mt5_connector, 'config'):
+            mode = "BACKTEST" if self.mt5_connector.config.get('mode') == 'backtest' else "LIVE"
+        
+        logger.info(f"mode={mode} | symbol={symbol} | [ORDER_SENT] Sending order | "
+                   f"Type: {order_type.name} | Volume: {lot_size} | Price: {price:.5f} | SL: {sl_price:.5f}")
+        
         # Send order
         result = mt5.order_send(request)
         
         if result is None:
             error = mt5.last_error()
-            logger.error(f"Order send returned None. MT5 error: {error}")
+            logger.error(f"mode={mode} | symbol={symbol} | [ORDER_REJECTED] Order send returned None | MT5 error: {error}")
             # Return error dict to indicate connection/transient error (retryable)
             return {'error': -2}
         
-        if result.retcode != mt5.TRADE_RETCODE_DONE:
+        # Accept both full fills (TRADE_RETCODE_DONE) and partial fills (TRADE_RETCODE_PARTIAL)
+        # For partial fills with ORDER_FILLING_RETURN: execute only filled portion, ignore remaining lots
+        # MT5 retcodes: 10009 = DONE (full fill), 10008 = PARTIAL (partial fill)
+        is_full_fill = result.retcode == mt5.TRADE_RETCODE_DONE
+        # Check for partial fill (10008) - handle gracefully if constant doesn't exist
+        try:
+            is_partial_fill = result.retcode == mt5.TRADE_RETCODE_PARTIAL
+        except AttributeError:
+            # Fallback: use numeric value if constant doesn't exist
+            is_partial_fill = result.retcode == 10008
+        
+        if not (is_full_fill or is_partial_fill):
+            logger.error(f"mode={mode} | symbol={symbol} | [ORDER_REJECTED] Order rejected | "
+                        f"Error code: {result.retcode} | Comment: {result.comment}")
             error_msg = f"Order failed: {result.retcode} - {result.comment}"
             
             # Detailed logging for stop loss errors (10016)
@@ -301,27 +322,43 @@ class OrderManager:
                 # Return error dict for other transient errors (retryable with backoff)
                 return {'error': -2}
         
-        # CRITICAL FIX: Get actual fill price from deal history (not order request)
-        # This accounts for slippage
+        # CRITICAL FIX: Get actual fill price and volume from deal history (not order request)
+        # This accounts for slippage and partial fills
         actual_entry_price = price  # Default to requested price
+        actual_filled_volume = lot_size  # Default to requested volume
         slippage = 0.0
         
         if result.order and result.order > 0:
-            # Get deal for this order to get actual fill price
+            # Get deal for this order to get actual fill price and volume
             deals = mt5.history_deals_get(ticket=result.order)
             if deals and len(deals) > 0:
-                # Get the entry deal (DEAL_ENTRY_IN)
+                # Get the entry deal (DEAL_ENTRY_IN) - this has the actual filled volume and price
                 for deal in deals:
                     if deal.entry == mt5.DEAL_ENTRY_IN:
                         actual_entry_price = deal.price
+                        actual_filled_volume = deal.volume
                         slippage = abs(actual_entry_price - price)
+                        
+                        # Log partial fill if volume differs
+                        if abs(actual_filled_volume - lot_size) > 0.0001:
+                            logger.info(f"[PARTIAL FILL] {symbol}: Requested {lot_size:.4f}, filled {actual_filled_volume:.4f} | "
+                                      f"Remaining {lot_size - actual_filled_volume:.4f} ignored (as per requirement)")
+                        
                         if slippage > 0.00001:  # Significant slippage
                             logger.warning(f"[WARNING] {symbol}: Entry slippage detected - Requested: {price:.5f}, Filled: {actual_entry_price:.5f}, Slippage: {slippage:.5f}")
                         break
         
-        logger.info(f"Order placed successfully: Ticket {result.order}, Symbol {symbol}, "
-                   f"Type {order_type.name}, Volume {lot_size}, SL {sl_price:.5f}, "
-                   f"Entry Price: {actual_entry_price:.5f} (requested: {price:.5f})")
+        # Get mode from config if available
+        mode = "UNKNOWN"
+        if hasattr(self.mt5_connector, 'config'):
+            mode = "BACKTEST" if self.mt5_connector.config.get('mode') == 'backtest' else "LIVE"
+        
+        fill_type = "PARTIAL FILL" if is_partial_fill else "FULL FILL"
+        logger.info(f"mode={mode} | symbol={symbol} | ticket={result.order} | [ORDER_FILLED] "
+                   f"{fill_type} | Type: {order_type.name} | "
+                   f"Volume: {actual_filled_volume:.4f} (requested: {lot_size:.4f}) | "
+                   f"SL: {sl_price:.5f} | Entry Price: {actual_entry_price:.5f} (requested: {price:.5f}) | "
+                   f"Slippage: {slippage:.5f}")
         
         # Return comprehensive result with actual fill price
         return {
