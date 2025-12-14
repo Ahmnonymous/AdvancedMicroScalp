@@ -1,0 +1,390 @@
+2025-12-14 15:46:32 - sl_manager - INFO - Loaded 0 symbol overrides from config/symbol_overrides.json
+2025-12-14 15:46:32 - sl_manager - INFO - Instant trailing enabled - SL updates will trigger instantly (0ms interval)
+2025-12-14 15:46:32 - sl_manager - INFO - [LOG] Structured SL logging enabled: C:\AdvancedMicroScalp\logs\runtime\sl_updates_20251214_154632.jsonl
+2025-12-14 15:46:32 - sl_manager - INFO - 📊 CSV summary logging enabled: C:\AdvancedMicroScalp\logs\runtime\sl_summary_20251214_154632.csv
+2025-12-14 15:46:32 - sl_manager - INFO - [LOG] Lock diagnostics logging enabled: C:\AdvancedMicroScalp\logs\backtest\engine\lock_diagnostics.jsonl
+2025-12-14 15:46:32 - sl_manager - INFO - SL Manager initialized | Max risk: $2.00 | Break-even: False (2.0s) | Sweet-spot: $0.03-$0.10 | Trailing increment: $0.10 | Worker interval: 0ms | Min update interval: 100ms | Lock timeout: 1000ms | Profit-locking timeout: 2000ms
+2025-12-14 15:52:59 - sl_manager - WARNING - [WARNING] Could not get fresh position for US30m Ticket 1000, using cached data
+2025-12-14 15:52:59 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1000 | Current SL price: 47737.79820 | Current effective SL: $-0.30 | Current profit: $-0.30
+2025-12-14 15:52:59 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1000 | Current effective SL: $-0.30 | Target: $-2.00 | Error: $1.70 | Tolerance: $0.50 | Needs update: True
+2025-12-14 15:52:59 - sl_manager - WARNING - [WARNING] STRICT LOSS: US30m Ticket 1000 | Effective SL $-0.30 != $-2.00 (error: $1.70) | Will enforce -$2.00
+2025-12-14 15:52:59 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1000 | Original: 47737.80020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:52:59 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:52:59 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.35 | Error: $8.35 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:52:59 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1000 | Current SL price: 47737.79820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:52:59 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1000 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:52:59 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:52:59 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.35 | Error: $8.35 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:52:59 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1000 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:52:59 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1000 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:52:59 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1000 | Original: 47737.80020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:52:59 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:52:59 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.35 | Error: $8.35 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:52:59 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1000 | Current SL price: 47737.79820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:52:59 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1000 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:52:59 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:52:59 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.35 | Error: $8.35 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:52:59 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1000 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:52:59 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1000 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1000 | Original: 47737.80020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:00 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.35 | Error: $8.35 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:00 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1000 | Current SL price: 47737.79820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:00 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1000 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:00 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.35 | Error: $8.35 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:00 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1000 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:00 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for US30m Ticket 1000: Emergency strict loss SL failed | Current effective SL: $-0.30 | Target: $-2.00 | Will retry next cycle
+2025-12-14 15:53:00 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: US30m Ticket 1000 | Emergency strict loss SL failed
+2025-12-14 15:53:00 - sl_manager - WARNING - [WARNING] Could not get fresh position for US30m Ticket 1001, using cached data
+2025-12-14 15:53:00 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1001 | Current SL price: 47735.69820 | Current effective SL: $-0.30 | Current profit: $-0.30
+2025-12-14 15:53:00 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1001 | Current effective SL: $-0.30 | Target: $-2.00 | Error: $1.70 | Tolerance: $0.50 | Needs update: True
+2025-12-14 15:53:00 - sl_manager - WARNING - [WARNING] STRICT LOSS: US30m Ticket 1001 | Effective SL $-0.30 != $-2.00 (error: $1.70) | Will enforce -$2.00
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1001 | Original: 47735.70020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:00 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.37 | Error: $8.37 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:00 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1001 | Current SL price: 47735.69820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:00 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1001 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:00 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.37 | Error: $8.37 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:00 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1001 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:00 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1001 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1001 | Original: 47735.70020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:00 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.37 | Error: $8.37 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:00 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1001 | Current SL price: 47735.69820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:00 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1001 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:00 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:00 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.37 | Error: $8.37 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:00 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1001 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:00 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1001 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:01 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1001 | Original: 47735.70020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:01 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:01 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.37 | Error: $8.37 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:01 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1001 | Current SL price: 47735.69820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:01 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1001 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:01 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:01 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.37 | Error: $8.37 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:01 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1001 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:01 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for US30m Ticket 1001: Emergency strict loss SL failed | Current effective SL: $-0.30 | Target: $-2.00 | Will retry next cycle
+2025-12-14 15:53:01 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: US30m Ticket 1001 | Emergency strict loss SL failed
+2025-12-14 15:53:01 - sl_manager - WARNING - [WARNING] Could not get fresh position for US30m Ticket 1002, using cached data
+2025-12-14 15:53:01 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1002 | Current SL price: 47740.49820 | Current effective SL: $-0.30 | Current profit: $-0.30
+2025-12-14 15:53:01 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1002 | Current effective SL: $-0.30 | Target: $-2.00 | Error: $1.70 | Tolerance: $0.50 | Needs update: True
+2025-12-14 15:53:01 - sl_manager - WARNING - [WARNING] STRICT LOSS: US30m Ticket 1002 | Effective SL $-0.30 != $-2.00 (error: $1.70) | Will enforce -$2.00
+2025-12-14 15:53:01 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1002 | Original: 47740.50020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:01 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:01 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.32 | Error: $8.32 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:01 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1002 | Current SL price: 47740.49820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:01 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1002 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:01 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:01 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.32 | Error: $8.32 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:01 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1002 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:01 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1002 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1002 | Original: 47740.50020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:02 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.32 | Error: $8.32 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:02 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1002 | Current SL price: 47740.49820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:02 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1002 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:02 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.32 | Error: $8.32 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:02 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1002 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:02 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1002 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1002 | Original: 47740.50020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:02 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.32 | Error: $8.32 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:02 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1002 | Current SL price: 47740.49820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:02 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1002 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:02 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.32 | Error: $8.32 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:02 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1002 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:02 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for US30m Ticket 1002: Emergency strict loss SL failed | Current effective SL: $-0.30 | Target: $-2.00 | Will retry next cycle
+2025-12-14 15:53:02 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: US30m Ticket 1002 | Emergency strict loss SL failed
+2025-12-14 15:53:02 - sl_manager - WARNING - [WARNING] Could not get fresh position for US30m Ticket 1003, using cached data
+2025-12-14 15:53:02 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1003 | Current SL price: 47746.49820 | Current effective SL: $-0.30 | Current profit: $-0.30
+2025-12-14 15:53:02 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1003 | Current effective SL: $-0.30 | Target: $-2.00 | Error: $1.70 | Tolerance: $0.50 | Needs update: True
+2025-12-14 15:53:02 - sl_manager - WARNING - [WARNING] STRICT LOSS: US30m Ticket 1003 | Effective SL $-0.30 != $-2.00 (error: $1.70) | Will enforce -$2.00
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1003 | Original: 47746.50020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:02 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.26 | Error: $8.26 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:02 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1003 | Current SL price: 47746.49820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:02 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1003 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:02 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:02 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.26 | Error: $8.26 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:03 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1003 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:03 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1003 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:03 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1003 | Original: 47746.50020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:03 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:03 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.26 | Error: $8.26 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:03 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1003 | Current SL price: 47746.49820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:03 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1003 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:03 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:03 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.26 | Error: $8.26 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:03 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1003 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:03 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1003 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:03 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1003 | Original: 47746.50020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:03 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:03 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.26 | Error: $8.26 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:03 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1003 | Current SL price: 47746.49820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:03 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1003 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:03 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:03 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.26 | Error: $8.26 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:03 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1003 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:03 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for US30m Ticket 1003: Emergency strict loss SL failed | Current effective SL: $-0.30 | Target: $-2.00 | Will retry next cycle
+2025-12-14 15:53:03 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: US30m Ticket 1003 | Emergency strict loss SL failed
+2025-12-14 15:53:05 - sl_manager - WARNING - [WARNING] Could not get fresh position for US30m Ticket 1004, using cached data
+2025-12-14 15:53:05 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1004 | Current SL price: 47771.29820 | Current effective SL: $-0.30 | Current profit: $-0.30
+2025-12-14 15:53:05 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1004 | Current effective SL: $-0.30 | Target: $-2.00 | Error: $1.70 | Tolerance: $0.50 | Needs update: True
+2025-12-14 15:53:05 - sl_manager - WARNING - [WARNING] STRICT LOSS: US30m Ticket 1004 | Effective SL $-0.30 != $-2.00 (error: $1.70) | Will enforce -$2.00
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1004 | Original: 47771.30020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:05 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.01 | Error: $8.01 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:05 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1004 | Current SL price: 47771.29820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:05 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1004 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:05 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.01 | Error: $8.01 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:05 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1004 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:05 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1004 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1004 | Original: 47771.30020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:05 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.01 | Error: $8.01 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:05 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1004 | Current SL price: 47771.29820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:05 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1004 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:05 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.01 | Error: $8.01 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:05 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1004 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:05 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1004 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1004 | Original: 47771.30020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:05 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.01 | Error: $8.01 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:05 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1004 | Current SL price: 47771.29820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:05 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1004 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:05 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:05 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $6.01 | Error: $8.01 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:06 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1004 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:06 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for US30m Ticket 1004: Emergency strict loss SL failed | Current effective SL: $-0.30 | Target: $-2.00 | Will retry next cycle
+2025-12-14 15:53:06 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: US30m Ticket 1004 | Emergency strict loss SL failed
+2025-12-14 15:53:06 - sl_manager - WARNING - [WARNING] Could not get fresh position for US30m Ticket 1005, using cached data
+2025-12-14 15:53:06 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1005 | Current SL price: 47777.19820 | Current effective SL: $-0.30 | Current profit: $-0.30
+2025-12-14 15:53:06 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: US30m Ticket 1005 | Current effective SL: $-0.30 | Target: $-2.00 | Error: $1.70 | Tolerance: $0.50 | Needs update: True
+2025-12-14 15:53:06 - sl_manager - WARNING - [WARNING] STRICT LOSS: US30m Ticket 1005 | Effective SL $-0.30 != $-2.00 (error: $1.70) | Will enforce -$2.00
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1005 | Original: 47777.20020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:06 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $5.95 | Error: $7.95 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:06 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1005 | Current SL price: 47777.19820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:06 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1005 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:06 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $5.95 | Error: $7.95 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:06 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1005 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:06 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1005 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1005 | Original: 47777.20020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:06 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $5.95 | Error: $7.95 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:06 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1005 | Current SL price: 47777.19820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:06 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1005 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:06 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $5.95 | Error: $7.95 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:06 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1005 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:06 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: US30m Ticket 1005 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): US30m Ticket 1005 | Original: 47777.20020 | Corrected (ASK): 48574.80000 | Spread: 2.10000
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:06 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $5.95 | Error: $7.95 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:06 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: US30m Ticket 1005 | Current SL price: 47777.19820 | Target SL price: 48571.70000 | Effective SL: $-0.30 (target: $-2.00, error: $1.70) | Will update to correct effective SL
+2025-12-14 15:53:06 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: US30m Ticket 1005 | Target SL: 48571.70000 | Attempting emergency fallback...
+2025-12-14 15:53:06 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.10000000000000002 | Price diff: -200.00000 (-2000.0 points) | Target profit: $-2.00
+2025-12-14 15:53:06 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: US30m BUY | Target profit: $-2.00 | Calculated effective SL: $5.95 | Error: $7.95 | Contract size may need adjustment (current: 1.00)
+2025-12-14 15:53:06 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: US30m Ticket 1005 | Emergency SL: 48374.80000 | Direct modification failed
+2025-12-14 15:53:06 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for US30m Ticket 1005: Emergency strict loss SL failed | Current effective SL: $-0.30 | Target: $-2.00 | Will retry next cycle
+2025-12-14 15:53:06 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: US30m Ticket 1005 | Emergency strict loss SL failed
+2025-12-14 16:05:50 - sl_manager - WARNING - [WARNING] Could not get fresh position for USDJPYm Ticket 1006, using cached data
+2025-12-14 16:05:50 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1006 | Current SL price: 154.24415 | Current effective SL: $-0.24 | Current profit: $-0.20
+2025-12-14 16:05:50 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1006 | Current effective SL: $-0.24 | Target: $-2.00 | Error: $1.76 | Tolerance: $0.50 | Needs update: True
+2025-12-14 16:05:50 - sl_manager - WARNING - [WARNING] STRICT LOSS: USDJPYm Ticket 1006 | Effective SL $-0.24 != $-2.00 (error: $1.76) | Will enforce -$2.00
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1006 | Original: 154.24615 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:50 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.07 | Error: $10.07 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:50 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1006 | Current SL price: 154.24415 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:50 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1006 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:50 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.07 | Error: $10.07 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:50 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1006 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:50 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1006 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1006 | Original: 154.24615 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:50 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.07 | Error: $10.07 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:50 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1006 | Current SL price: 154.24415 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:50 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1006 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:50 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.07 | Error: $10.07 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:50 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1006 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:50 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1006 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1006 | Original: 154.24615 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:50 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.07 | Error: $10.07 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:50 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1006 | Current SL price: 154.24415 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:50 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1006 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:50 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:50 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.07 | Error: $10.07 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:50 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1006 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:50 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for USDJPYm Ticket 1006: Emergency strict loss SL failed | Current effective SL: $-0.24 | Target: $-2.00 | Will retry next cycle
+2025-12-14 16:05:50 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: USDJPYm Ticket 1006 | Emergency strict loss SL failed
+2025-12-14 16:05:51 - sl_manager - WARNING - [WARNING] Could not get fresh position for USDJPYm Ticket 1007, using cached data
+2025-12-14 16:05:51 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1007 | Current SL price: 154.24115 | Current effective SL: $-0.24 | Current profit: $-0.20
+2025-12-14 16:05:51 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1007 | Current effective SL: $-0.24 | Target: $-2.00 | Error: $1.76 | Tolerance: $0.50 | Needs update: True
+2025-12-14 16:05:51 - sl_manager - WARNING - [WARNING] STRICT LOSS: USDJPYm Ticket 1007 | Effective SL $-0.24 != $-2.00 (error: $1.76) | Will enforce -$2.00
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1007 | Original: 154.24315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:51 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.09 | Error: $10.09 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:51 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1007 | Current SL price: 154.24115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:51 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1007 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:51 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.09 | Error: $10.09 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:51 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1007 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:51 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1007 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1007 | Original: 154.24315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:51 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.09 | Error: $10.09 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:51 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1007 | Current SL price: 154.24115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:51 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1007 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:51 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.09 | Error: $10.09 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:51 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1007 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:51 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1007 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1007 | Original: 154.24315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:51 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.09 | Error: $10.09 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:51 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1007 | Current SL price: 154.24115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:51 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1007 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:51 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:51 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.09 | Error: $10.09 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:51 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1007 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:51 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for USDJPYm Ticket 1007: Emergency strict loss SL failed | Current effective SL: $-0.24 | Target: $-2.00 | Will retry next cycle
+2025-12-14 16:05:51 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: USDJPYm Ticket 1007 | Emergency strict loss SL failed
+2025-12-14 16:05:53 - sl_manager - WARNING - [WARNING] Could not get fresh position for USDJPYm Ticket 1008, using cached data
+2025-12-14 16:05:53 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1008 | Current SL price: 154.23315 | Current effective SL: $-0.24 | Current profit: $-0.20
+2025-12-14 16:05:53 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1008 | Current effective SL: $-0.24 | Target: $-2.00 | Error: $1.76 | Tolerance: $0.50 | Needs update: True
+2025-12-14 16:05:53 - sl_manager - WARNING - [WARNING] STRICT LOSS: USDJPYm Ticket 1008 | Effective SL $-0.24 != $-2.00 (error: $1.76) | Will enforce -$2.00
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1008 | Original: 154.23515 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:53 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.14 | Error: $10.14 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:53 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1008 | Current SL price: 154.23315 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:53 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1008 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:53 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.14 | Error: $10.14 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:53 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1008 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:53 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1008 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1008 | Original: 154.23515 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:53 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.14 | Error: $10.14 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:53 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1008 | Current SL price: 154.23315 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:53 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1008 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:53 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.14 | Error: $10.14 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:53 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1008 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:53 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1008 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1008 | Original: 154.23515 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:53 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.14 | Error: $10.14 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:53 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1008 | Current SL price: 154.23315 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:53 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1008 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:53 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:53 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $8.14 | Error: $10.14 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:53 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1008 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:53 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for USDJPYm Ticket 1008: Emergency strict loss SL failed | Current effective SL: $-0.24 | Target: $-2.00 | Will retry next cycle
+2025-12-14 16:05:53 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: USDJPYm Ticket 1008 | Emergency strict loss SL failed
+2025-12-14 16:05:54 - sl_manager - WARNING - [WARNING] Could not get fresh position for USDJPYm Ticket 1009, using cached data
+2025-12-14 16:05:54 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1009 | Current SL price: 154.26115 | Current effective SL: $-0.24 | Current profit: $-0.20
+2025-12-14 16:05:54 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1009 | Current effective SL: $-0.24 | Target: $-2.00 | Error: $1.76 | Tolerance: $0.50 | Needs update: True
+2025-12-14 16:05:54 - sl_manager - WARNING - [WARNING] STRICT LOSS: USDJPYm Ticket 1009 | Effective SL $-0.24 != $-2.00 (error: $1.76) | Will enforce -$2.00
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1009 | Original: 154.26315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:54 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.96 | Error: $9.96 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:54 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1009 | Current SL price: 154.26115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:54 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1009 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:54 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.96 | Error: $9.96 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:54 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1009 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:54 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1009 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1009 | Original: 154.26315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:54 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.96 | Error: $9.96 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:54 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1009 | Current SL price: 154.26115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:54 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1009 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:54 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.96 | Error: $9.96 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:54 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1009 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:54 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1009 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1009 | Original: 154.26315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:54 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.96 | Error: $9.96 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:54 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1009 | Current SL price: 154.26115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:54 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1009 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:54 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.96 | Error: $9.96 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:54 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1009 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:54 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for USDJPYm Ticket 1009: Emergency strict loss SL failed | Current effective SL: $-0.24 | Target: $-2.00 | Will retry next cycle
+2025-12-14 16:05:54 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: USDJPYm Ticket 1009 | Emergency strict loss SL failed
+2025-12-14 16:05:54 - sl_manager - WARNING - [WARNING] Could not get fresh position for USDJPYm Ticket 1010, using cached data
+2025-12-14 16:05:54 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1010 | Current SL price: 154.27415 | Current effective SL: $-0.24 | Current profit: $-0.20
+2025-12-14 16:05:54 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1010 | Current effective SL: $-0.24 | Target: $-2.00 | Error: $1.76 | Tolerance: $0.50 | Needs update: True
+2025-12-14 16:05:54 - sl_manager - WARNING - [WARNING] STRICT LOSS: USDJPYm Ticket 1010 | Effective SL $-0.24 != $-2.00 (error: $1.76) | Will enforce -$2.00
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1010 | Original: 154.27615 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:54 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.88 | Error: $9.88 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:54 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1010 | Current SL price: 154.27415 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:54 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1010 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:54 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:54 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.88 | Error: $9.88 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:54 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1010 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:54 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1010 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1010 | Original: 154.27615 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:55 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.88 | Error: $9.88 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:55 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1010 | Current SL price: 154.27415 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:55 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1010 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:55 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.88 | Error: $9.88 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:55 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1010 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:55 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1010 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1010 | Original: 154.27615 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:55 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.88 | Error: $9.88 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:55 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1010 | Current SL price: 154.27415 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:55 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1010 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:55 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.88 | Error: $9.88 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:55 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1010 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:55 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for USDJPYm Ticket 1010: Emergency strict loss SL failed | Current effective SL: $-0.24 | Target: $-2.00 | Will retry next cycle
+2025-12-14 16:05:55 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: USDJPYm Ticket 1010 | Emergency strict loss SL failed
+2025-12-14 16:05:55 - sl_manager - WARNING - [WARNING] Could not get fresh position for USDJPYm Ticket 1011, using cached data
+2025-12-14 16:05:55 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1011 | Current SL price: 154.27115 | Current effective SL: $-0.24 | Current profit: $-0.20
+2025-12-14 16:05:55 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: USDJPYm Ticket 1011 | Current effective SL: $-0.24 | Target: $-2.00 | Error: $1.76 | Tolerance: $0.50 | Needs update: True
+2025-12-14 16:05:55 - sl_manager - WARNING - [WARNING] STRICT LOSS: USDJPYm Ticket 1011 | Effective SL $-0.24 != $-2.00 (error: $1.76) | Will enforce -$2.00
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1011 | Original: 154.27315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:55 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.90 | Error: $9.90 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:55 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1011 | Current SL price: 154.27115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:55 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1011 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:55 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:55 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.90 | Error: $9.90 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:55 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1011 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:55 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1011 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:56 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1011 | Original: 154.27315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:56 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:56 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.90 | Error: $9.90 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:56 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1011 | Current SL price: 154.27115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:56 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1011 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:56 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:56 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.90 | Error: $9.90 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:56 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1011 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:56 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: USDJPYm Ticket 1011 | Attempt 2/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-14 16:05:56 - sl_manager - INFO - 🔧 ENTRY PRICE CORRECTED (BUY): USDJPYm Ticket 1011 | Original: 154.27315 | Corrected (ASK): 155.82600 | Spread: 0.01000
+2025-12-14 16:05:56 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:56 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.90 | Error: $9.90 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:56 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: USDJPYm Ticket 1011 | Current SL price: 154.27115 | Target SL price: 155.80600 | Effective SL: $-0.24 (target: $-2.00, error: $1.76) | Will update to correct effective SL
+2025-12-14 16:05:56 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: USDJPYm Ticket 1011 | Target SL: 155.80600 | Attempting emergency fallback...
+2025-12-14 16:05:56 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.6417414295432085 | Price diff: -0.31165 (-311.7 points) | Target profit: $-2.00
+2025-12-14 16:05:56 - sl_manager - WARNING - CONTRACT SIZE VALIDATION: USDJPYm BUY | Target profit: $-2.00 | Calculated effective SL: $7.90 | Error: $9.90 | Contract size may need adjustment (current: 100000.00)
+2025-12-14 16:05:56 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: USDJPYm Ticket 1011 | Emergency SL: 155.51400 | Direct modification failed
+2025-12-14 16:05:56 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for USDJPYm Ticket 1011: Emergency strict loss SL failed | Current effective SL: $-0.24 | Target: $-2.00 | Will retry next cycle
+2025-12-14 16:05:56 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: USDJPYm Ticket 1011 | Emergency strict loss SL failed
