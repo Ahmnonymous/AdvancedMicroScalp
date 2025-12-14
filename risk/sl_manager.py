@@ -1470,9 +1470,11 @@ class SLManager:
             # If profit was negative or None in previous cycle, reset start time
             if last_profit is None or last_profit <= 0:
                 tracking['break_even_start_time'] = datetime.now()
+                # Format last_profit safely (avoid conditional in format specifier)
+                last_profit_display = f"${last_profit:.2f}" if last_profit is not None else "N/A"
                 logger.info(f"🔄 BREAK-EVEN: {position.get('symbol', '')} Ticket {ticket} | "
                            f"Profit became positive (${current_profit:.2f}) | "
-                           f"Reset start time (previous profit: ${last_profit:.2f if last_profit else 'N/A'}) | "
+                           f"Reset start time (previous profit: {last_profit_display}) | "
                            f"Will trigger break-even after {self.break_even_duration_seconds}s")
             
             # Update last profit for next cycle

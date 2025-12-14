@@ -507,12 +507,14 @@ class TrendFilter:
             trend_score = max(sma_score, adx_score)
         
         score += int(trend_score)
+        # Format ADX value safely (avoid conditional in format specifier)
+        adx_display = f"{latest_adx:.1f}" if latest_adx else "0"
         if trend_score >= 30:
-            reasons.append(f"Strong trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+            reasons.append(f"Strong trend (SMA: {sma_separation_pct:.3f}%, ADX: {adx_display})")
         elif trend_score >= 15:
-            reasons.append(f"Moderate trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+            reasons.append(f"Moderate trend (SMA: {sma_separation_pct:.3f}%, ADX: {adx_display})")
         else:
-            reasons.append(f"Weak trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+            reasons.append(f"Weak trend (SMA: {sma_separation_pct:.3f}%, ADX: {adx_display})")
         
         # 2. RSI confirmation - 20 points max (reduced from 25)
         rsi = trend_signal.get('rsi', 50)
