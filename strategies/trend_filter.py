@@ -45,6 +45,21 @@ class TrendFilter:
         self.rsi_soft_filter = self.trading_config.get('rsi_soft_filter', False)  # Soft RSI filter (warn but don't block)
         self.min_quality_score = self.trading_config.get('min_quality_score', 50)  # Minimum quality score (lowered for micro-scalping)
         
+        # Entry filters configuration (for quality score calculation)
+        risk_config = config.get('risk', {})
+        entry_filters_config = risk_config.get('entry_filters', {})
+        volatility_floor_config = entry_filters_config.get('volatility_floor', {})
+        self.volatility_floor_enabled = volatility_floor_config.get('enabled', True)
+        self.volatility_floor_candle_count = volatility_floor_config.get('candle_count', 20)
+        self.volatility_floor_min_range_pips = volatility_floor_config.get('min_range_pips', 1.5)
+        
+        candle_quality_config = entry_filters_config.get('candle_quality', {})
+        self.candle_quality_enabled = candle_quality_config.get('enabled', True)
+        self.candle_quality_min_percent = candle_quality_config.get('min_percent_of_avg', 65.0)
+        
+        # Risk config for spread penalty calculation
+        self.max_risk_usd = risk_config.get('max_risk_per_trade_usd', 2.0)
+        
         # Rate data caching (TTL: 60 seconds for M1 timeframe)
         self._rates_cache = {}  # {symbol: (dataframe, timestamp)}
         self._rates_cache_ttl = 60.0  # seconds (matches M1 timeframe)
@@ -305,10 +320,145 @@ class TrendFilter:
         
         return ci_normalized
     
+    def _calculate_volatility_floor_score(self, symbol: str, df: pd.DataFrame) -> Tuple[int, str]:
+        """
+        Calculate volatility floor component score.
+        
+        Returns:
+            (score: int, reason: str)
+        """
+        if not self.volatility_floor_enabled:
+            return 0, ""
+        
+        try:
+            # Calculate average range of last N candles
+            if len(df) < self.volatility_floor_candle_count:
+                return 0, "Insufficient data for volatility floor"
+            
+            ranges = []
+            for i in range(min(self.volatility_floor_candle_count, len(df))):
+                candle = df.iloc[i]
+                ranges.append(candle['high'] - candle['low'])
+            
+            avg_range = sum(ranges) / len(ranges) if ranges else 0
+            
+            # Get symbol info to convert pips to price
+            symbol_info = self.mt5_connector.get_symbol_info(symbol)
+            if symbol_info is None:
+                return 0, ""
+            
+            point = symbol_info.get('point', 0.00001)
+            min_range_price = self.volatility_floor_min_range_pips * point * 10  # Convert pips to price
+            
+            avg_range_pips = avg_range / point / 10 if point > 0 else 0
+            
+            if avg_range >= min_range_price:
+                return 10, f"Volatility floor: avg range {avg_range_pips:.2f} pips >= min {self.volatility_floor_min_range_pips:.2f} pips"
+            elif avg_range >= min_range_price * (1.0 / 1.5):  # 1.0 pips threshold
+                return 5, f"Volatility floor: avg range {avg_range_pips:.2f} pips (moderate)"
+            else:
+                return 0, f"Volatility floor: avg range {avg_range_pips:.2f} pips < threshold"
+        except Exception as e:
+            logger.debug(f"Volatility floor calculation failed: {e}")
+            return 0, ""
+    
+    def _calculate_candle_quality_score(self, df: pd.DataFrame) -> Tuple[int, str]:
+        """
+        Calculate candle quality component score.
+        
+        Returns:
+            (score: int, reason: str)
+        """
+        if not self.candle_quality_enabled:
+            return 0, ""
+        
+        try:
+            if len(df) < 21:
+                return 0, "Insufficient data for candle quality"
+            
+            # Current candle range (most recent)
+            current_candle = df.iloc[0]
+            current_range = current_candle['high'] - current_candle['low']
+            
+            # Average range of previous 20 candles
+            prev_ranges = []
+            for i in range(1, min(21, len(df))):
+                candle = df.iloc[i]
+                prev_ranges.append(candle['high'] - candle['low'])
+            
+            avg_range = sum(prev_ranges) / len(prev_ranges) if prev_ranges else 0
+            
+            if avg_range == 0:
+                return 0, "Zero average range"
+            
+            current_range_pct = (current_range / avg_range) * 100.0
+            
+            if current_range_pct >= self.candle_quality_min_percent:
+                return 15, f"Candle quality: {current_range_pct:.1f}% of avg (>= {self.candle_quality_min_percent}%)"
+            elif current_range_pct >= 50.0:
+                return 8, f"Candle quality: {current_range_pct:.1f}% of avg (moderate)"
+            else:
+                return 0, f"Candle quality: {current_range_pct:.1f}% of avg (< 50%)"
+        except Exception as e:
+            logger.debug(f"Candle quality calculation failed: {e}")
+            return 0, ""
+    
+    def _calculate_spread_penalty(self, symbol: str) -> Tuple[int, str]:
+        """
+        Calculate spread cost penalty (deducts points).
+        
+        Returns:
+            (penalty: int (negative), reason: str)
+        """
+        try:
+            symbol_info = self.mt5_connector.get_symbol_info(symbol)
+            if symbol_info is None:
+                return 0, ""
+            
+            bid = symbol_info.get('bid', 0)
+            ask = symbol_info.get('ask', 0)
+            point = symbol_info.get('point', 0.00001)
+            contract_size = symbol_info.get('trade_contract_size', 100000)
+            
+            if bid <= 0 or ask <= 0:
+                return 0, ""
+            
+            # Calculate spread cost for 0.01 lot (standard minimum)
+            spread_price = ask - bid
+            lot_size = 0.01
+            spread_cost_usd = spread_price * lot_size * contract_size
+            
+            # Calculate spread cost as percentage of risk
+            if self.max_risk_usd > 0:
+                spread_percent = (spread_cost_usd / self.max_risk_usd) * 100.0
+                
+                if spread_percent > 15.0:
+                    return -15, f"Spread penalty: {spread_percent:.1f}% of risk (>15%)"
+                elif spread_percent > 10.0:
+                    return -10, f"Spread penalty: {spread_percent:.1f}% of risk (10-15%)"
+                elif spread_percent > 5.0:
+                    return -5, f"Spread penalty: {spread_percent:.1f}% of risk (5-10%)"
+                else:
+                    return 0, f"Spread acceptable: {spread_percent:.1f}% of risk"
+            else:
+                return 0, ""
+        except Exception as e:
+            logger.debug(f"Spread penalty calculation failed: {e}")
+            return 0, ""
+    
     def assess_setup_quality(self, symbol: str, trend_signal: Dict[str, Any]) -> Dict[str, Any]:
         """
         Assess the quality of a trading setup for scalping.
         Returns quality score and reasons.
+        
+        Scoring components:
+        - Trend (SMA + ADX consolidated): 35 points max
+        - RSI confirmation: 20 points max
+        - Volatility floor: 10 points max
+        - Candle quality: 15 points max
+        - Choppiness (if enabled): 20 points max
+        - Spread penalty: -15 points max (deducts)
+        Total: 100 points max (capped at 100)
         """
         df = self.get_rates(symbol, count=100)
         if df is None or len(df) < self.sma_slow:
@@ -321,35 +471,75 @@ class TrendFilter:
         reasons = []
         score = 0
         
-        # 1. Trend strength (SMA separation)
+        # 1. Trend strength (SMA separation + ADX consolidated) - 35 points max
         sma_separation = abs(trend_signal.get('sma_fast', 0) - trend_signal.get('sma_slow', 0))
         sma_separation_pct = (sma_separation / trend_signal.get('sma_slow', 1)) * 100 if trend_signal.get('sma_slow', 0) > 0 else 0
         
-        if sma_separation_pct > 0.1:  # Strong trend
-            score += 30
-            reasons.append(f"Strong trend (SMA separation: {sma_separation_pct:.3f}%)")
-        elif sma_separation_pct > 0.05:
-            score += 15
-            reasons.append(f"Moderate trend (SMA separation: {sma_separation_pct:.3f}%)")
-        else:
-            reasons.append(f"Weak trend (SMA separation: {sma_separation_pct:.3f}%)")
+        # Calculate ADX
+        latest_adx = None
+        adx_score = 0
+        try:
+            adx = self.calculate_adx(df, period=14)
+            latest_adx = adx.iloc[-1] if not pd.isna(adx.iloc[-1]) else 0
+            
+            if latest_adx >= self.min_adx:
+                adx_score = 20  # Reduced from 25 to fit in 35 total
+            elif latest_adx >= self.min_adx * 0.7:
+                adx_score = 12  # Reduced from 15
+            elif latest_adx >= self.min_adx * 0.5:
+                adx_score = 5
+        except Exception as e:
+            logger.debug(f"ADX calculation failed: {e}")
         
-        # 2. RSI confirmation (soft filter - still gives points if in acceptable range)
+        # Combine SMA and ADX scores (consolidated trend component: 35 max)
+        sma_score = 0
+        if sma_separation_pct > 0.1:
+            sma_score = 20  # Reduced from 30
+        elif sma_separation_pct > 0.05:
+            sma_score = 10  # Reduced from 15
+        
+        # Combined trend score: use the higher of the two metrics, with bonus for both being strong
+        if sma_score >= 10 and adx_score >= 12:
+            trend_score = 35  # Bonus for both being strong
+        elif sma_score >= 10 and adx_score >= 5:
+            trend_score = min(30, sma_score + adx_score)
+        else:
+            trend_score = max(sma_score, adx_score)
+        
+        score += int(trend_score)
+        if trend_score >= 30:
+            reasons.append(f"Strong trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+        elif trend_score >= 15:
+            reasons.append(f"Moderate trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+        else:
+            reasons.append(f"Weak trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+        
+        # 2. RSI confirmation - 20 points max (reduced from 25)
         rsi = trend_signal.get('rsi', 50)
         rsi_filter_passed = trend_signal.get('rsi_filter_passed', False)
         
-        # For micro-scalping: RSI 25-75 is acceptable (soft filter)
         if rsi_filter_passed:
-            score += 25
+            score += 20
             reasons.append(f"RSI confirmation (RSI: {rsi:.1f})")
         elif 25 <= rsi <= 75:
-            # Soft filter: RSI in acceptable range but not ideal
             score += 10
             reasons.append(f"RSI acceptable (RSI: {rsi:.1f}, soft filter)")
         else:
             reasons.append(f"RSI not ideal (RSI: {rsi:.1f})")
         
-        # 3. Volatility filter (choppiness)
+        # 3. Volatility floor - 10 points max
+        volatility_score, volatility_reason = self._calculate_volatility_floor_score(symbol, df)
+        if volatility_score > 0:
+            score += volatility_score
+            reasons.append(volatility_reason)
+        
+        # 4. Candle quality - 15 points max
+        candle_score, candle_reason = self._calculate_candle_quality_score(df)
+        if candle_score > 0:
+            score += candle_score
+            reasons.append(candle_reason)
+        
+        # 5. Volatility filter (choppiness) - 20 points max (if enabled)
         latest_choppiness = None
         if self.use_volatility_filter:
             try:
@@ -365,29 +555,16 @@ class TrendFilter:
                 logger.debug(f"Choppiness calculation failed: {e}")
                 reasons.append("Choppiness calculation failed")
         
-        # 4. ADX for trend strength
-        latest_adx = None
-        try:
-            adx = self.calculate_adx(df, period=14)
-            latest_adx = adx.iloc[-1] if not pd.isna(adx.iloc[-1]) else 0
-            
-            if latest_adx >= self.min_adx:
-                score += 25
-                reasons.append(f"Strong trend momentum (ADX: {latest_adx:.1f})")
-            elif latest_adx >= self.min_adx * 0.7:
-                score += 15
-                reasons.append(f"Moderate trend momentum (ADX: {latest_adx:.1f})")
-            elif latest_adx >= self.min_adx * 0.5:
-                # Micro-scalping: give some points even for lower ADX
-                score += 5
-                reasons.append(f"Weak trend momentum (ADX: {latest_adx:.1f}, micro-scalping)")
-            else:
-                reasons.append(f"Very weak trend momentum (ADX: {latest_adx:.1f})")
-        except Exception as e:
-            logger.debug(f"ADX calculation failed: {e}")
-            reasons.append("ADX calculation failed")
+        # 6. Spread penalty (deducts points, up to -15)
+        spread_penalty, spread_reason = self._calculate_spread_penalty(symbol)
+        score += spread_penalty  # spread_penalty is negative
+        if spread_penalty < 0:
+            reasons.append(spread_reason)
         
-        # Use configurable quality threshold (lowered for micro-scalping)
+        # Cap score at 100
+        score = min(100, max(0, score))
+        
+        # Use configurable quality threshold
         quality_threshold = self.min_quality_score
         is_high_quality = score >= quality_threshold
         

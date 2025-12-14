@@ -30,7 +30,7 @@
     "big_jump_threshold_usd": 0.40,
     "staged_open_enabled": true,
     "staged_open_window_seconds": 150,
-    "staged_quality_threshold": 30.0,
+    "staged_quality_threshold": 40.0,
     "staged_min_profit_usd": -0.50,
     "fast_trailing_threshold_usd": 0.10,
     "fast_trailing_interval_ms": 0,
@@ -46,6 +46,32 @@
       "require_strong_signal": true,
       "require_trend_alignment": true,
       "require_volume_medium": true
+    },
+    "entry_filters": {
+      "enabled": true,
+      "volatility_floor": {
+        "enabled": true,
+        "candle_count": 20,
+        "min_range_pips": 1.5
+      },
+      "spread_sanity": {
+        "enabled": true,
+        "max_percent_of_range": 20.0
+      },
+      "candle_quality": {
+        "enabled": true,
+        "min_percent_of_avg": 65.0
+      },
+      "session_guard": {
+        "enabled": true,
+        "hour_start_block_minutes": 5,
+        "hour_end_block_minutes": 5,
+        "rollover_window": {
+          "enabled": true,
+          "start_hour_gmt": 21,
+          "end_hour_gmt": 23
+        }
+      }
     },
     "symbol_limits": {
       "XAUUSDT": {"min_lot": 0.01, "max_lot": 1.0},
@@ -141,8 +167,8 @@
     "min_trend_strength_pct": 0.02,
     "max_choppiness": 0.85,
     "min_adx": 10,
-    "use_volatility_filter": false,
-    "min_quality_score": 60,
+    "use_volatility_filter": true,
+    "min_quality_score": 70,
     "use_price_action_confirmation": true,
     "use_volume_confirmation": true,
     "execution_timeout_seconds": 2.0,

@@ -7,10 +7,11 @@ import threading
 import time
 import logging
 from datetime import datetime, timedelta
-from typing import Optional, Dict, Any, Tuple
+from typing import Optional, Dict, Any, Tuple, List
 from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager
 from utils.logger_factory import get_logger
+import MetaTrader5 as mt5
 
 logger = get_logger("risk_manager", "logs/live/engine/risk_manager.log")
 
@@ -128,6 +129,64 @@ class RiskManager:
             logger.error(f"SLManager initialization traceback:\n{error_traceback}")
             self.sl_manager = None
             logger.critical("CRITICAL: SLManager initialization FAILED - SL updates will not work!")
+        
+        # Circuit Breaker State
+        self._circuit_breaker_lock = threading.Lock()
+        self._consecutive_losses = 0
+        self._closed_trades_pnl = []  # List of last 50 closed trade PnLs
+        self._daily_pnl = 0.0
+        self._daily_pnl_date = datetime.now().date()
+        self._circuit_breaker_paused_until = None  # datetime when pause expires
+        self._circuit_breaker_reason = None  # Reason for current pause
+        
+        # Hard Entry Filters Configuration
+        filter_config = self.risk_config.get('entry_filters', {})
+        self.entry_filters_enabled = filter_config.get('enabled', True)
+        
+        # Volatility Floor Filter
+        self.volatility_filter_enabled = filter_config.get('volatility_floor', {}).get('enabled', True)
+        self.volatility_candle_count = filter_config.get('volatility_floor', {}).get('candle_count', 20)
+        self.volatility_min_range_pips = filter_config.get('volatility_floor', {}).get('min_range_pips', 1.0)
+        
+        # Spread Sanity Filter
+        self.spread_filter_enabled = filter_config.get('spread_sanity', {}).get('enabled', True)
+        self.spread_max_percent_of_range = filter_config.get('spread_sanity', {}).get('max_percent_of_range', 30.0)
+        
+        # Candle Quality Filter
+        self.candle_quality_filter_enabled = filter_config.get('candle_quality', {}).get('enabled', True)
+        self.candle_quality_min_percent = filter_config.get('candle_quality', {}).get('min_percent_of_avg', 50.0)
+        
+        # Session Guard
+        self.session_guard_enabled = filter_config.get('session_guard', {}).get('enabled', True)
+        self.session_guard_hour_start_minutes = filter_config.get('session_guard', {}).get('hour_start_block_minutes', 5)
+        self.session_guard_hour_end_minutes = filter_config.get('session_guard', {}).get('hour_end_block_minutes', 5)
+        rollover_config = filter_config.get('session_guard', {}).get('rollover_window', {})
+        self.rollover_enabled = rollover_config.get('enabled', True)
+        self.rollover_start_hour = rollover_config.get('start_hour_gmt', 22)
+        self.rollover_end_hour = rollover_config.get('end_hour_gmt', 23)
+        
+        # Candle data cache (TTL: 10 seconds)
+        self._candle_cache = {}  # {symbol: (data, timestamp)}
+        self._candle_cache_ttl = 10.0
+        self._candle_cache_lock = threading.Lock()
+        
+        # Trend Confirmation Gate Configuration
+        trend_gate_config = filter_config.get('trend_gate', {})
+        self.trend_gate_enabled = trend_gate_config.get('enabled', True)
+        self.trend_gate_method = trend_gate_config.get('method', 'candle_direction')  # 'candle_direction' or 'sma_slope'
+        self.trend_gate_min_candles_same_direction = trend_gate_config.get('min_candles_same_direction', 3)
+        self.trend_gate_min_sma_slope_pct = trend_gate_config.get('min_sma_slope_pct', 0.01)  # Minimum SMA slope percentage
+        self.trend_gate_sma_period = trend_gate_config.get('sma_period', 20)
+        # Per-symbol thresholds (default applies if symbol not specified)
+        self.trend_gate_symbol_thresholds = trend_gate_config.get('symbol_thresholds', {})
+        
+        # Cooldown After Losses Configuration
+        cooldown_config = filter_config.get('cooldown_after_loss', {})
+        self.cooldown_enabled = cooldown_config.get('enabled', True)
+        self.cooldown_candles = cooldown_config.get('candles', 3)  # Default 3 candles cooldown
+        # Per-symbol cooldown tracking {symbol: {'last_loss_time': datetime, 'last_loss_candle_time': datetime}}
+        self._symbol_cooldown = {}
+        self._cooldown_lock = threading.Lock()
     
     def set_micro_profit_engine(self, micro_profit_engine):
         """
@@ -164,6 +223,411 @@ class RiskManager:
         """
         self.bot_pnl_callback = callback
         logger.debug("P/L update callback registered with RiskManager")
+    
+    def record_closed_trade(self, profit_usd: float):
+        """
+        Record a closed trade for circuit breaker tracking.
+        
+        Args:
+            profit_usd: Profit/loss in USD for the closed trade
+        """
+        with self._circuit_breaker_lock:
+            # Reset daily PnL if date changed
+            current_date = datetime.now().date()
+            if current_date != self._daily_pnl_date:
+                self._daily_pnl = 0.0
+                self._daily_pnl_date = current_date
+            
+            # Update daily PnL
+            self._daily_pnl += profit_usd
+            
+            # Update consecutive losses
+            if profit_usd < 0:
+                self._consecutive_losses += 1
+            else:
+                self._consecutive_losses = 0
+            
+            # Update rolling PnL (last 50 trades)
+            self._closed_trades_pnl.append(profit_usd)
+            if len(self._closed_trades_pnl) > 50:
+                self._closed_trades_pnl.pop(0)
+    
+    def _get_candle_data(self, symbol: str, count: int = 21) -> Optional[List[Dict[str, float]]]:
+        """
+        Get historical candle data for symbol with caching.
+        
+        Args:
+            symbol: Trading symbol
+            count: Number of candles to retrieve
+        
+        Returns:
+            List of dicts with 'high', 'low', 'open', 'close' or None if unavailable
+        """
+        if not self.mt5_connector.ensure_connected():
+            return None
+        
+        now = time.time()
+        cache_key = f"{symbol}_{count}"
+        
+        # Check cache
+        with self._candle_cache_lock:
+            if cache_key in self._candle_cache:
+                cached_data, cached_time = self._candle_cache[cache_key]
+                if now - cached_time < self._candle_cache_ttl:
+                    return cached_data.copy()
+        
+        # Fetch fresh data
+        try:
+            rates = mt5.copy_rates_from_pos(symbol, mt5.TIMEFRAME_M1, 0, count)
+            if rates is None or len(rates) == 0:
+                return None
+            
+            # Convert to list of dicts
+            data = [{'high': r['high'], 'low': r['low'], 'open': r['open'], 'close': r['close']} for r in rates]
+            
+            # Update cache
+            with self._candle_cache_lock:
+                self._candle_cache[cache_key] = (data, now)
+            
+            return data
+        except Exception as e:
+            logger.debug(f"Error fetching candle data for {symbol}: {e}")
+            return None
+    
+    def _check_volatility_floor_filter(self, symbol: str) -> Tuple[bool, Optional[str]]:
+        """
+        Check volatility floor filter.
+        
+        Returns:
+            (passed: bool, reason: str or None)
+        """
+        if not self.volatility_filter_enabled:
+            return True, None
+        
+        candle_data = self._get_candle_data(symbol, self.volatility_candle_count + 1)
+        if candle_data is None or len(candle_data) < self.volatility_candle_count:
+            return True, None  # Allow if data unavailable (fail-safe)
+        
+        # Calculate ranges (high - low) for last N candles
+        ranges = [candle_data[i]['high'] - candle_data[i]['low'] for i in range(self.volatility_candle_count)]
+        avg_range = sum(ranges) / len(ranges) if ranges else 0
+        
+        # Get symbol point value to convert pips to price
+        symbol_info = self.mt5_connector.get_symbol_info(symbol)
+        if symbol_info is None:
+            return True, None  # Allow if symbol info unavailable
+        
+        point = symbol_info.get('point', 0.00001)
+        min_range_price = self.volatility_min_range_pips * point * 10  # Convert pips to price
+        
+        if avg_range < min_range_price:
+            return False, f"Volatility floor: avg range {avg_range/point/10:.2f} pips < min {self.volatility_min_range_pips:.2f} pips"
+        
+        return True, None
+    
+    def _check_spread_sanity_filter(self, symbol: str) -> Tuple[bool, Optional[str]]:
+        """
+        Check spread sanity filter.
+        
+        Returns:
+            (passed: bool, reason: str or None)
+        """
+        if not self.spread_filter_enabled:
+            return True, None
+        
+        symbol_info = self.mt5_connector.get_symbol_info(symbol)
+        if symbol_info is None:
+            return True, None  # Allow if symbol info unavailable
+        
+        current_spread = symbol_info.get('spread', 0) * symbol_info.get('point', 0.00001)
+        
+        # Get recent average candle range
+        candle_data = self._get_candle_data(symbol, 21)
+        if candle_data is None or len(candle_data) < 20:
+            return True, None  # Allow if data unavailable
+        
+        ranges = [candle_data[i]['high'] - candle_data[i]['low'] for i in range(20)]
+        avg_range = sum(ranges) / len(ranges) if ranges else 0
+        
+        if avg_range == 0:
+            return True, None  # Avoid division by zero
+        
+        spread_percent = (current_spread / avg_range) * 100.0
+        
+        if spread_percent > self.spread_max_percent_of_range:
+            return False, f"Spread sanity: spread {spread_percent:.1f}% of avg range > max {self.spread_max_percent_of_range:.1f}%"
+        
+        return True, None
+    
+    def _check_candle_quality_filter(self, symbol: str) -> Tuple[bool, Optional[str]]:
+        """
+        Check candle quality filter.
+        
+        Returns:
+            (passed: bool, reason: str or None)
+        """
+        if not self.candle_quality_filter_enabled:
+            return True, None
+        
+        candle_data = self._get_candle_data(symbol, 21)
+        if candle_data is None or len(candle_data) < 21:
+            return True, None  # Allow if data unavailable
+        
+        # Current candle range (most recent)
+        current_range = candle_data[0]['high'] - candle_data[0]['low']
+        
+        # Average range of previous candles
+        prev_ranges = [candle_data[i]['high'] - candle_data[i]['low'] for i in range(1, 21)]
+        avg_range = sum(prev_ranges) / len(prev_ranges) if prev_ranges else 0
+        
+        if avg_range == 0:
+            return True, None  # Avoid division by zero
+        
+        current_percent = (current_range / avg_range) * 100.0
+        
+        if current_percent < self.candle_quality_min_percent:
+            return False, f"Candle quality: current range {current_percent:.1f}% of avg < min {self.candle_quality_min_percent:.1f}%"
+        
+        return True, None
+    
+    def _check_session_guard_filter(self) -> Tuple[bool, Optional[str]]:
+        """
+        Check session guard filter.
+        
+        Returns:
+            (passed: bool, reason: str or None)
+        """
+        if not self.session_guard_enabled:
+            return True, None
+        
+        now = datetime.now()
+        current_minute = now.minute
+        current_hour = now.hour
+        
+        # Check hour start block (first N minutes)
+        if current_minute < self.session_guard_hour_start_minutes:
+            return False, f"Session guard: first {self.session_guard_hour_start_minutes} minutes of hour blocked"
+        
+        # Check hour end block (last N minutes)
+        if current_minute >= (60 - self.session_guard_hour_end_minutes):
+            return False, f"Session guard: last {self.session_guard_hour_end_minutes} minutes of hour blocked"
+        
+        # Check rollover window
+        if self.rollover_enabled:
+            # Convert to GMT (assuming local time is GMT, adjust if needed)
+            gmt_hour = current_hour  # Adjust if timezone conversion needed
+            if self.rollover_start_hour <= self.rollover_end_hour:
+                # Normal case: rollover within same day
+                if self.rollover_start_hour <= gmt_hour < self.rollover_end_hour:
+                    return False, f"Session guard: rollover window {self.rollover_start_hour:02d}:00-{self.rollover_end_hour:02d}:00 GMT blocked"
+            else:
+                # Rollover spans midnight
+                if gmt_hour >= self.rollover_start_hour or gmt_hour < self.rollover_end_hour:
+                    return False, f"Session guard: rollover window {self.rollover_start_hour:02d}:00-{self.rollover_end_hour:02d}:00 GMT blocked"
+        
+        return True, None
+    
+    def _check_trend_gate(self, symbol: str) -> Tuple[bool, Optional[str]]:
+        """
+        Check trend confirmation gate.
+        
+        Returns:
+            (passed: bool, reason: str or None)
+        """
+        if not self.trend_gate_enabled:
+            return True, None
+        
+        candle_data = self._get_candle_data(symbol, max(20, self.trend_gate_min_candles_same_direction + 5))
+        if candle_data is None or len(candle_data) < self.trend_gate_min_candles_same_direction:
+            return True, None  # Allow if data unavailable (fail-safe)
+        
+        if self.trend_gate_method == 'candle_direction':
+            # Check last N candles have same direction
+            closes = [c['close'] for c in candle_data[:self.trend_gate_min_candles_same_direction]]
+            opens = [c['open'] for c in candle_data[:self.trend_gate_min_candles_same_direction]]
+            
+            # Count bullish vs bearish candles
+            bullish_count = sum(1 for i in range(len(closes)) if closes[i] > opens[i])
+            bearish_count = len(closes) - bullish_count
+            
+            # Trend is strong if most candles are in same direction
+            min_same_direction = self.trend_gate_min_candles_same_direction - 1  # Allow 1 outlier
+            if bullish_count < min_same_direction and bearish_count < min_same_direction:
+                return False, f"Trend too weak: {bullish_count} bullish, {bearish_count} bearish in last {self.trend_gate_min_candles_same_direction} candles"
+        
+        elif self.trend_gate_method == 'sma_slope':
+            # Calculate SMA slope
+            closes = [c['close'] for c in candle_data[:self.trend_gate_sma_period]]
+            if len(closes) < self.trend_gate_sma_period:
+                return True, None  # Not enough data
+            
+            # Calculate SMA
+            sma_values = []
+            for i in range(self.trend_gate_sma_period - 1, len(closes)):
+                sma_values.append(sum(closes[i - self.trend_gate_sma_period + 1:i + 1]) / self.trend_gate_sma_period)
+            
+            if len(sma_values) < 2:
+                return True, None
+            
+            # Calculate slope as percentage change
+            slope_pct = ((sma_values[-1] - sma_values[0]) / sma_values[0]) * 100.0 if sma_values[0] > 0 else 0
+            min_slope = self.trend_gate_symbol_thresholds.get(symbol, {}).get('min_sma_slope_pct', self.trend_gate_min_sma_slope_pct)
+            
+            if abs(slope_pct) < min_slope:
+                return False, f"Trend too weak: SMA slope {abs(slope_pct):.3f}% < min {min_slope:.3f}%"
+        
+        return True, None
+    
+    def _check_cooldown_after_loss(self, symbol: str) -> Tuple[bool, Optional[str]]:
+        """
+        Check if symbol is in cooldown after a recent loss.
+        
+        Returns:
+            (passed: bool, reason: str or None)
+        """
+        if not self.cooldown_enabled:
+            return True, None
+        
+        with self._cooldown_lock:
+            if symbol not in self._symbol_cooldown:
+                return True, None  # No recent loss, allow trade
+            
+            cooldown_info = self._symbol_cooldown[symbol]
+            last_loss_candle_time = cooldown_info.get('last_loss_candle_time')
+            
+            if last_loss_candle_time is None:
+                return True, None  # No candle time recorded, allow
+            
+            # Get current candle time (approximate using current time rounded to minute)
+            now = datetime.now()
+            current_candle_time = now.replace(second=0, microsecond=0)
+            
+            # Calculate candles elapsed since last loss
+            # In M1 timeframe, each candle is 1 minute
+            # For M5, each candle is 5 minutes, etc. - using M1 as base assumption
+            minutes_elapsed = (current_candle_time - last_loss_candle_time).total_seconds() / 60.0
+            candles_elapsed = int(minutes_elapsed)  # Assuming M1 timeframe
+            
+            if candles_elapsed < self.cooldown_candles:
+                remaining = self.cooldown_candles - candles_elapsed
+                return False, f"Cooldown active: {remaining} candles remaining (last loss {candles_elapsed} candles ago)"
+            
+            # Cooldown expired, remove tracking
+            self._symbol_cooldown.pop(symbol, None)
+            return True, None
+    
+    def _record_symbol_loss(self, symbol: str):
+        """
+        Record a loss for a symbol to start cooldown period.
+        
+        Args:
+            symbol: Trading symbol that had a loss
+        """
+        if not self.cooldown_enabled:
+            return
+        
+        now = datetime.now()
+        current_candle_time = now.replace(second=0, microsecond=0)
+        
+        with self._cooldown_lock:
+            self._symbol_cooldown[symbol] = {
+                'last_loss_time': now,
+                'last_loss_candle_time': current_candle_time
+            }
+    
+    def _check_entry_filters(self, symbol: str) -> Tuple[bool, Optional[str]]:
+        """
+        Check all entry filters.
+        
+        Args:
+            symbol: Trading symbol
+        
+        Returns:
+            (passed: bool, reason: str or None)
+        """
+        if not self.entry_filters_enabled:
+            return True, None
+        
+        # Check session guard first (no market data needed)
+        passed, reason = self._check_session_guard_filter()
+        if not passed:
+            logger.warning(f"[FILTER BLOCK] {symbol}: {reason}")
+            return False, reason
+        
+        # Check volatility floor
+        passed, reason = self._check_volatility_floor_filter(symbol)
+        if not passed:
+            logger.warning(f"[FILTER BLOCK] {symbol}: {reason}")
+            return False, reason
+        
+        # Check spread sanity
+        passed, reason = self._check_spread_sanity_filter(symbol)
+        if not passed:
+            logger.warning(f"[FILTER BLOCK] {symbol}: {reason}")
+            return False, reason
+        
+        # Check candle quality
+        passed, reason = self._check_candle_quality_filter(symbol)
+        if not passed:
+            logger.warning(f"[FILTER BLOCK] {symbol}: {reason}")
+            return False, reason
+        
+        # Check trend gate
+        passed, reason = self._check_trend_gate(symbol)
+        if not passed:
+            logger.warning(f"[TREND BLOCK] {symbol}: {reason}")
+            return False, reason
+        
+        # Check cooldown after loss
+        passed, reason = self._check_cooldown_after_loss(symbol)
+        if not passed:
+            logger.warning(f"[COOLDOWN BLOCK] {symbol}: {reason}")
+            return False, reason
+        
+        return True, None
+    
+    def _check_circuit_breaker(self) -> Tuple[bool, Optional[str]]:
+        """
+        Check if circuit breaker should be triggered.
+        
+        Returns:
+            (is_paused: bool, reason: str or None)
+        """
+        with self._circuit_breaker_lock:
+            now = datetime.now()
+            
+            # Check if pause has expired
+            if self._circuit_breaker_paused_until and now >= self._circuit_breaker_paused_until:
+                reason = self._circuit_breaker_reason
+                self._circuit_breaker_paused_until = None
+                self._circuit_breaker_reason = None
+                logger.info(f"[CIRCUIT BREAKER] Trading resumed after pause (previous reason: {reason})")
+                return False, None
+            
+            # If already paused, return pause status
+            if self._circuit_breaker_paused_until:
+                remaining_seconds = (self._circuit_breaker_paused_until - now).total_seconds()
+                return True, f"{self._circuit_breaker_reason} (resumes in {remaining_seconds:.0f}s)"
+            
+            # Check consecutive losses rule
+            if self._consecutive_losses >= 10:
+                pause_duration_minutes = 30
+                self._circuit_breaker_paused_until = now + timedelta(minutes=pause_duration_minutes)
+                self._circuit_breaker_reason = f"Consecutive losses >= 10 ({self._consecutive_losses} losses)"
+                logger.warning(f"[CIRCUIT BREAKER] Trading paused: {self._circuit_breaker_reason} (pause duration: {pause_duration_minutes} minutes)")
+                return True, self._circuit_breaker_reason
+            
+            # Check rolling PnL rule
+            if len(self._closed_trades_pnl) >= 50:
+                rolling_pnl = sum(self._closed_trades_pnl)
+                if rolling_pnl <= -10.0:
+                    pause_duration_minutes = 60
+                    self._circuit_breaker_paused_until = now + timedelta(minutes=pause_duration_minutes)
+                    self._circuit_breaker_reason = f"Rolling PnL of last 50 trades <= -$10 (current: ${rolling_pnl:.2f})"
+                    logger.warning(f"[CIRCUIT BREAKER] Trading paused: {self._circuit_breaker_reason} (pause duration: {pause_duration_minutes} minutes)")
+                    return True, self._circuit_breaker_reason
+            
+            return False, None
     
     def calculate_minimum_lot_size_for_risk(
         self,
@@ -1058,6 +1522,17 @@ class RiskManager:
         Returns:
             (can_open: bool, reason: str)
         """
+        # Check circuit breaker first
+        is_paused, pause_reason = self._check_circuit_breaker()
+        if is_paused:
+            return False, f"Circuit breaker: {pause_reason}"
+        
+        # Check entry filters (requires symbol)
+        if symbol:
+            passed, filter_reason = self._check_entry_filters(symbol)
+            if not passed:
+                return False, f"Entry filter: {filter_reason}"
+        
         current_positions = self.order_manager.get_position_count()
         
         # If max_open_trades is None or -1, unlimited trades allowed
@@ -2016,6 +2491,13 @@ class RiskManager:
                                             self.bot_pnl_callback(total_profit, close_time)
                                         except Exception as e:
                                             logger.debug(f"Error updating realized P/L via callback: {e}")
+                                    
+                                    # Record closed trade for circuit breaker tracking
+                                    self.record_closed_trade(total_profit)
+                                    
+                                    # Record loss for cooldown tracking (per-symbol)
+                                    if total_profit < 0:
+                                        self._record_symbol_loss(symbol)
             
             # Now remove tracking entries
             with self._tracking_lock:
