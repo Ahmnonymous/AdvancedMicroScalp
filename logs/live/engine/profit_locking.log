@@ -1,0 +1,2 @@
+2025-12-14 11:39:42 - profit_locking - INFO - Profit-Locking Engine initialized | Sweet spot: $0.03-$0.1 | Step: $0.1
+2025-12-14 11:39:42 - profit_locking - INFO - Dynamic Sweet Spot Locking: Enabled | Poll interval: 50ms | Track minimum: True | Apply immediately: True

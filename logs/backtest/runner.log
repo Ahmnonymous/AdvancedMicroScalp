@@ -1,0 +1,43 @@
+2025-12-14 11:39:28 - backtest_runner - INFO - mode=BACKTEST | Setting up backtest environment...
+2025-12-14 11:39:34 - backtest_runner - INFO - mode=BACKTEST | Data preflight validation complete: 14 valid symbols, 0 skipped
+2025-12-14 11:39:42 - backtest_runner - INFO - Market data provider initialized with start time: 2025-10-27 08:21:00
+2025-12-14 11:39:42 - backtest_runner - INFO - Backtest environment setup complete
+2025-12-14 11:39:42 - backtest_runner - INFO - Initializing trading bot for backtest mode...
+2025-12-14 11:39:42 - backtest_runner - INFO - Registered SL worker loop callback
+2025-12-14 11:39:42 - backtest_runner - INFO - Registered run_cycle callback
+2025-12-14 11:39:42 - backtest_runner - INFO - Trading bot initialized for backtest
+2025-12-14 11:39:42 - backtest_runner - INFO - ================================================================================
+2025-12-14 11:39:42 - backtest_runner - INFO - STARTING BACKTEST
+2025-12-14 11:39:42 - backtest_runner - INFO - ================================================================================
+2025-12-14 11:39:42 - backtest_runner - INFO - Symbols: ['EURUSDm', 'GBPUSDm', 'USDJPYm', 'AUDUSDm', 'USDCADm', 'EURGBPm', 'XAUUSDm', 'XAGUSDm', 'BTCUSDm', 'ETHUSDm', 'US30m', 'US500m', 'JP225m', 'AUS200m']
+2025-12-14 11:39:42 - backtest_runner - INFO - Period: 2023-12-24 11:39:28.535473 to 2025-12-13 11:39:28.535473
+2025-12-14 11:39:42 - backtest_runner - INFO - Timeframe: M1
+2025-12-14 11:39:42 - backtest_runner - INFO - Speed: 100.0x
+2025-12-14 11:39:43 - backtest_runner - INFO - Backtest progress: Step 1 | Time: 2025-10-27 08:22:00
+2025-12-14 11:40:13 - backtest_runner - INFO - Backtest progress: Step 205 | Time: 2025-10-27 12:13:00 | Speed: 6.8 steps/sec
+2025-12-14 11:40:43 - backtest_runner - INFO - Backtest progress: Step 501 | Time: 2025-10-27 17:17:00 | Speed: 9.8 steps/sec
+2025-12-14 11:41:13 - backtest_runner - INFO - Backtest progress: Step 787 | Time: 2025-10-28 00:33:00 | Speed: 9.5 steps/sec
+2025-12-14 11:42:03 - backtest_runner - INFO - Backtest progress: Step 1804 | Time: 2025-10-28 19:31:00 | Speed: 26.7 steps/sec
+2025-12-14 11:43:07 - backtest_runner - INFO - Backtest progress: Step 3930 | Time: 2025-10-30 10:53:00 | Speed: 31.0 steps/sec
+2025-12-14 11:43:39 - backtest_runner - INFO - Backtest progress: Step 4987 | Time: 2025-10-31 05:30:00 | Speed: 32.9 steps/sec
+2025-12-14 11:43:39 - backtest_runner - INFO - Backtest progress: Step 5000 | Time: 2025-10-31 05:43:00 | Speed: 30.8 steps/sec
+2025-12-14 11:44:09 - backtest_runner - INFO - Backtest progress: Step 5953 | Time: 2025-11-02 22:42:00 | Speed: 31.8 steps/sec
+2025-12-14 11:44:41 - backtest_runner - INFO - Backtest progress: Step 6861 | Time: 2025-11-03 13:50:00 | Speed: 28.7 steps/sec
+2025-12-14 11:45:16 - backtest_runner - INFO - Backtest progress: Step 7727 | Time: 2025-11-04 04:16:00 | Speed: 24.2 steps/sec
+2025-12-14 11:45:56 - backtest_runner - INFO - Backtest progress: Step 8895 | Time: 2025-11-04 23:44:00 | Speed: 29.8 steps/sec
+2025-12-14 11:46:29 - backtest_runner - INFO - Backtest progress: Step 9840 | Time: 2025-11-05 15:29:00 | Speed: 28.0 steps/sec
+2025-12-14 11:46:35 - backtest_runner - INFO - Backtest progress: Step 10000 | Time: 2025-11-05 18:09:00 | Speed: 30.1 steps/sec
+2025-12-14 11:47:05 - backtest_runner - INFO - Backtest progress: Step 10834 | Time: 2025-11-06 08:03:00 | Speed: 27.8 steps/sec
+2025-12-14 11:47:40 - backtest_runner - INFO - Backtest progress: Step 11946 | Time: 2025-11-07 02:35:00 | Speed: 31.5 steps/sec
+2025-12-14 11:48:12 - backtest_runner - INFO - Backtest progress: Step 12859 | Time: 2025-11-07 17:48:00 | Speed: 28.6 steps/sec
+2025-12-14 11:49:13 - backtest_runner - INFO - Backtest progress: Step 15000 | Time: 2025-11-11 05:35:00 | Speed: 34.6 steps/sec
+2025-12-14 11:51:15 - backtest_runner - INFO - Backtest progress: Step 20000 | Time: 2025-11-14 17:05:00 | Speed: 39.0 steps/sec
+2025-12-14 11:53:16 - backtest_runner - INFO - Backtest progress: Step 25000 | Time: 2025-11-18 04:30:00 | Speed: 39.4 steps/sec
+2025-12-14 11:55:12 - backtest_runner - INFO - Backtest progress: Step 30000 | Time: 2025-11-21 15:50:00 | Speed: 39.1 steps/sec
+2025-12-14 11:56:51 - backtest_runner - INFO - Backtest progress: Step 35000 | Time: 2025-11-25 03:12:00 | Speed: 51.9 steps/sec
+2025-12-14 11:58:30 - backtest_runner - INFO - Backtest progress: Step 40000 | Time: 2025-11-28 14:32:00 | Speed: 53.2 steps/sec
+2025-12-14 12:00:10 - backtest_runner - INFO - Backtest progress: Step 45000 | Time: 2025-12-02 01:52:00 | Speed: 40.9 steps/sec
+2025-12-14 12:01:37 - backtest_runner - INFO - Backtest progress: Step 50000 | Time: 2025-12-05 13:12:00 | Speed: 62.9 steps/sec
+2025-12-14 12:02:57 - backtest_runner - INFO - Backtest progress: Step 55000 | Time: 2025-12-09 00:53:00 | Speed: 65.1 steps/sec
+2025-12-14 12:04:06 - backtest_runner - INFO - Backtest progress: Step 60000 | Time: 2025-12-12 12:13:00 | Speed: 96.7 steps/sec
+2025-12-14 12:04:16 - backtest_runner - INFO - Backtest completed in 1473.53s

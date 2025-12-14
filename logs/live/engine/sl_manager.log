@@ -1,0 +1,6 @@
+2025-12-14 11:39:42 - sl_manager - INFO - Loaded 0 symbol overrides from config/symbol_overrides.json
+2025-12-14 11:39:42 - sl_manager - INFO - Instant trailing enabled - SL updates will trigger instantly (0ms interval)
+2025-12-14 11:39:42 - sl_manager - INFO - [LOG] Structured SL logging enabled: C:\AdvancedMicroScalp\logs\runtime\sl_updates_20251214_113942.jsonl
+2025-12-14 11:39:42 - sl_manager - INFO - 📊 CSV summary logging enabled: C:\AdvancedMicroScalp\logs\runtime\sl_summary_20251214_113942.csv
+2025-12-14 11:39:42 - sl_manager - INFO - [LOG] Lock diagnostics logging enabled: C:\AdvancedMicroScalp\logs\backtest\engine\lock_diagnostics.jsonl
+2025-12-14 11:39:42 - sl_manager - INFO - SL Manager initialized | Max risk: $2.00 | Break-even: False (2.0s) | Sweet-spot: $0.03-$0.10 | Trailing increment: $0.10 | Worker interval: 0ms | Min update interval: 100ms | Lock timeout: 1000ms | Profit-locking timeout: 2000ms

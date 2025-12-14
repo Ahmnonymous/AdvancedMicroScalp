@@ -1,0 +1,67 @@
+2025-12-14 11:41:43 - system_errors - ERROR - Error in Scanning AUS200m: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 845, in scan_for_opportunities
+    quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 511, in assess_setup_quality
+    reasons.append(f"Strong trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+2025-12-14 11:56:44 - system_errors - ERROR - Error in Scanning XAUUSDm: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 845, in scan_for_opportunities
+    quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 511, in assess_setup_quality
+    reasons.append(f"Strong trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+2025-12-14 11:56:44 - system_errors - ERROR - Error in Scanning XAGUSDm: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 845, in scan_for_opportunities
+    quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 511, in assess_setup_quality
+    reasons.append(f"Strong trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+2025-12-14 11:56:44 - system_errors - ERROR - Error in Scanning BTCUSDm: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 845, in scan_for_opportunities
+    quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 511, in assess_setup_quality
+    reasons.append(f"Strong trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+2025-12-14 11:56:44 - system_errors - ERROR - Error in Scanning ETHUSDm: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 845, in scan_for_opportunities
+    quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 513, in assess_setup_quality
+    reasons.append(f"Moderate trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+2025-12-14 11:56:44 - system_errors - ERROR - Error in Scanning US30m: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 845, in scan_for_opportunities
+    quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 513, in assess_setup_quality
+    reasons.append(f"Moderate trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+2025-12-14 11:56:44 - system_errors - CRITICAL - Too many consecutive errors (5)
+2025-12-14 11:56:44 - system_errors - CRITICAL - KILL SWITCH ACTIVATED: Too many errors: 5
+2025-12-14 11:56:44 - system_errors - ERROR - Error in Scanning AUS200m: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 845, in scan_for_opportunities
+    quality_assessment = self.trend_filter.assess_setup_quality(symbol, trend_signal)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 513, in assess_setup_quality
+    reasons.append(f"Moderate trend (SMA: {sma_separation_pct:.3f}%, ADX: {latest_adx:.1f if latest_adx else 0})")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid format specifier '.1f if latest_adx else 0' for object of type 'float'
+2025-12-14 11:56:44 - system_errors - CRITICAL - Too many consecutive errors (6)
+2025-12-14 11:56:44 - system_errors - CRITICAL - KILL SWITCH ACTIVATED: Too many errors: 6

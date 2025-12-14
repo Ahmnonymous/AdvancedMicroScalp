@@ -1,0 +1,6 @@
+2025-12-14 11:39:42 - risk_manager - INFO - Initializing SLManager...
+2025-12-14 11:39:42 - risk_manager - INFO - [OK] SLManager initialized successfully
+2025-12-14 11:39:42 - risk_manager - INFO - SLManager instance: <risk.sl_manager.SLManager object at 0x000001A3731AFF90>
+2025-12-14 11:39:42 - risk_manager - INFO - SLManager available: True
+2025-12-14 11:39:42 - risk_manager - INFO - Micro-HFT Profit Engine registered with RiskManager
+2025-12-14 11:39:42 - risk_manager - INFO - Profit-Locking Engine registered with RiskManager
