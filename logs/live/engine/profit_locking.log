@@ -1,0 +1,53 @@
+2025-12-13 20:44:27 - profit_locking - INFO - Profit-Locking Engine initialized | Sweet spot: $0.03-$0.1 | Step: $0.1
+2025-12-13 20:44:27 - profit_locking - INFO - Dynamic Sweet Spot Locking: Enabled | Poll interval: 50ms | Track minimum: True | Apply immediately: True
+2025-12-13 22:18:52 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AUDUSDm Ticket 1336 | Entered sweet spot at $0.09 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 22:18:52 - profit_locking - WARNING - [WARNING] Position 1336 not found during profit lock attempt 1
+2025-12-13 22:18:52 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: AUDUSDm Ticket 1336 | Profit: $0.09 | Target lock: $0.09 | Target SL: 0.64549 | Retry count: 3 | Broker SL update failed
+2025-12-13 22:19:12 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AUDUSDm Ticket 1346 | Entered sweet spot at $0.03 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 22:19:12 - profit_locking - WARNING - [WARNING] Position 1346 not found during profit lock attempt 1
+2025-12-13 22:19:12 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: AUDUSDm Ticket 1346 | Profit: $0.03 | Target lock: $0.03 | Target SL: 0.64449 | Retry count: 3 | Broker SL update failed
+2025-12-13 22:24:46 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: USDCADm Ticket 1402 | Entered sweet spot at $0.07 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 22:24:46 - profit_locking - WARNING - [WARNING] Position 1402 not found during profit lock attempt 1
+2025-12-13 22:24:46 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: USDCADm Ticket 1402 | Profit: $0.07 | Target lock: $0.07 | Target SL: 1.41240 | Retry count: 3 | Broker SL update failed
+2025-12-13 22:47:52 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AUDUSDm Ticket 1477 | Entered sweet spot at $0.04 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 22:47:52 - profit_locking - WARNING - [WARNING] Position 1477 not found during profit lock attempt 1
+2025-12-13 22:47:52 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: AUDUSDm Ticket 1477 | Profit: $0.04 | Target lock: $0.04 | Target SL: 0.64375 | Retry count: 3 | Broker SL update failed
+2025-12-13 22:48:13 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AUDUSDm Ticket 1489 | Entered sweet spot at $0.07 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 22:48:13 - profit_locking - WARNING - [WARNING] Position 1489 not found during profit lock attempt 1
+2025-12-13 22:48:13 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: AUDUSDm Ticket 1489 | Profit: $0.07 | Target lock: $0.07 | Target SL: 0.64503 | Retry count: 3 | Broker SL update failed
+2025-12-13 22:53:54 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: GBPUSDm Ticket 1561 | Entered sweet spot at $0.08 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 22:53:54 - profit_locking - WARNING - [WARNING] Position 1561 not found during profit lock attempt 1
+2025-12-13 22:53:54 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: GBPUSDm Ticket 1561 | Profit: $0.08 | Target lock: $0.08 | Target SL: 1.31442 | Retry count: 3 | Broker SL update failed
+2025-12-13 22:54:09 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: GBPUSDm Ticket 1570 | Entered sweet spot at $0.05 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 22:54:09 - profit_locking - WARNING - [WARNING] Position 1570 not found during profit lock attempt 1
+2025-12-13 22:54:09 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: GBPUSDm Ticket 1570 | Profit: $0.05 | Target lock: $0.05 | Target SL: 1.31670 | Retry count: 3 | Broker SL update failed
+2025-12-13 22:54:27 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: GBPUSDm Ticket 1584 | Entered sweet spot at $0.10 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 22:54:27 - profit_locking - WARNING - [WARNING] Position 1584 not found during profit lock attempt 1
+2025-12-13 22:54:27 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: GBPUSDm Ticket 1584 | Profit: $0.10 | Target lock: $0.10 | Target SL: 1.31878 | Retry count: 3 | Broker SL update failed
+2025-12-13 23:28:18 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: EURUSDm Ticket 1693 | Entered sweet spot at $0.05 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 23:28:18 - profit_locking - WARNING - [WARNING] Position 1693 not found during profit lock attempt 1
+2025-12-13 23:28:18 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: EURUSDm Ticket 1693 | Profit: $0.05 | Target lock: $0.05 | Target SL: 1.16066 | Retry count: 3 | Broker SL update failed
+2025-12-13 23:28:19 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: EURUSDm Ticket 1694 | Entered sweet spot at $0.05 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 23:28:19 - profit_locking - WARNING - [WARNING] Position 1694 not found during profit lock attempt 1
+2025-12-13 23:28:19 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: EURUSDm Ticket 1694 | Profit: $0.05 | Target lock: $0.05 | Target SL: 1.16043 | Retry count: 3 | Broker SL update failed
+2025-12-13 23:38:23 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: USDCADm Ticket 1750 | Entered sweet spot at $0.09 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-13 23:38:23 - profit_locking - WARNING - [WARNING] Position 1750 not found during profit lock attempt 1
+2025-12-13 23:38:23 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: USDCADm Ticket 1750 | Profit: $0.09 | Target lock: $0.09 | Target SL: 1.39396 | Retry count: 3 | Broker SL update failed
+2025-12-14 00:23:59 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AUDUSDm Ticket 1900 | Entered sweet spot at $0.08 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-14 00:23:59 - profit_locking - WARNING - [WARNING] Position 1900 not found during profit lock attempt 1
+2025-12-14 00:23:59 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: AUDUSDm Ticket 1900 | Profit: $0.08 | Target lock: $0.08 | Target SL: 0.66343 | Retry count: 3 | Broker SL update failed
+2025-12-14 00:35:40 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: GBPUSDm Ticket 1921 | Entered sweet spot at $0.07 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-14 00:35:40 - profit_locking - WARNING - [WARNING] Position 1921 not found during profit lock attempt 1
+2025-12-14 00:35:40 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: GBPUSDm Ticket 1921 | Profit: $0.07 | Target lock: $0.07 | Target SL: 1.34193 | Retry count: 3 | Broker SL update failed
+2025-12-14 00:36:02 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: GBPUSDm Ticket 1934 | Entered sweet spot at $0.09 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-14 00:36:02 - profit_locking - WARNING - [WARNING] Position 1934 not found during profit lock attempt 1
+2025-12-14 00:36:02 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: GBPUSDm Ticket 1934 | Profit: $0.09 | Target lock: $0.09 | Target SL: 1.34168 | Retry count: 3 | Broker SL update failed
+2025-12-14 01:02:57 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AUDUSDm Ticket 1986 | Entered sweet spot at $0.03 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-14 01:02:57 - profit_locking - WARNING - [WARNING] Position 1986 not found during profit lock attempt 1
+2025-12-14 01:02:57 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: AUDUSDm Ticket 1986 | Profit: $0.03 | Target lock: $0.03 | Target SL: 0.66454 | Retry count: 3 | Broker SL update failed
+2025-12-14 01:03:21 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AUDUSDm Ticket 1998 | Entered sweet spot at $0.06 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-14 01:03:21 - profit_locking - WARNING - [WARNING] Position 1998 not found during profit lock attempt 1
+2025-12-14 01:03:21 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: AUDUSDm Ticket 1998 | Profit: $0.06 | Target lock: $0.06 | Target SL: 0.66422 | Retry count: 3 | Broker SL update failed
+2025-12-14 01:03:29 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AUDUSDm Ticket 2004 | Entered sweet spot at $0.05 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-14 01:03:29 - profit_locking - WARNING - [WARNING] Position 2004 not found during profit lock attempt 1
+2025-12-14 01:03:29 - profit_locking - WARNING - [WARNING] SWEET SPOT LOCK FAILED: AUDUSDm Ticket 2004 | Profit: $0.05 | Target lock: $0.05 | Target SL: 0.66414 | Retry count: 3 | Broker SL update failed

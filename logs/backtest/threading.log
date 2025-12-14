@@ -1,0 +1,5 @@
+2025-12-13 20:44:27 - backtest_threading - INFO - [OK] Instant trailing enabled - SL updates will trigger instantly (0ms interval)
+2025-12-13 20:44:27 - backtest_threading - INFO - Thread intervals configured: SL worker=0ms, run_cycle=60s, position_monitor=1s
+2025-12-13 20:44:27 - backtest_threading - INFO - BacktestThreadingManager initialized
+2025-12-13 20:44:27 - backtest_threading - INFO - Registered callback for thread: sl_worker
+2025-12-13 20:44:27 - backtest_threading - INFO - Registered callback for thread: run_cycle
