@@ -269,6 +269,10 @@ class TradingBot:
         # SL tracking for "not moving" detection
         self._sl_tracking = {}  # {ticket: {'last_sl': float, 'last_profit': float, 'unchanged_ticks': int, 'last_check_time': float}}
         self._sl_tracking_lock = threading.Lock()
+        
+        # One-candle confirmation entry logic - pending signals tracking
+        self._pending_signals = {}  # {symbol: {'direction': 'LONG'|'SHORT', 'signal_time': datetime, 'candle_time': int, 'quality_score': float, 'trend_signal': dict}}
+        self._pending_signals_lock = threading.Lock()
     
         # Manual approval mode settings
         self.manual_approval_mode = False
@@ -778,6 +782,51 @@ class TradingBot:
                     else:
                         logger.debug(f"[OK] {symbol}: No news blocking")
                     
+                    # 2a. ONE-CANDLE CONFIRMATION: Check for pending signal first
+                    # This check happens BEFORE filters to confirm direction consistency only
+                    with self._pending_signals_lock:
+                        pending_signal = self._pending_signals.get(symbol)
+                        
+                        if pending_signal is not None:
+                            # We have a pending signal - check if direction is still valid (one candle has closed)
+                            # Get current trend signal to check direction consistency
+                            current_trend_signal = self.trend_filter.get_trend_signal(symbol)
+                            current_direction = current_trend_signal.get('signal', 'NONE')
+                            
+                            # Get current candle time to compare
+                            df_current = self.trend_filter.get_rates(symbol, count=1)
+                            if df_current is not None and len(df_current) > 0:
+                                current_candle_time = int(df_current.iloc[0]['time'])
+                                pending_candle_time = pending_signal['candle_time']
+                                
+                                # Check if a new candle has closed (current candle time is different from pending)
+                                if current_candle_time != pending_candle_time:
+                                    # New candle has closed - check direction consistency only
+                                    if current_direction == pending_signal['direction']:
+                                        # Direction held - confirm entry using stored opportunity data
+                                        logger.info(f"[ENTRY CONFIRMED] {symbol}: direction {current_direction} held for 1 candle")
+                                        stored_opportunity = pending_signal['opportunity_data']
+                                        opportunities.append(stored_opportunity)
+                                        del self._pending_signals[symbol]
+                                        continue  # Skip rest of processing for this symbol (use stored data)
+                                    else:
+                                        # Direction changed - discard pending signal
+                                        logger.info(f"[ENTRY CONFIRMATION FAILED] {symbol}: direction changed from {pending_signal['direction']} to {current_direction}")
+                                        del self._pending_signals[symbol]
+                                        self.trade_stats['filtered_opportunities'] += 1
+                                        continue  # Skip this symbol
+                                else:
+                                    # Same candle still - wait for next candle
+                                    logger.debug(f"[ENTRY PENDING] {symbol}: waiting for candle close (current: {current_candle_time}, pending: {pending_candle_time})")
+                                    self.trade_stats['filtered_opportunities'] += 1
+                                    continue  # Skip this symbol, wait for next candle
+                            else:
+                                # Can't get current candle - discard pending signal
+                                logger.debug(f"[ENTRY CONFIRMATION FAILED] {symbol}: cannot get current candle time")
+                                del self._pending_signals[symbol]
+                                self.trade_stats['filtered_opportunities'] += 1
+                                continue
+                    
                     # 2. Get SIMPLE trend signal (SMA20 vs SMA50 only)
                     trend_signal = self.trend_filter.get_trend_signal(symbol)
                     
@@ -952,7 +1001,7 @@ class TradingBot:
                                 # With USD-based SL, risk is always $2.00 fixed
                                 calculated_risk = self.risk_manager.max_risk_usd
                     
-                    # Enhanced opportunity logging with detailed breakdown
+                    # 10. Enhanced opportunity logging with detailed breakdown (after confirmation)
                     quality_threshold = self.trading_config.get('min_quality_score', 50.0)
                     logger.info("=" * 80)
                     logger.info(f"[OPPORTUNITY CHECK]")
@@ -989,7 +1038,8 @@ class TradingBot:
                     # Since we passed the volume filter, volume_ok should be True
                     volume_ok = True  # If we reach here, volume check passed
                     
-                    opportunities.append({
+                    # Create opportunity data structure
+                    opportunity_data = {
                         'symbol': symbol,
                         'signal': trend_signal['signal'],
                         'trend_signal': trend_signal,  # Include full trend_signal dict for entry conditions check
@@ -1002,7 +1052,28 @@ class TradingBot:
                         'min_lot': opp_min_lot,
                         'spread_fees_cost': total_cost,  # Always include for sorting
                         'quality_score': quality_score  # Include quality score for sorting
-                    })
+                    }
+                    
+                    # ONE-CANDLE CONFIRMATION: Store as pending instead of adding immediately
+                    df_current = self.trend_filter.get_rates(symbol, count=1)
+                    if df_current is not None and len(df_current) > 0:
+                        current_candle_time = int(df_current.iloc[0]['time'])
+                        with self._pending_signals_lock:
+                            self._pending_signals[symbol] = {
+                                'direction': signal_type,
+                                'signal_time': datetime.now(),
+                                'candle_time': current_candle_time,
+                                'quality_score': quality_score,
+                                'trend_signal': trend_signal.copy(),
+                                'opportunity_data': opportunity_data  # Store all opportunity data
+                            }
+                        logger.info(f"[ENTRY PENDING] {symbol}: signal {signal_type} stored, waiting for next candle close")
+                        self.trade_stats['filtered_opportunities'] += 1
+                        continue  # Don't add to opportunities yet - wait for confirmation
+                    else:
+                        # Can't get candle time - add immediately (fallback behavior)
+                        logger.debug(f"[WARNING] {symbol}: cannot get candle time for confirmation, adding immediately")
+                        opportunities.append(opportunity_data)
                     
                     # DRY-RUN ONLY: Analyze limit entry (does NOT affect execution)
                     if hasattr(self, 'limit_entry_dry_run') and self.limit_entry_dry_run is not None:

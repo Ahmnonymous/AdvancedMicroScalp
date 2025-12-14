@@ -612,9 +612,11 @@ class BacktestAnalyzer:
             recommendations.append("CONSIDER INCREASING POSITION SIZE: High win rate suggests strategy is working well")
         
         # Profit factor recommendations
-        avg_profit_factor = statistics.mean([p['profit_factor'] for p in symbol_perf.values() if p['profit_factor'] > 0])
-        if avg_profit_factor < 1.0:
-            recommendations.append("IMPROVE RISK-REWARD: Profit factor below 1.0 indicates losses exceed wins on average")
+        profit_factors = [p['profit_factor'] for p in symbol_perf.values() if p['profit_factor'] > 0]
+        if profit_factors:
+            avg_profit_factor = statistics.mean(profit_factors)
+            if avg_profit_factor < 1.0:
+                recommendations.append("IMPROVE RISK-REWARD: Profit factor below 1.0 indicates losses exceed wins on average")
         
         # Drawdown recommendations
         if risk_metrics.get('max_drawdown_pct', 0) > 20:

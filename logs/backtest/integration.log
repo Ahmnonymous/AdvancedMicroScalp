@@ -1,4 +1,0 @@
-2025-12-14 15:46:32 - backtest_integration - INFO - Injecting backtest providers into bot...
-2025-12-14 15:46:32 - backtest_integration - INFO - Set allowed_symbols for backtest: ['EURUSDm', 'GBPUSDm', 'USDJPYm', 'AUDUSDm', 'USDCADm', 'EURGBPm', 'XAUUSDm', 'XAGUSDm', 'BTCUSDm', 'ETHUSDm', 'US30m', 'US500m', 'JP225m', 'AUS200m']
-2025-12-14 15:46:32 - backtest_integration - INFO - Enabled test mode for PairFilter (backtest mode)
-2025-12-14 15:46:32 - backtest_integration - INFO - Backtest providers injected successfully
