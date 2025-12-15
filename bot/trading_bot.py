@@ -902,6 +902,21 @@ class TradingBot:
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
+                    # 5a. ENTRY TIMING GUARDS (structure-only, no threshold changes)
+                    # Trend phase / maturity check – block late, overextended trends
+                    trend_phase_ok, trend_phase_reason = self.trend_filter.check_trend_maturity(symbol, trend_signal)
+                    if not trend_phase_ok:
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {trend_phase_reason}")
+                        self.trade_stats['filtered_opportunities'] += 1
+                        continue
+                    
+                    # Impulse / exhaustion candle guard – avoid entering on runaway spikes
+                    impulse_ok, impulse_reason = self.trend_filter.check_impulse_exhaustion(symbol, trend_signal)
+                    if not impulse_ok:
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {impulse_reason}")
+                        self.trade_stats['filtered_opportunities'] += 1
+                        continue
+                    
                     # Check portfolio risk limit before opening trade
                     # With USD-based SL, risk is always fixed at max_risk_usd ($2.00)
                     estimated_risk = self.risk_manager.max_risk_usd

@@ -320,6 +320,129 @@ class TrendFilter:
         
         return ci_normalized
     
+    # ------------------------------------------------------------------
+    # ENTRY TIMING HELPERS (READ-ONLY, PRE-TRADE BLOCKS ONLY)
+    # ------------------------------------------------------------------
+    def check_trend_maturity(self, symbol: str, trend_signal: Dict[str, Any]) -> Tuple[bool, str]:
+        """
+        Detect late / overextended trend phases and block structurally bad entries.
+        
+        This does NOT change existing filters or thresholds – it only adds an additional
+        timing guard on top of already-approved setups.
+        
+        Rules (heuristic, conservative):
+        - If price has been on the same side of SMA50 for many candles AND
+          current price is far from SMA50, treat it as a late trend phase.
+        - Block entries in that case to avoid entering at the end of a move.
+        """
+        try:
+            df = self.get_rates(symbol, count=max(self.sma_slow * 2, 100))
+            if df is None or len(df) < self.sma_slow + 5:
+                # Not enough history to judge trend phase – allow
+                return True, "Trend phase: insufficient data to evaluate"
+            
+            close = df["close"]
+            sma_fast_series = self.calculate_sma(df, self.sma_fast)
+            sma_slow_series = self.calculate_sma(df, self.sma_slow)
+            
+            latest_close = close.iloc[-1]
+            latest_sma_slow = sma_slow_series.iloc[-1]
+            if pd.isna(latest_sma_slow) or latest_sma_slow <= 0:
+                return True, "Trend phase: invalid SMA data"
+            
+            # Distance of price from slow SMA in percentage terms
+            dist_pct = abs(latest_close - latest_sma_slow) / latest_sma_slow * 100.0
+            
+            # Bars since SMA20/50 cross (approximate trend age)
+            lookback = min(50, len(df) - 1)
+            fast_minus_slow = sma_fast_series.iloc[-lookback:] - sma_slow_series.iloc[-lookback:]
+            # Count how many of the last N bars had the same sign as current signal
+            current_signal = trend_signal.get("signal", "NONE")
+            if current_signal == "LONG":
+                same_side = (fast_minus_slow > 0).sum()
+            elif current_signal == "SHORT":
+                same_side = (fast_minus_slow < 0).sum()
+            else:
+                # No active trend – let existing logic handle it
+                return True, "Trend phase: no active trend"
+            
+            # Heuristic late-trend conditions (do not depend on external thresholds):
+            # - Trend has persisted for many bars on the same side of SMA50
+            # - Price is materially far from SMA50 in percentage terms
+            if same_side >= 20 and dist_pct >= 0.5:
+                direction_str = "LONG" if current_signal == "LONG" else "SHORT"
+                reason = (
+                    f"[TIMING BLOCK] {symbol}: Late trend phase - trend {direction_str} "
+                    f"has persisted for {same_side} bars with price {dist_pct:.3f}% away from SMA{self.sma_slow}"
+                )
+                logger.info(reason)
+                return False, reason
+            
+            return True, "Trend phase acceptable"
+        except Exception as e:
+            logger.debug(f"{symbol}: Trend maturity check failed: {e}")
+            # Fail-open for safety – existing filters still apply
+            return True, "Trend phase: evaluation error"
+    
+    def check_impulse_exhaustion(self, symbol: str, trend_signal: Dict[str, Any]) -> Tuple[bool, str]:
+        """
+        Guard against entering on impulse / exhaustion candles.
+        
+        Logic:
+        - Compute current candle range vs average of prior N ranges.
+        - If current range is a large multiple of the recent average AND
+          recent candles all moved in the same direction, treat it as a
+          potential exhaustion run and block entry.
+        """
+        try:
+            df = self.get_rates(symbol, count=40)
+            if df is None or len(df) < 25:
+                return True, "Impulse guard: insufficient data"
+            
+            recent = df.tail(25)
+            latest = recent.iloc[-1]
+            prev = recent.iloc[:-1]
+            
+            current_range = latest["high"] - latest["low"]
+            prev_ranges = (prev["high"] - prev["low"]).tolist()
+            avg_range = sum(prev_ranges) / len(prev_ranges) if prev_ranges else 0.0
+            if avg_range <= 0 or current_range <= 0:
+                return True, "Impulse guard: invalid range data"
+            
+            range_ratio = current_range / avg_range
+            
+            # Direction of current candle and previous few candles
+            signal = trend_signal.get("signal", "NONE")
+            last3 = recent.tail(3)  # includes latest
+            if len(last3) < 3:
+                return True, "Impulse guard: not enough recent candles"
+            
+            # Count stacked candles in signal direction (body sign)
+            def body_dir(c):
+                return 1 if c["close"] > c["open"] else (-1 if c["close"] < c["open"] else 0)
+            
+            dirs = [body_dir(row) for _, row in last3.iterrows()]
+            same_dir_count = 0
+            if signal == "LONG":
+                same_dir_count = sum(1 for d in dirs if d > 0)
+            elif signal == "SHORT":
+                same_dir_count = sum(1 for d in dirs if d < 0)
+            
+            # Heuristic: very large candle (>= 2.5x average) and stacked in same direction
+            if range_ratio >= 2.5 and same_dir_count >= 2:
+                reason = (
+                    f"[TIMING BLOCK] {symbol}: Impulse/exhaustion candle - "
+                    f"current range {range_ratio:.2f}x recent average with {same_dir_count} "
+                    f"candles in {signal} direction"
+                )
+                logger.info(reason)
+                return False, reason
+            
+            return True, "Impulse guard: structure acceptable"
+        except Exception as e:
+            logger.debug(f"{symbol}: Impulse/exhaustion check failed: {e}")
+            return True, "Impulse guard: evaluation error"
+    
     def _calculate_volatility_floor_score(self, symbol: str, df: pd.DataFrame) -> Tuple[int, str]:
         """
         Calculate volatility floor component score.
@@ -785,36 +908,64 @@ class TrendFilter:
             # Get recent candles
             recent = df.tail(5)
             latest = recent.iloc[-1]
+            prev = recent.iloc[-2] if len(recent) >= 2 else None
             
-            # Simple support/resistance check: price near recent highs/lows
+            # Recent swing structure over last 20 bars
             high_20 = df['high'].tail(20).max()
             low_20 = df['low'].tail(20).min()
             current_price = latest['close']
             
-            # For LONG: price should be above recent low (support)
-            # For SHORT: price should be below recent high (resistance)
+            # Avoid entries exactly at short-term extremes for a trend-following scalp:
+            # - LONG: block if price is at/near 20-bar low (reversal location) or at 20-bar high (exhaustion).
+            # - SHORT: block if price is at/near 20-bar high or at 20-bar low.
             if trend_signal['signal'] == 'LONG':
-                if current_price > low_20 * 0.999:  # Within 0.1% of support
-                    return True, f"Price action confirmed: LONG near support (price: {current_price:.5f}, low: {low_20:.5f})"
+                # Too close to recent low (trying to catch falling knife)
+                if current_price <= low_20 * 1.001:
+                    return False, (
+                        f"[TIMING BLOCK] {symbol}: Price action - LONG near extreme low "
+                        f"(price: {current_price:.5f}, low_20: {low_20:.5f})"
+                    )
+                # Too close to recent high (buying into local extreme)
+                if current_price >= high_20 * 0.999:
+                    return False, (
+                        f"[TIMING BLOCK] {symbol}: Price action - LONG at short-term high "
+                        f"(price: {current_price:.5f}, high_20: {high_20:.5f})"
+                    )
             elif trend_signal['signal'] == 'SHORT':
-                if current_price < high_20 * 1.001:  # Within 0.1% of resistance
-                    return True, f"Price action confirmed: SHORT near resistance (price: {current_price:.5f}, high: {high_20:.5f})"
+                if current_price >= high_20 * 0.999:
+                    return False, (
+                        f"[TIMING BLOCK] {symbol}: Price action - SHORT near extreme high "
+                        f"(price: {current_price:.5f}, high_20: {high_20:.5f})"
+                    )
+                if current_price <= low_20 * 1.001:
+                    return False, (
+                        f"[TIMING BLOCK] {symbol}: Price action - SHORT at short-term low "
+                        f"(price: {current_price:.5f}, low_20: {low_20:.5f})"
+                    )
             
-            # Simple candlestick pattern check
-            # Bullish: green candle for LONG
-            # Bearish: red candle for SHORT
-            if trend_signal['signal'] == 'LONG':
-                if latest['close'] > latest['open']:
-                    return True, "Price action confirmed: Bullish candle for LONG"
-            elif trend_signal['signal'] == 'SHORT':
-                if latest['close'] < latest['open']:
-                    return True, "Price action confirmed: Bearish candle for SHORT"
+            # Simple continuation-style candlestick check:
+            # Require a pullback candle followed by a resumption candle in trend direction
+            if prev is not None:
+                prev_bull = prev['close'] > prev['open']
+                prev_bear = prev['close'] < prev['open']
+                latest_bull = latest['close'] > latest['open']
+                latest_bear = latest['close'] < latest['open']
+                
+                if trend_signal['signal'] == 'LONG':
+                    # Prefer: small pullback (bearish or neutral) then bullish resumption
+                    if latest_bull and (prev_bear or abs(prev['close'] - prev['open']) <= 1e-8):
+                        return True, "Price action confirmed: pullback then bullish resumption for LONG"
+                elif trend_signal['signal'] == 'SHORT':
+                    # Prefer: small pullback (bullish or neutral) then bearish resumption
+                    if latest_bear and (prev_bull or abs(prev['close'] - prev['open']) <= 1e-8):
+                        return True, "Price action confirmed: pullback then bearish resumption for SHORT"
             
-            # If no specific confirmation, still allow (relaxed for medium-frequency trading)
-            return True, "Price action: No strong confirmation but allowed"
-            
+            # If no specific continuation confirmation, be conservative and block.
+            return False, "[TIMING BLOCK] Price action - no clear continuation after pullback"
+        
         except Exception as e:
             logger.debug(f"{symbol}: Price action confirmation error: {e}")
+            # On error, fail-open but let other timing guards handle risk
             return True, "Price action check failed, allowing trade"
     
     def check_volume_confirmation(self, symbol: str) -> Tuple[bool, str]:
