@@ -1,0 +1,32 @@
+2025-12-14 22:28:15 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:43 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:09 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:35 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:03 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:31 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:58 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:26 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:54 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:29:37 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.62 pips < min 1.50 pips
+2025-12-14 23:30:53 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.57 pips < min 1.50 pips
+2025-12-14 23:32:17 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.63 pips < min 1.50 pips
+2025-12-14 23:33:29 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.60 pips < min 1.50 pips
+2025-12-14 23:34:58 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.57 pips < min 1.50 pips
+2025-12-14 23:36:15 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.54 pips < min 1.50 pips
+2025-12-14 23:37:35 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.51 pips < min 1.50 pips
+2025-12-14 23:40:22 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.48 pips < min 1.50 pips
+2025-12-14 23:41:33 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.47 pips < min 1.50 pips
+2025-12-14 23:44:19 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 1.50 pips
+2025-12-14 23:46:55 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 1.50 pips
+2025-12-15 01:08:41 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 811s)
+2025-12-15 01:09:32 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 760s)
+2025-12-15 01:18:37 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 215s)
+2025-12-15 01:55:21 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1696s)
+2025-12-15 02:19:26 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 250s)
+2025-12-15 02:39:49 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 877s)
+2025-12-15 03:24:34 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 64s)
+2025-12-15 03:39:42 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 997s)
+2025-12-15 04:09:33 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1041s)
+2025-12-15 05:31:27 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1671s)
+2025-12-15 05:41:56 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1041s)
+2025-12-15 06:01:13 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses)

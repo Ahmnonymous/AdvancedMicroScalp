@@ -1,0 +1,19 @@
+2025-12-14 22:33:47 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:15 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:44 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:35:04 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.59 pips < min 1.50 pips
+2025-12-14 23:36:20 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.57 pips < min 1.50 pips
+2025-12-14 23:39:10 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.45 pips < min 1.50 pips
+2025-12-15 00:04:26 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 999s)
+2025-12-15 00:05:14 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 951s)
+2025-12-15 00:12:35 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 510s)
+2025-12-15 00:28:27 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1395s)
+2025-12-15 02:18:48 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 289s)
+2025-12-15 02:38:20 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 966s)
+2025-12-15 04:09:04 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1071s)
+2025-12-15 04:36:19 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1300s)
+2025-12-15 05:22:06 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 377s)
+2025-12-15 05:30:59 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1699s)
+2025-12-15 05:40:43 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1115s)
+2025-12-15 05:59:15 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 3s)
+2025-12-15 09:55:15 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 813s)

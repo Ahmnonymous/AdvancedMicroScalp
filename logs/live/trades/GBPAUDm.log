@@ -1,0 +1,31 @@
+2025-12-14 22:32:25 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:54 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:22 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:15 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:44 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:12 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:40 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:09 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:37 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:06 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:55 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:21 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:49:15 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:26 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:24 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:31 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:42 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:47 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:01:34 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:02:42 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:03:57 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:05:07 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 44.4% of avg range > max 20.0%
+2025-12-14 23:06:26 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 45.5% of avg range > max 20.0%
+2025-12-14 23:07:44 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 46.8% of avg range > max 20.0%
+2025-12-14 23:08:50 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 48.6% of avg range > max 20.0%
+2025-12-14 23:10:05 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.9% of avg range > max 20.0%
+2025-12-14 23:13:18 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.2% of avg range > max 20.0%
+2025-12-14 23:14:22 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.2% of avg range > max 20.0%
+2025-12-14 23:19:23 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 72.1% of avg range > max 20.0%
+2025-12-15 06:04:50 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1583s)
+2025-12-15 09:58:42 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 606s)

@@ -1,0 +1,627 @@
+2025-12-15 08:18:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.2% of avg < min 65.0%
+2025-12-15 08:18:10 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.2% of avg < min 65.0%
+2025-12-15 08:18:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.2% of avg < min 65.0%
+2025-12-15 08:18:13 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.2% of avg < min 65.0%
+2025-12-15 08:18:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.2% of avg < min 65.0%
+2025-12-15 08:18:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.2% of avg < min 65.0%
+2025-12-15 08:18:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.5% of avg < min 65.0%
+2025-12-15 08:18:21 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.5% of avg < min 65.0%
+2025-12-15 08:18:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.5% of avg < min 65.0%
+2025-12-15 08:18:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.5% of avg < min 65.0%
+2025-12-15 08:18:29 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.5% of avg < min 65.0%
+2025-12-15 08:18:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 08:18:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 08:18:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 08:18:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 08:18:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 08:18:45 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 08:18:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 08:18:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 08:18:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.1% of avg < min 65.0%
+2025-12-15 08:18:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.1% of avg < min 65.0%
+2025-12-15 08:18:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.1% of avg < min 65.0%
+2025-12-15 08:18:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.1% of avg < min 65.0%
+2025-12-15 08:19:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.7% of avg < min 65.0%
+2025-12-15 08:19:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.7% of avg < min 65.0%
+2025-12-15 08:19:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.7% of avg < min 65.0%
+2025-12-15 08:19:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.7% of avg < min 65.0%
+2025-12-15 08:19:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.7% of avg < min 65.0%
+2025-12-15 08:19:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.4% of avg < min 65.0%
+2025-12-15 08:19:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.4% of avg < min 65.0%
+2025-12-15 08:19:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.4% of avg < min 65.0%
+2025-12-15 08:19:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.4% of avg < min 65.0%
+2025-12-15 08:19:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.4% of avg < min 65.0%
+2025-12-15 08:19:25 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.4% of avg < min 65.0%
+2025-12-15 08:19:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:51 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:19:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 61.8% of avg < min 65.0%
+2025-12-15 08:20:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 60.4% of avg < min 65.0%
+2025-12-15 08:20:02 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 60.4% of avg < min 65.0%
+2025-12-15 08:20:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 60.4% of avg < min 65.0%
+2025-12-15 08:20:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 60.4% of avg < min 65.0%
+2025-12-15 08:21:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 08:21:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 08:21:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 08:21:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 08:21:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 08:21:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:23 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:25 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:21:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:22:02 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:22:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:22:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 65.0%
+2025-12-15 08:22:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.5% of avg < min 65.0%
+2025-12-15 08:22:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.5% of avg < min 65.0%
+2025-12-15 08:22:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.5% of avg < min 65.0%
+2025-12-15 08:22:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.5% of avg < min 65.0%
+2025-12-15 08:22:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.5% of avg < min 65.0%
+2025-12-15 08:22:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:22:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:22:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:22:27 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:22:29 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:22:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:51 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:54 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:56 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:22:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:23:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.3% of avg < min 65.0%
+2025-12-15 08:24:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:51 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:24:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.0% of avg < min 65.0%
+2025-12-15 08:38:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.0% of avg < min 65.0%
+2025-12-15 08:38:13 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.0% of avg < min 65.0%
+2025-12-15 08:38:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.0% of avg < min 65.0%
+2025-12-15 08:38:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.0% of avg < min 65.0%
+2025-12-15 08:38:21 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 58.0% of avg < min 65.0%
+2025-12-15 08:38:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:38:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:38:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:38:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:38:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:38:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.9% of avg < min 65.0%
+2025-12-15 08:38:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.4% of avg < min 65.0%
+2025-12-15 08:38:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.4% of avg < min 65.0%
+2025-12-15 08:38:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.4% of avg < min 65.0%
+2025-12-15 08:38:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.4% of avg < min 65.0%
+2025-12-15 08:38:45 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.4% of avg < min 65.0%
+2025-12-15 08:38:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.1% of avg < min 65.0%
+2025-12-15 08:41:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:27 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:29 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:45 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 65.0%
+2025-12-15 08:41:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.5% of avg < min 65.0%
+2025-12-15 08:41:51 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.5% of avg < min 65.0%
+2025-12-15 08:41:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.5% of avg < min 65.0%
+2025-12-15 08:42:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 55.8% of avg < min 65.0%
+2025-12-15 08:42:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 55.8% of avg < min 65.0%
+2025-12-15 08:42:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 55.8% of avg < min 65.0%
+2025-12-15 08:43:02 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 55.8% of avg < min 65.0%
+2025-12-15 08:55:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:55:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:55:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:55:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:23 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:58:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:13 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:23 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:25 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:27 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:45 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:56 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 08:59:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:00:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:00:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:00:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:00:10 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:27 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:56 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:01:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:02:01 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:02:04 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:02:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:02:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:02:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:02:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:02:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:21 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:03:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:04:01 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:04:04 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:04:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:04:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:04:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:04:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:04:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:04:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 09:08:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.6% of avg < min 65.0%
+2025-12-15 09:08:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.6% of avg < min 65.0%
+2025-12-15 09:08:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.6% of avg < min 65.0%
+2025-12-15 09:08:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 57.6% of avg < min 65.0%
+2025-12-15 09:08:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 55.9% of avg < min 65.0%
+2025-12-15 09:08:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 55.9% of avg < min 65.0%
+2025-12-15 09:08:21 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 55.9% of avg < min 65.0%
+2025-12-15 09:09:25 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:45 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 65.0%
+2025-12-15 09:09:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:09:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:09:51 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:09:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:09:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:09:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:10:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:10:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:10:10 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.0% of avg < min 65.0%
+2025-12-15 09:12:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.9% of avg < min 65.0%
+2025-12-15 09:12:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.9% of avg < min 65.0%
+2025-12-15 09:12:13 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.9% of avg < min 65.0%
+2025-12-15 09:12:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.9% of avg < min 65.0%
+2025-12-15 09:12:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.9% of avg < min 65.0%
+2025-12-15 09:12:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:12:21 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:12:23 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:13:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.2% of avg < min 65.0%
+2025-12-15 09:13:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.2% of avg < min 65.0%
+2025-12-15 09:13:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.2% of avg < min 65.0%
+2025-12-15 09:13:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.2% of avg < min 65.0%
+2025-12-15 09:13:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.1% of avg < min 65.0%
+2025-12-15 09:13:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.1% of avg < min 65.0%
+2025-12-15 09:13:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.1% of avg < min 65.0%
+2025-12-15 09:13:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.1% of avg < min 65.0%
+2025-12-15 09:13:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.1% of avg < min 65.0%
+2025-12-15 09:13:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 30.1% of avg < min 65.0%
+2025-12-15 09:13:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:13:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:13:54 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:13:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:13:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:13:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:14:01 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:14:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:14:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:14:10 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 29.6% of avg < min 65.0%
+2025-12-15 09:14:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.3% of avg < min 65.0%
+2025-12-15 09:14:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.3% of avg < min 65.0%
+2025-12-15 09:14:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.3% of avg < min 65.0%
+2025-12-15 09:14:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.3% of avg < min 65.0%
+2025-12-15 09:14:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:27 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.7% of avg < min 65.0%
+2025-12-15 09:14:56 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.6% of avg < min 65.0%
+2025-12-15 09:14:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.6% of avg < min 65.0%
+2025-12-15 09:14:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.6% of avg < min 65.0%
+2025-12-15 09:15:04 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.6% of avg < min 65.0%
+2025-12-15 09:16:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 09:16:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 09:16:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 09:16:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 65.0%
+2025-12-15 09:16:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:16:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:16:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:16:51 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:16:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:16:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:16:56 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:16:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:17:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:17:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.7% of avg < min 65.0%
+2025-12-15 09:18:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 09:18:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 09:18:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 09:18:21 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 09:18:23 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.4% of avg < min 65.0%
+2025-12-15 09:18:27 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 65.0%
+2025-12-15 09:18:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.4% of avg < min 65.0%
+2025-12-15 09:18:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.4% of avg < min 65.0%
+2025-12-15 09:18:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.4% of avg < min 65.0%
+2025-12-15 09:18:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.4% of avg < min 65.0%
+2025-12-15 09:18:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.4% of avg < min 65.0%
+2025-12-15 09:19:01 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 44.7% of avg < min 65.0%
+2025-12-15 09:19:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 44.7% of avg < min 65.0%
+2025-12-15 09:19:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 44.7% of avg < min 65.0%
+2025-12-15 09:19:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 44.7% of avg < min 65.0%
+2025-12-15 09:19:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.8% of avg < min 65.0%
+2025-12-15 09:19:13 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.8% of avg < min 65.0%
+2025-12-15 09:19:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.8% of avg < min 65.0%
+2025-12-15 09:19:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.8% of avg < min 65.0%
+2025-12-15 09:19:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.8% of avg < min 65.0%
+2025-12-15 09:19:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.8% of avg < min 65.0%
+2025-12-15 09:19:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.7% of avg < min 65.0%
+2025-12-15 09:19:25 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.7% of avg < min 65.0%
+2025-12-15 09:19:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.7% of avg < min 65.0%
+2025-12-15 09:19:29 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.7% of avg < min 65.0%
+2025-12-15 09:19:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.7% of avg < min 65.0%
+2025-12-15 09:19:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.7% of avg < min 65.0%
+2025-12-15 09:19:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.7% of avg < min 65.0%
+2025-12-15 09:21:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 63.1% of avg < min 65.0%
+2025-12-15 09:21:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 63.1% of avg < min 65.0%
+2025-12-15 09:21:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 63.1% of avg < min 65.0%
+2025-12-15 09:21:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 63.1% of avg < min 65.0%
+2025-12-15 09:21:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 63.1% of avg < min 65.0%
+2025-12-15 09:21:13 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 63.1% of avg < min 65.0%
+2025-12-15 09:21:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:45 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:51 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:21:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:22:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:22:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:22:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 62.3% of avg < min 65.0%
+2025-12-15 09:36:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.8% of avg < min 65.0%
+2025-12-15 09:36:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.8% of avg < min 65.0%
+2025-12-15 09:36:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.8% of avg < min 65.0%
+2025-12-15 09:36:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.8% of avg < min 65.0%
+2025-12-15 09:36:29 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.8% of avg < min 65.0%
+2025-12-15 09:36:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.5% of avg < min 65.0%
+2025-12-15 09:36:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.7% of avg < min 65.0%
+2025-12-15 09:36:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.7% of avg < min 65.0%
+2025-12-15 09:36:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.7% of avg < min 65.0%
+2025-12-15 09:36:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.7% of avg < min 65.0%
+2025-12-15 09:37:01 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.7% of avg < min 65.0%
+2025-12-15 09:46:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 41.0% of avg < min 65.0%
+2025-12-15 09:46:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 41.0% of avg < min 65.0%
+2025-12-15 09:46:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 41.0% of avg < min 65.0%
+2025-12-15 09:46:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 41.0% of avg < min 65.0%
+2025-12-15 09:46:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 41.0% of avg < min 65.0%
+2025-12-15 09:46:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.2% of avg < min 65.0%
+2025-12-15 09:46:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.2% of avg < min 65.0%
+2025-12-15 09:46:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.2% of avg < min 65.0%
+2025-12-15 09:46:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.2% of avg < min 65.0%
+2025-12-15 09:46:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.2% of avg < min 65.0%
+2025-12-15 09:46:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.9% of avg < min 65.0%
+2025-12-15 09:46:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.9% of avg < min 65.0%
+2025-12-15 09:46:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.9% of avg < min 65.0%
+2025-12-15 09:46:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.9% of avg < min 65.0%
+2025-12-15 09:46:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.9% of avg < min 65.0%
+2025-12-15 09:46:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.6% of avg < min 65.0%
+2025-12-15 09:46:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.6% of avg < min 65.0%
+2025-12-15 09:46:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.6% of avg < min 65.0%
+2025-12-15 09:46:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.6% of avg < min 65.0%
+2025-12-15 09:46:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.6% of avg < min 65.0%
+2025-12-15 09:46:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.6% of avg < min 65.0%
+2025-12-15 09:46:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:46:51 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:46:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:46:54 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:46:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:46:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:47:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:47:04 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:47:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:47:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 65.0%
+2025-12-15 09:55:01 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:04 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:10 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:23 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:29 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:45 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:55:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:02 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:04 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:10 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:13 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:31 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:38 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:55 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:56 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:56:58 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:00 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:04 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:10 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:19 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:21 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:23 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:36 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:42 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:48 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:50 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:56 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:57:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:01 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:07 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:10 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:22 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:23 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:25 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:26 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:29 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:32 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:33 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:37 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:39 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:43 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:49 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:52 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:53 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:54 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:56 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:57 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:58:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:01 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:03 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:06 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:09 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:15 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:17 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 09:59:18 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 10:00:21 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:25 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:30 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:35 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:41 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:44 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:46 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:47 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:54 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:00:59 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:05 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:08 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:11 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:13 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:14 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:16 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:20 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:24 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:28 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:29 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:34 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:01:40 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:02:04 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 10:02:12 - trades.ETHUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked

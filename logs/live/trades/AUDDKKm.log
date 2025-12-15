@@ -1,0 +1,16 @@
+2025-12-14 22:49:25 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:37 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:45 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:57:18 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:58:29 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:59:33 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:00:45 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:01:59 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:04:25 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:07:03 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7326.1% of avg range > max 20.0%
+2025-12-14 23:30:14 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14775.2% of avg range > max 20.0%
+2025-12-15 04:30:22 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1658s)
+2025-12-15 05:17:12 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 672s)
+2025-12-15 08:12:33 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1440s)
+2025-12-15 09:46:45 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1323s)
+2025-12-15 10:03:21 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 327s)

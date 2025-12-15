@@ -1,0 +1,48 @@
+{
+  "report_timestamp": "2025-12-14T22:52:32.981296",
+  "session_duration_minutes": 25.517001216666664,
+  "active_positions": {
+    "total": 0,
+    "positions": [],
+    "lot_size_issues": [],
+    "symbols": {},
+    "total_profit": 0.0
+  },
+  "trade_statistics": {
+    "total_trades": 0,
+    "closed_trades": 0,
+    "open_trades": 0
+  },
+  "micro_hft_performance": {
+    "capture_rate": 0.0,
+    "total_closures": 0,
+    "sweet_spot_closures": 0,
+    "missed_sweet_spot": 0,
+    "status": "No closures yet"
+  },
+  "filter_effectiveness": {
+    "statistics": {
+      "lot_size_rejected": 59,
+      "trend_strength_rejected": 248,
+      "other_rejected": 385,
+      "rsi_rejected": 213,
+      "opportunities_found": 0,
+      "volume_rejected": 50
+    },
+    "last_scan_time": "2025-12-14T22:52:32.980300"
+  },
+  "lot_size_compliance": {
+    "violations": [],
+    "max_lot_size": 0.03
+  },
+  "errors_detected": [],
+  "recommendations": [
+    {
+      "priority": "MEDIUM",
+      "category": "Filter Effectiveness",
+      "issue": "No trading opportunities found in recent scans",
+      "recommendation": "Consider adjusting filter thresholds if markets are active",
+      "action": "Monitor filter rejection reasons and adjust if too restrictive"
+    }
+  ]
+}

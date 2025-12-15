@@ -1,0 +1,12 @@
+2025-12-14 22:28:18 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:45 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:10 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:36 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:04 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:32 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:14 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:42 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:10 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:24:16 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 1.50 pips
+2025-12-14 23:26:59 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.62 pips < min 1.50 pips
+2025-12-14 23:33:28 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.51 pips < min 1.50 pips

@@ -1,0 +1,30 @@
+2025-12-14 22:30:35 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:03 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:31 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:59 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:27 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:55 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:23 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:52 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:20 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:48 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:17 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:45 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:13 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:41 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:10 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:37 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:07 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:00 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:58:19 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:03:06 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:05:35 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6333.3% of avg range > max 20.0%
+2025-12-14 23:06:53 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6162.0% of avg range > max 20.0%
+2025-12-14 23:08:07 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5886.5% of avg range > max 20.0%
+2025-12-14 23:09:17 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5883.0% of avg range > max 20.0%
+2025-12-15 00:34:40 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1023s)
+2025-12-15 02:11:22 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 734s)
+2025-12-15 03:46:37 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 582s)
+2025-12-15 04:00:25 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1590s)
+2025-12-15 08:43:42 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1432s)
+2025-12-15 09:23:45 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 876s)

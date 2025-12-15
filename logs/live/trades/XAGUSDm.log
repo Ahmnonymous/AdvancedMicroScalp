@@ -1,0 +1,49 @@
+2025-12-14 23:19:23 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.1% of avg range > max 20.0%
+2025-12-14 23:20:32 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.8% of avg range > max 20.0%
+2025-12-14 23:21:58 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.2% of avg range > max 20.0%
+2025-12-14 23:23:01 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.3% of avg range > max 20.0%
+2025-12-14 23:24:22 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.0% of avg range > max 20.0%
+2025-12-14 23:27:04 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.4% of avg range > max 20.0%
+2025-12-14 23:28:25 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.3% of avg range > max 20.0%
+2025-12-14 23:29:42 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.3% of avg range > max 20.0%
+2025-12-14 23:35:07 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 72.9% of avg range > max 20.0%
+2025-12-14 23:36:20 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.1% of avg range > max 20.0%
+2025-12-14 23:37:40 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.2% of avg range > max 20.0%
+2025-12-14 23:39:12 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 83.3% of avg range > max 20.0%
+2025-12-14 23:41:39 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 88.2% of avg range > max 20.0%
+2025-12-14 23:42:56 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.3% of avg range > max 20.0%
+2025-12-14 23:44:24 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.7% of avg range > max 20.0%
+2025-12-14 23:45:31 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.6% of avg range > max 20.0%
+2025-12-14 23:47:03 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.2% of avg range > max 20.0%
+2025-12-14 23:48:34 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 108.2% of avg range > max 20.0%
+2025-12-14 23:49:50 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 112.6% of avg range > max 20.0%
+2025-12-14 23:51:17 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1788s)
+2025-12-14 23:52:18 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1727s)
+2025-12-14 23:53:17 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1668s)
+2025-12-14 23:54:27 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1598s)
+2025-12-14 23:55:34 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1531s)
+2025-12-14 23:57:56 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1389s)
+2025-12-14 23:58:54 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1331s)
+2025-12-14 23:59:59 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1266s)
+2025-12-15 00:00:51 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1214s)
+2025-12-15 00:01:39 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1166s)
+2025-12-15 00:02:24 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1121s)
+2025-12-15 01:20:14 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 119s)
+2025-12-15 01:56:32 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1625s)
+2025-12-15 02:08:05 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 932s)
+2025-12-15 02:22:42 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 55s)
+2025-12-15 02:45:08 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 558s)
+2025-12-15 03:25:51 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.7% of avg range > max 20.0%
+2025-12-15 03:56:34 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 04:11:27 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 927s)
+2025-12-15 05:22:45 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 338s)
+2025-12-15 05:45:19 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 839s)
+2025-12-15 06:06:15 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1498s)
+2025-12-15 06:41:31 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1239s)
+2025-12-15 07:03:47 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1791s)
+2025-12-15 07:58:15 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 441s)
+2025-12-15 08:20:41 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 952s)
+2025-12-15 09:03:33 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 241s)
+2025-12-15 09:18:13 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1208s)
+2025-12-15 09:37:21 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 61s)
+2025-12-15 09:59:41 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 546s)

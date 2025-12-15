@@ -1,0 +1,54 @@
+2025-12-14 22:35:45 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:13 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:41 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:10 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:38 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:08 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:03 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:29 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:42:46 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:43:54 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:45:04 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:46:10 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:47:11 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:48:13 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:31 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:33 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:41 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:57 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:00:40 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:01:59 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:03:10 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:10:29 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2090.6% of avg range > max 20.0%
+2025-12-14 23:11:36 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1960.5% of avg range > max 20.0%
+2025-12-14 23:17:43 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1751.3% of avg range > max 20.0%
+2025-12-14 23:18:37 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1690.0% of avg range > max 20.0%
+2025-12-14 23:19:45 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1664.8% of avg range > max 20.0%
+2025-12-14 23:21:09 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2084.2% of avg range > max 20.0%
+2025-12-14 23:22:16 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1873.4% of avg range > max 20.0%
+2025-12-14 23:23:27 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2090.0% of avg range > max 20.0%
+2025-12-14 23:24:52 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2051.5% of avg range > max 20.0%
+2025-12-14 23:26:25 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2030.0% of avg range > max 20.0%
+2025-12-14 23:27:32 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1816.9% of avg range > max 20.0%
+2025-12-14 23:28:46 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1774.2% of avg range > max 20.0%
+2025-12-14 23:30:13 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2221.0% of avg range > max 20.0%
+2025-12-14 23:31:34 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2022.9% of avg range > max 20.0%
+2025-12-14 23:32:51 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2055.8% of avg range > max 20.0%
+2025-12-14 23:34:08 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2086.6% of avg range > max 20.0%
+2025-12-14 23:36:56 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2325.4% of avg range > max 20.0%
+2025-12-14 23:43:33 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2879.0% of avg range > max 20.0%
+2025-12-14 23:45:54 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3163.7% of avg range > max 20.0%
+2025-12-14 23:47:31 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3740.8% of avg range > max 20.0%
+2025-12-14 23:49:14 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4050.9% of avg range > max 20.0%
+2025-12-14 23:50:18 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4057.7% of avg range > max 20.0%
+2025-12-14 23:51:37 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1768s)
+2025-12-14 23:52:38 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1707s)
+2025-12-14 23:53:39 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1646s)
+2025-12-14 23:54:47 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1578s)
+2025-12-14 23:56:00 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1505s)
+2025-12-14 23:57:17 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1428s)
+2025-12-14 23:58:19 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1366s)
+2025-12-14 23:59:19 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1306s)
+2025-12-15 00:00:16 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1249s)
+2025-12-15 00:39:53 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 709s)
+2025-12-15 08:48:35 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1139s)

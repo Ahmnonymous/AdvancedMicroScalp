@@ -1,0 +1,36 @@
+2025-12-14 22:29:34 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:01 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:36 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:58 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:26 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:54 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:22 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:50 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:18 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:46 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:15 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:50 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:11 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:46 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:35 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:40 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:46 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:56 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:56:16 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:58:30 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:00:45 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:01:57 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:05:38 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 567.8% of avg range > max 20.0%
+2025-12-14 23:23:25 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 934.7% of avg range > max 20.0%
+2025-12-14 23:24:50 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1118.3% of avg range > max 20.0%
+2025-12-15 00:19:00 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 125s)
+2025-12-15 00:37:58 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 824s)
+2025-12-15 01:05:36 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 997s)
+2025-12-15 01:06:25 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 948s)
+2025-12-15 01:08:55 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 798s)
+2025-12-15 01:09:42 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 751s)
+2025-12-15 03:30:37 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1542s)
+2025-12-15 03:48:40 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 459s)
+2025-12-15 06:11:28 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1185s)
+2025-12-15 08:46:00 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1294s)
+2025-12-15 09:25:49 - trades.GBPMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 752s)

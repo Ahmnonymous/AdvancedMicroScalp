@@ -1,0 +1,969 @@
+2025-12-15 10:01:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.63h)
+2025-12-15 10:02:29 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:01:11 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:01:32 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:29 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:29 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:01:33 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:29 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:29 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:01:35 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:01:38 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:01:39 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:28 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:01:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:35 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:29 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:35 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:34 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:35 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:35 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:35 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:35 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:35 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:33 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:39 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:34 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:37 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:39 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:35 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:39 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:41 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:42 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:42 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:42 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:42 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:42 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:43 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:43 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:42 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:40 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:41 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:43 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:43 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:43 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:43 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:43 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:43 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:43 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:40 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:43 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:43 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:43 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:44 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:44 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:46 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:46 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:46 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:46 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:46 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:46 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:45 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:46 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:46 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:47 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:47 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:48 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:48 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:48 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:49 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:48 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:48 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.67h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:49 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:50 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:50 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:51 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:51 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.65h)
+2025-12-15 10:02:52 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:52 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:52 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:52 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:52 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:52 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:52 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:53 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:55 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:55 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:55 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:55 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:55 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:54 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:55 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:55 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:55 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:55 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:55 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:55 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:56 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:56 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:56 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:56 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:56 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:57 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:57 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:58 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:58 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:58 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:02:58 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:02:58 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:02:58 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:03 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:03 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:04 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:04 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:04 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:05 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:05 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:05 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:05 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:05 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:05 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:08 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:08 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:08 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:08 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:08 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:08 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:08 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:08 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:08 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:08 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:08 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:08 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:08 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:09 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:09 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:09 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:09 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:09 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:09 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:10 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:10 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:12 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:12 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:13 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:13 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:13 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:14 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:14 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:15 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:15 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:15 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:15 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:15 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:15 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:15 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:16 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:16 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:16 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:16 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:16 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:17 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:17 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:19 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:19 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:19 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:20 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:20 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:20 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:20 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:20 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:21 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:21 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:21 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:21 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:21 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502251119, Symbol USTECm, Opened: 2025-12-14 23:22:20 (Date: 2025-12-14, Age: 10.68h)
+2025-12-15 10:03:21 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:21 - order_manager - INFO - [OK] Excluded 2 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:22 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:22 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:22 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:22 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:22 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:22 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:23 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:23 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).
+2025-12-15 10:03:24 - order_manager - INFO - 🚫 EXCLUDING Position from previous day (2025-12-14): Ticket 502255069, Symbol USTECm, Opened: 2025-12-14 23:23:34 (Date: 2025-12-14, Age: 10.66h)
+2025-12-15 10:03:24 - order_manager - INFO - [OK] Excluded 1 locked/old position(s) (Dec 8 or >12h old). Showing 0 active position(s).

@@ -1,0 +1,44 @@
+2025-12-14 23:36:49 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1446.0% of avg range > max 20.0%
+2025-12-14 23:38:05 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1519.0% of avg range > max 20.0%
+2025-12-14 23:39:34 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1631.8% of avg range > max 20.0%
+2025-12-14 23:44:43 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1766.3% of avg range > max 20.0%
+2025-12-14 23:45:50 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1882.1% of avg range > max 20.0%
+2025-12-14 23:47:18 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2364.5% of avg range > max 20.0%
+2025-12-14 23:48:55 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2460.5% of avg range > max 20.0%
+2025-12-14 23:50:12 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2756.1% of avg range > max 20.0%
+2025-12-14 23:51:34 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1772s)
+2025-12-14 23:52:31 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1714s)
+2025-12-14 23:53:35 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1650s)
+2025-12-14 23:54:40 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1585s)
+2025-12-14 23:55:46 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1519s)
+2025-12-14 23:57:08 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1437s)
+2025-12-14 23:58:14 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1371s)
+2025-12-14 23:59:10 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1315s)
+2025-12-15 00:00:12 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1253s)
+2025-12-15 00:00:57 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1208s)
+2025-12-15 00:01:47 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1158s)
+2025-12-15 00:02:29 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1116s)
+2025-12-15 00:03:11 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1074s)
+2025-12-15 00:03:51 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1034s)
+2025-12-15 00:04:36 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 989s)
+2025-12-15 00:05:22 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 943s)
+2025-12-15 00:16:30 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 275s)
+2025-12-15 00:33:36 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1086s)
+2025-12-15 01:01:37 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1236s)
+2025-12-15 01:22:32 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses)
+2025-12-15 01:58:29 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1508s)
+2025-12-15 02:11:00 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 757s)
+2025-12-15 02:27:37 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1609s)
+2025-12-15 03:03:34 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1324s)
+2025-12-15 03:17:58 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 459s)
+2025-12-15 03:44:27 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 712s)
+2025-12-15 06:09:28 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1305s)
+2025-12-15 06:25:07 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 366s)
+2025-12-15 06:45:21 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1009s)
+2025-12-15 07:09:02 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1476s)
+2025-12-15 07:39:12 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1583s)
+2025-12-15 08:02:42 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 173s)
+2025-12-15 08:41:45 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1549s)
+2025-12-15 09:21:15 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1026s)
+2025-12-15 09:41:23 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1645s)
+2025-12-15 10:02:58 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 350s)

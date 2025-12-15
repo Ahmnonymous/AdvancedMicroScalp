@@ -1,0 +1,45 @@
+2025-12-14 22:28:19 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:45 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:11 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:01 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:30 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:57 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:50 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:19 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:47 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:16 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:43 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:12 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:40 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:08 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:36 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:06 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:53 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:59 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:19 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:42:31 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:43:46 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:44:55 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:45:59 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:47:03 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:48:03 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:17:30 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 182.8% of avg range > max 20.0%
+2025-12-14 23:18:24 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 195.2% of avg range > max 20.0%
+2025-12-14 23:27:08 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 284.4% of avg range > max 20.0%
+2025-12-14 23:29:44 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 293.8% of avg range > max 20.0%
+2025-12-14 23:31:08 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 311.2% of avg range > max 20.0%
+2025-12-14 23:32:27 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 323.6% of avg range > max 20.0%
+2025-12-14 23:36:26 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 369.2% of avg range > max 20.0%
+2025-12-15 01:32:24 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1209s)
+2025-12-15 02:07:28 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 969s)
+2025-12-15 02:42:15 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 731s)
+2025-12-15 03:16:34 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 544s)
+2025-12-15 03:25:03 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 34s)
+2025-12-15 03:40:23 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 956s)
+2025-12-15 04:23:07 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 227s)
+2025-12-15 04:38:26 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1174s)
+2025-12-15 06:02:57 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1696s)
+2025-12-15 08:20:17 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 976s)
+2025-12-15 09:02:57 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 277s)
+2025-12-15 09:17:46 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1235s)
+2025-12-15 09:57:58 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 650s)

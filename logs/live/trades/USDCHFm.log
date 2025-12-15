@@ -1,0 +1,27 @@
+2025-12-14 22:28:18 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:44 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:10 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:01 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:29 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:57 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:25 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:52 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:21 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:00:11 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:09:53 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.3% of avg range > max 20.0%
+2025-12-14 23:12:10 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.5% of avg range > max 20.0%
+2025-12-14 23:14:20 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.7% of avg range > max 20.0%
+2025-12-14 23:15:25 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.0% of avg range > max 20.0%
+2025-12-14 23:16:24 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.2% of avg range > max 20.0%
+2025-12-14 23:20:21 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.01 pips < min 1.50 pips
+2025-12-14 23:21:50 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.83 pips < min 1.50 pips
+2025-12-14 23:24:16 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.72 pips < min 1.50 pips
+2025-12-14 23:26:59 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.73 pips < min 1.50 pips
+2025-12-14 23:28:15 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.77 pips < min 1.50 pips
+2025-12-14 23:29:36 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.76 pips < min 1.50 pips
+2025-12-15 00:12:10 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 535s)
+2025-12-15 02:05:18 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1099s)
+2025-12-15 03:38:56 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1043s)
+2025-12-15 08:19:02 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1051s)
+2025-12-15 09:35:54 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 147s)
+2025-12-15 09:54:38 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 850s)

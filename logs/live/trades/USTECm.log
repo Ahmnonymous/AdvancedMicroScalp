@@ -1,0 +1,90 @@
+2025-12-14 23:09:48 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20.3% of avg range > max 20.0%
+2025-12-14 23:11:00 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 13.8% of avg < min 65.0%
+2025-12-14 23:12:07 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 21.4% of avg < min 65.0%
+2025-12-14 23:13:08 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 9.0% of avg < min 65.0%
+2025-12-14 23:15:22 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 23.2% of avg < min 65.0%
+2025-12-14 23:16:22 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 28.5% of avg < min 65.0%
+2025-12-14 23:17:15 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.7% of avg < min 65.0%
+2025-12-14 23:18:16 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 12.0% of avg < min 65.0%
+2025-12-14 23:19:09 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 31.9% of avg < min 65.0%
+2025-12-14 23:22:21 - trades.USTECm - INFO - ================================================================================
+2025-12-14 23:22:21 - trades.USTECm - INFO - [OK] TRADE EXECUTED SUCCESSFULLY
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Symbol: USTECm
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Direction: SHORT
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Ticket: 502251119
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Entry Price (Requested): 25189.85000
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Entry Price (Actual Fill): 25189.85000
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Lot Size: 0.0100
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Stop Loss: 20000.0 pips (25389.85000)
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Risk: $2.00 USD
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Spread: 0.9 points
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Spread+Fees Cost: $0.02 USD
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Quality Score: 78.0
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Min Lot: 0.01
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Min Lot Source: broker
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Sma Fast: 25187.4475
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Sma Slow: 25214.7706
+2025-12-14 23:22:21 - trades.USTECm - INFO -    Rsi: 59.799844034313296
+2025-12-14 23:22:21 - trades.USTECm - INFO - ================================================================================
+{"timestamp": "2025-12-14 23:22:21", "symbol": "USTECm", "trade_type": "SHORT", "entry_price": 25189.85, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "502251119", "additional_info": {"entry_price_requested": 25189.85, "lot_size": 0.01, "stop_loss_pips": 20000.0, "stop_loss_price": 25389.85, "slippage": 0.0, "quality_score": 78, "spread_points": 0.8574882343483008, "spread_fees_cost": 0.021599999999998544, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 25187.4475, "sma_slow": 25214.7706, "rsi": 59.799844034313296}}
+2025-12-14 23:23:35 - trades.USTECm - INFO - ================================================================================
+2025-12-14 23:23:35 - trades.USTECm - INFO - [OK] TRADE EXECUTED SUCCESSFULLY
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Symbol: USTECm
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Direction: SHORT
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Ticket: 502255069
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Entry Price (Requested): 25192.44000
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Entry Price (Actual Fill): 25192.44000
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Lot Size: 0.0100
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Stop Loss: 20000.0 pips (25392.44000)
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Risk: $2.00 USD
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Spread: 0.9 points
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Spread+Fees Cost: $0.02 USD
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Quality Score: 85.0
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Min Lot: 0.01
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Min Lot Source: broker
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Sma Fast: 25186.434999999998
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Sma Slow: 25214.1184
+2025-12-14 23:23:35 - trades.USTECm - INFO -    Rsi: 64.12665274878233
+2025-12-14 23:23:35 - trades.USTECm - INFO - ================================================================================
+{"timestamp": "2025-12-14 23:23:35", "symbol": "USTECm", "trade_type": "SHORT", "entry_price": 25192.44, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "502255069", "additional_info": {"entry_price_requested": 25192.44, "lot_size": 0.01, "stop_loss_pips": 20000.0, "stop_loss_price": 25392.44, "slippage": 0.0, "quality_score": 85, "spread_points": 0.8574000771659491, "spread_fees_cost": 0.021599999999998544, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 25186.434999999998, "sma_slow": 25214.1184, "rsi": 64.12665274878233}}
+2025-12-14 23:25:42 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Staged window expired (201s > 150s)
+2025-12-14 23:26:55 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Staged window expired (274s > 150s)
+2025-12-14 23:28:09 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22.2% of avg range > max 20.0%
+2025-12-14 23:29:26 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22.5% of avg range > max 20.0%
+2025-12-14 23:30:48 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23.4% of avg range > max 20.0%
+2025-12-14 23:32:12 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22.2% of avg range > max 20.0%
+2025-12-14 23:33:25 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23.5% of avg range > max 20.0%
+2025-12-14 23:34:55 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23.1% of avg range > max 20.0%
+2025-12-14 23:36:11 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.9% of avg range > max 20.0%
+2025-12-14 23:37:31 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 27.5% of avg range > max 20.0%
+2025-12-14 23:38:48 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 28.2% of avg range > max 20.0%
+2025-12-14 23:48:23 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 30.5% of avg range > max 20.0%
+2025-12-14 23:49:44 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.2% of avg range > max 20.0%
+2025-12-14 23:51:07 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1798s)
+2025-12-14 23:52:10 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1735s)
+2025-12-14 23:53:08 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1677s)
+2025-12-14 23:54:16 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1609s)
+2025-12-14 23:55:24 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1541s)
+2025-12-14 23:56:36 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1470s)
+2025-12-14 23:57:48 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1397s)
+2025-12-14 23:58:48 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1337s)
+2025-12-15 00:08:29 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 756s)
+2025-12-15 01:05:10 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1023s)
+2025-12-15 01:06:09 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 964s)
+2025-12-15 01:06:57 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 916s)
+2025-12-15 01:07:47 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 866s)
+2025-12-15 01:08:37 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 815s)
+2025-12-15 01:09:28 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 765s)
+2025-12-15 01:10:15 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 718s)
+2025-12-15 01:11:06 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 666s)
+2025-12-15 01:49:48 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 164s)
+2025-12-15 02:16:22 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 435s)
+2025-12-15 03:11:15 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 862s)
+2025-12-15 03:21:15 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 262s)
+2025-12-15 05:19:58 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 506s)
+2025-12-15 06:18:15 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 778s)
+2025-12-15 06:56:49 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 322s)
+2025-12-15 07:29:43 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 236s)
+2025-12-15 08:57:09 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 626s)
+2025-12-15 09:31:47 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 394s)
+2025-12-15 09:51:51 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1017s)

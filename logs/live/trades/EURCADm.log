@@ -1,0 +1,2 @@
+2025-12-15 00:29:01 - trades.EURCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1361s)
+2025-12-15 09:36:51 - trades.EURCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 90s)

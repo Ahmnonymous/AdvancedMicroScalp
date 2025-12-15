@@ -1,0 +1,56 @@
+2025-12-14 22:28:20 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:46 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:12 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:39 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:08 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:35 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:03 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:31 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:59 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:27 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:55 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:23 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:52 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:20 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:48 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:17 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:45 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:13 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:41 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:10 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:38 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:08 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:02 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:46:09 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:48:12 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:49:20 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:30 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:55 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:00:40 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:01:50 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:03:03 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:05:32 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2052.6% of avg range > max 20.0%
+2025-12-14 23:09:15 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1938.1% of avg range > max 20.0%
+2025-12-14 23:19:42 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2249.5% of avg range > max 20.0%
+2025-12-14 23:27:26 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4876.0% of avg range > max 20.0%
+2025-12-14 23:28:44 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5686.2% of avg range > max 20.0%
+2025-12-14 23:35:33 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6450.3% of avg range > max 20.0%
+2025-12-14 23:45:52 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7542.9% of avg range > max 20.0%
+2025-12-14 23:47:26 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8158.9% of avg range > max 20.0%
+2025-12-14 23:49:07 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7636.4% of avg range > max 20.0%
+2025-12-15 01:05:34 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 999s)
+2025-12-15 01:06:24 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 949s)
+2025-12-15 01:08:54 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 799s)
+2025-12-15 01:09:41 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 752s)
+2025-12-15 01:10:32 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 701s)
+2025-12-15 01:11:18 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 655s)
+2025-12-15 02:28:26 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1559s)
+2025-12-15 02:49:35 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 291s)
+2025-12-15 04:01:27 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1528s)
+2025-12-15 04:28:00 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses)
+2025-12-15 05:14:07 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 856s)
+2025-12-15 05:25:28 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 175s)
+2025-12-15 05:35:15 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1442s)
+2025-12-15 05:50:23 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 534s)
+2025-12-15 07:14:44 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1135s)
+2025-12-15 08:46:45 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1249s)

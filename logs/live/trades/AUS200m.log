@@ -1,0 +1,53 @@
+2025-12-14 23:04:57 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:06:14 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 99.8% of avg range > max 20.0%
+2025-12-14 23:07:33 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 100.8% of avg range > max 20.0%
+2025-12-14 23:08:45 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.9% of avg range > max 20.0%
+2025-12-14 23:11:06 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.9% of avg range > max 20.0%
+2025-12-14 23:13:12 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 84.7% of avg range > max 20.0%
+2025-12-14 23:14:18 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.4% of avg range > max 20.0%
+2025-12-14 23:15:23 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.4% of avg range > max 20.0%
+2025-12-14 23:16:23 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.6% of avg range > max 20.0%
+2025-12-14 23:17:16 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.8% of avg range > max 20.0%
+2025-12-14 23:18:17 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.9% of avg range > max 20.0%
+2025-12-14 23:19:10 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.3% of avg range > max 20.0%
+2025-12-14 23:20:20 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.5% of avg range > max 20.0%
+2025-12-14 23:21:48 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.0% of avg range > max 20.0%
+2025-12-14 23:22:54 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 78.8% of avg range > max 20.0%
+2025-12-14 23:24:13 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.2% of avg range > max 20.0%
+2025-12-14 23:25:47 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.1% of avg range > max 20.0%
+2025-12-14 23:28:10 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.9% of avg range > max 20.0%
+2025-12-14 23:30:51 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.0% of avg range > max 20.0%
+2025-12-14 23:41:27 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 99.9% of avg range > max 20.0%
+2025-12-14 23:49:45 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 111.3% of avg range > max 20.0%
+2025-12-14 23:51:08 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1797s)
+2025-12-14 23:52:11 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1734s)
+2025-12-14 23:53:11 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1674s)
+2025-12-14 23:54:17 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1608s)
+2025-12-14 23:55:25 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1540s)
+2025-12-14 23:56:37 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1468s)
+2025-12-14 23:57:50 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1395s)
+2025-12-14 23:58:49 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1336s)
+2025-12-14 23:59:49 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1276s)
+2025-12-15 00:00:45 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1220s)
+2025-12-15 00:01:32 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1174s)
+2025-12-15 00:02:18 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1127s)
+2025-12-15 00:03:01 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1084s)
+2025-12-15 00:03:44 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1041s)
+2025-12-15 00:26:55 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1488s)
+2025-12-15 00:58:29 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1424s)
+2025-12-15 01:05:13 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1020s)
+2025-12-15 01:06:10 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 963s)
+2025-12-15 01:06:59 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 914s)
+2025-12-15 01:07:48 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 864s)
+2025-12-15 01:08:39 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 814s)
+2025-12-15 01:09:29 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 764s)
+2025-12-15 01:16:55 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 318s)
+2025-12-15 01:30:44 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1308s)
+2025-12-15 02:17:45 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 351s)
+2025-12-15 02:36:31 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1075s)
+2025-12-15 03:14:16 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 682s)
+2025-12-15 03:22:53 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 164s)
+2025-12-15 03:36:36 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1183s)
+2025-12-15 04:08:43 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1091s)
+2025-12-15 05:05:44 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1360s)
+2025-12-15 09:00:47 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 407s)

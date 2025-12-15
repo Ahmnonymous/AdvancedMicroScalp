@@ -1,0 +1,33 @@
+2025-12-14 22:36:10 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:38 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:07 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:40:23 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:56:17 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:57:21 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:02:51 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:06:41 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3074.1% of avg range > max 20.0%
+2025-12-14 23:08:59 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2821.6% of avg range > max 20.0%
+2025-12-14 23:10:13 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2135.7% of avg range > max 20.0%
+2025-12-14 23:11:23 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1845.8% of avg range > max 20.0%
+2025-12-14 23:12:22 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1318.4% of avg range > max 20.0%
+2025-12-14 23:13:27 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1210.3% of avg range > max 20.0%
+2025-12-14 23:17:33 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 968.8% of avg range > max 20.0%
+2025-12-14 23:18:28 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 965.2% of avg range > max 20.0%
+2025-12-14 23:19:33 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 963.0% of avg range > max 20.0%
+2025-12-14 23:20:49 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 958.8% of avg range > max 20.0%
+2025-12-14 23:22:06 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1261.2% of avg range > max 20.0%
+2025-12-14 23:23:13 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1306.9% of avg range > max 20.0%
+2025-12-14 23:24:34 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1439.1% of avg range > max 20.0%
+2025-12-14 23:27:14 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1522.5% of avg range > max 20.0%
+2025-12-14 23:28:33 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1545.1% of avg range > max 20.0%
+2025-12-14 23:29:46 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1723.8% of avg range > max 20.0%
+2025-12-14 23:47:09 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7770.0% of avg range > max 20.0%
+2025-12-15 00:00:04 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1261s)
+2025-12-15 00:00:56 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1209s)
+2025-12-15 00:01:45 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1160s)
+2025-12-15 00:02:27 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1118s)
+2025-12-15 01:57:54 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1544s)
+2025-12-15 02:10:36 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 780s)
+2025-12-15 08:24:26 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 727s)
+2025-12-15 09:07:26 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 8s)
+2025-12-15 09:40:26 - trades.USDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1702s)

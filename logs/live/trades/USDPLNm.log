@@ -1,0 +1,14 @@
+2025-12-14 23:40:51 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20555.4% of avg range > max 20.0%
+2025-12-14 23:47:38 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 24524.9% of avg range > max 20.0%
+2025-12-14 23:49:16 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23440.5% of avg range > max 20.0%
+2025-12-14 23:53:43 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1642s)
+2025-12-14 23:54:50 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1575s)
+2025-12-15 00:40:36 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 666s)
+2025-12-15 01:10:34 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 698s)
+2025-12-15 01:11:19 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 654s)
+2025-12-15 01:59:42 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1435s)
+2025-12-15 02:11:47 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 709s)
+2025-12-15 04:02:46 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1448s)
+2025-12-15 08:07:36 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1737s)
+2025-12-15 08:48:21 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1154s)
+2025-12-15 09:45:40 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1388s)

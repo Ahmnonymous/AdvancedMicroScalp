@@ -1,0 +1,71 @@
+2025-12-14 22:32:25 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:54 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:21 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:50 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:19 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:47 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:15 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:43 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:11 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:40 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:08 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:36 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:06 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:54 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:22 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:42:34 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:43:48 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:49:13 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:24 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:27 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:29 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:37 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:48 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:55:55 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:57:06 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:58:12 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:59:18 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:00:30 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:01:46 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:02:57 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:04:14 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:05:26 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1813.1% of avg range > max 20.0%
+2025-12-14 23:06:49 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1823.1% of avg range > max 20.0%
+2025-12-14 23:08:02 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2089.7% of avg range > max 20.0%
+2025-12-14 23:09:09 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1903.4% of avg range > max 20.0%
+2025-12-14 23:10:20 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1972.0% of avg range > max 20.0%
+2025-12-14 23:11:26 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1912.2% of avg range > max 20.0%
+2025-12-14 23:12:30 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1999.4% of avg range > max 20.0%
+2025-12-14 23:13:33 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1972.3% of avg range > max 20.0%
+2025-12-14 23:17:36 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2071.4% of avg range > max 20.0%
+2025-12-14 23:18:31 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2169.7% of avg range > max 20.0%
+2025-12-14 23:19:40 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2036.7% of avg range > max 20.0%
+2025-12-14 23:21:03 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2095.2% of avg range > max 20.0%
+2025-12-14 23:22:11 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2005.4% of avg range > max 20.0%
+2025-12-14 23:23:19 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2136.8% of avg range > max 20.0%
+2025-12-14 23:24:40 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1803.1% of avg range > max 20.0%
+2025-12-14 23:26:17 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1898.4% of avg range > max 20.0%
+2025-12-14 23:27:22 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1636.0% of avg range > max 20.0%
+2025-12-14 23:28:37 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1682.5% of avg range > max 20.0%
+2025-12-14 23:29:57 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1691.1% of avg range > max 20.0%
+2025-12-14 23:31:21 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2016.8% of avg range > max 20.0%
+2025-12-14 23:32:40 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1890.7% of avg range > max 20.0%
+2025-12-14 23:33:51 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1838.5% of avg range > max 20.0%
+2025-12-14 23:35:25 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1934.7% of avg range > max 20.0%
+2025-12-14 23:36:47 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1953.1% of avg range > max 20.0%
+2025-12-14 23:45:48 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2201.9% of avg range > max 20.0%
+2025-12-14 23:47:17 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2378.5% of avg range > max 20.0%
+2025-12-14 23:48:52 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2394.5% of avg range > max 20.0%
+2025-12-14 23:50:10 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2429.5% of avg range > max 20.0%
+2025-12-14 23:51:29 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1777s)
+2025-12-14 23:52:30 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1715s)
+2025-12-14 23:53:34 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1651s)
+2025-12-14 23:54:39 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1586s)
+2025-12-14 23:58:09 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1376s)
+2025-12-14 23:59:04 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1322s)
+2025-12-15 00:44:02 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 460s)
+2025-12-15 02:31:52 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1354s)
+2025-12-15 02:50:37 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 229s)
+2025-12-15 06:31:14 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3351.9% of avg range > max 20.0%
+2025-12-15 08:10:05 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1588s)
+2025-12-15 08:49:47 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1067s)

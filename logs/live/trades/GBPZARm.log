@@ -1,0 +1,66 @@
+2025-12-14 22:27:10 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:27:46 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:17 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:44 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:10 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:36 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:04 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:32 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:59 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:27 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:56 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:23 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:51 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:19 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:48 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:16 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:45 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:13 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:41 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:09 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:37 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:06 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:34 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:03 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:44 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:47 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:00 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:42:18 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:43:29 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:44:40 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:48:56 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:08 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:16 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:25 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:55:41 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:57:56 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:02:43 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:13:23 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2623.7% of avg range > max 20.0%
+2025-12-14 23:14:26 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2669.3% of avg range > max 20.0%
+2025-12-14 23:15:32 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2705.2% of avg range > max 20.0%
+2025-12-14 23:16:32 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2454.9% of avg range > max 20.0%
+2025-12-14 23:17:29 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2490.7% of avg range > max 20.0%
+2025-12-14 23:18:23 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2493.4% of avg range > max 20.0%
+2025-12-14 23:19:25 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2402.2% of avg range > max 20.0%
+2025-12-14 23:20:41 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2386.5% of avg range > max 20.0%
+2025-12-14 23:22:01 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2828.9% of avg range > max 20.0%
+2025-12-14 23:23:05 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2743.1% of avg range > max 20.0%
+2025-12-14 23:24:29 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2453.2% of avg range > max 20.0%
+2025-12-14 23:26:05 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2460.5% of avg range > max 20.0%
+2025-12-14 23:27:08 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2444.6% of avg range > max 20.0%
+2025-12-14 23:28:29 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2432.1% of avg range > max 20.0%
+2025-12-14 23:29:44 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2407.6% of avg range > max 20.0%
+2025-12-14 23:31:08 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2605.5% of avg range > max 20.0%
+2025-12-14 23:32:28 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2680.3% of avg range > max 20.0%
+2025-12-14 23:35:10 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2655.1% of avg range > max 20.0%
+2025-12-14 23:36:27 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3047.1% of avg range > max 20.0%
+2025-12-14 23:40:26 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2809.7% of avg range > max 20.0%
+2025-12-15 00:21:18 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1132.5% of avg range > max 20.0%
+2025-12-15 01:02:59 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1154s)
+2025-12-15 01:24:24 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1688s)
+2025-12-15 01:36:25 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 967s)
+2025-12-15 03:31:11 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1508s)
+2025-12-15 06:48:38 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 812s)
+2025-12-15 07:21:11 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 747s)
+2025-12-15 08:10:44 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1549s)
+2025-12-15 09:26:18 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 723s)

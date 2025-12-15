@@ -1,0 +1,30 @@
+2025-12-14 22:30:36 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:04 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:32 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:00 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:28 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:56 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:24 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:53 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:21 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:50 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:18 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:46 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:39:31 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23146.6% of avg range > max 20.0%
+2025-12-14 23:40:35 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22136.7% of avg range > max 20.0%
+2025-12-14 23:47:16 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25577.3% of avg range > max 20.0%
+2025-12-14 23:48:51 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 24758.4% of avg range > max 20.0%
+2025-12-14 23:50:07 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23832.1% of avg range > max 20.0%
+2025-12-14 23:51:28 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1778s)
+2025-12-14 23:52:29 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1716s)
+2025-12-14 23:53:26 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1660s)
+2025-12-14 23:55:43 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1522s)
+2025-12-15 00:42:07 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 576s)
+2025-12-15 01:23:45 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1727s)
+2025-12-15 02:30:46 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1419s)
+2025-12-15 03:05:41 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1196s)
+2025-12-15 04:29:08 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1732s)
+2025-12-15 04:40:54 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1026s)
+2025-12-15 04:57:55 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 5s)
+2025-12-15 07:43:06 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1350s)
+2025-12-15 08:50:21 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1034s)

@@ -1,0 +1,31 @@
+2025-12-14 22:47:58 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:48:53 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:07 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:06 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:14 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:18 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:26 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:55:42 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:56:50 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:57:53 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:59:07 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:00:14 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:35:08 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 277.2% of avg range > max 20.0%
+2025-12-14 23:36:21 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 286.5% of avg range > max 20.0%
+2025-12-14 23:37:43 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 311.9% of avg range > max 20.0%
+2025-12-14 23:42:55 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.44 pips < min 1.50 pips
+2025-12-14 23:45:35 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.41 pips < min 1.50 pips
+2025-12-14 23:47:04 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.30 pips < min 1.50 pips
+2025-12-15 00:12:51 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 494s)
+2025-12-15 02:06:40 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1016s)
+2025-12-15 02:40:29 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 837s)
+2025-12-15 03:00:00 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1537s)
+2025-12-15 03:15:46 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 591s)
+2025-12-15 03:24:41 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 57s)
+2025-12-15 04:20:44 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 370s)
+2025-12-15 04:37:08 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1252s)
+2025-12-15 04:49:30 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 510s)
+2025-12-15 06:01:57 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1756s)
+2025-12-15 07:01:06 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 64s)
+2025-12-15 09:16:32 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1309s)
+2025-12-15 09:55:54 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 774s)

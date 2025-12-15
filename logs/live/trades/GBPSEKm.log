@@ -1,0 +1,39 @@
+2025-12-14 22:27:13 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:27:47 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:39 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:07 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:35 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:05 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:49 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:54 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:10 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:42:24 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:43:41 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:44:47 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:31 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:38 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:55:48 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:56:57 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:02:55 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:04:09 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:07:53 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2960.1% of avg range > max 20.0%
+2025-12-14 23:09:03 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2985.3% of avg range > max 20.0%
+2025-12-14 23:10:14 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2244.1% of avg range > max 20.0%
+2025-12-14 23:11:24 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1988.2% of avg range > max 20.0%
+2025-12-14 23:12:24 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1753.8% of avg range > max 20.0%
+2025-12-14 23:13:29 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1285.9% of avg range > max 20.0%
+2025-12-14 23:17:33 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1187.2% of avg range > max 20.0%
+2025-12-14 23:18:28 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1190.2% of avg range > max 20.0%
+2025-12-14 23:19:34 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1196.0% of avg range > max 20.0%
+2025-12-14 23:20:54 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1193.9% of avg range > max 20.0%
+2025-12-14 23:22:06 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1641.5% of avg range > max 20.0%
+2025-12-14 23:23:16 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1695.6% of avg range > max 20.0%
+2025-12-14 23:27:16 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2036.8% of avg range > max 20.0%
+2025-12-15 00:01:46 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1159s)
+2025-12-15 00:02:27 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1118s)
+2025-12-15 00:04:34 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 992s)
+2025-12-15 00:05:20 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 945s)
+2025-12-15 08:25:00 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 693s)
+2025-12-15 08:41:21 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1573s)
+2025-12-15 09:40:50 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1678s)
+2025-12-15 10:02:58 - trades.GBPSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 350s)

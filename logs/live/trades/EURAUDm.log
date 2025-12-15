@@ -1,0 +1,32 @@
+2025-12-14 22:28:20 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:46 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:12 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:38 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:07 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:34 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:02 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:30 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:58 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:26 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:54 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:22 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:16 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:44 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:11 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:40 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:08 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:37 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:07 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:57 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:40:09 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:42:40 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:11:13 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 118.4% of avg range > max 20.0%
+2025-12-14 23:13:20 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.1% of avg range > max 20.0%
+2025-12-14 23:14:24 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 85.5% of avg range > max 20.0%
+2025-12-14 23:15:29 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.0% of avg range > max 20.0%
+2025-12-14 23:16:28 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 139.0% of avg range > max 20.0%
+2025-12-14 23:22:00 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 88.9% of avg range > max 20.0%
+2025-12-14 23:23:02 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.4% of avg range > max 20.0%
+2025-12-14 23:24:22 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 105.9% of avg range > max 20.0%
+2025-12-15 02:43:15 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 671s)
+2025-12-15 05:08:30 - trades.EURAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1193s)

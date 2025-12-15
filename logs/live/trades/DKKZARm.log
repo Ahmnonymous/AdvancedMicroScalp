@@ -1,0 +1,49 @@
+2025-12-14 22:31:32 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:59 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:27 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:55 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:23 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:52 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:20 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:49 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:17 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:45 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:13 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:42 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:10 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:38 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:08 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:05 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:40:14 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:31 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:31 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:47 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:58 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:59:26 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:01:54 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:03:08 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:04:22 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:05:36 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3784.9% of avg range > max 20.0%
+2025-12-14 23:06:56 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4757.6% of avg range > max 20.0%
+2025-12-14 23:08:07 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4826.3% of avg range > max 20.0%
+2025-12-14 23:09:18 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4793.0% of avg range > max 20.0%
+2025-12-14 23:10:26 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5293.1% of avg range > max 20.0%
+2025-12-14 23:11:32 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4492.2% of avg range > max 20.0%
+2025-12-14 23:12:36 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4272.9% of avg range > max 20.0%
+2025-12-14 23:13:39 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4187.7% of avg range > max 20.0%
+2025-12-14 23:17:42 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4360.5% of avg range > max 20.0%
+2025-12-14 23:18:35 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3911.4% of avg range > max 20.0%
+2025-12-14 23:19:44 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3942.3% of avg range > max 20.0%
+2025-12-14 23:21:08 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4867.4% of avg range > max 20.0%
+2025-12-14 23:22:14 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4689.4% of avg range > max 20.0%
+2025-12-14 23:23:24 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4634.6% of avg range > max 20.0%
+2025-12-14 23:24:49 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4692.3% of avg range > max 20.0%
+2025-12-14 23:38:10 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4360.3% of avg range > max 20.0%
+2025-12-14 23:39:41 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4563.6% of avg range > max 20.0%
+2025-12-15 00:17:46 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 200s)
+2025-12-15 00:35:33 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 970s)
+2025-12-15 00:51:09 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 33s)
+2025-12-15 07:13:14 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1225s)
+2025-12-15 07:41:21 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1454s)
+2025-12-15 08:44:24 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1390s)
+2025-12-15 09:23:16 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 905s)

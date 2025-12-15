@@ -1,0 +1,25 @@
+2025-12-14 22:45:05 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:46:10 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:47:12 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:48:15 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:31 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:35 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:42 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:47 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:56 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:56:07 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:57:12 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:58:22 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:13:39 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 509.3% of avg range > max 20.0%
+2025-12-14 23:14:43 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 515.9% of avg range > max 20.0%
+2025-12-14 23:17:41 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 846.3% of avg range > max 20.0%
+2025-12-14 23:18:35 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 816.2% of avg range > max 20.0%
+2025-12-14 23:26:22 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2284.2% of avg range > max 20.0%
+2025-12-14 23:30:07 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2725.5% of avg range > max 20.0%
+2025-12-14 23:31:30 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1988.4% of avg range > max 20.0%
+2025-12-14 23:32:42 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1976.5% of avg range > max 20.0%
+2025-12-14 23:36:53 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1701.3% of avg range > max 20.0%
+2025-12-14 23:49:00 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 932.8% of avg range > max 20.0%
+2025-12-14 23:53:36 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1649s)
+2025-12-15 08:43:59 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1416s)
+2025-12-15 09:43:44 - trades.USDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1504s)

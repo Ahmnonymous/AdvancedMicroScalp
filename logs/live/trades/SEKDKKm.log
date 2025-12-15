@@ -1,0 +1,8 @@
+2025-12-14 22:36:13 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:41 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:09 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 23:11:31 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1857.3% of avg range > max 20.0%
+2025-12-14 23:12:34 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1671.9% of avg range > max 20.0%
+2025-12-14 23:23:22 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1779.1% of avg range > max 20.0%
+2025-12-14 23:24:43 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1962.9% of avg range > max 20.0%
+2025-12-14 23:43:26 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 1.50 pips

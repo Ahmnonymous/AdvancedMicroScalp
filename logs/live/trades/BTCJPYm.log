@@ -1,0 +1,86 @@
+2025-12-14 22:29:34 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:01 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:30 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:21 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:49 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:17 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:46 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:14 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:43 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:11 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:39 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:07 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:35 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:04 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:32 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:00 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:34 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:36 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:40:50 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:42:09 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:43:24 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:44:32 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:45:38 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:46:43 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:47:44 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:48:45 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:49:55 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:02 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:08 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:13 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:22 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:56:43 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:57:47 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:04:56 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:09:51 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 41.5% of avg range > max 20.0%
+2025-12-14 23:11:06 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 35.2% of avg range > max 20.0%
+2025-12-14 23:20:20 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29.8% of avg range > max 20.0%
+2025-12-14 23:21:48 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.1% of avg range > max 20.0%
+2025-12-14 23:22:54 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 32.3% of avg range > max 20.0%
+2025-12-14 23:24:13 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 34.9% of avg range > max 20.0%
+2025-12-14 23:25:47 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.1% of avg range > max 20.0%
+2025-12-14 23:26:58 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.9% of avg range > max 20.0%
+2025-12-14 23:28:11 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 42.6% of avg range > max 20.0%
+2025-12-14 23:29:30 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.1% of avg range > max 20.0%
+2025-12-14 23:30:51 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.8% of avg range > max 20.0%
+2025-12-14 23:32:13 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.1% of avg range > max 20.0%
+2025-12-14 23:33:26 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 37.9% of avg range > max 20.0%
+2025-12-14 23:34:57 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 28.5% of avg range > max 20.0%
+2025-12-14 23:36:13 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25.5% of avg range > max 20.0%
+2025-12-14 23:37:33 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.3% of avg range > max 20.0%
+2025-12-14 23:38:53 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25.3% of avg range > max 20.0%
+2025-12-14 23:40:21 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23.1% of avg range > max 20.0%
+2025-12-14 23:41:27 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23.3% of avg range > max 20.0%
+2025-12-14 23:42:45 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23.1% of avg range > max 20.0%
+2025-12-14 23:44:13 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22.8% of avg range > max 20.0%
+2025-12-14 23:45:24 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22.7% of avg range > max 20.0%
+2025-12-14 23:46:51 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.5% of avg range > max 20.0%
+2025-12-14 23:48:25 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22.6% of avg range > max 20.0%
+2025-12-14 23:55:25 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1540s)
+2025-12-14 23:57:52 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1393s)
+2025-12-14 23:58:50 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1335s)
+2025-12-15 00:04:23 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1002s)
+2025-12-15 00:05:12 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 953s)
+2025-12-15 00:10:06 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 659s)
+2025-12-15 00:59:14 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1378s)
+2025-12-15 01:10:16 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 717s)
+2025-12-15 01:11:07 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 666s)
+2025-12-15 01:17:15 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 298s)
+2025-12-15 01:31:13 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1280s)
+2025-12-15 01:52:23 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 10s)
+2025-12-15 02:36:58 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1048s)
+2025-12-15 02:57:46 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1671s)
+2025-12-15 03:14:48 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 649s)
+2025-12-15 03:37:11 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1148s)
+2025-12-15 03:54:50 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 89s)
+2025-12-15 04:19:38 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 436s)
+2025-12-15 05:06:34 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1310s)
+2025-12-15 05:29:18 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses)
+2025-12-15 05:39:08 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1209s)
+2025-12-15 05:57:19 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 118s)
+2025-12-15 06:21:51 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 562s)
+2025-12-15 06:59:16 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 174s)
+2025-12-15 07:32:08 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 90s)
+2025-12-15 08:18:39 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1074s)
+2025-12-15 08:36:10 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 23s)
+2025-12-15 09:15:21 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1380s)

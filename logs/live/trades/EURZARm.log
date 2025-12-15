@@ -1,0 +1,51 @@
+2025-12-14 22:28:44 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:10 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:31 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:59 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:27 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:55 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:23 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:51 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:19 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:47 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:16 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:44 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:13 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:41 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:09 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:37 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:06 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:34 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:04 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:49 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:01 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:55:41 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:02:44 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:14:27 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2804.6% of avg range > max 20.0%
+2025-12-14 23:15:35 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2844.5% of avg range > max 20.0%
+2025-12-14 23:16:33 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2614.4% of avg range > max 20.0%
+2025-12-14 23:17:30 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2647.4% of avg range > max 20.0%
+2025-12-14 23:18:25 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2542.0% of avg range > max 20.0%
+2025-12-14 23:19:28 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2427.0% of avg range > max 20.0%
+2025-12-14 23:20:44 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2338.0% of avg range > max 20.0%
+2025-12-14 23:22:02 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2592.5% of avg range > max 20.0%
+2025-12-14 23:23:06 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2485.6% of avg range > max 20.0%
+2025-12-14 23:24:31 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2531.9% of avg range > max 20.0%
+2025-12-14 23:26:08 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2540.9% of avg range > max 20.0%
+2025-12-14 23:27:10 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2554.0% of avg range > max 20.0%
+2025-12-14 23:28:30 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2558.9% of avg range > max 20.0%
+2025-12-14 23:29:45 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2523.3% of avg range > max 20.0%
+2025-12-14 23:31:11 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2572.4% of avg range > max 20.0%
+2025-12-14 23:32:28 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3034.1% of avg range > max 20.0%
+2025-12-14 23:35:10 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3110.7% of avg range > max 20.0%
+2025-12-14 23:58:01 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1384s)
+2025-12-14 23:58:58 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1327s)
+2025-12-15 00:21:42 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses)
+2025-12-15 01:24:59 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1653s)
+2025-12-15 03:50:51 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 328s)
+2025-12-15 04:58:23 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses)
+2025-12-15 06:50:57 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 673s)
+2025-12-15 07:46:09 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1167s)
+2025-12-15 08:29:41 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 412s)
+2025-12-15 09:48:48 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1200s)
+2025-12-15 10:03:22 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 326s)

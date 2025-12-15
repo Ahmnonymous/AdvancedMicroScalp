@@ -1,0 +1,53 @@
+2025-12-14 22:28:20 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:28:46 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:12 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:29:38 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:07 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:30:34 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:03 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:31 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:31:58 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:27 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:32:55 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:23 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:33:51 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:19 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:34:48 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:16 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:35:44 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:12 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:36:41 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:09 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:37 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:07 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:39:00 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:40:10 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:27 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:48:11 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:49:18 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:29 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:51:30 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:52:36 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:43 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:54:53 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:56:01 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:57:11 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 22:58:19 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:00:38 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:05:30 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 775.8% of avg range > max 20.0%
+2025-12-14 23:06:52 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 776.2% of avg range > max 20.0%
+2025-12-14 23:08:05 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 802.4% of avg range > max 20.0%
+2025-12-14 23:17:40 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1253.6% of avg range > max 20.0%
+2025-12-14 23:18:34 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1312.1% of avg range > max 20.0%
+2025-12-14 23:19:41 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1530.2% of avg range > max 20.0%
+2025-12-14 23:21:06 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2552.1% of avg range > max 20.0%
+2025-12-14 23:22:12 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2687.1% of avg range > max 20.0%
+2025-12-14 23:23:21 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2641.5% of avg range > max 20.0%
+2025-12-14 23:24:42 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2860.7% of avg range > max 20.0%
+2025-12-14 23:26:20 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3048.2% of avg range > max 20.0%
+2025-12-14 23:27:24 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3215.8% of avg range > max 20.0%
+2025-12-14 23:28:42 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3339.8% of avg range > max 20.0%
+2025-12-14 23:57:09 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1436s)
+2025-12-14 23:58:15 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1370s)
+2025-12-14 23:59:11 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1314s)
+2025-12-15 00:16:00 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 305s)

@@ -1,0 +1,50 @@
+2025-12-14 22:36:39 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:08 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:37:35 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:05 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:38:50 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:40:21 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:41:40 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:42:55 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:44:04 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:45:11 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:46:17 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:50:35 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:53:56 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-14 22:55:07 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-14 23:02:56 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-14 23:07:54 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2719.9% of avg range > max 20.0%
+2025-12-14 23:09:04 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2714.5% of avg range > max 20.0%
+2025-12-14 23:10:17 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2107.4% of avg range > max 20.0%
+2025-12-14 23:11:25 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1869.2% of avg range > max 20.0%
+2025-12-14 23:12:23 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1658.8% of avg range > max 20.0%
+2025-12-14 23:13:47 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1228.8% of avg range > max 20.0%
+2025-12-14 23:17:47 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1147.5% of avg range > max 20.0%
+2025-12-14 23:18:40 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1154.6% of avg range > max 20.0%
+2025-12-14 23:19:50 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1163.2% of avg range > max 20.0%
+2025-12-14 23:21:15 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1483.1% of avg range > max 20.0%
+2025-12-14 23:22:19 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1629.7% of avg range > max 20.0%
+2025-12-14 23:38:22 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 17977.5% of avg range > max 20.0%
+2025-12-14 23:39:52 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 18750.7% of avg range > max 20.0%
+2025-12-14 23:40:55 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 19257.0% of avg range > max 20.0%
+2025-12-14 23:42:10 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20426.0% of avg range > max 20.0%
+2025-12-14 23:43:38 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22199.1% of avg range > max 20.0%
+2025-12-14 23:44:56 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9398.3% of avg range > max 20.0%
+2025-12-14 23:46:00 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8947.8% of avg range > max 20.0%
+2025-12-14 23:49:17 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8899.8% of avg range > max 20.0%
+2025-12-14 23:51:42 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1763s)
+2025-12-14 23:52:41 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1704s)
+2025-12-15 00:00:17 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1248s)
+2025-12-15 00:01:06 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1199s)
+2025-12-15 00:01:51 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1154s)
+2025-12-15 00:02:33 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1112s)
+2025-12-15 02:32:53 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1293s)
+2025-12-15 02:51:56 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 150s)
+2025-12-15 03:07:18 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1100s)
+2025-12-15 03:51:11 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 308s)
+2025-12-15 04:03:41 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1393s)
+2025-12-15 05:17:47 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 636s)
+2025-12-15 05:36:32 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1365s)
+2025-12-15 05:51:25 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 473s)
+2025-12-15 07:24:33 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 545s)
+2025-12-15 08:30:08 - trades.NZDSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 385s)

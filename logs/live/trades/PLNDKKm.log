@@ -1,0 +1,12 @@
+2025-12-14 23:39:46 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 32803.7% of avg range > max 20.0%
+2025-12-14 23:40:47 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 30951.3% of avg range > max 20.0%
+2025-12-14 23:42:01 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 28493.4% of avg range > max 20.0%
+2025-12-14 23:47:32 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 32121.2% of avg range > max 20.0%
+2025-12-14 23:49:14 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29233.7% of avg range > max 20.0%
+2025-12-14 23:50:19 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29794.0% of avg range > max 20.0%
+2025-12-14 23:51:38 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1767s)
+2025-12-14 23:52:39 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1706s)
+2025-12-14 23:53:40 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1646s)
+2025-12-14 23:54:48 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1577s)
+2025-12-14 23:56:02 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1503s)
+2025-12-15 00:36:54 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 888s)

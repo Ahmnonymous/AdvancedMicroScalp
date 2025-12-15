@@ -1,0 +1,46 @@
+2025-12-14 23:09:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.0% of avg range > max 20.0%
+2025-12-14 23:11:04 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.4% of avg range > max 20.0%
+2025-12-14 23:14:18 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 33.2% of avg range > max 20.0%
+2025-12-14 23:15:23 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.6% of avg range > max 20.0%
+2025-12-14 23:16:22 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29.9% of avg range > max 20.0%
+2025-12-14 23:17:16 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25.9% of avg range > max 20.0%
+2025-12-14 23:18:16 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.1% of avg range > max 20.0%
+2025-12-14 23:19:09 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25.7% of avg range > max 20.0%
+2025-12-14 23:20:19 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25.6% of avg range > max 20.0%
+2025-12-14 23:21:46 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.2% of avg range > max 20.0%
+2025-12-14 23:22:52 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.9% of avg range > max 20.0%
+2025-12-14 23:24:12 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.7% of avg range > max 20.0%
+2025-12-14 23:25:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.3% of avg range > max 20.0%
+2025-12-14 23:26:55 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 32.6% of avg range > max 20.0%
+2025-12-14 23:28:10 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.8% of avg range > max 20.0%
+2025-12-14 23:29:27 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.5% of avg range > max 20.0%
+2025-12-14 23:30:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.5% of avg range > max 20.0%
+2025-12-14 23:33:25 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.9% of avg range > max 20.0%
+2025-12-14 23:45:24 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.4% of avg range > max 20.0%
+2025-12-14 23:46:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.6% of avg range > max 20.0%
+2025-12-14 23:48:23 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.6% of avg range > max 20.0%
+2025-12-14 23:49:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.2% of avg range > max 20.0%
+2025-12-14 23:51:08 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1798s)
+2025-12-14 23:52:11 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1734s)
+2025-12-14 23:53:09 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1676s)
+2025-12-14 23:54:17 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1608s)
+2025-12-14 23:55:24 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1541s)
+2025-12-14 23:56:36 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1469s)
+2025-12-14 23:57:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1396s)
+2025-12-14 23:58:48 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1337s)
+2025-12-14 23:59:47 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1278s)
+2025-12-15 00:00:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1221s)
+2025-12-15 00:02:59 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1086s)
+2025-12-15 00:03:43 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1042s)
+2025-12-15 00:09:29 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 696s)
+2025-12-15 01:05:12 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1020s)
+2025-12-15 01:06:10 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 963s)
+2025-12-15 01:06:59 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 914s)
+2025-12-15 01:07:47 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 865s)
+2025-12-15 01:08:38 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 814s)
+2025-12-15 01:09:28 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 764s)
+2025-12-15 01:51:09 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 84s)
+2025-12-15 03:12:01 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 817s)
+2025-12-15 06:19:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 689s)
+2025-12-15 08:58:38 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 536s)
+2025-12-15 09:32:51 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 330s)

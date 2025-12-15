@@ -1,0 +1,2 @@
+2025-12-14 22:53:38 - trades.USDSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-15 00:32:35 - trades.USDSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1148s)
