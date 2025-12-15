@@ -1,4 +1,0 @@
-2025-12-15 05:15:52 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 752s)
-2025-12-15 05:25:55 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 148s)
-2025-12-15 08:49:11 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1104s)
-2025-12-15 09:46:10 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1358s)

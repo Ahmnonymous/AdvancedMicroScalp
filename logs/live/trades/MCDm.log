@@ -1,0 +1,4 @@
+2025-12-15 14:51:14 - trades.MCDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 140.6% of avg range > max 20.0%
+2025-12-15 14:52:35 - trades.MCDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 133.6% of avg range > max 20.0%
+2025-12-15 14:55:25 - trades.MCDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 15:00:50 - trades.MCDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked

@@ -1,0 +1,2 @@
+2025-12-15 14:57:46 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 15:28:01 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.10 pips < min 1.50 pips

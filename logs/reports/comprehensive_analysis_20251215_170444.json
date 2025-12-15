@@ -1,0 +1,70 @@
+{
+  "report_timestamp": "2025-12-15T17:04:44.187941",
+  "session_duration_minutes": 273.2170138166667,
+  "active_positions": {
+    "total": 3,
+    "positions": [
+      {
+        "ticket": 507637612,
+        "symbol": "US500m",
+        "lot_size": 0.03,
+        "type": "SELL",
+        "entry_price": 6841.62,
+        "current_price": 6832.24,
+        "profit": 0.28,
+        "time_open": "2025-12-15 15:09:45"
+      },
+      {
+        "ticket": 507670686,
+        "symbol": "US30m",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 48503.200000000004,
+        "current_price": 48461.6,
+        "profit": 0.42,
+        "time_open": "2025-12-15 15:13:03"
+      },
+      {
+        "ticket": 507710343,
+        "symbol": "USTECm",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 25185.72,
+        "current_price": 25197.17,
+        "profit": -0.11,
+        "time_open": "2025-12-15 15:16:46"
+      }
+    ],
+    "lot_size_issues": [],
+    "symbols": {
+      "US500m": 1,
+      "US30m": 1,
+      "USTECm": 1
+    },
+    "total_profit": 0.59
+  },
+  "trade_statistics": {
+    "total_trades": 0,
+    "closed_trades": 0,
+    "open_trades": 0
+  },
+  "micro_hft_performance": {
+    "capture_rate": 0.0,
+    "total_closures": 0,
+    "sweet_spot_closures": 0,
+    "missed_sweet_spot": 0,
+    "status": "No closures yet"
+  },
+  "filter_effectiveness": {
+    "statistics": {
+      "opportunities_found": 1
+    },
+    "last_scan_time": null
+  },
+  "lot_size_compliance": {
+    "violations": [],
+    "max_lot_size": 0.03
+  },
+  "errors_detected": [],
+  "recommendations": []
+}

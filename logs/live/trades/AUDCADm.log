@@ -1,6 +1,0 @@
-2025-12-14 23:29:41 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.30 pips < min 1.50 pips
-2025-12-14 23:32:22 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.45 pips < min 1.50 pips
-2025-12-14 23:34:59 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.42 pips < min 1.50 pips
-2025-12-14 23:36:17 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.39 pips < min 1.50 pips
-2025-12-14 23:37:36 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.34 pips < min 1.50 pips
-2025-12-15 04:21:50 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 305s)

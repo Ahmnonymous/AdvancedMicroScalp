@@ -1,8 +1,0 @@
-2025-12-14 23:57:54 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1391s)
-2025-12-14 23:58:52 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1333s)
-2025-12-14 23:59:52 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1273s)
-2025-12-15 00:00:46 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1219s)
-2025-12-15 00:27:33 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1450s)
-2025-12-15 02:18:28 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 308s)
-2025-12-15 09:34:17 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 244s)
-2025-12-15 09:53:52 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 897s)

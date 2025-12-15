@@ -1,0 +1,4 @@
+2025-12-15 14:51:23 - trades.MAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 158.2% of avg range > max 20.0%
+2025-12-15 14:55:32 - trades.MAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
+2025-12-15 15:05:26 - trades.MAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 140.2% of avg range > max 20.0%
+2025-12-15 15:09:21 - trades.MAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 125.9% of avg range > max 20.0%

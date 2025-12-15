@@ -1,0 +1,2 @@
+2025-12-15 14:51:16 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 110.4% of avg range > max 20.0%
+2025-12-15 15:00:50 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked

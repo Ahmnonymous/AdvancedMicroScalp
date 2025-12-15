@@ -1,46 +1,21 @@
-2025-12-14 23:09:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.0% of avg range > max 20.0%
-2025-12-14 23:11:04 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.4% of avg range > max 20.0%
-2025-12-14 23:14:18 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 33.2% of avg range > max 20.0%
-2025-12-14 23:15:23 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.6% of avg range > max 20.0%
-2025-12-14 23:16:22 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29.9% of avg range > max 20.0%
-2025-12-14 23:17:16 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25.9% of avg range > max 20.0%
-2025-12-14 23:18:16 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.1% of avg range > max 20.0%
-2025-12-14 23:19:09 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25.7% of avg range > max 20.0%
-2025-12-14 23:20:19 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25.6% of avg range > max 20.0%
-2025-12-14 23:21:46 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.2% of avg range > max 20.0%
-2025-12-14 23:22:52 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.9% of avg range > max 20.0%
-2025-12-14 23:24:12 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.7% of avg range > max 20.0%
-2025-12-14 23:25:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.3% of avg range > max 20.0%
-2025-12-14 23:26:55 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 32.6% of avg range > max 20.0%
-2025-12-14 23:28:10 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.8% of avg range > max 20.0%
-2025-12-14 23:29:27 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.5% of avg range > max 20.0%
-2025-12-14 23:30:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.5% of avg range > max 20.0%
-2025-12-14 23:33:25 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.9% of avg range > max 20.0%
-2025-12-14 23:45:24 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.4% of avg range > max 20.0%
-2025-12-14 23:46:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.6% of avg range > max 20.0%
-2025-12-14 23:48:23 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.6% of avg range > max 20.0%
-2025-12-14 23:49:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.2% of avg range > max 20.0%
-2025-12-14 23:51:08 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1798s)
-2025-12-14 23:52:11 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1734s)
-2025-12-14 23:53:09 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1676s)
-2025-12-14 23:54:17 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1608s)
-2025-12-14 23:55:24 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1541s)
-2025-12-14 23:56:36 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1469s)
-2025-12-14 23:57:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1396s)
-2025-12-14 23:58:48 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1337s)
-2025-12-14 23:59:47 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1278s)
-2025-12-15 00:00:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1221s)
-2025-12-15 00:02:59 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1086s)
-2025-12-15 00:03:43 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1042s)
-2025-12-15 00:09:29 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 696s)
-2025-12-15 01:05:12 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1020s)
-2025-12-15 01:06:10 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 963s)
-2025-12-15 01:06:59 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 914s)
-2025-12-15 01:07:47 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 865s)
-2025-12-15 01:08:38 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 814s)
-2025-12-15 01:09:28 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 764s)
-2025-12-15 01:51:09 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 84s)
-2025-12-15 03:12:01 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 817s)
-2025-12-15 06:19:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 689s)
-2025-12-15 08:58:38 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 536s)
-2025-12-15 09:32:51 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 330s)
+2025-12-15 14:37:58 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23.0% of avg range > max 20.0%
+2025-12-15 15:09:45 - trades.US500m - INFO - ================================================================================
+2025-12-15 15:09:45 - trades.US500m - INFO - [OK] TRADE EXECUTED SUCCESSFULLY
+2025-12-15 15:09:45 - trades.US500m - INFO -    Symbol: US500m
+2025-12-15 15:09:45 - trades.US500m - INFO -    Direction: SHORT
+2025-12-15 15:09:45 - trades.US500m - INFO -    Ticket: 507637612
+2025-12-15 15:09:45 - trades.US500m - INFO -    Entry Price (Requested): 6841.39000
+2025-12-15 15:09:45 - trades.US500m - INFO -    Entry Price (Actual Fill): 6841.39000
+2025-12-15 15:09:45 - trades.US500m - INFO -    Lot Size: 0.0300
+2025-12-15 15:09:45 - trades.US500m - INFO -    Stop Loss: 6666.7 pips (6908.05667)
+2025-12-15 15:09:45 - trades.US500m - INFO -    Risk: $2.00 USD
+2025-12-15 15:09:45 - trades.US500m - INFO -    Spread: 0.9 points
+2025-12-15 15:09:45 - trades.US500m - INFO -    Spread+Fees Cost: $0.02 USD
+2025-12-15 15:09:45 - trades.US500m - INFO -    Quality Score: 85.0
+2025-12-15 15:09:45 - trades.US500m - INFO -    Min Lot: 0.03
+2025-12-15 15:09:45 - trades.US500m - INFO -    Min Lot Source: broker
+2025-12-15 15:09:45 - trades.US500m - INFO -    Sma Fast: 6846.588500000001
+2025-12-15 15:09:45 - trades.US500m - INFO -    Sma Slow: 6859.9412
+2025-12-15 15:09:45 - trades.US500m - INFO -    Rsi: 36.385045628496194
+2025-12-15 15:09:45 - trades.US500m - INFO - ================================================================================
+{"timestamp": "2025-12-15 15:09:45", "symbol": "US500m", "trade_type": "SHORT", "entry_price": 6841.39, "exit_price": null, "profit_usd": null, "status": "OPEN", "order_id": "507637612", "additional_info": {"entry_price_requested": 6841.39, "lot_size": 0.03, "stop_loss_pips": 6666.666666666697, "stop_loss_price": 6908.056666666667, "slippage": 0.0, "quality_score": 85, "spread_points": 0.9354824092756265, "spread_fees_cost": 0.019199999999982537, "risk_usd": 2.000000000000009, "min_lot": 0.03, "min_lot_source": "broker", "sma_fast": 6846.588500000001, "sma_slow": 6859.9412, "rsi": 36.385045628496194}}

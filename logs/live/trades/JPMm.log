@@ -1,0 +1,2 @@
+2025-12-15 15:00:57 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 15:29:03 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.1% of avg range > max 20.0%

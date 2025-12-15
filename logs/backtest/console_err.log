@@ -1,0 +1,1023 @@
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'XAGUSDm: [OK] TREND SIGNAL = LONG (SMA20=48.46645 > SMA50=48.42458, diff=0.0865%, RSI=63.0)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    logger.error(f"Failed to get rates for {symbol}")
+Message: 'Failed to get rates for BTCUSDm'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'     
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 780, in get_trend_signal
+    df = self.get_rates(symbol, count=100)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 107, in get_rates
+    logger.error(f"Failed to get rates for {symbol}")
+Message: 'Failed to get rates for ETHUSDm'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'     
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'US30m: [OK] TREND SIGNAL = LONG (SMA20=47005.47000 > SMA50=46996.08400, diff=0.0200%, RSI=85.6)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()                                                                                                                                                                                    edMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'US500m: [OK] TREND SIGNAL = LONG (SMA20=6732.76050 > SMA50=6731.24860, diff=0.0225%, RSI=83.8)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>                                                                                                                edMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'EURUSDm: [OK] TREND SIGNAL = LONG (SMA20=1.15357 > SMA50=1.15348, diff=0.0076%, RSI=27.1)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'GBPUSDm: [OK] TREND SIGNAL = LONG (SMA20=1.31164 > SMA50=1.31163, diff=0.0007%, RSI=46.4)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'USDJPYm: [OK] TREND SIGNAL = LONG (SMA20=153.13620 > SMA50=153.12804, diff=0.0053%, RSI=94.1)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'AUDUSDm: [OK] TREND SIGNAL = LONG (SMA20=0.64753 > SMA50=0.64744, diff=0.0138%, RSI=78.5)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'USDCADm: [OK] TREND SIGNAL = LONG (SMA20=1.41239 > SMA50=1.41238, diff=0.0005%, RSI=20.0)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'EURGBPm: [OK] TREND SIGNAL = LONG (SMA20=0.87941 > SMA50=0.87936, diff=0.0064%, RSI=20.0)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'XAUUSDm: [OK] TREND SIGNAL = LONG (SMA20=3997.61935 > SMA50=3996.39422, diff=0.0307%, RSI=48.6)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'XAGUSDm: [OK] TREND SIGNAL = LONG (SMA20=48.47175 > SMA50=48.42764, diff=0.0911%, RSI=70.4)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 780, in get_trend_signal
+    df = self.get_rates(symbol, count=100)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 107, in get_rates
+    logger.error(f"Failed to get rates for {symbol}")
+Message: 'Failed to get rates for BTCUSDm'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 780, in get_trend_signal
+    df = self.get_rates(symbol, count=100)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 107, in get_rates
+    logger.error(f"Failed to get rates for {symbol}")
+Message: 'Failed to get rates for ETHUSDm'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'US30m: [OK] TREND SIGNAL = LONG (SMA20=47007.52000 > SMA50=46996.75400, diff=0.0229%, RSI=82.6)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'US500m: [OK] TREND SIGNAL = LONG (SMA20=6733.23900 > SMA50=6731.39900, diff=0.0273%, RSI=84.4)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'EURUSDm: [OK] TREND SIGNAL = LONG (SMA20=1.15356 > SMA50=1.15347, diff=0.0073%, RSI=33.3)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'GBPUSDm: [OK] TREND SIGNAL = LONG (SMA20=1.31164 > SMA50=1.31162, diff=0.0014%, RSI=56.0)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'USDJPYm: [OK] TREND SIGNAL = LONG (SMA20=153.14190 > SMA50=153.12986, diff=0.0079%, RSI=91.7)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'AUDUSDm: [OK] TREND SIGNAL = LONG (SMA20=0.64756 > SMA50=0.64745, diff=0.0163%, RSI=81.9)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 855, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = SHORT (SMA20={latest_sma_fast:.5f} < SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'USDCADm: [OK] TREND SIGNAL = SHORT (SMA20=1.41237 < SMA50=1.41238, diff=-0.0005%, RSI=16.7)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'EURGBPm: [OK] TREND SIGNAL = LONG (SMA20=0.87941 > SMA50=0.87936, diff=0.0055%, RSI=15.8)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'XAUUSDm: [OK] TREND SIGNAL = LONG (SMA20=3997.71570 > SMA50=3996.46418, diff=0.0313%, RSI=53.2)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'XAGUSDm: [OK] TREND SIGNAL = LONG (SMA20=48.47720 > SMA50=48.43108, diff=0.0952%, RSI=72.5)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 780, in get_trend_signal
+    df = self.get_rates(symbol, count=100)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 107, in get_rates
+    logger.error(f"Failed to get rates for {symbol}")
+Message: 'Failed to get rates for BTCUSDm'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 780, in get_trend_signal
+    df = self.get_rates(symbol, count=100)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 107, in get_rates
+    logger.error(f"Failed to get rates for {symbol}")
+Message: 'Failed to get rates for ETHUSDm'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'US30m: [OK] TREND SIGNAL = LONG (SMA20=47009.54500 > SMA50=46997.48400, diff=0.0257%, RSI=85.3)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'US500m: [OK] TREND SIGNAL = LONG (SMA20=6733.65950 > SMA50=6731.52620, diff=0.0317%, RSI=83.3)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 74, in emit
+    self.doRollover()
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 179, in doRollover
+    self.rotate(self.baseFilename, dfn)
+  File "C:\Program Files\Python311\Lib\logging\handlers.py", line 115, in rotate
+    os.rename(source, dest)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log' -> 'C:\\AdvancedMicroScalp\\logs\\live\\engine\\trend_detector.log.1'
+Call stack:
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 209, in <module>
+    main()
+  File "C:\AdvancedMicroScalp\backtest\run_backtest.py", line 187, in main
+    runner.run_backtest(speed=replay_speed)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 317, in run_backtest
+    self.replay_engine.replay(speed=speed, step_callback=self._on_step)
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 659, in replay
+    while self.step_forward():
+  File "C:\AdvancedMicroScalp\backtest\historical_replay_engine.py", line 614, in step_forward
+    callback(self.current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_runner.py", line 221, in _on_tick
+    self.threading_manager.execute_threads(current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 194, in execute_threads
+    self._execute_thread(thread_name, current_time)
+  File "C:\AdvancedMicroScalp\backtest\backtest_threading_manager.py", line 218, in _execute_thread
+    callback()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 2404, in run_cycle
+    opportunities = self.scan_for_opportunities()
+  File "C:\AdvancedMicroScalp\bot\trading_bot.py", line 831, in scan_for_opportunities
+    trend_signal = self.trend_filter.get_trend_signal(symbol)
+  File "C:\AdvancedMicroScalp\strategies\trend_filter.py", line 851, in get_trend_signal
+    logger.info(f"{symbol}: [OK] TREND SIGNAL = LONG (SMA20={latest_sma_fast:.5f} > SMA50={latest_sma_slow:.5f}, diff={sma_diff_pct:.4f}%, RSI={latest_rsi:.1f})")
+Message: 'EURUSDm: [OK] TREND SIGNAL = LONG (SMA20=1.15356 > SMA50=1.15348, diff=0.0072%, RSI=43.3)'
+Arguments: ()
+
+
+Backtest interrupted by user

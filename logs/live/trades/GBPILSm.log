@@ -1,8 +1,0 @@
-2025-12-15 06:29:56 - trades.GBPILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 77s)
-2025-12-15 06:45:56 - trades.GBPILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 974s)
-2025-12-15 07:40:52 - trades.GBPILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1484s)
-2025-12-15 08:05:22 - trades.GBPILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 13s)
-2025-12-15 08:26:55 - trades.GBPILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 578s)
-2025-12-15 08:43:17 - trades.GBPILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1458s)
-2025-12-15 09:24:12 - trades.GBPILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 849s)
-2025-12-15 09:43:22 - trades.GBPILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1526s)

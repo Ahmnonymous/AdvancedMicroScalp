@@ -1,12 +1,6 @@
-2025-12-15 01:18:59 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 194s)
-2025-12-15 01:39:31 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 781s)
-2025-12-15 01:54:54 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1722s)
-2025-12-15 02:06:27 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1030s)
-2025-12-15 02:19:19 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 258s)
-2025-12-15 02:39:09 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 917s)
-2025-12-15 02:59:29 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1568s)
-2025-12-15 03:24:08 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 89s)
-2025-12-15 06:23:13 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 480s)
-2025-12-15 07:00:10 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 120s)
-2025-12-15 07:55:17 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 619s)
-2025-12-15 09:16:50 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1291s)
+2025-12-15 13:06:05 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 175.7% of avg range > max 20.0%
+2025-12-15 14:02:26 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 14:03:20 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
+2025-12-15 14:26:20 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 301.9% of avg range > max 20.0%
+2025-12-15 14:31:20 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 290.3% of avg range > max 20.0%
+2025-12-15 14:32:08 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 293.1% of avg range > max 20.0%
