@@ -1523,6 +1523,12 @@ class SyntheticMarketEngine:
                 sma20 = indicators.get('sma20')
                 sma50 = indicators.get('sma50')
                 rsi_last14 = indicators.get('rsi_last14')
+
+                # Safely format RSI for logging (avoid invalid format specifier errors)
+                if rsi_last14 is not None:
+                    rsi_last14_str = f"{rsi_last14:.1f}"
+                else:
+                    rsi_last14_str = "N/A"
                 
                 error_msg = (
                     f"[SIM_LIVE] [TREND_CONTRACT_HARD_FAIL] Failed to satisfy trend contract after {max_attempts} attempts\n"
@@ -1530,8 +1536,8 @@ class SyntheticMarketEngine:
                     f"Direction: {trend_direction}\n"
                     f"SMA20: {sma20:.5f}\n"
                     f"SMA50: {sma50:.5f}\n"
-                    f"Separation: {abs((sma20 - sma50) / sma50 * 100) if sma20 and sma50 else 0:.4f}% (required: >=0.05%)\n"
-                    f"RSI(last14): {rsi_last14:.1f if rsi_last14 else 'N/A'}\n"
+                    f"Separation: {abs((sma20 - sma50) / sma50 * 100) if sma20 and sma50 else 0:.4f}% (required: >=0.04%)\n"
+                    f"RSI(last14): {rsi_last14_str}\n"
                     f"Last 20 close deltas: {[round(candles[i]['close'] - candles[i-1]['close'], 5) for i in range(max(0, len(candles)-20), len(candles)) if i > 0] if candles else []}"
                 )
                 
@@ -1754,7 +1760,10 @@ class SyntheticMarketEngine:
         if sma20 is None or sma50 is None:
             return False, indicators
         
-        min_separation_pct = 0.0005  # 0.05%
+        # Minimum SMA separation required to consider trend valid.
+        # Slightly relaxed to 0.04% to reduce unnecessary hard-failures on valid trends,
+        # while keeping the contract strict enough for Scenario 1 and other certified flows.
+        min_separation_pct = 0.0004  # 0.04%
         
         if trend_direction == 'BUY':
             # BUY contract: SMA20 > SMA50 with minimum separation

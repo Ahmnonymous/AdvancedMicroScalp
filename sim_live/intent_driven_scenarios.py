@@ -256,6 +256,50 @@ def get_certified_lock_contention_stress() -> Dict[str, Any]:
     )
 
 
+def get_certified_buy_hard_sl_loss() -> Dict[str, Any]:
+    """
+    Certified Scenario 6: BUY entry → price moves against → hard SL loss
+
+    Intent:
+    - expect_trade: true
+    - direction: BUY
+    - expect_exit: HARD_SL
+
+    Notes:
+    - No profit-locking or trailing should occur.
+    - Deterministic price movement must drive price through the configured SL,
+      allowing the SL manager/broker to close the trade naturally.
+    """
+    return create_intent_driven_scenario(
+        name='certified_buy_hard_sl_loss',
+        intent={
+            'expect_trade': True,
+            'direction': 'BUY',
+            'expect_exit': 'HARD_SL',
+            'max_cycles_to_entry': 5,
+        },
+        market_context={
+            'trend_strength': 'STRONG',
+            'volatility': 'NORMAL',
+            'pullbacks': 'ABSENT',
+            'rsi_range': [35, 55],
+            'sma_separation_min_pct': 0.08,
+            'adx_min': 18,
+            'candle_quality_min_pct': 65,
+        },
+        price_script=[
+            # Warm-up and natural BUY entry
+            {'time': 0, 'action': 'wait', 'duration': 60, 'comment': 'Warm-up phase'},
+            {'time': 60, 'action': 'generate_entry_candle', 'symbol': 'EURUSD', 'trend_direction': 'BUY'},
+            {'time': 65, 'action': 'wait', 'duration': 10, 'comment': 'Wait for entry'},
+
+            # Adverse price movement: drive price DOWN well beyond typical SL distance
+            # For 0.01 lot EURUSD, ~20 pips ≈ $2.00 loss.
+            {'time': 80, 'action': 'move_price', 'symbol': 'EURUSD', 'delta_bid': -0.0020, 'duration': 10.0,
+             'comment': 'Deterministic move against position to hit hard SL'},
+        ],
+    )
+
 def get_scenario(name: str) -> Optional[Dict[str, Any]]:
     """Get scenario by name (includes both legacy and certified scenarios)."""
     certified_scenarios = {
@@ -264,6 +308,7 @@ def get_scenario(name: str) -> Optional[Dict[str, Any]]:
         'certified_false_trend_rejected': get_certified_false_trend_rejected(),
         'certified_high_spread_rejected': get_certified_high_spread_rejected(),
         'certified_lock_contention_stress': get_certified_lock_contention_stress(),
+        'certified_buy_hard_sl_loss': get_certified_buy_hard_sl_loss(),
     }
     
     # Import legacy scenarios
