@@ -1,4 +1,0 @@
-2025-12-17 17:31:58 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.8% of avg range > max 20.0%
-2025-12-17 17:32:31 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.0% of avg range > max 20.0%
-2025-12-17 17:34:15 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.2% of avg range > max 20.0%
-2025-12-17 17:34:46 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26.2% of avg range > max 20.0%

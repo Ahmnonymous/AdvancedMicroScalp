@@ -102,9 +102,11 @@ class SLManager:
         self.sweet_spot_min = profit_locking_config.get('min_profit_threshold_usd', 0.03)
         self.sweet_spot_max = profit_locking_config.get('max_profit_threshold_usd', 0.10)
         
-        # Thread safety
+        # Thread safety - OPTIMIZED: Use defaultdict for lock-free ticket lock access
+        # Only acquire global lock when creating new ticket lock
         self._ticket_locks = {}  # {ticket: Lock}
-        self._locks_lock = threading.Lock()  # Protects _ticket_locks dict
+        self._locks_lock = threading.Lock()  # Protects _ticket_locks dict (minimal use)
+        self._locks_lock_optimized = False  # Flag to track if we've initialized locks dict
         # CRITICAL FIX: Load lock timeouts from config with proper defaults
         self._lock_acquisition_timeout = self.risk_config.get('lock_acquisition_timeout_seconds', 1.0)  # 1.0s default (increased from 0.5s)
         self._profit_locking_lock_timeout = self.risk_config.get('profit_locking_lock_timeout_seconds', 2.0)  # 2.0s for profitable trades
@@ -145,6 +147,15 @@ class SLManager:
         self._last_sl_attempt = {}  # {ticket: datetime} - tracks last attempt (success or failure)
         self._last_sl_success = {}  # {ticket: datetime} - tracks last successful update only
         self._consecutive_failures = defaultdict(int)  # {ticket: count} - tracks consecutive failures
+        
+        # SL oscillation prevention
+        self._sl_update_cooldown = {}  # {ticket: cooldown_until_timestamp}
+        self._sl_update_cooldown_seconds = 0.5  # 500ms cooldown between updates for same ticket
+        self._min_sl_delta_pct = 0.01  # 1% minimum change required to update SL (prevents oscillation)
+        
+        # Emergency enforcement tracking - prevent infinite loops
+        self._emergency_enforcement_count = {}  # {ticket: count} - track emergency enforcements per ticket
+        self._emergency_enforcement_max = 3  # Max emergency enforcements per ticket per violation
         self._ticket_circuit_breaker = {}  # {ticket: disabled_until_time} - circuit breaker for failing tickets
         self._circuit_breaker_threshold = 10  # 10 failures before activating (increased from 5)
         self._circuit_breaker_cooldown_base = 10.0  # Base cooldown 10 seconds
@@ -418,8 +429,17 @@ class SLManager:
             logger.debug(f"Could not write CSV summary: {e}")
     
     def _get_ticket_lock(self, ticket: int) -> threading.RLock:
-        """Get or create a reentrant lock for a specific ticket."""
+        """
+        Get or create a reentrant lock for a specific ticket.
+        OPTIMIZED: Use double-checked locking to minimize global lock contention.
+        """
+        # Fast path: try to get existing lock without global lock
+        if ticket in self._ticket_locks:
+            return self._ticket_locks[ticket]
+        
+        # Slow path: acquire global lock only to create new lock
         with self._locks_lock:
+            # Double-check after acquiring lock
             if ticket not in self._ticket_locks:
                 # CRITICAL FIX: Use RLock (reentrant lock) to prevent deadlocks in backtest mode
                 # In backtest, both run_cycle and sl_worker run on the same thread (MainThread)
@@ -1848,6 +1868,33 @@ class SLManager:
         apply_start_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
         logger.debug(f"[{apply_start_timestamp}] 🎯 _apply_sl_update START | Ticket: {ticket} | Symbol: {symbol} | Target SL: {target_sl_price:.5f}")
         
+        # CRITICAL: Check cooldown and minimum delta to prevent oscillation
+        current_time_float = time.time()
+        with self._tracking_lock:
+            # Check cooldown
+            if ticket in self._sl_update_cooldown:
+                cooldown_until = self._sl_update_cooldown[ticket]
+                if current_time_float < cooldown_until:
+                    remaining = cooldown_until - current_time_float
+                    logger.debug(f"[{apply_start_timestamp}] 🚫 SL UPDATE COOLDOWN | Ticket: {ticket} | "
+                               f"Cooldown active: {remaining*1000:.1f}ms remaining | Target: {target_sl_price:.5f}")
+                    return False
+            
+            # Check minimum delta (prevent oscillation)
+            if ticket in self._last_sl_price:
+                last_sl = self._last_sl_price[ticket]
+                sl_delta = abs(target_sl_price - last_sl)
+                
+                # Get entry price for percentage calculation
+                entry_price = position.get('price_open', 0.0) if position else 0.0
+                if entry_price > 0:
+                    sl_delta_pct = (sl_delta / entry_price) * 100.0
+                    if sl_delta_pct < self._min_sl_delta_pct:
+                        logger.debug(f"[{apply_start_timestamp}] 🚫 SL UPDATE DELTA TOO SMALL | Ticket: {ticket} | "
+                                   f"Delta: {sl_delta:.5f} ({sl_delta_pct:.3f}%) < min {self._min_sl_delta_pct:.3f}% | "
+                                   f"Last: {last_sl:.5f} | Target: {target_sl_price:.5f}")
+                        return False
+        
         # CRITICAL: Validate StopLevel and spread BEFORE modifying
         try:
             validate_start = time.time()
@@ -2073,11 +2120,13 @@ class SLManager:
                                 effective_tolerance = base_effective_tolerance
                             
                             if effective_error < effective_tolerance:
-                                # Update tracking
+                                # Update tracking and set cooldown
                                 with self._tracking_lock:
                                     self._last_sl_update[ticket] = datetime.now()
                                     self._last_sl_price[ticket] = applied_sl
                                     self._last_sl_reason[ticket] = reason
+                                    # Set cooldown to prevent oscillation
+                                    self._sl_update_cooldown[ticket] = current_time_float + self._sl_update_cooldown_seconds
                                 
                                 success_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
                                 logger.info(f"[OK] SL UPDATE SUCCESS: Ticket={ticket} Symbol={symbol} NewSL={applied_sl:.5f} TargetSL={target_sl_price:.5f} Reason={reason}")
@@ -2756,16 +2805,35 @@ class SLManager:
             
             if not lock_acquired:
                 # CRITICAL: Lock failed for losing trade - use emergency lock-free path
+                # BUT: Prevent infinite loops by tracking emergency enforcements
+                emergency_count = self._emergency_enforcement_count.get(ticket, 0)
+                if emergency_count >= self._emergency_enforcement_max:
+                    # Already used max emergency enforcements - skip to prevent loop
+                    timeout_ms = self._lock_acquisition_timeout * 1000
+                    reason = f"Emergency enforcement limit reached ({self._emergency_enforcement_max}) - lock timeout ({timeout_ms:.0f}ms)"
+                    logger.warning(f"[WARNING] EMERGENCY LIMIT: {symbol} Ticket {ticket} | {reason}")
+                    with self._tracking_lock:
+                        self._last_sl_reason[ticket] = reason
+                    self._track_update_metrics(ticket, symbol, False, reason, initial_profit)
+                    return False, reason
+                
                 timeout_ms = self._lock_acquisition_timeout * 1000
                 logger.critical(f"[EMERGENCY] LOCK TIMEOUT FOR LOSING TRADE: {symbol} Ticket {ticket} | "
                              f"Profit: ${initial_profit:.2f} | "
-                             f"Lock timeout ({timeout_ms:.0f}ms) - Using EMERGENCY LOCK-FREE strict loss enforcement")
+                             f"Lock timeout ({timeout_ms:.0f}ms) - Using EMERGENCY LOCK-FREE strict loss enforcement | "
+                             f"Count: {emergency_count + 1}/{self._emergency_enforcement_max}")
+                
+                # Track emergency enforcement attempt
+                self._emergency_enforcement_count[ticket] = emergency_count + 1
                 
                 # Use emergency lock-free strict loss enforcement
                 emergency_success, emergency_reason, emergency_sl = self._enforce_strict_loss_emergency_lockfree(position)
                 
                 if emergency_success:
                     # Emergency enforcement succeeded - log and return
+                    # Reset emergency count on success
+                    self._emergency_enforcement_count.pop(ticket, None)
+                    
                     mode = "BACKTEST" if self.config.get('mode') == 'backtest' else "LIVE"
                     logger.critical(f"[EMERGENCY] HARD SL ENFORCED (LOCK-FREE): mode={mode} | "
                                  f"ticket={ticket} | symbol={symbol} | "
@@ -3110,6 +3178,8 @@ class SLManager:
                 for immediate_retry in range(max_immediate_retries):
                     success, reason, _ = self._enforce_strict_loss_limit(strict_loss_position)
                     if success:
+                        # Reset emergency count on success
+                        self._emergency_enforcement_count.pop(ticket, None)
                         # Re-acquire lock briefly to update tracking
                         lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=False)
                         if lock_acquired:

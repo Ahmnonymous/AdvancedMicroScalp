@@ -6,6 +6,8 @@ Handles order placement, modification, and tracking.
 import MetaTrader5 as mt5
 import logging
 import time
+import random
+import threading
 from typing import Optional, Dict, Any, List
 from datetime import datetime
 from enum import Enum
@@ -26,17 +28,35 @@ class OrderManager:
     
     def __init__(self, mt5_connector):
         self.mt5_connector = mt5_connector
+        
+        # Position cache for faster fetches (TTL: 30ms for high-frequency SL worker)
+        self._position_cache = {}  # {ticket: (position, timestamp)}
+        self._position_cache_ttl = 0.030  # 30ms TTL
+        self._position_cache_lock = threading.Lock()
     
-    def _get_position_by_ticket(self, ticket: int):
+    def _get_position_by_ticket(self, ticket: int, use_cache: bool = True):
         """
         Helper method to get position by ticket, handling both SIM_LIVE and live MT5.
+        Uses caching to reduce MT5 API calls for high-frequency operations.
         
         Args:
             ticket: Position ticket number
+            use_cache: If True, use cached position if available and fresh (default: True)
         
         Returns:
             Position object or None if not found
         """
+        # Check cache first for fast path
+        if use_cache:
+            with self._position_cache_lock:
+                if ticket in self._position_cache:
+                    cached_position, cached_time = self._position_cache[ticket]
+                    cache_age = time.time() - cached_time
+                    if cache_age < self._position_cache_ttl:
+                        return cached_position
+                    # Cache expired, remove it
+                    del self._position_cache[ticket]
+        
         position = None
         
         # Try position_get first (works for SIM_LIVE)
@@ -44,6 +64,10 @@ class OrderManager:
             try:
                 position = mt5.position_get(ticket)
                 if position is not None:
+                    # Update cache
+                    if use_cache:
+                        with self._position_cache_lock:
+                            self._position_cache[ticket] = (position, time.time())
                     return position
             except (TypeError, AttributeError):
                 pass
@@ -52,7 +76,12 @@ class OrderManager:
         try:
             position_list = mt5.positions_get(ticket=ticket)
             if position_list is not None and len(position_list) > 0:
-                return position_list[0]
+                position = position_list[0]
+                # Update cache
+                if use_cache:
+                    with self._position_cache_lock:
+                        self._position_cache[ticket] = (position, time.time())
+                return position
         except (TypeError, AttributeError):
             # positions_get doesn't accept ticket parameter (SIM_LIVE case)
             # Fallback: get all positions and filter by ticket
@@ -60,7 +89,16 @@ class OrderManager:
             if all_positions:
                 for pos in all_positions:
                     if hasattr(pos, 'ticket') and pos.ticket == ticket:
+                        # Update cache
+                        if use_cache:
+                            with self._position_cache_lock:
+                                self._position_cache[ticket] = (pos, time.time())
                         return pos
+        
+        # Position not found - clear cache entry
+        if use_cache:
+            with self._position_cache_lock:
+                self._position_cache.pop(ticket, None)
         
         return None
     
@@ -612,7 +650,6 @@ class OrderManager:
                 error = mt5.last_error()
                 if attempt < max_retries - 1:
                     logger.warning(f"Modify order send returned None for ticket {ticket} (attempt {attempt + 1}/{max_retries}). MT5 error: {error}. Retrying...")
-                    import time
                     time.sleep(0.1 * (attempt + 1))  # Increasing backoff
                     continue
                 else:
@@ -622,6 +659,9 @@ class OrderManager:
             if result.retcode == mt5.TRADE_RETCODE_DONE:
                 logger.info(f"[OK] SL UPDATE SUCCESS: Ticket={ticket} Symbol={symbol} NewSL={new_sl:.5f} OldSL={current_sl:.5f}")
                 logger.info(f"Order {ticket} modified: SL {new_sl:.5f}, TP {new_tp:.5f}")
+                # Invalidate position cache to force refresh on next fetch
+                with self._position_cache_lock:
+                    self._position_cache.pop(ticket, None)
                 return True
             
             # Handle specific error codes
@@ -643,8 +683,6 @@ class OrderManager:
                 # Position still exists, but too close to market - retry with backoff
                 if attempt < max_retries - 1:
                     logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - Position too close to market. Retrying...")
-                    import time
-                    import random
                     backoff = 0.2 * (2 ** attempt)  # Exponential: 0.2s, 0.4s, 0.8s
                     jitter = random.uniform(0, 0.1)  # Random jitter up to 100ms
                     time.sleep(backoff + jitter)
@@ -672,7 +710,6 @@ class OrderManager:
                 # Invalid request for other reason - retry once
                 if attempt < max_retries - 1:
                     logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - Invalid request. Retrying...")
-                    import time
                     time.sleep(0.1 * (attempt + 1))
                     continue
                 else:
@@ -681,15 +718,56 @@ class OrderManager:
             
             if attempt < max_retries - 1:
                 logger.warning(f"Modify order failed for ticket {ticket} (attempt {attempt + 1}/{max_retries}): {result.retcode} - {result.comment}. Retrying...")
-                import time
-                import random
                 backoff = 0.1 * (2 ** attempt)  # Exponential: 0.1s, 0.2s, 0.4s
                 jitter = random.uniform(0, 0.05)  # Random jitter up to 50ms
                 time.sleep(backoff + jitter)
             else:
                 logger.error(f"[ERROR] SL UPDATE FAILED: Ticket={ticket} Symbol={symbol} Code={result.retcode} Reason={result.comment} Attempts={max_retries}")
                 logger.error(f"Modify order failed for ticket {ticket} after {max_retries} attempts: {result.retcode} - {result.comment}")
+                # FALLBACK: Try direct MT5 API call as last resort
+                logger.warning(f"[FALLBACK] Attempting direct MT5 API call for ticket {ticket}")
+                try:
+                    direct_request = {
+                        "action": mt5.TRADE_ACTION_SLTP,
+                        "symbol": symbol,
+                        "position": ticket,
+                        "sl": new_sl,
+                        "tp": new_tp,
+                    }
+                    direct_result = mt5.order_send(direct_request)
+                    if direct_result and direct_result.retcode == mt5.TRADE_RETCODE_DONE:
+                        logger.info(f"[FALLBACK SUCCESS] Direct MT5 API call succeeded for ticket {ticket}")
+                        # Invalidate cache
+                        with self._position_cache_lock:
+                            self._position_cache.pop(ticket, None)
+                        return True
+                    else:
+                        logger.error(f"[FALLBACK FAILED] Direct MT5 API call failed for ticket {ticket}: {direct_result.retcode if direct_result else 'None'}")
+                except Exception as e:
+                    logger.error(f"[FALLBACK EXCEPTION] Direct MT5 API call exception for ticket {ticket}: {e}", exc_info=True)
                 return False
+        
+        # Final fallback: if we exhausted all retries, try direct MT5 API one more time
+        logger.warning(f"[FINAL FALLBACK] All retries exhausted, attempting direct MT5 API call for ticket {ticket}")
+        try:
+            direct_request = {
+                "action": mt5.TRADE_ACTION_SLTP,
+                "symbol": symbol,
+                "position": ticket,
+                "sl": new_sl,
+                "tp": new_tp,
+            }
+            direct_result = mt5.order_send(direct_request)
+            if direct_result and direct_result.retcode == mt5.TRADE_RETCODE_DONE:
+                logger.info(f"[FINAL FALLBACK SUCCESS] Direct MT5 API call succeeded for ticket {ticket}")
+                # Invalidate cache
+                with self._position_cache_lock:
+                    self._position_cache.pop(ticket, None)
+                return True
+            else:
+                logger.error(f"[FINAL FALLBACK FAILED] Direct MT5 API call failed for ticket {ticket}: {direct_result.retcode if direct_result else 'None'}")
+        except Exception as e:
+            logger.error(f"[FINAL FALLBACK EXCEPTION] Direct MT5 API call exception for ticket {ticket}: {e}", exc_info=True)
         
         return False
     
@@ -835,6 +913,11 @@ class OrderManager:
             return False
         
         logger.info(f"Position {ticket} closed successfully")
+        
+        # Clear position cache for closed position
+        with self._position_cache_lock:
+            self._position_cache.pop(ticket, None)
+        
         tracer.trace(
             function_name="OrderManager.close_position",
             expected=f"Close position Ticket {ticket} ({symbol})",
