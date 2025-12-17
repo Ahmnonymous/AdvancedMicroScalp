@@ -1,0 +1,4 @@
+2025-12-17 17:28:12 - trades.XNGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1033.7% of avg range > max 20.0%
+2025-12-17 17:28:46 - trades.XNGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1037.3% of avg range > max 20.0%
+2025-12-17 17:33:49 - trades.XNGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 972.7% of avg range > max 20.0%
+2025-12-17 17:34:22 - trades.XNGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 952.8% of avg range > max 20.0%

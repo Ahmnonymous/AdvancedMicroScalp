@@ -1,0 +1,4 @@
+2025-12-17 17:29:51 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 425.4% of avg range > max 20.0%
+2025-12-17 17:30:24 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 406.4% of avg range > max 20.0%
+2025-12-17 17:32:05 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 363.6% of avg range > max 20.0%
+2025-12-17 17:32:38 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 368.4% of avg range > max 20.0%

@@ -1,0 +1,23 @@
+2025-12-17 17:27:01 - order_manager - INFO - mode=LIVE | symbol=TSLAm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 478.07000 | SL: 476.07000
+2025-12-17 17:27:02 - order_manager - INFO - mode=LIVE | symbol=TSLAm | ticket=525753113 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 476.07000 | Entry Price: 478.07000 (requested: 478.07000) | Slippage: 0.00000
+2025-12-17 17:27:02 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=525753113 Symbol=TSLAm NewSL=477.89000 OldSL=476.07000
+2025-12-17 17:27:02 - order_manager - INFO - Order 525753113 modified: SL 477.89000, TP 0.00000
+2025-12-17 17:27:03 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=525753113 Symbol=TSLAm NewSL=477.85000 OldSL=477.89000
+2025-12-17 17:27:03 - order_manager - INFO - Order 525753113 modified: SL 477.85000, TP 0.00000
+2025-12-17 17:27:03 - order_manager - WARNING - Modify order failed for ticket 525753113 (attempt 1/3): 10016 - Invalid stops. Retrying...
+2025-12-17 17:27:03 - order_manager - WARNING - Modify order failed for ticket 525753113 (attempt 2/3): 10016 - Invalid stops. Retrying...
+2025-12-17 17:27:03 - order_manager - WARNING - Modify order failed for ticket 525753113 (attempt 1/3): 10029 - Position too close to market. Retrying...
+2025-12-17 17:27:04 - order_manager - WARNING - Modify order failed for ticket 525753113 (attempt 1/3): 10036 - Position doesn't exist. Retrying...
+2025-12-17 17:27:04 - order_manager - WARNING - Position 525753113 no longer exists (may have been closed) - invalid request
+2025-12-17 17:27:04 - order_manager - WARNING - Position 525753113 no longer exists (may have been closed) - invalid request
+2025-12-17 17:27:04 - order_manager - WARNING - Position 525753113 no longer exists (may have been closed) - invalid request
+2025-12-17 17:32:43 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 86857.03000 | SL: 86657.03000
+2025-12-17 17:32:43 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=525793903 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 86657.03000 | Entry Price: 86857.03000 (requested: 86857.03000) | Slippage: 0.00000
+2025-12-17 17:32:47 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=525793903 Symbol=BTCUSDm NewSL=86801.99000 OldSL=86657.03000
+2025-12-17 17:32:47 - order_manager - INFO - Order 525793903 modified: SL 86801.99000, TP 0.00000
+2025-12-17 17:32:56 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=525793903 Symbol=BTCUSDm NewSL=86806.25000 OldSL=86801.99000
+2025-12-17 17:32:56 - order_manager - INFO - Order 525793903 modified: SL 86806.25000, TP 0.00000
+2025-12-17 17:32:57 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=525793903 Symbol=BTCUSDm NewSL=86806.60000 OldSL=86806.25000
+2025-12-17 17:32:57 - order_manager - INFO - Order 525793903 modified: SL 86806.60000, TP 0.00000
+2025-12-17 17:32:57 - order_manager - WARNING - Modify order failed for ticket 525793903 (attempt 1/3): 10029 - Position too close to market. Retrying...
+2025-12-17 17:32:58 - order_manager - WARNING - Position 525793903 no longer exists (may have been closed) - invalid request

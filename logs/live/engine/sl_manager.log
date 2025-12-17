@@ -1,0 +1,1147 @@
+2025-12-17 17:23:58 - sl_manager - INFO - Loaded 0 symbol overrides from config/symbol_overrides.json
+2025-12-17 17:23:58 - sl_manager - INFO - Instant trailing enabled - SL updates will trigger instantly (0ms interval)
+2025-12-17 17:23:58 - sl_manager - INFO - [LOG] Structured SL logging enabled: C:\AdvancedMicroScalp\logs\runtime\sl_updates_20251217_172358.jsonl
+2025-12-17 17:23:58 - sl_manager - INFO - 📊 CSV summary logging enabled: C:\AdvancedMicroScalp\logs\runtime\sl_summary_20251217_172358.csv
+2025-12-17 17:23:58 - sl_manager - INFO - [LOG] Lock diagnostics logging enabled: C:\AdvancedMicroScalp\logs\live\engine\lock_diagnostics.jsonl
+2025-12-17 17:23:58 - sl_manager - INFO - SL Manager initialized | Max risk: $2.00 | Break-even: False (2.0s) | Sweet-spot: $0.03-$0.10 | Trailing increment: $0.10 | Worker interval: 0ms | Min update interval: 100ms | Lock timeout: 1000ms | Profit-locking timeout: 2000ms
+2025-12-17 17:23:59 - sl_manager - INFO - Background worker loop started
+2025-12-17 17:23:59 - sl_manager - INFO - [OK] Background worker thread started for heavy operations
+2025-12-17 17:23:59 - sl_manager - INFO - SLManager worker loop starting now...
+2025-12-17 17:23:59 - sl_manager - INFO - SLManager worker loop started (interval: 0ms)
+2025-12-17 17:23:59 - sl_manager - INFO - SLManager worker loop starting now
+2025-12-17 17:23:59 - sl_manager - INFO - [OK] SL Worker started (0ms cadence)
+2025-12-17 17:23:59 - sl_manager - INFO - [OK] SLManager worker thread started successfully
+2025-12-17 17:23:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:23:59.558 | Iteration: 1
+2025-12-17 17:23:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:23:59.742 | Iteration: 2
+2025-12-17 17:23:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:23:59.795 | Iteration: 3
+2025-12-17 17:23:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:23:59.828 | Iteration: 4
+2025-12-17 17:23:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:23:59.843 | Iteration: 5
+2025-12-17 17:23:59 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:23:59.971] [SL_WORKER] WARNING: Slow position fetch: 16.1ms (target: <10ms)
+2025-12-17 17:24:00 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:00.020] [SL_WORKER] WARNING: Slow position fetch: 12.2ms (target: <10ms)
+2025-12-17 17:24:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:02.576] [SL_WORKER] WARNING: Slow position fetch: 12.7ms (target: <10ms)
+2025-12-17 17:24:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:02.653] [SL_WORKER] WARNING: Slow position fetch: 14.0ms (target: <10ms)
+2025-12-17 17:24:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:03.129] [SL_WORKER] WARNING: Slow position fetch: 49.9ms (target: <10ms)
+2025-12-17 17:24:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:03.230] [SL_WORKER] WARNING: Slow position fetch: 17.3ms (target: <10ms)
+2025-12-17 17:24:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:03.352] [SL_WORKER] WARNING: Slow position fetch: 14.3ms (target: <10ms)
+2025-12-17 17:24:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:03.499] [SL_WORKER] WARNING: Slow position fetch: 19.0ms (target: <10ms)
+2025-12-17 17:24:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:03.518] [SL_WORKER] WARNING: Slow position fetch: 28.5ms (target: <10ms)
+2025-12-17 17:24:03 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:03.562 | Iteration: 100
+2025-12-17 17:24:06 - sl_manager - WARNING - SL worker already running (thread is alive)
+2025-12-17 17:24:08 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:08.496 | Iteration: 200
+2025-12-17 17:24:13 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:13.297 | Iteration: 300
+2025-12-17 17:24:15 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:15.495] [SL_WORKER] WARNING: Slow position fetch: 28.2ms (target: <10ms)
+2025-12-17 17:24:15 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:15.820 | Iteration: 400
+2025-12-17 17:24:21 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:20.998 | Iteration: 500
+2025-12-17 17:24:27 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:27.402] [SL_WORKER] WARNING: Slow position fetch: 446.7ms (target: <10ms)
+2025-12-17 17:24:27 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:27.861] [SL_WORKER] WARNING: Slow position fetch: 10.7ms (target: <10ms)
+2025-12-17 17:24:27 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:27.919 | Iteration: 600
+2025-12-17 17:24:32 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:31.965] [SL_WORKER] WARNING: Slow position fetch: 461.1ms (target: <10ms)
+2025-12-17 17:24:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:34.733 | Iteration: 700
+2025-12-17 17:24:34 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:34.797] [SL_WORKER] WARNING: Slow position fetch: 23.0ms (target: <10ms)
+2025-12-17 17:24:36 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:36.455] [SL_WORKER] WARNING: Slow position fetch: 48.0ms (target: <10ms)
+2025-12-17 17:24:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:39.005 | Iteration: 800
+2025-12-17 17:24:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:44.424 | Iteration: 900
+2025-12-17 17:24:44 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:44.424] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:24:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:46.040 | Iteration: 1000
+2025-12-17 17:24:46 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:46.109] [SL_WORKER] WARNING: Slow position fetch: 10.1ms (target: <10ms)
+2025-12-17 17:24:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:46.933 | Iteration: 1100
+2025-12-17 17:24:47 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:47.995 | Iteration: 1200
+2025-12-17 17:24:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:48.260] [SL_WORKER] WARNING: Slow position fetch: 27.4ms (target: <10ms)
+2025-12-17 17:24:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:48.334 | Iteration: 1300
+2025-12-17 17:24:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:48.474 | Iteration: 1400
+2025-12-17 17:24:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:48.492] [SL_WORKER] WARNING: Slow position fetch: 15.1ms (target: <10ms)
+2025-12-17 17:24:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:48.791 | Iteration: 1500
+2025-12-17 17:24:49 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:48.796] [SL_WORKER] WARNING: Slow position fetch: 1075.7ms (target: <10ms)
+2025-12-17 17:24:50 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:49.926] [SL_WORKER] WARNING: Slow position fetch: 678.1ms (target: <10ms)
+2025-12-17 17:24:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:50.953 | Iteration: 1600
+2025-12-17 17:24:51 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:51.657 | Iteration: 1700
+2025-12-17 17:24:52 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:52.435] [SL_WORKER] WARNING: Slow position fetch: 62.4ms (target: <10ms)
+2025-12-17 17:24:52 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:52.498] [SL_WORKER] WARNING: Slow position fetch: 15.1ms (target: <10ms)
+2025-12-17 17:24:52 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:52.549 | Iteration: 1800
+2025-12-17 17:24:52 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:52.674 | Iteration: 1900
+2025-12-17 17:24:52 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:52.692] [SL_WORKER] WARNING: Slow position fetch: 20.9ms (target: <10ms)
+2025-12-17 17:24:52 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:52.869] [SL_WORKER] WARNING: Slow position fetch: 43.5ms (target: <10ms)
+2025-12-17 17:24:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:53.261 | Iteration: 2000
+2025-12-17 17:24:53 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:24:53.737] [SL_WORKER] WARNING: Slow position fetch: 21.4ms (target: <10ms)
+2025-12-17 17:24:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:53.764 | Iteration: 2100
+2025-12-17 17:24:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:54.675 | Iteration: 2200
+2025-12-17 17:24:56 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:56.108 | Iteration: 2300
+2025-12-17 17:24:56 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:56.865 | Iteration: 2400
+2025-12-17 17:24:58 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:58.110 | Iteration: 2500
+2025-12-17 17:24:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:24:59.112 | Iteration: 2600
+2025-12-17 17:25:00 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:00.116] [SL_WORKER] WARNING: Slow position fetch: 10.3ms (target: <10ms)
+2025-12-17 17:25:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:00.922 | Iteration: 2700
+2025-12-17 17:25:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:02.303] [SL_WORKER] WARNING: Slow position fetch: 11.4ms (target: <10ms)
+2025-12-17 17:25:02 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:02.765 | Iteration: 2800
+2025-12-17 17:25:03 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:03.649 | Iteration: 2900
+2025-12-17 17:25:04 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:04.185] [SL_WORKER] WARNING: Slow position fetch: 15.0ms (target: <10ms)
+2025-12-17 17:25:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:04.941 | Iteration: 3000
+2025-12-17 17:25:07 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:06.918] [SL_WORKER] WARNING: Slow position fetch: 152.8ms (target: <10ms)
+2025-12-17 17:25:07 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:07.970 | Iteration: 3100
+2025-12-17 17:25:10 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:10.312 | Iteration: 3200
+2025-12-17 17:25:14 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:14.050 | Iteration: 3300
+2025-12-17 17:25:15 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:15.472] [SL_WORKER] WARNING: Slow position fetch: 12.5ms (target: <10ms)
+2025-12-17 17:25:15 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:15.488 | Iteration: 3400
+2025-12-17 17:25:16 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:16.421] [SL_WORKER] WARNING: Slow position fetch: 21.6ms (target: <10ms)
+2025-12-17 17:25:17 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:17.826 | Iteration: 3500
+2025-12-17 17:25:18 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:18.807 | Iteration: 3600
+2025-12-17 17:25:20 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:20.144] [SL_WORKER] WARNING: Slow position fetch: 13.0ms (target: <10ms)
+2025-12-17 17:25:20 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:20.269 | Iteration: 3700
+2025-12-17 17:25:21 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:21.733 | Iteration: 3800
+2025-12-17 17:25:22 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:21.813] [SL_WORKER] WARNING: Slow position fetch: 350.9ms (target: <10ms)
+2025-12-17 17:25:22 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:22.702 | Iteration: 3900
+2025-12-17 17:25:23 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:23.168] [SL_WORKER] WARNING: Slow position fetch: 18.4ms (target: <10ms)
+2025-12-17 17:25:23 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:23.212 | Iteration: 4000
+2025-12-17 17:25:24 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:24.321 | Iteration: 4100
+2025-12-17 17:25:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:24.321] [SL_WORKER] WARNING: Slow position fetch: 12.4ms (target: <10ms)
+2025-12-17 17:25:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:24.390] [SL_WORKER] WARNING: Slow position fetch: 12.2ms (target: <10ms)
+2025-12-17 17:25:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:24.642] [SL_WORKER] WARNING: Slow position fetch: 13.0ms (target: <10ms)
+2025-12-17 17:25:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:24.765] [SL_WORKER] WARNING: Slow position fetch: 16.9ms (target: <10ms)
+2025-12-17 17:25:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:24.796] [SL_WORKER] WARNING: Slow position fetch: 15.5ms (target: <10ms)
+2025-12-17 17:25:24 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:24.827 | Iteration: 4200
+2025-12-17 17:25:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:24.829] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:25:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:24.994] [SL_WORKER] WARNING: Slow position fetch: 18.5ms (target: <10ms)
+2025-12-17 17:25:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:25.401 | Iteration: 4300
+2025-12-17 17:25:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:25.676] [SL_WORKER] WARNING: Slow position fetch: 11.0ms (target: <10ms)
+2025-12-17 17:25:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:25.765] [SL_WORKER] WARNING: Slow position fetch: 26.5ms (target: <10ms)
+2025-12-17 17:25:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:25.825] [SL_WORKER] WARNING: Slow position fetch: 16.0ms (target: <10ms)
+2025-12-17 17:25:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:25.855] [SL_WORKER] WARNING: Slow position fetch: 16.6ms (target: <10ms)
+2025-12-17 17:25:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:25.882 | Iteration: 4400
+2025-12-17 17:25:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:25.887] [SL_WORKER] WARNING: Slow position fetch: 16.7ms (target: <10ms)
+2025-12-17 17:25:26 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:26.480] [SL_WORKER] WARNING: Slow position fetch: 18.8ms (target: <10ms)
+2025-12-17 17:25:26 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:26.570 | Iteration: 4500
+2025-12-17 17:25:27 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:27.273 | Iteration: 4600
+2025-12-17 17:25:28 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:28.084] [SL_WORKER] WARNING: Slow position fetch: 13.7ms (target: <10ms)
+2025-12-17 17:25:28 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:28.117] [SL_WORKER] WARNING: Slow position fetch: 10.6ms (target: <10ms)
+2025-12-17 17:25:28 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:28.255 | Iteration: 4700
+2025-12-17 17:25:28 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:28.710] [SL_WORKER] WARNING: Slow position fetch: 11.4ms (target: <10ms)
+2025-12-17 17:25:28 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:28.740] [SL_WORKER] WARNING: Slow position fetch: 21.9ms (target: <10ms)
+2025-12-17 17:25:28 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:28.774 | Iteration: 4800
+2025-12-17 17:25:28 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:28.793] [SL_WORKER] WARNING: Slow position fetch: 12.5ms (target: <10ms)
+2025-12-17 17:25:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:29.441 | Iteration: 4900
+2025-12-17 17:25:30 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:30.052 | Iteration: 5000
+2025-12-17 17:25:30 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:30.813 | Iteration: 5100
+2025-12-17 17:25:31 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:31.600 | Iteration: 5200
+2025-12-17 17:25:31 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:31.600] [SL_WORKER] WARNING: Slow position fetch: 10.0ms (target: <10ms)
+2025-12-17 17:25:31 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:31.661] [SL_WORKER] WARNING: Slow position fetch: 21.1ms (target: <10ms)
+2025-12-17 17:25:31 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:31.708] [SL_WORKER] WARNING: Slow position fetch: 14.0ms (target: <10ms)
+2025-12-17 17:25:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:32.197 | Iteration: 5300
+2025-12-17 17:25:32 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:32.296] [SL_WORKER] WARNING: Slow position fetch: 13.7ms (target: <10ms)
+2025-12-17 17:25:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:32.775 | Iteration: 5400
+2025-12-17 17:25:32 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:32.893] [SL_WORKER] WARNING: Slow position fetch: 10.8ms (target: <10ms)
+2025-12-17 17:25:33 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:33.268 | Iteration: 5500
+2025-12-17 17:25:33 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:33.268] [SL_WORKER] WARNING: Slow position fetch: 10.6ms (target: <10ms)
+2025-12-17 17:25:33 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:33.360] [SL_WORKER] WARNING: Slow position fetch: 17.4ms (target: <10ms)
+2025-12-17 17:25:33 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:33.956 | Iteration: 5600
+2025-12-17 17:25:34 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:34.356] [SL_WORKER] WARNING: Slow position fetch: 13.8ms (target: <10ms)
+2025-12-17 17:25:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:34.581 | Iteration: 5700
+2025-12-17 17:25:35 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:35.779 | Iteration: 5800
+2025-12-17 17:25:36 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:36.504 | Iteration: 5900
+2025-12-17 17:25:36 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:36.515] [SL_WORKER] WARNING: Slow position fetch: 12.9ms (target: <10ms)
+2025-12-17 17:25:36 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:36.577] [SL_WORKER] WARNING: Slow position fetch: 15.1ms (target: <10ms)
+2025-12-17 17:25:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:37.691 | Iteration: 6000
+2025-12-17 17:25:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:37.772] [SL_WORKER] WARNING: Slow position fetch: 11.3ms (target: <10ms)
+2025-12-17 17:25:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:37.893] [SL_WORKER] WARNING: Slow position fetch: 15.4ms (target: <10ms)
+2025-12-17 17:25:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:37.925] [SL_WORKER] WARNING: Slow position fetch: 10.1ms (target: <10ms)
+2025-12-17 17:25:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:37.955] [SL_WORKER] WARNING: Slow position fetch: 11.0ms (target: <10ms)
+2025-12-17 17:25:38 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:37.985] [SL_WORKER] WARNING: Slow position fetch: 16.0ms (target: <10ms)
+2025-12-17 17:25:38 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:38.017] [SL_WORKER] WARNING: Slow position fetch: 15.4ms (target: <10ms)
+2025-12-17 17:25:38 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:38.075] [SL_WORKER] WARNING: Slow position fetch: 16.9ms (target: <10ms)
+2025-12-17 17:25:38 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:38.096 | Iteration: 6100
+2025-12-17 17:25:38 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:38.630] [SL_WORKER] WARNING: Slow position fetch: 16.3ms (target: <10ms)
+2025-12-17 17:25:38 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:38.669] [SL_WORKER] WARNING: Slow position fetch: 17.6ms (target: <10ms)
+2025-12-17 17:25:38 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:38.715 | Iteration: 6200
+2025-12-17 17:25:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:39.127 | Iteration: 6300
+2025-12-17 17:25:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:39.943 | Iteration: 6400
+2025-12-17 17:25:40 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:40.206] [SL_WORKER] WARNING: Slow position fetch: 10.8ms (target: <10ms)
+2025-12-17 17:25:40 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:40.325] [SL_WORKER] WARNING: Slow position fetch: 16.9ms (target: <10ms)
+2025-12-17 17:25:40 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:40.354 | Iteration: 6500
+2025-12-17 17:25:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:41.245 | Iteration: 6600
+2025-12-17 17:25:41 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:41.514] [SL_WORKER] WARNING: Slow position fetch: 26.8ms (target: <10ms)
+2025-12-17 17:25:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:41.743 | Iteration: 6700
+2025-12-17 17:25:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:42.140 | Iteration: 6800
+2025-12-17 17:25:42 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:42.281] [SL_WORKER] WARNING: Slow position fetch: 11.2ms (target: <10ms)
+2025-12-17 17:25:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:42.308 | Iteration: 6900
+2025-12-17 17:25:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:44.605 | Iteration: 7000
+2025-12-17 17:25:45 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:45.643 | Iteration: 7100
+2025-12-17 17:25:47 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:47.428 | Iteration: 7200
+2025-12-17 17:25:49 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:49.179] [SL_WORKER] WARNING: Slow position fetch: 27.7ms (target: <10ms)
+2025-12-17 17:25:49 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:49.329 | Iteration: 7300
+2025-12-17 17:25:52 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:52.457 | Iteration: 7400
+2025-12-17 17:25:54 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:54.215] [SL_WORKER] WARNING: Slow position fetch: 39.6ms (target: <10ms)
+2025-12-17 17:25:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:54.264 | Iteration: 7500
+2025-12-17 17:25:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:54.658 | Iteration: 7600
+2025-12-17 17:25:54 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:54.675] [SL_WORKER] WARNING: Slow position fetch: 41.0ms (target: <10ms)
+2025-12-17 17:25:55 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:55.613 | Iteration: 7700
+2025-12-17 17:25:56 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:56.267] [SL_WORKER] WARNING: Slow position fetch: 12.2ms (target: <10ms)
+2025-12-17 17:25:56 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:56.925 | Iteration: 7800
+2025-12-17 17:25:56 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:56.987] [SL_WORKER] WARNING: Slow position fetch: 10.4ms (target: <10ms)
+2025-12-17 17:25:57 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:57.081] [SL_WORKER] WARNING: Slow position fetch: 10.5ms (target: <10ms)
+2025-12-17 17:25:57 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:57.448 | Iteration: 7900
+2025-12-17 17:25:58 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:58.004 | Iteration: 8000
+2025-12-17 17:25:58 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:58.273] [SL_WORKER] WARNING: Slow position fetch: 41.8ms (target: <10ms)
+2025-12-17 17:25:58 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:58.561] [SL_WORKER] WARNING: Slow position fetch: 20.2ms (target: <10ms)
+2025-12-17 17:25:58 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:58.624 | Iteration: 8100
+2025-12-17 17:25:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:59.219 | Iteration: 8200
+2025-12-17 17:25:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:59.721 | Iteration: 8300
+2025-12-17 17:25:59 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:59.813] [SL_WORKER] WARNING: Slow position fetch: 51.4ms (target: <10ms)
+2025-12-17 17:25:59 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:25:59.876] [SL_WORKER] WARNING: Slow position fetch: 13.8ms (target: <10ms)
+2025-12-17 17:25:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:25:59.956 | Iteration: 8400
+2025-12-17 17:26:00 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:00.165] [SL_WORKER] WARNING: Slow position fetch: 27.2ms (target: <10ms)
+2025-12-17 17:26:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:00.279 | Iteration: 8500
+2025-12-17 17:26:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:00.543 | Iteration: 8600
+2025-12-17 17:26:00 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:00.548] [SL_WORKER] WARNING: Slow position fetch: 75.5ms (target: <10ms)
+2025-12-17 17:26:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:00.929] [SL_WORKER] WARNING: Slow position fetch: 81.9ms (target: <10ms)
+2025-12-17 17:26:01 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:01.068 | Iteration: 8700
+2025-12-17 17:26:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:01.698] [SL_WORKER] WARNING: Slow position fetch: 25.1ms (target: <10ms)
+2025-12-17 17:26:01 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:01.864 | Iteration: 8800
+2025-12-17 17:26:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:02.218] [SL_WORKER] WARNING: Slow position fetch: 116.2ms (target: <10ms)
+2025-12-17 17:26:02 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:02.823 | Iteration: 8900
+2025-12-17 17:26:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:02.871] [SL_WORKER] WARNING: Slow position fetch: 14.6ms (target: <10ms)
+2025-12-17 17:26:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:03.649] [SL_WORKER] WARNING: Slow position fetch: 23.8ms (target: <10ms)
+2025-12-17 17:26:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:04.226 | Iteration: 9000
+2025-12-17 17:26:04 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:04.265] [SL_WORKER] WARNING: Slow position fetch: 16.3ms (target: <10ms)
+2025-12-17 17:26:04 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:04.333] [SL_WORKER] WARNING: Slow position fetch: 24.7ms (target: <10ms)
+2025-12-17 17:26:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:04.541 | Iteration: 9100
+2025-12-17 17:26:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:04.987 | Iteration: 9200
+2025-12-17 17:26:05 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:05.390 | Iteration: 9300
+2025-12-17 17:26:05 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:05.759 | Iteration: 9400
+2025-12-17 17:26:07 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:07.350 | Iteration: 9500
+2025-12-17 17:26:08 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:08.412] [SL_WORKER] WARNING: Slow position fetch: 10.6ms (target: <10ms)
+2025-12-17 17:26:08 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:08.428] [SL_WORKER] WARNING: Slow position fetch: 11.5ms (target: <10ms)
+2025-12-17 17:26:08 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:08.535 | Iteration: 9600
+2025-12-17 17:26:09 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:09.392 | Iteration: 9700
+2025-12-17 17:26:09 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:09.579] [SL_WORKER] WARNING: Slow position fetch: 33.6ms (target: <10ms)
+2025-12-17 17:26:10 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:10.006 | Iteration: 9800
+2025-12-17 17:26:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:11.509 | Iteration: 9900
+2025-12-17 17:26:13 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:13.038 | Iteration: 10000
+2025-12-17 17:26:13 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:13.613] [SL_WORKER] WARNING: Slow position fetch: 14.2ms (target: <10ms)
+2025-12-17 17:26:13 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:13.779] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:26:13 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:13.806] [SL_WORKER] WARNING: Slow position fetch: 52.4ms (target: <10ms)
+2025-12-17 17:26:13 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:13.960 | Iteration: 10100
+2025-12-17 17:26:13 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:13.988] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:26:14 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:14.114] [SL_WORKER] WARNING: Slow position fetch: 10.4ms (target: <10ms)
+2025-12-17 17:26:14 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:14.271 | Iteration: 10200
+2025-12-17 17:26:14 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:14.658 | Iteration: 10300
+2025-12-17 17:26:15 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:15.476 | Iteration: 10400
+2025-12-17 17:26:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:16.436 | Iteration: 10500
+2025-12-17 17:26:16 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:16.673] [SL_WORKER] WARNING: Slow position fetch: 28.7ms (target: <10ms)
+2025-12-17 17:26:17 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:17.341 | Iteration: 10600
+2025-12-17 17:26:17 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:17.341] [SL_WORKER] WARNING: Slow position fetch: 21.2ms (target: <10ms)
+2025-12-17 17:26:17 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:17.362] [SL_WORKER] WARNING: Slow position fetch: 11.7ms (target: <10ms)
+2025-12-17 17:26:18 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:18.343 | Iteration: 10700
+2025-12-17 17:26:18 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:18.444] [SL_WORKER] WARNING: Slow position fetch: 101.2ms (target: <10ms)
+2025-12-17 17:26:19 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:19.119] [SL_WORKER] WARNING: Slow position fetch: 25.9ms (target: <10ms)
+2025-12-17 17:26:19 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:19.356] [SL_WORKER] WARNING: Slow position fetch: 212.0ms (target: <10ms)
+2025-12-17 17:26:19 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:19.644 | Iteration: 10800
+2025-12-17 17:26:19 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:19.776 | Iteration: 10900
+2025-12-17 17:26:20 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:20.115] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:26:20 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:20.268] [SL_WORKER] WARNING: Slow position fetch: 47.4ms (target: <10ms)
+2025-12-17 17:26:21 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:21.487 | Iteration: 11000
+2025-12-17 17:26:22 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:22.648 | Iteration: 11100
+2025-12-17 17:26:22 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:22.831] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:26:22 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:22.862] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:26:23 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:23.301] [SL_WORKER] WARNING: Slow position fetch: 10.9ms (target: <10ms)
+2025-12-17 17:26:23 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:23.337] [SL_WORKER] WARNING: Slow position fetch: 72.8ms (target: <10ms)
+2025-12-17 17:26:23 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:23.899 | Iteration: 11200
+2025-12-17 17:26:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:24.428] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:26:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:25.030 | Iteration: 11300
+2025-12-17 17:26:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:25.039] [SL_WORKER] WARNING: Slow position fetch: 102.2ms (target: <10ms)
+2025-12-17 17:26:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:25.189] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:26:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:25.205] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:26:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:25.300 | Iteration: 11400
+2025-12-17 17:26:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:25.315] [SL_WORKER] WARNING: Slow position fetch: 31.6ms (target: <10ms)
+2025-12-17 17:26:27 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:27.217 | Iteration: 11500
+2025-12-17 17:26:28 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:28.566 | Iteration: 11600
+2025-12-17 17:26:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:29.979 | Iteration: 11700
+2025-12-17 17:26:30 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:30.545 | Iteration: 11800
+2025-12-17 17:26:31 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:31.618 | Iteration: 11900
+2025-12-17 17:26:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:32.341 | Iteration: 12000
+2025-12-17 17:26:32 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:32.441] [SL_WORKER] WARNING: Slow position fetch: 80.9ms (target: <10ms)
+2025-12-17 17:26:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:32.544 | Iteration: 12100
+2025-12-17 17:26:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:32.675 | Iteration: 12200
+2025-12-17 17:26:33 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:33.457 | Iteration: 12300
+2025-12-17 17:26:33 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:33.717] [SL_WORKER] WARNING: Slow position fetch: 10.3ms (target: <10ms)
+2025-12-17 17:26:33 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:33.965 | Iteration: 12400
+2025-12-17 17:26:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:34.750 | Iteration: 12500
+2025-12-17 17:26:35 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:35.325] [SL_WORKER] WARNING: Slow position fetch: 15.0ms (target: <10ms)
+2025-12-17 17:26:35 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:35.434] [SL_WORKER] WARNING: Slow position fetch: 11.2ms (target: <10ms)
+2025-12-17 17:26:35 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:35.588 | Iteration: 12600
+2025-12-17 17:26:36 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:36.541] [SL_WORKER] WARNING: Slow position fetch: 245.5ms (target: <10ms)
+2025-12-17 17:26:36 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:36.902] [SL_WORKER] WARNING: Slow position fetch: 10.2ms (target: <10ms)
+2025-12-17 17:26:36 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:36.919 | Iteration: 12700
+2025-12-17 17:26:36 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:36.919] [SL_WORKER] WARNING: Slow position fetch: 59.7ms (target: <10ms)
+2025-12-17 17:26:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:36.993] [SL_WORKER] WARNING: Slow position fetch: 10.0ms (target: <10ms)
+2025-12-17 17:26:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:37.058] [SL_WORKER] WARNING: Slow position fetch: 11.3ms (target: <10ms)
+2025-12-17 17:26:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:37.201 | Iteration: 12800
+2025-12-17 17:26:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:37.464 | Iteration: 12900
+2025-12-17 17:26:43 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:43.635] [SL_WORKER] WARNING: Slow position fetch: 12.0ms (target: <10ms)
+2025-12-17 17:26:43 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:43.707] [SL_WORKER] WARNING: Slow position fetch: 11.3ms (target: <10ms)
+2025-12-17 17:26:43 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:43.855 | Iteration: 13000
+2025-12-17 17:26:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:44.152 | Iteration: 13100
+2025-12-17 17:26:44 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:44.225] [SL_WORKER] WARNING: Slow position fetch: 155.5ms (target: <10ms)
+2025-12-17 17:26:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:44.638 | Iteration: 13200
+2025-12-17 17:26:46 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:45.992] [SL_WORKER] WARNING: Slow position fetch: 150.8ms (target: <10ms)
+2025-12-17 17:26:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:46.316 | Iteration: 13300
+2025-12-17 17:26:46 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:46.442] [SL_WORKER] WARNING: Slow position fetch: 79.0ms (target: <10ms)
+2025-12-17 17:26:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:46.602 | Iteration: 13400
+2025-12-17 17:26:46 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:46.670] [SL_WORKER] WARNING: Slow position fetch: 11.8ms (target: <10ms)
+2025-12-17 17:26:47 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:47.229 | Iteration: 13500
+2025-12-17 17:26:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:48.430] [SL_WORKER] WARNING: Slow position fetch: 12.1ms (target: <10ms)
+2025-12-17 17:26:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:48.442] [SL_WORKER] WARNING: Slow position fetch: 128.3ms (target: <10ms)
+2025-12-17 17:26:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:50.025 | Iteration: 13600
+2025-12-17 17:26:50 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:50.604] [SL_WORKER] WARNING: Slow position fetch: 67.3ms (target: <10ms)
+2025-12-17 17:26:50 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:50.712] [SL_WORKER] WARNING: Slow position fetch: 16.3ms (target: <10ms)
+2025-12-17 17:26:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:50.851 | Iteration: 13700
+2025-12-17 17:26:51 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:50.924] [SL_WORKER] WARNING: Slow position fetch: 184.9ms (target: <10ms)
+2025-12-17 17:26:51 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:51.756 | Iteration: 13800
+2025-12-17 17:26:53 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:53.434] [SL_WORKER] WARNING: Slow position fetch: 18.9ms (target: <10ms)
+2025-12-17 17:26:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:53.476 | Iteration: 13900
+2025-12-17 17:26:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:54.902 | Iteration: 14000
+2025-12-17 17:26:56 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:56.614] [SL_WORKER] WARNING: Slow position fetch: 11.0ms (target: <10ms)
+2025-12-17 17:26:57 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:57.050 | Iteration: 14100
+2025-12-17 17:26:57 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:26:57.426] [SL_WORKER] WARNING: Slow position fetch: 22.0ms (target: <10ms)
+2025-12-17 17:26:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:26:59.863 | Iteration: 14200
+2025-12-17 17:27:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:01.091] [SL_WORKER] WARNING: Slow position fetch: 19.2ms (target: <10ms)
+2025-12-17 17:27:02 - sl_manager - CRITICAL - 🚨 CRITICAL FAIL-SAFE VIOLATION: TSLAm Ticket 525753113 | Current P/L: $-0.07 | Effective SL: $-2.03 | Exceeds limit: $-2.00 by $0.03 | FORCING IMMEDIATE CORRECTION
+2025-12-17 17:27:02 - sl_manager - CRITICAL - 🚨 CRITICAL FAIL-SAFE VIOLATION: TSLAm Ticket 525753113 | Current P/L: $-0.07 | Effective SL: $-2.03 | Exceeds limit: $-2.00 by $0.03 | FORCING IMMEDIATE CORRECTION
+2025-12-17 17:27:02 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:02 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:02 - sl_manager - CRITICAL - CRITICAL: Effective SL $-2.03 is WORSE than target $-2.00 | TSLAm Ticket 525753113 | Current SL price: 476.07000 | Target SL price: 477.89000 | MUST update to correct effective SL immediately
+2025-12-17 17:27:02 - sl_manager - CRITICAL - CRITICAL: Effective SL $-2.03 is WORSE than target $-2.00 | TSLAm Ticket 525753113 | Current SL price: 476.07000 | Target SL price: 477.89000 | MUST update to correct effective SL immediately
+2025-12-17 17:27:02 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525753113 Symbol=TSLAm OldSL=476.07000 NewSL=477.89000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:27:02 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525753113 Symbol=TSLAm OldSL=476.07000 NewSL=477.89000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:27:02 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: TSLAm Ticket 525753113 | Target profit: $-2.00 | Effective: $-0.21 | Error: $1.79 (tolerance: $1.00)
+2025-12-17 17:27:02 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: TSLAm Ticket 525753113 | Target profit: $-2.00 | Effective: $-0.21 | Error: $1.79 (tolerance: $1.00)
+2025-12-17 17:27:02 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525753113 Symbol=TSLAm OldSL=477.89000 NewSL=477.89000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:27:02 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525753113 Symbol=TSLAm OldSL=477.89000 NewSL=477.89000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:27:02 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: TSLAm Ticket 525753113 | Target profit: $-2.00 | Effective: $-0.21 | Error: $1.79 (tolerance: $1.00)
+2025-12-17 17:27:02 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: TSLAm Ticket 525753113 | Target profit: $-2.00 | Effective: $-0.21 | Error: $1.79 (tolerance: $1.00)
+2025-12-17 17:27:03 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: TSLAm Ticket 525753113 | Current SL price: 477.89000 | Current effective SL: $-0.21 | Current profit: $-0.16
+2025-12-17 17:27:03 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: TSLAm Ticket 525753113 | Current effective SL: $-0.21 | Target: $-2.00 | Error: $1.79 | Tolerance: $0.50 | Needs update: True
+2025-12-17 17:27:03 - sl_manager - WARNING - [WARNING] STRICT LOSS: TSLAm Ticket 525753113 | Effective SL $-0.21 != $-2.00 (error: $1.79) | Will enforce -$2.00
+2025-12-17 17:27:03 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:03 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: TSLAm Ticket 525753113 | Current SL price: 477.89000 | Target SL price: 477.89000 | Effective SL: $-0.21 (target: $-2.00, error: $1.79) | Will update to correct effective SL
+2025-12-17 17:27:03 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525753113 Symbol=TSLAm OldSL=477.89000 NewSL=477.89000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:27:03 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525753113 Symbol=TSLAm OldSL=477.89000 NewSL=477.89000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:27:03 - sl_manager - WARNING - STRICT LOSS VERIFICATION FAILED: TSLAm Ticket 525753113 | Effective SL: $-0.21 (target: $-2.00, error: $1.79) | Will retry next cycle
+2025-12-17 17:27:03 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: TSLAm Ticket 525753113 | Attempt 1/3 failed: Strict loss SL applied but verification failed (effective: $-0.21) | Retrying immediately...
+2025-12-17 17:27:03 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: TSLAm Ticket 525753113 | Target profit: $-2.00 | Effective: $-0.21 | Error: $1.79 (tolerance: $1.00)
+2025-12-17 17:27:03 - sl_manager - ERROR - [17:27:03.352] SL UPDATE FAILED: TSLAm Ticket 525753113 | Target: 477.89000 | Reason: Verification failed | Failed after 3 attempts
+2025-12-17 17:27:03 - sl_manager - CRITICAL - 🚨 EMERGENCY STRICT SL ENFORCEMENT: TSLAm Ticket 525753113 | Reason: Losing trade (P/L: $-0.07) | Normal SL update failed after 3 attempts | Current P/L: $-0.07 | Enforcing emergency strict SL (-$2.00)
+2025-12-17 17:27:03 - sl_manager - INFO - 🔧 EMERGENCY SL: Reverse-engineered contract_size: 100.00 | From current profit: $-0.07
+2025-12-17 17:27:03 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:03 - sl_manager - WARNING - [WARNING] EMERGENCY SL ADJUSTMENT NEEDED: TSLAm Ticket 525753113 | Broker-adjusted SL 477.85000 gives effective $-0.25 (target: $-2.00, error: $1.75) | Attempting to find better SL...
+2025-12-17 17:27:03 - sl_manager - INFO - 🚨 EMERGENCY SL CALCULATED: TSLAm Ticket 525753113 | Entry: 478.10000 | Target SL: 477.85000 | Order Type: BUY
+2025-12-17 17:27:03 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:03 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: TSLAm Ticket 525753113 | Current SL price: 477.89000 | Target SL price: 477.89000 | Effective SL: $-0.21 (target: $-2.00, error: $1.79) | Will update to correct effective SL
+2025-12-17 17:27:03 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525753113 Symbol=TSLAm OldSL=477.85000 NewSL=477.89000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:27:03 - sl_manager - WARNING - [WARNING] EMERGENCY SL EFFECTIVE MISMATCH: TSLAm Ticket 525753113 | Target: $-2.00 | Effective: $-0.25 | Error: $1.75 (tolerance: $0.50) | Attempting one more adjustment...
+2025-12-17 17:27:03 - sl_manager - WARNING - [WARNING] EMERGENCY SL FINAL MISMATCH: TSLAm Ticket 525753113 | Target: $-2.00 | Effective: $-0.25 | Error: $1.75 (tolerance: $0.50) | Broker constraints may prevent exact -$2.00 SL
+2025-12-17 17:27:03 - sl_manager - CRITICAL - 🚨 MANUAL REVIEW REQUIRED: TSLAm Ticket 525753113 | Emergency SL effective mismatch exceeds tolerance | Circuit breaker: disabled for 60s
+2025-12-17 17:27:03 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: TSLAm Ticket 525753113 | Target SL: 477.89000 | Attempting emergency fallback...
+2025-12-17 17:27:03 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: TSLAm Ticket 525753113 | Target profit: $-2.00 | Effective: $-0.25 | Error: $1.75 (tolerance: $1.00)
+2025-12-17 17:27:04 - sl_manager - ERROR - [17:27:04.007] SL UPDATE FAILED: TSLAm Ticket 525753113 | Target: 477.89000 | Reason: Verification failed | Failed after 3 attempts
+2025-12-17 17:27:04 - sl_manager - CRITICAL - 🚨 EMERGENCY STRICT SL ENFORCEMENT: TSLAm Ticket 525753113 | Reason: Losing trade (P/L: $-0.07) | Normal SL update failed after 3 attempts | Current P/L: $-0.07 | Enforcing emergency strict SL (-$2.00)
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 EMERGENCY SL: Reverse-engineered contract_size: 100.00 | From current profit: $-0.07
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] EMERGENCY SL ADJUSTMENT NEEDED: TSLAm Ticket 525753113 | Broker-adjusted SL 477.72000 gives effective $-0.38 (target: $-2.00, error: $1.62) | Attempting to find better SL...
+2025-12-17 17:27:04 - sl_manager - INFO - 🚨 EMERGENCY SL CALCULATED: TSLAm Ticket 525753113 | Entry: 478.10000 | Target SL: 477.72000 | Order Type: BUY
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] modify_order returned False for Ticket 525753113 | Attempt 1/3
+2025-12-17 17:27:04 - sl_manager - ERROR - EMERGENCY STRICT SL FAILED: TSLAm Ticket 525753113 | modify_order returned False | Trade may be at risk - manual intervention required
+2025-12-17 17:27:04 - sl_manager - CRITICAL - 🚨 MANUAL REVIEW REQUIRED: TSLAm Ticket 525753113 | Emergency SL modification failed | Circuit breaker: disabled for 60s
+2025-12-17 17:27:04 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: TSLAm Ticket 525753113 | Target SL: 477.89000 | Attempting emergency fallback...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: TSLAm Ticket 525753113 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] FAIL-SAFE RETRY: TSLAm Ticket 525753113 | Attempt 1/3 failed: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Retrying immediately...
+2025-12-17 17:27:04 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: TSLAm Ticket 525753113 | Emergency SL: 476.10000 | Direct modification failed
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] FAIL-SAFE RETRY: TSLAm Ticket 525753113 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-17 17:27:04 - sl_manager - ERROR - [17:27:04.434] Cannot read position 525753113
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - CRITICAL: Effective SL $-2.03 is WORSE than target $-2.00 | TSLAm Ticket 525753113 | Current SL price: 476.07000 | Target SL price: 477.73000 | MUST update to correct effective SL immediately
+2025-12-17 17:27:04 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: TSLAm Ticket 525753113 | Target SL: 477.73000 | Attempting emergency fallback...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: TSLAm Ticket 525753113 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] FAIL-SAFE RETRY: TSLAm Ticket 525753113 | Attempt 2/3 failed: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Retrying immediately...
+2025-12-17 17:27:04 - sl_manager - ERROR - [17:27:04.541] Cannot read position 525753113
+2025-12-17 17:27:04 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: TSLAm Ticket 525753113 | Target SL: 477.89000 | Attempting emergency fallback...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: TSLAm Ticket 525753113 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: TSLAm Ticket 525753113 | Attempt 2/3 failed: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Retrying immediately...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - CRITICAL: Effective SL $-2.03 is WORSE than target $-2.00 | TSLAm Ticket 525753113 | Current SL price: 476.07000 | Target SL price: 477.73000 | MUST update to correct effective SL immediately
+2025-12-17 17:27:04 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: TSLAm Ticket 525753113 | Target SL: 477.73000 | Attempting emergency fallback...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: TSLAm Ticket 525753113 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] FAIL-SAFE RETRY: TSLAm Ticket 525753113 | Attempt 2/3 failed: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Retrying immediately...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: TSLAm Ticket 525753113 | Current SL price: 477.89000 | Target SL price: 477.89000 | Effective SL: $-0.21 (target: $-2.00, error: $1.79) | Will update to correct effective SL
+2025-12-17 17:27:04 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: TSLAm Ticket 525753113 | Target SL: 477.89000 | Attempting emergency fallback...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: TSLAm Ticket 525753113 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:27:04 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for TSLAm Ticket 525753113: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Current effective SL: $-0.21 | Target: $-2.00 | Will retry next cycle
+2025-12-17 17:27:04 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: TSLAm Ticket 525753113 | Not in sweet spot range
+2025-12-17 17:27:04 - sl_manager - WARNING - [17:27:04.766] [WARNING] SL Worker loop exceeded 50ms target: 3115.2ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - CRITICAL: Effective SL $-2.03 is WORSE than target $-2.00 | TSLAm Ticket 525753113 | Current SL price: 476.07000 | Target SL price: 477.73000 | MUST update to correct effective SL immediately
+2025-12-17 17:27:04 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: TSLAm Ticket 525753113 | Target SL: 477.73000 | Attempting emergency fallback...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: TSLAm Ticket 525753113 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:27:04 - sl_manager - CRITICAL - 🚨 FAIL-SAFE CORRECTION FAILED: TSLAm Ticket 525753113 | All 3 attempts failed: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Will retry in next cycle
+2025-12-17 17:27:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:04.845 | Iteration: 14300
+2025-12-17 17:27:04 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:04.845] [SL_WORKER] WARNING: Slow position fetch: 15.4ms (target: <10ms)
+2025-12-17 17:27:04 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:04.876] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - CRITICAL: Effective SL $-2.03 is WORSE than target $-2.00 | TSLAm Ticket 525753113 | Current SL price: 476.07000 | Target SL price: 477.73000 | MUST update to correct effective SL immediately
+2025-12-17 17:27:04 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: TSLAm Ticket 525753113 | Target SL: 477.73000 | Attempting emergency fallback...
+2025-12-17 17:27:04 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:04 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: TSLAm Ticket 525753113 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:27:04 - sl_manager - CRITICAL - 🚨 FAIL-SAFE CORRECTION FAILED: TSLAm Ticket 525753113 | All 3 attempts failed: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Will retry in next cycle
+2025-12-17 17:27:04 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:04.914] [SL_WORKER] WARNING: Slow position fetch: 10.1ms (target: <10ms)
+2025-12-17 17:27:04 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:04.971] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:27:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:04.987 | Iteration: 14400
+2025-12-17 17:27:05 - sl_manager - WARNING - [DELAY] LOCK TIMEOUT: Ticket 525753113 | Could not acquire after 3 attempts | Total time: 3308.6ms | Standard | Holder: SLWorker
+2025-12-17 17:27:05 - sl_manager - CRITICAL - [EMERGENCY] LOCK TIMEOUT FOR LOSING TRADE: TSLAm Ticket 525753113 | Profit: $-0.16 | Lock timeout (1000ms) - Using EMERGENCY LOCK-FREE strict loss enforcement
+2025-12-17 17:27:05 - sl_manager - CRITICAL - [EMERGENCY LOCK-FREE] Starting emergency strict loss enforcement: mode=LIVE | ticket=525753113 | symbol=TSLAm | profit=$-0.16
+2025-12-17 17:27:05 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 1.0 | Price diff: -2.00000 (-200.0 points) | Target profit: $-2.00
+2025-12-17 17:27:05 - sl_manager - CRITICAL - [EMERGENCY LOCK-FREE] HARD SL EXCEPTION: mode=LIVE | ticket=525753113 | symbol=TSLAm | error=cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1193, in _enforce_strict_loss_emergency_lockfree
+    success = self.order_manager.modify_order(ticket, stop_loss_price=target_sl)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:27:05 - sl_manager - CRITICAL - [CRITICAL] EMERGENCY LOCK-FREE SL FAILED: mode=LIVE | ticket=525753113 | symbol=TSLAm | reason=Emergency lock-free exception: cannot access local variable 'time' where it is not associated with a value | POSITION MAY BE UNPROTECTED
+2025-12-17 17:27:06 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:06.331 | Iteration: 14500
+2025-12-17 17:27:07 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:07.818 | Iteration: 14600
+2025-12-17 17:27:09 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:09.360 | Iteration: 14700
+2025-12-17 17:27:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:10.993 | Iteration: 14800
+2025-12-17 17:27:12 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:12.754 | Iteration: 14900
+2025-12-17 17:27:14 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:14.481 | Iteration: 15000
+2025-12-17 17:27:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:16.064 | Iteration: 15100
+2025-12-17 17:27:17 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:17.699 | Iteration: 15200
+2025-12-17 17:27:19 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:19.436 | Iteration: 15300
+2025-12-17 17:27:21 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:21.040 | Iteration: 15400
+2025-12-17 17:27:22 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:22.737 | Iteration: 15500
+2025-12-17 17:27:24 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:24.281 | Iteration: 15600
+2025-12-17 17:27:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:24.794] [SL_WORKER] WARNING: Slow position fetch: 17.0ms (target: <10ms)
+2025-12-17 17:27:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:24.835] [SL_WORKER] WARNING: Slow position fetch: 15.0ms (target: <10ms)
+2025-12-17 17:27:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:25.099 | Iteration: 15700
+2025-12-17 17:27:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:25.179] [SL_WORKER] WARNING: Slow position fetch: 130.7ms (target: <10ms)
+2025-12-17 17:27:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:25.420 | Iteration: 15800
+2025-12-17 17:27:25 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:25.443] [SL_WORKER] WARNING: Slow position fetch: 32.0ms (target: <10ms)
+2025-12-17 17:27:26 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:26.435 | Iteration: 15900
+2025-12-17 17:27:26 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:26.456] [SL_WORKER] WARNING: Slow position fetch: 52.0ms (target: <10ms)
+2025-12-17 17:27:27 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:27.947 | Iteration: 16000
+2025-12-17 17:27:29 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:29.455] [SL_WORKER] WARNING: Slow position fetch: 16.9ms (target: <10ms)
+2025-12-17 17:27:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:29.852 | Iteration: 16100
+2025-12-17 17:27:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:27:30 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:27:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:27:30 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:27:30 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:27:30 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:27:30 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:27:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:27:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:32.421 | Iteration: 16200
+2025-12-17 17:27:33 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:33.929] [SL_WORKER] WARNING: Slow position fetch: 10.6ms (target: <10ms)
+2025-12-17 17:27:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:34.022 | Iteration: 16300
+2025-12-17 17:27:34 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:34.272] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:27:34 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:34.288] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:27:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:34.418 | Iteration: 16400
+2025-12-17 17:27:34 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:34.777] [SL_WORKER] WARNING: Slow position fetch: 119.7ms (target: <10ms)
+2025-12-17 17:27:35 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:35.741 | Iteration: 16500
+2025-12-17 17:27:36 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:36.863 | Iteration: 16600
+2025-12-17 17:27:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:37.367 | Iteration: 16700
+2025-12-17 17:27:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:37.437] [SL_WORKER] WARNING: Slow position fetch: 12.8ms (target: <10ms)
+2025-12-17 17:27:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:37.711 | Iteration: 16800
+2025-12-17 17:27:38 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:38.784 | Iteration: 16900
+2025-12-17 17:27:39 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:38.975] [SL_WORKER] WARNING: Slow position fetch: 32.1ms (target: <10ms)
+2025-12-17 17:27:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:39.043 | Iteration: 17000
+2025-12-17 17:27:39 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:39.145] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:27:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:39.551 | Iteration: 17100
+2025-12-17 17:27:39 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:39.613] [SL_WORKER] WARNING: Slow position fetch: 12.9ms (target: <10ms)
+2025-12-17 17:27:39 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:39.775] [SL_WORKER] WARNING: Slow position fetch: 10.6ms (target: <10ms)
+2025-12-17 17:27:40 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:40.024 | Iteration: 17200
+2025-12-17 17:27:40 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:40.801 | Iteration: 17300
+2025-12-17 17:27:41 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:41.425] [SL_WORKER] WARNING: Slow position fetch: 10.0ms (target: <10ms)
+2025-12-17 17:27:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:41.876 | Iteration: 17400
+2025-12-17 17:27:43 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:43.306 | Iteration: 17500
+2025-12-17 17:27:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:44.205 | Iteration: 17600
+2025-12-17 17:27:44 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:44.280] [SL_WORKER] WARNING: Slow position fetch: 20.9ms (target: <10ms)
+2025-12-17 17:27:44 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:44.331] [SL_WORKER] WARNING: Slow position fetch: 15.7ms (target: <10ms)
+2025-12-17 17:27:44 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:44.347] [SL_WORKER] WARNING: Slow position fetch: 14.1ms (target: <10ms)
+2025-12-17 17:27:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:44.395 | Iteration: 17700
+2025-12-17 17:27:44 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:44.395] [SL_WORKER] WARNING: Slow position fetch: 107.7ms (target: <10ms)
+2025-12-17 17:27:45 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:45.235 | Iteration: 17800
+2025-12-17 17:27:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:46.635 | Iteration: 17900
+2025-12-17 17:27:47 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:47.177] [SL_WORKER] WARNING: Slow position fetch: 11.0ms (target: <10ms)
+2025-12-17 17:27:47 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:47.336 | Iteration: 18000
+2025-12-17 17:27:47 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:47.405] [SL_WORKER] WARNING: Slow position fetch: 22.3ms (target: <10ms)
+2025-12-17 17:27:47 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:47.965 | Iteration: 18100
+2025-12-17 17:27:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:48.170 | Iteration: 18200
+2025-12-17 17:27:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:48.329] [SL_WORKER] WARNING: Slow position fetch: 11.0ms (target: <10ms)
+2025-12-17 17:27:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:48.555 | Iteration: 18300
+2025-12-17 17:27:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:48.555] [SL_WORKER] WARNING: Slow position fetch: 10.6ms (target: <10ms)
+2025-12-17 17:27:49 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:49.600 | Iteration: 18400
+2025-12-17 17:27:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:50.867 | Iteration: 18500
+2025-12-17 17:27:52 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:52.515 | Iteration: 18600
+2025-12-17 17:27:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:54.475 | Iteration: 18700
+2025-12-17 17:27:56 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:56.108 | Iteration: 18800
+2025-12-17 17:27:56 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:56.146] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:27:57 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:57.351 | Iteration: 18900
+2025-12-17 17:27:58 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:58.777 | Iteration: 19000
+2025-12-17 17:27:59 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:27:59.787] [SL_WORKER] WARNING: Slow position fetch: 59.7ms (target: <10ms)
+2025-12-17 17:27:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:27:59.925 | Iteration: 19100
+2025-12-17 17:28:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:28:00 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:28:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:28:00 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:28:00 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:28:00 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:28:00 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:28:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:28:00 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:00.534] [SL_WORKER] WARNING: Slow position fetch: 25.0ms (target: <10ms)
+2025-12-17 17:28:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:00.688 | Iteration: 19200
+2025-12-17 17:28:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:01.459] [SL_WORKER] WARNING: Slow position fetch: 34.7ms (target: <10ms)
+2025-12-17 17:28:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:01.629] [SL_WORKER] WARNING: Slow position fetch: 10.7ms (target: <10ms)
+2025-12-17 17:28:01 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:01.931 | Iteration: 19300
+2025-12-17 17:28:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:01.947] [SL_WORKER] WARNING: Slow position fetch: 26.3ms (target: <10ms)
+2025-12-17 17:28:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:02.579] [SL_WORKER] WARNING: Slow position fetch: 47.0ms (target: <10ms)
+2025-12-17 17:28:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:02.630] [SL_WORKER] WARNING: Slow position fetch: 12.9ms (target: <10ms)
+2025-12-17 17:28:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:02.650] [SL_WORKER] WARNING: Slow position fetch: 17.7ms (target: <10ms)
+2025-12-17 17:28:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:03.141] [SL_WORKER] WARNING: Slow position fetch: 10.2ms (target: <10ms)
+2025-12-17 17:28:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:04.261 | Iteration: 19400
+2025-12-17 17:28:05 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:05.083 | Iteration: 19500
+2025-12-17 17:28:06 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:06.080 | Iteration: 19600
+2025-12-17 17:28:06 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:06.285] [SL_WORKER] WARNING: Slow position fetch: 41.1ms (target: <10ms)
+2025-12-17 17:28:07 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:07.122 | Iteration: 19700
+2025-12-17 17:28:07 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:07.299] [SL_WORKER] WARNING: Slow position fetch: 11.6ms (target: <10ms)
+2025-12-17 17:28:07 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:07.365] [SL_WORKER] WARNING: Slow position fetch: 17.5ms (target: <10ms)
+2025-12-17 17:28:07 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:07.423] [SL_WORKER] WARNING: Slow position fetch: 110.9ms (target: <10ms)
+2025-12-17 17:28:08 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:08.209 | Iteration: 19800
+2025-12-17 17:28:08 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:08.794] [SL_WORKER] WARNING: Slow position fetch: 23.7ms (target: <10ms)
+2025-12-17 17:28:09 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:09.148 | Iteration: 19900
+2025-12-17 17:28:10 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:10.026 | Iteration: 20000
+2025-12-17 17:28:10 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:10.347] [SL_WORKER] WARNING: Slow position fetch: 10.7ms (target: <10ms)
+2025-12-17 17:28:10 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:10.877] [SL_WORKER] WARNING: Slow position fetch: 38.0ms (target: <10ms)
+2025-12-17 17:28:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:11.519 | Iteration: 20100
+2025-12-17 17:28:11 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:11.738] [SL_WORKER] WARNING: Slow position fetch: 24.3ms (target: <10ms)
+2025-12-17 17:28:11 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:11.805] [SL_WORKER] WARNING: Slow position fetch: 79.4ms (target: <10ms)
+2025-12-17 17:28:12 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:12.182 | Iteration: 20200
+2025-12-17 17:28:12 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:12.217] [SL_WORKER] WARNING: Slow position fetch: 10.8ms (target: <10ms)
+2025-12-17 17:28:12 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:12.422 | Iteration: 20300
+2025-12-17 17:28:12 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:12.651] [SL_WORKER] WARNING: Slow position fetch: 45.2ms (target: <10ms)
+2025-12-17 17:28:13 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:13.185 | Iteration: 20400
+2025-12-17 17:28:13 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:13.943 | Iteration: 20500
+2025-12-17 17:28:14 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:14.056] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:28:14 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:14.550 | Iteration: 20600
+2025-12-17 17:28:15 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:15.753 | Iteration: 20700
+2025-12-17 17:28:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:16.762 | Iteration: 20800
+2025-12-17 17:28:17 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:17.500 | Iteration: 20900
+2025-12-17 17:28:18 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:18.886 | Iteration: 21000
+2025-12-17 17:28:20 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:20.666 | Iteration: 21100
+2025-12-17 17:28:22 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:22.405 | Iteration: 21200
+2025-12-17 17:28:23 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:23.177] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:28:23 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:23.193] [SL_WORKER] WARNING: Slow position fetch: 12.5ms (target: <10ms)
+2025-12-17 17:28:23 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:23.206] [SL_WORKER] WARNING: Slow position fetch: 126.0ms (target: <10ms)
+2025-12-17 17:28:23 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:23.337 | Iteration: 21300
+2025-12-17 17:28:23 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:23.337] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:28:24 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:24.572 | Iteration: 21400
+2025-12-17 17:28:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:25.995 | Iteration: 21500
+2025-12-17 17:28:27 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:27.572 | Iteration: 21600
+2025-12-17 17:28:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:29.191 | Iteration: 21700
+2025-12-17 17:28:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:28:30 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:28:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:28:30 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:28:30 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:28:30 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:28:30 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:28:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:28:30 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:30.977 | Iteration: 21800
+2025-12-17 17:28:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:32.762 | Iteration: 21900
+2025-12-17 17:28:33 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:33.409] [SL_WORKER] WARNING: Slow position fetch: 15.5ms (target: <10ms)
+2025-12-17 17:28:33 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:33.542 | Iteration: 22000
+2025-12-17 17:28:34 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:34.283] [SL_WORKER] WARNING: Slow position fetch: 13.4ms (target: <10ms)
+2025-12-17 17:28:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:34.317 | Iteration: 22100
+2025-12-17 17:28:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:34.946 | Iteration: 22200
+2025-12-17 17:28:35 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:35.742 | Iteration: 22300
+2025-12-17 17:28:36 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:36.658 | Iteration: 22400
+2025-12-17 17:28:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:37.546] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:28:38 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:38.022] [SL_WORKER] WARNING: Slow position fetch: 11.6ms (target: <10ms)
+2025-12-17 17:28:38 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:38.303 | Iteration: 22500
+2025-12-17 17:28:40 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:40.160 | Iteration: 22600
+2025-12-17 17:28:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:41.781 | Iteration: 22700
+2025-12-17 17:28:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:41.909 | Iteration: 22800
+2025-12-17 17:28:42 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:42.165] [SL_WORKER] WARNING: Slow position fetch: 293.2ms (target: <10ms)
+2025-12-17 17:28:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:42.692 | Iteration: 22900
+2025-12-17 17:28:43 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:43.456] [SL_WORKER] WARNING: Slow position fetch: 13.1ms (target: <10ms)
+2025-12-17 17:28:43 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:43.508 | Iteration: 23000
+2025-12-17 17:28:44 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:44.289] [SL_WORKER] WARNING: Slow position fetch: 34.6ms (target: <10ms)
+2025-12-17 17:28:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:44.635 | Iteration: 23100
+2025-12-17 17:28:45 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:45.511 | Iteration: 23200
+2025-12-17 17:28:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:46.313 | Iteration: 23300
+2025-12-17 17:28:47 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:47.278] [SL_WORKER] WARNING: Slow position fetch: 51.6ms (target: <10ms)
+2025-12-17 17:28:47 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:47.434] [SL_WORKER] WARNING: Slow position fetch: 18.0ms (target: <10ms)
+2025-12-17 17:28:47 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:47.471 | Iteration: 23400
+2025-12-17 17:28:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:48.238 | Iteration: 23500
+2025-12-17 17:28:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:48.240] [SL_WORKER] WARNING: Slow position fetch: 11.4ms (target: <10ms)
+2025-12-17 17:28:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:48.395] [SL_WORKER] WARNING: Slow position fetch: 10.9ms (target: <10ms)
+2025-12-17 17:28:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:48.515] [SL_WORKER] WARNING: Slow position fetch: 12.0ms (target: <10ms)
+2025-12-17 17:28:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:48.645] [SL_WORKER] WARNING: Slow position fetch: 11.3ms (target: <10ms)
+2025-12-17 17:28:49 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:49.141 | Iteration: 23600
+2025-12-17 17:28:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:50.683 | Iteration: 23700
+2025-12-17 17:28:52 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:52.154 | Iteration: 23800
+2025-12-17 17:28:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:53.601 | Iteration: 23900
+2025-12-17 17:28:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:54.814 | Iteration: 24000
+2025-12-17 17:28:55 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:55.902 | Iteration: 24100
+2025-12-17 17:28:56 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:56.611 | Iteration: 24200
+2025-12-17 17:28:57 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:57.177] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:28:57 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:57.302 | Iteration: 24300
+2025-12-17 17:28:57 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:57.302] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:28:57 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:57.806] [SL_WORKER] WARNING: Slow position fetch: 11.1ms (target: <10ms)
+2025-12-17 17:28:57 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:28:57.866] [SL_WORKER] WARNING: Slow position fetch: 11.2ms (target: <10ms)
+2025-12-17 17:28:58 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:58.064 | Iteration: 24400
+2025-12-17 17:28:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:28:59.148 | Iteration: 24500
+2025-12-17 17:29:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:29:00 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:29:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:29:00 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:29:00 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:29:00 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:29:00 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:29:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:29:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:00.617 | Iteration: 24600
+2025-12-17 17:29:01 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:01.940 | Iteration: 24700
+2025-12-17 17:29:03 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:03.652 | Iteration: 24800
+2025-12-17 17:29:05 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:05.140 | Iteration: 24900
+2025-12-17 17:29:06 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:06.477 | Iteration: 25000
+2025-12-17 17:29:07 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:07.648 | Iteration: 25100
+2025-12-17 17:29:09 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:09.693 | Iteration: 25200
+2025-12-17 17:29:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:11.568 | Iteration: 25300
+2025-12-17 17:29:13 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:13.750 | Iteration: 25400
+2025-12-17 17:29:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:16.833 | Iteration: 25500
+2025-12-17 17:29:19 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:19.882 | Iteration: 25600
+2025-12-17 17:29:22 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:22.626 | Iteration: 25700
+2025-12-17 17:29:24 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:24.319 | Iteration: 25800
+2025-12-17 17:29:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:25.897 | Iteration: 25900
+2025-12-17 17:29:27 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:27.685 | Iteration: 26000
+2025-12-17 17:29:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:29.302 | Iteration: 26100
+2025-12-17 17:29:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:29:30 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:29:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:29:30 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:29:30 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:29:30 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:29:30 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:29:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:29:31 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:31.032 | Iteration: 26200
+2025-12-17 17:29:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:32.541 | Iteration: 26300
+2025-12-17 17:29:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:34.061 | Iteration: 26400
+2025-12-17 17:29:35 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:35.553 | Iteration: 26500
+2025-12-17 17:29:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:37.196 | Iteration: 26600
+2025-12-17 17:29:38 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:29:38.152] [SL_WORKER] WARNING: Slow position fetch: 483.9ms (target: <10ms)
+2025-12-17 17:29:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:39.254 | Iteration: 26700
+2025-12-17 17:29:40 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:40.831 | Iteration: 26800
+2025-12-17 17:29:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:42.628 | Iteration: 26900
+2025-12-17 17:29:45 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:45.865 | Iteration: 27000
+2025-12-17 17:29:45 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:29:45.921] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:29:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:48.039 | Iteration: 27100
+2025-12-17 17:29:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:50.691 | Iteration: 27200
+2025-12-17 17:29:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:53.311 | Iteration: 27300
+2025-12-17 17:29:55 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:55.636 | Iteration: 27400
+2025-12-17 17:29:57 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:56.992 | Iteration: 27500
+2025-12-17 17:29:58 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:29:58.677 | Iteration: 27600
+2025-12-17 17:30:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:00.173 | Iteration: 27700
+2025-12-17 17:30:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:30:00 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:30:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:30:00 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:30:00 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:30:00 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:30:00 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:30:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:30:01 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:01.990 | Iteration: 27800
+2025-12-17 17:30:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:04.762 | Iteration: 27900
+2025-12-17 17:30:06 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:06.294 | Iteration: 28000
+2025-12-17 17:30:08 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:08.057 | Iteration: 28100
+2025-12-17 17:30:09 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:09.613 | Iteration: 28200
+2025-12-17 17:30:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:11.339 | Iteration: 28300
+2025-12-17 17:30:12 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:12.913 | Iteration: 28400
+2025-12-17 17:30:14 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:14.681 | Iteration: 28500
+2025-12-17 17:30:15 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:15.366] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:30:15 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:15.413] [SL_WORKER] WARNING: Slow position fetch: 21.0ms (target: <10ms)
+2025-12-17 17:30:15 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:15.435] [SL_WORKER] WARNING: Slow position fetch: 390.2ms (target: <10ms)
+2025-12-17 17:30:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:16.311 | Iteration: 28600
+2025-12-17 17:30:19 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:19.214 | Iteration: 28700
+2025-12-17 17:30:22 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:22.332 | Iteration: 28800
+2025-12-17 17:30:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:25.407 | Iteration: 28900
+2025-12-17 17:30:28 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:28.400 | Iteration: 29000
+2025-12-17 17:30:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:30:30 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:30:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:30:30 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:30:30 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:30:30 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:30:30 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:30:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:30:30 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:30.754 | Iteration: 29100
+2025-12-17 17:30:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:32.486 | Iteration: 29200
+2025-12-17 17:30:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:34.228 | Iteration: 29300
+2025-12-17 17:30:36 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:36.067 | Iteration: 29400
+2025-12-17 17:30:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:37.653 | Iteration: 29500
+2025-12-17 17:30:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:39.436 | Iteration: 29600
+2025-12-17 17:30:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:41.048 | Iteration: 29700
+2025-12-17 17:30:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:42.928 | Iteration: 29800
+2025-12-17 17:30:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:44.652 | Iteration: 29900
+2025-12-17 17:30:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:46.301 | Iteration: 30000
+2025-12-17 17:30:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:48.080 | Iteration: 30100
+2025-12-17 17:30:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:49.892 | Iteration: 30200
+2025-12-17 17:30:51 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:51.131] [SL_WORKER] WARNING: Slow position fetch: 11.7ms (target: <10ms)
+2025-12-17 17:30:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:53.065 | Iteration: 30300
+2025-12-17 17:30:53 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:53.138] [SL_WORKER] WARNING: Slow position fetch: 72.6ms (target: <10ms)
+2025-12-17 17:30:53 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:53.217] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:30:53 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:53.232] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:30:53 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:53.248] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:30:53 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:30:53.279] [SL_WORKER] WARNING: Slow position fetch: 31.9ms (target: <10ms)
+2025-12-17 17:30:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:54.187 | Iteration: 30400
+2025-12-17 17:30:56 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:56.174 | Iteration: 30500
+2025-12-17 17:30:58 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:30:58.227 | Iteration: 30600
+2025-12-17 17:31:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:31:00 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:31:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:31:00 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:31:00 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:31:00 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:31:00 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:31:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:31:01 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:01.019 | Iteration: 30700
+2025-12-17 17:31:02 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:02.859 | Iteration: 30800
+2025-12-17 17:31:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:31:02.909] [SL_WORKER] WARNING: Slow position fetch: 24.8ms (target: <10ms)
+2025-12-17 17:31:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:31:02.987] [SL_WORKER] WARNING: Slow position fetch: 28.7ms (target: <10ms)
+2025-12-17 17:31:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:31:03.179] [SL_WORKER] WARNING: Slow position fetch: 17.4ms (target: <10ms)
+2025-12-17 17:31:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:31:03.355] [SL_WORKER] WARNING: Slow position fetch: 13.2ms (target: <10ms)
+2025-12-17 17:31:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:31:03.483] [SL_WORKER] WARNING: Slow position fetch: 14.7ms (target: <10ms)
+2025-12-17 17:31:03 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:03.954 | Iteration: 30900
+2025-12-17 17:31:05 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:05.657 | Iteration: 31000
+2025-12-17 17:31:07 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:07.291 | Iteration: 31100
+2025-12-17 17:31:08 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:08.951 | Iteration: 31200
+2025-12-17 17:31:10 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:10.656 | Iteration: 31300
+2025-12-17 17:31:12 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:12.338 | Iteration: 31400
+2025-12-17 17:31:14 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:14.072 | Iteration: 31500
+2025-12-17 17:31:15 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:15.765 | Iteration: 31600
+2025-12-17 17:31:17 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:17.555 | Iteration: 31700
+2025-12-17 17:31:19 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:19.219 | Iteration: 31800
+2025-12-17 17:31:20 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:20.963 | Iteration: 31900
+2025-12-17 17:31:23 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:23.579 | Iteration: 32000
+2025-12-17 17:31:26 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:26.293 | Iteration: 32100
+2025-12-17 17:31:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:29.149 | Iteration: 32200
+2025-12-17 17:31:29 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:31:29.385] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:31:29 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:31:29.479] [SL_WORKER] WARNING: Slow position fetch: 78.5ms (target: <10ms)
+2025-12-17 17:31:29 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:31:29.747] [SL_WORKER] WARNING: Slow position fetch: 78.4ms (target: <10ms)
+2025-12-17 17:31:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:29.964 | Iteration: 32300
+2025-12-17 17:31:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:31:30 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:31:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:31:30 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:31:30 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:31:30 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:31:30 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:31:30 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:31:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:32.972 | Iteration: 32400
+2025-12-17 17:31:35 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:35.693 | Iteration: 32500
+2025-12-17 17:31:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:37.740 | Iteration: 32600
+2025-12-17 17:31:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:39.364 | Iteration: 32700
+2025-12-17 17:31:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:41.077 | Iteration: 32800
+2025-12-17 17:31:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:42.753 | Iteration: 32900
+2025-12-17 17:31:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:44.455 | Iteration: 33000
+2025-12-17 17:31:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:46.247 | Iteration: 33100
+2025-12-17 17:31:47 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:47.936 | Iteration: 33200
+2025-12-17 17:31:49 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:49.684 | Iteration: 33300
+2025-12-17 17:31:51 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:51.430 | Iteration: 33400
+2025-12-17 17:31:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:53.059 | Iteration: 33500
+2025-12-17 17:31:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:54.815 | Iteration: 33600
+2025-12-17 17:31:56 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:56.567 | Iteration: 33700
+2025-12-17 17:31:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:31:59.871 | Iteration: 33800
+2025-12-17 17:32:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:32:00 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:32:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:32:00 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:32:00 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:32:00 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:32:00 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:32:00 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:32:02 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:02.557 | Iteration: 33900
+2025-12-17 17:32:05 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:05.118 | Iteration: 34000
+2025-12-17 17:32:07 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:07.731 | Iteration: 34100
+2025-12-17 17:32:09 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:09.788 | Iteration: 34200
+2025-12-17 17:32:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:11.503 | Iteration: 34300
+2025-12-17 17:32:13 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:13.369 | Iteration: 34400
+2025-12-17 17:32:14 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:14.909 | Iteration: 34500
+2025-12-17 17:32:15 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:32:15.291] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:32:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:16.392 | Iteration: 34600
+2025-12-17 17:32:18 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:18.142 | Iteration: 34700
+2025-12-17 17:32:19 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:19.738 | Iteration: 34800
+2025-12-17 17:32:21 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:21.358 | Iteration: 34900
+2025-12-17 17:32:23 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:23.125 | Iteration: 35000
+2025-12-17 17:32:24 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:24.812 | Iteration: 35100
+2025-12-17 17:32:26 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:26.578 | Iteration: 35200
+2025-12-17 17:32:28 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:28.341 | Iteration: 35300
+2025-12-17 17:32:29 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:32:29.874] [SL_WORKER] WARNING: Slow position fetch: 11.6ms (target: <10ms)
+2025-12-17 17:32:30 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:30.756 | Iteration: 35400
+2025-12-17 17:32:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:32:31 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:32:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:32:31 - sl_manager - INFO -   SL Update Success Rate: 0.0% (Target: >95%) [ERROR]
+2025-12-17 17:32:31 - sl_manager - INFO -   SL Update Attempts: 4 | Successes: 0 | Failures: 4
+2025-12-17 17:32:31 - sl_manager - INFO -   Lock Contention Rate: 25.0% (Target: <5%) [ERROR]
+2025-12-17 17:32:31 - sl_manager - INFO -   Lock Failures: 1 | Timeouts: 1 | Contention: 0
+2025-12-17 17:32:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:32:33 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:33.552 | Iteration: 35500
+2025-12-17 17:32:36 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:36.120 | Iteration: 35600
+2025-12-17 17:32:37 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:32:37.557] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:32:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:39.142 | Iteration: 35700
+2025-12-17 17:32:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:41.978 | Iteration: 35800
+2025-12-17 17:32:43 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.13
+2025-12-17 17:32:43 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:43 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:43 - sl_manager - WARNING - [17:32:43.496] [WARNING] SL Worker loop exceeded 50ms target: 97.8ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:43 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.20
+2025-12-17 17:32:43 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:43 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:43 - sl_manager - WARNING - [17:32:43.652] [WARNING] SL Worker loop exceeded 50ms target: 112.1ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:43 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.26
+2025-12-17 17:32:43 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:43 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:43 - sl_manager - WARNING - [17:32:43.855] [WARNING] SL Worker loop exceeded 50ms target: 169.4ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:43 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.36
+2025-12-17 17:32:43 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:44 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:44 - sl_manager - WARNING - [17:32:44.092] [WARNING] SL Worker loop exceeded 50ms target: 195.3ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:44 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.36
+2025-12-17 17:32:44 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:44 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:44 - sl_manager - WARNING - [17:32:44.365] [WARNING] SL Worker loop exceeded 50ms target: 230.3ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:44 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.36
+2025-12-17 17:32:44 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:44 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:44 - sl_manager - WARNING - [17:32:44.607] [WARNING] SL Worker loop exceeded 50ms target: 200.0ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:44 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.36
+2025-12-17 17:32:44 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:44 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:44 - sl_manager - WARNING - [17:32:44.849] [WARNING] SL Worker loop exceeded 50ms target: 202.5ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:44 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.44
+2025-12-17 17:32:44 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:45 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:45 - sl_manager - WARNING - [17:32:45.103] [WARNING] SL Worker loop exceeded 50ms target: 208.4ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:45 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.44
+2025-12-17 17:32:45 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:45 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:45 - sl_manager - WARNING - [17:32:45.328] [WARNING] SL Worker loop exceeded 50ms target: 173.8ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:45 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86657.03000 | Current effective SL: $-1.93 | Current profit: $-0.44
+2025-12-17 17:32:45 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-1.93 | Target: $-2.00 | Error: $0.07 | Tolerance: $0.50 | Needs update: False
+2025-12-17 17:32:45 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:45 - sl_manager - CRITICAL - 🚨 CIRCUIT BREAKER: Ticket 525793903 disabled for 10s after 10 consecutive failures (bucket: 0)
+2025-12-17 17:32:45 - sl_manager - WARNING - [17:32:45.574] [WARNING] SL Worker loop exceeded 50ms target: 204.6ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:45 - sl_manager - WARNING - [17:32:45.702] [WARNING] SL Worker loop exceeded 50ms target: 55.5ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:45 - sl_manager - WARNING - [17:32:45.848] [WARNING] SL Worker loop exceeded 50ms target: 81.6ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:46 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:32:46.244] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:32:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:46.260 | Iteration: 35900
+2025-12-17 17:32:46 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:32:46.260] [SL_WORKER] WARNING: Slow position fetch: 15.6ms (target: <10ms)
+2025-12-17 17:32:46 - sl_manager - WARNING - [17:32:46.441] [WARNING] SL Worker loop exceeded 50ms target: 70.8ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:46 - sl_manager - WARNING - [DELAY] LOCK TIMEOUT: Ticket 525793903 | Could not acquire after 3 attempts | Total time: 3090.3ms | Standard | Holder: SLWorker
+2025-12-17 17:32:46 - sl_manager - CRITICAL - [EMERGENCY] LOCK TIMEOUT FOR LOSING TRADE: BTCUSDm Ticket 525793903 | Profit: $-0.24 | Lock timeout (1000ms) - Using EMERGENCY LOCK-FREE strict loss enforcement
+2025-12-17 17:32:46 - sl_manager - CRITICAL - [EMERGENCY LOCK-FREE] Starting emergency strict loss enforcement: mode=LIVE | ticket=525793903 | symbol=BTCUSDm | profit=$-0.24
+2025-12-17 17:32:46 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.01 | Price diff: -200.00000 (-20000.0 points) | Target profit: $-2.00
+2025-12-17 17:32:47 - sl_manager - CRITICAL - [EMERGENCY LOCK-FREE] HARD SL ENFORCED: mode=LIVE | ticket=525793903 | symbol=BTCUSDm | sl_price=86801.99000 | reason=Emergency lock-free strict loss enforcement (-$2.00)
+2025-12-17 17:32:47 - sl_manager - CRITICAL - [EMERGENCY] HARD SL ENFORCED (LOCK-FREE): mode=LIVE | ticket=525793903 | symbol=BTCUSDm | sl_price=86801.99000 | reason=Emergency lock-free strict loss enforcement (-$2.00)
+2025-12-17 17:32:47 - sl_manager - WARNING - [17:32:47.344] [WARNING] SL Worker loop exceeded 50ms target: 102.6ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:48.729 | Iteration: 36000
+2025-12-17 17:32:50 - sl_manager - INFO - SL Worker loop duration: 24.4ms (acceptable, but target is <10ms) | Positions: 1
+2025-12-17 17:32:52 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:52.818 | Iteration: 36100
+2025-12-17 17:32:52 - sl_manager - INFO - SL Worker loop duration: 43.2ms (acceptable, but target is <10ms) | Positions: 1
+2025-12-17 17:32:54 - sl_manager - INFO - SL Worker loop duration: 29.5ms (acceptable, but target is <10ms) | Positions: 1
+2025-12-17 17:32:55 - sl_manager - INFO - 🔄 Circuit breaker expired for Ticket 525793903, allowing trial update
+2025-12-17 17:32:55 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current SL price: 86801.99000 | Current effective SL: $-0.48 | Current profit: $-0.44
+2025-12-17 17:32:55 - sl_manager - INFO - 🔍 STRICT LOSS CHECK: BTCUSDm Ticket 525793903 | Current effective SL: $-0.48 | Target: $-2.00 | Error: $1.52 | Tolerance: $0.50 | Needs update: True
+2025-12-17 17:32:55 - sl_manager - WARNING - [WARNING] STRICT LOSS: BTCUSDm Ticket 525793903 | Effective SL $-0.48 != $-2.00 (error: $1.52) | Will enforce -$2.00
+2025-12-17 17:32:55 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.01 | Price diff: -200.00000 (-20000.0 points) | Target profit: $-2.00
+2025-12-17 17:32:55 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: BTCUSDm Ticket 525793903 | Current SL price: 86801.99000 | Target SL price: 86806.25000 | Effective SL: $-0.48 (target: $-2.00, error: $1.52) | Will update to correct effective SL
+2025-12-17 17:32:55 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525793903 Symbol=BTCUSDm OldSL=86801.99000 NewSL=86806.25000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:32:56 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: BTCUSDm Ticket 525793903 | Target profit: $-2.00 | Effective: $-0.44 | Error: $1.56 (tolerance: $1.00)
+2025-12-17 17:32:56 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525793903 Symbol=BTCUSDm OldSL=86806.25000 NewSL=86806.25000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:32:56 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: BTCUSDm Ticket 525793903 | Target profit: $-2.00 | Effective: $-0.44 | Error: $1.56 (tolerance: $1.00)
+2025-12-17 17:32:56 - sl_manager - INFO - 🔥 SL UPDATE ATTEMPT: Ticket=525793903 Symbol=BTCUSDm OldSL=86806.25000 NewSL=86806.25000 Reason=Strict loss enforcement (-$2.00)
+2025-12-17 17:32:56 - sl_manager - WARNING - [WARNING] SL EFFECTIVE MISMATCH: BTCUSDm Ticket 525793903 | Target profit: $-2.00 | Effective: $-0.44 | Error: $1.56 (tolerance: $1.00)
+2025-12-17 17:32:56 - sl_manager - ERROR - [17:32:56.909] SL UPDATE FAILED: BTCUSDm Ticket 525793903 | Target: 86806.25000 | Reason: Verification failed | Failed after 3 attempts
+2025-12-17 17:32:56 - sl_manager - CRITICAL - 🚨 EMERGENCY STRICT SL ENFORCEMENT: BTCUSDm Ticket 525793903 | Reason: Losing trade (P/L: $-0.44) | Normal SL update failed after 3 attempts | Current P/L: $-0.44 | Enforcing emergency strict SL (-$2.00)
+2025-12-17 17:32:56 - sl_manager - INFO - 🔧 EMERGENCY SL: Reverse-engineered contract_size: 1.00 | From current profit: $-0.44
+2025-12-17 17:32:56 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.01 | Price diff: -200.00000 (-20000.0 points) | Target profit: $-2.00
+2025-12-17 17:32:56 - sl_manager - WARNING - [WARNING] EMERGENCY SL ADJUSTMENT NEEDED: BTCUSDm Ticket 525793903 | Broker-adjusted SL 86806.60000 gives effective $-0.44 (target: $-2.00, error: $1.56) | Attempting to find better SL...
+2025-12-17 17:32:57 - sl_manager - INFO - 🚨 EMERGENCY SL CALCULATED: BTCUSDm Ticket 525793903 | Entry: 86850.40000 | Target SL: 86806.60000 | Order Type: BUY
+2025-12-17 17:32:57 - sl_manager - WARNING - [WARNING] EMERGENCY SL EFFECTIVE MISMATCH: BTCUSDm Ticket 525793903 | Target: $-2.00 | Effective: $-0.44 | Error: $1.56 (tolerance: $0.50) | Attempting one more adjustment...
+2025-12-17 17:32:57 - sl_manager - WARNING - [WARNING] EMERGENCY SL FINAL MISMATCH: BTCUSDm Ticket 525793903 | Target: $-2.00 | Effective: $-0.44 | Error: $1.56 (tolerance: $0.50) | Broker constraints may prevent exact -$2.00 SL
+2025-12-17 17:32:57 - sl_manager - CRITICAL - 🚨 MANUAL REVIEW REQUIRED: BTCUSDm Ticket 525793903 | Emergency SL effective mismatch exceeds tolerance | Circuit breaker: disabled for 60s
+2025-12-17 17:32:57 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: BTCUSDm Ticket 525793903 | Target SL: 86806.25000 | Attempting emergency fallback...
+2025-12-17 17:32:57 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.01 | Price diff: -200.00000 (-20000.0 points) | Target profit: $-2.00
+2025-12-17 17:32:58 - sl_manager - CRITICAL - EMERGENCY STRICT SL FAILED: BTCUSDm Ticket 525793903 | Emergency SL: 86650.40000 | Direct modification failed
+2025-12-17 17:32:58 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: BTCUSDm Ticket 525793903 | Attempt 1/3 failed: Emergency strict loss SL failed | Retrying immediately...
+2025-12-17 17:32:58 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.01 | Price diff: -200.00000 (-20000.0 points) | Target profit: $-2.00
+2025-12-17 17:32:58 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: BTCUSDm Ticket 525793903 | Current SL price: 86801.99000 | Target SL price: 86801.99000 | Effective SL: $-0.48 (target: $-2.00, error: $1.52) | Will update to correct effective SL
+2025-12-17 17:32:58 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: BTCUSDm Ticket 525793903 | Target SL: 86801.99000 | Attempting emergency fallback...
+2025-12-17 17:32:58 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.01 | Price diff: -200.00000 (-20000.0 points) | Target profit: $-2.00
+2025-12-17 17:32:58 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: BTCUSDm Ticket 525793903 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:32:58 - sl_manager - WARNING - [WARNING] STRICT LOSS RETRY: BTCUSDm Ticket 525793903 | Attempt 2/3 failed: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Retrying immediately...
+2025-12-17 17:32:58 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.01 | Price diff: -200.00000 (-20000.0 points) | Target profit: $-2.00
+2025-12-17 17:32:58 - sl_manager - WARNING - SL PRICE CLOSE BUT EFFECTIVE SL MISMATCH: BTCUSDm Ticket 525793903 | Current SL price: 86801.99000 | Target SL price: 86801.99000 | Effective SL: $-0.48 (target: $-2.00, error: $1.52) | Will update to correct effective SL
+2025-12-17 17:32:58 - sl_manager - ERROR - STRICT LOSS UPDATE FAILED: BTCUSDm Ticket 525793903 | Target SL: 86801.99000 | Attempting emergency fallback...
+2025-12-17 17:32:58 - sl_manager - INFO - 🔧 SL CALCULATION: Using trade_tick_value: 0.01 | Price diff: -200.00000 (-20000.0 points) | Target profit: $-2.00
+2025-12-17 17:32:58 - sl_manager - CRITICAL - EMERGENCY STRICT SL EXCEPTION: BTCUSDm Ticket 525793903 | Error: cannot access local variable 'time' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\AdvancedMicroScalp\risk\sl_manager.py", line 1446, in _enforce_strict_loss_limit
+    emergency_success = self.order_manager.modify_order(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\AdvancedMicroScalp\execution\order_manager.py", line 484, in modify_order
+    time.sleep(0.05)  # 50ms delay
+    ^^^^
+UnboundLocalError: cannot access local variable 'time' where it is not associated with a value
+2025-12-17 17:32:58 - sl_manager - CRITICAL - CRITICAL: Strict loss enforcement FAILED after 3 attempts for BTCUSDm Ticket 525793903: Emergency strict loss SL exception: cannot access local variable 'time' where it is not associated with a value | Current effective SL: $-0.48 | Target: $-2.00 | Will retry next cycle
+2025-12-17 17:32:58 - sl_manager - WARNING - [WARNING] SWEET SPOT FAILED: BTCUSDm Ticket 525793903 | Not in sweet spot range
+2025-12-17 17:32:58 - sl_manager - CRITICAL - 🚨 CIRCUIT BREAKER: Ticket 525793903 disabled for 10s after 11 consecutive failures (bucket: 0)
+2025-12-17 17:32:58 - sl_manager - WARNING - [17:32:58.770] [WARNING] SL Worker loop exceeded 50ms target: 3225.4ms (target: <50ms, ideal: <10ms) | Positions: 1
+2025-12-17 17:32:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:32:59.353 | Iteration: 36200
+2025-12-17 17:33:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:00.952 | Iteration: 36300
+2025-12-17 17:33:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:33:01 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:33:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:33:01 - sl_manager - INFO -   SL Update Success Rate: 3.6% (Target: >95%) [ERROR]
+2025-12-17 17:33:01 - sl_manager - INFO -   SL Update Attempts: 28 | Successes: 1 | Failures: 27
+2025-12-17 17:33:01 - sl_manager - INFO -   Lock Contention Rate: 7.1% (Target: <5%) [ERROR]
+2025-12-17 17:33:01 - sl_manager - INFO -   Lock Failures: 2 | Timeouts: 2 | Contention: 0
+2025-12-17 17:33:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:33:02 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:02.794 | Iteration: 36400
+2025-12-17 17:33:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:04.440 | Iteration: 36500
+2025-12-17 17:33:06 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:06.296 | Iteration: 36600
+2025-12-17 17:33:08 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:08.665 | Iteration: 36700
+2025-12-17 17:33:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:11.423 | Iteration: 36800
+2025-12-17 17:33:13 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:13.925 | Iteration: 36900
+2025-12-17 17:33:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:16.619 | Iteration: 37000
+2025-12-17 17:33:19 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:19.149 | Iteration: 37100
+2025-12-17 17:33:20 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:20.864 | Iteration: 37200
+2025-12-17 17:33:22 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:22.534 | Iteration: 37300
+2025-12-17 17:33:24 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:24.253 | Iteration: 37400
+2025-12-17 17:33:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:25.845 | Iteration: 37500
+2025-12-17 17:33:26 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:33:26.182] [SL_WORKER] WARNING: Slow position fetch: 243.8ms (target: <10ms)
+2025-12-17 17:33:27 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:27.481 | Iteration: 37600
+2025-12-17 17:33:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:29.235 | Iteration: 37700
+2025-12-17 17:33:30 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:30.938 | Iteration: 37800
+2025-12-17 17:33:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:33:31 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:33:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:33:31 - sl_manager - INFO -   SL Update Success Rate: 3.6% (Target: >95%) [ERROR]
+2025-12-17 17:33:31 - sl_manager - INFO -   SL Update Attempts: 28 | Successes: 1 | Failures: 27
+2025-12-17 17:33:31 - sl_manager - INFO -   Lock Contention Rate: 7.1% (Target: <5%) [ERROR]
+2025-12-17 17:33:31 - sl_manager - INFO -   Lock Failures: 2 | Timeouts: 2 | Contention: 0
+2025-12-17 17:33:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:33:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:32.686 | Iteration: 37900
+2025-12-17 17:33:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:34.397 | Iteration: 38000
+2025-12-17 17:33:36 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:36.139 | Iteration: 38100
+2025-12-17 17:33:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:37.798 | Iteration: 38200
+2025-12-17 17:33:39 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:33:39.789] [SL_WORKER] WARNING: Slow position fetch: 12.1ms (target: <10ms)
+2025-12-17 17:33:40 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:40.253 | Iteration: 38300
+2025-12-17 17:33:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:42.711 | Iteration: 38400
+2025-12-17 17:33:45 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:45.675 | Iteration: 38500
+2025-12-17 17:33:46 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:33:46.565] [SL_WORKER] WARNING: Slow position fetch: 15.8ms (target: <10ms)
+2025-12-17 17:33:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:48.142 | Iteration: 38600
+2025-12-17 17:33:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:50.390 | Iteration: 38700
+2025-12-17 17:33:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:52.997 | Iteration: 38800
+2025-12-17 17:33:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:54.759 | Iteration: 38900
+2025-12-17 17:33:56 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:56.506 | Iteration: 39000
+2025-12-17 17:33:57 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:33:57.204] [SL_WORKER] WARNING: Slow position fetch: 12.6ms (target: <10ms)
+2025-12-17 17:33:58 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:58.088 | Iteration: 39100
+2025-12-17 17:33:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:33:59.778 | Iteration: 39200
+2025-12-17 17:34:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:34:01 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:34:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:34:01 - sl_manager - INFO -   SL Update Success Rate: 3.6% (Target: >95%) [ERROR]
+2025-12-17 17:34:01 - sl_manager - INFO -   SL Update Attempts: 28 | Successes: 1 | Failures: 27
+2025-12-17 17:34:01 - sl_manager - INFO -   Lock Contention Rate: 7.1% (Target: <5%) [ERROR]
+2025-12-17 17:34:01 - sl_manager - INFO -   Lock Failures: 2 | Timeouts: 2 | Contention: 0
+2025-12-17 17:34:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:34:01 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:01.519 | Iteration: 39300
+2025-12-17 17:34:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:01.976] [SL_WORKER] WARNING: Slow position fetch: 28.2ms (target: <10ms)
+2025-12-17 17:34:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:03.092] [SL_WORKER] WARNING: Slow position fetch: 10.4ms (target: <10ms)
+2025-12-17 17:34:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:03.371] [SL_WORKER] WARNING: Slow position fetch: 11.2ms (target: <10ms)
+2025-12-17 17:34:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:03.448] [SL_WORKER] WARNING: Slow position fetch: 21.4ms (target: <10ms)
+2025-12-17 17:34:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:04.474 | Iteration: 39400
+2025-12-17 17:34:05 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:05.786 | Iteration: 39500
+2025-12-17 17:34:07 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:07.171 | Iteration: 39600
+2025-12-17 17:34:08 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:08.464 | Iteration: 39700
+2025-12-17 17:34:09 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:09.836 | Iteration: 39800
+2025-12-17 17:34:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:11.038 | Iteration: 39900
+2025-12-17 17:34:11 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:11.678 | Iteration: 40000
+2025-12-17 17:34:12 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:12.181 | Iteration: 40100
+2025-12-17 17:34:12 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:12.460 | Iteration: 40200
+2025-12-17 17:34:13 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:13.903] [SL_WORKER] WARNING: Slow position fetch: 19.0ms (target: <10ms)
+2025-12-17 17:34:15 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:15.029 | Iteration: 40300
+2025-12-17 17:34:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:16.018 | Iteration: 40400
+2025-12-17 17:34:16 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:16.023] [SL_WORKER] WARNING: Slow position fetch: 12.0ms (target: <10ms)
+2025-12-17 17:34:16 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:16.713 | Iteration: 40500
+2025-12-17 17:34:18 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:18.368 | Iteration: 40600
+2025-12-17 17:34:20 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:20.608 | Iteration: 40700
+2025-12-17 17:34:23 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:23.332 | Iteration: 40800
+2025-12-17 17:34:24 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:24.699 | Iteration: 40900
+2025-12-17 17:34:24 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:24.845] [SL_WORKER] WARNING: Slow position fetch: 12.5ms (target: <10ms)
+2025-12-17 17:34:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:25.352 | Iteration: 41000
+2025-12-17 17:34:25 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:25.933 | Iteration: 41100
+2025-12-17 17:34:26 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:26.447 | Iteration: 41200
+2025-12-17 17:34:26 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:26.785 | Iteration: 41300
+2025-12-17 17:34:27 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:27.961 | Iteration: 41400
+2025-12-17 17:34:29 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:29.510 | Iteration: 41500
+2025-12-17 17:34:31 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:31.165 | Iteration: 41600
+2025-12-17 17:34:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:34:31 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:34:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:34:31 - sl_manager - INFO -   SL Update Success Rate: 3.6% (Target: >95%) [ERROR]
+2025-12-17 17:34:31 - sl_manager - INFO -   SL Update Attempts: 28 | Successes: 1 | Failures: 27
+2025-12-17 17:34:31 - sl_manager - INFO -   Lock Contention Rate: 7.1% (Target: <5%) [ERROR]
+2025-12-17 17:34:31 - sl_manager - INFO -   Lock Failures: 2 | Timeouts: 2 | Contention: 0
+2025-12-17 17:34:31 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:34:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:32.232 | Iteration: 41700
+2025-12-17 17:34:32 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:32.556] [SL_WORKER] WARNING: Slow position fetch: 11.3ms (target: <10ms)
+2025-12-17 17:34:32 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:32.678] [SL_WORKER] WARNING: Slow position fetch: 16.0ms (target: <10ms)
+2025-12-17 17:34:32 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:32.893] [SL_WORKER] WARNING: Slow position fetch: 11.6ms (target: <10ms)
+2025-12-17 17:34:32 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:32.918 | Iteration: 41800
+2025-12-17 17:34:33 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:33.147] [SL_WORKER] WARNING: Slow position fetch: 11.4ms (target: <10ms)
+2025-12-17 17:34:33 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:33.290] [SL_WORKER] WARNING: Slow position fetch: 61.2ms (target: <10ms)
+2025-12-17 17:34:33 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:33.491 | Iteration: 41900
+2025-12-17 17:34:33 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:33.653 | Iteration: 42000
+2025-12-17 17:34:33 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:33.659] [SL_WORKER] WARNING: Slow position fetch: 80.3ms (target: <10ms)
+2025-12-17 17:34:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:34.314 | Iteration: 42100
+2025-12-17 17:34:34 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:34.874 | Iteration: 42200
+2025-12-17 17:34:36 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:36.150 | Iteration: 42300
+2025-12-17 17:34:37 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:37.835 | Iteration: 42400
+2025-12-17 17:34:39 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:39.498 | Iteration: 42500
+2025-12-17 17:34:40 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:40.051] [SL_WORKER] WARNING: Slow position fetch: 21.8ms (target: <10ms)
+2025-12-17 17:34:40 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:40.462] [SL_WORKER] WARNING: Slow position fetch: 11.5ms (target: <10ms)
+2025-12-17 17:34:40 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:40.523 | Iteration: 42600
+2025-12-17 17:34:40 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:40.526] [SL_WORKER] WARNING: Slow position fetch: 13.0ms (target: <10ms)
+2025-12-17 17:34:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:41.131 | Iteration: 42700
+2025-12-17 17:34:41 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:41.573 | Iteration: 42800
+2025-12-17 17:34:41 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:41.573] [SL_WORKER] WARNING: Slow position fetch: 10.4ms (target: <10ms)
+2025-12-17 17:34:41 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:41.698] [SL_WORKER] WARNING: Slow position fetch: 15.4ms (target: <10ms)
+2025-12-17 17:34:41 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:41.955] [SL_WORKER] WARNING: Slow position fetch: 17.0ms (target: <10ms)
+2025-12-17 17:34:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:42.014 | Iteration: 42900
+2025-12-17 17:34:42 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:42.437 | Iteration: 43000
+2025-12-17 17:34:44 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:44.112 | Iteration: 43100
+2025-12-17 17:34:46 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:46.940 | Iteration: 43200
+2025-12-17 17:34:47 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:47.071] [SL_WORKER] WARNING: Slow position fetch: 14.3ms (target: <10ms)
+2025-12-17 17:34:47 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:47.563] [SL_WORKER] WARNING: Slow position fetch: 30.1ms (target: <10ms)
+2025-12-17 17:34:47 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:47.678] [SL_WORKER] WARNING: Slow position fetch: 33.8ms (target: <10ms)
+2025-12-17 17:34:48 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:48.148 | Iteration: 43300
+2025-12-17 17:34:48 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:48.859] [SL_WORKER] WARNING: Slow position fetch: 36.6ms (target: <10ms)
+2025-12-17 17:34:49 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:49.529 | Iteration: 43400
+2025-12-17 17:34:50 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:50.388 | Iteration: 43500
+2025-12-17 17:34:53 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:53.238 | Iteration: 43600
+2025-12-17 17:34:54 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:54.659 | Iteration: 43700
+2025-12-17 17:34:54 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:54.727] [SL_WORKER] WARNING: Slow position fetch: 35.4ms (target: <10ms)
+2025-12-17 17:34:55 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:55.172 | Iteration: 43800
+2025-12-17 17:34:55 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:55.309] [SL_WORKER] WARNING: Slow position fetch: 20.0ms (target: <10ms)
+2025-12-17 17:34:55 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:55.743 | Iteration: 43900
+2025-12-17 17:34:55 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:55.836] [SL_WORKER] WARNING: Slow position fetch: 10.3ms (target: <10ms)
+2025-12-17 17:34:55 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:34:55.880] [SL_WORKER] WARNING: Slow position fetch: 15.0ms (target: <10ms)
+2025-12-17 17:34:57 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:57.375 | Iteration: 44000
+2025-12-17 17:34:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:59.508 | Iteration: 44100
+2025-12-17 17:34:59 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:34:59.957 | Iteration: 44200
+2025-12-17 17:35:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:35:00.507 | Iteration: 44300
+2025-12-17 17:35:00 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:00.606] [SL_WORKER] WARNING: Slow position fetch: 49.6ms (target: <10ms)
+2025-12-17 17:35:00 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:00.869] [SL_WORKER] WARNING: Slow position fetch: 13.0ms (target: <10ms)
+2025-12-17 17:35:00 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:35:00.922 | Iteration: 44400
+2025-12-17 17:35:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:35:01 - sl_manager - INFO - 📊 SL MANAGER VERIFICATION METRICS
+2025-12-17 17:35:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:35:01 - sl_manager - INFO -   SL Update Success Rate: 3.6% (Target: >95%) [ERROR]
+2025-12-17 17:35:01 - sl_manager - INFO -   SL Update Attempts: 28 | Successes: 1 | Failures: 27
+2025-12-17 17:35:01 - sl_manager - INFO -   Lock Contention Rate: 7.1% (Target: <5%) [ERROR]
+2025-12-17 17:35:01 - sl_manager - INFO -   Lock Failures: 2 | Timeouts: 2 | Contention: 0
+2025-12-17 17:35:01 - sl_manager - INFO - ====================================================================================================
+2025-12-17 17:35:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:01.729] [SL_WORKER] WARNING: Slow position fetch: 79.4ms (target: <10ms)
+2025-12-17 17:35:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:01.859] [SL_WORKER] WARNING: Slow position fetch: 13.5ms (target: <10ms)
+2025-12-17 17:35:01 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:35:01.875 | Iteration: 44500
+2025-12-17 17:35:01 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:01.888] [SL_WORKER] WARNING: Slow position fetch: 16.6ms (target: <10ms)
+2025-12-17 17:35:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:02.175] [SL_WORKER] WARNING: Slow position fetch: 13.2ms (target: <10ms)
+2025-12-17 17:35:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:02.263] [SL_WORKER] WARNING: Slow position fetch: 29.1ms (target: <10ms)
+2025-12-17 17:35:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:02.331] [SL_WORKER] WARNING: Slow position fetch: 30.7ms (target: <10ms)
+2025-12-17 17:35:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:02.443] [SL_WORKER] WARNING: Slow position fetch: 11.0ms (target: <10ms)
+2025-12-17 17:35:02 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:02.583] [SL_WORKER] WARNING: Slow position fetch: 13.5ms (target: <10ms)
+2025-12-17 17:35:03 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:35:03.582 | Iteration: 44600
+2025-12-17 17:35:03 - sl_manager - WARNING - mode=LIVE | [2025-12-17 17:35:03.650] [SL_WORKER] WARNING: Slow position fetch: 39.5ms (target: <10ms)
+2025-12-17 17:35:04 - sl_manager - INFO - mode=LIVE | [SL_WORKER] Loop start timestamp: 2025-12-17 17:35:04.838 | Iteration: 44700

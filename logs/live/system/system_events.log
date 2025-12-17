@@ -1,0 +1,22 @@
+2025-12-17 17:24:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:24:44.915265", "openTrades": 0, "equity": 9996.28, "balance": 9996.28}
+2025-12-17 17:25:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:25:22.618633", "openTrades": 0, "equity": 9996.28, "balance": 9996.28}
+2025-12-17 17:25:56 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:25:56.803474", "openTrades": 0, "equity": 9996.28, "balance": 9996.28}
+2025-12-17 17:26:27 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:26:27.677471", "openTrades": 0, "equity": 9996.28, "balance": 9996.28}
+2025-12-17 17:27:03 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 525753113, "symbol": "TSLAm", "error": "Verification failed after all retries", "targetSL": 477.89}
+2025-12-17 17:27:04 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 525753113, "symbol": "TSLAm", "error": "Verification failed after all retries", "targetSL": 477.89}
+2025-12-17 17:27:05 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:27:05.875442", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:27:38 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:27:38.942844", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:28:16 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:28:16.701525", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:28:48 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:28:48.615502", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:29:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:29:22.648293", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:29:55 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:29:55.144712", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:30:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:30:29.684814", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:31:01 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:31:01.979887", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:31:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:31:36.497433", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:32:09 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:32:09.092562", "openTrades": 0, "equity": 9996.01, "balance": 9996.01}
+2025-12-17 17:32:47 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:32:47.488371", "openTrades": 1, "equity": 9995.53, "balance": 9996.01}
+2025-12-17 17:32:56 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 525793903, "symbol": "BTCUSDm", "error": "Verification failed after all retries", "targetSL": 86806.25}
+2025-12-17 17:33:18 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:33:18.884411", "openTrades": 0, "equity": 9995.41, "balance": 9995.41}
+2025-12-17 17:33:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:33:52.565724", "openTrades": 0, "equity": 9995.41, "balance": 9995.41}
+2025-12-17 17:34:24 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:34:24.580290", "openTrades": 0, "equity": 9995.41, "balance": 9995.41}
+2025-12-17 17:34:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-17T17:34:59.501081", "openTrades": 0, "equity": 9995.41, "balance": 9995.41}

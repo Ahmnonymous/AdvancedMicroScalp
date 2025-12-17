@@ -1,0 +1,7 @@
+2025-12-17 17:25:51 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 115.3% of avg range > max 20.0%
+2025-12-17 17:26:23 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 116.4% of avg range > max 20.0%
+2025-12-17 17:28:10 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 196.0% of avg range > max 20.0%
+2025-12-17 17:28:44 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 113.3% of avg range > max 20.0%
+2025-12-17 17:31:31 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 216.9% of avg range > max 20.0%
+2025-12-17 17:32:04 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 124.8% of avg range > max 20.0%
+2025-12-17 17:34:53 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.3% of avg range > max 20.0%

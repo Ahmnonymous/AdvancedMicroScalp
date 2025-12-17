@@ -1,0 +1,5 @@
+2025-12-17 17:24:13 - trades.MSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 88.6% of avg range > max 20.0%
+2025-12-17 17:25:11 - trades.MSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.3% of avg range > max 20.0%
+2025-12-17 17:31:26 - trades.MSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.46 pips < min 1.50 pips
+2025-12-17 17:32:00 - trades.MSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.47 pips < min 1.50 pips
+2025-12-17 17:34:49 - trades.MSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.35 pips < min 1.50 pips

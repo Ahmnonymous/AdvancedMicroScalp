@@ -1,0 +1,168 @@
+2025-12-17 17:23:48 - backtest_replay - INFO - Loading historical data from 2023-12-27 17:23:46.853654 to 2025-12-16 17:23:46.853654
+2025-12-17 17:23:48 - backtest_replay - INFO - MT5 logged in successfully to account 259747051
+2025-12-17 17:23:48 - backtest_replay - INFO - Loading data for EURUSDm...
+2025-12-17 17:23:48 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:48 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:48 - backtest_replay - INFO - Loaded 41762 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:49 - backtest_replay - INFO - Loaded 41762 bars for EURUSDm (from 2025-11-05 15:36:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:49 - backtest_replay - WARNING - Actual start date 2025-11-05 15:36:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:49 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:49 - backtest_replay - INFO - Loading data for GBPUSDm...
+2025-12-17 17:23:49 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:49 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:49 - backtest_replay - INFO - Loaded 41765 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:49 - backtest_replay - INFO - Loaded 41765 bars for GBPUSDm (from 2025-11-05 15:18:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:49 - backtest_replay - WARNING - Actual start date 2025-11-05 15:18:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:49 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:49 - backtest_replay - INFO - Loading data for USDJPYm...
+2025-12-17 17:23:49 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:49 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:50 - backtest_replay - INFO - Loaded 41763 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:50 - backtest_replay - INFO - Loaded 41763 bars for USDJPYm (from 2025-11-05 15:23:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:50 - backtest_replay - WARNING - Actual start date 2025-11-05 15:23:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:50 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:50 - backtest_replay - INFO - Loading data for AUDUSDm...
+2025-12-17 17:23:50 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:50 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:50 - backtest_replay - INFO - Loaded 41762 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:51 - backtest_replay - INFO - Loaded 41762 bars for AUDUSDm (from 2025-11-05 15:33:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:51 - backtest_replay - WARNING - Actual start date 2025-11-05 15:33:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:51 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:51 - backtest_replay - INFO - Loading data for USDCADm...
+2025-12-17 17:23:51 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:51 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:51 - backtest_replay - INFO - Loaded 41762 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:51 - backtest_replay - INFO - Loaded 41762 bars for USDCADm (from 2025-11-05 15:36:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:51 - backtest_replay - WARNING - Actual start date 2025-11-05 15:36:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:51 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:51 - backtest_replay - INFO - Loading data for EURGBPm...
+2025-12-17 17:23:51 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:51 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:52 - backtest_replay - INFO - Loaded 41761 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:52 - backtest_replay - INFO - Loaded 41761 bars for EURGBPm (from 2025-11-05 15:31:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:52 - backtest_replay - WARNING - Actual start date 2025-11-05 15:31:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:52 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:52 - backtest_replay - INFO - Loading data for XAUUSDm...
+2025-12-17 17:23:52 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:52 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:52 - backtest_replay - INFO - Loaded 41822 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:53 - backtest_replay - INFO - Loaded 41822 bars for XAUUSDm (from 2025-11-04 03:06:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:53 - backtest_replay - WARNING - Actual start date 2025-11-04 03:06:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:53 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:53 - backtest_replay - INFO - Loading data for XAGUSDm...
+2025-12-17 17:23:53 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:53 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:53 - backtest_replay - INFO - Loaded 41824 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:53 - backtest_replay - INFO - Loaded 41824 bars for XAGUSDm (from 2025-11-04 00:43:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:53 - backtest_replay - WARNING - Actual start date 2025-11-04 00:43:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:53 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:53 - backtest_replay - INFO - Loading data for BTCUSDm...
+2025-12-17 17:23:53 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:53 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:54 - backtest_replay - INFO - Loaded 41760 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:54 - backtest_replay - INFO - Loaded 41760 bars for BTCUSDm (from 2025-11-17 16:54:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:54 - backtest_replay - WARNING - Actual start date 2025-11-17 16:54:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:54 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:54 - backtest_replay - INFO - Loading data for ETHUSDm...
+2025-12-17 17:23:54 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:54 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:55 - backtest_replay - INFO - Loaded 41760 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:55 - backtest_replay - INFO - Loaded 41760 bars for ETHUSDm (from 2025-11-17 16:54:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:55 - backtest_replay - WARNING - Actual start date 2025-11-17 16:54:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:55 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:55 - backtest_replay - INFO - Loading data for US30m...
+2025-12-17 17:23:55 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:55 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:56 - backtest_replay - INFO - Loaded 41820 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:56 - backtest_replay - INFO - Loaded 41820 bars for US30m (from 2025-11-03 13:58:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:56 - backtest_replay - WARNING - Actual start date 2025-11-03 13:58:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:56 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:56 - backtest_replay - INFO - Loading data for US500m...
+2025-12-17 17:23:56 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:56 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:56 - backtest_replay - INFO - Loaded 41820 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:57 - backtest_replay - INFO - Loaded 41820 bars for US500m (from 2025-11-03 14:02:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:57 - backtest_replay - WARNING - Actual start date 2025-11-03 14:02:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:57 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:57 - backtest_replay - INFO - Loading data for JP225m...
+2025-12-17 17:23:57 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:57 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:57 - backtest_replay - INFO - Loaded 41824 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:57 - backtest_replay - INFO - Loaded 41824 bars for JP225m (from 2025-11-03 08:54:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:57 - backtest_replay - WARNING - Actual start date 2025-11-03 08:54:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:57 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:57 - backtest_replay - INFO - Loading data for AUS200m...
+2025-12-17 17:23:57 - backtest_replay - INFO - Attempting to load data using copy_rates_from_pos...
+2025-12-17 17:23:57 - backtest_replay - INFO - Trying with smaller count (30 days)...
+2025-12-17 17:23:58 - backtest_replay - INFO - Loaded 41975 bars using copy_rates_from_pos (filtered from 43200 total)
+2025-12-17 17:23:58 - backtest_replay - INFO - Loaded 41975 bars for AUS200m (from 2025-10-30 03:09:00 to 2025-12-16 17:23:00)
+2025-12-17 17:23:58 - backtest_replay - WARNING - Actual start date 2025-10-30 03:09:00 is later than requested 2023-12-27 17:23:46.853654
+2025-12-17 17:23:58 - backtest_replay - WARNING - Actual end date 2025-12-16 17:23:00 is earlier than requested 2025-12-16 17:23:46.853654
+2025-12-17 17:23:58 - backtest_replay - INFO - Adjusting replay start from 2023-12-27 17:23:46.853654 to actual data start 2025-10-30 03:09:00
+2025-12-17 17:23:58 - backtest_replay - INFO - Starting historical replay from 2025-10-30 03:09:00 to 2025-12-16 17:23:46.853654
+2025-12-17 17:23:58 - backtest_replay - INFO - Replay speed: 100.0x
+2025-12-17 17:23:58 - backtest_replay - INFO - Total bars to replay: 585180
+2025-12-17 17:24:09 - backtest_replay - INFO - Replay progress: 32/585180 (0.0%) | Time: 2025-10-30 03:41:00 | Speed: 3.2 steps/sec | Elapsed: 10.1s
+2025-12-17 17:24:19 - backtest_replay - INFO - Replay progress: 72/585180 (0.0%) | Time: 2025-10-30 04:21:00 | Speed: 4.0 steps/sec | Elapsed: 20.2s
+2025-12-17 17:24:29 - backtest_replay - INFO - Replay progress: 117/585180 (0.0%) | Time: 2025-10-30 05:06:00 | Speed: 4.5 steps/sec | Elapsed: 30.2s
+2025-12-17 17:24:39 - backtest_replay - INFO - Replay progress: 141/585180 (0.0%) | Time: 2025-10-30 06:10:00 | Speed: 2.3 steps/sec | Elapsed: 40.5s
+2025-12-17 17:24:50 - backtest_replay - INFO - Replay progress: 168/585180 (0.0%) | Time: 2025-10-30 06:37:00 | Speed: 2.5 steps/sec | Elapsed: 51.5s
+2025-12-17 17:25:00 - backtest_replay - INFO - Replay progress: 180/585180 (0.0%) | Time: 2025-10-30 06:49:00 | Speed: 1.2 steps/sec | Elapsed: 61.6s
+2025-12-17 17:25:10 - backtest_replay - INFO - Replay progress: 197/585180 (0.0%) | Time: 2025-10-30 07:07:00 | Speed: 1.7 steps/sec | Elapsed: 71.6s
+2025-12-17 17:25:20 - backtest_replay - INFO - Replay progress: 217/585180 (0.0%) | Time: 2025-10-30 07:27:00 | Speed: 1.9 steps/sec | Elapsed: 81.9s
+2025-12-17 17:25:31 - backtest_replay - INFO - Replay progress: 230/585180 (0.0%) | Time: 2025-10-30 07:40:00 | Speed: 1.2 steps/sec | Elapsed: 93.0s
+2025-12-17 17:25:42 - backtest_replay - INFO - Replay progress: 240/585180 (0.0%) | Time: 2025-10-30 07:50:00 | Speed: 0.9 steps/sec | Elapsed: 103.7s
+2025-12-17 17:25:52 - backtest_replay - INFO - Replay progress: 259/585180 (0.0%) | Time: 2025-10-30 08:10:00 | Speed: 1.9 steps/sec | Elapsed: 113.8s
+2025-12-17 17:26:03 - backtest_replay - INFO - Replay progress: 270/585180 (0.0%) | Time: 2025-10-30 08:21:00 | Speed: 1.0 steps/sec | Elapsed: 124.9s
+2025-12-17 17:26:14 - backtest_replay - INFO - Replay progress: 284/585180 (0.0%) | Time: 2025-10-30 08:35:00 | Speed: 1.3 steps/sec | Elapsed: 135.7s
+2025-12-17 17:26:25 - backtest_replay - INFO - Replay progress: 294/585180 (0.1%) | Time: 2025-10-30 08:46:00 | Speed: 0.9 steps/sec | Elapsed: 146.8s
+2025-12-17 17:26:35 - backtest_replay - INFO - Replay progress: 315/585180 (0.1%) | Time: 2025-10-30 09:07:00 | Speed: 2.1 steps/sec | Elapsed: 156.8s
+2025-12-17 17:26:47 - backtest_replay - INFO - Replay progress: 317/585180 (0.1%) | Time: 2025-10-30 09:09:00 | Speed: 0.2 steps/sec | Elapsed: 168.5s
+2025-12-17 17:26:57 - backtest_replay - INFO - Replay progress: 335/585180 (0.1%) | Time: 2025-10-30 09:28:00 | Speed: 1.8 steps/sec | Elapsed: 178.7s
+2025-12-17 17:27:07 - backtest_replay - INFO - Replay progress: 365/585180 (0.1%) | Time: 2025-10-30 10:00:00 | Speed: 3.0 steps/sec | Elapsed: 188.8s
+2025-12-17 17:27:17 - backtest_replay - INFO - Replay progress: 396/585180 (0.1%) | Time: 2025-10-30 10:33:00 | Speed: 3.1 steps/sec | Elapsed: 199.0s
+2025-12-17 17:27:28 - backtest_replay - INFO - Replay progress: 422/585180 (0.1%) | Time: 2025-10-30 11:00:00 | Speed: 2.5 steps/sec | Elapsed: 209.2s
+2025-12-17 17:27:39 - backtest_replay - INFO - Replay progress: 439/585180 (0.1%) | Time: 2025-10-30 11:17:00 | Speed: 1.5 steps/sec | Elapsed: 220.3s
+2025-12-17 17:27:49 - backtest_replay - INFO - Replay progress: 452/585180 (0.1%) | Time: 2025-10-30 11:31:00 | Speed: 1.3 steps/sec | Elapsed: 230.6s
+2025-12-17 17:27:59 - backtest_replay - INFO - Replay progress: 483/585180 (0.1%) | Time: 2025-10-30 12:05:00 | Speed: 3.1 steps/sec | Elapsed: 240.7s
+2025-12-17 17:28:10 - backtest_replay - INFO - Replay progress: 492/585180 (0.1%) | Time: 2025-10-30 12:14:00 | Speed: 0.8 steps/sec | Elapsed: 251.5s
+2025-12-17 17:28:20 - backtest_replay - INFO - Replay progress: 513/585180 (0.1%) | Time: 2025-10-30 12:35:00 | Speed: 2.0 steps/sec | Elapsed: 261.8s
+2025-12-17 17:28:30 - backtest_replay - INFO - Replay progress: 545/585180 (0.1%) | Time: 2025-10-30 13:07:00 | Speed: 3.2 steps/sec | Elapsed: 271.8s
+2025-12-17 17:28:40 - backtest_replay - INFO - Replay progress: 567/585180 (0.1%) | Time: 2025-10-30 13:29:00 | Speed: 2.2 steps/sec | Elapsed: 282.0s
+2025-12-17 17:28:51 - backtest_replay - INFO - Replay progress: 577/585180 (0.1%) | Time: 2025-10-30 13:39:00 | Speed: 0.9 steps/sec | Elapsed: 293.1s
+2025-12-17 17:29:02 - backtest_replay - INFO - Replay progress: 602/585180 (0.1%) | Time: 2025-10-30 14:04:00 | Speed: 2.4 steps/sec | Elapsed: 303.3s
+2025-12-17 17:29:12 - backtest_replay - INFO - Replay progress: 626/585180 (0.1%) | Time: 2025-10-30 14:28:00 | Speed: 2.3 steps/sec | Elapsed: 313.8s
+2025-12-17 17:29:22 - backtest_replay - INFO - Replay progress: 662/585180 (0.1%) | Time: 2025-10-30 15:04:00 | Speed: 3.6 steps/sec | Elapsed: 324.0s
+2025-12-17 17:29:32 - backtest_replay - INFO - Replay progress: 699/585180 (0.1%) | Time: 2025-10-30 15:41:00 | Speed: 3.7 steps/sec | Elapsed: 334.0s
+2025-12-17 17:29:43 - backtest_replay - INFO - Replay progress: 734/585180 (0.1%) | Time: 2025-10-30 16:16:00 | Speed: 3.4 steps/sec | Elapsed: 344.2s
+2025-12-17 17:29:53 - backtest_replay - INFO - Replay progress: 771/585180 (0.1%) | Time: 2025-10-30 16:53:00 | Speed: 3.6 steps/sec | Elapsed: 354.5s
+2025-12-17 17:30:03 - backtest_replay - INFO - Replay progress: 804/585180 (0.1%) | Time: 2025-10-30 17:26:00 | Speed: 3.2 steps/sec | Elapsed: 364.7s
+2025-12-17 17:30:13 - backtest_replay - INFO - Replay progress: 839/585180 (0.1%) | Time: 2025-10-30 18:01:00 | Speed: 3.5 steps/sec | Elapsed: 374.8s
+2025-12-17 17:30:23 - backtest_replay - INFO - Replay progress: 875/585180 (0.1%) | Time: 2025-10-30 18:37:00 | Speed: 3.6 steps/sec | Elapsed: 384.8s
+2025-12-17 17:30:33 - backtest_replay - INFO - Replay progress: 912/585180 (0.2%) | Time: 2025-10-30 19:14:00 | Speed: 3.6 steps/sec | Elapsed: 395.0s
+2025-12-17 17:30:44 - backtest_replay - INFO - Replay progress: 949/585180 (0.2%) | Time: 2025-10-30 19:51:00 | Speed: 3.6 steps/sec | Elapsed: 405.1s
+2025-12-17 17:30:54 - backtest_replay - INFO - Replay progress: 984/585180 (0.2%) | Time: 2025-10-30 20:27:00 | Speed: 3.4 steps/sec | Elapsed: 415.4s
+2025-12-17 17:30:58 - backtest_replay - INFO - Replay progress: 1000/585180 (0.2%) | Time: 2025-10-30 20:43:00 | Speed: 3.4 steps/sec | Elapsed: 420.1s
+2025-12-17 17:31:09 - backtest_replay - INFO - Replay progress: 1031/585180 (0.2%) | Time: 2025-10-30 22:19:00 | Speed: 3.1 steps/sec | Elapsed: 430.1s
+2025-12-17 17:31:19 - backtest_replay - INFO - Replay progress: 1069/585180 (0.2%) | Time: 2025-10-30 23:01:00 | Speed: 3.7 steps/sec | Elapsed: 440.4s
+2025-12-17 17:31:29 - backtest_replay - INFO - Replay progress: 1107/585180 (0.2%) | Time: 2025-10-30 23:39:00 | Speed: 3.6 steps/sec | Elapsed: 451.0s
+2025-12-17 17:31:40 - backtest_replay - INFO - Replay progress: 1145/585180 (0.2%) | Time: 2025-10-31 00:17:00 | Speed: 3.7 steps/sec | Elapsed: 461.3s
+2025-12-17 17:31:50 - backtest_replay - INFO - Replay progress: 1184/585180 (0.2%) | Time: 2025-10-31 00:56:00 | Speed: 3.8 steps/sec | Elapsed: 471.6s
+2025-12-17 17:32:00 - backtest_replay - INFO - Replay progress: 1221/585180 (0.2%) | Time: 2025-10-31 01:33:00 | Speed: 3.7 steps/sec | Elapsed: 481.7s
+2025-12-17 17:32:10 - backtest_replay - INFO - Replay progress: 1256/585180 (0.2%) | Time: 2025-10-31 02:08:00 | Speed: 3.5 steps/sec | Elapsed: 491.8s
+2025-12-17 17:32:20 - backtest_replay - INFO - Replay progress: 1293/585180 (0.2%) | Time: 2025-10-31 02:45:00 | Speed: 3.7 steps/sec | Elapsed: 501.9s
+2025-12-17 17:32:30 - backtest_replay - INFO - Replay progress: 1332/585180 (0.2%) | Time: 2025-10-31 03:24:00 | Speed: 3.8 steps/sec | Elapsed: 512.1s
+2025-12-17 17:32:41 - backtest_replay - INFO - Replay progress: 1369/585180 (0.2%) | Time: 2025-10-31 04:01:00 | Speed: 3.7 steps/sec | Elapsed: 522.2s
+2025-12-17 17:32:51 - backtest_replay - INFO - Replay progress: 1407/585180 (0.2%) | Time: 2025-10-31 04:39:00 | Speed: 3.7 steps/sec | Elapsed: 532.3s
+2025-12-17 17:33:01 - backtest_replay - INFO - Replay progress: 1450/585180 (0.2%) | Time: 2025-10-31 05:22:00 | Speed: 4.3 steps/sec | Elapsed: 542.4s
+2025-12-17 17:33:11 - backtest_replay - INFO - Replay progress: 1486/585180 (0.3%) | Time: 2025-10-31 06:46:00 | Speed: 3.6 steps/sec | Elapsed: 552.5s
+2025-12-17 17:33:21 - backtest_replay - INFO - Replay progress: 1523/585180 (0.3%) | Time: 2025-10-31 07:25:00 | Speed: 3.7 steps/sec | Elapsed: 562.5s
+2025-12-17 17:33:31 - backtest_replay - INFO - Replay progress: 1561/585180 (0.3%) | Time: 2025-10-31 08:12:00 | Speed: 3.8 steps/sec | Elapsed: 572.6s
+2025-12-17 17:33:41 - backtest_replay - INFO - Replay progress: 1599/585180 (0.3%) | Time: 2025-10-31 08:51:00 | Speed: 3.7 steps/sec | Elapsed: 582.8s
+2025-12-17 17:33:51 - backtest_replay - INFO - Replay progress: 1636/585180 (0.3%) | Time: 2025-10-31 09:35:00 | Speed: 3.7 steps/sec | Elapsed: 592.9s
+2025-12-17 17:34:01 - backtest_replay - INFO - Replay progress: 1671/585180 (0.3%) | Time: 2025-10-31 10:13:00 | Speed: 3.5 steps/sec | Elapsed: 602.9s
+2025-12-17 17:34:12 - backtest_replay - INFO - Replay progress: 1690/585180 (0.3%) | Time: 2025-10-31 10:32:00 | Speed: 1.9 steps/sec | Elapsed: 613.2s
+2025-12-17 17:34:22 - backtest_replay - INFO - Replay progress: 1704/585180 (0.3%) | Time: 2025-10-31 10:47:00 | Speed: 1.4 steps/sec | Elapsed: 623.4s
+2025-12-17 17:34:32 - backtest_replay - INFO - Replay progress: 1729/585180 (0.3%) | Time: 2025-10-31 11:16:00 | Speed: 2.4 steps/sec | Elapsed: 633.7s
+2025-12-17 17:34:42 - backtest_replay - INFO - Replay progress: 1749/585180 (0.3%) | Time: 2025-10-31 11:39:00 | Speed: 2.0 steps/sec | Elapsed: 643.9s
+2025-12-17 17:34:52 - backtest_replay - INFO - Replay progress: 1778/585180 (0.3%) | Time: 2025-10-31 12:09:00 | Speed: 2.9 steps/sec | Elapsed: 654.1s

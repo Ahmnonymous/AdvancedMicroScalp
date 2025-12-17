@@ -1,0 +1,4 @@
+2025-12-17 17:29:15 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 162.3% of avg range > max 20.0%
+2025-12-17 17:29:49 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 162.3% of avg range > max 20.0%
+2025-12-17 17:32:36 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.3% of avg range > max 20.0%
+2025-12-17 17:33:13 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.5% of avg range > max 20.0%
