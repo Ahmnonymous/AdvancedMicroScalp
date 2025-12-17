@@ -55,10 +55,12 @@ class TradingBot:
         with open(config_path, 'r') as f:
             self.config = json.load(f)
         
-        # Determine if we're in backtest mode
+        # Determine if we're in backtest mode or sim_live mode
         self.is_backtest = self.config.get('mode') == 'backtest'
+        self.is_sim_live = self.config.get('mode') == 'SIM_LIVE'
         
         # Initialize module-level loggers based on mode
+        # SIM_LIVE uses live log paths (bot thinks it's live)
         global logger, scheduler_logger, error_logger
         log_paths = _get_log_paths(self.is_backtest)
         logger = get_logger("system_startup", log_paths['system_startup'])
@@ -93,6 +95,8 @@ class TradingBot:
             
             # Log all critical config values for verification
             mode_str = "BACKTEST"
+        elif self.is_sim_live:
+            mode_str = "SIM_LIVE"
         else:
             mode_str = "LIVE"
         
@@ -113,7 +117,18 @@ class TradingBot:
         logger.info("=" * 80)
         
         # Initialize components
-        self.mt5_connector = MT5Connector(self.config)
+        # Use SimLiveMT5Connector if in SIM_LIVE mode
+        if self.is_sim_live:
+            from sim_live.sim_live_connector import SimLiveMT5Connector
+            from sim_live.synthetic_mt5_wrapper import inject_mt5_mock
+            self.mt5_connector = SimLiveMT5Connector(self.config)
+            # Inject MT5 mock into order_manager module for direct mt5.order_send() calls
+            inject_mt5_mock(self.mt5_connector.broker)
+            logger.info("SIM_LIVE mode: Using synthetic market engine and broker")
+        else:
+            # Standard live / backtest connector
+            self.mt5_connector = MT5Connector(self.config)
+        
         self.order_manager = OrderManager(self.mt5_connector)
         self.trend_filter = TrendFilter(self.config, self.mt5_connector)
         self.risk_manager = RiskManager(self.config, self.mt5_connector, self.order_manager)
@@ -726,6 +741,10 @@ class TradingBot:
         """Scan for trading opportunities with SIMPLE logic and comprehensive logging."""
         opportunities = []
         
+        # Import SIM_LIVE diagnostic logging functions if in SIM_LIVE mode
+        if self.is_sim_live:
+            from sim_live.sim_live_logger import log_entry_rejected, log_entry_evaluation_start
+        
         try:
             # Update state
             self._update_state('SCANNING', 'N/A', 'Scanning for opportunities')
@@ -828,10 +847,226 @@ class TradingBot:
                                 continue
                     
                     # 2. Get SIMPLE trend signal (SMA20 vs SMA50 only)
+                    
+                    # 🔒 SIM_LIVE: Assert trend contract before strategy evaluation
+                    # CRITICAL: Validate using EXACT candles that get_trend_signal() will use
+                    if self.is_sim_live:
+                        try:
+                            import pandas as pd
+                            from sim_live.sim_live_connector import SimLiveMT5Connector
+                            if isinstance(self.mt5_connector, SimLiveMT5Connector):
+                                market_engine = self.mt5_connector.market_engine
+                                symbol_upper = symbol.upper()
+                                
+                                # 🔒 PHASE 5 DEFERRAL: Strategy evaluation must wait until market is frozen
+                                # This is NON-FATAL - defer evaluation until entry generation completes
+                                is_frozen = market_engine._market_frozen.get(symbol_upper, False)
+                                if not is_frozen:
+                                    # Market not frozen yet - entry generation still in progress
+                                    # Defer strategy evaluation, allow scenario loop to continue
+                                    from sim_live.sim_live_logger import get_sim_live_logger
+                                    logger_sim = get_sim_live_logger()
+                                    logger_sim.info(f"[SIM_LIVE] [PHASE_5] Evaluation deferred — market not frozen for {symbol} (entry generation in progress)")
+                                    # Return early - do not evaluate strategy yet
+                                    return []  # Return empty list to defer opportunities
+                                
+                                # Market is frozen - proceed with evaluation
+                                from sim_live.sim_live_logger import get_sim_live_logger
+                                logger_sim = get_sim_live_logger()
+                                logger_sim.info(f"[SIM_LIVE] [PHASE_5] Market frozen for {symbol} — proceeding with strategy evaluation")
+                                logger_sim.info(f"[SIM_LIVE] [EVAL_START] Starting strategy evaluation for {symbol}")
+                                
+                                # Get EXACT candles that TrendFilter will use (via get_rates -> copy_rates_from_pos)
+                                # TrendFilter requests 100 candles, but may get fewer
+                                rates_df = self.trend_filter.get_rates(symbol, count=100)
+                                if rates_df is not None and len(rates_df) >= 50:
+                                    # Convert DataFrame back to candle list format for validation
+                                    candles_for_validation = []
+                                    for idx in range(len(rates_df)):
+                                        row = rates_df.iloc[idx]
+                                        # Handle pandas Timestamp or int
+                                        time_val = row['time']
+                                        try:
+                                            import pandas as pd
+                                            if isinstance(time_val, pd.Timestamp):
+                                                time_val = int(time_val.timestamp())
+                                            elif hasattr(time_val, 'timestamp'):
+                                                time_val = int(time_val.timestamp())
+                                            elif isinstance(time_val, (float, int)):
+                                                time_val = int(time_val)
+                                            else:
+                                                # Try direct conversion as last resort
+                                                time_val = int(float(time_val))
+                                        except Exception as e:
+                                            # If conversion fails, try to extract as int from string representation
+                                            try:
+                                                import pandas as pd
+                                                if pd.isna(time_val):
+                                                    time_val = 0
+                                                else:
+                                                    time_val = int(str(time_val).split('.')[0]) if '.' in str(time_val) else int(time_val)
+                                            except:
+                                                # Last resort: use 0 and log error
+                                                try:
+                                                    from sim_live.sim_live_logger import get_sim_live_logger
+                                                    logger_sim = get_sim_live_logger()
+                                                    logger_sim.warning(f"[SIM_LIVE] [PHASE_5] Failed to convert time value {time_val} (type: {type(time_val)}) to int, using 0")
+                                                except:
+                                                    pass
+                                                time_val = 0
+                                        
+                                        # Helper to safely convert to int, handling NaN
+                                        def safe_int(val, default=0):
+                                            try:
+                                                import pandas as pd
+                                                if pd.isna(val):
+                                                    return default
+                                                return int(val)
+                                            except:
+                                                try:
+                                                    return int(val) if val is not None else default
+                                                except:
+                                                    return default
+                                        
+                                        candles_for_validation.append({
+                                            'time': time_val,
+                                            'open': float(row['open']),
+                                            'high': float(row['high']),
+                                            'low': float(row['low']),
+                                            'close': float(row['close']),
+                                            'tick_volume': safe_int(row.get('tick_volume', 0), 0),
+                                            'spread': safe_int(row.get('spread', 0), 0),
+                                            'real_volume': safe_int(row.get('real_volume', 0), 0)
+                                        })
+                                    
+                                    # 🔒 CRITICAL: get_rates() returns newest-first, but _validate_trend_contract expects oldest-first
+                                    # Reverse to match validation function expectations
+                                    candles_for_validation = list(reversed(candles_for_validation))
+                                    
+                                    # Get trend direction from scenario
+                                    scenario = getattr(market_engine, '_scenario', {})
+                                    trend_direction = scenario.get('trend_direction', 'BUY')
+                                    
+                                    # 🔒 PHASE 5 ASSERTION 1: Data identity check
+                                    # CRITICAL FIX: Compare same candles - both should use newest-first order
+                                    # candles_for_validation is oldest-first, so we need the last 50 (newest) AND reverse them to match TrendFilter order
+                                    import hashlib
+                                    # Get last 50 candles from validation (newest candles, since list is oldest-first)
+                                    validation_newest_50 = candles_for_validation[-50:] if len(candles_for_validation) >= 50 else candles_for_validation
+                                    # Reverse to newest-first to match TrendFilter order (TrendFilter returns newest-first)
+                                    validation_newest_50_reversed = list(reversed(validation_newest_50))
+                                    validation_hash = hashlib.md5(str([(c['time'], c['close']) for c in validation_newest_50_reversed]).encode()).hexdigest()
+                                    
+                                    # Get candles TrendFilter will actually use (via its get_rates method)
+                                    # TrendFilter.get_rates() returns newest-first, so first 50 are newest
+                                    rates_for_trendfilter = self.trend_filter.get_rates(symbol, count=100)
+                                    if rates_for_trendfilter is not None and len(rates_for_trendfilter) >= 50:
+                                        trendfilter_candles = []
+                                        # Get first 50 rows (newest candles, since DataFrame is newest-first)
+                                        for idx in range(min(50, len(rates_for_trendfilter))):
+                                            row = rates_for_trendfilter.iloc[idx]
+                                            # Fix Timestamp conversion - same logic as candles_for_validation
+                                            tf_time_val = row['time']
+                                            try:
+                                                import pandas as pd
+                                                if isinstance(tf_time_val, pd.Timestamp):
+                                                    tf_time_val = int(tf_time_val.timestamp())
+                                                elif hasattr(tf_time_val, 'timestamp'):
+                                                    tf_time_val = int(tf_time_val.timestamp())
+                                                elif isinstance(tf_time_val, (float, int)):
+                                                    tf_time_val = int(tf_time_val)
+                                                else:
+                                                    tf_time_val = int(float(tf_time_val))
+                                            except Exception as e:
+                                                try:
+                                                    import pandas as pd
+                                                    if pd.isna(tf_time_val):
+                                                        tf_time_val = 0
+                                                    else:
+                                                        tf_time_val = int(str(tf_time_val).split('.')[0]) if '.' in str(tf_time_val) else int(tf_time_val)
+                                                except:
+                                                    tf_time_val = 0
+                                            trendfilter_candles.append((tf_time_val, float(row['close'])))
+                                        trendfilter_hash = hashlib.md5(str(trendfilter_candles).encode()).hexdigest()
+                                        
+                                        if validation_hash != trendfilter_hash:
+                                            # Market is frozen, but data desync detected - this is a HARD FAILURE
+                                            # Log both sets of candles for debugging
+                                            try:
+                                                from sim_live.sim_live_logger import get_sim_live_logger
+                                                logger_sim = get_sim_live_logger()
+                                                logger_sim.error(f"[SIM_LIVE] [PHASE_5_VIOLATION] Data desync detected:")
+                                                logger_sim.error(f"  Validation newest 5 (time, close): {[(c['time'], c['close']) for c in validation_newest_50_reversed[:5]]}")  # First 5 (newest-first)
+                                                logger_sim.error(f"  TrendFilter newest 5 (time, close): {trendfilter_candles[:5]}")  # First 5 (newest-first)
+                                                logger_sim.error(f"  Validation hash: {validation_hash[:16]}...")
+                                                logger_sim.error(f"  TrendFilter hash: {trendfilter_hash[:16]}...")
+                                            except:
+                                                pass
+                                            error_msg = (
+                                                f"[SIM_LIVE] [PHASE_5_VIOLATION] TrendFilter is using different candle data than validation\n"
+                                                f"Validation hash: {validation_hash[:16]}...\n"
+                                                f"TrendFilter hash: {trendfilter_hash[:16]}...\n"
+                                                f"Symbol: {symbol}\n"
+                                                f"Market is frozen: {is_frozen}\n"
+                                                f"This indicates data source desync."
+                                            )
+                                            from sim_live.sim_live_logger import get_sim_live_logger
+                                            logger_sim = get_sim_live_logger()
+                                            logger_sim.error(error_msg)
+                                            raise AssertionError(error_msg)
+                                    
+                                    # 🔒 PHASE 5 ASSERTION: Trend contract must be preserved (only assert if frozen)
+                                    # Use MT5 source to ensure same data as TrendFilter
+                                    is_valid, indicators = market_engine._validate_trend_contract(symbol_upper, candles_for_validation, trend_direction, use_mt5_source=True)
+                                    
+                                    if not is_valid:
+                                        # Market is frozen, but trend contract is violated - this is a HARD FAILURE
+                                        sma20 = indicators.get('sma20')
+                                        sma50 = indicators.get('sma50')
+                                        separation_pct = indicators.get('separation_pct', 0.0)
+                                        scenario_name = getattr(market_engine, '_current_scenario_name', 'unknown')
+                                        
+                                        error_msg = (
+                                            f"[SIM_LIVE] [PHASE_5_VIOLATION] Trend contract violated before strategy evaluation\n"
+                                            f"Market is frozen: {is_frozen}\n"
+                                            f"Scenario: {scenario_name}\n"
+                                            f"Symbol: {symbol}\n"
+                                            f"Direction: {trend_direction}\n"
+                                            f"SMA20: {sma20:.5f}\n"
+                                            f"SMA50: {sma50:.5f}\n"
+                                            f"Separation: {separation_pct*100:.4f}% (required: >=0.05%)\n"
+                                            f"Last 20 closes: {[round(c['close'], 5) for c in candles_for_validation[-20:]]}\n"
+                                            f"This indicates candles were modified AFTER entry generation (Phase 4 violation)."
+                                        )
+                                        
+                                        from sim_live.sim_live_logger import get_sim_live_logger
+                                        logger_sim = get_sim_live_logger()
+                                        logger_sim.error(error_msg)
+                                        raise AssertionError(error_msg)
+                        except AssertionError:
+                            raise  # Re-raise assertion errors
+                        except Exception as e:
+                            # If validation fails (e.g., market_engine not available), log but don't block
+                            try:
+                                from sim_live.sim_live_logger import get_sim_live_logger
+                                logger_sim = get_sim_live_logger()
+                                logger_sim.warning(f"[SIM_LIVE] [TREND_CONTRACT_CHECK] Could not validate trend contract: {e}")
+                            except:
+                                pass
+                    
                     trend_signal = self.trend_filter.get_trend_signal(symbol)
+                    
+                    # SIM_LIVE diagnostic: Log evaluation start
+                    if self.is_sim_live:
+                        log_entry_evaluation_start(symbol, trend_signal)
                     
                     if trend_signal['signal'] == 'NONE':
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: No trend signal (SMA20 == SMA50 or invalid data)")
+                        if self.is_sim_live:
+                            log_entry_rejected(symbol, "TREND_FILTER_NO_SIGNAL", {
+                                'trend_signal': trend_signal,
+                                'additional_context': "SMA20 == SMA50 or invalid data"
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -844,6 +1079,11 @@ class TradingBot:
                         # Live mode: Apply RSI filter normally
                         rsi_value = trend_signal.get('rsi', 50)
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: RSI filter failed (RSI: {rsi_value:.1f} not in range {self.trend_filter.rsi_entry_range_min}-{self.trend_filter.rsi_entry_range_max})")
+                        if self.is_sim_live:
+                            log_entry_rejected(symbol, "RSI_FILTER", {
+                                'trend_signal': trend_signal,
+                                'additional_context': f"RSI {rsi_value:.1f} not in range {self.trend_filter.rsi_entry_range_min}-{self.trend_filter.rsi_entry_range_max}"
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     # If RSI filter is disabled in config, log it for verification
@@ -877,8 +1117,15 @@ class TradingBot:
                         logger.debug(f"[OK] {symbol}: Min lot check passed - {min_lot_reason}")
                     
                     # 4. SIMPLIFIED setup validation (only checks if signal != NONE)
+                    # Add detailed logging for SIM_LIVE debugging
+                    if self.is_sim_live:
+                        logger.debug(f"[SIM_LIVE] {symbol}: Calling is_setup_valid_for_scalping with signal='{trend_signal.get('signal')}', keys={list(trend_signal.keys())}")
+                    
                     if not self.trend_filter.is_setup_valid_for_scalping(symbol, trend_signal):
-                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Setup validation failed (signal is NONE)")
+                        signal_value = trend_signal.get('signal', 'MISSING')
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Setup validation failed (signal: '{signal_value}')")
+                        if self.is_sim_live:
+                            logger.warning(f"[SIM_LIVE] {symbol}: Setup validation failed - trend_signal: {trend_signal}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -887,6 +1134,11 @@ class TradingBot:
                     min_trend_strength_pct = self.trading_config.get('min_trend_strength_pct', 0.05)  # Default 0.05%
                     if sma_separation_pct < min_trend_strength_pct:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Trend strength too weak (SMA separation: {sma_separation_pct:.4f}% < {min_trend_strength_pct}%)")
+                        if self.is_sim_live:
+                            log_entry_rejected(symbol, "TREND_STRENGTH", {
+                                'trend_signal': trend_signal,
+                                'additional_context': f"SMA separation {sma_separation_pct:.4f}% < {min_trend_strength_pct}%"
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -899,6 +1151,13 @@ class TradingBot:
                     # Filter by quality score - only trade high-quality setups
                     if quality_score < min_quality_score:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Quality score {quality_score:.1f} < threshold {min_quality_score} | Details: {', '.join(quality_assessment.get('reasons', []))}")
+                        if self.is_sim_live:
+                            log_entry_rejected(symbol, "QUALITY_SCORE", {
+                                'trend_signal': trend_signal,
+                                'quality_score': quality_score,
+                                'min_quality_score': min_quality_score,
+                                'quality_reasons': quality_assessment.get('reasons', [])
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -907,6 +1166,16 @@ class TradingBot:
                     trend_phase_ok, trend_phase_reason = self.trend_filter.check_trend_maturity(symbol, trend_signal)
                     if not trend_phase_ok:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {trend_phase_reason}")
+                        if self.is_sim_live:
+                            log_entry_rejected(symbol, "TIMING_GUARD_TREND_MATURITY", {
+                                'trend_signal': trend_signal,
+                                'quality_score': quality_score,
+                                'min_quality_score': min_quality_score,
+                                'timing_guards': {
+                                    'trend_maturity': {'ok': False, 'reason': trend_phase_reason},
+                                    'impulse_exhaustion': {'ok': True, 'reason': 'Not checked'}
+                                }
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -914,6 +1183,16 @@ class TradingBot:
                     impulse_ok, impulse_reason = self.trend_filter.check_impulse_exhaustion(symbol, trend_signal)
                     if not impulse_ok:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {impulse_reason}")
+                        if self.is_sim_live:
+                            log_entry_rejected(symbol, "TIMING_GUARD_IMPULSE_EXHAUSTION", {
+                                'trend_signal': trend_signal,
+                                'quality_score': quality_score,
+                                'min_quality_score': min_quality_score,
+                                'timing_guards': {
+                                    'trend_maturity': {'ok': True, 'reason': 'PASS'},
+                                    'impulse_exhaustion': {'ok': False, 'reason': impulse_reason}
+                                }
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -925,6 +1204,21 @@ class TradingBot:
                     portfolio_risk_ok, portfolio_reason = self.risk_manager.check_portfolio_risk(new_trade_risk_usd=estimated_risk)
                     if not portfolio_risk_ok:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Portfolio risk limit - {portfolio_reason}")
+                        if self.is_sim_live:
+                            spread_points_for_log = self.pair_filter.get_spread_points(symbol)
+                            log_entry_rejected(symbol, "RISK_CHECK_PORTFOLIO", {
+                                'trend_signal': trend_signal,
+                                'quality_score': quality_score,
+                                'min_quality_score': min_quality_score,
+                                'timing_guards': {
+                                    'trend_maturity': {'ok': True, 'reason': 'PASS'},
+                                    'impulse_exhaustion': {'ok': True, 'reason': 'PASS'}
+                                },
+                                'risk_checks': {
+                                    'portfolio': {'ok': False, 'reason': portfolio_reason},
+                                    'spread': {'ok': True, 'points': spread_points_for_log or 0, 'max': self.pair_filter.max_spread_points}
+                                }
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -939,6 +1233,22 @@ class TradingBot:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Cannot open trade - {reason}")
                         symbol_logger = get_symbol_logger(symbol, is_backtest=self.is_backtest)
                         symbol_logger.debug(f"[SKIP] Cannot open trade: {reason}")
+                        if self.is_sim_live:
+                            spread_points_for_log = self.pair_filter.get_spread_points(symbol)
+                            log_entry_rejected(symbol, "RISK_CHECK_CAN_OPEN", {
+                                'trend_signal': trend_signal,
+                                'quality_score': quality_score,
+                                'min_quality_score': min_quality_score,
+                                'timing_guards': {
+                                    'trend_maturity': {'ok': True, 'reason': 'PASS'},
+                                    'impulse_exhaustion': {'ok': True, 'reason': 'PASS'}
+                                },
+                                'risk_checks': {
+                                    'portfolio': {'ok': True, 'reason': 'PASS'},
+                                    'can_open': {'ok': False, 'reason': reason},
+                                    'spread': {'ok': True, 'points': spread_points_for_log or 0, 'max': self.pair_filter.max_spread_points}
+                                }
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -953,6 +1263,21 @@ class TradingBot:
                     if not self.pair_filter.check_spread(symbol):
                         max_spread = self.pair_filter.max_spread_points
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Spread {spread_points:.2f} points > {max_spread} limit")
+                        if self.is_sim_live:
+                            log_entry_rejected(symbol, "RISK_CHECK_SPREAD", {
+                                'trend_signal': trend_signal,
+                                'quality_score': quality_score,
+                                'min_quality_score': min_quality_score,
+                                'timing_guards': {
+                                    'trend_maturity': {'ok': True, 'reason': 'PASS'},
+                                    'impulse_exhaustion': {'ok': True, 'reason': 'PASS'}
+                                },
+                                'risk_checks': {
+                                    'portfolio': {'ok': True, 'reason': 'PASS'},
+                                    'can_open': {'ok': True, 'reason': 'PASS'},
+                                    'spread': {'ok': False, 'points': spread_points, 'max': max_spread}
+                                }
+                            })
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
@@ -975,8 +1300,23 @@ class TradingBot:
                                       f"MinLot: {min_lot:.4f} | Spread: {spread_points:.1f}pts | "
                                       f"Spread+Fees: ${total_cost:.2f} > ${max_cost:.2f} | "
                                       f"Reason: Spread+Fees exceed limit (STRICT) | ({cost_description})")
+                            if self.is_sim_live:
+                                log_entry_rejected(symbol, "RISK_CHECK_SPREAD_FEES", {
+                                    'trend_signal': trend_signal,
+                                    'quality_score': quality_score,
+                                    'min_quality_score': min_quality_score,
+                                    'timing_guards': {
+                                        'trend_maturity': {'ok': True, 'reason': 'PASS'},
+                                        'impulse_exhaustion': {'ok': True, 'reason': 'PASS'}
+                                    },
+                                    'risk_checks': {
+                                        'portfolio': {'ok': True, 'reason': 'PASS'},
+                                        'can_open': {'ok': True, 'reason': 'PASS'},
+                                        'spread': {'ok': True, 'points': spread_points, 'max': self.pair_filter.max_spread_points}
+                                    },
+                                    'additional_context': f"Spread+Fees ${total_cost:.2f} > ${max_cost:.2f} ({cost_description})"
+                                })
                             self.trade_stats['filtered_opportunities'] += 1
-                            continue
                             continue
                         
                         logger.debug(f"[OK] {symbol}: Spread+Fees check passed - ${total_cost:.2f} <= ${max_cost:.2f} ({cost_description})")
@@ -1171,7 +1511,7 @@ class TradingBot:
                 elif max_trades_strict and current_positions == max_trades:
                     # At max in strict mode - this shouldn't happen if batch reservation worked, but allow it
                     logger.info(f"[WARNING] MAX TRADES AT LIMIT: {symbol} | Current: {current_positions} == {max_trades} | "
-                              f"Strict mode - ALLOWING execution (batch reserved {len(opportunities)} slots)")
+                              f"Strict mode - ALLOWING execution (batch reservation mode)")
                     # Continue execution - batch reservation allows this
                 
                 # Non-strict mode: Only block if strictly above max (allow at max for high-quality setups)
@@ -1672,7 +2012,7 @@ class TradingBot:
                     logger.error(f"[ERROR] {symbol}: Error calculating actual risk: {e}. Using estimated risk as fallback.")
                     # Fallback to estimated risk if calculation fails
                     actual_risk_with_fill = estimated_risk if 'estimated_risk' in locals() else lot_size * stop_loss_pips * 0.10
-                    risk_with_slippage_actual = risk_with_slippage if 'risk_with_slippage' in locals() else actual_risk_with_fill * 1.10
+                    risk_with_slippage_actual = actual_risk_with_fill * 1.10  # 10% buffer
                 
                 # Use unified trade logger
                 self.trade_logger.log_trade_execution(
@@ -2057,17 +2397,25 @@ class TradingBot:
             # Calculate estimated risk and SL (for display purposes)
             symbol_info = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=False)
             estimated_risk = self.risk_manager.max_risk_usd  # Fixed $2.00 USD
+            sl_pips = 0.0  # Default value for display
             if symbol_info:
                 point = symbol_info.get('point', 0.00001)
                 pip_value = point * 10 if symbol_info.get('digits', 5) == 5 or symbol_info.get('digits', 3) == 3 else point
                 contract_size = symbol_info.get('contract_size', 1.0)
-                # With USD-based SL, risk is always $2.00, so calculate lot size accordingly
-                if contract_size > 0:
-                    # Calculate lot size for $2 risk
-                    calculated_lot = self.risk_manager.max_risk_usd / (min_sl_price * contract_size)
-                    # Use max of calculated and minimum lot
-                    effective_lot = max(calculated_lot, min_lot)
-                    estimated_risk = effective_lot * min_sl_price * contract_size
+                # With USD-based SL, risk is always $2.00 USD
+                # For display, estimate SL pips based on typical risk distance
+                # Calculate approximate SL distance: risk_usd / (lot_size * contract_size * pip_value)
+                if contract_size > 0 and pip_value > 0:
+                    # Estimate SL pips: $2.00 risk / (min_lot * contract_size * pip_value * point_multiplier)
+                    # For display, use a reasonable estimate (typically 20-50 pips for $2 risk)
+                    # Calculate based on min_lot
+                    if min_lot > 0:
+                        estimated_sl_distance_usd = self.risk_manager.max_risk_usd / (min_lot * contract_size)
+                        sl_pips = estimated_sl_distance_usd / pip_value if pip_value > 0 else 20.0
+                    else:
+                        sl_pips = 20.0  # Default estimate
+                else:
+                    sl_pips = 20.0  # Default estimate
             
             # Check for warnings
             warnings = []

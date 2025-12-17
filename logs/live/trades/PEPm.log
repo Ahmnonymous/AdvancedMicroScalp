@@ -1,4 +1,0 @@
-2025-12-15 14:59:14 - trades.PEPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
-2025-12-15 15:02:08 - trades.PEPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
-2025-12-15 15:06:14 - trades.PEPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 98.7% of avg range > max 20.0%
-2025-12-15 15:09:00 - trades.PEPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 97.1% of avg range > max 20.0%

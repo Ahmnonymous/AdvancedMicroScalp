@@ -1,8 +1,0 @@
-2025-12-15 13:07:18 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 47.6% of avg range > max 20.0%
-2025-12-15 13:32:30 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.9% of avg range > max 20.0%
-2025-12-15 13:33:39 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.8% of avg range > max 20.0%
-2025-12-15 13:44:31 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 102.5% of avg range > max 20.0%
-2025-12-15 13:45:20 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 104.6% of avg range > max 20.0%
-2025-12-15 14:09:48 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.4% of avg range > max 20.0%
-2025-12-15 14:10:44 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.4% of avg range > max 20.0%
-2025-12-15 15:01:58 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked

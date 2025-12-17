@@ -1,2 +1,0 @@
-2025-12-15 14:49:46 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.1% of avg range > max 20.0%
-2025-12-15 15:08:59 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.29 pips < min 1.50 pips

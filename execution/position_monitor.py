@@ -131,9 +131,26 @@ class PositionMonitor:
                     # Determine symbol from position history
                     # Try to get from a recent position query
                     symbol = None
-                    position = mt5.positions_get(ticket=ticket)
-                    if position and len(position) > 0:
-                        symbol = position[0].symbol
+                    # CRITICAL FIX: Use helper method if available, otherwise handle both SIM_LIVE and live MT5
+                    try:
+                        # Try position_get first (SIM_LIVE)
+                        if hasattr(mt5, 'position_get'):
+                            position = mt5.position_get(ticket)
+                            if position:
+                                symbol = position.symbol
+                        else:
+                            # Try positions_get(ticket=ticket) for live MT5
+                            position_list = mt5.positions_get(ticket=ticket)
+                            if position_list and len(position_list) > 0:
+                                symbol = position_list[0].symbol
+                    except (TypeError, AttributeError):
+                        # Fallback: get all positions and filter
+                        all_positions = mt5.positions_get()
+                        if all_positions:
+                            for pos in all_positions:
+                                if hasattr(pos, 'ticket') and pos.ticket == ticket:
+                                    symbol = pos.symbol
+                                    break
                     else:
                         # Try to get from deal
                         if entry_deal:

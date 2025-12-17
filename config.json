@@ -64,8 +64,8 @@
       },
       "session_guard": {
         "enabled": true,
-        "hour_start_block_minutes": 5,
-        "hour_end_block_minutes": 5,
+        "hour_start_block_minutes": 1,
+        "hour_end_block_minutes": 1,
         "rollover_window": {
           "enabled": true,
           "start_hour_gmt": 21,

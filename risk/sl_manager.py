@@ -29,7 +29,8 @@ from execution.order_manager import OrderManager
 from utils.logger_factory import get_logger, get_system_event_logger
 from utils.execution_tracer import get_tracer
 
-logger = get_logger("sl_manager", "logs/live/engine/sl_manager.log")
+# Module-level logger - will be reinitialized in __init__ based on mode
+logger = None
 system_event_logger = get_system_event_logger()
 
 
@@ -54,6 +55,13 @@ class SLManager:
             mt5_connector: MT5Connector instance
             order_manager: OrderManager instance
         """
+        # CRITICAL FIX: Initialize logger based on mode (backtest vs live)
+        # This prevents backtest from writing to live log files
+        global logger
+        is_backtest = config.get('mode') == 'backtest'
+        log_path = "logs/backtest/engine/sl_manager.log" if is_backtest else "logs/live/engine/sl_manager.log"
+        logger = get_logger("sl_manager", log_path)
+        
         self.config = config
         self.risk_config = config.get('risk', {})
         self.mt5_connector = mt5_connector
@@ -140,6 +148,7 @@ class SLManager:
         self._ticket_circuit_breaker = {}  # {ticket: disabled_until_time} - circuit breaker for failing tickets
         self._circuit_breaker_threshold = 10  # 10 failures before activating (increased from 5)
         self._circuit_breaker_cooldown_base = 10.0  # Base cooldown 10 seconds
+        self._circuit_breaker_cooldown = 60.0  # Default cooldown 60 seconds (used in emergency SL enforcement)
         
         # Error throttling for fail-safe check (prevent log spam)
         self._fail_safe_error_throttle = {}  # {error_signature: last_logged_time}
@@ -934,34 +943,55 @@ class SLManager:
             target_sl = round(target_sl, digits)
         
         # CRITICAL VALIDATION: Ensure calculated SL makes sense
-        # For BUY: SL must be below entry (price goes down = loss)
-        # For SELL: SL must be above entry (price goes up = loss)
+        # For LOSS-protection SL:
+        #   - BUY: SL must be below entry (price goes down = loss)
+        #   - SELL: SL must be above entry (price goes up = loss)
+        # For PROFIT-LOCKING / TRAILING SL:
+        #   - Allow SL to move into profit zone (above entry for BUY, below entry for SELL)
         if order_type == 'BUY':
-            if target_sl >= effective_entry:
-                logger.error(f"INVALID SL CALCULATION: {symbol} BUY | "
-                           f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
-                           f"SL must be BELOW entry for BUY")
-                # Calculate a safe SL (1% below entry as fallback)
-                target_sl = effective_entry * 0.99
-            elif target_sl <= 0:
-                logger.error(f"INVALID SL CALCULATION: {symbol} BUY | "
-                           f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
-                           f"SL cannot be negative or zero")
-                # Calculate a safe SL (1% below entry as fallback, but ensure positive)
-                target_sl = max(effective_entry * 0.99, point)
+            if target_profit_usd <= 0:
+                # Loss-protection validation
+                if target_sl >= effective_entry:
+                    logger.error(f"INVALID SL CALCULATION (LOSS ZONE): {symbol} BUY | "
+                               f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
+                               f"SL must be BELOW entry for BUY when protecting loss")
+                    # Calculate a safe SL (1% below entry as fallback)
+                    target_sl = effective_entry * 0.99
+                elif target_sl <= 0:
+                    logger.error(f"INVALID SL CALCULATION (LOSS ZONE): {symbol} BUY | "
+                               f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
+                               f"SL cannot be negative or zero")
+                    # Calculate a safe SL (1% below entry as fallback, but ensure positive)
+                    target_sl = max(effective_entry * 0.99, point)
+            else:
+                # Profit-locking: only ensure SL is positive
+                if target_sl <= 0:
+                    logger.error(f"INVALID SL CALCULATION (PROFIT LOCK): {symbol} BUY | "
+                               f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
+                               f"SL cannot be negative or zero")
+                    target_sl = max(effective_entry * 0.99, point)
         else:  # SELL
-            if target_sl <= effective_entry:
-                logger.error(f"INVALID SL CALCULATION: {symbol} SELL | "
-                           f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
-                           f"SL must be ABOVE entry for SELL")
-                # Calculate a safe SL (1% above entry as fallback)
-                target_sl = effective_entry * 1.01
-            elif target_sl <= 0:
-                logger.error(f"INVALID SL CALCULATION: {symbol} SELL | "
-                           f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
-                           f"SL cannot be negative or zero")
-                # Calculate a safe SL (1% above entry as fallback, but ensure positive)
-                target_sl = max(effective_entry * 1.01, point)
+            if target_profit_usd <= 0:
+                # Loss-protection validation
+                if target_sl <= effective_entry:
+                    logger.error(f"INVALID SL CALCULATION (LOSS ZONE): {symbol} SELL | "
+                               f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
+                               f"SL must be ABOVE entry for SELL when protecting loss")
+                    # Calculate a safe SL (1% above entry as fallback)
+                    target_sl = effective_entry * 1.01
+                elif target_sl <= 0:
+                    logger.error(f"INVALID SL CALCULATION (LOSS ZONE): {symbol} SELL | "
+                               f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
+                               f"SL cannot be negative or zero")
+                    # Calculate a safe SL (1% above entry as fallback, but ensure positive)
+                    target_sl = max(effective_entry * 1.01, point)
+            else:
+                # Profit-locking: only ensure SL is positive
+                if target_sl <= 0:
+                    logger.error(f"INVALID SL CALCULATION (PROFIT LOCK): {symbol} SELL | "
+                               f"Entry: {effective_entry:.5f} | Target SL: {target_sl:.5f} | "
+                               f"SL cannot be negative or zero")
+                    target_sl = max(effective_entry * 1.01, point)
         
         # CRITICAL VALIDATION: Check if SL difference is reasonable (< 10% of entry price)
         sl_diff_pct = abs(target_sl - effective_entry) / effective_entry if effective_entry > 0 else 0
@@ -3010,10 +3040,13 @@ class SLManager:
                         # CRITICAL: Check if effective SL is WORSE than target (more negative)
                         # If effective SL < target, ALWAYS update regardless of tolerance
                         # This ensures we never allow risk to exceed -$2.00
-                        if current_effective_sl < target_effective_sl:
+                        # Use small tolerance for floating point comparison (0.01)
+                        sl_diff = current_effective_sl - target_effective_sl
+                        if sl_diff < -0.01:  # More negative (worse) by at least $0.01
                             # Effective SL is WORSE than -$2.00 - MUST update immediately
                             needs_update = True
-                            update_reason = f"Effective SL ${current_effective_sl:.2f} is WORSE than target ${target_effective_sl:.2f} (violation: ${abs(current_effective_sl - target_effective_sl):.2f})"
+                            violation_amount = abs(sl_diff)
+                            update_reason = f"Effective SL ${current_effective_sl:.2f} is WORSE than target ${target_effective_sl:.2f} (violation: ${violation_amount:.2f})"
                             logger.critical(f"🚨 CRITICAL STRICT LOSS VIOLATION: {symbol} Ticket {ticket} | {update_reason} | MUST enforce -$2.00 immediately")
                         else:
                             # Effective SL is better than or equal to target - check if within tolerance
@@ -3314,6 +3347,11 @@ class SLManager:
                     success = False
                     reason = "Not in sweet spot range"
                     target_sl = None
+            else:
+                # Sweet spot position was None - initialize variables to prevent UnboundLocalError
+                success = False
+                reason = "Not in sweet spot range"
+                target_sl = None
             
             # Re-acquire lock briefly to update tracking
             lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=True)
@@ -3374,8 +3412,11 @@ class SLManager:
             else:
                 # Lock re-acquisition failed - log but don't fail the SL update
                 logger.warning(f"[WARNING] Could not re-acquire lock for tracking update: {symbol} Ticket {ticket}, but SL update may have succeeded")
-                if success:
+                # CRITICAL: Ensure success is defined before checking it
+                if 'success' in locals() and success:
                     return True, reason
+                # If success is not defined, log error and continue to trailing stop logic
+                logger.error(f"[ERROR] Lock re-acquisition failed and success variable not defined: {symbol} Ticket {ticket}")
             
             # If we get here, sweet spot failed or wasn't applicable - check trailing stop
             # Get fresh position data for trailing check
@@ -3683,10 +3724,11 @@ class SLManager:
             # Index/crypto calculation: use point_value
             # Calculate price difference in points
             # CRITICAL FIX: Use effective_entry (corrected for BUY) instead of entry_price
+            # For consistency, use effective_entry for both BUY and SELL (it equals entry_price for SELL)
             if order_type == 'BUY':
                 price_diff = effective_entry - sl_price
             else:  # SELL
-                price_diff = sl_price - entry_price
+                price_diff = sl_price - effective_entry
                 
             # Convert to points
             price_diff_points = price_diff / point if point > 0 else 0

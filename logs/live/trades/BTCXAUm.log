@@ -1,7 +1,0 @@
-2025-12-15 13:19:20 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 40.8% of avg range > max 20.0%
-2025-12-15 13:41:19 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 48.8% of avg range > max 20.0%
-2025-12-15 13:42:09 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 47.7% of avg range > max 20.0%
-2025-12-15 13:49:24 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 44.7% of avg range > max 20.0%
-2025-12-15 13:50:09 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 45.2% of avg range > max 20.0%
-2025-12-15 14:23:46 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 37.6% of avg range > max 20.0%
-2025-12-15 14:39:34 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 43.3% of avg < min 65.0%

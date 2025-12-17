@@ -1,9 +1,0 @@
-2025-12-15 13:16:36 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 48.6% of avg range > max 20.0%
-2025-12-15 13:20:12 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 46.5% of avg range > max 20.0%
-2025-12-15 14:02:26 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
-2025-12-15 14:03:22 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
-2025-12-15 14:05:52 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 34.7% of avg range > max 20.0%
-2025-12-15 14:14:57 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.5% of avg range > max 20.0%
-2025-12-15 14:59:17 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
-2025-12-15 15:02:14 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
-2025-12-15 15:07:39 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 37.3% of avg range > max 20.0%

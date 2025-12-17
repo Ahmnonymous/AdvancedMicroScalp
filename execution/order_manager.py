@@ -27,6 +27,67 @@ class OrderManager:
     def __init__(self, mt5_connector):
         self.mt5_connector = mt5_connector
     
+    def _get_position_by_ticket(self, ticket: int):
+        """
+        Helper method to get position by ticket, handling both SIM_LIVE and live MT5.
+        
+        Args:
+            ticket: Position ticket number
+        
+        Returns:
+            Position object or None if not found
+        """
+        position = None
+        
+        # Try position_get first (works for SIM_LIVE)
+        if hasattr(mt5, 'position_get'):
+            try:
+                position = mt5.position_get(ticket)
+                if position is not None:
+                    return position
+            except (TypeError, AttributeError):
+                pass
+        
+        # If position_get didn't work, try positions_get(ticket=ticket) for live MT5
+        try:
+            position_list = mt5.positions_get(ticket=ticket)
+            if position_list is not None and len(position_list) > 0:
+                return position_list[0]
+        except (TypeError, AttributeError):
+            # positions_get doesn't accept ticket parameter (SIM_LIVE case)
+            # Fallback: get all positions and filter by ticket
+            all_positions = mt5.positions_get()
+            if all_positions:
+                for pos in all_positions:
+                    if hasattr(pos, 'ticket') and pos.ticket == ticket:
+                        return pos
+        
+        return None
+    
+    def _is_buy_position(self, position) -> bool:
+        """
+        Helper method to check if position is BUY, handling both string and integer types.
+        
+        Args:
+            position: Position object
+        
+        Returns:
+            True if BUY, False if SELL
+        """
+        pos_type = position.type if hasattr(position, 'type') else None
+        if pos_type is None:
+            return False
+        
+        # Handle string type ('BUY'/'SELL') from SIM_LIVE
+        if isinstance(pos_type, str):
+            return pos_type.upper() == 'BUY'
+        
+        # Handle integer type (0/1) from live MT5
+        if isinstance(pos_type, int):
+            return pos_type == mt5.ORDER_TYPE_BUY
+        
+        return False
+    
     def place_order(
         self,
         symbol: str,
@@ -66,7 +127,12 @@ class OrderManager:
         symbol = symbol_info['name']
         
         # Get fresh tick data for most current prices (MT5 requirement for accurate order placement)
-        tick = mt5.symbol_info_tick(symbol)
+        # Use connector method to support both live and SIM_LIVE modes
+        if hasattr(self.mt5_connector, 'get_symbol_info_tick'):
+            tick = self.mt5_connector.get_symbol_info_tick(symbol)
+        else:
+            # Fallback to direct MT5 call for live mode
+            tick = mt5.symbol_info_tick(symbol)
         if tick is None:
             logger.error(f"Cannot get tick data for {symbol}")
             return None
@@ -184,12 +250,27 @@ class OrderManager:
         
         # Determine filling type based on symbol
         # CRITICAL: Must use the EXACT filling mode the symbol supports
+        # In SIM_LIVE mode, use connector's get_symbol_info() which returns a dict
+        # In live mode, use mt5.symbol_info() which returns an object
         filling_type = None
-        symbol_info_obj = mt5.symbol_info(symbol)
-        if symbol_info_obj is not None:
-            # Check symbol's filling modes (bitmask: 1=FOK, 2=IOC, 4=RETURN)
-            filling_modes = symbol_info_obj.filling_mode
-            
+        filling_modes = None
+        
+        # Try to get filling_mode from connector's symbol_info dict first (works for SIM_LIVE)
+        if hasattr(self.mt5_connector, 'get_symbol_info'):
+            symbol_info_dict = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=False)
+            if symbol_info_dict and isinstance(symbol_info_dict, dict):
+                filling_modes = symbol_info_dict.get('filling_mode')
+                if filling_modes is not None:
+                    logger.debug(f"{symbol}: Got filling_mode from connector: {filling_modes}")
+        
+        # Fallback to mt5.symbol_info() for live mode (returns object with attributes)
+        if filling_modes is None:
+            symbol_info_obj = mt5.symbol_info(symbol)
+            if symbol_info_obj is not None:
+                filling_modes = symbol_info_obj.filling_mode if hasattr(symbol_info_obj, 'filling_mode') else None
+        
+        # Determine filling type from bitmask
+        if filling_modes is not None:
             # Priority order: IOC (works for crypto 24/7), then RETURN (forex), then FOK
             # IOC (bit 1 = 2) - works for crypto and many symbols, try first
             if filling_modes & 2:
@@ -203,10 +284,17 @@ class OrderManager:
             
             logger.debug(f"{symbol}: Filling modes available: {filling_modes} (bitmask), using: {filling_type}")
         
-        # If still None, this is a problem - symbol doesn't support any filling mode
+        # If still None, use default for SIM_LIVE or error for live
         if filling_type is None:
-            logger.error(f"{symbol}: No supported filling mode found! Symbol filling_mode: {symbol_info_obj.filling_mode if symbol_info_obj else 'N/A'}")
-            return None
+            # Check if we're in SIM_LIVE mode
+            is_sim_live = hasattr(self.mt5_connector, '_market_engine') or hasattr(self.mt5_connector, 'get_symbol_info')
+            if is_sim_live:
+                # Default to RETURN for SIM_LIVE (most common for forex)
+                filling_type = mt5.ORDER_FILLING_RETURN
+                logger.info(f"{symbol}: Using default filling mode ORDER_FILLING_RETURN for SIM_LIVE mode")
+            else:
+                logger.error(f"{symbol}: No supported filling mode found! Symbol filling_mode: {filling_modes if filling_modes is not None else 'N/A'}")
+                return None
         
         # Prepare order request
         # For MT5, SL and TP must be 0 if not set, or valid prices
@@ -389,20 +477,16 @@ class OrderManager:
         if not self.mt5_connector.ensure_connected():
             return False
         
-        # Get position info - retry once if position not found (race condition handling)
-        position = mt5.positions_get(ticket=ticket)
-        if position is None or len(position) == 0:
-            # CRITICAL FIX: Retry once after short delay to handle race conditions
-            # Position might have been temporarily unavailable due to broker processing
-            import time
+        # CRITICAL FIX: Use helper method to get position by ticket (handles both SIM_LIVE and live MT5)
+        position = self._get_position_by_ticket(ticket)
+        if position is None:
+            # Retry once after short delay
             time.sleep(0.05)  # 50ms delay
-            position = mt5.positions_get(ticket=ticket)
-            if position is None or len(position) == 0:
+            position = self._get_position_by_ticket(ticket)
+            if position is None:
                 # Position truly not found - likely closed or never existed
                 logger.debug(f"Position {ticket} not found (after retry) - may have been closed")
                 return False
-        
-        position = position[0]
         symbol = position.symbol
         symbol_info = self.mt5_connector.get_symbol_info(symbol)
         if symbol_info is None:
@@ -416,7 +500,8 @@ class OrderManager:
             point = symbol_info['point']
             pip_value = point * 10 if symbol_info['digits'] == 5 or symbol_info['digits'] == 3 else point
             
-            if position.type == mt5.ORDER_TYPE_BUY:
+            # CRITICAL FIX: Use helper method to handle both string and integer position types
+            if self._is_buy_position(position):
                 current_price = symbol_info['ask']
                 new_sl = current_price - (stop_loss * pip_value)
             else:  # SELL
@@ -443,7 +528,8 @@ class OrderManager:
             point = symbol_info['point']
             pip_value = point * 10 if symbol_info['digits'] == 5 or symbol_info['digits'] == 3 else point
             
-            if position.type == mt5.ORDER_TYPE_BUY:
+            # CRITICAL FIX: Use helper method to handle both string and integer position types
+            if self._is_buy_position(position):
                 current_price = symbol_info['ask']
                 new_tp = current_price + (take_profit * pip_value)
             else:  # SELL
@@ -454,7 +540,12 @@ class OrderManager:
         
         # CRITICAL FIX: Pre-validate position exists and price distance from market meets broker constraints
         # Get fresh tick data to check freeze level
-        tick = mt5.symbol_info_tick(symbol)
+        # Use connector method to support both live and SIM_LIVE modes
+        if hasattr(self.mt5_connector, 'get_symbol_info_tick'):
+            tick = self.mt5_connector.get_symbol_info_tick(symbol)
+        else:
+            # Fallback to direct MT5 call for live mode
+            tick = mt5.symbol_info_tick(symbol)
         if tick is None:
             logger.warning(f"Cannot get tick data for {symbol} - skipping modification")
             return False
@@ -466,24 +557,41 @@ class OrderManager:
         point = symbol_info.get('point', 0.00001)
         
         # Check if position still exists
-        verify_position = mt5.positions_get(ticket=ticket)
-        if verify_position is None or len(verify_position) == 0:
+        verify_position = self._get_position_by_ticket(ticket)
+        if verify_position is None:
             logger.debug(f"Position {ticket} no longer exists - skipping modification")
             return False
         
         # Validate SL distance from market (freeze level check)
-        if position.type == mt5.ORDER_TYPE_BUY:
+        # CRITICAL FIX: Use helper method to handle both string and integer position types
+        if self._is_buy_position(position):
             # For BUY: SL must be below current BID by at least freeze_level
-            min_allowed_sl = current_bid - (freeze_level * point) if freeze_level > 0 else current_bid - (stops_level * point)
+            # When freeze_level=0 and stops_level=0, allow SL anywhere below BID (no minimum distance)
+            if freeze_level > 0:
+                min_allowed_sl = current_bid - (freeze_level * point)
+            elif stops_level > 0:
+                min_allowed_sl = current_bid - (stops_level * point)
+            else:
+                # No freeze/stops level - SL just needs to be below BID (but allow small tolerance for rounding)
+                min_allowed_sl = current_bid - (point * 0.1)  # Very small buffer for rounding
+            
             if new_sl >= min_allowed_sl:
-                logger.warning(f"SL {new_sl:.5f} too close to market (BID: {current_bid:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level})")
+                logger.warning(f"SL {new_sl:.5f} too close to market (BID: {current_bid:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level}, stops_level: {stops_level})")
                 # Schedule retry with backoff - position may move away from market
                 return False  # Will be retried by caller with backoff
         else:  # SELL
             # For SELL: SL must be above current ASK by at least freeze_level
-            min_allowed_sl = current_ask + (freeze_level * point) if freeze_level > 0 else current_ask + (stops_level * point)
+            # When freeze_level=0 and stops_level=0, allow SL anywhere above ASK (no minimum distance)
+            if freeze_level > 0:
+                min_allowed_sl = current_ask + (freeze_level * point)
+            elif stops_level > 0:
+                min_allowed_sl = current_ask + (stops_level * point)
+            else:
+                # No freeze/stops level - SL just needs to be above ASK (but allow small tolerance for rounding)
+                min_allowed_sl = current_ask + (point * 0.1)  # Very small buffer for rounding
+            
             if new_sl <= min_allowed_sl:
-                logger.warning(f"SL {new_sl:.5f} too close to market (ASK: {current_ask:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level})")
+                logger.warning(f"SL {new_sl:.5f} too close to market (ASK: {current_ask:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level}, stops_level: {stops_level})")
                 # Schedule retry with backoff - position may move away from market
                 return False  # Will be retried by caller with backoff
         
@@ -528,8 +636,8 @@ class OrderManager:
             # CRITICAL FIX: Handle error 10029 (position too close to market) and 10013 (invalid request)
             if result.retcode == 10029:  # Modification failed due to order or position being close to market
                 # Verify position is still open before retrying
-                verify_position = mt5.positions_get(ticket=ticket)
-                if verify_position is None or len(verify_position) == 0:
+                verify_position = self._get_position_by_ticket(ticket)
+                if verify_position is None:
                     logger.warning(f"Position {ticket} no longer exists (may have been closed) - skipping modification")
                     return False
                 # Position still exists, but too close to market - retry with backoff
@@ -547,16 +655,16 @@ class OrderManager:
             
             if result.retcode == 10013:  # Invalid request
                 # Verify position state before retrying
-                verify_position = mt5.positions_get(ticket=ticket)
-                if verify_position is None or len(verify_position) == 0:
+                verify_position = self._get_position_by_ticket(ticket)
+                if verify_position is None:
                     logger.warning(f"Position {ticket} no longer exists (may have been closed) - invalid request")
                     return False
-                # Check if SL/TP values are within valid range
-                symbol_info = self.mt5_connector.get_symbol_info(symbol)
-                if symbol_info:
-                    freeze_level = symbol_info.get('freeze_level', 0)
-                    point = symbol_info.get('point', 0.00001)
-                    current_price = verify_position[0].price_current
+                    # Check if SL/TP values are within valid range
+                    symbol_info = self.mt5_connector.get_symbol_info(symbol)
+                    if symbol_info and verify_position:
+                        freeze_level = symbol_info.get('freeze_level', 0)
+                        point = symbol_info.get('point', 0.00001)
+                        current_price = verify_position.price_current if hasattr(verify_position, 'price_current') else None
                     # Check if SL is too close to current price (within freeze level)
                     if abs(new_sl - current_price) < (freeze_level * point):
                         logger.warning(f"SL {new_sl:.5f} too close to current price {current_price:.5f} (freeze level: {freeze_level * point:.5f})")
@@ -610,8 +718,8 @@ class OrderManager:
             )
             return False
         
-        position = mt5.positions_get(ticket=ticket)
-        if position is None or len(position) == 0:
+        position = self._get_position_by_ticket(ticket)
+        if position is None:
             logger.error(f"Position {ticket} not found")
             tracer.trace(
                 function_name="OrderManager.close_position",
@@ -639,19 +747,34 @@ class OrderManager:
             order_type = mt5.ORDER_TYPE_BUY
         
         # Determine filling type
-        filling_type = mt5.ORDER_FILLING_RETURN
-        symbol_info_obj = mt5.symbol_info(symbol)
-        if symbol_info_obj is not None:
-            # Check symbol's filling modes (bitmask: 1=FOK, 2=IOC, 4=RETURN)
-            filling_modes = symbol_info_obj.filling_mode
+        # Use same logic as place_order() to support SIM_LIVE mode
+        filling_type = None
+        filling_modes = None
+        
+        # Try to get filling_mode from connector's symbol_info dict first (works for SIM_LIVE)
+        if hasattr(self.mt5_connector, 'get_symbol_info'):
+            symbol_info_dict = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=False)
+            if symbol_info_dict and isinstance(symbol_info_dict, dict):
+                filling_modes = symbol_info_dict.get('filling_mode')
+        
+        # Fallback to mt5.symbol_info() for live mode
+        if filling_modes is None:
+            symbol_info_obj = mt5.symbol_info(symbol)
+            if symbol_info_obj is not None:
+                filling_modes = symbol_info_obj.filling_mode if hasattr(symbol_info_obj, 'filling_mode') else None
+        
+        # Determine filling type from bitmask
+        if filling_modes is not None:
             if filling_modes & 1:
                 filling_type = mt5.ORDER_FILLING_FOK
             elif filling_modes & 2:
                 filling_type = mt5.ORDER_FILLING_IOC
             elif filling_modes & 4:
                 filling_type = mt5.ORDER_FILLING_RETURN
-            else:
-                filling_type = mt5.ORDER_FILLING_RETURN
+        
+        # Default to RETURN if still None (for SIM_LIVE or compatibility)
+        if filling_type is None:
+            filling_type = mt5.ORDER_FILLING_RETURN
         
         # Sanitize comment for MT5: Remove special characters, limit length (max 31 chars for some brokers)
         # Replace $, parentheses, and other special chars that might cause issues
@@ -784,17 +907,29 @@ class OrderManager:
                 logger.info(f"🚫 EXCLUDING {exclusion_reason}: Ticket {pos.ticket}, Symbol {pos.symbol}, Opened: {time_open} (Date: {time_open_date}, Age: {(datetime.now() - time_open).total_seconds()/3600:.2f}h)")
                 continue
             
+            # CRITICAL FIX: Handle both string type ('BUY'/'SELL') from SIM_LIVE and integer type (0/1) from live MT5
+            pos_type = pos.type
+            if isinstance(pos_type, str):
+                # Already a string (SIM_LIVE)
+                type_str = pos_type
+            elif isinstance(pos_type, int):
+                # Integer type (live MT5) - convert to string
+                type_str = 'BUY' if pos_type == mt5.ORDER_TYPE_BUY else 'SELL'
+            else:
+                # Fallback: try to get string representation
+                type_str = 'BUY' if pos_type == mt5.ORDER_TYPE_BUY else 'SELL'
+            
             result.append({
                 'ticket': pos.ticket,
                 'symbol': pos.symbol,
-                'type': 'BUY' if pos.type == mt5.ORDER_TYPE_BUY else 'SELL',
+                'type': type_str,
                 'volume': pos.volume,
                 'price_open': pos.price_open,
                 'price_current': pos.price_current,
                 'sl': pos.sl,
                 'tp': pos.tp,
                 'profit': pos.profit,
-                'swap': pos.swap,
+                'swap': getattr(pos, 'swap', 0.0),  # Handle missing swap attribute (SIM_LIVE compatibility)
                 'time_open': time_open,
                 'comment': pos.comment
             })

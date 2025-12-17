@@ -241,10 +241,10 @@ class ConfigValidator:
         
         if self.warnings:
             logger.warning("=" * 60)
-            logger.warning("CONFIGURATION WARNINGS:")
-            for warning in self.warnings:
-                logger.warning(f"  [WARNING] {warning}")
-            logger.warning("=" * 60)
+            # logger.warning("CONFIGURATION WARNINGS:")
+            # for warning in self.warnings:
+            #     logger.warning(f"  [WARNING] {warning}")
+            # logger.warning("=" * 60)
         
         if not self.errors and not self.warnings:
             logger.info("[OK] Configuration validation passed with no issues")

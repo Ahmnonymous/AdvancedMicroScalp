@@ -1,2 +1,0 @@
-2025-12-15 15:04:59 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 5 minutes of hour blocked
-2025-12-15 15:06:08 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 1.50 pips

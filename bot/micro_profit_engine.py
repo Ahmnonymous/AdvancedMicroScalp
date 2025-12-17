@@ -85,6 +85,11 @@ class MicroProfitEngine:
         if not ticket:
             return False
         
+        # CRITICAL FIX: Extract symbol from position before first use
+        symbol = position.get('symbol', '')
+        if not symbol:
+            return False
+        
         # Prevent duplicate close attempts
         if ticket in self._closing_tickets:
             return False

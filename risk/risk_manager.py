@@ -13,13 +13,21 @@ from execution.order_manager import OrderManager
 from utils.logger_factory import get_logger
 import MetaTrader5 as mt5
 
-logger = get_logger("risk_manager", "logs/live/engine/risk_manager.log")
+# Module-level logger - will be reinitialized in __init__ based on mode
+logger = None
 
 
 class RiskManager:
     """Manages risk per trade and trailing stop logic."""
     
     def __init__(self, config: Dict[str, Any], mt5_connector: MT5Connector, order_manager: OrderManager):
+        # CRITICAL FIX: Initialize logger based on mode (backtest vs live)
+        # This prevents backtest from writing to live log files
+        global logger
+        is_backtest = config.get('mode') == 'backtest'
+        log_path = "logs/backtest/engine/risk_manager.log" if is_backtest else "logs/live/engine/risk_manager.log"
+        logger = get_logger("risk_manager", log_path)
+        
         self.config = config
         self.risk_config = config.get('risk', {})
         self.mt5_connector = mt5_connector

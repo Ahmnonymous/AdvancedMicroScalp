@@ -1,4 +1,0 @@
-2025-12-15 14:50:02 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 273.2% of avg range > max 20.0%
-2025-12-15 14:58:10 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
-2025-12-15 15:06:35 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 162.3% of avg range > max 20.0%
-2025-12-15 15:09:15 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 143.9% of avg range > max 20.0%

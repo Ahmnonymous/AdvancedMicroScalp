@@ -1,5 +1,0 @@
-2025-12-15 14:42:12 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 292.7% of avg range > max 20.0%
-2025-12-15 14:47:28 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 221.9% of avg range > max 20.0%
-2025-12-15 14:58:15 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
-2025-12-15 15:06:39 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 151.3% of avg range > max 20.0%
-2025-12-15 15:09:20 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 153.7% of avg range > max 20.0%

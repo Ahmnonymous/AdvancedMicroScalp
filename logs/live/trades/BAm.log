@@ -1,4 +1,0 @@
-2025-12-15 12:56:55 - trades.BAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
-2025-12-15 12:57:22 - trades.BAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
-2025-12-15 12:57:50 - trades.BAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 5 minutes of hour blocked
-2025-12-15 14:52:42 - trades.BAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 178.6% of avg range > max 20.0%
