@@ -118,6 +118,16 @@ class TradingSystemLauncher:
         )
         
         try:
+            # MANDATORY OBSERVABILITY: Test system events logging on startup
+            from utils.logger_factory import get_system_event_logger
+            system_event_logger = get_system_event_logger()
+            try:
+                system_event_logger.systemEvent("BOOT_TEST", {"message": "system_events logging verified"})
+                logger.info("[OK] System events logging self-test: PASSED")
+            except Exception as e:
+                logger.critical(f"[CRITICAL][EVENT_LOGGER_FAILED] System events logging failed: {e}")
+                error_logger.critical(f"[CRITICAL][EVENT_LOGGER_FAILED] System events logging failed: {e}", exc_info=True)
+            
             logger.info("=" * 80)
             logger.info("TRADING SYSTEM STARTING")
             logger.info("=" * 80)

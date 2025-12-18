@@ -23,6 +23,7 @@ from filters.market_closing_filter import MarketClosingFilter
 from filters.volume_filter import VolumeFilter
 from bot.config_validator import ConfigValidator
 from utils.logger_factory import get_logger, get_symbol_logger, get_system_event_logger
+from utils import system_health
 from trade_logging.trade_logger import TradeLogger
 
 # Module-level loggers - will be initialized based on config mode
@@ -280,6 +281,11 @@ class TradingBot:
         
         # System event logger for diagnostics
         self.system_event_logger = get_system_event_logger()
+        
+        # Cached metrics for timer-based heartbeat monitor (no MT5 calls from heartbeat thread)
+        self._trailing_last_position_count: int = 0
+        self._fast_trailing_last_position_count: int = 0
+        self._position_monitor_last_position_count: int = 0
         
         # SL tracking for "not moving" detection
         self._sl_tracking = {}  # {ticket: {'last_sl': float, 'last_profit': float, 'unchanged_ticks': int, 'last_check_time': float}}
@@ -624,8 +630,11 @@ class TradingBot:
         """Update bot state for lightweight logger (thread-safe)."""
         with self._state_lock:
             # Track state entry timestamp for watchdog
+            old_state = self.current_state
             if self.current_state != state:
                 self._state_entry_ts[state] = time.time()
+                # MANDATORY OBSERVABILITY: Log state transition explicitly
+                logger.info(f"[STATE_TRANSITION] {old_state} → {state} reason={action} symbol={symbol}")
                 logger.debug(f"🔄 State transition: {self.current_state} → {state} | Symbol: {symbol}")
             self.current_state = state
             self.current_symbol = symbol
@@ -685,34 +694,97 @@ class TradingBot:
     
     def _state_watchdog_loop(self):
         """Watchdog loop to detect stuck states."""
-        logger.info("State watchdog started")
-        while self._state_watchdog_running:
+        # MANDATORY OBSERVABILITY: Wrap entire loop in try-except to catch fatal crashes
+        try:
+            logger.info("State watchdog started")
+            last_heartbeat_time = time.time()
+            heartbeat_interval = 5.0  # MANDATORY: Log heartbeat every 5 seconds
+            
+            while self._state_watchdog_running:
+                try:
+                    # MANDATORY OBSERVABILITY: Log heartbeat every 5 seconds
+                    current_time = time.time()
+                    if current_time - last_heartbeat_time >= heartbeat_interval:
+                        import os
+                        pid = os.getpid()
+                        tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+                        with self._state_lock:
+                            current_state = self.current_state
+                            state_duration = current_time - self._state_entry_ts.get(current_state, current_time)
+                        logger.info(f"[THREAD_HEARTBEAT] StateWatchdog pid={pid} tid={tid} alive=true current_state={current_state} duration={state_duration:.1f}s")
+                        last_heartbeat_time = current_time
+                    
+                    time.sleep(60)  # Check every minute
+                    
+                    with self._state_lock:
+                        current_state = self.current_state
+                        # MANDATORY OBSERVABILITY: Log state watchdog check
+                        if current_state in self._state_entry_ts:
+                            state_duration = time.time() - self._state_entry_ts[current_state]
+                            logger.info(f"[STATE_WATCHDOG] current_state={current_state} duration={state_duration:.1f}s")
+                            
+                            if current_state == 'MANAGING TRADE' and state_duration > 1800:  # 30 minutes
+                                # Get current positions
+                                positions = self.order_manager.get_open_positions()
+                                if positions:
+                                    first_ticket = positions[0].get('ticket', 0)
+                                    first_symbol = positions[0].get('symbol', 'N/A')
+                                    
+                                    # Check if already in skip list
+                                    if first_ticket in self._stuck_tickets:
+                                        skip_info = self._stuck_tickets[first_ticket]
+                                        if time.time() < skip_info['skip_until']:
+                                            continue  # Still in skip period
+                                    
+                                    logger.critical(f"[CRITICAL][STATE_STUCK] state={current_state} duration={state_duration:.1f}s ticket={first_ticket} symbol={first_symbol}")
+                                    logger.warning(f"[WARNING] State watchdog: MANAGING_TRADE stuck for {state_duration/60:.1f} minutes | "
+                                                f"Ticket: {first_ticket} | Symbol: {first_symbol}")
+                                    # Force unstick
+                                    self._force_unstick(first_ticket, first_symbol)
+                except Exception as e:
+                    # MANDATORY OBSERVABILITY: Log thread crash
+                    import os
+                    import traceback
+                    pid = os.getpid()
+                    tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+                    logger.critical(f"[THREAD_CRASH] StateWatchdog pid={pid} tid={tid}")
+                    logger.error(f"Error in state watchdog: {e}", exc_info=True)
+                    try:
+                        self.system_event_logger.systemEvent("CRITICAL", {
+                            "tag": "THREAD_DIED",
+                            "thread_name": "StateWatchdog",
+                            "thread_id": tid,
+                            "error": str(e),
+                            "error_type": type(e).__name__
+                        })
+                    except Exception:
+                        pass
+                    time.sleep(5)  # Brief pause before retrying
+            
+            # MANDATORY OBSERVABILITY: Log thread stop
+            import os
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            logger.info(f"[THREAD_STOP] StateWatchdog pid={pid} tid={tid} reason=shutdown_requested")
+        except Exception as fatal_error:
+            # MANDATORY OBSERVABILITY: Catch fatal errors that would crash the thread
+            import os
+            import traceback
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            logger.critical(f"[THREAD_CRASH] StateWatchdog pid={pid} tid={tid} FATAL_ERROR")
+            logger.critical(f"Fatal error in state watchdog loop: {fatal_error}", exc_info=True)
             try:
-                time.sleep(60)  # Check every minute
-                
-                with self._state_lock:
-                    current_state = self.current_state
-                    if current_state == 'MANAGING TRADE' and 'MANAGING TRADE' in self._state_entry_ts:
-                        state_duration = time.time() - self._state_entry_ts['MANAGING TRADE']
-                        if state_duration > 1800:  # 30 minutes
-                            # Get current positions
-                            positions = self.order_manager.get_open_positions()
-                            if positions:
-                                first_ticket = positions[0].get('ticket', 0)
-                                first_symbol = positions[0].get('symbol', 'N/A')
-                                
-                                # Check if already in skip list
-                                if first_ticket in self._stuck_tickets:
-                                    skip_info = self._stuck_tickets[first_ticket]
-                                    if time.time() < skip_info['skip_until']:
-                                        continue  # Still in skip period
-                                
-                                logger.warning(f"[WARNING] State watchdog: MANAGING_TRADE stuck for {state_duration/60:.1f} minutes | "
-                                            f"Ticket: {first_ticket} | Symbol: {first_symbol}")
-                                # Force unstick
-                                self._force_unstick(first_ticket, first_symbol)
-            except Exception as e:
-                logger.error(f"Error in state watchdog: {e}", exc_info=True)
+                self.system_event_logger.systemEvent("CRITICAL", {
+                    "tag": "THREAD_DIED",
+                    "thread_name": "StateWatchdog",
+                    "thread_id": tid,
+                    "error": str(fatal_error),
+                    "error_type": type(fatal_error).__name__,
+                    "fatal": True
+                })
+            except Exception:
+                pass
         
         logger.info("State watchdog stopped")
     
@@ -728,6 +800,11 @@ class TradingBot:
             daemon=True
         )
         self._state_watchdog_thread.start()
+        # MANDATORY OBSERVABILITY: Log thread start with PID and TID
+        import os
+        pid = os.getpid()
+        tid = self._state_watchdog_thread.ident if self._state_watchdog_thread.ident else 'unknown'
+        logger.info(f"[THREAD_START] StateWatchdog pid={pid} tid={tid}")
         logger.info("State watchdog thread started")
     
     def stop_state_watchdog(self):
@@ -1828,6 +1905,23 @@ class TradingBot:
                 
                 stop_loss_pips_for_order = abs(entry_price - stop_loss_price) / pip_value if pip_value > 0 else 0
                 
+                # MANDATORY TRADING SAFETY GUARD: Block trades if system is not healthy
+                if not system_health.is_trading_allowed():
+                    logger.critical(
+                        "[CRITICAL][SYSTEM_UNSAFE] trade_blocked reason=system_not_healthy"
+                    )
+                    try:
+                        self.system_event_logger.systemEvent(
+                            "CRITICAL",
+                            {
+                                "tag": "SYSTEM_UNSAFE",
+                                "reason": "trade_blocked",
+                            },
+                        )
+                    except Exception:
+                        pass
+                    return None  # None indicates filtered/skipped, not failed
+                
                 result = self.order_manager.place_order(
                     symbol=symbol,
                     order_type=order_type,
@@ -2088,79 +2182,180 @@ class TradingBot:
     
     def _continuous_trailing_stop_loop(self):
         """Background thread loop for continuous trailing stop monitoring."""
-        # Instant trailing: if trigger_on_tick is True and interval is 0, run immediately on every call
-        if self.trigger_on_tick and self.trailing_cycle_interval == 0:
-            logger.info(f"🔄 Continuous trailing stop monitor started (INSTANT - trigger_on_tick=True, interval=0ms)")
-        else:
-            logger.info(f"🔄 Continuous trailing stop monitor started (interval: {self.trailing_cycle_interval_ms}ms = {self.trailing_cycle_interval:.3f}s)")
-        
-        while self.trailing_stop_running and self.running:
+        # MANDATORY OBSERVABILITY: Wrap entire loop in try-except to catch fatal crashes
+        try:
+            # Instant trailing: if trigger_on_tick is True and interval is 0, run immediately on every call
+            if self.trigger_on_tick and self.trailing_cycle_interval == 0:
+                logger.info(f"🔄 Continuous trailing stop monitor started (INSTANT - trigger_on_tick=True, interval=0ms)")
+            else:
+                logger.info(f"🔄 Continuous trailing stop monitor started (interval: {self.trailing_cycle_interval_ms}ms = {self.trailing_cycle_interval:.3f}s)")
             try:
-                if not self.check_kill_switch():
-                    # Ensure connection before monitoring
-                    if self.mt5_connector.ensure_connected():
-                        # Monitor all positions and update trailing stops (normal polling)
-                        # If trigger_on_tick is True, this runs immediately without delay
-                        self.risk_manager.monitor_all_positions_continuous(use_fast_polling=False)
+                system_health.mark_thread_started("TrailingStopMonitor")
+            except Exception:
+                pass
+            
+            while self.trailing_stop_running and self.running:
+                try:
+                    if not self.check_kill_switch():
+                        # Ensure connection before monitoring
+                        if self.mt5_connector.ensure_connected():
+                            # Monitor all positions and update trailing stops (normal polling)
+                            # If trigger_on_tick is True, this runs immediately without delay
+                            self.risk_manager.monitor_all_positions_continuous(use_fast_polling=False)
+                        else:
+                            # Try to reconnect if disconnected
+                            logger.warning("Continuous trailing stop: MT5 disconnected, attempting reconnect...")
+                            self.mt5_connector.reconnect()
+                    
+                    # Cache metrics for timer-based heartbeat (no MT5 calls from heartbeat thread)
+                    try:
+                        positions = self.order_manager.get_open_positions()
+                        position_count = len(positions) if positions else 0
+                        self._trailing_last_position_count = position_count
+                    except Exception:
+                        # Metrics collection must not break the loop
+                        pass
+                    
+                    # Sleep for the configured interval (0 = instant, no delay)
+                    if self.trailing_cycle_interval > 0:
+                        time.sleep(self.trailing_cycle_interval)
+                    # If interval is 0 and trigger_on_tick is True, run immediately (no sleep)
+                    # But add a tiny sleep to prevent CPU spinning (1ms minimum)
+                    elif self.trigger_on_tick:
+                        time.sleep(0.001)  # 1ms minimum to prevent CPU spinning
                     else:
-                        # Try to reconnect if disconnected
-                        logger.warning("Continuous trailing stop: MT5 disconnected, attempting reconnect...")
-                        self.mt5_connector.reconnect()
-                
-                # Sleep for the configured interval (0 = instant, no delay)
-                if self.trailing_cycle_interval > 0:
-                    time.sleep(self.trailing_cycle_interval)
-                # If interval is 0 and trigger_on_tick is True, run immediately (no sleep)
-                # But add a tiny sleep to prevent CPU spinning (1ms minimum)
-                elif self.trigger_on_tick:
-                    time.sleep(0.001)  # 1ms minimum to prevent CPU spinning
-                else:
-                    # Default: small sleep to prevent CPU spinning
+                        # Default: small sleep to prevent CPU spinning
+                        time.sleep(0.001)
+                except Exception as e:
+                    logger.error(f"Error in continuous trailing stop loop: {e}", exc_info=True)
+                    # Continue running even if there's an error, but ensure connection
+                    try:
+                        self.mt5_connector.ensure_connected()
+                    except Exception:
+                        pass
+                    # Small sleep on error to prevent rapid retry loops
                     time.sleep(0.001)
             
-            except Exception as e:
-                logger.error(f"Error in continuous trailing stop loop: {e}", exc_info=True)
-                # Continue running even if there's an error, but ensure connection
-                try:
-                    self.mt5_connector.ensure_connected()
-                except:
-                    pass
-                # Small sleep on error to prevent rapid retry loops
-                time.sleep(0.001)
-        
-        logger.info("Continuous trailing stop monitor stopped")
+            logger.info("Continuous trailing stop monitor stopped")
+        except Exception as fatal_error:
+            # MANDATORY OBSERVABILITY: Catch fatal errors that would crash the thread
+            import os
+            import traceback
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            logger.critical(f"[THREAD_CRASH] TrailingStopMonitor pid={pid} tid={tid} FATAL_ERROR")
+            logger.critical(f"Fatal error in continuous trailing stop loop: {fatal_error}", exc_info=True)
+            try:
+                self.system_event_logger.systemEvent("CRITICAL", {
+                    "tag": "THREAD_DIED",
+                    "thread_name": "TrailingStopMonitor",
+                    "thread_id": tid,
+                    "error": str(fatal_error),
+                    "error_type": type(fatal_error).__name__,
+                    "fatal": True
+                })
+            except Exception:
+                pass
+            try:
+                system_health.mark_thread_dead("TrailingStopMonitor", f"fatal_exception: {type(fatal_error).__name__}")
+            except Exception:
+                pass
     
     def _fast_trailing_stop_loop(self):
         """Background thread loop for fast trailing stop monitoring (positions with profit >= threshold)."""
-        fast_interval_seconds = self.fast_trailing_interval_ms / 1000.0
-        # Instant fast trailing: if interval is 0, run immediately (only debounce cycles apply)
-        if self.fast_trailing_interval_ms == 0:
-            logger.info(f"[FAST] Fast trailing stop monitor started (INSTANT - interval=0ms, debounce_cycles={self.risk_config.get('fast_trailing_debounce_cycles', 3)})")
-        else:
-            logger.info(f"[FAST] Fast trailing stop monitor started (interval: {fast_interval_seconds:.3f}s = {self.fast_trailing_interval_ms}ms)")
-        
-        while self.fast_trailing_running and self.running:
+        # MANDATORY OBSERVABILITY: Wrap entire loop in try-except to catch fatal crashes
+        try:
+            fast_interval_seconds = self.fast_trailing_interval_ms / 1000.0
+            # Instant fast trailing: if interval is 0, run immediately (only debounce cycles apply)
+            if self.fast_trailing_interval_ms == 0:
+                logger.info(f"[FAST] Fast trailing stop monitor started (INSTANT - interval=0ms, debounce_cycles={self.risk_config.get('fast_trailing_debounce_cycles', 3)})")
+            else:
+                logger.info(f"[FAST] Fast trailing stop monitor started (interval: {fast_interval_seconds:.3f}s = {self.fast_trailing_interval_ms}ms)")
             try:
-                if not self.check_kill_switch():
-                    # Ensure connection before monitoring
-                    if self.mt5_connector.ensure_connected():
-                        # Monitor only positions in fast polling mode
-                        # If interval is 0, this runs immediately when threshold reached (debounce cycles still apply)
-                        self.risk_manager.monitor_all_positions_continuous(use_fast_polling=True)
-                    else:
-                        # Try to reconnect if disconnected
-                        logger.warning("Fast trailing stop: MT5 disconnected, attempting reconnect...")
-                        self.mt5_connector.reconnect()
-                
-                # Sleep for the fast interval (0 = instant, no delay except debounce cycles)
-                if fast_interval_seconds > 0:
-                    time.sleep(fast_interval_seconds)
-                else:
-                    # Instant mode: tiny sleep to prevent CPU spinning (1ms minimum)
-                    time.sleep(0.001)
+                system_health.mark_thread_started("FastTrailingStopMonitor")
+            except Exception:
+                pass
             
-            except Exception as e:
-                logger.error(f"Error in fast trailing stop loop: {e}", exc_info=True)
+            while self.fast_trailing_running and self.running:
+                try:
+                    if not self.check_kill_switch():
+                        # Ensure connection before monitoring
+                        if self.mt5_connector.ensure_connected():
+                            # Monitor only positions in fast polling mode
+                            # If interval is 0, this runs immediately when threshold reached (debounce cycles still apply)
+                            self.risk_manager.monitor_all_positions_continuous(use_fast_polling=True)
+                            # Cache metrics for timer-based heartbeat (no MT5 calls from heartbeat thread)
+                            try:
+                                positions = self.order_manager.get_open_positions()
+                                position_count = len(positions) if positions else 0
+                                self._fast_trailing_last_position_count = position_count
+                            except Exception:
+                                pass
+                        else:
+                            # Try to reconnect if disconnected
+                            logger.warning("Fast trailing stop: MT5 disconnected, attempting reconnect...")
+                            self.mt5_connector.reconnect()
+                    
+                    # Sleep for the fast interval (0 = instant, no delay except debounce cycles)
+                    if fast_interval_seconds > 0:
+                        time.sleep(fast_interval_seconds)
+                    else:
+                        # Instant mode: tiny sleep to prevent CPU spinning (1ms minimum)
+                        time.sleep(0.001)
+                
+                except Exception as e:
+                    # MANDATORY OBSERVABILITY: Log thread crash
+                    import os
+                    import traceback
+                    pid = os.getpid()
+                    tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+                    logger.critical(f"[THREAD_CRASH] FastTrailingStopMonitor pid={pid} tid={tid}")
+                    logger.error(f"Error in fast trailing stop loop: {e}", exc_info=True)
+                    try:
+                        self.system_event_logger.systemEvent("CRITICAL", {
+                            "tag": "THREAD_DIED",
+                            "thread_name": "FastTrailingStopMonitor",
+                            "thread_id": tid,
+                            "error": str(e),
+                            "error_type": type(e).__name__
+                        })
+                    except Exception:
+                        pass
+                    # Notify global health monitor that this critical thread died
+                    try:
+                        system_health.mark_thread_dead("FastTrailingStopMonitor", f"exception: {type(e).__name__}")
+                    except Exception:
+                        pass
+                    time.sleep(1)  # Brief pause before retrying
+            
+            # MANDATORY OBSERVABILITY: Log thread stop
+            import os
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            logger.info(f"[THREAD_STOP] FastTrailingStopMonitor pid={pid} tid={tid} reason=shutdown_requested")
+        except Exception as fatal_error:
+            # MANDATORY OBSERVABILITY: Catch fatal errors that would crash the thread
+            import os
+            import traceback
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            logger.critical(f"[THREAD_CRASH] FastTrailingStopMonitor pid={pid} tid={tid} FATAL_ERROR")
+            logger.critical(f"Fatal error in fast trailing stop loop: {fatal_error}", exc_info=True)
+            try:
+                self.system_event_logger.systemEvent("CRITICAL", {
+                    "tag": "THREAD_DIED",
+                    "thread_name": "FastTrailingStopMonitor",
+                    "thread_id": tid,
+                    "error": str(fatal_error),
+                    "error_type": type(fatal_error).__name__,
+                    "fatal": True
+                })
+            except Exception:
+                pass
+            try:
+                system_health.mark_thread_dead("FastTrailingStopMonitor", f"fatal_exception: {type(fatal_error).__name__}")
+            except Exception:
+                pass
                 # Continue running even if there's an error, but ensure connection
                 try:
                     self.mt5_connector.ensure_connected()
@@ -2190,7 +2385,20 @@ class TradingBot:
             daemon=True
         )
         self.trailing_stop_thread.start()
+        # MANDATORY OBSERVABILITY: Log thread start with PID and TID
+        import os
+        pid = os.getpid()
+        tid = self.trailing_stop_thread.ident if self.trailing_stop_thread.ident else 'unknown'
+        logger.info(f"[THREAD_START] TrailingStopMonitor pid={pid} tid={tid}")
         logger.info("[OK] Continuous trailing stop monitor thread started")
+        # Register with global system health monitor
+        try:
+            system_health.register_critical_thread(
+                "TrailingStopMonitor",
+                self.trailing_stop_thread,
+            )
+        except Exception:
+            pass
         
         # Start fast trailing stop thread
         self.fast_trailing_running = True
@@ -2200,7 +2408,20 @@ class TradingBot:
             daemon=True
         )
         self.fast_trailing_thread.start()
+        # MANDATORY OBSERVABILITY: Log thread start with PID and TID
+        import os
+        pid = os.getpid()
+        tid = self.fast_trailing_thread.ident if self.fast_trailing_thread.ident else 'unknown'
+        logger.info(f"[THREAD_START] FastTrailingStopMonitor pid={pid} tid={tid}")
         logger.info("[OK] Fast trailing stop monitor thread started")
+        # Register with global system health monitor
+        try:
+            system_health.register_critical_thread(
+                "FastTrailingStopMonitor",
+                self.fast_trailing_thread,
+            )
+        except Exception:
+            pass
         
         # Start position closure monitoring thread
         self.start_position_monitor()
@@ -2218,7 +2439,20 @@ class TradingBot:
             daemon=True
         )
         self.position_monitor_thread.start()
+        # MANDATORY OBSERVABILITY: Log thread start with PID and TID
+        import os
+        pid = os.getpid()
+        tid = self.position_monitor_thread.ident if self.position_monitor_thread.ident else 'unknown'
+        logger.info(f"[THREAD_START] PositionMonitor pid={pid} tid={tid}")
         logger.info("[OK] Position closure monitor thread started")
+        # Register with global system health monitor
+        try:
+            system_health.register_critical_thread(
+                "PositionMonitor",
+                self.position_monitor_thread,
+            )
+        except Exception:
+            pass
     
     def stop_position_monitor(self):
         """Stop the position closure monitoring thread."""
@@ -2235,29 +2469,83 @@ class TradingBot:
     
     def _position_monitor_loop(self):
         """Background thread loop for position closure detection."""
-        monitor_interval = 5.0  # Check every 5 seconds
-        
-        while self.position_monitor_running:
+        # MANDATORY OBSERVABILITY: Wrap entire loop in try-except to catch fatal crashes
+        try:
+            monitor_interval = 5.0  # Check every 5 seconds
             try:
-                # Detect and log closures
-                logged_closures = self.position_monitor.detect_and_log_closures(self.tracked_tickets)
-                
-                if logged_closures:
-                    for closure in logged_closures:
-                        logger.info(f"[-] Position {closure['ticket']} ({closure['symbol']}) closed - logged")
-                
-                # Update tracked tickets from current positions
-                current_positions = self.order_manager.get_open_positions()
-                current_tickets = {pos['ticket'] for pos in current_positions}
-                self.tracked_tickets.update(current_tickets)
-                
-                # Clean up closed tickets from tracking
-                self.tracked_tickets.intersection_update(current_tickets)
-                
-            except Exception as e:
-                error_logger.error(f"Error in position monitor loop: {e}", exc_info=True)
+                system_health.mark_thread_started("PositionMonitor")
+            except Exception:
+                pass
             
-            time.sleep(monitor_interval)
+            while self.position_monitor_running:
+                try:
+                    # Detect and log closures
+                    logged_closures = self.position_monitor.detect_and_log_closures(self.tracked_tickets)
+                    
+                    if logged_closures:
+                        for closure in logged_closures:
+                            logger.info(f"[-] Position {closure['ticket']} ({closure['symbol']}) closed - logged")
+                    
+                    # Update tracked tickets from current positions
+                    current_positions = self.order_manager.get_open_positions()
+                    current_tickets = {pos['ticket'] for pos in current_positions}
+                    self.tracked_tickets.update(current_tickets)
+                    
+                    # Clean up closed tickets from tracking
+                    self.tracked_tickets.intersection_update(current_tickets)
+                    
+                    # Cache metrics for timer-based heartbeat (no MT5 calls from heartbeat thread)
+                    self._position_monitor_last_position_count = len(current_positions) if current_positions else 0
+                    
+                except Exception as e:
+                    # MANDATORY OBSERVABILITY: Log thread crash
+                    import os
+                    import traceback
+                    pid = os.getpid()
+                    tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+                    logger.critical(f"[THREAD_CRASH] PositionMonitor pid={pid} tid={tid}")
+                    error_logger.error(f"Error in position monitor loop: {e}", exc_info=True)
+                    try:
+                        self.system_event_logger.systemEvent("CRITICAL", {
+                            "tag": "THREAD_DIED",
+                            "thread_name": "PositionMonitor",
+                            "thread_id": tid,
+                            "error": str(e),
+                            "error_type": type(e).__name__
+                        })
+                    except Exception:
+                        pass
+                    try:
+                        system_health.mark_thread_dead("PositionMonitor", f"exception: {type(e).__name__}")
+                    except Exception:
+                        pass
+                
+                time.sleep(monitor_interval)
+            
+            # MANDATORY OBSERVABILITY: Log thread stop
+            import os
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            logger.info(f"[THREAD_STOP] PositionMonitor pid={pid} tid={tid} reason=shutdown_requested")
+        except Exception as fatal_error:
+            # MANDATORY OBSERVABILITY: Catch fatal errors that would crash the thread
+            import os
+            import traceback
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            logger.critical(f"[THREAD_CRASH] PositionMonitor pid={pid} tid={tid} FATAL_ERROR")
+            logger.critical(f"Fatal error in position monitor loop: {fatal_error}", exc_info=True)
+            try:
+                self.system_event_logger.systemEvent("CRITICAL", {
+                    "tag": "THREAD_DIED",
+                    "thread_name": "PositionMonitor",
+                    "thread_id": tid,
+                    "error": str(fatal_error),
+                    "error_type": type(fatal_error).__name__,
+                    "fatal": True
+                })
+            except Exception:
+                pass
     
     def stop_continuous_trailing_stop(self):
         """Stop the continuous trailing stop monitoring threads (normal + fast)."""

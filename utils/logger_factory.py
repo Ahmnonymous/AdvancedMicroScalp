@@ -111,7 +111,11 @@ class SystemEventLogger:
             # Price & Spread Issues
             "SPREAD_TOO_HIGH", "PRICE_JUMP_DETECTED", "BIG_JUMP_NOT_CAUGHT",
             # System Health / Session
-            "SESSION_END_RECONCILIATION", "RECONCILIATION_MISMATCH", "BOT_LOOP_TICK"
+            "SESSION_END_RECONCILIATION", "RECONCILIATION_MISMATCH", "BOT_LOOP_TICK",
+            # Thread Health
+            "THREAD_DIED", "CRITICAL",
+            # Startup Test
+            "BOOT_TEST"
         }
     
     def systemEvent(self, tag: str, details: Dict[str, Any]):
@@ -119,10 +123,11 @@ class SystemEventLogger:
         Log a system event.
         
         Args:
-            tag: Event tag (must be one of the valid tags)
+            tag: Event tag (must be one of the valid tags, or "BOOT_TEST" for startup test)
             details: Event details dictionary (only essential values, no giant objects)
         """
-        if tag not in self._valid_tags:
+        # Allow BOOT_TEST tag for startup verification
+        if tag not in self._valid_tags and tag != "BOOT_TEST":
             self.logger.warning(f"Invalid system event tag: {tag}")
             return
         

@@ -28,6 +28,7 @@ from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager
 from utils.logger_factory import get_logger, get_system_event_logger
 from utils.execution_tracer import get_tracer
+from utils import system_health
 
 # Module-level logger - will be reinitialized in __init__ based on mode
 logger = None
@@ -61,6 +62,12 @@ class SLManager:
         is_backtest = config.get('mode') == 'backtest'
         log_path = "logs/backtest/engine/sl_manager.log" if is_backtest else "logs/live/engine/sl_manager.log"
         logger = get_logger("sl_manager", log_path)
+        
+        # MANDATORY OBSERVABILITY: Log initialization immediately to prove SLManager is alive
+        trailing_config = config.get('risk', {}).get('trailing', {})
+        instant_trailing = trailing_config.get('instant_trailing', False) or trailing_config.get('trigger_on_tick', False)
+        strict_loss = config.get('risk', {}).get('max_risk_per_trade_usd', 2.0)
+        logger.info(f"[OK][SL_MANAGER_INIT] instant_trailing={instant_trailing} strict_loss=${strict_loss:.2f} log_path={log_path}")
         
         self.config = config
         self.risk_config = config.get('risk', {})
@@ -184,6 +191,9 @@ class SLManager:
         self._sl_worker_running = False
         self._sl_worker_thread: Optional[threading.Thread] = None
         self._sl_worker_shutdown_event = threading.Event()
+        # Cached metrics for timer-based heartbeat (no MT5 calls from heartbeat thread)
+        self._sl_worker_last_position_count: int = 0
+        self._sl_worker_last_active_tickets: int = 0
         
         # OPTIMIZATION: Background task queue for heavy operations
         # This allows the main worker loop to stay under 50ms by offloading:
@@ -4486,6 +4496,17 @@ class SLManager:
             daemon=True
         )
         
+        # Register SLWorker with global system health monitor (for timer-based heartbeat)
+        try:
+            system_health.register_critical_thread(
+                "SLWorker",
+                self._sl_worker_thread,
+                metrics_provider=self._get_sl_worker_metrics,
+            )
+        except Exception:
+            # Health tracking must never prevent the worker from starting
+            pass
+        
         # OPTIMIZATION: Start background worker thread for heavy operations
         self._background_worker_running = True
         self._background_worker_shutdown_event.clear()
@@ -4495,11 +4516,21 @@ class SLManager:
             daemon=True
         )
         self._background_worker_thread.start()
+        import os
+        pid = os.getpid()
+        bg_tid = self._background_worker_thread.ident if self._background_worker_thread.ident else 'unknown'
+        logger.info(f"[THREAD_START] SLBackgroundWorker pid={pid} tid={bg_tid}")
         logger.info("[OK] Background worker thread started for heavy operations")
         
         logger.info("SLManager worker loop starting now...")
+        
+        # MANDATORY OBSERVABILITY: Log thread start with thread ID and process ID
+        import os
+        pid = os.getpid()
         self._sl_worker_thread.start()
-        logger.info(f"[OK] SL Worker started ({self._sl_worker_interval*1000:.0f}ms cadence)")
+        tid = self._sl_worker_thread.ident if self._sl_worker_thread.ident else 'unknown'
+        logger.info(f"[THREAD_START] SLWorker pid={pid} tid={tid}")
+        logger.info(f"[OK][SL_WORKER_STARTED] polling_interval={self._sl_worker_interval*1000:.0f}ms")
         logger.info("[OK] SLManager worker thread started successfully")
     
     def stop_sl_worker(self):
@@ -4523,6 +4554,10 @@ class SLManager:
         # Close logging files
         self._close_logging_files()
         
+        import os
+        pid = os.getpid()
+        tid = self._sl_worker_thread.ident if self._sl_worker_thread and self._sl_worker_thread.ident else 'unknown'
+        logger.info(f"[THREAD_STOP] SLWorker pid={pid} tid={tid} reason=shutdown_requested")
         logger.info("SL Worker stopped")
     
     def _close_logging_files(self):
@@ -4740,424 +4775,444 @@ class SLManager:
         4. Submits SL update with retry logic (network calls outside locks)
         5. Queues heavy operations to background thread
         """
-        logger.info(f"SLManager worker loop started (interval: {self._sl_worker_interval*1000:.0f}ms)")
-        logger.info("SLManager worker loop starting now")
-        tracer = get_tracer()
-        
-        iteration = 0
-        last_summary_time = time.time()
-        last_heartbeat_time = time.time()
-        heartbeat_interval = 1.0  # Log heartbeat every 1 second
-        summary_interval = 30.0  # Log summary every 30 seconds
-        
-        mode = "BACKTEST" if self.config.get('mode') == 'backtest' else "LIVE"
-        
-        while self._sl_worker_running and not self._sl_worker_shutdown_event.is_set():
-            iteration += 1
-            loop_start_time = time.time()
-            loop_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
-            
-            # Log heartbeat every 1 second
-            current_time = time.time()
-            if current_time - last_heartbeat_time >= heartbeat_interval:
-                with self._tracking_lock:
-                    active_tickets = len(self._last_sl_attempt)
-                logger.debug(f"SLManager heartbeat | Active Tickets={active_tickets} | Iteration={iteration}")
-                last_heartbeat_time = current_time
-            
-            # Log profit zone summary periodically
-            if time.time() - last_summary_time >= summary_interval:
-                self._log_profit_zone_summary()
-                # Also log verification metrics for system health monitoring
-                self._log_verification_metrics()
-                last_summary_time = time.time()
-            
-            tracer.trace(
-                function_name="SLManager._sl_worker_loop",
-                expected=f"Process all open positions in iteration {iteration}",
-                actual=f"Starting worker loop iteration {iteration}",
-                status="OK",
-                iteration=iteration
-            )
-            
+        # MANDATORY OBSERVABILITY: Wrap entire loop in try-except to catch fatal crashes
+        try:
+            logger.info(f"SLManager worker loop started (interval: {self._sl_worker_interval*1000:.0f}ms)")
+            logger.info("SLManager worker loop starting now")
+            tracer = get_tracer()
+            # Notify global health monitor that SLWorker has started
             try:
+                system_health.mark_thread_started("SLWorker")
+            except Exception:
+                pass
+            
+            iteration = 0
+            last_summary_time = time.time()
+            summary_interval = 30.0  # Log summary every 30 seconds
+            
+            mode = "BACKTEST" if self.config.get('mode') == 'backtest' else "LIVE"
+            
+            while self._sl_worker_running and not self._sl_worker_shutdown_event.is_set():
+                iteration += 1
+                loop_start_time = time.time()
+                loop_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+                
+                # Log profit zone summary periodically
+                if time.time() - last_summary_time >= summary_interval:
+                    self._log_profit_zone_summary()
+                    # Also log verification metrics for system health monitoring
+                    self._log_verification_metrics()
+                    last_summary_time = time.time()
+                
+                tracer.trace(
+                    function_name="SLManager._sl_worker_loop",
+                    expected=f"Process all open positions in iteration {iteration}",
+                    actual=f"Starting worker loop iteration {iteration}",
+                    status="OK",
+                    iteration=iteration
+                )
+                
                 # OPTIMIZATION: Reduce debug logging noise - only log every 100 iterations or on slow loops
                 should_log_debug = (iteration % 100 == 0) or (iteration <= 5)
                 if should_log_debug:
                     logger.debug(f"mode={mode} | [{loop_timestamp}] [SL_WORKER] Loop iteration {iteration} started")
                     logger.info(f"mode={mode} | [SL_WORKER] Loop start timestamp: {loop_timestamp} | Iteration: {iteration}")
-                
-                # OPTIMIZATION: Get snapshot of open positions ONCE per loop
-                # This is the only blocking network call in the main loop
-                positions_fetch_start = time.time()
-                positions = self.order_manager.get_open_positions()
-                positions_fetch_duration = (time.time() - positions_fetch_start) * 1000
-                
-                # Warn if position fetch is slow (should be <10ms)
-                if positions_fetch_duration > 10:
-                    logger.warning(f"mode={mode} | [{loop_timestamp}] [SL_WORKER] WARNING: Slow position fetch: {positions_fetch_duration:.1f}ms (target: <10ms)")
-                
-                tracer.trace(
-                    function_name="SLManager._sl_worker_loop",
-                    expected=f"Get all open positions for iteration {iteration}",
-                    actual=f"Retrieved {len(positions)} open positions in {positions_fetch_duration:.1f}ms",
-                    status="OK",
-                    iteration=iteration,
-                    position_count=len(positions),
-                    fetch_duration_ms=positions_fetch_duration
-                )
-                
-                if not positions:
-                    # No positions - check if instant trailing (no sleep) or wait
-                    if self._sl_worker_interval > 0:
-                        sleep_start = time.time()
-                        time.sleep(self._sl_worker_interval)
-                        sleep_duration = (time.time() - sleep_start) * 1000
-                        logger.debug(f"mode={mode} | [SL_WORKER] Sleep duration: {sleep_duration:.1f}ms (target: {self._sl_worker_interval*1000:.1f}ms)")
-                    # If instant trailing (interval = 0), continue immediately
-                    continue
-                
-                if should_log_debug:
-                    logger.debug(f"mode={mode} | [{loop_timestamp}] [SL_WORKER] Found {len(positions)} open position(s)")
-                
-                # OPTIMIZATION: Queue fail-safe check to background thread instead of blocking main loop
-                # Fail-safe check can scan all positions and perform heavy calculations
-                # Moving it to background ensures main loop stays under 50ms
-                try:
-                    self._background_task_queue.put_nowait(('fail_safe_check', None))
-                except queue.Full:
-                    # Queue full - skip this cycle's fail-safe check (will run next cycle)
-                    logger.debug("Background task queue full, skipping fail-safe check this cycle")
-                except Exception as e:
-                    logger.debug(f"Error queueing fail-safe check: {e}")
-                
-                # Process each position
-                for position in positions:
-                    if not self._sl_worker_running:
-                        break
                     
-                    ticket = position.get('ticket', 0)
-                    if ticket == 0:
-                        continue
-                    
-                    # Skip if in manual review
-                    if ticket in self._manual_review_tickets:
-                        continue
-                    
-                    # OPTIMIZATION: Reduce debug logging noise - only log for first position or on errors
-                    should_log_position = (ticket == positions[0].get('ticket', 0)) if positions else False
-                    if should_log_position:
-                        position_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-                        logger.debug(f"[{position_timestamp}] 🔍 Processing {len(positions)} position(s), starting with Ticket {ticket}")
-                    
-                    # Check circuit breaker (but bypass for profit-locking trades)
-                    # CRITICAL FIX: Circuit breaker should NOT block profit-locking trades
-                    if ticket in self._ticket_circuit_breaker:
-                        disabled_until = self._ticket_circuit_breaker[ticket]
-                        current_profit_check = position.get('profit', 0.0)
-                        is_profit_locking_check = (current_profit_check >= 0.01)
-                        
-                        # Bypass circuit breaker for profit-locking trades
-                        if is_profit_locking_check:
-                            logger.debug(f"🔄 Circuit breaker bypassed for profit-locking Ticket {ticket} (profit: ${current_profit_check:.2f})")
-                            del self._ticket_circuit_breaker[ticket]
-                        elif time.time() < disabled_until:
-                            # Still in cooldown for non-profitable trades
-                            continue
-                        else:
-                            # Cooldown expired, allow one trial update
-                            del self._ticket_circuit_breaker[ticket]
-                            logger.info(f"🔄 Circuit breaker expired for Ticket {ticket}, allowing trial update")
-                    
-                    # OPTIMIZATION: Queue stale lock check to background thread instead of blocking main loop
-                    # Stale lock check can be slow when many locks exist
-                    # Only check on first position to avoid duplicate checks
-                    if len(positions) > 0 and ticket == positions[0].get('ticket', 0):
-                        try:
-                            self._background_task_queue.put_nowait(('check_stale_locks', None))
-                        except queue.Full:
-                            pass  # Skip if queue full
-                        except Exception:
-                            pass  # Ignore errors
-                    
-                    # CRITICAL OPTIMIZATION: Use position data from get_open_positions() instead of calling get_position_by_ticket()
-                    # get_position_by_ticket() calls get_open_positions() again, causing duplicate MT5 API calls
-                    # This eliminates N additional blocking network calls (where N = number of positions)
-                    # The position data from get_open_positions() is already fresh and sufficient
-                    fresh_position = position  # Use position from the list we already fetched
-                    
-                    # CRITICAL FIX: Determine if profitable before acquiring lock to use proper timeout
-                    current_profit = fresh_position.get('profit', 0.0)
-                    is_profit_locking = (current_profit >= 0.01)  # $0.01 threshold for profit locking priority
-                    fresh_profit = current_profit
-                    
-                    # CRITICAL FIX: Don't acquire lock in worker loop - update_sl_atomic handles its own locking
-                    # This prevents worker loop from blocking on lock acquisition
-                    # update_sl_atomic will acquire locks internally only when needed and release them quickly
-                    
-                    # Perform SL update (atomic) with full error handling
-                    # CRITICAL: update_sl_atomic will handle all network calls OUTSIDE locks
-                    update_start = time.time()
-                    # OPTIMIZATION: Only log debug for first position or if logging is enabled
-                    if should_log_position:
-                        update_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
-                        logger.debug(f"mode={mode} | [{update_timestamp}] [SL_WORKER] Starting SL update for Ticket {ticket}")
-                    
-                    # Track attempt timestamp
-                    attempt_time = datetime.now()
+                    # OPTIMIZATION: Get snapshot of open positions ONCE per loop
+                    # This is the only blocking network call in the main loop
+                    positions_fetch_start = time.time()
+                    positions = self.order_manager.get_open_positions()
+                    positions_fetch_duration = (time.time() - positions_fetch_start) * 1000
+                    # Cache metrics for timer-based heartbeat (no MT5 calls from heartbeat thread)
+                    position_count = len(positions) if positions else 0
                     with self._tracking_lock:
-                        self._last_sl_attempt[ticket] = attempt_time
+                        self._sl_worker_last_position_count = position_count
+                        self._sl_worker_last_active_tickets = len(self._last_sl_attempt)
                     
+                    # Warn if position fetch is slow (should be <10ms)
+                    if positions_fetch_duration > 10:
+                        logger.warning(f"mode={mode} | [{loop_timestamp}] [SL_WORKER] WARNING: Slow position fetch: {positions_fetch_duration:.1f}ms (target: <10ms)")
+                    
+                    tracer.trace(
+                        function_name="SLManager._sl_worker_loop",
+                        expected=f"Get all open positions for iteration {iteration}",
+                        actual=f"Retrieved {len(positions)} open positions in {positions_fetch_duration:.1f}ms",
+                        status="OK",
+                        iteration=iteration,
+                        position_count=len(positions),
+                        fetch_duration_ms=positions_fetch_duration
+                    )
+                    
+                    if not positions:
+                        # MANDATORY OBSERVABILITY: Log idle state when no positions exist (logged with heartbeat above)
+                        # No positions - check if instant trailing (no sleep) or wait
+                        if self._sl_worker_interval > 0:
+                            sleep_start = time.time()
+                            time.sleep(self._sl_worker_interval)
+                            sleep_duration = (time.time() - sleep_start) * 1000
+                            logger.debug(f"mode={mode} | [SL_WORKER] Sleep duration: {sleep_duration:.1f}ms (target: {self._sl_worker_interval*1000:.1f}ms)")
+                        # If instant trailing (interval = 0), continue immediately
+                        continue
+                    
+                    if should_log_debug:
+                        logger.debug(f"mode={mode} | [{loop_timestamp}] [SL_WORKER] Found {len(positions)} open position(s)")
+                    
+                    # OPTIMIZATION: Queue fail-safe check to background thread instead of blocking main loop
+                    # Fail-safe check can scan all positions and perform heavy calculations
+                    # Moving it to background ensures main loop stays under 50ms
                     try:
-                        tracer.trace(
-                            function_name="SLManager._sl_worker_loop",
-                            expected=f"Update SL for {fresh_position.get('symbol', 'N/A')} Ticket {ticket}",
-                            actual=f"Calling update_sl_atomic for Ticket {ticket}",
-                            status="OK",
-                            iteration=iteration,
-                            ticket=ticket,
-                            symbol=fresh_position.get('symbol', 'N/A'),
-                            profit=fresh_position.get('profit', 0.0)
-                        )
+                        self._background_task_queue.put_nowait(('fail_safe_check', None))
+                    except queue.Full:
+                        # Queue full - skip this cycle's fail-safe check (will run next cycle)
+                        logger.debug("Background task queue full, skipping fail-safe check this cycle")
+                    except Exception as e:
+                        logger.debug(f"Error queueing fail-safe check: {e}")
+                    
+                    # Process each position
+                    for position in positions:
+                        if not self._sl_worker_running:
+                            break
                         
-                        # Call update_sl_atomic - it will acquire its own locks as needed
-                        success, reason = self.update_sl_atomic(ticket, fresh_position)
-                        update_duration = (time.time() - update_start) * 1000
-                        logger.debug(f"mode={mode} | [SL_WORKER] SL update for Ticket {ticket} completed | "
-                                   f"Duration: {update_duration:.1f}ms | Success: {success} | Reason: {reason}")
-                        tracer.trace(
-                            function_name="SLManager._sl_worker_loop",
-                            expected=f"Update SL for {fresh_position.get('symbol', 'N/A')} Ticket {ticket}",
-                            actual=f"update_sl_atomic returned: success={success}, reason={reason}, duration={update_duration:.1f}ms",
-                            status="OK" if success else "WARNING",
-                            iteration=iteration,
-                            ticket=ticket,
-                            symbol=fresh_position.get('symbol', 'N/A'),
-                            success=success,
-                            reason=reason
-                        )
-                        update_latency = (time.time() - update_start) * 1000  # Convert to ms
+                        ticket = position.get('ticket', 0)
+                        if ticket == 0:
+                            continue
                         
-                        # OPTIMIZATION: Only log slow updates (>20ms) or failures
-                        should_log_update = (update_latency > 20) or not success
-                        if should_log_update:
-                            update_end_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-                            logger.debug(f"[{update_end_timestamp}] [OK] SL update completed for Ticket {ticket} | Success: {success} | Latency: {update_latency:.1f}ms")
+                        # Skip if in manual review
+                        if ticket in self._manual_review_tickets:
+                            continue
                         
-                        # Track success/failure
-                        with self._tracking_lock:
-                            if success:
-                                self._last_sl_success[ticket] = attempt_time
-                                self._consecutive_failures[ticket] = 0  # Reset failure counter
+                        # OPTIMIZATION: Reduce debug logging noise - only log for first position or on errors
+                        should_log_position = (ticket == positions[0].get('ticket', 0)) if positions else False
+                        if should_log_position:
+                            position_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+                            logger.debug(f"[{position_timestamp}] 🔍 Processing {len(positions)} position(s), starting with Ticket {ticket}")
+                        
+                        # Check circuit breaker (but bypass for profit-locking trades)
+                        # CRITICAL FIX: Circuit breaker should NOT block profit-locking trades
+                        if ticket in self._ticket_circuit_breaker:
+                            disabled_until = self._ticket_circuit_breaker[ticket]
+                            current_profit_check = position.get('profit', 0.0)
+                            is_profit_locking_check = (current_profit_check >= 0.01)
+                            
+                            # Bypass circuit breaker for profit-locking trades
+                            if is_profit_locking_check:
+                                logger.debug(f"🔄 Circuit breaker bypassed for profit-locking Ticket {ticket} (profit: ${current_profit_check:.2f})")
+                                del self._ticket_circuit_breaker[ticket]
+                            elif time.time() < disabled_until:
+                                # Still in cooldown for non-profitable trades
+                                continue
                             else:
+                                # Cooldown expired, allow one trial update
+                                del self._ticket_circuit_breaker[ticket]
+                                logger.info(f"🔄 Circuit breaker expired for Ticket {ticket}, allowing trial update")
+                        
+                        # OPTIMIZATION: Queue stale lock check to background thread instead of blocking main loop
+                        # Stale lock check can be slow when many locks exist
+                        # Only check on first position to avoid duplicate checks
+                        if len(positions) > 0 and ticket == positions[0].get('ticket', 0):
+                            try:
+                                self._background_task_queue.put_nowait(('check_stale_locks', None))
+                            except queue.Full:
+                                pass  # Skip if queue full
+                            except Exception:
+                                pass  # Ignore errors
+                        
+                        # CRITICAL OPTIMIZATION: Use position data from get_open_positions() instead of calling get_position_by_ticket()
+                        # get_position_by_ticket() calls get_open_positions() again, causing duplicate MT5 API calls
+                        # This eliminates N additional blocking network calls (where N = number of positions)
+                        # The position data from get_open_positions() is already fresh and sufficient
+                        fresh_position = position  # Use position from the list we already fetched
+                        
+                        # CRITICAL FIX: Determine if profitable before acquiring lock to use proper timeout
+                        current_profit = fresh_position.get('profit', 0.0)
+                        is_profit_locking = (current_profit >= 0.01)  # $0.01 threshold for profit locking priority
+                        fresh_profit = current_profit
+                        
+                        # CRITICAL FIX: Don't acquire lock in worker loop - update_sl_atomic handles its own locking
+                        # This prevents worker loop from blocking on lock acquisition
+                        # update_sl_atomic will acquire locks internally only when needed and release them quickly
+                        
+                        # Perform SL update (atomic) with full error handling
+                        # CRITICAL: update_sl_atomic will handle all network calls OUTSIDE locks
+                        update_start = time.time()
+                        # OPTIMIZATION: Only log debug for first position or if logging is enabled
+                        if should_log_position:
+                            update_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+                            logger.debug(f"mode={mode} | [{update_timestamp}] [SL_WORKER] Starting SL update for Ticket {ticket}")
+                        
+                        # Track attempt timestamp
+                        attempt_time = datetime.now()
+                        with self._tracking_lock:
+                            self._last_sl_attempt[ticket] = attempt_time
+                        
+                        try:
+                            tracer.trace(
+                                function_name="SLManager._sl_worker_loop",
+                                expected=f"Update SL for {fresh_position.get('symbol', 'N/A')} Ticket {ticket}",
+                                actual=f"Calling update_sl_atomic for Ticket {ticket}",
+                                status="OK",
+                                iteration=iteration,
+                                ticket=ticket,
+                                symbol=fresh_position.get('symbol', 'N/A'),
+                                profit=fresh_position.get('profit', 0.0)
+                            )
+                            
+                            # Call update_sl_atomic - it will acquire its own locks as needed
+                            success, reason = self.update_sl_atomic(ticket, fresh_position)
+                            update_duration = (time.time() - update_start) * 1000
+                            logger.debug(f"mode={mode} | [SL_WORKER] SL update for Ticket {ticket} completed | "
+                                       f"Duration: {update_duration:.1f}ms | Success: {success} | Reason: {reason}")
+                            tracer.trace(
+                                function_name="SLManager._sl_worker_loop",
+                                expected=f"Update SL for {fresh_position.get('symbol', 'N/A')} Ticket {ticket}",
+                                actual=f"update_sl_atomic returned: success={success}, reason={reason}, duration={update_duration:.1f}ms",
+                                status="OK" if success else "WARNING",
+                                iteration=iteration,
+                                ticket=ticket,
+                                symbol=fresh_position.get('symbol', 'N/A'),
+                                success=success,
+                                reason=reason
+                            )
+                            update_latency = (time.time() - update_start) * 1000  # Convert to ms
+                            
+                            # OPTIMIZATION: Only log slow updates (>20ms) or failures
+                            should_log_update = (update_latency > 20) or not success
+                            if should_log_update:
+                                update_end_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+                                logger.debug(f"[{update_end_timestamp}] [OK] SL update completed for Ticket {ticket} | Success: {success} | Latency: {update_latency:.1f}ms")
+                            
+                            # Track success/failure
+                            with self._tracking_lock:
+                                if success:
+                                    self._last_sl_success[ticket] = attempt_time
+                                    self._consecutive_failures[ticket] = 0  # Reset failure counter
+                                else:
+                                    self._consecutive_failures[ticket] += 1
+                                    failures = self._consecutive_failures[ticket]
+                                    
+                                    # Circuit breaker: disable after 10 consecutive failures (but NOT for profit-locking trades)
+                                    # CRITICAL FIX: Bypass circuit breaker for profit-locking trades to ensure SL updates always execute
+                                    # Exponential cooldown: 10s, 30s, 60s, 120s based on failure bucket
+                                    if failures >= self._circuit_breaker_threshold and not is_profit_locking:
+                                        # Calculate exponential cooldown based on failure count
+                                        failure_bucket = min((failures - self._circuit_breaker_threshold) // 5, 3)  # 0, 1, 2, 3
+                                        cooldown = self._circuit_breaker_cooldown_base * (3 ** failure_bucket)  # 10, 30, 90, 270
+                                        disabled_until = time.time() + cooldown
+                                        self._ticket_circuit_breaker[ticket] = disabled_until
+                                        logger.critical(f"🚨 CIRCUIT BREAKER: Ticket {ticket} disabled for {cooldown:.0f}s after {failures} consecutive failures (bucket: {failure_bucket})")
+                                    elif failures >= self._circuit_breaker_threshold and is_profit_locking:
+                                        logger.warning(f"[WARNING] Profit-locking Ticket {ticket} has {failures} failures, but circuit breaker bypassed for profit-locking trades")
+                            
+                            # OPTIMIZATION: Queue MicroProfitEngine check to background thread
+                            # This involves position retrieval and profit calculations which can be slow
+                            if hasattr(self, '_risk_manager') and self._risk_manager:
+                                micro_profit_engine = getattr(self._risk_manager, '_micro_profit_engine', None)
+                                if micro_profit_engine:
+                                    try:
+                                        # Queue to background instead of blocking main loop
+                                        self._background_task_queue.put_nowait(('micro_profit_check', {
+                                            'ticket': ticket,
+                                            'micro_profit_engine': micro_profit_engine
+                                        }))
+                                    except queue.Full:
+                                        logger.debug(f"Background queue full, skipping MicroProfitEngine check for ticket {ticket}")
+                                    except Exception as e:
+                                        logger.debug(f"Error queueing MicroProfitEngine check: {e}")
+                        
+                        except Exception as update_error:
+                            update_error_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+                            logger.error(f"[{update_error_timestamp}] SL update exception for Ticket {ticket}: {update_error}", exc_info=True)
+                            success = False
+                            reason = f"Exception: {str(update_error)}"
+                            update_latency = (time.time() - update_start) * 1000
+                            
+                            # Track failure
+                            with self._tracking_lock:
                                 self._consecutive_failures[ticket] += 1
                                 failures = self._consecutive_failures[ticket]
                                 
-                                # Circuit breaker: disable after 10 consecutive failures (but NOT for profit-locking trades)
-                                # CRITICAL FIX: Bypass circuit breaker for profit-locking trades to ensure SL updates always execute
-                                # Exponential cooldown: 10s, 30s, 60s, 120s based on failure bucket
-                                if failures >= self._circuit_breaker_threshold and not is_profit_locking:
-                                    # Calculate exponential cooldown based on failure count
-                                    failure_bucket = min((failures - self._circuit_breaker_threshold) // 5, 3)  # 0, 1, 2, 3
-                                    cooldown = self._circuit_breaker_cooldown_base * (3 ** failure_bucket)  # 10, 30, 90, 270
-                                    disabled_until = time.time() + cooldown
+                                # Circuit breaker: disable after 5 consecutive failures (but NOT for profit-locking trades)
+                                # CRITICAL FIX: Bypass circuit breaker for profit-locking trades
+                                if failures >= 5 and not is_profit_locking:
+                                    disabled_until = time.time() + self._circuit_breaker_cooldown
                                     self._ticket_circuit_breaker[ticket] = disabled_until
-                                    logger.critical(f"🚨 CIRCUIT BREAKER: Ticket {ticket} disabled for {cooldown:.0f}s after {failures} consecutive failures (bucket: {failure_bucket})")
-                                elif failures >= self._circuit_breaker_threshold and is_profit_locking:
+                                    logger.critical(f"🚨 CIRCUIT BREAKER: Ticket {ticket} disabled for {self._circuit_breaker_cooldown}s after {failures} consecutive failures")
+                                elif failures >= 5 and is_profit_locking:
                                     logger.warning(f"[WARNING] Profit-locking Ticket {ticket} has {failures} failures, but circuit breaker bypassed for profit-locking trades")
-                        
-                        # OPTIMIZATION: Queue MicroProfitEngine check to background thread
-                        # This involves position retrieval and profit calculations which can be slow
-                        if hasattr(self, '_risk_manager') and self._risk_manager:
-                            micro_profit_engine = getattr(self._risk_manager, '_micro_profit_engine', None)
-                            if micro_profit_engine:
-                                try:
-                                    # Queue to background instead of blocking main loop
-                                    self._background_task_queue.put_nowait(('micro_profit_check', {
-                                        'ticket': ticket,
-                                        'micro_profit_engine': micro_profit_engine
-                                    }))
-                                except queue.Full:
-                                    logger.debug(f"Background queue full, skipping MicroProfitEngine check for ticket {ticket}")
-                                except Exception as e:
-                                    logger.debug(f"Error queueing MicroProfitEngine check: {e}")
+                            
+                            # Track timing
+                            with self._timing_lock:
+                                if ticket not in self._timing_stats['ticket_update_times']:
+                                    self._timing_stats['ticket_update_times'][ticket] = []
+                                self._timing_stats['ticket_update_times'][ticket].append(update_latency)
+                                # Keep only last 100 measurements per ticket
+                                if len(self._timing_stats['ticket_update_times'][ticket]) > 100:
+                                    self._timing_stats['ticket_update_times'][ticket].pop(0)
                                 
-                    except Exception as update_error:
-                        update_error_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-                        logger.error(f"[{update_error_timestamp}] SL update exception for Ticket {ticket}: {update_error}", exc_info=True)
-                        success = False
-                        reason = f"Exception: {str(update_error)}"
-                        update_latency = (time.time() - update_start) * 1000
-                        
-                        # Track failure
-                        with self._tracking_lock:
-                            self._consecutive_failures[ticket] += 1
-                            failures = self._consecutive_failures[ticket]
+                                self._timing_stats['update_counts'][ticket] += 1
+                                self._timing_stats['last_update_time'] = datetime.now()
                             
-                            # Circuit breaker: disable after 5 consecutive failures (but NOT for profit-locking trades)
-                            # CRITICAL FIX: Bypass circuit breaker for profit-locking trades
-                            if failures >= 5 and not is_profit_locking:
-                                disabled_until = time.time() + self._circuit_breaker_cooldown
-                                self._ticket_circuit_breaker[ticket] = disabled_until
-                                logger.critical(f"🚨 CIRCUIT BREAKER: Ticket {ticket} disabled for {self._circuit_breaker_cooldown}s after {failures} consecutive failures")
-                            elif failures >= 5 and is_profit_locking:
-                                logger.warning(f"[WARNING] Profit-locking Ticket {ticket} has {failures} failures, but circuit breaker bypassed for profit-locking trades")
-                        
-                        # Track timing
-                        with self._timing_lock:
-                            if ticket not in self._timing_stats['ticket_update_times']:
-                                self._timing_stats['ticket_update_times'][ticket] = []
-                            self._timing_stats['ticket_update_times'][ticket].append(update_latency)
-                            # Keep only last 100 measurements per ticket
-                            if len(self._timing_stats['ticket_update_times'][ticket]) > 100:
-                                self._timing_stats['ticket_update_times'][ticket].pop(0)
+                            # Log update with full details
+                            symbol = fresh_position.get('symbol', 'N/A')
+                            entry_price = fresh_position.get('price_open', 0.0)
+                            current_price = fresh_position.get('price_current', 0.0)
+                            profit = fresh_position.get('profit', 0.0)
+                            applied_sl = fresh_position.get('sl', 0.0)
+                            effective_sl_profit = self.get_effective_sl_profit(fresh_position)
                             
-                            self._timing_stats['update_counts'][ticket] += 1
-                            self._timing_stats['last_update_time'] = datetime.now()
-                        
-                        # Log update with full details
-                        symbol = fresh_position.get('symbol', 'N/A')
-                        entry_price = fresh_position.get('price_open', 0.0)
-                        current_price = fresh_position.get('price_current', 0.0)
-                        profit = fresh_position.get('profit', 0.0)
-                        applied_sl = fresh_position.get('sl', 0.0)
-                        effective_sl_profit = self.get_effective_sl_profit(fresh_position)
-                        
-                        # Replace "Unknown" with concrete reason
-                        if reason == "Unknown" or "unknown" in reason.lower():
-                            reason = f"SL update completed (success: {success})"
-                        
-                        # OPTIMIZATION: Only log SL updates if:
-                        # 1. Update failed (always log failures)
-                        # 2. Update was slow (>20ms latency)
-                        # 3. Profit-locking trade (important to track)
-                        # 4. First position in loop (to show loop is working)
-                        should_log_sl_update = (not success) or (update_latency > 20) or is_profit_locking or should_log_position
-                        if should_log_sl_update:
-                            log_level = logger.warning if not success else logger.info
-                            log_level(f"🔄 SL UPDATE | Ticket: {ticket} | Symbol: {symbol} | "
-                                     f"Entry: {entry_price:.5f} | Target SL: {applied_sl:.5f} | "
-                                     f"Applied SL: {applied_sl:.5f} | Effective SL Profit: ${effective_sl_profit:.2f} | "
-                                     f"Reason: {reason} | Latency: {update_latency:.1f}ms | Success: {success}")
-                        
-                        # OPTIMIZATION: Queue CSV write to background thread instead of blocking main loop
-                        # CSV writing involves file I/O which can be slow
-                        with self._tracking_lock:
-                            last_update_time = self._last_sl_success.get(ticket) or self._last_sl_attempt.get(ticket)
-                            consecutive_failures = self._consecutive_failures.get(ticket, 0)
-                        
-                        # Queue CSV write to background (non-blocking)
-                        try:
-                            self._csv_write_queue.put_nowait({
-                                'ticket': ticket, 'symbol': symbol, 'entry_price': entry_price,
-                                'current_price': current_price, 'profit': profit,
-                                'target_sl': applied_sl, 'applied_sl': applied_sl,
-                                'effective_sl_profit': effective_sl_profit,
-                                'last_update_time': last_update_time,
-                                'last_update_result': 'SUCCESS' if success else 'FAILED',
-                                'failure_reason': reason if not success else None,
-                                'consecutive_failures': consecutive_failures
-                            })
-                        except queue.Full:
-                            logger.debug(f"CSV write queue full for ticket {ticket}, skipping")
-                        except Exception:
-                            pass  # Ignore errors - CSV writing is non-critical
-                        update_error_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-                        logger.error(f"[{update_error_timestamp}] SL update exception for Ticket {ticket}: {update_error}", exc_info=True)
-                        success = False
-                        reason = f"Exception: {str(update_error)}"
-                        update_latency = (time.time() - update_start) * 1000
-                        
-                        # Track failure
-                        with self._tracking_lock:
-                            self._consecutive_failures[ticket] += 1
-                            failures = self._consecutive_failures[ticket]
+                            # Replace "Unknown" with concrete reason
+                            if reason == "Unknown" or "unknown" in reason.lower():
+                                reason = f"SL update completed (success: {success})"
                             
-                            # Circuit breaker: disable after 5 consecutive failures (but NOT for profit-locking trades)
-                            # CRITICAL FIX: Bypass circuit breaker for profit-locking trades
-                            if failures >= 5 and not is_profit_locking:
-                                disabled_until = time.time() + self._circuit_breaker_cooldown
-                                self._ticket_circuit_breaker[ticket] = disabled_until
-                                logger.critical(f"🚨 CIRCUIT BREAKER: Ticket {ticket} disabled for {self._circuit_breaker_cooldown}s after {failures} consecutive failures")
-                            elif failures >= 5 and is_profit_locking:
-                                logger.warning(f"[WARNING] Profit-locking Ticket {ticket} has {failures} failures, but circuit breaker bypassed for profit-locking trades")
-                
-                # Track loop duration
-                loop_duration = (time.time() - loop_start_time) * 1000  # Convert to ms
-                with self._timing_lock:
-                    self._timing_stats['loop_durations'].append(loop_duration)
-                    if len(self._timing_stats['loop_durations']) > 1000:
-                        self._timing_stats['loop_durations'].pop(0)
-                    self._timing_stats['last_loop_time'] = datetime.now()
-                
-                # CRITICAL FIX: Log performance warning if loop exceeds target
-                # Target: <10ms ideal, <50ms acceptable
-                if loop_duration > 50:
-                    loop_end_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-                    logger.warning(f"[{loop_end_timestamp}] [WARNING] SL Worker loop exceeded 50ms target: {loop_duration:.1f}ms (target: <50ms, ideal: <10ms) | Positions: {len(positions) if 'positions' in locals() else 0}")
+                            # OPTIMIZATION: Only log SL updates if:
+                            # 1. Update failed (always log failures)
+                            # 2. Update was slow (>20ms latency)
+                            # 3. Profit-locking trade (important to track)
+                            # 4. First position in loop (to show loop is working)
+                            should_log_sl_update = (not success) or (update_latency > 20) or is_profit_locking or should_log_position
+                            if should_log_sl_update:
+                                log_level = logger.warning if not success else logger.info
+                                log_level(f"🔄 SL UPDATE | Ticket: {ticket} | Symbol: {symbol} | "
+                                         f"Entry: {entry_price:.5f} | Target SL: {applied_sl:.5f} | "
+                                         f"Applied SL: {applied_sl:.5f} | Effective SL Profit: ${effective_sl_profit:.2f} | "
+                                         f"Reason: {reason} | Latency: {update_latency:.1f}ms | Success: {success}")
+                            
+                            # OPTIMIZATION: Queue CSV write to background thread instead of blocking main loop
+                            # CSV writing involves file I/O which can be slow
+                            with self._tracking_lock:
+                                last_update_time = self._last_sl_success.get(ticket) or self._last_sl_attempt.get(ticket)
+                                consecutive_failures = self._consecutive_failures.get(ticket, 0)
+                            
+                            # Queue CSV write to background (non-blocking)
+                            try:
+                                self._csv_write_queue.put_nowait({
+                                    'ticket': ticket, 'symbol': symbol, 'entry_price': entry_price,
+                                    'current_price': current_price, 'profit': profit,
+                                    'target_sl': applied_sl, 'applied_sl': applied_sl,
+                                    'effective_sl_profit': effective_sl_profit,
+                                    'last_update_time': last_update_time,
+                                    'last_update_result': 'SUCCESS' if success else 'FAILED',
+                                    'failure_reason': reason if not success else None,
+                                    'consecutive_failures': consecutive_failures
+                                })
+                            except queue.Full:
+                                logger.debug(f"CSV write queue full for ticket {ticket}, skipping")
+                            except Exception:
+                                pass  # Ignore errors - CSV writing is non-critical
+                    
+                    # Track loop duration
+                    loop_duration = (time.time() - loop_start_time) * 1000  # Convert to ms
+                    with self._timing_lock:
+                        self._timing_stats['loop_durations'].append(loop_duration)
+                        if len(self._timing_stats['loop_durations']) > 1000:
+                            self._timing_stats['loop_durations'].pop(0)
+                        self._timing_stats['last_loop_time'] = datetime.now()
+                    
+                    # CRITICAL FIX: Log performance warning if loop exceeds target
+                    # Target: <10ms ideal, <50ms acceptable
+                    if loop_duration > 50:
+                        loop_end_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+                        logger.warning(f"[{loop_end_timestamp}] [WARNING] SL Worker loop exceeded 50ms target: {loop_duration:.1f}ms (target: <50ms, ideal: <10ms) | Positions: {len(positions) if 'positions' in locals() else 0}")
+                        tracer.trace(
+                            function_name="SLManager._sl_worker_loop",
+                            expected=f"Complete iteration {iteration} in <50ms",
+                            actual=f"Iteration {iteration} exceeded 50ms target (took {loop_duration:.1f}ms)",
+                            status="WARNING",
+                            iteration=iteration,
+                            duration_ms=loop_duration,
+                            position_count=len(positions) if 'positions' in locals() else 0
+                        )
+                    elif loop_duration > 10:
+                        # Log info if between 10-50ms (acceptable but not ideal)
+                        if iteration % 50 == 0:  # Only log every 50 iterations to reduce noise
+                            logger.info(f"SL Worker loop duration: {loop_duration:.1f}ms (acceptable, but target is <10ms) | Positions: {len(positions) if 'positions' in locals() else 0}")
+                    
+                    # Sleep to maintain cadence (or instant if interval = 0)
+                    elapsed = time.time() - loop_start_time
+                    sleep_time = max(0, self._sl_worker_interval - elapsed) if self._sl_worker_interval > 0 else 0
+                    
                     tracer.trace(
                         function_name="SLManager._sl_worker_loop",
-                        expected=f"Complete iteration {iteration} in <50ms",
-                        actual=f"Iteration {iteration} exceeded 50ms target (took {loop_duration:.1f}ms)",
-                        status="WARNING",
+                        expected=f"Complete iteration {iteration} and sleep {self._sl_worker_interval}s",
+                        actual=f"Iteration {iteration} completed in {elapsed:.3f}s, sleeping {sleep_time:.3f}s",
+                        status="OK",
                         iteration=iteration,
-                        duration_ms=loop_duration,
-                        position_count=len(positions) if 'positions' in locals() else 0
+                        duration_seconds=round(elapsed, 3),
+                        positions_processed=len(positions) if 'positions' in locals() else 0
                     )
-                elif loop_duration > 10:
-                    # Log info if between 10-50ms (acceptable but not ideal)
-                    if iteration % 50 == 0:  # Only log every 50 iterations to reduce noise
-                        logger.info(f"SL Worker loop duration: {loop_duration:.1f}ms (acceptable, but target is <10ms) | Positions: {len(positions) if 'positions' in locals() else 0}")
+                    
+                    if sleep_time > 0:
+                        time.sleep(sleep_time)
+                    # If instant trailing (sleep_time = 0), continue immediately
+                    # Note: Performance warning already logged above if loop_duration > 50ms
                 
-                # Sleep to maintain cadence (or instant if interval = 0)
-                elapsed = time.time() - loop_start_time
-                sleep_time = max(0, self._sl_worker_interval - elapsed) if self._sl_worker_interval > 0 else 0
-                
-                tracer.trace(
-                    function_name="SLManager._sl_worker_loop",
-                    expected=f"Complete iteration {iteration} and sleep {self._sl_worker_interval}s",
-                    actual=f"Iteration {iteration} completed in {elapsed:.3f}s, sleeping {sleep_time:.3f}s",
-                    status="OK",
-                    iteration=iteration,
-                    duration_seconds=round(elapsed, 3),
-                    positions_processed=len(positions) if 'positions' in locals() else 0
-                )
-                
-                if sleep_time > 0:
-                    time.sleep(sleep_time)
-                # If instant trailing (sleep_time = 0), continue immediately
-                # Note: Performance warning already logged above if loop_duration > 50ms
+        except Exception as e:
+            # MANDATORY OBSERVABILITY: Log thread crash with full stack trace and system event
+            import os
+            import traceback
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            thread_name = threading.current_thread().name
+            error_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+            full_traceback = traceback.format_exc()
             
-            except Exception as e:
-                # Error debouncing
-                error_signature = f"{type(e).__name__}:{str(e)[:100]}"
-                current_time = time.time()
-                error_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-                
-                should_log = True
-                if error_signature in self._error_debounce:
-                    time_since_last = current_time - self._error_debounce[error_signature]
-                    if time_since_last < self._error_debounce_window:
-                        should_log = False
-                
-                # Always track occurrence
-                self._error_occurrence_metrics[error_signature] += 1
-                
-                if should_log:
-                    logger.error(f"[{error_timestamp}] Error in SL worker loop: {e}", exc_info=True)
-                    self._error_debounce[error_signature] = current_time
-                else:
-                    logger.debug(f"[{error_timestamp}] Error debounced (occurred {self._error_occurrence_metrics[error_signature]} times): {error_signature}")
-                
-                # Continue loop even on error
-                if self._sl_worker_interval > 0:
-                    time.sleep(self._sl_worker_interval)
-                # If instant trailing (interval = 0), continue immediately
+            logger.critical(f"[THREAD_CRASH] {thread_name} pid={pid} tid={tid}")
+            logger.error(f"[{error_timestamp}] Error in SL worker loop: {e}", exc_info=True)
+            
+            # Emit system event for thread crash
+            try:
+                system_event_logger.systemEvent("CRITICAL", {
+                    "tag": "THREAD_DIED",
+                    "thread_name": thread_name,
+                    "thread_id": tid,
+                    "error": str(e),
+                    "error_type": type(e).__name__
+                })
+            except Exception:
+                pass  # Fallback if system event logger fails
+            # Notify global health monitor that SLWorker died and block trading
+            try:
+                system_health.mark_thread_dead("SLWorker", f"exception: {type(e).__name__}")
+            except Exception:
+                pass
         
-        if self._sl_worker_running:
-            logger.critical("[ERROR] SLManager worker loop STOPPED unexpectedly (shutdown event was not set)")
-        else:
-            logger.info("SL Worker loop stopped normally")
+            # MANDATORY OBSERVABILITY: Log thread stop
+            import os
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            thread_name = threading.current_thread().name
+            reason = "shutdown_requested" if not self._sl_worker_running else "unexpected_stop"
+            
+            if self._sl_worker_running:
+                logger.critical("[ERROR] SLManager worker loop STOPPED unexpectedly (shutdown event was not set)")
+                logger.critical(f"[THREAD_STOP] {thread_name} pid={pid} tid={tid} reason={reason}")
+            else:
+                logger.info(f"[THREAD_STOP] {thread_name} pid={pid} tid={tid} reason={reason}")
+                logger.info("SL Worker loop stopped normally")
+        except Exception as fatal_error:
+            # MANDATORY OBSERVABILITY: Catch fatal errors that would crash the thread
+            import os
+            import traceback
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            thread_name = threading.current_thread().name
+            full_traceback = traceback.format_exc()
+            
+            logger.critical(f"[THREAD_CRASH] {thread_name} pid={pid} tid={tid} FATAL_ERROR")
+            logger.critical(f"Fatal error in SL worker loop: {fatal_error}", exc_info=True)
+            
+            # Emit system event for fatal thread crash
+            try:
+                system_event_logger.systemEvent("CRITICAL", {
+                    "tag": "THREAD_DIED",
+                    "thread_name": thread_name,
+                    "thread_id": tid,
+                    "error": str(fatal_error),
+                    "error_type": type(fatal_error).__name__,
+                    "fatal": True
+                })
+            except Exception:
+                pass  # Fallback if system event logger fails
     
     def _check_global_rpc_rate_limit(self, is_emergency: bool = False, consecutive_failures: int = 0) -> Tuple[bool, float]:
         """
@@ -5243,9 +5298,23 @@ class SLManager:
         return {
             'running': self._sl_worker_running,
             'thread_alive': self._sl_worker_thread.is_alive() if self._sl_worker_thread else False,
+            'last_position_count': self._sl_worker_last_position_count,
+            'last_active_tickets': self._sl_worker_last_active_tickets,
             'manual_review_tickets': list(self._manual_review_tickets),
             'error_occurrence_metrics': dict(self._error_occurrence_metrics)
         }
+    
+    def _get_sl_worker_metrics(self) -> Dict[str, Any]:
+        """
+        Metrics provider for timer-based heartbeat monitor.
+        
+        NOTE: Must NOT perform MT5 calls. Uses cached values only.
+        """
+        with self._tracking_lock:
+            return {
+                "positions": self._sl_worker_last_position_count,
+                "active_tickets": self._sl_worker_last_active_tickets,
+            }
     
     def _track_update_metrics(self, ticket: int, symbol: str, success: bool, reason: str, profit: float = 0.0,
                               activation_time_ms: Optional[float] = None, is_profit_locking: bool = False):

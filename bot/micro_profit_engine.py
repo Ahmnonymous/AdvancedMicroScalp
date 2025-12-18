@@ -56,6 +56,9 @@ class MicroProfitEngine:
         # Track positions being closed to prevent duplicate attempts
         self._closing_tickets = set()
         self._last_check_time = {}  # {ticket: timestamp} for rate limiting
+        
+        # MANDATORY OBSERVABILITY: Log initialization immediately
+        logger.info(f"[OK][MICRO_ENGINE_INIT] enabled={self.enabled} sweet_spot=${self.min_profit_threshold_usd:.2f}-${self.max_profit_threshold_usd:.2f}")
     
     def check_and_close(self, position: Dict[str, Any], mt5_connector) -> bool:
         """
