@@ -1541,7 +1541,32 @@ class RiskManager:
             if not passed:
                 return False, f"Entry filter: {filter_reason}"
         
-        current_positions = self.order_manager.get_position_count()
+        # Get all positions and filter out those on closed/halted markets
+        # CRITICAL FIX: Only count positions on tradeable markets for position limit checks
+        # This prevents closed/halted markets from blocking trades on other symbols
+        all_positions = self.order_manager.get_open_positions()
+        current_positions = 0
+        excluded_closed_market = 0
+        closed_market_tickets = []
+        
+        for pos in all_positions:
+            pos_symbol = pos.get('symbol')
+            if pos_symbol:
+                # Check if this position's market is currently tradeable
+                is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(pos_symbol, check_trade_allowed=False)
+                if is_tradeable:
+                    current_positions += 1
+                else:
+                    excluded_closed_market += 1
+                    closed_market_tickets.append((pos.get('ticket'), pos_symbol, reason))
+        
+        # Log excluded positions for observability
+        if excluded_closed_market > 0:
+            logger.info(f"[POSITION_COUNT] Excluding {excluded_closed_market} position(s) from closed/halted markets when checking trade eligibility")
+            for ticket, pos_symbol, reason in closed_market_tickets:
+                logger.info(f"[POSITION_COUNT] Excluded ticket {ticket} ({pos_symbol}): market closed/halted - {reason}")
+        
+        logger.debug(f"[POSITION_COUNT] Active positions: {current_positions} (total: {len(all_positions)}, excluded: {excluded_closed_market})")
         
         # If max_open_trades is None or -1, unlimited trades allowed
         if self.max_open_trades is None:
@@ -1583,9 +1608,18 @@ class RiskManager:
                 return True, "Unlimited trades allowed"
             return False, "Symbol and signal required for staged open"
         
-        # Get existing positions for this symbol
+        # Get existing positions for this symbol (only count tradeable market positions)
         positions = self.order_manager.get_open_positions()
-        symbol_positions = [p for p in positions if p['symbol'] == symbol]
+        symbol_positions = []
+        for p in positions:
+            pos_symbol = p.get('symbol')
+            if pos_symbol == symbol:
+                # Only count if this position's market is tradeable (same check as global position count)
+                is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(pos_symbol, check_trade_allowed=False)
+                if is_tradeable:
+                    symbol_positions.append(p)
+                else:
+                    logger.debug(f"[STAGED_OPEN] Excluding position {p.get('ticket')} on {pos_symbol} from symbol count (market closed/halted: {reason})")
         
         # If unlimited trades, skip symbol-specific max check
         if self.max_open_trades is not None and len(symbol_positions) >= self.max_open_trades:
