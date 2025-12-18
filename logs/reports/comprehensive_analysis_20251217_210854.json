@@ -1,0 +1,72 @@
+{
+  "report_timestamp": "2025-12-17T21:08:54.038676",
+  "session_duration_minutes": 141.06382526666667,
+  "active_positions": {
+    "total": 2,
+    "positions": [
+      {
+        "ticket": 526746781,
+        "symbol": "BTCUSDm",
+        "lot_size": 0.01,
+        "type": "BUY",
+        "entry_price": 85625.68000000001,
+        "current_price": 85899.49,
+        "profit": 2.73,
+        "time_open": "2025-12-17 19:43:18"
+      },
+      {
+        "ticket": 527060828,
+        "symbol": "TSLAm",
+        "lot_size": 0.01,
+        "type": "BUY",
+        "entry_price": 469.12,
+        "current_price": 469.3,
+        "profit": 0.18,
+        "time_open": "2025-12-17 20:44:19"
+      }
+    ],
+    "lot_size_issues": [],
+    "symbols": {
+      "BTCUSDm": 1,
+      "TSLAm": 1
+    },
+    "total_profit": 2.91
+  },
+  "trade_statistics": {
+    "total_trades": 0,
+    "closed_trades": 0,
+    "open_trades": 0
+  },
+  "micro_hft_performance": {
+    "capture_rate": 0.0,
+    "total_closures": 0,
+    "sweet_spot_closures": 0,
+    "missed_sweet_spot": 0,
+    "status": "No closures yet"
+  },
+  "filter_effectiveness": {
+    "statistics": {
+      "other_rejected": 697,
+      "rsi_rejected": 75,
+      "opportunities_found": 0,
+      "lot_size_rejected": 49,
+      "volume_rejected": 92,
+      "trend_strength_rejected": 2
+    },
+    "last_scan_time": "2025-12-17T21:08:54.037666"
+  },
+  "lot_size_compliance": {
+    "violations": [],
+    "max_lot_size": 0.03
+  },
+  "errors_detected": [],
+  "recommendations": [
+    {
+      "priority": "MEDIUM",
+      "category": "Filter Effectiveness",
+      "issue": "No trading opportunities found in recent scans",
+      "recommendation": "Consider adjusting filter thresholds if markets are active",
+      "action": "Monitor filter rejection reasons and adjust if too restrictive"
+    }
+  ]
+}

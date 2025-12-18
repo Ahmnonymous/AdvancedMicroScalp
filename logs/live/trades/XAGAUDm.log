@@ -1,0 +1,84 @@
+2025-12-17 18:53:21 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.1% of avg range > max 20.0%
+2025-12-17 18:53:53 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.1% of avg range > max 20.0%
+2025-12-17 18:59:42 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-17 19:00:15 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-17 19:05:11 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 42.7% of avg range > max 20.0%
+2025-12-17 19:05:43 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 42.7% of avg range > max 20.0%
+2025-12-17 19:18:54 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.0% of avg range > max 20.0%
+2025-12-17 19:19:24 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.2% of avg range > max 20.0%
+2025-12-17 19:32:09 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.0% of avg range > max 20.0%
+2025-12-17 19:32:40 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.0% of avg range > max 20.0%
+2025-12-17 19:38:41 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.0% of avg range > max 20.0%
+2025-12-17 19:39:13 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.8% of avg range > max 20.0%
+2025-12-17 19:47:58 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.2% of avg range > max 20.0%
+2025-12-17 19:48:37 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.6% of avg range > max 20.0%
+2025-12-17 19:50:23 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.9% of avg range > max 20.0%
+2025-12-17 19:50:57 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.9% of avg range > max 20.0%
+2025-12-17 20:04:23 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.6% of avg range > max 20.0%
+2025-12-17 20:04:56 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.6% of avg range > max 20.0%
+2025-12-17 20:08:57 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.3% of avg range > max 20.0%
+2025-12-17 20:09:32 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.4% of avg range > max 20.0%
+2025-12-17 20:24:10 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.9% of avg range > max 20.0%
+2025-12-17 20:24:44 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.9% of avg range > max 20.0%
+2025-12-17 20:32:21 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.7% of avg range > max 20.0%
+2025-12-17 20:32:55 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.7% of avg range > max 20.0%
+2025-12-17 20:37:00 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.3% of avg range > max 20.0%
+2025-12-17 20:37:39 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.8% of avg range > max 20.0%
+2025-12-17 21:02:49 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:03:21 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:05:54 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:06:24 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:17:14 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:17:44 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:18:12 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:25:32 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:26:03 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:26:32 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:36:07 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:36:36 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 21:37:06 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 23:30:33 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 155.7% of avg range > max 20.0%
+2025-12-17 23:31:02 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 149.8% of avg range > max 20.0%
+2025-12-17 23:31:30 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.7% of avg range > max 20.0%
+2025-12-18 00:49:51 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 124.0% of avg range > max 20.0%
+2025-12-18 00:50:14 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 115.5% of avg range > max 20.0%
+2025-12-18 00:50:37 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 115.5% of avg range > max 20.0%
+2025-12-18 01:40:54 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 37.5% of avg range > max 20.0%
+2025-12-18 01:41:17 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.8% of avg range > max 20.0%
+2025-12-18 01:41:40 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.8% of avg range > max 20.0%
+2025-12-18 01:42:06 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.3% of avg range > max 20.0%
+2025-12-18 01:42:29 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.3% of avg range > max 20.0%
+2025-12-18 01:42:52 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.3% of avg range > max 20.0%
+2025-12-18 01:45:36 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.0% of avg range > max 20.0%
+2025-12-18 01:46:00 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.0% of avg range > max 20.0%
+2025-12-18 01:46:23 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.8% of avg range > max 20.0%
+2025-12-18 02:23:08 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.6% of avg range > max 20.0%
+2025-12-18 02:23:49 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.6% of avg range > max 20.0%
+2025-12-18 02:25:49 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 78.9% of avg range > max 20.0%
+2025-12-18 02:26:28 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 78.7% of avg range > max 20.0%
+2025-12-18 02:29:48 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.7% of avg range > max 20.0%
+2025-12-18 02:30:32 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.4% of avg range > max 20.0%
+2025-12-18 02:33:51 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.8% of avg range > max 20.0%
+2025-12-18 02:34:28 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.7% of avg range > max 20.0%
+2025-12-18 02:41:51 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.5% of avg range > max 20.0%
+2025-12-18 02:42:30 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.2% of avg range > max 20.0%
+2025-12-18 02:48:28 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.5% of avg range > max 20.0%
+2025-12-18 02:49:08 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.3% of avg range > max 20.0%
+2025-12-18 03:43:44 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.6% of avg range > max 20.0%
+2025-12-18 03:44:22 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.3% of avg range > max 20.0%
+2025-12-18 03:47:42 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 86.5% of avg range > max 20.0%
+2025-12-18 03:48:23 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 85.8% of avg range > max 20.0%
+2025-12-18 03:55:38 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 124.3% of avg range > max 20.0%
+2025-12-18 03:56:19 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.0% of avg range > max 20.0%
+2025-12-18 04:29:21 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 101.2% of avg range > max 20.0%
+2025-12-18 04:29:59 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 101.2% of avg range > max 20.0%
+2025-12-18 04:48:33 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 139.0% of avg range > max 20.0%
+2025-12-18 04:49:11 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 135.9% of avg range > max 20.0%
+2025-12-18 05:59:46 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-18 06:00:27 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-18 06:11:50 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.2% of avg range > max 20.0%
+2025-12-18 06:12:30 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.2% of avg range > max 20.0%
+2025-12-18 06:19:39 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.6% of avg range > max 20.0%
+2025-12-18 06:20:22 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.6% of avg range > max 20.0%
+2025-12-18 06:30:32 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.4% of avg range > max 20.0%
+2025-12-18 06:31:13 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.9% of avg range > max 20.0%

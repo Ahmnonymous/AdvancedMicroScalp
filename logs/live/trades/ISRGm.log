@@ -1,0 +1,2 @@
+2025-12-17 19:18:54 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 305.9% of avg range > max 20.0%
+2025-12-17 19:19:24 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 308.9% of avg range > max 20.0%

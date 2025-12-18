@@ -1,0 +1,7 @@
+2025-12-17 19:08:50 - trades.BMYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 1.50 pips
+2025-12-17 19:09:20 - trades.BMYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 1.50 pips
+2025-12-17 19:11:56 - trades.BMYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 1.50 pips
+2025-12-17 19:12:29 - trades.BMYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 1.50 pips
+2025-12-17 19:38:01 - trades.BMYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 1.50 pips
+2025-12-17 19:38:35 - trades.BMYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 1.50 pips
+2025-12-17 19:53:44 - trades.BMYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 1.50 pips

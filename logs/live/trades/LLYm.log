@@ -1,0 +1,18 @@
+2025-12-17 18:59:38 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-17 19:00:12 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-17 19:08:19 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 141.4% of avg range > max 20.0%
+2025-12-17 19:08:51 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 140.4% of avg range > max 20.0%
+2025-12-17 19:39:42 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 134.5% of avg range > max 20.0%
+2025-12-17 19:40:17 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 132.0% of avg range > max 20.0%
+2025-12-17 19:45:33 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.0% of avg range > max 20.0%
+2025-12-17 19:46:08 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 143.0% of avg range > max 20.0%
+2025-12-17 19:52:37 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 142.2% of avg range > max 20.0%
+2025-12-17 19:53:12 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.7% of avg range > max 20.0%
+2025-12-17 19:57:13 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.9% of avg range > max 20.0%
+2025-12-17 19:57:49 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 122.8% of avg range > max 20.0%
+2025-12-17 20:01:54 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 127.0% of avg range > max 20.0%
+2025-12-17 20:02:32 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 133.3% of avg range > max 20.0%
+2025-12-17 20:18:08 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 141.9% of avg range > max 20.0%
+2025-12-17 20:18:43 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 140.7% of avg range > max 20.0%
+2025-12-17 20:29:50 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 170.7% of avg range > max 20.0%
+2025-12-17 20:30:28 - trades.LLYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.8% of avg range > max 20.0%

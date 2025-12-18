@@ -1,0 +1,17 @@
+2025-12-17 22:55:57 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 22:56:23 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 22:56:51 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 22:57:19 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 22:57:47 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 22:58:14 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: rollover window 21:00-23:00 GMT blocked
+2025-12-17 23:15:33 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3464.8% of avg range > max 20.0%
+2025-12-17 23:16:06 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3624.5% of avg range > max 20.0%
+2025-12-17 23:36:14 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7332.3% of avg range > max 20.0%
+2025-12-17 23:36:44 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7322.7% of avg range > max 20.0%
+2025-12-17 23:37:12 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7217.2% of avg range > max 20.0%
+2025-12-17 23:50:10 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9151.5% of avg range > max 20.0%
+2025-12-17 23:50:38 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9055.6% of avg range > max 20.0%
+2025-12-17 23:51:08 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8890.1% of avg range > max 20.0%
+2025-12-18 00:38:39 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2217.3% of avg range > max 20.0%
+2025-12-18 00:39:03 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2133.1% of avg range > max 20.0%
+2025-12-18 00:39:26 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2058.4% of avg range > max 20.0%

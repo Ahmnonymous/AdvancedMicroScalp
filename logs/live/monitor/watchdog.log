@@ -1,0 +1,1145 @@
+2025-12-17 18:47:53 - watchdog - INFO - SL Watchdog initialized
+2025-12-17 18:47:53 - watchdog - INFO - Watchdog loop started
+2025-12-17 18:47:53 - watchdog - INFO - [OK] SL Watchdog started
+2025-12-17 19:21:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:10 - watchdog - WARNING -    Ticket 526606589: 3.0s since last update
+2025-12-17 19:21:10 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: 1 stale tickets (>0.5) | Restarts in last 10min: 0
+2025-12-17 19:21:12 - watchdog - INFO - [OK] SL Worker restarted successfully
+2025-12-17 19:21:17 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:18 - watchdog - WARNING -    Ticket 526606589: 10.3s since last update
+2025-12-17 19:21:18 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: 1 stale tickets (>0.5) | Restarts in last 10min: 1
+2025-12-17 19:21:19 - watchdog - INFO - [OK] SL Worker restarted successfully
+2025-12-17 19:21:25 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:25 - watchdog - WARNING -    Ticket 526606589: 17.4s since last update
+2025-12-17 19:21:25 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:21:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:30 - watchdog - WARNING -    Ticket 526606589: 22.5s since last update
+2025-12-17 19:21:30 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:21:35 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:35 - watchdog - WARNING -    Ticket 526606589: 27.5s since last update
+2025-12-17 19:21:35 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:21:40 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:40 - watchdog - WARNING -    Ticket 526606589: 32.6s since last update
+2025-12-17 19:21:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:21:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:45 - watchdog - WARNING -    Ticket 526606589: 38.2s since last update
+2025-12-17 19:21:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:21:50 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:50 - watchdog - WARNING -    Ticket 526606589: 43.3s since last update
+2025-12-17 19:21:50 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:21:55 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:21:55 - watchdog - WARNING -    Ticket 526606589: 48.3s since last update
+2025-12-17 19:21:55 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:01 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:01 - watchdog - WARNING -    Ticket 526606589: 53.4s since last update
+2025-12-17 19:22:01 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:06 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:06 - watchdog - WARNING -    Ticket 526606589: 58.5s since last update
+2025-12-17 19:22:06 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:11 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:11 - watchdog - WARNING -    Ticket 526606589: 63.5s since last update
+2025-12-17 19:22:11 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:16 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:16 - watchdog - WARNING -    Ticket 526606589: 68.5s since last update
+2025-12-17 19:22:16 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:21 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:21 - watchdog - WARNING -    Ticket 526606589: 73.7s since last update
+2025-12-17 19:22:21 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:26 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:26 - watchdog - WARNING -    Ticket 526606589: 78.7s since last update
+2025-12-17 19:22:26 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:31 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:31 - watchdog - WARNING -    Ticket 526606589: 83.8s since last update
+2025-12-17 19:22:31 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:36 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:36 - watchdog - WARNING -    Ticket 526606589: 88.9s since last update
+2025-12-17 19:22:36 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:41 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:41 - watchdog - WARNING -    Ticket 526606589: 94.1s since last update
+2025-12-17 19:22:41 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:46 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:46 - watchdog - WARNING -    Ticket 526606589: 99.2s since last update
+2025-12-17 19:22:46 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:52 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:52 - watchdog - WARNING -    Ticket 526606589: 104.4s since last update
+2025-12-17 19:22:52 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:22:57 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:22:57 - watchdog - WARNING -    Ticket 526606589: 109.5s since last update
+2025-12-17 19:22:57 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:02 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:02 - watchdog - WARNING -    Ticket 526606589: 114.6s since last update
+2025-12-17 19:23:02 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:07 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:07 - watchdog - WARNING -    Ticket 526606589: 119.7s since last update
+2025-12-17 19:23:07 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:12 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:12 - watchdog - WARNING -    Ticket 526606589: 124.7s since last update
+2025-12-17 19:23:12 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:17 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:17 - watchdog - WARNING -    Ticket 526606589: 129.8s since last update
+2025-12-17 19:23:17 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:22 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:22 - watchdog - WARNING -    Ticket 526606589: 134.8s since last update
+2025-12-17 19:23:22 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:27 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:27 - watchdog - WARNING -    Ticket 526606589: 139.8s since last update
+2025-12-17 19:23:27 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:32 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:32 - watchdog - WARNING -    Ticket 526606589: 145.0s since last update
+2025-12-17 19:23:32 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:37 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:37 - watchdog - WARNING -    Ticket 526606589: 150.1s since last update
+2025-12-17 19:23:37 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:42 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:42 - watchdog - WARNING -    Ticket 526606589: 155.1s since last update
+2025-12-17 19:23:42 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:47 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:47 - watchdog - WARNING -    Ticket 526606589: 160.1s since last update
+2025-12-17 19:23:47 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:52 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:52 - watchdog - WARNING -    Ticket 526606589: 165.2s since last update
+2025-12-17 19:23:52 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:23:57 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:23:57 - watchdog - WARNING -    Ticket 526606589: 170.2s since last update
+2025-12-17 19:23:57 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:02 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:02 - watchdog - WARNING -    Ticket 526606589: 175.3s since last update
+2025-12-17 19:24:02 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:07 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:08 - watchdog - WARNING -    Ticket 526606589: 180.3s since last update
+2025-12-17 19:24:08 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:13 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:13 - watchdog - WARNING -    Ticket 526606589: 185.4s since last update
+2025-12-17 19:24:13 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:18 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:18 - watchdog - WARNING -    Ticket 526606589: 190.4s since last update
+2025-12-17 19:24:18 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:23 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:23 - watchdog - WARNING -    Ticket 526606589: 195.6s since last update
+2025-12-17 19:24:23 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:28 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:28 - watchdog - WARNING -    Ticket 526606589: 200.7s since last update
+2025-12-17 19:24:28 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:34 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:34 - watchdog - WARNING -    Ticket 526606589: 206.4s since last update
+2025-12-17 19:24:34 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:39 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:39 - watchdog - WARNING -    Ticket 526606589: 211.5s since last update
+2025-12-17 19:24:39 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:44 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:44 - watchdog - WARNING -    Ticket 526606589: 216.5s since last update
+2025-12-17 19:24:44 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:49 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:49 - watchdog - WARNING -    Ticket 526606589: 221.5s since last update
+2025-12-17 19:24:49 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:54 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:54 - watchdog - WARNING -    Ticket 526606589: 226.6s since last update
+2025-12-17 19:24:54 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:24:59 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:24:59 - watchdog - WARNING -    Ticket 526606589: 231.9s since last update
+2025-12-17 19:24:59 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:04 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:04 - watchdog - WARNING -    Ticket 526606589: 236.9s since last update
+2025-12-17 19:25:04 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:09 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:09 - watchdog - WARNING -    Ticket 526606589: 242.0s since last update
+2025-12-17 19:25:09 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:14 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:14 - watchdog - WARNING -    Ticket 526606589: 247.1s since last update
+2025-12-17 19:25:14 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:19 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:19 - watchdog - WARNING -    Ticket 526606589: 252.1s since last update
+2025-12-17 19:25:19 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:24 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:24 - watchdog - WARNING -    Ticket 526606589: 257.2s since last update
+2025-12-17 19:25:24 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:29 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:29 - watchdog - WARNING -    Ticket 526606589: 262.2s since last update
+2025-12-17 19:25:29 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:34 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:34 - watchdog - WARNING -    Ticket 526606589: 267.3s since last update
+2025-12-17 19:25:34 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:39 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:40 - watchdog - WARNING -    Ticket 526606589: 272.3s since last update
+2025-12-17 19:25:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:45 - watchdog - WARNING -    Ticket 526606589: 277.5s since last update
+2025-12-17 19:25:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:50 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:50 - watchdog - WARNING -    Ticket 526606589: 282.5s since last update
+2025-12-17 19:25:50 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:25:55 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:25:55 - watchdog - WARNING -    Ticket 526606589: 287.5s since last update
+2025-12-17 19:25:55 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:00 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:00 - watchdog - WARNING -    Ticket 526606589: 292.6s since last update
+2025-12-17 19:26:00 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:05 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:05 - watchdog - WARNING -    Ticket 526606589: 297.8s since last update
+2025-12-17 19:26:05 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:10 - watchdog - WARNING -    Ticket 526606589: 302.9s since last update
+2025-12-17 19:26:10 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:15 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:15 - watchdog - WARNING -    Ticket 526606589: 308.1s since last update
+2025-12-17 19:26:15 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:20 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:20 - watchdog - WARNING -    Ticket 526606589: 313.1s since last update
+2025-12-17 19:26:20 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:25 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:25 - watchdog - WARNING -    Ticket 526606589: 318.1s since last update
+2025-12-17 19:26:25 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:30 - watchdog - WARNING -    Ticket 526606589: 323.2s since last update
+2025-12-17 19:26:30 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:36 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:36 - watchdog - WARNING -    Ticket 526606589: 328.4s since last update
+2025-12-17 19:26:36 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:41 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:41 - watchdog - WARNING -    Ticket 526606589: 333.5s since last update
+2025-12-17 19:26:41 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:46 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:46 - watchdog - WARNING -    Ticket 526606589: 338.5s since last update
+2025-12-17 19:26:46 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:51 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:51 - watchdog - WARNING -    Ticket 526606589: 343.6s since last update
+2025-12-17 19:26:51 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:26:56 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:26:56 - watchdog - WARNING -    Ticket 526606589: 348.6s since last update
+2025-12-17 19:26:56 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:01 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:01 - watchdog - WARNING -    Ticket 526606589: 353.7s since last update
+2025-12-17 19:27:01 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:06 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:06 - watchdog - WARNING -    Ticket 526606589: 358.7s since last update
+2025-12-17 19:27:06 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:11 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:11 - watchdog - WARNING -    Ticket 526606589: 363.8s since last update
+2025-12-17 19:27:11 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:16 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:16 - watchdog - WARNING -    Ticket 526606589: 368.8s since last update
+2025-12-17 19:27:16 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:21 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:21 - watchdog - WARNING -    Ticket 526606589: 373.9s since last update
+2025-12-17 19:27:21 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:26 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:26 - watchdog - WARNING -    Ticket 526606589: 378.9s since last update
+2025-12-17 19:27:26 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:31 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:31 - watchdog - WARNING -    Ticket 526606589: 384.0s since last update
+2025-12-17 19:27:31 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:36 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:36 - watchdog - WARNING -    Ticket 526606589: 389.1s since last update
+2025-12-17 19:27:36 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:41 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:41 - watchdog - WARNING -    Ticket 526606589: 394.2s since last update
+2025-12-17 19:27:41 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:46 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:46 - watchdog - WARNING -    Ticket 526606589: 399.2s since last update
+2025-12-17 19:27:46 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:51 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:51 - watchdog - WARNING -    Ticket 526606589: 404.3s since last update
+2025-12-17 19:27:51 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:27:56 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:27:57 - watchdog - WARNING -    Ticket 526606589: 409.3s since last update
+2025-12-17 19:27:57 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:02 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:02 - watchdog - WARNING -    Ticket 526606589: 414.5s since last update
+2025-12-17 19:28:02 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:07 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:07 - watchdog - WARNING -    Ticket 526606589: 419.5s since last update
+2025-12-17 19:28:07 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:12 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:12 - watchdog - WARNING -    Ticket 526606589: 424.6s since last update
+2025-12-17 19:28:12 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:17 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:17 - watchdog - WARNING -    Ticket 526606589: 430.2s since last update
+2025-12-17 19:28:17 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:22 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:22 - watchdog - WARNING -    Ticket 526606589: 435.2s since last update
+2025-12-17 19:28:22 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:27 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:27 - watchdog - WARNING -    Ticket 526606589: 440.3s since last update
+2025-12-17 19:28:27 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:32 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:32 - watchdog - WARNING -    Ticket 526606589: 445.3s since last update
+2025-12-17 19:28:32 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:38 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:38 - watchdog - WARNING -    Ticket 526606589: 450.4s since last update
+2025-12-17 19:28:38 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:43 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:43 - watchdog - WARNING -    Ticket 526606589: 455.4s since last update
+2025-12-17 19:28:43 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:48 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:48 - watchdog - WARNING -    Ticket 526606589: 460.5s since last update
+2025-12-17 19:28:48 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:53 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:53 - watchdog - WARNING -    Ticket 526606589: 465.9s since last update
+2025-12-17 19:28:53 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:28:58 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:28:58 - watchdog - WARNING -    Ticket 526606589: 471.0s since last update
+2025-12-17 19:28:58 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:03 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:03 - watchdog - WARNING -    Ticket 526606589: 476.0s since last update
+2025-12-17 19:29:03 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:08 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:08 - watchdog - WARNING -    Ticket 526606589: 481.2s since last update
+2025-12-17 19:29:08 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:13 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:13 - watchdog - WARNING -    Ticket 526606589: 486.2s since last update
+2025-12-17 19:29:13 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:18 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:18 - watchdog - WARNING -    Ticket 526606589: 491.3s since last update
+2025-12-17 19:29:18 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:23 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:23 - watchdog - WARNING -    Ticket 526606589: 496.3s since last update
+2025-12-17 19:29:23 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:29 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:29 - watchdog - WARNING -    Ticket 526606589: 501.4s since last update
+2025-12-17 19:29:29 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:34 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:34 - watchdog - WARNING -    Ticket 526606589: 506.4s since last update
+2025-12-17 19:29:34 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:39 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:39 - watchdog - WARNING -    Ticket 526606589: 511.5s since last update
+2025-12-17 19:29:39 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:44 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:44 - watchdog - WARNING -    Ticket 526606589: 516.5s since last update
+2025-12-17 19:29:44 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:49 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:49 - watchdog - WARNING -    Ticket 526606589: 521.6s since last update
+2025-12-17 19:29:49 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:54 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:54 - watchdog - WARNING -    Ticket 526606589: 526.6s since last update
+2025-12-17 19:29:54 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:29:59 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:29:59 - watchdog - WARNING -    Ticket 526606589: 531.7s since last update
+2025-12-17 19:29:59 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:04 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:04 - watchdog - WARNING -    Ticket 526606589: 536.8s since last update
+2025-12-17 19:30:04 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:10 - watchdog - WARNING -    Ticket 526606589: 542.9s since last update
+2025-12-17 19:30:10 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:15 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:15 - watchdog - WARNING -    Ticket 526606589: 547.9s since last update
+2025-12-17 19:30:15 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:20 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:20 - watchdog - WARNING -    Ticket 526606589: 553.0s since last update
+2025-12-17 19:30:20 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:25 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:25 - watchdog - WARNING -    Ticket 526606589: 558.0s since last update
+2025-12-17 19:30:25 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:30 - watchdog - WARNING -    Ticket 526606589: 563.1s since last update
+2025-12-17 19:30:30 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:35 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:35 - watchdog - WARNING -    Ticket 526606589: 568.1s since last update
+2025-12-17 19:30:35 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:40 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:40 - watchdog - WARNING -    Ticket 526606589: 573.2s since last update
+2025-12-17 19:30:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:45 - watchdog - WARNING -    Ticket 526606589: 578.3s since last update
+2025-12-17 19:30:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:51 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:51 - watchdog - WARNING -    Ticket 526606589: 583.4s since last update
+2025-12-17 19:30:51 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:30:56 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:30:56 - watchdog - WARNING -    Ticket 526606589: 588.4s since last update
+2025-12-17 19:30:56 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:01 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:01 - watchdog - WARNING -    Ticket 526606589: 593.5s since last update
+2025-12-17 19:31:01 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:06 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:06 - watchdog - WARNING -    Ticket 526606589: 598.6s since last update
+2025-12-17 19:31:06 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:11 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:11 - watchdog - WARNING -    Ticket 526606589: 603.6s since last update
+2025-12-17 19:31:11 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: 1 stale tickets (>0.5) | Restarts in last 10min: 1
+2025-12-17 19:31:12 - watchdog - INFO - [OK] SL Worker restarted successfully
+2025-12-17 19:31:17 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:17 - watchdog - WARNING -    Ticket 526606589: 609.9s since last update
+2025-12-17 19:31:17 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:22 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:22 - watchdog - WARNING -    Ticket 526606589: 614.9s since last update
+2025-12-17 19:31:22 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: 1 stale tickets (>0.5) | Restarts in last 10min: 1
+2025-12-17 19:31:23 - watchdog - INFO - [OK] SL Worker restarted successfully
+2025-12-17 19:31:28 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:28 - watchdog - WARNING -    Ticket 526606589: 621.1s since last update
+2025-12-17 19:31:28 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:33 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:33 - watchdog - WARNING -    Ticket 526606589: 626.1s since last update
+2025-12-17 19:31:33 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:38 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:38 - watchdog - WARNING -    Ticket 526606589: 631.2s since last update
+2025-12-17 19:31:38 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:43 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:43 - watchdog - WARNING -    Ticket 526606589: 636.2s since last update
+2025-12-17 19:31:43 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:48 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:48 - watchdog - WARNING -    Ticket 526606589: 641.2s since last update
+2025-12-17 19:31:48 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:53 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:53 - watchdog - WARNING -    Ticket 526606589: 646.3s since last update
+2025-12-17 19:31:53 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:31:58 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:31:58 - watchdog - WARNING -    Ticket 526606589: 651.3s since last update
+2025-12-17 19:31:58 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:04 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:04 - watchdog - WARNING -    Ticket 526606589: 656.4s since last update
+2025-12-17 19:32:04 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:09 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:09 - watchdog - WARNING -    Ticket 526606589: 661.4s since last update
+2025-12-17 19:32:09 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:14 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:14 - watchdog - WARNING -    Ticket 526606589: 666.5s since last update
+2025-12-17 19:32:14 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:19 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:19 - watchdog - WARNING -    Ticket 526606589: 671.5s since last update
+2025-12-17 19:32:19 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:24 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:24 - watchdog - WARNING -    Ticket 526606589: 676.5s since last update
+2025-12-17 19:32:24 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:29 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:29 - watchdog - WARNING -    Ticket 526606589: 681.6s since last update
+2025-12-17 19:32:29 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:34 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:34 - watchdog - WARNING -    Ticket 526606589: 686.6s since last update
+2025-12-17 19:32:34 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:39 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:39 - watchdog - WARNING -    Ticket 526606589: 691.9s since last update
+2025-12-17 19:32:39 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:44 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:44 - watchdog - WARNING -    Ticket 526606589: 696.9s since last update
+2025-12-17 19:32:44 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:49 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:49 - watchdog - WARNING -    Ticket 526606589: 702.0s since last update
+2025-12-17 19:32:49 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:54 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:54 - watchdog - WARNING -    Ticket 526606589: 707.0s since last update
+2025-12-17 19:32:54 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:32:59 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:32:59 - watchdog - WARNING -    Ticket 526606589: 712.1s since last update
+2025-12-17 19:32:59 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:04 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:05 - watchdog - WARNING -    Ticket 526606589: 717.3s since last update
+2025-12-17 19:33:05 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:10 - watchdog - WARNING -    Ticket 526606589: 722.4s since last update
+2025-12-17 19:33:10 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:15 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:15 - watchdog - WARNING -    Ticket 526606589: 727.5s since last update
+2025-12-17 19:33:15 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:20 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:20 - watchdog - WARNING -    Ticket 526606589: 732.8s since last update
+2025-12-17 19:33:20 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:25 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:25 - watchdog - WARNING -    Ticket 526606589: 737.9s since last update
+2025-12-17 19:33:25 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:30 - watchdog - WARNING -    Ticket 526606589: 743.0s since last update
+2025-12-17 19:33:30 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:35 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:35 - watchdog - WARNING -    Ticket 526606589: 748.0s since last update
+2025-12-17 19:33:35 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:40 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:40 - watchdog - WARNING -    Ticket 526606589: 753.1s since last update
+2025-12-17 19:33:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:45 - watchdog - WARNING -    Ticket 526606589: 758.1s since last update
+2025-12-17 19:33:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:50 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:50 - watchdog - WARNING -    Ticket 526606589: 763.1s since last update
+2025-12-17 19:33:50 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:33:55 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:33:55 - watchdog - WARNING -    Ticket 526606589: 768.2s since last update
+2025-12-17 19:33:55 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:00 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:00 - watchdog - WARNING -    Ticket 526606589: 773.2s since last update
+2025-12-17 19:34:00 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:05 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:05 - watchdog - WARNING -    Ticket 526606589: 778.2s since last update
+2025-12-17 19:34:05 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:10 - watchdog - WARNING -    Ticket 526606589: 783.3s since last update
+2025-12-17 19:34:10 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:16 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:16 - watchdog - WARNING -    Ticket 526606589: 788.5s since last update
+2025-12-17 19:34:16 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:21 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:21 - watchdog - WARNING -    Ticket 526606589: 793.7s since last update
+2025-12-17 19:34:21 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:26 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:26 - watchdog - WARNING -    Ticket 526606589: 798.7s since last update
+2025-12-17 19:34:26 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:31 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:31 - watchdog - WARNING -    Ticket 526606589: 803.8s since last update
+2025-12-17 19:34:31 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:36 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:36 - watchdog - WARNING -    Ticket 526606589: 808.8s since last update
+2025-12-17 19:34:36 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:41 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:41 - watchdog - WARNING -    Ticket 526606589: 813.8s since last update
+2025-12-17 19:34:41 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:46 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:46 - watchdog - WARNING -    Ticket 526606589: 819.0s since last update
+2025-12-17 19:34:46 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:51 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:51 - watchdog - WARNING -    Ticket 526606589: 824.1s since last update
+2025-12-17 19:34:51 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:34:56 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:34:56 - watchdog - WARNING -    Ticket 526606589: 829.2s since last update
+2025-12-17 19:34:56 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:02 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:02 - watchdog - WARNING -    Ticket 526606589: 834.4s since last update
+2025-12-17 19:35:02 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:07 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:07 - watchdog - WARNING -    Ticket 526606589: 839.5s since last update
+2025-12-17 19:35:07 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:12 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:12 - watchdog - WARNING -    Ticket 526606589: 844.6s since last update
+2025-12-17 19:35:12 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:17 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:17 - watchdog - WARNING -    Ticket 526606589: 849.6s since last update
+2025-12-17 19:35:17 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:22 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:22 - watchdog - WARNING -    Ticket 526606589: 854.6s since last update
+2025-12-17 19:35:22 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:27 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:27 - watchdog - WARNING -    Ticket 526606589: 859.7s since last update
+2025-12-17 19:35:27 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:32 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:32 - watchdog - WARNING -    Ticket 526606589: 864.7s since last update
+2025-12-17 19:35:32 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:37 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:37 - watchdog - WARNING -    Ticket 526606589: 869.8s since last update
+2025-12-17 19:35:37 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:42 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:42 - watchdog - WARNING -    Ticket 526606589: 874.8s since last update
+2025-12-17 19:35:42 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:47 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:47 - watchdog - WARNING -    Ticket 526606589: 879.9s since last update
+2025-12-17 19:35:47 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:52 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:52 - watchdog - WARNING -    Ticket 526606589: 884.9s since last update
+2025-12-17 19:35:52 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:35:57 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:35:57 - watchdog - WARNING -    Ticket 526606589: 889.9s since last update
+2025-12-17 19:35:57 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:02 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:02 - watchdog - WARNING -    Ticket 526606589: 895.0s since last update
+2025-12-17 19:36:02 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:07 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:07 - watchdog - WARNING -    Ticket 526606589: 900.1s since last update
+2025-12-17 19:36:07 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:12 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:12 - watchdog - WARNING -    Ticket 526606589: 905.3s since last update
+2025-12-17 19:36:12 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:18 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:18 - watchdog - WARNING -    Ticket 526606589: 910.4s since last update
+2025-12-17 19:36:18 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:23 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:23 - watchdog - WARNING -    Ticket 526606589: 915.5s since last update
+2025-12-17 19:36:23 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:28 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:28 - watchdog - WARNING -    Ticket 526606589: 920.6s since last update
+2025-12-17 19:36:28 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:33 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:33 - watchdog - WARNING -    Ticket 526606589: 925.6s since last update
+2025-12-17 19:36:33 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:38 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:38 - watchdog - WARNING -    Ticket 526606589: 930.7s since last update
+2025-12-17 19:36:38 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:43 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:43 - watchdog - WARNING -    Ticket 526606589: 935.7s since last update
+2025-12-17 19:36:43 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:48 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:48 - watchdog - WARNING -    Ticket 526606589: 940.8s since last update
+2025-12-17 19:36:48 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:53 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:53 - watchdog - WARNING -    Ticket 526606589: 945.8s since last update
+2025-12-17 19:36:53 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:36:58 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:36:58 - watchdog - WARNING -    Ticket 526606589: 950.9s since last update
+2025-12-17 19:36:58 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:03 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:03 - watchdog - WARNING -    Ticket 526606589: 956.0s since last update
+2025-12-17 19:37:03 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:08 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:08 - watchdog - WARNING -    Ticket 526606589: 961.0s since last update
+2025-12-17 19:37:08 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:13 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:13 - watchdog - WARNING -    Ticket 526606589: 966.0s since last update
+2025-12-17 19:37:13 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:19 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:19 - watchdog - WARNING -    Ticket 526606589: 971.5s since last update
+2025-12-17 19:37:19 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:24 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:24 - watchdog - WARNING -    Ticket 526606589: 976.6s since last update
+2025-12-17 19:37:24 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:29 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:29 - watchdog - WARNING -    Ticket 526606589: 981.7s since last update
+2025-12-17 19:37:29 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:34 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:34 - watchdog - WARNING -    Ticket 526606589: 986.8s since last update
+2025-12-17 19:37:34 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:39 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:39 - watchdog - WARNING -    Ticket 526606589: 991.8s since last update
+2025-12-17 19:37:39 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:44 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:44 - watchdog - WARNING -    Ticket 526606589: 996.9s since last update
+2025-12-17 19:37:44 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:49 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:49 - watchdog - WARNING -    Ticket 526606589: 1001.9s since last update
+2025-12-17 19:37:49 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:54 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:54 - watchdog - WARNING -    Ticket 526606589: 1006.9s since last update
+2025-12-17 19:37:54 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:37:59 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:37:59 - watchdog - WARNING -    Ticket 526606589: 1012.0s since last update
+2025-12-17 19:37:59 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:04 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:04 - watchdog - WARNING -    Ticket 526606589: 1017.0s since last update
+2025-12-17 19:38:04 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:09 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:09 - watchdog - WARNING -    Ticket 526606589: 1022.1s since last update
+2025-12-17 19:38:09 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:14 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:14 - watchdog - WARNING -    Ticket 526606589: 1027.2s since last update
+2025-12-17 19:38:14 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:19 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:19 - watchdog - WARNING -    Ticket 526606589: 1032.2s since last update
+2025-12-17 19:38:19 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:25 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:25 - watchdog - WARNING -    Ticket 526606589: 1037.4s since last update
+2025-12-17 19:38:25 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:30 - watchdog - WARNING -    Ticket 526606589: 1042.5s since last update
+2025-12-17 19:38:30 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:35 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:35 - watchdog - WARNING -    Ticket 526606589: 1047.5s since last update
+2025-12-17 19:38:35 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:40 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:40 - watchdog - WARNING -    Ticket 526606589: 1052.8s since last update
+2025-12-17 19:38:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:45 - watchdog - WARNING -    Ticket 526606589: 1057.9s since last update
+2025-12-17 19:38:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:50 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:50 - watchdog - WARNING -    Ticket 526606589: 1062.9s since last update
+2025-12-17 19:38:50 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:38:55 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:38:55 - watchdog - WARNING -    Ticket 526606589: 1068.0s since last update
+2025-12-17 19:38:55 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:00 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:00 - watchdog - WARNING -    Ticket 526606589: 1073.0s since last update
+2025-12-17 19:39:00 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:05 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:05 - watchdog - WARNING -    Ticket 526606589: 1078.0s since last update
+2025-12-17 19:39:05 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:10 - watchdog - WARNING -    Ticket 526606589: 1083.1s since last update
+2025-12-17 19:39:10 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:15 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:15 - watchdog - WARNING -    Ticket 526606589: 1088.2s since last update
+2025-12-17 19:39:15 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:20 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:20 - watchdog - WARNING -    Ticket 526606589: 1093.2s since last update
+2025-12-17 19:39:20 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:25 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:25 - watchdog - WARNING -    Ticket 526606589: 1098.2s since last update
+2025-12-17 19:39:25 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:31 - watchdog - WARNING -    Ticket 526606589: 1103.3s since last update
+2025-12-17 19:39:31 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:36 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:36 - watchdog - WARNING -    Ticket 526606589: 1108.4s since last update
+2025-12-17 19:39:36 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:41 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:41 - watchdog - WARNING -    Ticket 526606589: 1113.4s since last update
+2025-12-17 19:39:41 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:46 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:46 - watchdog - WARNING -    Ticket 526606589: 1118.5s since last update
+2025-12-17 19:39:46 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:51 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:51 - watchdog - WARNING -    Ticket 526606589: 1123.6s since last update
+2025-12-17 19:39:51 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:39:56 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:39:56 - watchdog - WARNING -    Ticket 526606589: 1128.7s since last update
+2025-12-17 19:39:56 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:01 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:01 - watchdog - WARNING -    Ticket 526606589: 1133.9s since last update
+2025-12-17 19:40:01 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:06 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:06 - watchdog - WARNING -    Ticket 526606589: 1138.9s since last update
+2025-12-17 19:40:06 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:11 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:11 - watchdog - WARNING -    Ticket 526606589: 1144.0s since last update
+2025-12-17 19:40:11 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:16 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:16 - watchdog - WARNING -    Ticket 526606589: 1149.0s since last update
+2025-12-17 19:40:16 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:21 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:21 - watchdog - WARNING -    Ticket 526606589: 1154.1s since last update
+2025-12-17 19:40:21 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:26 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:26 - watchdog - WARNING -    Ticket 526606589: 1159.2s since last update
+2025-12-17 19:40:26 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:31 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:31 - watchdog - WARNING -    Ticket 526606589: 1164.2s since last update
+2025-12-17 19:40:31 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:36 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:36 - watchdog - WARNING -    Ticket 526606589: 1169.2s since last update
+2025-12-17 19:40:36 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:41 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:41 - watchdog - WARNING -    Ticket 526606589: 1174.3s since last update
+2025-12-17 19:40:41 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:47 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:47 - watchdog - WARNING -    Ticket 526606589: 1179.4s since last update
+2025-12-17 19:40:47 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:52 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:52 - watchdog - WARNING -    Ticket 526606589: 1184.7s since last update
+2025-12-17 19:40:52 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:40:57 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:40:57 - watchdog - WARNING -    Ticket 526606589: 1189.7s since last update
+2025-12-17 19:40:57 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:02 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:02 - watchdog - WARNING -    Ticket 526606589: 1194.9s since last update
+2025-12-17 19:41:02 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:07 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:07 - watchdog - WARNING -    Ticket 526606589: 1199.9s since last update
+2025-12-17 19:41:07 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:12 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:12 - watchdog - WARNING -    Ticket 526606589: 1205.0s since last update
+2025-12-17 19:41:12 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: 1 stale tickets (>0.5) | Restarts in last 10min: 1
+2025-12-17 19:41:14 - watchdog - INFO - [OK] SL Worker restarted successfully
+2025-12-17 19:41:19 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:19 - watchdog - WARNING -    Ticket 526606589: 1212.2s since last update
+2025-12-17 19:41:19 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:24 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:24 - watchdog - WARNING -    Ticket 526606589: 1217.3s since last update
+2025-12-17 19:41:25 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: 1 stale tickets (>0.5) | Restarts in last 10min: 1
+2025-12-17 19:41:25 - watchdog - INFO - [OK] SL Worker restarted successfully
+2025-12-17 19:41:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:30 - watchdog - WARNING -    Ticket 526606589: 1223.2s since last update
+2025-12-17 19:41:30 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:35 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:35 - watchdog - WARNING -    Ticket 526606589: 1228.2s since last update
+2025-12-17 19:41:35 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:40 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:40 - watchdog - WARNING -    Ticket 526606589: 1233.3s since last update
+2025-12-17 19:41:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:45 - watchdog - WARNING -    Ticket 526606589: 1238.3s since last update
+2025-12-17 19:41:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:51 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:51 - watchdog - WARNING -    Ticket 526606589: 1243.4s since last update
+2025-12-17 19:41:51 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:41:56 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:41:56 - watchdog - WARNING -    Ticket 526606589: 1248.4s since last update
+2025-12-17 19:41:56 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:01 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:01 - watchdog - WARNING -    Ticket 526606589: 1253.5s since last update
+2025-12-17 19:42:01 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:06 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:06 - watchdog - WARNING -    Ticket 526606589: 1258.5s since last update
+2025-12-17 19:42:06 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:11 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:11 - watchdog - WARNING -    Ticket 526606589: 1263.6s since last update
+2025-12-17 19:42:11 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:16 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:16 - watchdog - WARNING -    Ticket 526606589: 1268.6s since last update
+2025-12-17 19:42:16 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:21 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:21 - watchdog - WARNING -    Ticket 526606589: 1273.6s since last update
+2025-12-17 19:42:21 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:26 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:26 - watchdog - WARNING -    Ticket 526606589: 1278.7s since last update
+2025-12-17 19:42:26 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:31 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:31 - watchdog - WARNING -    Ticket 526606589: 1283.7s since last update
+2025-12-17 19:42:31 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:36 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:36 - watchdog - WARNING -    Ticket 526606589: 1288.8s since last update
+2025-12-17 19:42:36 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:41 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:41 - watchdog - WARNING -    Ticket 526606589: 1293.9s since last update
+2025-12-17 19:42:41 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:46 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:46 - watchdog - WARNING -    Ticket 526606589: 1298.9s since last update
+2025-12-17 19:42:46 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:51 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:51 - watchdog - WARNING -    Ticket 526606589: 1303.9s since last update
+2025-12-17 19:42:51 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:42:56 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:42:56 - watchdog - WARNING -    Ticket 526606589: 1308.9s since last update
+2025-12-17 19:42:56 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:01 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:02 - watchdog - WARNING -    Ticket 526606589: 1314.2s since last update
+2025-12-17 19:43:02 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:07 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:07 - watchdog - WARNING -    Ticket 526606589: 1319.7s since last update
+2025-12-17 19:43:07 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:12 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:12 - watchdog - WARNING -    Ticket 526606589: 1324.7s since last update
+2025-12-17 19:43:12 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:17 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:17 - watchdog - WARNING -    Ticket 526606589: 1329.8s since last update
+2025-12-17 19:43:17 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>0.5) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:22 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:22 - watchdog - WARNING -    Ticket 526606589: 1334.8s since last update
+2025-12-17 19:43:22 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:27 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:27 - watchdog - WARNING -    Ticket 526606589: 1340.0s since last update
+2025-12-17 19:43:27 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:32 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:32 - watchdog - WARNING -    Ticket 526606589: 1345.0s since last update
+2025-12-17 19:43:32 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:37 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:37 - watchdog - WARNING -    Ticket 526606589: 1350.1s since last update
+2025-12-17 19:43:37 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:42 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:42 - watchdog - WARNING -    Ticket 526606589: 1355.1s since last update
+2025-12-17 19:43:42 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:47 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:47 - watchdog - WARNING -    Ticket 526606589: 1360.2s since last update
+2025-12-17 19:43:47 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:52 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:52 - watchdog - WARNING -    Ticket 526606589: 1365.3s since last update
+2025-12-17 19:43:52 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:43:57 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:43:57 - watchdog - WARNING -    Ticket 526606589: 1370.3s since last update
+2025-12-17 19:43:57 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:02 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:03 - watchdog - WARNING -    Ticket 526606589: 1375.3s since last update
+2025-12-17 19:44:03 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:08 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:08 - watchdog - WARNING -    Ticket 526606589: 1380.7s since last update
+2025-12-17 19:44:08 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:13 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:13 - watchdog - WARNING -    Ticket 526606589: 1385.8s since last update
+2025-12-17 19:44:13 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:18 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:18 - watchdog - WARNING -    Ticket 526606589: 1391.0s since last update
+2025-12-17 19:44:18 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:23 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:23 - watchdog - WARNING -    Ticket 526606589: 1396.1s since last update
+2025-12-17 19:44:23 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:28 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:28 - watchdog - WARNING -    Ticket 526606589: 1401.2s since last update
+2025-12-17 19:44:28 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:33 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:33 - watchdog - WARNING -    Ticket 526606589: 1406.2s since last update
+2025-12-17 19:44:33 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:38 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:38 - watchdog - WARNING -    Ticket 526606589: 1411.3s since last update
+2025-12-17 19:44:38 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:43 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:43 - watchdog - WARNING -    Ticket 526606589: 1416.3s since last update
+2025-12-17 19:44:44 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:49 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:49 - watchdog - WARNING -    Ticket 526606589: 1421.6s since last update
+2025-12-17 19:44:49 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:54 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:54 - watchdog - WARNING -    Ticket 526606589: 1426.9s since last update
+2025-12-17 19:44:54 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:44:59 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:44:59 - watchdog - WARNING -    Ticket 526606589: 1431.9s since last update
+2025-12-17 19:44:59 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:04 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:04 - watchdog - WARNING -    Ticket 526606589: 1437.0s since last update
+2025-12-17 19:45:04 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:10 - watchdog - WARNING -    Ticket 526606589: 1442.7s since last update
+2025-12-17 19:45:10 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:15 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:15 - watchdog - WARNING -    Ticket 526606589: 1447.7s since last update
+2025-12-17 19:45:15 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:20 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:20 - watchdog - WARNING -    Ticket 526606589: 1452.8s since last update
+2025-12-17 19:45:20 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:25 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:25 - watchdog - WARNING -    Ticket 526606589: 1457.9s since last update
+2025-12-17 19:45:25 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:30 - watchdog - WARNING -    Ticket 526606589: 1462.9s since last update
+2025-12-17 19:45:30 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:35 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:35 - watchdog - WARNING -    Ticket 526606589: 1468.0s since last update
+2025-12-17 19:45:35 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:40 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:40 - watchdog - WARNING -    Ticket 526606589: 1473.1s since last update
+2025-12-17 19:45:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:45 - watchdog - WARNING -    Ticket 526606589: 1478.1s since last update
+2025-12-17 19:45:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:50 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:50 - watchdog - WARNING -    Ticket 526606589: 1483.2s since last update
+2025-12-17 19:45:50 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:45:55 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:45:55 - watchdog - WARNING -    Ticket 526606589: 1488.2s since last update
+2025-12-17 19:45:55 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:00 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:00 - watchdog - WARNING -    Ticket 526606589: 1493.3s since last update
+2025-12-17 19:46:00 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:05 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:05 - watchdog - WARNING -    Ticket 526606589: 1498.3s since last update
+2025-12-17 19:46:05 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:11 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:11 - watchdog - WARNING -    Ticket 526606589: 1503.4s since last update
+2025-12-17 19:46:11 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:16 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:16 - watchdog - WARNING -    Ticket 526606589: 1508.4s since last update
+2025-12-17 19:46:16 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:21 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:21 - watchdog - WARNING -    Ticket 526606589: 1513.5s since last update
+2025-12-17 19:46:21 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:26 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:26 - watchdog - WARNING -    Ticket 526606589: 1518.6s since last update
+2025-12-17 19:46:26 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:31 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:31 - watchdog - WARNING -    Ticket 526606589: 1523.6s since last update
+2025-12-17 19:46:31 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:36 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:36 - watchdog - WARNING -    Ticket 526606589: 1528.7s since last update
+2025-12-17 19:46:36 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:41 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:41 - watchdog - WARNING -    Ticket 526606589: 1533.8s since last update
+2025-12-17 19:46:41 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:46 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:46 - watchdog - WARNING -    Ticket 526606589: 1538.9s since last update
+2025-12-17 19:46:46 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:51 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:51 - watchdog - WARNING -    Ticket 526606589: 1544.0s since last update
+2025-12-17 19:46:51 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:46:56 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:46:56 - watchdog - WARNING -    Ticket 526606589: 1549.0s since last update
+2025-12-17 19:46:56 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:01 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:01 - watchdog - WARNING -    Ticket 526606589: 1554.1s since last update
+2025-12-17 19:47:01 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:06 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:06 - watchdog - WARNING -    Ticket 526606589: 1559.2s since last update
+2025-12-17 19:47:06 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:11 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:11 - watchdog - WARNING -    Ticket 526606589: 1564.2s since last update
+2025-12-17 19:47:11 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:16 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:16 - watchdog - WARNING -    Ticket 526606589: 1569.3s since last update
+2025-12-17 19:47:16 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:22 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:22 - watchdog - WARNING -    Ticket 526606589: 1574.4s since last update
+2025-12-17 19:47:22 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:27 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:27 - watchdog - WARNING -    Ticket 526606589: 1579.9s since last update
+2025-12-17 19:47:27 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:32 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:32 - watchdog - WARNING -    Ticket 526606589: 1584.9s since last update
+2025-12-17 19:47:32 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:37 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:37 - watchdog - WARNING -    Ticket 526606589: 1590.0s since last update
+2025-12-17 19:47:37 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:42 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:42 - watchdog - WARNING -    Ticket 526606589: 1595.1s since last update
+2025-12-17 19:47:42 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:47 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:47 - watchdog - WARNING -    Ticket 526606589: 1600.2s since last update
+2025-12-17 19:47:48 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:53 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:53 - watchdog - WARNING -    Ticket 526606589: 1605.4s since last update
+2025-12-17 19:47:53 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:47:58 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:47:58 - watchdog - WARNING -    Ticket 526606589: 1610.5s since last update
+2025-12-17 19:47:58 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:03 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:03 - watchdog - WARNING -    Ticket 526606589: 1615.5s since last update
+2025-12-17 19:48:03 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:08 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:08 - watchdog - WARNING -    Ticket 526606589: 1620.7s since last update
+2025-12-17 19:48:08 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:13 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:13 - watchdog - WARNING -    Ticket 526606589: 1625.8s since last update
+2025-12-17 19:48:13 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:18 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:18 - watchdog - WARNING -    Ticket 526606589: 1630.8s since last update
+2025-12-17 19:48:18 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:23 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:23 - watchdog - WARNING -    Ticket 526606589: 1635.9s since last update
+2025-12-17 19:48:23 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:28 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:28 - watchdog - WARNING -    Ticket 526606589: 1641.0s since last update
+2025-12-17 19:48:28 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:33 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:33 - watchdog - WARNING -    Ticket 526606589: 1646.0s since last update
+2025-12-17 19:48:33 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:38 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:38 - watchdog - WARNING -    Ticket 526606589: 1651.1s since last update
+2025-12-17 19:48:38 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:43 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:43 - watchdog - WARNING -    Ticket 526606589: 1656.1s since last update
+2025-12-17 19:48:43 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:48 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:48 - watchdog - WARNING -    Ticket 526606589: 1661.1s since last update
+2025-12-17 19:48:48 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:53 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:53 - watchdog - WARNING -    Ticket 526606589: 1666.2s since last update
+2025-12-17 19:48:53 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:48:58 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:48:58 - watchdog - WARNING -    Ticket 526606589: 1671.2s since last update
+2025-12-17 19:48:58 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:03 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:03 - watchdog - WARNING -    Ticket 526606589: 1676.3s since last update
+2025-12-17 19:49:03 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:09 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:09 - watchdog - WARNING -    Ticket 526606589: 1681.4s since last update
+2025-12-17 19:49:09 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:14 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:14 - watchdog - WARNING -    Ticket 526606589: 1686.4s since last update
+2025-12-17 19:49:14 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:19 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:19 - watchdog - WARNING -    Ticket 526606589: 1691.5s since last update
+2025-12-17 19:49:19 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:24 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:24 - watchdog - WARNING -    Ticket 526606589: 1696.5s since last update
+2025-12-17 19:49:24 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:29 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:29 - watchdog - WARNING -    Ticket 526606589: 1701.6s since last update
+2025-12-17 19:49:29 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:34 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:34 - watchdog - WARNING -    Ticket 526606589: 1706.7s since last update
+2025-12-17 19:49:34 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:39 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:39 - watchdog - WARNING -    Ticket 526606589: 1711.7s since last update
+2025-12-17 19:49:39 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:44 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:44 - watchdog - WARNING -    Ticket 526606589: 1716.8s since last update
+2025-12-17 19:49:44 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:49 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:49 - watchdog - WARNING -    Ticket 526606589: 1721.9s since last update
+2025-12-17 19:49:49 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:54 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:54 - watchdog - WARNING -    Ticket 526606589: 1726.9s since last update
+2025-12-17 19:49:54 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:49:59 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:49:59 - watchdog - WARNING -    Ticket 526606589: 1732.0s since last update
+2025-12-17 19:49:59 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:04 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:04 - watchdog - WARNING -    Ticket 526606589: 1737.0s since last update
+2025-12-17 19:50:04 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:09 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:09 - watchdog - WARNING -    Ticket 526606589: 1742.1s since last update
+2025-12-17 19:50:09 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:14 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:14 - watchdog - WARNING -    Ticket 526606589: 1747.2s since last update
+2025-12-17 19:50:14 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:20 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:20 - watchdog - WARNING -    Ticket 526606589: 1752.4s since last update
+2025-12-17 19:50:20 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:25 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:25 - watchdog - WARNING -    Ticket 526606589: 1757.5s since last update
+2025-12-17 19:50:25 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:30 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:30 - watchdog - WARNING -    Ticket 526606589: 1762.5s since last update
+2025-12-17 19:50:30 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:35 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:35 - watchdog - WARNING -    Ticket 526606589: 1767.6s since last update
+2025-12-17 19:50:35 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:40 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:40 - watchdog - WARNING -    Ticket 526606589: 1772.7s since last update
+2025-12-17 19:50:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:45 - watchdog - WARNING -    Ticket 526606589: 1777.7s since last update
+2025-12-17 19:50:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:50 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:50 - watchdog - WARNING -    Ticket 526606589: 1782.9s since last update
+2025-12-17 19:50:50 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:50:55 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:50:55 - watchdog - WARNING -    Ticket 526606589: 1788.0s since last update
+2025-12-17 19:50:55 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:00 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:00 - watchdog - WARNING -    Ticket 526606589: 1793.1s since last update
+2025-12-17 19:51:00 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:05 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:05 - watchdog - WARNING -    Ticket 526606589: 1798.2s since last update
+2025-12-17 19:51:05 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:10 - watchdog - WARNING -    Ticket 526606589: 1803.3s since last update
+2025-12-17 19:51:10 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:15 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:15 - watchdog - WARNING -    Ticket 526606589: 1808.3s since last update
+2025-12-17 19:51:15 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: 1 stale tickets (>1.0) | Restarts in last 10min: 1
+2025-12-17 19:51:18 - watchdog - INFO - [OK] SL Worker restarted successfully
+2025-12-17 19:51:23 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:23 - watchdog - WARNING -    Ticket 526606589: 1815.9s since last update
+2025-12-17 19:51:23 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:28 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:28 - watchdog - WARNING -    Ticket 526606589: 1820.9s since last update
+2025-12-17 19:51:28 - watchdog - WARNING - 🔄 WATCHDOG RESTARTING SL WORKER | Reason: 1 stale tickets (>1.0) | Restarts in last 10min: 1
+2025-12-17 19:51:29 - watchdog - INFO - [OK] SL Worker restarted successfully
+2025-12-17 19:51:34 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:34 - watchdog - WARNING -    Ticket 526606589: 1826.6s since last update
+2025-12-17 19:51:34 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:39 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:39 - watchdog - WARNING -    Ticket 526606589: 1831.6s since last update
+2025-12-17 19:51:39 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:44 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:44 - watchdog - WARNING -    Ticket 526606589: 1836.7s since last update
+2025-12-17 19:51:44 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:49 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:49 - watchdog - WARNING -    Ticket 526606589: 1841.8s since last update
+2025-12-17 19:51:49 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:54 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:54 - watchdog - WARNING -    Ticket 526606589: 1846.8s since last update
+2025-12-17 19:51:54 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:51:59 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:51:59 - watchdog - WARNING -    Ticket 526606589: 1851.9s since last update
+2025-12-17 19:51:59 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:04 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:04 - watchdog - WARNING -    Ticket 526606589: 1857.0s since last update
+2025-12-17 19:52:04 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:09 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:09 - watchdog - WARNING -    Ticket 526606589: 1862.1s since last update
+2025-12-17 19:52:09 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:14 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:14 - watchdog - WARNING -    Ticket 526606589: 1867.1s since last update
+2025-12-17 19:52:14 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:19 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:19 - watchdog - WARNING -    Ticket 526606589: 1872.2s since last update
+2025-12-17 19:52:19 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:24 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:24 - watchdog - WARNING -    Ticket 526606589: 1877.2s since last update
+2025-12-17 19:52:24 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:29 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:29 - watchdog - WARNING -    Ticket 526606589: 1882.2s since last update
+2025-12-17 19:52:29 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:34 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:34 - watchdog - WARNING -    Ticket 526606589: 1887.3s since last update
+2025-12-17 19:52:34 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:40 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:40 - watchdog - WARNING -    Ticket 526606589: 1892.5s since last update
+2025-12-17 19:52:40 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:45 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:45 - watchdog - WARNING -    Ticket 526606589: 1897.5s since last update
+2025-12-17 19:52:45 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:50 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:50 - watchdog - WARNING -    Ticket 526606589: 1902.6s since last update
+2025-12-17 19:52:50 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:52:55 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:52:55 - watchdog - WARNING -    Ticket 526606589: 1907.6s since last update
+2025-12-17 19:52:55 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:53:00 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:53:00 - watchdog - WARNING -    Ticket 526606589: 1912.7s since last update
+2025-12-17 19:53:00 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:53:05 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:53:05 - watchdog - WARNING -    Ticket 526606589: 1917.7s since last update
+2025-12-17 19:53:05 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:53:10 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:53:10 - watchdog - WARNING -    Ticket 526606589: 1922.8s since last update
+2025-12-17 19:53:10 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:53:15 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:53:15 - watchdog - WARNING -    Ticket 526606589: 1927.9s since last update
+2025-12-17 19:53:15 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required
+2025-12-17 19:53:20 - watchdog - WARNING - [WARNING] Stale SL updates detected: 1 tickets
+2025-12-17 19:53:20 - watchdog - WARNING -    Ticket 526606589: 1933.0s since last update
+2025-12-17 19:53:20 - watchdog - CRITICAL - 🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: 2 restarts in last 10 minutes | Reason: 1 stale tickets (>1.0) | BLOCKING RESTART - Manual intervention required

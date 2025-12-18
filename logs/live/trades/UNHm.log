@@ -1,0 +1,8 @@
+2025-12-17 19:14:41 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 175.8% of avg range > max 20.0%
+2025-12-17 19:15:12 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 172.6% of avg range > max 20.0%
+2025-12-17 19:17:48 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 158.9% of avg range > max 20.0%
+2025-12-17 19:18:20 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.7% of avg range > max 20.0%
+2025-12-17 20:32:19 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.8% of avg range > max 20.0%
+2025-12-17 20:32:53 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 142.1% of avg range > max 20.0%
+2025-12-17 20:34:38 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 135.8% of avg range > max 20.0%
+2025-12-17 20:35:13 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 130.5% of avg range > max 20.0%

@@ -1,0 +1,10 @@
+2025-12-17 19:26:41 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.88 pips < min 1.50 pips
+2025-12-17 19:27:12 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.12 pips < min 1.50 pips
+2025-12-17 19:36:23 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.23 pips < min 1.50 pips
+2025-12-17 19:36:56 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.23 pips < min 1.50 pips
+2025-12-17 20:04:18 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.87 pips < min 1.50 pips
+2025-12-17 20:04:53 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.87 pips < min 1.50 pips
+2025-12-17 20:19:19 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.91 pips < min 1.50 pips
+2025-12-17 20:19:58 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.91 pips < min 1.50 pips
+2025-12-17 20:39:21 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.86 pips < min 1.50 pips
+2025-12-17 20:39:57 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.86 pips < min 1.50 pips

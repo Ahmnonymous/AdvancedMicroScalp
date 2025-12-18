@@ -1,0 +1,3 @@
+2025-12-17 23:34:22 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23916.4% of avg range > max 20.0%
+2025-12-17 23:34:51 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23789.1% of avg range > max 20.0%
+2025-12-17 23:35:19 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22763.4% of avg range > max 20.0%

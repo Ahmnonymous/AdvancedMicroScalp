@@ -1,0 +1,14 @@
+2025-12-17 18:48:03 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 179.9% of avg range > max 20.0%
+2025-12-17 18:48:38 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 169.5% of avg range > max 20.0%
+2025-12-17 18:53:20 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 180.4% of avg range > max 20.0%
+2025-12-17 18:53:52 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 180.4% of avg range > max 20.0%
+2025-12-17 19:22:13 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 176.5% of avg range > max 20.0%
+2025-12-17 19:22:46 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 176.5% of avg range > max 20.0%
+2025-12-17 19:25:36 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 176.0% of avg range > max 20.0%
+2025-12-17 19:26:10 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 179.9% of avg range > max 20.0%
+2025-12-17 19:28:50 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 182.3% of avg range > max 20.0%
+2025-12-17 19:29:22 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 184.4% of avg range > max 20.0%
+2025-12-17 19:35:18 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.2% of avg range > max 20.0%
+2025-12-17 19:35:52 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.2% of avg range > max 20.0%
+2025-12-17 19:53:49 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.11 pips < min 1.50 pips
+2025-12-17 19:54:23 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.05 pips < min 1.50 pips
