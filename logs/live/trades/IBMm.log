@@ -1,4 +1,0 @@
-2025-12-17 19:02:52 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.44 pips < min 1.50 pips
-2025-12-17 19:03:24 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.41 pips < min 1.50 pips
-2025-12-17 20:36:58 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 168.7% of avg range > max 20.0%
-2025-12-17 20:37:37 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 167.7% of avg range > max 20.0%

@@ -1,8 +1,0 @@
-2025-12-17 19:13:36 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.78 pips < min 1.50 pips
-2025-12-17 19:14:09 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.81 pips < min 1.50 pips
-2025-12-17 19:57:50 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.92 pips < min 1.50 pips
-2025-12-17 19:58:26 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.00 pips < min 1.50 pips
-2025-12-17 20:03:44 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.06 pips < min 1.50 pips
-2025-12-17 20:04:19 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 1.15 pips < min 1.50 pips
-2025-12-17 20:33:59 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.90 pips < min 1.50 pips
-2025-12-17 20:34:36 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.88 pips < min 1.50 pips

@@ -1,8 +1,0 @@
-2025-12-17 22:59:10 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
-2025-12-17 22:59:37 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
-2025-12-17 23:01:40 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4248.9% of avg range > max 20.0%
-2025-12-17 23:02:11 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3977.5% of avg range > max 20.0%
-2025-12-17 23:02:39 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3961.0% of avg range > max 20.0%
-2025-12-17 23:16:33 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3902.4% of avg range > max 20.0%
-2025-12-17 23:17:03 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3894.8% of avg range > max 20.0%
-2025-12-17 23:17:32 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4492.3% of avg range > max 20.0%

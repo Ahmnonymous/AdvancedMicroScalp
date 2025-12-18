@@ -1,5 +1,0 @@
-2025-12-17 19:25:30 - trades.MDLZm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 1.50 pips
-2025-12-17 20:26:20 - trades.MDLZm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 1.50 pips
-2025-12-17 20:26:56 - trades.MDLZm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 1.50 pips
-2025-12-17 20:33:56 - trades.MDLZm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.30 pips < min 1.50 pips
-2025-12-17 20:34:33 - trades.MDLZm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 1.50 pips

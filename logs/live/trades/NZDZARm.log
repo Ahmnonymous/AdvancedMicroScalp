@@ -1,6 +1,0 @@
-2025-12-17 23:01:45 - trades.NZDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3077.9% of avg range > max 20.0%
-2025-12-17 23:02:15 - trades.NZDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2993.9% of avg range > max 20.0%
-2025-12-17 23:02:44 - trades.NZDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2981.9% of avg range > max 20.0%
-2025-12-17 23:13:06 - trades.NZDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2644.5% of avg range > max 20.0%
-2025-12-17 23:13:34 - trades.NZDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2570.9% of avg range > max 20.0%
-2025-12-17 23:14:05 - trades.NZDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2549.1% of avg range > max 20.0%

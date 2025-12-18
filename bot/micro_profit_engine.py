@@ -99,6 +99,16 @@ class MicroProfitEngine:
         # Get actual profit from MT5 (not estimated) - use position parameter which should be fresh
         current_profit = position.get('profit', 0.0)
         
+        # ============================================================================
+        # HARD REQUIREMENT: NEVER CLOSE AT LOSS
+        # ============================================================================
+        # CRITICAL: Micro profit engine MUST NEVER close positions at loss or zero profit
+        # This is a HARD, NON-NEGOTIABLE requirement
+        if current_profit <= 0.0:
+            logger.debug(f"Micro-HFT: Ticket {ticket} has profit ${current_profit:.2f} <= $0.00 - "
+                       f"NEVER closing at loss (HARD REQUIREMENT)")
+            return False
+        
         # CRITICAL FIX 1.1: Strict negative-profit rejection BEFORE sweet-spot logic
         # If profit is zero or negative, immediately reject - never process sweet-spot logic
         # This is the FIRST checkpoint to prevent any negative profit processing

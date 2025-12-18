@@ -1159,6 +1159,14 @@ class SLManager:
         """
         EMERGENCY lock-free strict loss enforcement.
         
+        EMERGENCY LOGIC RESTRICTION: This MUST NOT override:
+        - Trailing SL
+        - Profit lock SL
+        
+        Emergency logic only applies when:
+        - No better SL exists (no trailing/profit lock applicable)
+        - Trade is in loss (profit < 0)
+        
         This method bypasses ALL locks and directly modifies the order via MT5.
         Used ONLY when lock acquisition fails for losing trades to ensure positions
         are NEVER left unprotected.
@@ -1174,11 +1182,24 @@ class SLManager:
         entry_price = position.get('price_open', 0.0)
         order_type = position.get('type', '')
         lot_size = position.get('volume', 0.01)
+        current_sl = position.get('sl', 0.0)
         
         mode = "BACKTEST" if self.config.get('mode') == 'backtest' else "LIVE"
         
         logger.critical(f"[EMERGENCY LOCK-FREE] Starting emergency strict loss enforcement: "
                      f"mode={mode} | ticket={ticket} | symbol={symbol} | profit=${current_profit:.2f}")
+        
+        # EMERGENCY LOGIC RESTRICTION: Check if better SL exists
+        # Use compute_authoritative_sl to check if trailing/profit lock should apply
+        authoritative_result = self.compute_authoritative_sl(position)
+        authority_source = authoritative_result.get('authority_source')
+        
+        # If trailing or profit lock should apply, DO NOT override with emergency logic
+        if authority_source in ['TRAILING', 'PROFIT_LOCK']:
+            logger.critical(f"[EMERGENCY LOCK-FREE] BLOCKED: {symbol} Ticket {ticket} | "
+                          f"Better SL exists (authority: {authority_source}) | "
+                          f"Emergency logic cannot override trailing/profit lock")
+            return False, f"Better SL exists ({authority_source}) - emergency logic blocked", None
         
         if current_profit >= 0:
             return False, "Trade not in loss (emergency path)", None
@@ -1205,8 +1226,26 @@ class SLManager:
         
         # Adjust for broker constraints
         target_sl = self._adjust_sl_for_broker_constraints(
-            target_sl, 0.0, order_type, symbol_info, tick.bid, tick.ask, entry_price=entry_price
+            target_sl, current_sl, order_type, symbol_info, tick.bid, tick.ask, entry_price=entry_price
         )
+        
+        # EMERGENCY LOGIC RESTRICTION: Ensure we don't worsen existing SL
+        if current_sl > 0:
+            would_worsen = False
+            if order_type == 'BUY':
+                # For BUY: SL should not decrease (higher = better)
+                if target_sl < current_sl:
+                    would_worsen = True
+            else:  # SELL
+                # For SELL: SL should not increase (lower = better)
+                if target_sl > current_sl:
+                    would_worsen = True
+            
+            if would_worsen:
+                logger.critical(f"[EMERGENCY LOCK-FREE] BLOCKED: {symbol} Ticket {ticket} | "
+                              f"Emergency SL {target_sl:.5f} would worsen current SL {current_sl:.5f} | "
+                              f"Emergency logic only applies when no better SL exists")
+                return False, "Emergency SL would worsen current SL - blocked", None
         
         # DIRECT MT5 modification - NO LOCKS
         try:
@@ -2673,16 +2712,260 @@ class SLManager:
         
         return False
     
+    def compute_authoritative_sl(self, position: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        SINGLE SL AUTHORITY - Computes the authoritative SL with strict priority.
+        
+        Priority (STRICT - NEVER VIOLATED):
+            TRAILING_SL > PROFIT_LOCK_SL > HARD_SL
+        
+        This function is LOCK-FREE - it only calculates, never modifies.
+        Lock is acquired ONLY for the final MT5 modification call.
+        
+        Emergency logic may ONLY apply if it does NOT worsen SL.
+        
+        Args:
+            position: Position dictionary (must be fresh from order_manager)
+        
+        Returns:
+            Dict with keys:
+                - target_sl_price: float or None (authoritative SL price)
+                - target_profit_usd: float (target profit/loss in USD)
+                - authority_source: str ("TRAILING", "PROFIT_LOCK", "HARD", or None)
+                - reason: str (reason for SL update)
+                - state: str (explicit state: SWEET_SPOT, TRAILING_ACTIVE, PROFIT_LOCKED, MANAGING, etc.)
+                - is_trailing: bool
+                - is_profit_lock: bool
+                - violations: list of violation strings if any
+        """
+        symbol = position.get('symbol', '')
+        ticket = position.get('ticket', 0)
+        current_profit = position.get('profit', 0.0)
+        current_sl = position.get('sl', 0.0)
+        entry_price = position.get('price_open', 0.0)
+        order_type = position.get('type', '')
+        lot_size = position.get('volume', 0.01)
+        
+        result = {
+            'target_sl_price': None,
+            'target_profit_usd': 0.0,
+            'authority_source': None,
+            'reason': None,
+            'state': 'MANAGING',
+            'is_trailing': False,
+            'is_profit_lock': False,
+            'violations': []
+        }
+        
+        # Get symbol info (lock-free - no locks needed for calculation)
+        symbol_info = self.mt5_connector.get_symbol_info(symbol)
+        if symbol_info is None:
+            result['reason'] = "Cannot get symbol info"
+            return result
+        
+        tick = self.mt5_connector.get_symbol_info_tick(symbol)
+        if tick is None:
+            result['reason'] = "Cannot get market prices"
+            return result
+        
+        # STEP 1: Calculate TRAILING_SL (highest priority)
+        trailing_result = None
+        if current_profit > self.trailing_increment_usd:  # Profit > $0.10
+            try:
+                # Calculate trailing stop
+                profit_to_lock = current_profit - self.trailing_increment_usd
+                profit_to_lock = (profit_to_lock // self.trailing_increment_usd) * self.trailing_increment_usd
+                profit_to_lock = max(profit_to_lock, self.trailing_increment_usd)
+                
+                trailing_sl = self._calculate_target_sl_price(
+                    entry_price, profit_to_lock, order_type, lot_size, symbol_info, position=position
+                )
+                
+                if trailing_sl:
+                    # Adjust for broker constraints
+                    trailing_sl = self._adjust_sl_for_broker_constraints(
+                        trailing_sl, current_sl, order_type, symbol_info, tick.bid, tick.ask, entry_price=entry_price
+                    )
+                    
+                    if trailing_sl:
+                        trailing_result = {
+                            'target_sl_price': trailing_sl,
+                            'target_profit_usd': profit_to_lock,
+                            'authority_source': 'TRAILING',
+                            'reason': f"Trailing stop (profit: ${current_profit:.2f}, locking: ${profit_to_lock:.2f})",
+                            'state': 'TRAILING_ACTIVE',
+                            'is_trailing': True
+                        }
+            except Exception as e:
+                logger.error(f"[ERROR] Trailing SL calculation failed for {symbol} Ticket {ticket}: {e}", exc_info=True)
+        
+        # STEP 2: Calculate PROFIT_LOCK_SL (second priority - only if no trailing)
+        profit_lock_result = None
+        if not trailing_result and self.sweet_spot_min <= current_profit <= self.sweet_spot_max:
+            try:
+                profit_to_lock = min(current_profit, self.sweet_spot_max)
+                
+                profit_lock_sl = self._calculate_target_sl_price(
+                    entry_price, profit_to_lock, order_type, lot_size, symbol_info, position=position
+                )
+                
+                if profit_lock_sl:
+                    # Adjust for broker constraints
+                    profit_lock_sl = self._adjust_sl_for_broker_constraints(
+                        profit_lock_sl, current_sl, order_type, symbol_info, tick.bid, tick.ask, entry_price=entry_price
+                    )
+                    
+                    if profit_lock_sl:
+                        profit_lock_result = {
+                            'target_sl_price': profit_lock_sl,
+                            'target_profit_usd': profit_to_lock,
+                            'authority_source': 'PROFIT_LOCK',
+                            'reason': f"Sweet-spot profit locking (${current_profit:.2f} in range ${self.sweet_spot_min:.2f}-${self.sweet_spot_max:.2f})",
+                            'state': 'SWEET_SPOT',
+                            'is_profit_lock': True
+                        }
+            except Exception as e:
+                logger.error(f"[ERROR] Profit lock SL calculation failed for {symbol} Ticket {ticket}: {e}", exc_info=True)
+        
+        # STEP 3: Calculate HARD_SL (lowest priority - only if no trailing/profit lock AND profit < 0)
+        hard_sl_result = None
+        if not trailing_result and not profit_lock_result and current_profit < 0:
+            try:
+                hard_sl = self._calculate_target_sl_price(
+                    entry_price, -self.max_risk_usd, order_type, lot_size, symbol_info, position=position
+                )
+                
+                if hard_sl:
+                    # Adjust for broker constraints
+                    hard_sl = self._adjust_sl_for_broker_constraints(
+                        hard_sl, current_sl, order_type, symbol_info, tick.bid, tick.ask, entry_price=entry_price
+                    )
+                    
+                    if hard_sl:
+                        hard_sl_result = {
+                            'target_sl_price': hard_sl,
+                            'target_profit_usd': -self.max_risk_usd,
+                            'authority_source': 'HARD',
+                            'reason': f"Strict loss enforcement (-${self.max_risk_usd:.2f})",
+                            'state': 'MANAGING'
+                        }
+            except Exception as e:
+                logger.error(f"[ERROR] Hard SL calculation failed for {symbol} Ticket {ticket}: {e}", exc_info=True)
+        
+        # STEP 4: SELECT AUTHORITATIVE SL (strict priority)
+        authoritative_result = trailing_result or profit_lock_result or hard_sl_result
+        
+        if authoritative_result:
+            result.update(authoritative_result)
+            
+            # STEP 5: MONOTONIC SL GUARD - Ensure SL never moves backwards
+            if current_sl > 0:
+                would_regress = False
+                
+                if order_type == 'BUY':
+                    # For BUY: SL must not decrease (higher = better)
+                    if authoritative_result['target_sl_price'] < current_sl:
+                        would_regress = True
+                        violation_msg = f"[CRITICAL][SL_VIOLATION] SL regression attempt: {symbol} Ticket {ticket} | Current SL: {current_sl:.5f} | Target SL: {authoritative_result['target_sl_price']:.5f} | Authority: {authoritative_result['authority_source']} | Profit: ${current_profit:.2f}"
+                        result['violations'].append(violation_msg)
+                        logger.critical(violation_msg)
+                else:  # SELL
+                    # For SELL: SL must not increase (lower = better)
+                    if authoritative_result['target_sl_price'] > current_sl:
+                        would_regress = True
+                        violation_msg = f"[CRITICAL][SL_VIOLATION] SL regression attempt: {symbol} Ticket {ticket} | Current SL: {current_sl:.5f} | Target SL: {authoritative_result['target_sl_price']:.5f} | Authority: {authoritative_result['authority_source']} | Profit: ${current_profit:.2f}"
+                        result['violations'].append(violation_msg)
+                        logger.critical(violation_msg)
+                
+                # If regression detected, abort the update
+                if would_regress:
+                    result['target_sl_price'] = None
+                    result['reason'] = f"SL regression blocked (current: {current_sl:.5f}, target: {authoritative_result['target_sl_price']:.5f})"
+                    result['authority_source'] = None
+        else:
+            result['reason'] = "No SL update needed"
+            result['state'] = 'MANAGING'
+        
+        return result
+    
+    def _detect_sl_violations(self, position: Dict[str, Any], authoritative_result: Dict[str, Any]) -> list:
+        """
+        VIOLATION DETECTOR - Non-optional watchdog.
+        
+        Detects violations when:
+        - Profit > threshold AND SL unchanged
+        - Trailing/profit lock should apply but SL not moving
+        - SL regression attempts
+        
+        Args:
+            position: Position dictionary
+            authoritative_result: Result from compute_authoritative_sl
+        
+        Returns:
+            List of violation strings (empty if no violations)
+        """
+        violations = []
+        symbol = position.get('symbol', '')
+        ticket = position.get('ticket', 0)
+        current_profit = position.get('profit', 0.0)
+        current_sl = position.get('sl', 0.0)
+        
+        # Violation 1: Profit > threshold but SL unchanged when trailing/profit lock should apply
+        if authoritative_result.get('is_trailing') or authoritative_result.get('is_profit_lock'):
+            target_sl = authoritative_result.get('target_sl_price')
+            if target_sl is not None and current_sl > 0:
+                # Check if SL should have moved but didn't
+                order_type = position.get('type', '')
+                entry_price = position.get('price_open', 0.0)
+                
+                if order_type == 'BUY':
+                    should_move = target_sl > current_sl
+                else:  # SELL
+                    should_move = target_sl < current_sl
+                
+                if should_move:
+                    # SL should move but hasn't - check if it's been stuck
+                    with self._tracking_lock:
+                        last_update = self._last_sl_success.get(ticket)
+                        if last_update:
+                            time_since_update = (datetime.now() - last_update).total_seconds()
+                            if time_since_update > 0.25:  # 250ms threshold
+                                violation = f"[CRITICAL][SL_VIOLATION] SL not moving: {symbol} Ticket {ticket} | " \
+                                          f"Profit: ${current_profit:.2f} | " \
+                                          f"Current SL: {current_sl:.5f} | " \
+                                          f"Target SL: {target_sl:.5f} | " \
+                                          f"Authority: {authoritative_result.get('authority_source')} | " \
+                                          f"Time since last update: {time_since_update*1000:.0f}ms"
+                                violations.append(violation)
+                                logger.critical(violation)
+        
+        # Violation 2: Trailing/profit lock active but SL unchanged for >250ms
+        if (authoritative_result.get('is_trailing') or authoritative_result.get('is_profit_lock')) and \
+           authoritative_result.get('target_sl_price') is not None:
+            with self._tracking_lock:
+                last_attempt = self._last_sl_attempt.get(ticket)
+                if last_attempt:
+                    time_since_attempt = (datetime.now() - last_attempt).total_seconds()
+                    if time_since_attempt > 0.25:  # 250ms threshold
+                        violation = f"[CRITICAL][SL_NOT_APPLIED] Trailing/profit lock not applied within 250ms: {symbol} Ticket {ticket} | " \
+                                  f"Profit: ${current_profit:.2f} | " \
+                                  f"State: {authoritative_result.get('state')} | " \
+                                  f"Time since attempt: {time_since_attempt*1000:.0f}ms"
+                        violations.append(violation)
+                        logger.critical(violation)
+        
+        return violations
+    
     def update_sl_atomic(self, ticket: int, position: Dict[str, Any]) -> Tuple[bool, str]:
         """
-        Atomic SL update - applies all SL rules in priority order.
+        Atomic SL update - applies authoritative SL with guaranteed execution.
         
-        Priority:
-        1. Strict loss enforcement (-$2.00) if P/L < 0
-        2. Sweet-spot profit locking if profit ≥ $0.03 and ≤ $0.10 (immediate, no break-even)
-        3. Trailing stop if profit > $0.10
+        Uses compute_authoritative_sl() for lock-free SL decision, then applies with lock.
         
-        NOTE: No break-even logic - lock profit immediately at sweet spot or above per Step 2c requirement
+        Priority (STRICT):
+            TRAILING_SL > PROFIT_LOCK_SL > HARD_SL
+        
+        Guaranteed execution: If trailing=true OR sweet_spot=true, SL MUST move within MAX 250ms.
         
         Args:
             ticket: Position ticket number
@@ -2789,6 +3072,168 @@ class SLManager:
         # Apply emergency backoff if needed
         if backoff_delay > 0:
             time.sleep(backoff_delay)
+        
+        # ============================================================================
+        # SINGLE SL AUTHORITY - LOCK-FREE DECISION PATH
+        # ============================================================================
+        # STEP 1: Compute authoritative SL WITHOUT locks (lock-free decision path)
+        # This ensures SL calculation is never blocked by lock contention
+        fresh_position_for_auth = self.order_manager.get_position_by_ticket(ticket)
+        if fresh_position_for_auth:
+            position.update(fresh_position_for_auth)
+        
+        # Get initial profit for lock timeout determination
+        initial_profit = position.get('profit', 0.0)
+        
+        authoritative_result = self.compute_authoritative_sl(position)
+        
+        # STEP 2: Detect violations
+        violations = self._detect_sl_violations(position, authoritative_result)
+        if violations:
+            # Log all violations
+            for violation in violations:
+                logger.critical(violation)
+            # Continue to apply correction
+        
+        # STEP 3: Check if we have a valid authoritative SL
+        has_authoritative_sl = authoritative_result.get('target_sl_price') is not None
+        authority_source = authoritative_result.get('authority_source')
+        is_trailing = authoritative_result.get('is_trailing', False)
+        is_profit_lock = authoritative_result.get('is_profit_lock', False)
+        state = authoritative_result.get('state', 'MANAGING')
+        
+        # STEP 4: If we have authoritative SL, apply it with guaranteed execution
+        if has_authoritative_sl and not authoritative_result.get('violations'):
+            # CRITICAL: Determine if this needs guaranteed execution (trailing or profit lock)
+            needs_guaranteed_execution = is_trailing or is_profit_lock
+            is_profit_locking = initial_profit > 0  # For lock timeout determination
+            
+            # Acquire lock ONLY for MT5 modification (lock-free decision path)
+            lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+            
+            if not lock_acquired:
+                # Lock failed - check if we need guaranteed execution
+                if needs_guaranteed_execution:
+                    # CRITICAL: For trailing/profit lock, we MUST retry immediately
+                    logger.warning(f"[WARNING] Lock failed for guaranteed execution: {symbol} Ticket {ticket} | Retrying immediately...")
+                    # Retry once more with immediate retry
+                    lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+                
+                if not lock_acquired:
+                    timeout_ms = (self._profit_locking_lock_timeout * 1000) if is_profit_locking else (self._lock_acquisition_timeout * 1000)
+                    reason = f"Lock acquisition timeout ({timeout_ms:.0f}ms) - authoritative SL: {authority_source}"
+                    logger.warning(f"[DELAY] LOCK TIMEOUT: {symbol} Ticket {ticket} | {reason}")
+                    with self._tracking_lock:
+                        self._last_sl_reason[ticket] = reason
+                    return False, reason
+            
+            # Apply authoritative SL with guaranteed execution loop if needed
+            target_sl_price = authoritative_result['target_sl_price']
+            target_profit_usd = authoritative_result['target_profit_usd']
+            reason_str = authoritative_result['reason']
+            old_sl = position.get('sl', 0.0)
+            current_profit = position.get('profit', 0.0)
+            
+            # Explicit state logging
+            logger.info(f"[STATE={state}] {symbol} Ticket {ticket} | "
+                       f"Authority: {authority_source} | "
+                       f"OldSL: {old_sl:.5f} | NewSL: {target_sl_price:.5f} | "
+                       f"Profit: ${current_profit:.2f} | "
+                       f"Reason: {reason_str}")
+            
+            # GUARANTEED EXECUTION LOOP: If trailing=true OR sweet_spot=true, SL MUST move within MAX 250ms
+            if needs_guaranteed_execution:
+                execution_start_time = time.time()
+                max_execution_time = 0.25  # 250ms max
+                
+                with lock:
+                    success = self._apply_sl_update(ticket, symbol, target_sl_price, target_profit_usd, reason_str, position=position)
+                    
+                    execution_time = time.time() - execution_start_time
+                    
+                    if success:
+                        # Update tracking
+                        with self._tracking_lock:
+                            self._last_sl_update[ticket] = datetime.now()
+                            self._last_sl_price[ticket] = target_sl_price
+                            self._last_sl_reason[ticket] = reason_str
+                            self._last_sl_success[ticket] = datetime.now()
+                        
+                        # Log explicit events
+                        if is_trailing:
+                            system_event_logger.systemEvent("TRAILING_EXECUTED", {
+                                "ticket": ticket,
+                                "symbol": symbol,
+                                "old_sl": old_sl,
+                                "new_sl": target_sl_price,
+                                "profit": current_profit,
+                                "authority_source": authority_source,
+                                "state": state,
+                                "execution_time_ms": execution_time * 1000
+                            })
+                            logger.info(f"[OK] TRAILING_EXECUTED: {symbol} Ticket {ticket} | "
+                                      f"OldSL: {old_sl:.5f} | NewSL: {target_sl_price:.5f} | "
+                                      f"Profit: ${current_profit:.2f} | Execution: {execution_time*1000:.1f}ms")
+                        elif is_profit_lock:
+                            system_event_logger.systemEvent("LOCK_APPLIED", {
+                                "ticket": ticket,
+                                "symbol": symbol,
+                                "old_sl": old_sl,
+                                "new_sl": target_sl_price,
+                                "profit": current_profit,
+                                "authority_source": authority_source,
+                                "state": state,
+                                "execution_time_ms": execution_time * 1000
+                            })
+                            logger.info(f"[OK] LOCK_APPLIED: {symbol} Ticket {ticket} | "
+                                      f"OldSL: {old_sl:.5f} | NewSL: {target_sl_price:.5f} | "
+                                      f"Profit: ${current_profit:.2f} | Execution: {execution_time*1000:.1f}ms")
+                        
+                        return True, reason_str
+                    else:
+                        # SL update failed - check if we exceeded execution time
+                        if execution_time > max_execution_time:
+                            logger.critical(f"[CRITICAL][SL_NOT_APPLIED] {symbol} Ticket {ticket} | "
+                                          f"Trailing/profit lock not applied within 250ms | "
+                                          f"Execution time: {execution_time*1000:.1f}ms | "
+                                          f"Authority: {authority_source} | State: {state}")
+                        
+                        # Log failure
+                        if is_profit_lock:
+                            system_event_logger.systemEvent("LOCK_FAILED", {
+                                "ticket": ticket,
+                                "symbol": symbol,
+                                "old_sl": old_sl,
+                                "target_sl": target_sl_price,
+                                "profit": current_profit,
+                                "authority_source": authority_source,
+                                "state": state
+                            })
+                            logger.error(f"[ERROR] LOCK_FAILED: {symbol} Ticket {ticket} | "
+                                       f"TargetSL: {target_sl_price:.5f} | Authority: {authority_source}")
+                        
+                        with self._tracking_lock:
+                            self._last_sl_reason[ticket] = f"SL update failed: {reason_str}"
+                        return False, f"SL update failed: {reason_str}"
+            else:
+                # Non-guaranteed execution (HARD SL) - apply normally
+                with lock:
+                    success = self._apply_sl_update(ticket, symbol, target_sl_price, target_profit_usd, reason_str, position=position)
+                    
+                    if success:
+                        with self._tracking_lock:
+                            self._last_sl_update[ticket] = datetime.now()
+                            self._last_sl_price[ticket] = target_sl_price
+                            self._last_sl_reason[ticket] = reason_str
+                            self._last_sl_success[ticket] = datetime.now()
+                        return True, reason_str
+                    else:
+                        with self._tracking_lock:
+                            self._last_sl_reason[ticket] = f"SL update failed: {reason_str}"
+                        return False, f"SL update failed: {reason_str}"
+        
+        # If authoritative SL had violations or no valid SL, continue with old logic for backward compatibility
+        # (This ensures we don't break existing functionality)
         
         # CRITICAL: Check if this is a profitable trade BEFORE acquiring lock
         # This allows us to use longer timeout for profitable trades

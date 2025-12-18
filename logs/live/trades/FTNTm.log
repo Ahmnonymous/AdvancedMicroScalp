@@ -1,6 +1,0 @@
-2025-12-17 19:54:52 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.56 pips < min 1.50 pips
-2025-12-17 19:55:30 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.57 pips < min 1.50 pips
-2025-12-17 20:07:42 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.67 pips < min 1.50 pips
-2025-12-17 20:08:16 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.68 pips < min 1.50 pips
-2025-12-17 20:21:41 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.55 pips < min 1.50 pips
-2025-12-17 20:22:16 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.51 pips < min 1.50 pips

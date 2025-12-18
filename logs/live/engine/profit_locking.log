@@ -1,4 +1,0 @@
-2025-12-17 18:47:50 - profit_locking - INFO - Profit-Locking Engine initialized | Sweet spot: $0.03-$0.1 | Step: $0.1
-2025-12-17 18:47:50 - profit_locking - INFO - Dynamic Sweet Spot Locking: Enabled | Poll interval: 50ms | Track minimum: True | Apply immediately: True
-2025-12-17 20:19:38 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: TSLAm Ticket 526962893 | Entered sweet spot at $0.05 | Applying IMMEDIATE SL lock to prevent negative P/L
-2025-12-17 20:44:28 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: TSLAm Ticket 527060828 | Entered sweet spot at $0.04 | Applying IMMEDIATE SL lock to prevent negative P/L
