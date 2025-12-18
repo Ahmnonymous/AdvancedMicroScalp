@@ -1,3 +1,0 @@
-2025-12-19 00:03:57 - trades.NZDPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10407.7% of avg range > max 30.0%
-2025-12-19 00:05:13 - trades.NZDPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10102.8% of avg range > max 30.0%
-2025-12-19 00:06:29 - trades.NZDPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10065.1% of avg range > max 30.0%

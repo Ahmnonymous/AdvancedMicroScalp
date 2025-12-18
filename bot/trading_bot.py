@@ -1922,11 +1922,13 @@ class TradingBot:
                         pass
                     return None  # None indicates filtered/skipped, not failed
                 
+                # CRITICAL FIX: Open trades WITHOUT SL initially (sl=0.0)
+                # SL will be applied after 300-500ms stabilization delay to prevent incorrect initial SL
                 result = self.order_manager.place_order(
                     symbol=symbol,
                     order_type=order_type,
                     lot_size=lot_size,
-                    stop_loss=stop_loss_pips_for_order,
+                    stop_loss=0.0,  # Open without SL - will be applied after stabilization delay
                     comment=f"Bot {signal}"
                 )
                 
@@ -1939,8 +1941,20 @@ class TradingBot:
                 elif isinstance(result, dict):
                     if 'error' in result:
                         ticket = result['error']  # Error code
+                        # Extract detailed error information
+                        mt5_retcode = result.get('mt5_retcode', 'N/A')
+                        mt5_comment = result.get('mt5_comment', 'N/A')
+                        error_type = result.get('error_type', 'unknown')
+                        
+                        # Log detailed error information
+                        logger.error(f"[ERROR] {symbol}: Order placement failed | "
+                                   f"Error Code: {result.get('error')} | "
+                                   f"MT5 Retcode: {mt5_retcode} | "
+                                   f"MT5 Comment: {mt5_comment} | "
+                                   f"Error Type: {error_type}")
+                        
                         # Update state for error
-                        self._update_state('ERROR', symbol, f'Order failed: {result.get("error")}')
+                        self._update_state('ERROR', symbol, f'Order failed: {result.get("error")} (MT5: {mt5_retcode})')
                     else:
                         ticket = result.get('ticket')
                         entry_price_actual = result.get('entry_price_actual', entry_price)
@@ -1973,10 +1987,16 @@ class TradingBot:
                 # Handle error codes (from dict or legacy int)
                 error_code = ticket if isinstance(ticket, int) and ticket < 0 else (result.get('error') if isinstance(result, dict) else None)
                 
+                # Extract detailed error information for logging
+                mt5_retcode = result.get('mt5_retcode', 'N/A') if isinstance(result, dict) else 'N/A'
+                mt5_comment = result.get('mt5_comment', 'N/A') if isinstance(result, dict) else 'N/A'
+                error_type = result.get('error_type', 'unknown') if isinstance(result, dict) else 'unknown'
+                
                 # Market closed - don't retry
                 if error_code == -4:
                     logger.warning(f"⏰ {symbol}: Market closed (error 10018) - skipping trade execution")
-                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Market closed - order rejected by broker")
+                    logger.warning(f"   MT5 Error details: Retcode: {mt5_retcode} | Comment: {mt5_comment} | Error Type: {error_type}")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Market closed - order rejected by broker | MT5 Error: {mt5_retcode} - {mt5_comment}")
                     print(f"[SKIP] {symbol}: Market closed - order rejected. Re-scan when market opens.")
                     # Market closed is NOT a failure - it's a market condition
                     return None  # None indicates filtered/skipped, not failed
@@ -1984,7 +2004,8 @@ class TradingBot:
                 # Trading restrictions - don't retry (10027, 10044, etc.)
                 if error_code == -5:
                     logger.error(f"[ERROR] {symbol}: Trading restriction (error 10027/10044) - trade not allowed")
-                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Trading restriction - symbol/order type not tradeable")
+                    logger.error(f"   MT5 Error details: Retcode: {mt5_retcode} | Comment: {mt5_comment} | Error Type: {error_type}")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Trading restriction - symbol/order type not tradeable | MT5 Error: {mt5_retcode} - {mt5_comment}")
                     print(f"[ERROR] {symbol}: Trading restriction - this symbol cannot be traded. Check account permissions or symbol restrictions.")
                     self.trade_stats['failed_trades'] += 1
                     # Mark symbol as restricted to prevent future attempts in this session
@@ -1996,65 +2017,180 @@ class TradingBot:
                 # Invalid stops - don't retry
                 if error_code == -3:
                     logger.error(f"[ERROR] {symbol}: Invalid stops (error 10016) - trade failed")
-                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Invalid stops - check stop loss configuration")
+                    logger.error(f"   MT5 Error details: Retcode: {mt5_retcode} | Comment: {mt5_comment} | Error Type: {error_type}")
+                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Invalid stops - check stop loss configuration | MT5 Error: {mt5_retcode} - {mt5_comment}")
                     self.trade_stats['failed_trades'] += 1
                     break  # Don't retry
                 
-                # Invalid volume - retry once with broker minimum
+                # Invalid volume - progressive retry with increasing lot sizes
                 if error_code == -1:
-                    if not volume_error_occurred:  # Only retry once
+                    # Check if we have remaining retry lot sizes from previous attempt
+                    remaining_retry_sizes = getattr(self, '_volume_retry_lot_sizes', {}).get(symbol, [])
+                    
+                    if remaining_retry_sizes:
+                        # Try next lot size from remaining list
+                        retry_lot = remaining_retry_sizes[0]
+                        symbol_info_retry = self.mt5_connector.get_symbol_info(symbol)
+                        volume_max = symbol_info_retry.get('volume_max', 100.0) if symbol_info_retry else 100.0
+                        
+                        if retry_lot <= volume_max:
+                            logger.info(f"🔄 {symbol}: Retrying with next lot size {retry_lot:.4f} "
+                                      f"(remaining: {remaining_retry_sizes})")
+                            
+                            # Small delay before retry
+                            time.sleep(0.15)
+                            
+                            # Update lot_size
+                            lot_size = retry_lot
+                            
+                            # Recalculate stop_loss_pips_for_order
+                            stop_loss_pips_for_order = abs(entry_price - stop_loss_price) / pip_value if pip_value > 0 else 0
+                            
+                            # Update remaining list
+                            self._volume_retry_lot_sizes[symbol] = remaining_retry_sizes[1:]
+                            
+                            continue  # Retry with next lot size
+                        else:
+                            # Remove this symbol's retry list and fall through to final failure
+                            del self._volume_retry_lot_sizes[symbol]
+                    
+                    if not volume_error_occurred:  # First volume error
                         volume_error_occurred = True
-                        logger.warning(f"[WARNING] {symbol}: Invalid volume error (lot: {lot_size:.4f}), retrying once with broker minimum lot...")
-                        # Get minimum lot and retry
-                    symbol_info_retry = self.mt5_connector.get_symbol_info(symbol)
-                    if symbol_info_retry:
+                        logger.warning(f"[WARNING] {symbol}: Invalid volume error (lot: {lot_size:.4f}), attempting progressive retry...")
+                        
+                        # Get symbol info for lot size calculation
+                        symbol_info_retry = self.mt5_connector.get_symbol_info(symbol)
+                        if not symbol_info_retry:
+                            logger.error(f"[ERROR] {symbol}: Cannot get symbol info for volume retry")
+                            break
+                        
+                        # Get broker-reported minimum lot and volume step
                         symbol_min_lot = symbol_info_retry.get('volume_min', 0.01)
+                        volume_step = symbol_info_retry.get('volume_step', 0.01)
+                        volume_max = symbol_info_retry.get('volume_max', 100.0)
                         symbol_upper = symbol.upper()
+                        
+                        # Get config override if exists
                         symbol_limit_config = self.risk_manager.symbol_limits.get(symbol_upper, {})
                         config_min_lot = symbol_limit_config.get('min_lot')
+                        
+                        # Calculate effective minimum (config override takes precedence)
                         if config_min_lot is not None:
                             effective_min_lot = max(symbol_min_lot, config_min_lot)
+                            min_source = "config"
                         else:
                             effective_min_lot = symbol_min_lot
+                            min_source = "broker"
                         
-                        # Round to volume step
-                        volume_step = symbol_info_retry.get('volume_step', 0.01)
+                        # CRITICAL FIX: Progressive retry with multiple lot sizes
+                        # Try broker minimum first, then common minimums (0.1, 1.0) if that fails
+                        # This handles cases where broker reports 0.01 but actually requires higher
+                        retry_lot_sizes = []
+                        
+                        # 1. Try broker-reported minimum (properly rounded to volume step)
                         if volume_step > 0:
-                            effective_min_lot = round(effective_min_lot / volume_step) * volume_step
-                            if effective_min_lot < volume_step:
-                                effective_min_lot = volume_step
+                            rounded_min = round(effective_min_lot / volume_step) * volume_step
+                            if rounded_min < volume_step:
+                                rounded_min = volume_step
+                            retry_lot_sizes.append(rounded_min)
+                        else:
+                            retry_lot_sizes.append(effective_min_lot)
                         
-                        logger.info(f"🔄 {symbol}: Retrying with broker minimum lot {effective_min_lot:.4f}")
-                        lot_size = effective_min_lot
-                        # Small delay before retry
-                        time.sleep(0.1)
-                        continue
-                    else:
-                        logger.error(f"[ERROR] {symbol}: Cannot get symbol info for retry")
+                        # 2. If broker minimum is 0.01, try common higher minimums
+                        if effective_min_lot <= 0.01:
+                            # Try 0.1 (common for indices/crypto)
+                            if volume_step > 0:
+                                test_lot_01 = round(0.1 / volume_step) * volume_step
+                                if test_lot_01 >= volume_step and test_lot_01 <= volume_max:
+                                    retry_lot_sizes.append(test_lot_01)
+                            else:
+                                if 0.1 <= volume_max:
+                                    retry_lot_sizes.append(0.1)
+                            
+                            # Try 1.0 (common for some symbols)
+                            if volume_step > 0:
+                                test_lot_10 = round(1.0 / volume_step) * volume_step
+                                if test_lot_10 >= volume_step and test_lot_10 <= volume_max:
+                                    retry_lot_sizes.append(test_lot_10)
+                            else:
+                                if 1.0 <= volume_max:
+                                    retry_lot_sizes.append(1.0)
+                        
+                        # Remove duplicates and sort
+                        retry_lot_sizes = sorted(list(set(retry_lot_sizes)))
+                        
+                        # Try first lot size from the list (will try others if this fails on next attempt)
+                        if retry_lot_sizes:
+                            retry_lot = retry_lot_sizes[0]
+                            if retry_lot <= volume_max:
+                                logger.info(f"🔄 {symbol}: Retrying with lot size {retry_lot:.4f} "
+                                          f"(broker min: {symbol_min_lot:.4f}, step: {volume_step:.4f}, source: {min_source})")
+                                
+                                # Small delay before retry
+                                time.sleep(0.15)
+                                
+                                # Update lot_size and continue to next attempt
+                                lot_size = retry_lot
+                                
+                                # Recalculate stop_loss_pips_for_order with new lot size
+                                # (SL price calculation doesn't change, but we need to recalculate pips for logging)
+                                stop_loss_pips_for_order = abs(entry_price - stop_loss_price) / pip_value if pip_value > 0 else 0
+                                
+                                # Store remaining retry lot sizes for next attempt if this one fails
+                                if not hasattr(self, '_volume_retry_lot_sizes'):
+                                    self._volume_retry_lot_sizes = {}
+                                self._volume_retry_lot_sizes[symbol] = retry_lot_sizes[1:]  # Store remaining sizes
+                                
+                                continue  # Retry with new lot size
+                            else:
+                                logger.error(f"[ERROR] {symbol}: Retry lot size {retry_lot:.4f} exceeds max {volume_max:.4f}")
+                        else:
+                            logger.error(f"[ERROR] {symbol}: No valid retry lot sizes found")
+                        
+                        # All retry lot sizes exhausted or invalid
+                        logger.error(f"[ERROR] {symbol}: Cannot determine valid lot size for retry. "
+                                   f"Broker min: {symbol_min_lot:.4f}, step: {volume_step:.4f}, max: {volume_max:.4f}")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Invalid volume - cannot determine valid retry lot size")
+                        self.trade_stats['failed_trades'] += 1
                         break
-                else:
-                    # Already retried once - fail and log
-                    logger.error(f"[ERROR] {symbol}: Invalid volume error persisted after retry with broker minimum lot - trade failed")
-                    logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Invalid volume - retry with minimum lot failed")
-                    self.trade_stats['failed_trades'] += 1
-                    break
+                    else:
+                        # Already retried - fail and log
+                        # Get symbol info for logging
+                        symbol_info_final = self.mt5_connector.get_symbol_info(symbol)
+                        logger.error(f"[ERROR] {symbol}: Invalid volume error persisted after progressive retry - trade failed")
+                        logger.error(f"   Final attempted lot size: {lot_size:.4f}")
+                        logger.error(f"   MT5 Error details: Retcode: {mt5_retcode} | Comment: {mt5_comment} | Error Type: {error_type}")
+                        if symbol_info_final:
+                            logger.error(f"   Symbol info: min={symbol_info_final.get('volume_min', 'N/A')}, "
+                                       f"step={symbol_info_final.get('volume_step', 'N/A')}, "
+                                       f"max={symbol_info_final.get('volume_max', 'N/A')}")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Invalid volume - progressive retry failed | MT5 Error: {mt5_retcode} - {mt5_comment}")
+                        self.trade_stats['failed_trades'] += 1
+                        break
                 
                 # Transient errors (-2 or None) - retry with exponential backoff
                 if error_code == -2 or ticket is None:
                     if attempt < max_retries - 1:
                         # Exponential backoff for transient errors
                         backoff_delay = backoff_base * (2 ** attempt)
-                        logger.warning(f"[WARNING] {symbol}: Order placement failed (attempt {attempt + 1}/{max_retries}), retrying in {backoff_delay:.1f}s...")
+                        logger.warning(f"[WARNING] {symbol}: Order placement failed (attempt {attempt + 1}/{max_retries}) | "
+                                     f"MT5 Retcode: {mt5_retcode} | MT5 Comment: {mt5_comment} | Error Type: {error_type} | "
+                                     f"Retrying in {backoff_delay:.1f}s...")
                         logger.info(f"⏳ {symbol}: Exponential backoff delay: {backoff_delay:.1f}s")
                         time.sleep(backoff_delay)
                         continue
                     else:
                         logger.error(f"[ERROR] {symbol}: Order placement failed after {max_retries} attempts with exponential backoff")
-                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Order placement failed after {max_retries} retries")
+                        logger.error(f"   Final error details: MT5 Retcode: {mt5_retcode} | MT5 Comment: {mt5_comment} | Error Type: {error_type}")
+                        logger.info(f"[SKIP] [SKIP] {symbol} | Reason: Order placement failed after {max_retries} retries | MT5 Error: {mt5_retcode} - {mt5_comment}")
                         self.trade_stats['failed_trades'] += 1
                         break
             
             if ticket and ticket > 0:  # Valid ticket number
+                # Clean up volume retry tracking for this symbol (trade succeeded)
+                if hasattr(self, '_volume_retry_lot_sizes') and symbol in self._volume_retry_lot_sizes:
+                    del self._volume_retry_lot_sizes[symbol]
+                
                 # Register staged trade
                 self.risk_manager.register_staged_trade(symbol, ticket, signal)
                 
@@ -2138,26 +2274,55 @@ class TradingBot:
                 self.tracked_tickets.add(ticket)
                 self.position_monitor.update_tracked_positions(ticket)
                 
-                # CRITICAL FIX 2.1: STRICT SL ENFORCEMENT - Apply immediately after entry
-                # ALWAYS enforce -$2.00 protective SL regardless of initial profit status
-                # This ensures protection is in place from the moment trade opens
-                # MIGRATED TO SLManager: All SL logic now handled by unified SLManager
+                # CRITICAL FIX: Initial SL Application - Schedule after 300-500ms stabilization delay
+                # Trades open WITHOUT SL (sl=0.0), then SL is applied after delay to prevent incorrect initial SL
+                # This ensures effective SL never exceeds -$2.00 and prevents early stop-outs
                 fresh_position = self.order_manager.get_position_by_ticket(ticket)
                 if fresh_position:
                     fresh_profit = fresh_position.get('profit', 0.0)
+                    current_sl = fresh_position.get('sl', 0.0)
                     
-                    # Use new unified SLManager for all SL enforcement
-                    # This handles strict loss, break-even, sweet-spot, and trailing stops atomically
+                    # Verify trade opened without SL (as intended)
+                    if current_sl != 0.0:
+                        logger.warning(f"[INITIAL_SL] {symbol} Ticket {ticket} | "
+                                     f"WARNING: Trade opened with SL={current_sl:.5f} (expected 0.0) | "
+                                     f"This should not happen - verifying effective SL...")
+                        # Verify effective SL doesn't exceed -$2.00
+                        if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                            effective_sl_profit = self.risk_manager.sl_manager.get_effective_sl_profit(fresh_position)
+                            if effective_sl_profit < -self.risk_manager.max_risk_usd:
+                                violation = abs(effective_sl_profit - (-self.risk_manager.max_risk_usd))
+                                logger.critical(f"[INITIAL_SL_VIOLATION] {symbol} Ticket {ticket} | "
+                                              f"Effective SL ${effective_sl_profit:.2f} exceeds -${self.risk_manager.max_risk_usd:.2f} by ${violation:.2f} | "
+                                              f"Correcting immediately...")
+                                # Force immediate correction
+                                self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
+                    
+                    # NEW APPROACH: Schedule delayed loss-side SL application (2-3 seconds after order placement)
+                    # Trades open WITHOUT SL (null/omitted), then after 2-3 seconds:
+                    # - If trade is LOSING: Calculate and apply SL for $2 loss based on actual entry price
+                    # - If trade is PROFITABLE: Let profit locking and sweet spot mechanisms handle it
+                    # This prevents early closures and ensures accurate SL calculation
                     if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
-                        sl_update_success, sl_update_reason = self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
-                        if sl_update_success:
-                            logger.info(f"[SL] SL MANAGER: {symbol} Ticket {ticket} | "
-                                      f"Profit: ${fresh_profit:.2f} | {sl_update_reason}")
-                        else:
-                            logger.debug(f"[SL] SL MANAGER: {symbol} Ticket {ticket} | "
-                                       f"Profit: ${fresh_profit:.2f} | {sl_update_reason}")
+                        # Get order type string for SL calculation
+                        order_type_str = 'BUY' if order_type == OrderType.BUY else 'SELL'
+                        
+                        self.risk_manager.sl_manager.schedule_initial_sl_application(
+                            ticket=ticket,
+                            symbol=symbol,
+                            order_type=order_type_str,
+                            lot_size=lot_size,
+                            entry_price=entry_price_actual,  # Use actual entry price from order fill
+                            delay_seconds=2.5  # 2.5 seconds delay for proper stabilization
+                        )
+                        logger.info(f"[INITIAL_SL] {symbol} Ticket {ticket} | "
+                                  f"Loss-side SL application scheduled after 2.5s delay | "
+                                  f"Entry: {entry_price_actual:.5f} | Type: {order_type_str} | "
+                                  f"Current profit: ${fresh_profit:.2f} | Current SL: {current_sl:.5f}")
                     else:
                         # Fallback: Use legacy protective SL if SLManager not available
+                        logger.warning(f"[INITIAL_SL] {symbol} Ticket {ticket} | "
+                                     f"SLManager unavailable - using legacy protective SL")
                         protective_sl_set = self.risk_manager.enforce_protective_sl_on_entry(ticket, fresh_position)
                         if protective_sl_set:
                             logger.warning(f"[SL] LEGACY SL (SLManager unavailable): {symbol} Ticket {ticket} | "
@@ -2171,6 +2336,9 @@ class TradingBot:
             else:
                 logger.error(f"[ERROR] {symbol}: TRADE EXECUTION FAILED after {max_retries} attempts")
                 logger.error(f"   Symbol: {symbol}, Signal: {signal}, Lot: {lot_size}, SL: {stop_loss_pips:.1f} pips")
+                # Log final error details if available
+                if isinstance(result, dict) and 'error' in result:
+                    logger.error(f"   Final error details: Error Code: {result.get('error')} | MT5 Retcode: {result.get('mt5_retcode', 'N/A')} | MT5 Comment: {result.get('mt5_comment', 'N/A')} | Error Type: {result.get('error_type', 'unknown')}")
                 self.trade_stats['failed_trades'] += 1
                 return False
         
