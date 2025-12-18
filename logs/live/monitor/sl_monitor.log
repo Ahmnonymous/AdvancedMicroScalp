@@ -1,0 +1,11 @@
+2025-12-19 00:03:38 - sl_monitor - INFO - SL Realtime Monitor initialized
+2025-12-19 00:03:41 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
+2025-12-19 00:04:58 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 5.1s
+2025-12-19 00:05:14 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 20.7s
+2025-12-19 00:05:19 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 25.9s
+2025-12-19 00:05:29 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 36.2s
+2025-12-19 00:05:34 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 41.4s
+2025-12-19 00:05:40 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 46.6s
+2025-12-19 00:05:50 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 56.9s
+2025-12-19 00:06:00 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 67.2s
+2025-12-19 00:06:37 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 535226252 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 103.7s

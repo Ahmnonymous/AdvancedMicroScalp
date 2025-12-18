@@ -31,6 +31,7 @@ class ConfigValidator:
         # Validate required sections
         self._validate_mt5_config()
         self._validate_risk_config()
+        self._validate_execution_config()
         self._validate_trading_config()
         self._validate_news_config()
         self._validate_pairs_config()
@@ -121,6 +122,58 @@ class ConfigValidator:
             min_lock = elastic.get('min_lock_increment_usd', 0.10)
             if not isinstance(min_lock, (int, float)) or min_lock <= 0:
                 self.errors.append("risk.elastic_trailing.min_lock_increment_usd must be a positive number")
+        
+        # Validate lock acquisition timeouts (critical for SL updates)
+        lock_timeout = risk_config.get('lock_acquisition_timeout_seconds', 1.0)
+        if not isinstance(lock_timeout, (int, float)) or lock_timeout <= 0:
+            self.errors.append("risk.lock_acquisition_timeout_seconds must be a positive number")
+        elif lock_timeout > 5.0:
+            self.warnings.append(f"risk.lock_acquisition_timeout_seconds ({lock_timeout}s) is very high. May cause SL update delays. Recommended: <= 2.0s")
+        elif lock_timeout < 0.5:
+            self.warnings.append(f"risk.lock_acquisition_timeout_seconds ({lock_timeout}s) is very low. May cause premature lock failures. Recommended: >= 1.0s")
+        
+        profit_lock_timeout = risk_config.get('profit_locking_lock_timeout_seconds', 2.0)
+        if not isinstance(profit_lock_timeout, (int, float)) or profit_lock_timeout <= 0:
+            self.errors.append("risk.profit_locking_lock_timeout_seconds must be a positive number")
+        elif profit_lock_timeout > 5.0:
+            self.warnings.append(f"risk.profit_locking_lock_timeout_seconds ({profit_lock_timeout}s) is very high. May cause profit locking delays. Recommended: <= 3.0s")
+        elif profit_lock_timeout < 1.0:
+            self.warnings.append(f"risk.profit_locking_lock_timeout_seconds ({profit_lock_timeout}s) is very low. May cause premature lock failures. Recommended: >= 2.0s")
+        
+        # Validate SL update interval
+        sl_update_interval = risk_config.get('sl_update_min_interval_ms', 5000)
+        if not isinstance(sl_update_interval, (int, float)) or sl_update_interval < 0:
+            self.errors.append("risk.sl_update_min_interval_ms must be a non-negative number")
+        elif sl_update_interval > 10000:
+            self.warnings.append(f"risk.sl_update_min_interval_ms ({sl_update_interval}ms) is very high. May delay profit locking. Recommended: <= 5000ms")
+    
+    def _validate_execution_config(self):
+        """Validate execution configuration."""
+        execution_config = self.config.get('execution', {})
+        
+        if not execution_config:
+            self.warnings.append("Missing 'execution' configuration section")
+            return
+        
+        # Validate SL verification delay
+        verification_delay = execution_config.get('sl_verification_delay_seconds', 0.2)
+        if not isinstance(verification_delay, (int, float)) or verification_delay <= 0:
+            self.errors.append("execution.sl_verification_delay_seconds must be a positive number")
+        elif verification_delay < 0.1:
+            self.warnings.append(f"execution.sl_verification_delay_seconds ({verification_delay}s) is very low. MT5 may not process update in time. Recommended: >= 0.15s")
+        elif verification_delay > 1.0:
+            self.warnings.append(f"execution.sl_verification_delay_seconds ({verification_delay}s) is very high. May slow down SL updates. Recommended: <= 0.5s")
+        
+        # Validate verification tolerance
+        verification_config = execution_config.get('verification', {})
+        if verification_config:
+            profit_tolerance = verification_config.get('effective_profit_tolerance_usd', 1.5)
+            if not isinstance(profit_tolerance, (int, float)) or profit_tolerance < 0:
+                self.errors.append("execution.verification.effective_profit_tolerance_usd must be a non-negative number")
+            elif profit_tolerance > 5.0:
+                self.warnings.append(f"execution.verification.effective_profit_tolerance_usd (${profit_tolerance}) is very high. May allow significant SL drift. Recommended: <= 2.0")
+            elif profit_tolerance < 0.5:
+                self.warnings.append(f"execution.verification.effective_profit_tolerance_usd (${profit_tolerance}) is very low. May cause false verification failures. Recommended: >= 1.0")
     
     def _validate_trading_config(self):
         """Validate trading configuration."""
@@ -234,6 +287,7 @@ class ConfigValidator:
         """Log validation results."""
         if self.errors:
             logger.error("=" * 60)
+            logger.error("[CONFIG_INVALID] Configuration validation FAILED")
             logger.error("CONFIGURATION ERRORS (must fix):")
             for error in self.errors:
                 logger.error(f"  [ERROR] {error}")
@@ -241,11 +295,14 @@ class ConfigValidator:
         
         if self.warnings:
             logger.warning("=" * 60)
-            # logger.warning("CONFIGURATION WARNINGS:")
-            # for warning in self.warnings:
-            #     logger.warning(f"  [WARNING] {warning}")
-            # logger.warning("=" * 60)
+            logger.warning("CONFIGURATION WARNINGS:")
+            for warning in self.warnings:
+                logger.warning(f"  [WARNING] {warning}")
+            logger.warning("=" * 60)
         
-        if not self.errors and not self.warnings:
-            logger.info("[OK] Configuration validation passed with no issues")
+        if not self.errors:
+            if not self.warnings:
+                logger.info("[CONFIG_OK] Configuration validation passed with no issues")
+            else:
+                logger.info(f"[CONFIG_OK] Configuration validation passed with {len(self.warnings)} warning(s)")
 

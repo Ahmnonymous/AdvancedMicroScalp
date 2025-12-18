@@ -1,0 +1,3 @@
+2025-12-19 00:03:48 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 236.0% of avg range > max 30.0%
+2025-12-19 00:05:07 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 223.5% of avg range > max 30.0%
+2025-12-19 00:06:21 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 222.2% of avg range > max 30.0%

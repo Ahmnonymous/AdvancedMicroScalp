@@ -113,7 +113,7 @@ class SystemEventLogger:
             # System Health / Session
             "SESSION_END_RECONCILIATION", "RECONCILIATION_MISMATCH", "BOT_LOOP_TICK",
             # Thread Health
-            "THREAD_DIED", "CRITICAL",
+            "THREAD_DIED", "CRITICAL", "SYSTEM_READY", "SYSTEM_UNSAFE",
             # Startup Test
             "BOOT_TEST"
         }

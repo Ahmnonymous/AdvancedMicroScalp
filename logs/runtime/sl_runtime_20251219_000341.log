@@ -1,0 +1,221 @@
+2025-12-19 00:03:41 - lightweight_realtime - INFO - [2025-12-19 00:03:41.456] Positions: 0 | State: SCANNING | Symbol: US500m
+2025-12-19 00:03:42 - lightweight_realtime - INFO - [2025-12-19 00:03:42.471] Positions: 0 | State: SCANNING | Symbol: BILIm
+2025-12-19 00:03:43 - lightweight_realtime - INFO - [2025-12-19 00:03:43.502] Positions: 0 | State: SCANNING | Symbol: AUDCHFm
+2025-12-19 00:03:44 - lightweight_realtime - INFO - [2025-12-19 00:03:44.539] Positions: 0 | State: SCANNING | Symbol: EBAYm
+2025-12-19 00:03:45 - lightweight_realtime - INFO - [2025-12-19 00:03:45.553] Positions: 0 | State: SCANNING | Symbol: NKEm
+2025-12-19 00:03:46 - lightweight_realtime - INFO - [2025-12-19 00:03:46.574] Positions: 0 | State: SCANNING | Symbol: NZDCHFm
+2025-12-19 00:03:47 - lightweight_realtime - INFO - [2025-12-19 00:03:47.609] Positions: 0 | State: SCANNING | Symbol: USOILm
+2025-12-19 00:03:48 - lightweight_realtime - INFO - [2025-12-19 00:03:48.635] Positions: 0 | State: SCANNING | Symbol: NZDCADm
+2025-12-19 00:03:49 - lightweight_realtime - INFO - [2025-12-19 00:03:49.652] Positions: 0 | State: SCANNING | Symbol: GBPAUDm
+2025-12-19 00:03:50 - lightweight_realtime - INFO - [2025-12-19 00:03:50.688] Positions: 0 | State: SCANNING | Symbol: DXYm
+2025-12-19 00:03:51 - lightweight_realtime - INFO - [2025-12-19 00:03:51.715] Positions: 0 | State: SCANNING | Symbol: CADJPYm
+2025-12-19 00:03:52 - lightweight_realtime - INFO - [2025-12-19 00:03:52.761] Positions: 0 | State: SCANNING | Symbol: MAm
+2025-12-19 00:03:53 - lightweight_realtime - INFO - [2025-12-19 00:03:53.790] Positions: 0 | State: SCANNING | Symbol: EURSGDm
+2025-12-19 00:03:54 - lightweight_realtime - INFO - [2025-12-19 00:03:54.821] Positions: 0 | State: SCANNING | Symbol: GBPNOKm
+2025-12-19 00:03:55 - lightweight_realtime - INFO - [2025-12-19 00:03:55.845] Positions: 0 | State: SCANNING | Symbol: BTCXAUm
+2025-12-19 00:03:56 - lightweight_realtime - INFO - [2025-12-19 00:03:56.861] Positions: 0 | State: SCANNING | Symbol: NZDDKKm
+2025-12-19 00:03:57 - lightweight_realtime - INFO - [2025-12-19 00:03:57.881] Positions: 0 | State: SCANNING | Symbol: AUDNOKm
+2025-12-19 00:03:58 - lightweight_realtime - INFO - [2025-12-19 00:03:58.903] Positions: 0 | State: SCANNING | Symbol: CADNOKm
+2025-12-19 00:03:59 - lightweight_realtime - INFO - [2025-12-19 00:03:59.924] Positions: 1 | State: MANAGING TRADE | Symbol: US30m
+2025-12-19 00:04:01 - lightweight_realtime - INFO - [2025-12-19 00:04:01.219] Positions: 3 | State: ENTERING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:02 - lightweight_realtime - INFO - [2025-12-19 00:04:02.266] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:03 - lightweight_realtime - INFO - [2025-12-19 00:04:03.302] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:04 - lightweight_realtime - INFO - [2025-12-19 00:04:04.327] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:05 - lightweight_realtime - INFO - [2025-12-19 00:04:05.339] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:06 - lightweight_realtime - INFO - [2025-12-19 00:04:06.374] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:07 - lightweight_realtime - INFO - [2025-12-19 00:04:07.399] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:08 - lightweight_realtime - INFO - [2025-12-19 00:04:08.415] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:09 - lightweight_realtime - INFO - [2025-12-19 00:04:09.434] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:10 - lightweight_realtime - INFO - [2025-12-19 00:04:10.451] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:11 - lightweight_realtime - INFO - [2025-12-19 00:04:11.486] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:12 - lightweight_realtime - INFO - [2025-12-19 00:04:12.515] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:13 - lightweight_realtime - INFO - [2025-12-19 00:04:13.540] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:14 - lightweight_realtime - INFO - [2025-12-19 00:04:14.560] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:15 - lightweight_realtime - INFO - [2025-12-19 00:04:15.576] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:16 - lightweight_realtime - INFO - [2025-12-19 00:04:16.596] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:17 - lightweight_realtime - INFO - [2025-12-19 00:04:17.621] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:18 - lightweight_realtime - INFO - [2025-12-19 00:04:18.651] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:19 - lightweight_realtime - INFO - [2025-12-19 00:04:19.681] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:20 - lightweight_realtime - INFO - [2025-12-19 00:04:20.716] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:21 - lightweight_realtime - INFO - [2025-12-19 00:04:21.735] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:22 - lightweight_realtime - INFO - [2025-12-19 00:04:22.765] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:23 - lightweight_realtime - INFO - [2025-12-19 00:04:23.793] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:24 - lightweight_realtime - INFO - [2025-12-19 00:04:24.809] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:25 - lightweight_realtime - INFO - [2025-12-19 00:04:25.843] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:26 - lightweight_realtime - INFO - [2025-12-19 00:04:26.865] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:27 - lightweight_realtime - INFO - [2025-12-19 00:04:27.894] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:28 - lightweight_realtime - INFO - [2025-12-19 00:04:28.916] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:29 - lightweight_realtime - INFO - [2025-12-19 00:04:29.934] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:30 - lightweight_realtime - INFO - [2025-12-19 00:04:30.954] Positions: 3 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:31 - lightweight_realtime - INFO - [2025-12-19 00:04:31.971] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:32 - lightweight_realtime - INFO - [2025-12-19 00:04:32.984] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:34 - lightweight_realtime - INFO - [2025-12-19 00:04:34.008] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:35 - lightweight_realtime - INFO - [2025-12-19 00:04:35.028] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:36 - lightweight_realtime - INFO - [2025-12-19 00:04:36.056] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:37 - lightweight_realtime - INFO - [2025-12-19 00:04:37.072] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:38 - lightweight_realtime - INFO - [2025-12-19 00:04:38.093] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:39 - lightweight_realtime - INFO - [2025-12-19 00:04:39.119] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:40 - lightweight_realtime - INFO - [2025-12-19 00:04:40.138] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:41 - lightweight_realtime - INFO - [2025-12-19 00:04:41.162] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:42 - lightweight_realtime - INFO - [2025-12-19 00:04:42.183] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:43 - lightweight_realtime - INFO - [2025-12-19 00:04:43.198] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:44 - lightweight_realtime - INFO - [2025-12-19 00:04:44.222] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:45 - lightweight_realtime - INFO - [2025-12-19 00:04:45.236] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:46 - lightweight_realtime - INFO - [2025-12-19 00:04:46.270] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:47 - lightweight_realtime - INFO - [2025-12-19 00:04:47.289] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:48 - lightweight_realtime - INFO - [2025-12-19 00:04:48.317] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:49 - lightweight_realtime - INFO - [2025-12-19 00:04:49.334] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:50 - lightweight_realtime - INFO - [2025-12-19 00:04:50.358] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:51 - lightweight_realtime - INFO - [2025-12-19 00:04:51.382] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:52 - lightweight_realtime - INFO - [2025-12-19 00:04:52.406] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:53 - lightweight_realtime - INFO - [2025-12-19 00:04:53.432] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:54 - lightweight_realtime - INFO - [2025-12-19 00:04:54.448] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:55 - lightweight_realtime - INFO - [2025-12-19 00:04:55.468] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:56 - lightweight_realtime - INFO - [2025-12-19 00:04:56.492] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:57 - lightweight_realtime - INFO - [2025-12-19 00:04:57.502] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:58 - lightweight_realtime - INFO - [2025-12-19 00:04:58.525] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:04:59 - lightweight_realtime - INFO - [2025-12-19 00:04:59.536] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:05:00 - lightweight_realtime - INFO - [2025-12-19 00:05:00.561] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:05:01 - lightweight_realtime - INFO - [2025-12-19 00:05:01.587] Positions: 1 | State: MANAGING TRADE | Symbol: US30_x10m
+2025-12-19 00:05:02 - lightweight_realtime - INFO - [2025-12-19 00:05:02.605] Positions: 1 | State: SCANNING | Symbol: US30_x10m
+2025-12-19 00:05:03 - lightweight_realtime - INFO - [2025-12-19 00:05:03.647] Positions: 1 | State: SCANNING | Symbol: AMZNm
+2025-12-19 00:05:04 - lightweight_realtime - INFO - [2025-12-19 00:05:04.682] Positions: 1 | State: SCANNING | Symbol: CSCOm
+2025-12-19 00:05:05 - lightweight_realtime - INFO - [2025-12-19 00:05:05.701] Positions: 1 | State: SCANNING | Symbol: NKEm
+2025-12-19 00:05:06 - lightweight_realtime - INFO - [2025-12-19 00:05:06.730] Positions: 1 | State: SCANNING | Symbol: USOILm
+2025-12-19 00:05:07 - lightweight_realtime - INFO - [2025-12-19 00:05:07.753] Positions: 1 | State: SCANNING | Symbol: XAGGBPm
+2025-12-19 00:05:08 - lightweight_realtime - INFO - [2025-12-19 00:05:08.769] Positions: 1 | State: SCANNING | Symbol: DXYm
+2025-12-19 00:05:09 - lightweight_realtime - INFO - [2025-12-19 00:05:09.792] Positions: 1 | State: SCANNING | Symbol: NFLXm
+2025-12-19 00:05:10 - lightweight_realtime - INFO - [2025-12-19 00:05:10.853] Positions: 1 | State: SCANNING | Symbol: TMOm
+2025-12-19 00:05:11 - lightweight_realtime - INFO - [2025-12-19 00:05:11.871] Positions: 1 | State: SCANNING | Symbol: EDUm
+2025-12-19 00:05:12 - lightweight_realtime - INFO - [2025-12-19 00:05:12.892] Positions: 1 | State: SCANNING | Symbol: NZDMXNm
+2025-12-19 00:05:13 - lightweight_realtime - INFO - [2025-12-19 00:05:13.941] Positions: 1 | State: SCANNING | Symbol: USDTHBm
+2025-12-19 00:05:14 - lightweight_realtime - INFO - [2025-12-19 00:05:14.977] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:15 - lightweight_realtime - INFO - [2025-12-19 00:05:15.985] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:17 - lightweight_realtime - INFO - [2025-12-19 00:05:17.009] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:18 - lightweight_realtime - INFO - [2025-12-19 00:05:18.034] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:19 - lightweight_realtime - INFO - [2025-12-19 00:05:19.056] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:20 - lightweight_realtime - INFO - [2025-12-19 00:05:20.076] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:21 - lightweight_realtime - INFO - [2025-12-19 00:05:21.091] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:22 - lightweight_realtime - INFO - [2025-12-19 00:05:22.113] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:23 - lightweight_realtime - INFO - [2025-12-19 00:05:23.136] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:24 - lightweight_realtime - INFO - [2025-12-19 00:05:24.161] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:25 - lightweight_realtime - INFO - [2025-12-19 00:05:25.183] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:26 - lightweight_realtime - INFO - [2025-12-19 00:05:26.205] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:27 - lightweight_realtime - INFO - [2025-12-19 00:05:27.226] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:28 - lightweight_realtime - INFO - [2025-12-19 00:05:28.236] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:29 - lightweight_realtime - INFO - [2025-12-19 00:05:29.254] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:30 - lightweight_realtime - INFO - [2025-12-19 00:05:30.271] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:31 - lightweight_realtime - INFO - [2025-12-19 00:05:31.303] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:32 - lightweight_realtime - INFO - [2025-12-19 00:05:32.329] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:33 - lightweight_realtime - INFO - [2025-12-19 00:05:33.349] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:34 - lightweight_realtime - INFO - [2025-12-19 00:05:34.375] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:35 - lightweight_realtime - INFO - [2025-12-19 00:05:35.407] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:36 - lightweight_realtime - INFO - [2025-12-19 00:05:36.430] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:37 - lightweight_realtime - INFO - [2025-12-19 00:05:37.454] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:38 - lightweight_realtime - INFO - [2025-12-19 00:05:38.475] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:39 - lightweight_realtime - INFO - [2025-12-19 00:05:39.499] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:40 - lightweight_realtime - INFO - [2025-12-19 00:05:40.518] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:41 - lightweight_realtime - INFO - [2025-12-19 00:05:41.539] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:42 - lightweight_realtime - INFO - [2025-12-19 00:05:42.558] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:43 - lightweight_realtime - INFO - [2025-12-19 00:05:43.583] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:44 - lightweight_realtime - INFO - [2025-12-19 00:05:44.596] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:45 - lightweight_realtime - INFO - [2025-12-19 00:05:45.604] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:46 - lightweight_realtime - INFO - [2025-12-19 00:05:46.632] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:47 - lightweight_realtime - INFO - [2025-12-19 00:05:47.652] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:48 - lightweight_realtime - INFO - [2025-12-19 00:05:48.664] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:49 - lightweight_realtime - INFO - [2025-12-19 00:05:49.673] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:50 - lightweight_realtime - INFO - [2025-12-19 00:05:50.680] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:51 - lightweight_realtime - INFO - [2025-12-19 00:05:51.711] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:52 - lightweight_realtime - INFO - [2025-12-19 00:05:52.732] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:53 - lightweight_realtime - INFO - [2025-12-19 00:05:53.756] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:54 - lightweight_realtime - INFO - [2025-12-19 00:05:54.769] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:55 - lightweight_realtime - INFO - [2025-12-19 00:05:55.792] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:56 - lightweight_realtime - INFO - [2025-12-19 00:05:56.835] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:57 - lightweight_realtime - INFO - [2025-12-19 00:05:57.854] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:58 - lightweight_realtime - INFO - [2025-12-19 00:05:58.886] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:05:59 - lightweight_realtime - INFO - [2025-12-19 00:05:59.921] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:00 - lightweight_realtime - INFO - [2025-12-19 00:06:00.946] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:01 - lightweight_realtime - INFO - [2025-12-19 00:06:01.962] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:02 - lightweight_realtime - INFO - [2025-12-19 00:06:02.987] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:04 - lightweight_realtime - INFO - [2025-12-19 00:06:04.008] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:05 - lightweight_realtime - INFO - [2025-12-19 00:06:05.026] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:06 - lightweight_realtime - INFO - [2025-12-19 00:06:06.053] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:07 - lightweight_realtime - INFO - [2025-12-19 00:06:07.084] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:08 - lightweight_realtime - INFO - [2025-12-19 00:06:08.109] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:09 - lightweight_realtime - INFO - [2025-12-19 00:06:09.125] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:10 - lightweight_realtime - INFO - [2025-12-19 00:06:10.146] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:11 - lightweight_realtime - INFO - [2025-12-19 00:06:11.170] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:12 - lightweight_realtime - INFO - [2025-12-19 00:06:12.196] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:13 - lightweight_realtime - INFO - [2025-12-19 00:06:13.229] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:14 - lightweight_realtime - INFO - [2025-12-19 00:06:14.265] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:15 - lightweight_realtime - INFO - [2025-12-19 00:06:15.296] Positions: 1 | State: SCANNING | Symbol: N/A
+2025-12-19 00:06:16 - lightweight_realtime - INFO - [2025-12-19 00:06:16.353] Positions: 1 | State: SCANNING | Symbol: DE30m
+2025-12-19 00:06:17 - lightweight_realtime - INFO - [2025-12-19 00:06:17.404] Positions: 1 | State: SCANNING | Symbol: CMCSAm
+2025-12-19 00:06:18 - lightweight_realtime - INFO - [2025-12-19 00:06:18.447] Positions: 1 | State: SCANNING | Symbol: WFCm
+2025-12-19 00:06:19 - lightweight_realtime - INFO - [2025-12-19 00:06:19.483] Positions: 1 | State: SCANNING | Symbol: PEPm
+2025-12-19 00:06:20 - lightweight_realtime - INFO - [2025-12-19 00:06:20.522] Positions: 1 | State: SCANNING | Symbol: EURGBPm
+2025-12-19 00:06:21 - lightweight_realtime - INFO - [2025-12-19 00:06:21.549] Positions: 1 | State: SCANNING | Symbol: NZDUSDm
+2025-12-19 00:06:22 - lightweight_realtime - INFO - [2025-12-19 00:06:22.603] Positions: 1 | State: SCANNING | Symbol: EURJPYm
+2025-12-19 00:06:23 - lightweight_realtime - INFO - [2025-12-19 00:06:23.669] Positions: 1 | State: SCANNING | Symbol: ADPm
+2025-12-19 00:06:24 - lightweight_realtime - INFO - [2025-12-19 00:06:24.692] Positions: 1 | State: SCANNING | Symbol: EURAUDm
+2025-12-19 00:06:25 - lightweight_realtime - INFO - [2025-12-19 00:06:25.737] Positions: 1 | State: SCANNING | Symbol: XAGAUDm
+2025-12-19 00:06:26 - lightweight_realtime - INFO - [2025-12-19 00:06:26.780] Positions: 1 | State: SCANNING | Symbol: CADMXNm
+2025-12-19 00:06:27 - lightweight_realtime - INFO - [2025-12-19 00:06:27.812] Positions: 1 | State: SCANNING | Symbol: XNGUSDm
+2025-12-19 00:06:28 - lightweight_realtime - INFO - [2025-12-19 00:06:28.828] Positions: 1 | State: SCANNING | Symbol: USDZARm
+2025-12-19 00:06:29 - lightweight_realtime - INFO - [2025-12-19 00:06:29.927] Positions: 1 | State: SCANNING | Symbol: USDPLNm
+2025-12-19 00:06:30 - lightweight_realtime - INFO - [2025-12-19 00:06:30.939] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:31 - lightweight_realtime - INFO - [2025-12-19 00:06:31.958] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:32 - lightweight_realtime - INFO - [2025-12-19 00:06:32.972] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:33 - lightweight_realtime - INFO - [2025-12-19 00:06:33.991] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:35 - lightweight_realtime - INFO - [2025-12-19 00:06:35.016] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:36 - lightweight_realtime - INFO - [2025-12-19 00:06:36.044] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:37 - lightweight_realtime - INFO - [2025-12-19 00:06:37.065] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:38 - lightweight_realtime - INFO - [2025-12-19 00:06:38.091] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:39 - lightweight_realtime - INFO - [2025-12-19 00:06:39.104] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:40 - lightweight_realtime - INFO - [2025-12-19 00:06:40.122] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:41 - lightweight_realtime - INFO - [2025-12-19 00:06:41.146] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:42 - lightweight_realtime - INFO - [2025-12-19 00:06:42.167] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:43 - lightweight_realtime - INFO - [2025-12-19 00:06:43.189] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:44 - lightweight_realtime - INFO - [2025-12-19 00:06:44.207] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:45 - lightweight_realtime - INFO - [2025-12-19 00:06:45.232] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:46 - lightweight_realtime - INFO - [2025-12-19 00:06:46.254] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:47 - lightweight_realtime - INFO - [2025-12-19 00:06:47.279] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:48 - lightweight_realtime - INFO - [2025-12-19 00:06:48.290] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:49 - lightweight_realtime - INFO - [2025-12-19 00:06:49.315] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:50 - lightweight_realtime - INFO - [2025-12-19 00:06:50.339] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:51 - lightweight_realtime - INFO - [2025-12-19 00:06:51.349] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:52 - lightweight_realtime - INFO - [2025-12-19 00:06:52.360] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:53 - lightweight_realtime - INFO - [2025-12-19 00:06:53.379] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:54 - lightweight_realtime - INFO - [2025-12-19 00:06:54.404] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:55 - lightweight_realtime - INFO - [2025-12-19 00:06:55.415] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:56 - lightweight_realtime - INFO - [2025-12-19 00:06:56.447] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:57 - lightweight_realtime - INFO - [2025-12-19 00:06:57.456] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:58 - lightweight_realtime - INFO - [2025-12-19 00:06:58.473] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:06:59 - lightweight_realtime - INFO - [2025-12-19 00:06:59.494] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:00 - lightweight_realtime - INFO - [2025-12-19 00:07:00.504] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:01 - lightweight_realtime - INFO - [2025-12-19 00:07:01.526] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:02 - lightweight_realtime - INFO - [2025-12-19 00:07:02.551] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:03 - lightweight_realtime - INFO - [2025-12-19 00:07:03.575] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:04 - lightweight_realtime - INFO - [2025-12-19 00:07:04.599] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:05 - lightweight_realtime - INFO - [2025-12-19 00:07:05.613] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:06 - lightweight_realtime - INFO - [2025-12-19 00:07:06.628] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:07 - lightweight_realtime - INFO - [2025-12-19 00:07:07.652] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:08 - lightweight_realtime - INFO - [2025-12-19 00:07:08.674] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:09 - lightweight_realtime - INFO - [2025-12-19 00:07:09.709] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:10 - lightweight_realtime - INFO - [2025-12-19 00:07:10.736] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:11 - lightweight_realtime - INFO - [2025-12-19 00:07:11.779] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:12 - lightweight_realtime - INFO - [2025-12-19 00:07:12.810] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:13 - lightweight_realtime - INFO - [2025-12-19 00:07:13.826] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:14 - lightweight_realtime - INFO - [2025-12-19 00:07:14.841] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:15 - lightweight_realtime - INFO - [2025-12-19 00:07:15.850] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:16 - lightweight_realtime - INFO - [2025-12-19 00:07:16.872] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:17 - lightweight_realtime - INFO - [2025-12-19 00:07:17.898] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:18 - lightweight_realtime - INFO - [2025-12-19 00:07:18.929] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:19 - lightweight_realtime - INFO - [2025-12-19 00:07:19.957] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:20 - lightweight_realtime - INFO - [2025-12-19 00:07:20.976] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:22 - lightweight_realtime - INFO - [2025-12-19 00:07:22.007] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:23 - lightweight_realtime - INFO - [2025-12-19 00:07:23.030] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:24 - lightweight_realtime - INFO - [2025-12-19 00:07:24.065] Positions: 1 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:25 - lightweight_realtime - INFO - [2025-12-19 00:07:25.079] Positions: 0 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:26 - lightweight_realtime - INFO - [2025-12-19 00:07:26.108] Positions: 0 | State: IDLE | Symbol: N/A
+2025-12-19 00:07:26 - lightweight_realtime - INFO - Logger shutdown complete

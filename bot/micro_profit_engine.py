@@ -81,6 +81,10 @@ class MicroProfitEngine:
         Returns:
             True if position was closed, False otherwise
         """
+        # MANDATORY OBSERVABILITY: Log heartbeat for every scan cycle
+        positions_checked_count = 1 if position else 0
+        logger.info(f"[MICRO_ENGINE_HEARTBEAT] positions_checked={positions_checked_count}")
+        
         if not self.enabled:
             return False
         

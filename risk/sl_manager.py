@@ -83,12 +83,15 @@ class SLManager:
         execution_config = config.get('execution', {})
         self.sl_update_max_retries = execution_config.get('order_max_retries', 3)
         self.sl_update_retry_backoff_base = execution_config.get('order_retry_backoff_base_seconds', 0.1)
-        self.sl_update_verification_delay = execution_config.get('sl_verification_delay_seconds', 0.1)  # Configurable backoff
+        # FIX: Increase verification delay to allow MT5 to process SL update
+        # 100ms was too short, causing verification failures even when SL was correctly applied
+        self.sl_update_verification_delay = execution_config.get('sl_verification_delay_seconds', 0.2)  # 200ms (increased from 100ms)
         self.use_exponential_backoff = execution_config.get('verification', {}).get('use_exponential_backoff', True)
         
         # Verification tolerance configuration
         verification_config = execution_config.get('verification', {})
-        self.verification_effective_profit_tolerance_usd = verification_config.get('effective_profit_tolerance_usd', 1.0)  # Default 1.0 (was 0.5)
+        # FIX: Relax tolerance for profitable trades to prevent false verification failures
+        self.verification_effective_profit_tolerance_usd = verification_config.get('effective_profit_tolerance_usd', 1.5)  # Default 1.5 (increased from 1.0)
         self.verification_price_tolerance_multiplier = verification_config.get('price_tolerance_multiplier', 1.0)  # Multiplier for price tolerance
         
         # CRITICAL: Emergency safety - disable SL updates for problematic symbols until fix validated
@@ -114,13 +117,26 @@ class SLManager:
         self._ticket_locks = {}  # {ticket: Lock}
         self._locks_lock = threading.Lock()  # Protects _ticket_locks dict (minimal use)
         self._locks_lock_optimized = False  # Flag to track if we've initialized locks dict
-        # CRITICAL FIX: Load lock timeouts from config with proper defaults
-        self._lock_acquisition_timeout = self.risk_config.get('lock_acquisition_timeout_seconds', 1.0)  # 1.0s default (increased from 0.5s)
-        self._profit_locking_lock_timeout = self.risk_config.get('profit_locking_lock_timeout_seconds', 2.0)  # 2.0s for profitable trades
+        # CRITICAL FIX: Load lock timeouts from config with proper defaults and SAFE CAPS
+        # FIX: Reduce timeouts to prevent excessive delays (50+ seconds observed in logs)
+        # Use 1.0s for standard, 2.0s for profit-locking (not 20s from config)
+        # CRITICAL: Cap config values to prevent dangerous timeouts (>5s can cause 50+ second delays)
+        config_lock_timeout = self.risk_config.get('lock_acquisition_timeout_seconds', 1.0)
+        config_profit_timeout = self.risk_config.get('profit_locking_lock_timeout_seconds', 2.0)
+        
+        # Enforce safe maximums: 2.0s standard, 3.0s profit-locking (prevents 20s config from causing 50+ second delays)
+        self._lock_acquisition_timeout = min(config_lock_timeout, 2.0)  # Cap at 2.0s
+        self._profit_locking_lock_timeout = min(config_profit_timeout, 3.0)  # Cap at 3.0s
+        
+        # Log if config values were capped
+        if config_lock_timeout > 2.0:
+            logger.warning(f"[CONFIG_OVERRIDE] lock_acquisition_timeout_seconds capped from {config_lock_timeout}s to 2.0s (safe maximum)")
+        if config_profit_timeout > 3.0:
+            logger.warning(f"[CONFIG_OVERRIDE] profit_locking_lock_timeout_seconds capped from {config_profit_timeout}s to 3.0s (safe maximum)")
         self._lock_hold_times = {}  # {ticket: acquisition_time} for watchdog
         self._lock_holders = {}  # {ticket: {'thread_id': int, 'thread_name': str, 'acquired_at': float, 'is_profit_locking': bool}}
-        self._lock_watchdog_interval = 0.1  # Check for stale locks every 100ms (aggressive to catch stale locks immediately)
-        self._lock_max_hold_time = 0.5  # Maximum time a lock can be held before force release (500ms - prevent blocking)
+        self._lock_watchdog_interval = 0.05  # Check for stale locks every 50ms (very aggressive to catch stale locks immediately)
+        self._lock_max_hold_time = 0.2  # Maximum time a lock can be held before force release (200ms - prevent blocking)
         self._lock_force_release_enabled = True  # Enable automatic stale lock recovery
         
         # Contract size cache (for auto-correction) with TTL
@@ -154,6 +170,10 @@ class SLManager:
         self._last_sl_attempt = {}  # {ticket: datetime} - tracks last attempt (success or failure)
         self._last_sl_success = {}  # {ticket: datetime} - tracks last successful update only
         self._consecutive_failures = defaultdict(int)  # {ticket: count} - tracks consecutive failures
+        
+        # CRITICAL: Track first-time eligibility per ticket to bypass blocking mechanisms
+        self._first_eligible_update = {}  # {ticket: {'state': str, 'authority': str, 'first_seen_time': float}}
+        # States: 'NONE' (no eligible update yet), 'PENDING' (eligible but not applied), 'APPLIED' (first update applied)
         
         # SL oscillation prevention
         self._sl_update_cooldown = {}  # {ticket: cooldown_until_timestamp}
@@ -457,7 +477,7 @@ class SLManager:
                 self._ticket_locks[ticket] = threading.RLock()
             return self._ticket_locks[ticket]
     
-    def _acquire_ticket_lock_with_timeout(self, ticket: int, is_profit_locking: bool = False) -> Tuple[bool, Optional[threading.Lock], Optional[str]]:
+    def _acquire_ticket_lock_with_timeout(self, ticket: int, is_profit_locking: bool = False, force_non_blocking_first: bool = False) -> Tuple[bool, Optional[threading.Lock], Optional[str]]:
         """
         Attempt to acquire ticket lock with non-blocking + exponential backoff.
         
@@ -467,6 +487,7 @@ class SLManager:
         Args:
             ticket: Position ticket number
             is_profit_locking: If True, this is a profitable trade needing SL update (use longer timeout)
+            force_non_blocking_first: If True, force non-blocking first attempt (for first eligible updates)
         
         Returns:
             (success, lock, reason) tuple. If success is False, lock is None and reason explains why.
@@ -478,20 +499,35 @@ class SLManager:
         # Use configured profit locking timeout for profitable trades, standard timeout for others
         base_timeout = self._profit_locking_lock_timeout if is_profit_locking else self._lock_acquisition_timeout
         
-        # Non-blocking first attempt
+        # FIX: Use non-blocking first attempt, then short timeouts (not exponential backoff)
+        # This prevents 50+ second delays observed in logs
         retries = 3
-        backoff_base = 0.05  # 50ms base
+        backoff_base = 0.01  # 10ms base (reduced from 50ms)
         last_error = None
         
         for attempt in range(retries):
             attempt_start = time.time()
             
-            # First attempt: non-blocking
-            if attempt == 0:
+            # First attempt: non-blocking (immediate) - ALWAYS for first eligible updates
+            if attempt == 0 or force_non_blocking_first:
                 acquired = lock.acquire(blocking=False)
+                if force_non_blocking_first and not acquired:
+                    # For first eligible, force-release stale locks and retry immediately
+                    with self._locks_lock:
+                        if ticket in self._lock_hold_times:
+                            hold_duration = time.time() - self._lock_hold_times[ticket]
+                            if hold_duration > 0.05:  # 50ms threshold
+                                logger.critical(f"[FIRST_ELIGIBLE] Ticket={ticket} | "
+                                              f"Force-releasing stale lock (held {hold_duration*1000:.1f}ms)")
+                                del self._lock_hold_times[ticket]
+                                if ticket in self._lock_holders:
+                                    del self._lock_holders[ticket]
+                                # Retry non-blocking
+                                acquired = lock.acquire(blocking=False)
             else:
-                # Subsequent attempts: use increasing timeout with exponential backoff
-                timeout = base_timeout * (1.0 + (attempt - 1) * 0.5)  # 1.0x, 1.5x, 2.0x
+                # Subsequent attempts: use SHORT timeout (not exponential)
+                # Use base_timeout directly, not multiplied (prevents excessive delays)
+                timeout = base_timeout  # Use base timeout directly (0.5s or 1.0s)
                 acquired = lock.acquire(timeout=timeout)
             
             acquisition_time = (time.time() - attempt_start) * 1000  # Convert to ms
@@ -531,15 +567,33 @@ class SLManager:
                     holder_info = self._lock_holders.get(ticket)
                     if ticket in self._lock_hold_times:
                         hold_duration = time.time() - self._lock_hold_times[ticket]
+                        holder_thread_id = holder_info.get('thread_id') if holder_info else None
                         holder_thread = holder_info.get('thread_name', 'Unknown') if holder_info else 'Unknown'
                         holder_stack = holder_info.get('stack', 'N/A') if holder_info else 'N/A'
                         
+                        # CRITICAL FIX: Check if holder thread is dead (e.g., SLWorker stopped)
+                        # If thread is dead, lock is orphaned and must be force-released immediately
+                        holder_thread_dead = False
+                        if holder_thread_id is not None:
+                            try:
+                                # Check if thread is still alive by searching active threads
+                                # Note: threading is already imported at module level
+                                active_thread_ids = {t.ident for t in threading.enumerate()}
+                                if holder_thread_id not in active_thread_ids:
+                                    holder_thread_dead = True
+                                    logger.critical(f"🔓 DEAD THREAD LOCK DETECTED: Ticket {ticket} | "
+                                                  f"Holder thread {holder_thread} (ID: {holder_thread_id}) is DEAD | "
+                                                  f"Lock held for {hold_duration:.2f}s | Force releasing immediately...")
+                            except Exception as e:
+                                logger.debug(f"Error checking thread alive status: {e}")
+                        
                         last_error = f"Lock held by {holder_thread} for {hold_duration:.2f}s"
                         
-                        # Force release stale locks if held > 500ms
-                        if hold_duration > 0.5:  # 500ms threshold
+                        # Force release stale locks if held > 200ms OR if holder thread is dead
+                        if holder_thread_dead or hold_duration > 0.2:  # 200ms threshold (reduced from 500ms)
+                            reason = "dead thread" if holder_thread_dead else f"held for {hold_duration:.2f}s (threshold: 0.2s)"
                             logger.critical(f"🔓 STALE LOCK DETECTED: Ticket {ticket} | "
-                                          f"Lock held for {hold_duration:.2f}s (threshold: 0.5s) | "
+                                          f"Reason: {reason} | "
                                           f"Holder: {holder_thread} | "
                                           f"Attempting force release...")
                             
@@ -552,20 +606,20 @@ class SLManager:
                             # Try non-blocking acquisition - if it succeeds, the lock was actually stale
                             if lock.acquire(blocking=False):
                                 lock.release()
-                                logger.critical(f"STALE LOCK FORCE RELEASED: Ticket {ticket} | Retrying...")
+                                logger.critical(f"STALE LOCK FORCE RELEASED: Ticket {ticket} | Reason: {reason} | Retrying...")
                                 # Don't retry here - let next attempt try
                             else:
                                 logger.warning(f"STALE LOCK ACTIVE: Ticket {ticket} | "
-                                            f"Lock is held by active thread {holder_thread}, removed from tracking")
+                                            f"Lock is held by {'dead' if holder_thread_dead else 'active'} thread {holder_thread}, removed from tracking")
                                 # Log holder stack for diagnostics
                                 if holder_stack != 'N/A':
                                     logger.debug(f"Lock holder stack trace:\n{holder_stack}")
                     else:
                         last_error = "Lock not in tracking (may be held by external thread)"
                 
-                # Exponential backoff before retry
+                # Short backoff before retry (not exponential to prevent excessive delays)
                 if attempt < retries - 1:
-                    backoff = backoff_base * (2 ** attempt)  # 50ms, 100ms, 200ms
+                    backoff = backoff_base * (attempt + 1)  # 10ms, 20ms, 30ms (linear, not exponential)
                     time.sleep(backoff)
         
         # All retries failed - log diagnostics
@@ -635,8 +689,8 @@ class SLManager:
                     
                     # Force release if lock held beyond maximum threshold
                     # CRITICAL: Use shorter threshold for stale locks to prevent blocking profitable trades
-                    # CRITICAL FIX: Use 300ms threshold (aggressive) instead of 500ms to catch stale locks faster
-                    if self._lock_force_release_enabled and hold_duration > 0.3:  # 300ms threshold (aggressive)
+                    # FIX: Use 200ms threshold (very aggressive) to catch stale locks immediately
+                    if self._lock_force_release_enabled and hold_duration > 0.2:  # 200ms threshold (very aggressive)
                         if ticket in self._ticket_locks:
                             lock = self._ticket_locks[ticket]
                             # Try to release if we can acquire it (means it's actually stale)
@@ -1918,16 +1972,29 @@ class SLManager:
         logger.debug(f"[{apply_start_timestamp}] 🎯 _apply_sl_update START | Ticket: {ticket} | Symbol: {symbol} | Target SL: {target_sl_price:.5f}")
         
         # CRITICAL: Check cooldown and minimum delta to prevent oscillation
+        # BUT: NEVER block first eligible SL update - cooldown only applies after first update
         current_time_float = time.time()
+        is_first_eligible = False
         with self._tracking_lock:
-            # Check cooldown
-            if ticket in self._sl_update_cooldown:
+            # Check if this is the first eligible update for this ticket
+            first_eligible_info = self._first_eligible_update.get(ticket, {})
+            first_eligible_state = first_eligible_info.get('state', 'NONE')
+            is_first_eligible = (first_eligible_state == 'NONE' or first_eligible_state == 'PENDING')
+            
+            # Check cooldown - SKIP for first eligible update
+            if ticket in self._sl_update_cooldown and not is_first_eligible:
                 cooldown_until = self._sl_update_cooldown[ticket]
                 if current_time_float < cooldown_until:
                     remaining = cooldown_until - current_time_float
+                    logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                              f"BLOCKED=COOLDOWN | Remaining={remaining*1000:.1f}ms | "
+                              f"TargetSL={target_sl_price:.5f} | Reason={reason}")
                     logger.debug(f"[{apply_start_timestamp}] 🚫 SL UPDATE COOLDOWN | Ticket: {ticket} | "
                                f"Cooldown active: {remaining*1000:.1f}ms remaining | Target: {target_sl_price:.5f}")
                     return False
+            elif is_first_eligible:
+                logger.info(f"[FIRST_ELIGIBLE] Ticket={ticket} Symbol={symbol} | "
+                          f"Bypassing cooldown check for first eligible SL update | TargetSL={target_sl_price:.5f}")
             
             # Check minimum delta (prevent oscillation)
             if ticket in self._last_sl_price:
@@ -1939,6 +2006,9 @@ class SLManager:
                 if entry_price > 0:
                     sl_delta_pct = (sl_delta / entry_price) * 100.0
                     if sl_delta_pct < self._min_sl_delta_pct:
+                        logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                                  f"BLOCKED=DELTA_TOO_SMALL | Delta={sl_delta:.5f} ({sl_delta_pct:.3f}%) < min {self._min_sl_delta_pct:.3f}% | "
+                                  f"LastSL={last_sl:.5f} TargetSL={target_sl_price:.5f} | Reason={reason}")
                         logger.debug(f"[{apply_start_timestamp}] 🚫 SL UPDATE DELTA TOO SMALL | Ticket: {ticket} | "
                                    f"Delta: {sl_delta:.5f} ({sl_delta_pct:.3f}%) < min {self._min_sl_delta_pct:.3f}% | "
                                    f"Last: {last_sl:.5f} | Target: {target_sl_price:.5f}")
@@ -1952,11 +2022,15 @@ class SLManager:
             
             symbol_info = self.mt5_connector.get_symbol_info(symbol)
             if symbol_info is None:
+                logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                          f"BLOCKED=SYMBOL_INFO_UNAVAILABLE | TargetSL={target_sl_price:.5f} | Reason={reason}")
                 logger.error(f"[{validate_timestamp}] Cannot get symbol info for {symbol}")
                 return False
             
             tick = self.mt5_connector.get_symbol_info_tick(symbol)
             if tick is None:
+                logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                          f"BLOCKED=MARKET_PRICES_UNAVAILABLE | TargetSL={target_sl_price:.5f} | Reason={reason}")
                 logger.error(f"[{validate_timestamp}] Cannot get market prices for {symbol}")
                 return False
             
@@ -1966,6 +2040,8 @@ class SLManager:
             
             # Validate tick data
             if tick_bid is None or tick_ask is None or math.isnan(tick_bid) or math.isnan(tick_ask):
+                logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                          f"BLOCKED=INVALID_TICK_DATA | TargetSL={target_sl_price:.5f} | Reason={reason}")
                 logger.error(f"[{validate_timestamp}] Cannot validate: Invalid tick data for {symbol}")
                 return False
             
@@ -1979,6 +2055,8 @@ class SLManager:
             current_position = self.order_manager.get_position_by_ticket(ticket)
             if not current_position:
                 # CRITICAL FIX: Position may have been closed - this is not necessarily an error
+                logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                          f"BLOCKED=POSITION_NOT_FOUND_VALIDATION | TargetSL={target_sl_price:.5f} | Reason={reason}")
                 logger.debug(f"[{validate_timestamp}] Cannot get position {ticket} for validation (position may be closed)")
                 return False
             
@@ -2028,6 +2106,10 @@ class SLManager:
                     oscillation_tolerance = point * 10  # 10 points tolerance (more lenient than current check)
                     
                     if last_sl_diff < oscillation_tolerance and time_since_last < min_oscillation_interval:
+                        logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                                  f"BLOCKED=OSCILLATION_PREVENTED | TargetSL={target_sl_price:.5f} LastSL={last_applied_sl:.5f} | "
+                                  f"Diff={last_sl_diff:.8f} < tolerance {oscillation_tolerance:.8f} | "
+                                  f"TimeSinceLast={time_since_last:.2f}s < {min_oscillation_interval}s | Reason={reason}")
                         logger.debug(f"[{validate_timestamp}] 🚫 SL OSCILLATION PREVENTED | Ticket: {ticket} | "
                                    f"Target: {target_sl_price:.5f} | Last applied: {last_applied_sl:.5f} | "
                                    f"Diff: {last_sl_diff:.8f} < tolerance {oscillation_tolerance:.8f} | "
@@ -2066,9 +2148,16 @@ class SLManager:
             logger.error(f"[{validate_error_timestamp}] Validation exception: {validate_error}", exc_info=True)
             return False
         
+        # CRITICAL: Check if this is first eligible update - apply immediately, retries only after first attempt
+        with self._tracking_lock:
+            first_eligible_info = self._first_eligible_update.get(ticket, {})
+            is_first_eligible = (first_eligible_info.get('state', 'NONE') == 'PENDING')
+        
         for attempt in range(max_retries):
             attempt_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-            logger.debug(f"[{attempt_timestamp}] 🔄 SL Update Attempt {attempt + 1}/{max_retries} | Ticket: {ticket}")
+            is_first_attempt = (attempt == 0)  # Define inside loop
+            logger.debug(f"[{attempt_timestamp}] 🔄 SL Update Attempt {attempt + 1}/{max_retries} | "
+                        f"Ticket: {ticket} | {'FIRST_ELIGIBLE (immediate)' if is_first_eligible and is_first_attempt else 'Standard'}")
             
             try:
                 # Get fresh position before modifying
@@ -2107,10 +2196,25 @@ class SLManager:
                 logger.debug(f"[{modify_end_timestamp}] 📤 MT5 order_send returned | Success: {success} | Latency: {modify_latency:.1f}ms")
                 
                 if success:
+                    # CRITICAL: Check if this is first eligible update - minimize verification delay
+                    with self._tracking_lock:
+                        first_eligible_info = self._first_eligible_update.get(ticket, {})
+                        is_first_eligible = (first_eligible_info.get('state', 'NONE') == 'PENDING')
+                    
                     # Sleep before verification (configurable backoff)
+                    # FIX: Use longer delay for profitable trades to ensure MT5 has processed
+                    # BUT: For first eligible updates, use minimal delay (never block application)
+                    verify_delay = verification_delay
+                    if is_first_eligible:
+                        # First eligible: minimal delay (50ms) - never block application
+                        verify_delay = 0.05  # 50ms minimum for MT5 to process
+                        logger.info(f"[FIRST_ELIGIBLE] Ticket={ticket} Symbol={symbol} | "
+                                  f"Using minimal verification delay {verify_delay*1000:.0f}ms (never blocking)")
+                    elif target_profit_usd > 0:  # Profitable trade
+                        verify_delay = max(verification_delay, 0.2)  # At least 200ms for profitable trades
                     verify_sleep_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-                    logger.debug(f"[{verify_sleep_timestamp}] ⏳ Sleeping {verification_delay*1000:.0f}ms before verification")
-                    time.sleep(verification_delay)
+                    logger.debug(f"[{verify_sleep_timestamp}] ⏳ Sleeping {verify_delay*1000:.0f}ms before verification")
+                    time.sleep(verify_delay)
                     
                     # Verify SL was applied by getting fresh position
                     verify_start = time.time()
@@ -2160,8 +2264,8 @@ class SLManager:
                             is_moving_towards_profit = effective_sl_profit > -self.max_risk_usd  # Better than max loss
                             
                             if is_profitable_trade and is_moving_towards_profit:
-                                # Relax tolerance by 50% for profitable trades (allows for minor calculation differences)
-                                effective_tolerance = base_effective_tolerance * 1.5
+                                # FIX: Relax tolerance by 100% for profitable trades (allows for contract size calculation differences)
+                                effective_tolerance = base_effective_tolerance * 2.0  # Double tolerance for profitable trades
                                 logger.debug(f"🔓 RELAXED TOLERANCE: {symbol} Ticket {ticket} | "
                                            f"Profitable trade detected | Base: ${base_effective_tolerance:.2f} | "
                                            f"Relaxed: ${effective_tolerance:.2f}")
@@ -2174,8 +2278,18 @@ class SLManager:
                                     self._last_sl_update[ticket] = datetime.now()
                                     self._last_sl_price[ticket] = applied_sl
                                     self._last_sl_reason[ticket] = reason
-                                    # Set cooldown to prevent oscillation
-                                    self._sl_update_cooldown[ticket] = current_time_float + self._sl_update_cooldown_seconds
+                                    
+                                    # Mark first eligible update as applied
+                                    if ticket in self._first_eligible_update:
+                                        self._first_eligible_update[ticket]['state'] = 'APPLIED'
+                                        self._first_eligible_update[ticket]['applied_time'] = time.time()
+                                        logger.info(f"[FIRST_ELIGIBLE] Ticket={ticket} Symbol={symbol} | "
+                                                  f"First eligible SL update VERIFIED successfully | "
+                                                  f"Time from first seen: {(time.time() - self._first_eligible_update[ticket].get('first_seen_time', time.time()))*1000:.1f}ms")
+                                    
+                                    # Set cooldown to prevent oscillation - BUT skip for first eligible (already applied)
+                                    if ticket not in self._first_eligible_update or self._first_eligible_update[ticket].get('state') != 'PENDING':
+                                        self._sl_update_cooldown[ticket] = current_time_float + self._sl_update_cooldown_seconds
                                 
                                 success_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
                                 logger.info(f"[OK] SL UPDATE SUCCESS: Ticket={ticket} Symbol={symbol} NewSL={applied_sl:.5f} TargetSL={target_sl_price:.5f} Reason={reason}")
@@ -2238,6 +2352,10 @@ class SLManager:
                                     reason="Effective profit mismatch"
                                 )
                         else:
+                            logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                                      f"BLOCKED=SL_PRICE_MISMATCH | Attempt={attempt+1}/{max_retries} | "
+                                      f"TargetSL={target_sl_price:.5f} AppliedSL={applied_sl:.5f} | "
+                                      f"Diff={sl_diff:.5f} Tolerance={tolerance:.5f} | Reason={reason}")
                             logger.warning(f"[WARNING] SL MISMATCH: {symbol} Ticket {ticket} | "
                                          f"Target: {target_sl_price:.5f} | Applied: {applied_sl:.5f} | "
                                          f"Difference: {sl_diff:.5f} (tolerance: {tolerance:.5f})")
@@ -2256,6 +2374,9 @@ class SLManager:
                                 reason="SL price mismatch"
                             )
                     else:
+                        logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                                  f"BLOCKED=POSITION_VERIFICATION_FAILED | Attempt={attempt+1}/{max_retries} | "
+                                  f"TargetSL={target_sl_price:.5f} | Reason={reason}")
                         logger.warning(f"[WARNING] Cannot verify position {ticket} after SL update")
                         tracer.trace(
                             function_name="SLManager._apply_sl_update",
@@ -2269,7 +2390,15 @@ class SLManager:
                         )
                     
                     # If we get here, SL might have been applied but verification failed
-                    # Log and retry with exponential backoff
+                    # CRITICAL: For first eligible updates, never block - only log failure and continue
+                    if is_first_eligible and is_first_attempt:
+                        logger.warning(f"[FIRST_ELIGIBLE] Ticket={ticket} Symbol={symbol} | "
+                                     f"Verification failed on first attempt - SL may have been applied | "
+                                     f"Logging failure but NOT blocking (first eligible update)")
+                        # Don't retry immediately for first eligible - allow next cycle to retry
+                        return False  # Return False but don't block - next cycle will retry
+                    
+                    # Log and retry with exponential backoff (only for non-first-eligible or subsequent attempts)
                     if attempt < max_retries - 1:
                         if self.use_exponential_backoff:
                             backoff_delay = retry_delay * (2 ** attempt)  # Exponential: 100ms, 200ms, 400ms
@@ -2282,6 +2411,9 @@ class SLManager:
                     else:
                         # All retries exhausted for verification failure
                         failure_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+                        logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                                  f"FAILED=VERIFICATION_FAILED_ALL_RETRIES | Attempts={max_retries} | "
+                                  f"TargetSL={target_sl_price:.5f} | Reason={reason}")
                         logger.error(f"[{failure_timestamp}] SL UPDATE FAILED: {symbol} Ticket {ticket} | "
                                    f"Target: {target_sl_price:.5f} | Reason: Verification failed | "
                                    f"Failed after {max_retries} attempts")
@@ -2317,6 +2449,13 @@ class SLManager:
                         reason="modify_order returned False"
                     )
                     logger.warning(f"[WARNING] modify_order returned False for Ticket {ticket} | Attempt {attempt + 1}/{max_retries}")
+                    
+                    # CRITICAL: For first eligible updates, never block - only log failure
+                    if is_first_eligible and is_first_attempt:
+                        logger.warning(f"[FIRST_ELIGIBLE] Ticket={ticket} Symbol={symbol} | "
+                                     f"modify_order failed on first attempt - logging failure but NOT blocking")
+                        return False  # Return False but don't block - next cycle will retry
+                    
                     if attempt < max_retries - 1:
                         if self.use_exponential_backoff:
                             backoff_delay = retry_delay * (2 ** attempt)  # Exponential: 100ms, 200ms, 400ms
@@ -2329,6 +2468,9 @@ class SLManager:
                     else:
                         # All retries exhausted for modify_order failure
                         failure_timestamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+                        logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                                  f"FAILED=MODIFY_ORDER_FAILED_ALL_RETRIES | Attempts={max_retries} | "
+                                  f"TargetSL={target_sl_price:.5f} | Reason={reason}")
                         logger.error(f"SL UPDATE FAILED: Ticket={ticket} Symbol={symbol} TargetSL={target_sl_price:.5f} Reason=modify_order returned False Attempts={max_retries}")
                         logger.error(f"[{failure_timestamp}] SL UPDATE FAILED: {symbol} Ticket {ticket} | "
                                    f"Target: {target_sl_price:.5f} | Reason: modify_order returned False | "
@@ -2810,32 +2952,81 @@ class SLManager:
                 logger.error(f"[ERROR] Trailing SL calculation failed for {symbol} Ticket {ticket}: {e}", exc_info=True)
         
         # STEP 2: Calculate PROFIT_LOCK_SL (second priority - only if no trailing)
+        # CRITICAL FIX: Try ProfitLockingEngine first (more sophisticated sweet-spot logic)
         profit_lock_result = None
         if not trailing_result and self.sweet_spot_min <= current_profit <= self.sweet_spot_max:
-            try:
-                profit_to_lock = min(current_profit, self.sweet_spot_max)
-                
-                profit_lock_sl = self._calculate_target_sl_price(
-                    entry_price, profit_to_lock, order_type, lot_size, symbol_info, position=position
-                )
-                
-                if profit_lock_sl:
-                    # Adjust for broker constraints
-                    profit_lock_sl = self._adjust_sl_for_broker_constraints(
-                        profit_lock_sl, current_sl, order_type, symbol_info, tick.bid, tick.ask, entry_price=entry_price
+            # CRITICAL FIX: Try ProfitLockingEngine first (before internal calculation)
+            # This ensures profit locking engine is called in authoritative path
+            profit_locking_engine = None
+            if hasattr(self, '_risk_manager') and self._risk_manager:
+                profit_locking_engine = getattr(self._risk_manager, '_profit_locking_engine', None)
+            
+            if profit_locking_engine:
+                try:
+                    # MANDATORY LOGGING: Log profit locking attempt in authoritative path
+                    logger.info(f"[LOCK_ATTEMPT] Authoritative Path | Ticket={ticket} Symbol={symbol} "
+                               f"Profit=${current_profit:.2f} | Calling ProfitLockingEngine...")
+                    
+                    # Call profit locking engine
+                    profit_locking_success, profit_locking_reason = profit_locking_engine.check_and_lock_profit(position)
+                    
+                    if profit_locking_success:
+                        # Profit locking engine succeeded - get fresh position to verify SL
+                        fresh_position_after_ple = self.order_manager.get_position_by_ticket(ticket)
+                        if fresh_position_after_ple:
+                            applied_sl = fresh_position_after_ple.get('sl', 0.0)
+                            if applied_sl > 0:
+                                # Calculate effective profit locked
+                                effective_locked = self.get_effective_sl_profit(fresh_position_after_ple)
+                                profit_lock_result = {
+                                    'target_sl_price': applied_sl,
+                                    'target_profit_usd': effective_locked,
+                                    'authority_source': 'PROFIT_LOCK',
+                                    'reason': f"ProfitLockingEngine: {profit_locking_reason}",
+                                    'state': 'SWEET_SPOT',
+                                    'is_profit_lock': True
+                                }
+                                logger.info(f"[LOCK_SUCCESS] Authoritative Path | Ticket={ticket} Symbol={symbol} "
+                                           f"ProfitLockingEngine succeeded: {profit_locking_reason}")
+                            else:
+                                logger.warning(f"[LOCK_BLOCKED] Authoritative Path | Ticket={ticket} Symbol={symbol} "
+                                             f"ProfitLockingEngine reported success but SL not applied (SL={applied_sl})")
+                        else:
+                            logger.warning(f"[LOCK_BLOCKED] Authoritative Path | Ticket={ticket} Symbol={symbol} "
+                                         f"ProfitLockingEngine reported success but position not found")
+                    else:
+                        # Profit locking engine failed - log reason and fall back to internal calculation
+                        logger.warning(f"[LOCK_BLOCKED] Authoritative Path | Ticket={ticket} Symbol={symbol} "
+                                     f"ProfitLockingEngine failed: {profit_locking_reason} | Falling back to internal calculation")
+                except Exception as e:
+                    logger.error(f"[ERROR] ProfitLockingEngine error in authoritative path for {symbol} Ticket {ticket}: {e}", exc_info=True)
+            
+            # Fallback to internal calculation if ProfitLockingEngine not available or failed
+            if not profit_lock_result:
+                try:
+                    profit_to_lock = min(current_profit, self.sweet_spot_max)
+                    
+                    profit_lock_sl = self._calculate_target_sl_price(
+                        entry_price, profit_to_lock, order_type, lot_size, symbol_info, position=position
                     )
                     
                     if profit_lock_sl:
-                        profit_lock_result = {
-                            'target_sl_price': profit_lock_sl,
-                            'target_profit_usd': profit_to_lock,
-                            'authority_source': 'PROFIT_LOCK',
-                            'reason': f"Sweet-spot profit locking (${current_profit:.2f} in range ${self.sweet_spot_min:.2f}-${self.sweet_spot_max:.2f})",
-                            'state': 'SWEET_SPOT',
-                            'is_profit_lock': True
-                        }
-            except Exception as e:
-                logger.error(f"[ERROR] Profit lock SL calculation failed for {symbol} Ticket {ticket}: {e}", exc_info=True)
+                        # Adjust for broker constraints
+                        profit_lock_sl = self._adjust_sl_for_broker_constraints(
+                            profit_lock_sl, current_sl, order_type, symbol_info, tick.bid, tick.ask, entry_price=entry_price
+                        )
+                        
+                        if profit_lock_sl:
+                            profit_lock_result = {
+                                'target_sl_price': profit_lock_sl,
+                                'target_profit_usd': profit_to_lock,
+                                'authority_source': 'PROFIT_LOCK',
+                                'reason': f"Sweet-spot profit locking (${current_profit:.2f} in range ${self.sweet_spot_min:.2f}-${self.sweet_spot_max:.2f})",
+                                'state': 'SWEET_SPOT',
+                                'is_profit_lock': True
+                            }
+                except Exception as e:
+                    logger.error(f"[ERROR] Profit lock SL calculation failed for {symbol} Ticket {ticket}: {e}", exc_info=True)
         
         # STEP 3: Calculate HARD_SL (lowest priority - only if no trailing/profit lock AND profit < 0)
         hard_sl_result = None
@@ -3021,43 +3212,65 @@ class SLManager:
                 # Profitable trades can still update SL even if symbol is disabled
                 logger.info(f"[WARNING] Symbol {symbol} disabled but allowing profit-locking update (profit: ${current_profit:.2f})")
         
-        # CRITICAL SAFETY: Check circuit breaker - but allow emergency and profit-locking updates
+        # CRITICAL SAFETY: Check circuit breaker - but allow emergency, profit-locking, and first eligible updates
+        # FIX: Check profit BEFORE circuit breaker to ensure profitable trades always bypass
         current_profit = position.get('profit', 0.0)
         is_emergency = current_profit < 0  # Losing trades need emergency enforcement
         # CRITICAL FIX: ALL profitable trades (profit > 0) need priority, not just sweet spot
         is_profit_locking = current_profit > 0  # ANY profit needs priority - break-even, sweet spot, or trailing
         
+        # Check if this is the first eligible update for this ticket
+        with self._tracking_lock:
+            first_eligible_info = self._first_eligible_update.get(ticket, {})
+            first_eligible_state = first_eligible_info.get('state', 'NONE')
+            is_first_eligible = (first_eligible_state == 'NONE' or first_eligible_state == 'PENDING')
+        
+        # FIX: Reset circuit breaker on successful profit-locking update OR first eligible update
+        # This prevents circuit breaker from blocking profitable trades or first updates indefinitely
+        if (is_profit_locking or is_first_eligible) and ticket in self._ticket_circuit_breaker:
+            logger.info(f"🔄 CIRCUIT BREAKER RESET: {symbol} Ticket {ticket} | "
+                      f"{'Profitable trade' if is_profit_locking else 'First eligible update'} "
+                      f"(${current_profit:.2f}) - resetting circuit breaker to allow SL update")
+            del self._ticket_circuit_breaker[ticket]
+        
         if ticket in self._ticket_circuit_breaker:
             disabled_until = self._ticket_circuit_breaker[ticket]
             if time.time() < disabled_until:
-                # Circuit breaker is active - but allow emergency and profit-locking updates
-                if not is_emergency and not is_profit_locking:
+                # Circuit breaker is active - but allow emergency, profit-locking, and first eligible updates
+                if not is_emergency and not is_profit_locking and not is_first_eligible:
                     reason = f"Circuit breaker active (cooldown: {disabled_until - time.time():.1f}s remaining)"
                     logger.debug(f"[PAUSE] CIRCUIT BREAKER: {symbol} Ticket {ticket} | "
                                f"Update blocked (cooldown until {disabled_until - time.time():.1f}s remaining) | "
-                               f"Emergency: {is_emergency}, Profit-locking: {is_profit_locking}")
+                               f"Emergency: {is_emergency}, Profit-locking: {is_profit_locking}, First-eligible: {is_first_eligible}")
                     # CRITICAL: Set _last_sl_reason even on circuit breaker
                     with self._tracking_lock:
                         self._last_sl_reason[ticket] = reason
                     return False, reason
                 else:
-                    # Allow emergency or profit-locking updates even during circuit breaker
+                    # Allow emergency, profit-locking, or first eligible updates even during circuit breaker
+                    update_type = 'emergency' if is_emergency else ('profit-locking' if is_profit_locking else 'first-eligible')
                     logger.info(f"🔄 CIRCUIT BREAKER BYPASS: {symbol} Ticket {ticket} | "
-                              f"Allowing {'emergency' if is_emergency else 'profit-locking'} update despite circuit breaker")
+                              f"Allowing {update_type} update despite circuit breaker")
             else:
                 # Cooldown expired, remove circuit breaker
                 del self._ticket_circuit_breaker[ticket]
                 logger.info(f"🔄 Circuit breaker expired for {symbol} Ticket {ticket}, allowing updates")
         
         # CRITICAL SAFETY: Minimal rate limiting - only prevent rapid-fire updates (100ms minimum)
-        # BUT: NEVER rate limit profitable trades - they MUST lock profit immediately
+        # BUT: NEVER rate limit profitable trades OR first eligible updates - they MUST lock profit immediately
+        
+        # Check if this is the first eligible update for this ticket
+        with self._tracking_lock:
+            first_eligible_info = self._first_eligible_update.get(ticket, {})
+            first_eligible_state = first_eligible_info.get('state', 'NONE')
+            is_first_eligible = (first_eligible_state == 'NONE' or first_eligible_state == 'PENDING')
         
         current_time = time.time()
         if ticket in self._sl_update_rate_limit:
             time_since_last = current_time - self._sl_update_rate_limit[ticket]
-            # CRITICAL: Never rate limit profitable trades - they need immediate profit locking
-            if time_since_last < self._sl_update_min_interval and not is_emergency and not is_profit_locking:
-                # Only rate limit if less than 100ms has passed (very minimal) AND not profitable
+            # CRITICAL: Never rate limit profitable trades OR first eligible updates - they need immediate profit locking
+            if time_since_last < self._sl_update_min_interval and not is_emergency and not is_profit_locking and not is_first_eligible:
+                # Only rate limit if less than 100ms has passed (very minimal) AND not profitable AND not first eligible
                 reason = f"Rate limited (last update {time_since_last*1000:.1f}ms ago)"
                 logger.debug(f"[DELAY] SL UPDATE RATE LIMITED: {symbol} Ticket {ticket} | "
                              f"Last update {time_since_last*1000:.1f}ms ago, minimum {self._sl_update_min_interval*1000:.0f}ms")
@@ -3065,6 +3278,9 @@ class SLManager:
                 with self._tracking_lock:
                     self._last_sl_reason[ticket] = reason
                 return False, reason
+            elif is_first_eligible:
+                logger.info(f"[FIRST_ELIGIBLE] Ticket={ticket} Symbol={symbol} | "
+                          f"Bypassing rate limit for first eligible SL update | TimeSinceLast={time_since_last*1000:.1f}ms")
         
         # Check global RPC rate limit (configurable, default 50/sec)
         consecutive_failures = self._consecutive_failures.get(ticket, 0)
@@ -3112,22 +3328,72 @@ class SLManager:
         is_profit_lock = authoritative_result.get('is_profit_lock', False)
         state = authoritative_result.get('state', 'MANAGING')
         
+        # MANDATORY LOGGING: Log every SL decision gate
+        logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                   f"HasAuthoritativeSL={has_authoritative_sl} Authority={authority_source} | "
+                   f"IsTrailing={is_trailing} IsProfitLock={is_profit_lock} State={state} | "
+                   f"TargetSL={authoritative_result.get('target_sl_price')} | "
+                   f"CurrentProfit=${current_profit:.2f} CurrentSL={position.get('sl', 0.0):.5f}")
+        
         # STEP 4: If we have authoritative SL, apply it with guaranteed execution
         if has_authoritative_sl and not authoritative_result.get('violations'):
             # CRITICAL: Determine if this needs guaranteed execution (trailing or profit lock)
             needs_guaranteed_execution = is_trailing or is_profit_lock
             is_profit_locking = initial_profit > 0  # For lock timeout determination
             
+            # CRITICAL: Check if this is the first eligible update - mark it as pending
+            with self._tracking_lock:
+                first_eligible_info = self._first_eligible_update.get(ticket, {})
+                first_eligible_state = first_eligible_info.get('state', 'NONE')
+                is_first_eligible = (first_eligible_state == 'NONE' or first_eligible_state == 'PENDING')
+                
+                if is_first_eligible and first_eligible_state == 'NONE':
+                    # Mark as pending first eligible update
+                    self._first_eligible_update[ticket] = {
+                        'state': 'PENDING',
+                        'authority': authority_source,
+                        'first_seen_time': time.time(),
+                        'target_sl': authoritative_result.get('target_sl_price')
+                    }
+                    logger.info(f"[FIRST_ELIGIBLE] Ticket={ticket} Symbol={symbol} | "
+                              f"First eligible SL update detected | Authority={authority_source} | "
+                              f"TargetSL={authoritative_result.get('target_sl_price'):.5f} | "
+                              f"Bypassing all blocking mechanisms")
+            
+            # CRITICAL: For first eligible updates, force-release stale locks immediately and use non-blocking
+            if is_first_eligible:
+                # Force-release any stale locks before attempting acquisition
+                lock = self._get_ticket_lock(ticket)
+                with self._locks_lock:
+                    if ticket in self._lock_hold_times:
+                        hold_duration = time.time() - self._lock_hold_times[ticket]
+                        if hold_duration > 0.05:  # 50ms threshold for first eligible (very aggressive)
+                            logger.critical(f"[FIRST_ELIGIBLE] Ticket={ticket} | "
+                                          f"Force-releasing stale lock (held {hold_duration*1000:.1f}ms) for first eligible update")
+                            del self._lock_hold_times[ticket]
+                            if ticket in self._lock_holders:
+                                del self._lock_holders[ticket]
+                            # Try non-blocking acquisition
+                            if lock.acquire(blocking=False):
+                                lock.release()
+                                logger.info(f"[FIRST_ELIGIBLE] Ticket={ticket} | Stale lock force-released successfully")
+            
             # Acquire lock ONLY for MT5 modification (lock-free decision path)
-            lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+            # CRITICAL: For first eligible updates, use non-blocking first attempt (immediate)
+            lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(
+                ticket, is_profit_locking=is_profit_locking, force_non_blocking_first=is_first_eligible
+            )
             
             if not lock_acquired:
-                # Lock failed - check if we need guaranteed execution
-                if needs_guaranteed_execution:
-                    # CRITICAL: For trailing/profit lock, we MUST retry immediately
-                    logger.warning(f"[WARNING] Lock failed for guaranteed execution: {symbol} Ticket {ticket} | Retrying immediately...")
+                # Lock failed - check if we need guaranteed execution OR if this is first eligible
+                if needs_guaranteed_execution or is_first_eligible:
+                    # CRITICAL: For trailing/profit lock OR first eligible, we MUST retry immediately
+                    logger.warning(f"[WARNING] Lock failed for {'guaranteed execution' if needs_guaranteed_execution else 'first eligible update'}: "
+                                 f"{symbol} Ticket {ticket} | Retrying immediately...")
                     # Retry once more with immediate retry
-                    lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=is_profit_locking)
+                    lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(
+                        ticket, is_profit_locking=is_profit_locking, force_non_blocking_first=is_first_eligible
+                    )
                 
                 if not lock_acquired:
                     timeout_ms = (self._profit_locking_lock_timeout * 1000) if is_profit_locking else (self._lock_acquisition_timeout * 1000)
@@ -3168,6 +3434,14 @@ class SLManager:
                             self._last_sl_price[ticket] = target_sl_price
                             self._last_sl_reason[ticket] = reason_str
                             self._last_sl_success[ticket] = datetime.now()
+                            
+                            # Mark first eligible update as applied
+                            if ticket in self._first_eligible_update:
+                                self._first_eligible_update[ticket]['state'] = 'APPLIED'
+                                self._first_eligible_update[ticket]['applied_time'] = time.time()
+                                logger.info(f"[FIRST_ELIGIBLE] Ticket={ticket} Symbol={symbol} | "
+                                          f"First eligible SL update APPLIED successfully | "
+                                          f"Time from first seen: {(time.time() - self._first_eligible_update[ticket].get('first_seen_time', time.time()))*1000:.1f}ms")
                         
                         # Log explicit events
                         if is_trailing:
@@ -4425,7 +4699,12 @@ class SLManager:
                 }
     
     def cleanup_closed_position(self, ticket: int):
-        """Clean up tracking data for a closed position."""
+        """
+        Clean up tracking data for a closed position.
+        
+        Args:
+            ticket: Position ticket number
+        """
         with self._tracking_lock:
             if ticket in self._position_tracking:
                 del self._position_tracking[ticket]
@@ -4435,6 +4714,9 @@ class SLManager:
                 del self._last_sl_price[ticket]
             if ticket in self._last_sl_reason:
                 del self._last_sl_reason[ticket]
+            # Clean up first eligible update tracking
+            if ticket in self._first_eligible_update:
+                del self._first_eligible_update[ticket]
             # Clean up profit zone entry tracking
             if ticket in self._profit_zone_entry:
                 entry_data = self._profit_zone_entry[ticket]
@@ -4844,7 +5126,8 @@ class SLManager:
                     )
                     
                     if not positions:
-                        # MANDATORY OBSERVABILITY: Log idle state when no positions exist (logged with heartbeat above)
+                        # MANDATORY OBSERVABILITY: Log idle state when no positions exist
+                        logger.info(f"[IDLE][SL_WORKER] no_positions=true")
                         # No positions - check if instant trailing (no sleep) or wait
                         if self._sl_worker_interval > 0:
                             sleep_start = time.time()

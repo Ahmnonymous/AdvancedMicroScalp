@@ -16,7 +16,7 @@ import time
 from dataclasses import dataclass, field
 from typing import Callable, Dict, Optional
 
-from utils.logger_factory import get_system_event_logger
+from utils.logger_factory import get_logger, get_system_event_logger
 
 
 @dataclass
@@ -46,7 +46,28 @@ _heartbeat_interval_seconds: float = 5.0
 _system_ready_logged: bool = False
 _trading_blocked: bool = False
 
-_logger = logging.getLogger("system_health")
+# Use logger factory to write to system_startup.log (same as TradingBot logger)
+def _get_system_health_logger():
+    """Get logger that writes to system_startup.log for consistency"""
+    import json
+    # Determine mode by checking config.json
+    mode = 'live'  # default
+    try:
+        if os.path.exists('config.json'):
+            with open('config.json', 'r') as f:
+                config = json.load(f)
+                mode = config.get('mode', 'live')
+    except Exception:
+        pass  # Use default if config read fails
+    
+    if mode == 'backtest':
+        log_path = 'logs/backtest/system_startup.log'
+    else:
+        log_path = 'logs/live/system/system_startup.log'
+    
+    return get_logger("system_health", log_path)
+
+_logger = _get_system_health_logger()
 _system_event_logger = get_system_event_logger()
 
 
@@ -156,8 +177,8 @@ def _run_heartbeat_cycle() -> None:
             _logger.info("[SYSTEM_READY] all_critical_threads_alive=true")
             try:
                 _system_event_logger.systemEvent(
-                    "INFO",
-                    {"tag": "SYSTEM_READY", "all_critical_threads_alive": True},
+                    "SYSTEM_READY",
+                    {"all_critical_threads_alive": True},
                 )
             except Exception:  # pragma: no cover - defensive
                 pass

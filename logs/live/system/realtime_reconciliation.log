@@ -1,0 +1,6 @@
+2025-12-19 00:03:39 - realtime_recon - INFO - Starting reconciliation - will run only at end of trading session
+2025-12-19 00:03:40 - realtime_recon - INFO - Reconciliation session start time set to: 2025-12-19 00:03:38
+2025-12-19 00:03:40 - realtime_recon - INFO - Starting reconciliation - will run only at end of trading session
+2025-12-19 00:07:27 - realtime_recon - INFO - Starting real-time reconciliation...
+2025-12-19 00:07:27 - realtime_recon - INFO - Filtering broker trades to session start time: 2025-12-19 00:03:38
+2025-12-19 00:07:27 - realtime_recon - INFO - Reconciliation complete (session since 2025-12-19 00:03:38): 0 matched, 0 status mismatches, 0 profit discrepancies, 3 only in broker, 0 only in bot

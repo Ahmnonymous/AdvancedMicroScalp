@@ -1,0 +1,3 @@
+2025-12-19 00:03:55 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2331.1% of avg range > max 30.0%
+2025-12-19 00:05:12 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2197.1% of avg range > max 30.0%
+2025-12-19 00:06:27 - trades.XPDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2110.8% of avg range > max 30.0%

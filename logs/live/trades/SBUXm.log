@@ -1,0 +1,2 @@
+2025-12-19 00:03:44 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.67 pips < min 0.80 pips
+2025-12-19 00:05:04 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.68 pips < min 0.80 pips

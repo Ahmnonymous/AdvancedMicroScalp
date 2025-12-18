@@ -1,0 +1,35 @@
+2025-12-19 00:03:59 - order_manager - INFO - mode=LIVE | symbol=US30m | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 48045.80000 | SL: 48247.70000
+2025-12-19 00:03:59 - order_manager - INFO - mode=LIVE | symbol=US30m | ticket=535225997 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 48247.70000 | Entry Price: 48045.80000 (requested: 48045.80000) | Slippage: 0.00000
+2025-12-19 00:03:59 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=535225997 Symbol=US30m NewSL=48246.60000 OldSL=48247.70000
+2025-12-19 00:03:59 - order_manager - INFO - Order 535225997 modified: SL 48246.60000, TP 0.00000
+2025-12-19 00:04:00 - order_manager - INFO - mode=LIVE | symbol=US500m | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.03 | Price: 6784.56000 | SL: 6851.95000
+2025-12-19 00:04:00 - order_manager - INFO - mode=LIVE | symbol=US500m | ticket=535226097 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0300 (requested: 0.0300) | SL: 6851.95000 | Entry Price: 6784.56000 (requested: 6784.56000) | Slippage: 0.00000
+2025-12-19 00:04:00 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=535226097 Symbol=US500m NewSL=6851.08000 OldSL=6851.95000
+2025-12-19 00:04:00 - order_manager - INFO - Order 535226097 modified: SL 6851.08000, TP 0.00000
+2025-12-19 00:04:00 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 48046.40000 | SL: 48068.30000
+2025-12-19 00:04:01 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | ticket=535226252 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 48068.30000 | Entry Price: 48046.40000 (requested: 48046.40000) | Slippage: 0.00000
+2025-12-19 00:04:01 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=535226252 Symbol=US30_x10m NewSL=48065.40000 OldSL=48068.30000
+2025-12-19 00:04:01 - order_manager - INFO - Order 535226252 modified: SL 48065.40000, TP 0.00000
+2025-12-19 00:04:01 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=535226097 Symbol=US500m NewSL=6850.59000 OldSL=6851.08000
+2025-12-19 00:04:01 - order_manager - INFO - Order 535226097 modified: SL 6850.59000, TP 0.00000
+2025-12-19 00:04:15 - order_manager - WARNING - SL 48036.60000 too close to market (ASK: 48036.70000, min allowed: 48036.71000, freeze_level: 0, stops_level: 0)
+2025-12-19 00:04:16 - order_manager - WARNING - SL 48036.60000 too close to market (ASK: 48040.40000, min allowed: 48040.41000, freeze_level: 0, stops_level: 0)
+2025-12-19 00:04:17 - order_manager - WARNING - SL 48036.60000 too close to market (ASK: 48042.70000, min allowed: 48042.71000, freeze_level: 0, stops_level: 0)
+2025-12-19 00:04:19 - order_manager - WARNING - SL 48036.60000 too close to market (ASK: 48038.70000, min allowed: 48038.71000, freeze_level: 0, stops_level: 0)
+2025-12-19 00:04:20 - order_manager - WARNING - SL 6783.41000 too close to market (ASK: 6783.53000, min allowed: 6783.53100, freeze_level: 0, stops_level: 0)
+2025-12-19 00:04:21 - order_manager - WARNING - SL 48036.60000 too close to market (ASK: 48039.40000, min allowed: 48039.41000, freeze_level: 0, stops_level: 0)
+2025-12-19 00:04:21 - order_manager - WARNING - SL 48039.60000 too close to market (ASK: 48040.10000, min allowed: 48040.11000, freeze_level: 0, stops_level: 0)
+2025-12-19 00:04:22 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=535225997 Symbol=US30m NewSL=48039.60000 OldSL=48246.60000
+2025-12-19 00:04:22 - order_manager - INFO - Order 535225997 modified: SL 48039.60000, TP 0.00000
+2025-12-19 00:04:23 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=535226097 Symbol=US500m NewSL=6783.41000 OldSL=6850.59000
+2025-12-19 00:04:23 - order_manager - INFO - Order 535226097 modified: SL 6783.41000, TP 0.00000
+2025-12-19 00:04:50 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=535226252 Symbol=US30_x10m NewSL=48064.10000 OldSL=48065.40000
+2025-12-19 00:04:50 - order_manager - INFO - Order 535226252 modified: SL 48064.10000, TP 0.00000
+2025-12-19 00:05:23 - order_manager - WARNING - SL 48044.80000 too close to market (ASK: 48044.80000, min allowed: 48044.81000, freeze_level: 0, stops_level: 0)
+2025-12-19 00:05:23 - order_manager - WARNING - SL 48044.80000 too close to market (ASK: 48044.80000, min allowed: 48044.81000, freeze_level: 0, stops_level: 0)
+2025-12-19 00:05:48 - order_manager - WARNING - Modify order failed for ticket 535226252 (attempt 1/3): 10016 - Invalid stops. Retrying...
+2025-12-19 00:05:48 - order_manager - WARNING - Modify order failed for ticket 535226252 (attempt 2/3): 10016 - Invalid stops. Retrying...
+2025-12-19 00:05:48 - order_manager - ERROR - [ERROR] SL UPDATE FAILED: Ticket=535226252 Symbol=US30_x10m Code=10016 Reason=Invalid stops Attempts=3
+2025-12-19 00:05:48 - order_manager - ERROR - Modify order failed for ticket 535226252 after 3 attempts: 10016 - Invalid stops
+2025-12-19 00:05:49 - order_manager - WARNING - [FALLBACK] Attempting direct MT5 API call for ticket 535226252
+2025-12-19 00:05:49 - order_manager - ERROR - [FALLBACK FAILED] Direct MT5 API call failed for ticket 535226252: 10016

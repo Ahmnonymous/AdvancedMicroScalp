@@ -1,0 +1,2 @@
+2025-12-19 00:05:05 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.45 pips < min 0.80 pips
+2025-12-19 00:06:19 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.46 pips < min 0.80 pips

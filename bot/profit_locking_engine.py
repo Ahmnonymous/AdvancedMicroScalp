@@ -93,14 +93,22 @@ class ProfitLockingEngine:
         Returns:
             (success: bool, reason: str)
         """
+        ticket = position.get('ticket')
+        symbol = position.get('symbol', '')
+        current_profit = position.get('profit', 0.0)
+        
+        # MANDATORY LOGGING: LOCK_ATTEMPT - Log every attempt with all decision variables
+        logger.info(f"[LOCK_ATTEMPT] Profit-Locking Engine | Ticket={ticket} Symbol={symbol} "
+                   f"Profit=${current_profit:.2f} Enabled={self.enabled}")
+        
         if not self.enabled:
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Reason=Engine disabled")
             return False, "Engine disabled"
         
-        ticket = position.get('ticket')
         if not ticket:
+            logger.warning(f"[LOCK_BLOCKED] Ticket=None Symbol={symbol} Reason=No ticket")
             return False, "No ticket"
         
-        symbol = position.get('symbol', '')
         entry_price = position.get('price_open', 0.0)
         current_sl = position.get('sl', 0.0)
         order_type = position.get('type', '')
@@ -120,24 +128,29 @@ class ProfitLockingEngine:
             # Reset sweet spot tracking if profit goes negative
             if ticket in self._sweet_spot_min_profit:
                 self._sweet_spot_min_profit.pop(ticket)
-            logger.debug(f"[SKIP] Profit-Locking BLOCKED: {symbol} Ticket {ticket} | "
-                       f"Profit: ${current_profit:.2f} (negative) | "
-                       f"Trade in loss zone - strict -$2.00 SL enforcement active, NO profit-locking allowed")
-            return False, f"Trade in loss zone (${current_profit:.2f}) - profit-locking blocked, strict SL enforcement active"
+            reason = f"Trade in loss zone (${current_profit:.2f}) - profit-locking blocked, strict SL enforcement active"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Profit=${current_profit:.2f} Reason={reason}")
+            return False, reason
         
         if current_profit < sweet_spot_min:
             # Reset sweet spot tracking if profit goes below threshold
             if ticket in self._sweet_spot_min_profit:
                 self._sweet_spot_min_profit.pop(ticket)
-            return False, f"Profit ${current_profit:.2f} below threshold ${sweet_spot_min}"
+            reason = f"Profit ${current_profit:.2f} below threshold ${sweet_spot_min}"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Profit=${current_profit:.2f} Reason={reason}")
+            return False, reason
         
         if not symbol or entry_price <= 0 or lot_size <= 0:
-            return False, "Invalid position data"
+            reason = "Invalid position data"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Reason={reason}")
+            return False, reason
         
         # Get symbol info for calculations
         symbol_info = self.mt5_connector.get_symbol_info(symbol)
         if symbol_info is None:
-            return False, "Symbol info not available"
+            reason = "Symbol info not available"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Reason={reason}")
+            return False, reason
         
         # CRITICAL: Calculate current locked profit from ACTUAL broker SL (not estimated)
         current_locked_profit = self._calculate_locked_profit(
@@ -176,23 +189,18 @@ class ProfitLockingEngine:
         
         if target_lock_profit is None:
             # Log skipped update with reason
-            if is_sweet_spot_lock:
-                logger.debug(f"[SKIP] SWEET SPOT LOCK SKIPPED: {symbol} Ticket {ticket} | "
-                           f"Current profit: ${current_profit:.2f} | "
-                           f"Current locked: ${current_locked_profit:.2f} | "
-                           f"Reason: No lock needed (target lock calculation returned None)")
-            return False, "No lock needed"
+            reason = "No lock needed (target lock calculation returned None)"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Profit=${current_profit:.2f} "
+                         f"CurrentLocked=${current_locked_profit:.2f} Reason={reason}")
+            return False, reason
         
         # Ensure target lock is an improvement (at least $0.01 better)
         if target_lock_profit <= current_locked_profit + 0.01:
             # Log skipped update with reason
-            if is_sweet_spot_lock:
-                logger.debug(f"[SKIP] SWEET SPOT LOCK SKIPPED: {symbol} Ticket {ticket} | "
-                           f"Current profit: ${current_profit:.2f} | "
-                           f"Target lock: ${target_lock_profit:.2f} | "
-                           f"Current locked: ${current_locked_profit:.2f} | "
-                           f"Reason: Target lock not better than current (difference: ${target_lock_profit - current_locked_profit:.2f})")
-            return False, f"Target lock ${target_lock_profit:.2f} not better than current ${current_locked_profit:.2f}"
+            reason = f"Target lock ${target_lock_profit:.2f} not better than current ${current_locked_profit:.2f} (difference: ${target_lock_profit - current_locked_profit:.2f})"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Profit=${current_profit:.2f} "
+                         f"TargetLock=${target_lock_profit:.2f} CurrentLocked=${current_locked_profit:.2f} Reason={reason}")
+            return False, reason
         
         # CRITICAL: For sweet spot, apply immediately (min_duration = 0)
         # Skip rate limiting for immediate sweet spot locks
@@ -208,12 +216,16 @@ class ProfitLockingEngine:
             if is_sweet_spot_lock:
                 # Immediate application: Skip only if we just attempted with same target (within 100ms)
                 if now - last_attempt < 0.1 and abs(last_lock_profit - target_lock_profit) < 0.01:
-                    return False, "Recently attempted (within 100ms)"
+                    reason = "Recently attempted (within 100ms)"
+                    logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Reason={reason}")
+                    return False, reason
                 # No duration check for immediate sweet spot locks
             else:
                 # Non-sweet spot locks: Use normal rate limiting
                 if now - last_attempt < (self.lock_retry_delay_ms / 1000.0) and abs(last_lock_profit - target_lock_profit) < 0.01:
-                    return False, "Recently attempted (rate limited)"
+                    reason = "Recently attempted (rate limited)"
+                    logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Reason={reason}")
+                    return False, reason
         
         # CRITICAL: Calculate target SL price from target lock profit
         target_sl_price = self._calculate_target_sl_price(
@@ -221,7 +233,9 @@ class ProfitLockingEngine:
         )
         
         if target_sl_price is None:
-            return False, "Cannot calculate target SL price"
+            reason = "Cannot calculate target SL price"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Reason={reason}")
+            return False, reason
         
         # Adjust target SL to respect broker constraints (freeze level, min distance)
         target_sl_price = self._adjust_sl_for_broker_constraints(
@@ -229,11 +243,15 @@ class ProfitLockingEngine:
         )
         
         if target_sl_price is None:
-            return False, "Cannot adjust SL for broker constraints"
+            reason = "Cannot adjust SL for broker constraints"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Reason={reason}")
+            return False, reason
         
         # Validate target SL doesn't worsen current SL (after broker adjustments)
         if not self._validate_sl_improvement(current_sl, target_sl_price, order_type, entry_price, symbol_info):
-            return False, "Target SL would worsen current SL"
+            reason = "Target SL would worsen current SL"
+            logger.warning(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} OldSL={current_sl:.5f} NewSL={target_sl_price:.5f} Reason={reason}")
+            return False, reason
         
         # CRITICAL: Attempt to lock profit with enhanced retry logic
         # This ensures SL is applied immediately to broker (MT5)
@@ -252,31 +270,25 @@ class ProfitLockingEngine:
             if is_sweet_spot_lock and 'sweet_spot_entry_time' not in self._locked_positions[ticket]:
                 self._locked_positions[ticket]['sweet_spot_entry_time'] = now
             
-            # Log sweet spot dynamic lock updates
+            # MANDATORY LOGGING: LOCK_SUCCESS - Log successful lock application
             if is_sweet_spot_lock:
                 min_profit_info = ""
                 if self.dynamic_sweet_spot_enabled and ticket in self._sweet_spot_min_profit:
                     min_profit_info = f" | Min in sweet spot: ${self._sweet_spot_min_profit[ticket]:.2f}"
                 verification_status = "[OK] VERIFIED" if self._locked_positions[ticket].get('sl_verified', False) else "[W] PENDING"
-                logger.info(f"[OK] SWEET SPOT LOCK APPLIED: {symbol} Ticket {ticket} | "
-                          f"Current profit: ${current_profit:.2f} | "
-                          f"Locked at: ${target_lock_profit:.2f} | "
-                          f"Target SL: {target_sl_price:.5f}{min_profit_info} | "
-                          f"Status: {verification_status}")
+                logger.info(f"[LOCK_SUCCESS] Ticket={ticket} Symbol={symbol} Profit=${current_profit:.2f} "
+                          f"LockedAt=${target_lock_profit:.2f} TargetSL={target_sl_price:.5f}{min_profit_info} "
+                          f"Status={verification_status}")
             else:
-                logger.info(f"[OK] Profit locked: {symbol} Ticket {ticket} | "
-                          f"Profit: ${current_profit:.2f} | "
-                          f"Locked at: ${target_lock_profit:.2f} | "
-                          f"Target SL: {target_sl_price:.5f}")
+                logger.info(f"[LOCK_SUCCESS] Ticket={ticket} Symbol={symbol} Profit=${current_profit:.2f} "
+                          f"LockedAt=${target_lock_profit:.2f} TargetSL={target_sl_price:.5f}")
             return True, f"Locked at ${target_lock_profit:.2f}"
         else:
-            logger.warning(f"[WARNING] SWEET SPOT LOCK FAILED: {symbol} Ticket {ticket} | "
-                         f"Profit: ${current_profit:.2f} | "
-                         f"Target lock: ${target_lock_profit:.2f} | "
-                         f"Target SL: {target_sl_price:.5f} | "
-                         f"Retry count: {self.max_lock_retries} | "
-                         f"Broker SL update failed")
-            return False, "Lock attempt failed - broker SL not updated"
+            reason = "Lock attempt failed - broker SL not updated"
+            logger.error(f"[LOCK_BLOCKED] Ticket={ticket} Symbol={symbol} Profit=${current_profit:.2f} "
+                        f"TargetLock=${target_lock_profit:.2f} TargetSL={target_sl_price:.5f} "
+                        f"RetryCount={self.max_lock_retries} Reason={reason}")
+            return False, reason
     
     def _calculate_target_lock_profit(self, current_profit: float, current_locked_profit: float, ticket: int = None) -> Optional[float]:
         """
@@ -597,7 +609,9 @@ class ProfitLockingEngine:
                 
                 # Attempt to modify order with broker
                 # CRITICAL FIX: Log SL update attempt before calling order_manager
-                current_sl = position.get('sl', 0.0)
+                # Get fresh position to get current SL
+                fresh_position_for_log = self.order_manager.get_position_by_ticket(ticket)
+                current_sl = fresh_position_for_log.get('sl', 0.0) if fresh_position_for_log else 0.0
                 logger.info(f"🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket={ticket} Symbol={symbol} OldSL={current_sl:.5f} NewSL={target_sl_price:.5f} TargetLock=${target_lock_profit:.2f}")
                 success = self.order_manager.modify_order(ticket, stop_loss_price=target_sl_price)
                 if success:
