@@ -27,7 +27,7 @@
       "lock_acquisition_timeout_seconds": 1.0,
       "profit_locking_lock_timeout_seconds": 1.0,
       "sl_update_min_interval_ms": 2000,
-      "lock_max_hold_time_seconds": 0.05,
+      "lock_max_hold_time_seconds": 0.3,
       "stale_lock_threshold_ms": 300,
     "big_jump_threshold_usd": 0.40,
     "staged_open_enabled": true,

@@ -135,9 +135,9 @@ class SLManager:
         self._lock_hold_times = {}  # {ticket: acquisition_time} for watchdog
         self._lock_holders = {}  # {ticket: {'thread_id': int, 'thread_name': str, 'acquired_at': float, 'is_profit_locking': bool, 'is_trailing': bool, 'lock_object': RLock}}
         self._lock_watchdog_interval = 0.05  # Check for stale locks every 50ms (very aggressive to catch stale locks immediately)
-        # CRITICAL FIX: Reduced max hold time to 200ms (aggressive) to prevent blocking
-        # FIX 3: Reduced max hold time to 50ms (0.05s) to prevent blocking and reduce contention
-        self._lock_max_hold_time = self.risk_config.get('lock_max_hold_time_seconds', 0.05)  # 50ms max hold time (reduced from 200ms)
+        # FIX: Lock max hold time adjusted to 300ms (0.3s) to account for actual MT5 broker latency (200-285ms observed)
+        # This prevents false warnings while still detecting genuinely excessive lock holds
+        self._lock_max_hold_time = self.risk_config.get('lock_max_hold_time_seconds', 0.3)  # 300ms max hold time (default, configurable)
         self._lock_force_release_enabled = True  # Enable automatic stale lock recovery
         # FIX 5: Config update - increased stale lock threshold to 200ms (from 100ms)
         # Locks held 200-300ms are normal during MT5 operations, 100ms threshold was too aggressive
@@ -510,6 +510,48 @@ class SLManager:
         lock = self._get_ticket_lock(ticket)
         acquisition_start = time.time()
         
+        # FIX: Verify and fix lock state before acquisition
+        # Check if lock is actually held even if tracking is missing, or if tracking exists but lock is free
+        with self._locks_lock:
+            holder_info = self._lock_holders.get(ticket)
+            lock_actually_held = False
+            
+            # Check if lock is actually held by trying non-blocking acquire
+            try:
+                if lock.acquire(blocking=False):
+                    # Lock is free - release it immediately
+                    lock.release()
+                    lock_actually_held = False
+                    
+                    # If tracking exists but lock is free, clean up tracking (state mismatch)
+                    if holder_info is not None:
+                        logger.warning(f"[LOCK_STATE_CLEANUP] Ticket {ticket} | "
+                                     f"Lock is free but tracking exists | "
+                                     f"Cleaning up stale tracking | "
+                                     f"Previous holder: {holder_info.get('thread_name', 'Unknown')}")
+                        if ticket in self._lock_hold_times:
+                            del self._lock_hold_times[ticket]
+                        if ticket in self._lock_holders:
+                            del self._lock_holders[ticket]
+                        if ticket in self._lock_holder_stack_traces:
+                            del self._lock_holder_stack_traces[ticket]
+                else:
+                    # Lock is held
+                    lock_actually_held = True
+                    
+                    # If lock is held but tracking is missing, log mismatch
+                    if holder_info is None:
+                        # Try to detect owner thread by checking active threads
+                        # This is a best-effort detection - we can't reliably determine the owner
+                        # without tracking, but we can log the mismatch
+                        logger.warning(f"[LOCK_TRACKING_MISMATCH] Ticket {ticket} | "
+                                     f"Lock is held but tracking is missing | "
+                                     f"This indicates a tracking bug or orphaned lock | "
+                                     f"Attempting to acquire lock with timeout...")
+            except Exception as e:
+                logger.debug(f"[LOCK_STATE_CHECK] Ticket {ticket} | "
+                           f"Error checking lock state: {e}")
+        
         # CRITICAL: Profitable trades need longer timeout - they MUST lock profit
         # Use configured profit locking timeout for profitable trades, standard timeout for others
         base_timeout = self._profit_locking_lock_timeout if is_profit_locking else self._lock_acquisition_timeout
@@ -779,6 +821,93 @@ class SLManager:
             if ticket in self._lock_holder_stack_traces:
                 del self._lock_holder_stack_traces[ticket]
     
+    def _cleanup_thread_locks(self):
+        """
+        Release all locks held by the current thread and clean up tracking.
+        
+        CRITICAL FIX: This method is called during thread shutdown to prevent orphaned locks
+        that cause "Holder: No holder info" messages and lock timeouts after thread restarts.
+        
+        This method:
+        1. Finds all locks held by the current thread (by checking _lock_holders)
+        2. Releases each lock if it's actually held
+        3. Cleans up all tracking entries for those locks
+        4. Logs all cleanup operations for diagnostics
+        """
+        current_thread_id = threading.current_thread().ident
+        current_thread_name = threading.current_thread().name
+        cleaned_tickets = []
+        
+        with self._locks_lock:
+            # Find all locks held by this thread
+            tickets_to_cleanup = []
+            for ticket, holder_info in list(self._lock_holders.items()):
+                holder_thread_id = holder_info.get('thread_id')
+                if holder_thread_id == current_thread_id:
+                    tickets_to_cleanup.append(ticket)
+            
+            # Release locks and clean up tracking
+            for ticket in tickets_to_cleanup:
+                try:
+                    holder_info = self._lock_holders.get(ticket)
+                    lock_object = holder_info.get('lock_object') if holder_info else None
+                    
+                    # Try to get lock from ticket_locks if not in holder_info
+                    if lock_object is None and ticket in self._ticket_locks:
+                        lock_object = self._ticket_locks[ticket]
+                    
+                    # Release the lock if we have it and it's actually held
+                    if lock_object is not None:
+                        try:
+                            # Try non-blocking acquire to check if lock is held
+                            # If acquire succeeds, we need to release it
+                            if lock_object.acquire(blocking=False):
+                                lock_object.release()
+                                logger.info(f"[THREAD_CLEANUP] Ticket {ticket} | "
+                                          f"Released lock held by {current_thread_name}({current_thread_id})")
+                            else:
+                                # Lock is held by this thread (reentrant lock)
+                                # Try to release it (may fail if not held, but that's OK)
+                                try:
+                                    # For RLock, we need to release multiple times if reentrant
+                                    release_count = 0
+                                    while True:
+                                        try:
+                                            lock_object.release()
+                                            release_count += 1
+                                        except RuntimeError:
+                                            # Lock not held anymore
+                                            break
+                                    if release_count > 0:
+                                        logger.info(f"[THREAD_CLEANUP] Ticket {ticket} | "
+                                                  f"Released {release_count} lock(s) held by {current_thread_name}({current_thread_id})")
+                                except Exception as e:
+                                    logger.debug(f"[THREAD_CLEANUP] Ticket {ticket} | "
+                                               f"Could not release lock (may already be released): {e}")
+                        except Exception as e:
+                            logger.warning(f"[THREAD_CLEANUP] Ticket {ticket} | "
+                                         f"Error releasing lock: {e}")
+                    
+                    # Clean up tracking
+                    if ticket in self._lock_hold_times:
+                        del self._lock_hold_times[ticket]
+                    if ticket in self._lock_holders:
+                        del self._lock_holders[ticket]
+                    if ticket in self._lock_holder_stack_traces:
+                        del self._lock_holder_stack_traces[ticket]
+                    
+                    cleaned_tickets.append(ticket)
+                except Exception as e:
+                    logger.warning(f"[THREAD_CLEANUP] Ticket {ticket} | "
+                                 f"Error during cleanup: {e}", exc_info=True)
+        
+        if cleaned_tickets:
+            logger.info(f"[THREAD_CLEANUP] {current_thread_name}({current_thread_id}) | "
+                       f"Cleaned up {len(cleaned_tickets)} lock(s): {cleaned_tickets}")
+        else:
+            logger.debug(f"[THREAD_CLEANUP] {current_thread_name}({current_thread_id}) | "
+                        f"No locks to clean up")
+    
     def _release_ticket_lock(self, ticket: int, lock: threading.Lock):
         """
         Release ticket lock and log diagnostics.
@@ -820,9 +949,12 @@ class SLManager:
         self._log_lock_diagnostics(ticket, 'released', thread_name, thread_id, hold_duration, is_profit_locking, True)
         
         # FIX 5: Log release with full info for verification
+        # FIX: Enhanced logging to verify lock tracking cleanup and hold time compliance
+        max_hold_time_ms = self._lock_max_hold_time * 1000
         logger.debug(f"🔓 [LOCK_RELEASED] Ticket {ticket} | Thread: {thread_name}({thread_id}) | "
-                    f"Hold duration: {hold_duration:.1f}ms | Max: {self._lock_max_hold_time*1000:.0f}ms | "
-                    f"Profit-locking: {is_profit_locking} | Trailing: {is_trailing}")
+                    f"Hold duration: {hold_duration:.1f}ms | Max: {max_hold_time_ms:.0f}ms | "
+                    f"Profit-locking: {is_profit_locking} | Trailing: {is_trailing} | "
+                    f"Status: {'OK' if hold_duration <= max_hold_time_ms else 'EXCEEDED'}")
         
         if hold_duration > 500:  # Warn if held > 500ms (legacy check)
             logger.warning(f"Lock held for {hold_duration:.1f}ms | Ticket {ticket} | Thread: {thread_name}")
@@ -1698,6 +1830,9 @@ class SLManager:
         # Perform minimal MT5.modify_order() call inside the lock
         with lock:
             success = self._execute_sl_modify_only(ticket, symbol, final_sl_price)
+        
+        # FIX: Clean up lock tracking immediately after lock release to prevent false stale lock detections
+        self._cleanup_lock_tracking(ticket)
 
         if success:
             # Verify the update was successful by checking effective SL
@@ -1903,6 +2038,9 @@ class SLManager:
 
         with lock:
             success = self._execute_sl_modify_only(ticket, position.get('symbol', ''), final_sl_price)
+        
+        # FIX: Clean up lock tracking immediately after lock release to prevent false stale lock detections
+        self._cleanup_lock_tracking(ticket)
 
         if not success:
             return False, "Failed to apply break-even SL", None
@@ -2081,6 +2219,9 @@ class SLManager:
 
         with lock:
             success = self._execute_sl_modify_only(ticket, symbol, final_sl_price)
+        
+        # FIX: Clean up lock tracking immediately after lock release to prevent false stale lock detections
+        self._cleanup_lock_tracking(ticket)
 
         if not success:
             return False, "Failed to apply sweet-spot lock", None
@@ -2210,6 +2351,9 @@ class SLManager:
 
         with lock:
             success = self._execute_sl_modify_only(ticket, symbol, final_sl_price)
+        
+        # FIX: Clean up lock tracking immediately after lock release to prevent false stale lock detections
+        self._cleanup_lock_tracking(ticket)
 
         if not success:
             return False, "Failed to apply trailing stop", None
@@ -2224,7 +2368,8 @@ class SLManager:
     def _execute_sl_modify_only(self, ticket: int, symbol: str, target_sl_price: float) -> bool:
         """
         CRITICAL: Minimal method that ONLY calls MT5.modify_order().
-        This method is called INSIDE the lock and must complete in <50ms.
+        This method is called INSIDE the lock and should complete within lock_max_hold_time_seconds
+        (default: 300ms) to account for MT5 broker latency.
         
         All validation, calculation, and verification happen OUTSIDE this method.
         
@@ -2241,13 +2386,16 @@ class SLManager:
             # ONLY call modify_order - no validation, no verification, no delays
             success = self.order_manager.modify_order(ticket, stop_loss_price=target_sl_price)
             lock_hold_time = (time.time() - lock_start_time) * 1000  # ms
+            max_hold_time_ms = self._lock_max_hold_time * 1000  # Convert to ms
             
-            if lock_hold_time > 50:
+            # FIX: Use configurable lock_max_hold_time_seconds (default: 300ms) instead of hardcoded 50ms
+            if lock_hold_time > max_hold_time_ms:
                 logger.warning(f"[LOCK_HOLD_TIME] Ticket={ticket} Symbol={symbol} | "
-                             f"Lock held for {lock_hold_time:.1f}ms (target: <50ms)")
+                             f"Lock held for {lock_hold_time:.1f}ms (target: <{max_hold_time_ms:.0f}ms) | "
+                             f"Modify took {lock_hold_time:.1f}ms")
             else:
                 logger.debug(f"[LOCK_HOLD_TIME] Ticket={ticket} Symbol={symbol} | "
-                           f"Lock held for {lock_hold_time:.1f}ms (OK)")
+                           f"Lock held for {lock_hold_time:.1f}ms (OK, target: <{max_hold_time_ms:.0f}ms)")
             
             return success
         except Exception as e:
@@ -4069,7 +4217,7 @@ class SLManager:
                               f"CurrentSL={old_sl:.5f} Profit=${current_profit:.2f} | "
                               f"Preparation took {prepare_time:.1f}ms (outside lock)")
                 
-                # CRITICAL: Lock ONLY for the MT5 call - <50ms target
+                # CRITICAL: Lock ONLY for the MT5 call - target: <lock_max_hold_time_seconds (default: 300ms)
                 lock_acquire_start = time.time()
                 with lock:
                     lock_acquire_time = (time.time() - lock_acquire_start) * 1000
@@ -4083,13 +4231,17 @@ class SLManager:
                     
                     # Log lock hold time
                     lock_hold_time = (time.time() - lock_acquire_start) * 1000
-                    if lock_hold_time > 50:
+                    max_hold_time_ms = self._lock_max_hold_time * 1000
+                    if lock_hold_time > max_hold_time_ms:
                         logger.warning(f"[LOCK_HOLD_TIME] Ticket={ticket} Symbol={symbol} | "
-                                     f"Lock held for {lock_hold_time:.1f}ms (target: <50ms) | "
+                                     f"Lock held for {lock_hold_time:.1f}ms (target: <{max_hold_time_ms:.0f}ms) | "
                                      f"Modify took {modify_time:.1f}ms")
                     else:
                         logger.debug(f"[LOCK_HOLD_TIME] Ticket={ticket} Symbol={symbol} | "
-                                   f"Lock held for {lock_hold_time:.1f}ms (OK)")
+                                   f"Lock held for {lock_hold_time:.1f}ms (OK, target: <{max_hold_time_ms:.0f}ms)")
+                
+                # FIX: Clean up lock tracking immediately after lock release to prevent false stale lock detections
+                self._cleanup_lock_tracking(ticket)
                 
                 execution_time = time.time() - execution_start_time
                 
@@ -4197,7 +4349,7 @@ class SLManager:
                 # CRITICAL FIX: Lock scope reduction - same as trailing path
                 execution_start_time = time.time()
                 
-                # CRITICAL: Lock ONLY for the MT5 call - <50ms target
+                # CRITICAL: Lock ONLY for the MT5 call - target: <lock_max_hold_time_seconds (default: 300ms)
                 lock_acquire_start = time.time()
                 with lock:
                     lock_acquire_time = (time.time() - lock_acquire_start) * 1000
@@ -4211,13 +4363,17 @@ class SLManager:
                     
                     # Log lock hold time
                     lock_hold_time = (time.time() - lock_acquire_start) * 1000
-                    if lock_hold_time > 50:
+                    max_hold_time_ms = self._lock_max_hold_time * 1000
+                    if lock_hold_time > max_hold_time_ms:
                         logger.warning(f"[LOCK_HOLD_TIME] Ticket={ticket} Symbol={symbol} | "
-                                     f"Lock held for {lock_hold_time:.1f}ms (target: <50ms) | "
+                                     f"Lock held for {lock_hold_time:.1f}ms (target: <{max_hold_time_ms:.0f}ms) | "
                                      f"Modify took {modify_time:.1f}ms")
                     else:
                         logger.debug(f"[LOCK_HOLD_TIME] Ticket={ticket} Symbol={symbol} | "
-                                   f"Lock held for {lock_hold_time:.1f}ms (OK)")
+                                   f"Lock held for {lock_hold_time:.1f}ms (OK, target: <{max_hold_time_ms:.0f}ms)")
+                
+                # FIX: Clean up lock tracking immediately after lock release to prevent false stale lock detections
+                self._cleanup_lock_tracking(ticket)
                 
                 execution_time = time.time() - execution_start_time
                 
@@ -5652,7 +5808,14 @@ class SLManager:
         self._background_worker_running = False
         self._background_worker_shutdown_event.set()
         
+        # FIX: Clean up locks held by SLWorker thread before joining
+        # This prevents orphaned locks that cause "Holder: No holder info" after thread restart
         if self._sl_worker_thread and self._sl_worker_thread.is_alive():
+            # Note: We can't directly call _cleanup_thread_locks() from here because
+            # it needs to run in the thread's context. Instead, we'll rely on the
+            # cleanup in the exception handler. However, we can still try to clean up
+            # any locks that might be tracked for this thread.
+            logger.debug("[THREAD_SHUTDOWN] Waiting for SLWorker thread to finish and release locks...")
             self._sl_worker_thread.join(timeout=2.0)
         
         if self._background_worker_thread and self._background_worker_thread.is_alive():
@@ -6273,6 +6436,22 @@ class SLManager:
                         time.sleep(sleep_time)
                     # If instant trailing (sleep_time = 0), continue immediately
                     # Note: Performance warning already logged above if loop_duration > 50ms
+            
+            # FIX: Clean up all locks held by this thread when loop exits normally
+            # This prevents orphaned locks that cause "Holder: No holder info" after thread restart
+            # This cleanup happens when _sl_worker_running becomes False or shutdown event is set
+            try:
+                self._cleanup_thread_locks()
+            except Exception as cleanup_error:
+                logger.warning(f"[THREAD_CLEANUP] Error during lock cleanup on normal shutdown: {cleanup_error}", exc_info=True)
+            
+            # MANDATORY OBSERVABILITY: Log thread stop (normal shutdown)
+            import os
+            pid = os.getpid()
+            tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
+            thread_name = threading.current_thread().name
+            logger.info(f"[THREAD_STOP] {thread_name} pid={pid} tid={tid} reason=normal_shutdown")
+            logger.info("SL Worker loop stopped normally")
                 
         except Exception as e:
             # MANDATORY OBSERVABILITY: Log thread crash with full stack trace and system event
@@ -6286,6 +6465,13 @@ class SLManager:
             
             logger.critical(f"[THREAD_CRASH] {thread_name} pid={pid} tid={tid}")
             logger.error(f"[{error_timestamp}] Error in SL worker loop: {e}", exc_info=True)
+            
+            # FIX: Clean up all locks held by this thread before exiting
+            # This prevents orphaned locks that cause "Holder: No holder info" after thread restart
+            try:
+                self._cleanup_thread_locks()
+            except Exception as cleanup_error:
+                logger.warning(f"[THREAD_CLEANUP] Error during lock cleanup: {cleanup_error}", exc_info=True)
             
             # Emit system event for thread crash
             try:
@@ -6328,6 +6514,13 @@ class SLManager:
             
             logger.critical(f"[THREAD_CRASH] {thread_name} pid={pid} tid={tid} FATAL_ERROR")
             logger.critical(f"Fatal error in SL worker loop: {fatal_error}", exc_info=True)
+            
+            # FIX: Clean up all locks held by this thread before exiting
+            # This prevents orphaned locks that cause "Holder: No holder info" after thread restart
+            try:
+                self._cleanup_thread_locks()
+            except Exception as cleanup_error:
+                logger.warning(f"[THREAD_CLEANUP] Error during lock cleanup: {cleanup_error}", exc_info=True)
             
             # Emit system event for fatal thread crash
             try:
