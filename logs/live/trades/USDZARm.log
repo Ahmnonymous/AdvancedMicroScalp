@@ -1,2 +1,0 @@
-2025-12-19 12:47:21 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 297s)
-2025-12-19 12:48:58 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 199s)

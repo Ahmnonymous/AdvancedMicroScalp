@@ -1,5 +1,0 @@
-2025-12-19 13:35:21 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 103s)
-2025-12-19 13:37:00 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 4s)
-2025-12-19 13:42:00 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1597s)
-2025-12-19 13:43:42 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1495s)
-2025-12-19 13:45:22 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1395s)

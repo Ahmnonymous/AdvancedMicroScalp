@@ -607,11 +607,33 @@ class ProfitLockingEngine:
                     logger.debug(f"[WARNING] Profit dropped below threshold during lock attempt: ${fresh_profit:.2f}")
                     return False
                 
-                # Attempt to modify order with broker
-                # CRITICAL FIX: Log SL update attempt before calling order_manager
-                # Get fresh position to get current SL
+                # CRITICAL FIX: Pre-validate target SL against broker constraints BEFORE attempting modification
+                # Get fresh position to get current SL for validation
                 fresh_position_for_log = self.order_manager.get_position_by_ticket(ticket)
-                current_sl = fresh_position_for_log.get('sl', 0.0) if fresh_position_for_log else 0.0
+                if not fresh_position_for_log:
+                    return False  # Position closed
+                
+                current_sl = fresh_position_for_log.get('sl', 0.0)
+                order_type = fresh_position_for_log.get('type', '')
+                
+                # Validate and adjust target SL for broker constraints (min distance, freeze level)
+                validated_sl = self._validate_and_adjust_sl_for_broker_constraints(
+                    ticket, symbol, target_sl_price, current_sl, order_type, symbol_info
+                )
+                
+                if validated_sl is None:
+                    logger.warning(f"[PROFIT_LOCK_PREVALIDATION_FAILED] Ticket={ticket} Symbol={symbol} "
+                                 f"TargetSL={target_sl_price:.5f} - Cannot find valid SL within broker constraints")
+                    return False  # Cannot find valid SL, abort cleanly
+                
+                # Use validated/adjusted SL
+                if abs(validated_sl - target_sl_price) > point * 10:  # If adjusted significantly (>10 points)
+                    logger.warning(f"[PROFIT_LOCK_ADJUSTED] Ticket={ticket} Symbol={symbol} "
+                                 f"TargetSL={target_sl_price:.5f} -> AdjustedSL={validated_sl:.5f} "
+                                 f"(broker constraint adjustment)")
+                    target_sl_price = validated_sl
+                
+                # Attempt to modify order with broker
                 logger.info(f"🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket={ticket} Symbol={symbol} OldSL={current_sl:.5f} NewSL={target_sl_price:.5f} TargetLock=${target_lock_profit:.2f}")
                 success = self.order_manager.modify_order(ticket, stop_loss_price=target_sl_price)
                 if success:
@@ -678,6 +700,88 @@ class ProfitLockingEngine:
                        f"Target SL: {target_sl_price:.5f} | "
                        f"Last error: {last_error if last_error else 'Unknown'}")
             return False
+    
+    def _validate_and_adjust_sl_for_broker_constraints(self, ticket: int, symbol: str, 
+                                                       target_sl: float, current_sl: float,
+                                                       order_type: str, symbol_info: Dict[str, Any]) -> Optional[float]:
+        """
+        Validate target SL against broker constraints and adjust to nearest valid value.
+        
+        CRITICAL FIX: Pre-validates target SL BEFORE attempting broker modification to prevent
+        broker rejections that cause profit lock failures.
+        
+        Args:
+            ticket: Position ticket
+            symbol: Trading symbol
+            target_sl: Target stop-loss price
+            current_sl: Current stop-loss price
+            order_type: 'BUY' or 'SELL'
+            symbol_info: Symbol information dictionary
+            
+        Returns:
+            Validated/adjusted SL price, or None if no valid SL can be found
+        """
+        point = symbol_info.get('point', 0.00001)
+        stops_level = symbol_info.get('trade_stops_level', 0)
+        min_distance = stops_level * point if stops_level > 0 else 0
+        
+        # Get current market price for min distance validation
+        if order_type == 'BUY':
+            current_price = symbol_info.get('bid', 0)
+        else:  # SELL
+            current_price = symbol_info.get('ask', 0)
+        
+        if current_price <= 0:
+            # Cannot validate without current price - allow attempt
+            return target_sl
+        
+        # Check and adjust for min distance constraint
+        if min_distance > 0:
+            if order_type == 'BUY':
+                # For BUY: SL must be at least min_distance below current price (BID)
+                min_allowed_sl = current_price - min_distance
+                if target_sl > min_allowed_sl:
+                    # Adjust to minimum allowed SL
+                    adjusted_sl = min_allowed_sl
+                    # Round to point precision
+                    digits = symbol_info.get('digits', 5)
+                    if digits in [5, 3]:
+                        adjusted_sl = round(adjusted_sl / point) * point
+                    else:
+                        adjusted_sl = round(adjusted_sl, digits)
+                    
+                    # Check if adjusted SL would worsen current SL
+                    if current_sl > 0 and adjusted_sl < current_sl:
+                        logger.warning(f"[PROFIT_LOCK_CONSTRAINT] Ticket={ticket} Symbol={symbol} "
+                                     f"Adjusted SL {adjusted_sl:.5f} would worsen current SL {current_sl:.5f} "
+                                     f"(min_distance: {min_distance:.5f})")
+                        return None  # Cannot improve SL while respecting constraints
+                    
+                    return adjusted_sl
+            else:  # SELL
+                # For SELL: SL must be at least min_distance above current price (ASK)
+                max_allowed_sl = current_price + min_distance
+                if target_sl < max_allowed_sl:
+                    # Adjust to maximum allowed SL
+                    adjusted_sl = max_allowed_sl
+                    # Round to point precision
+                    digits = symbol_info.get('digits', 5)
+                    if digits in [5, 3]:
+                        adjusted_sl = round(adjusted_sl / point) * point
+                    else:
+                        adjusted_sl = round(adjusted_sl, digits)
+                    
+                    # Check if adjusted SL would worsen current SL
+                    if current_sl > 0 and adjusted_sl > current_sl:
+                        logger.warning(f"[PROFIT_LOCK_CONSTRAINT] Ticket={ticket} Symbol={symbol} "
+                                     f"Adjusted SL {adjusted_sl:.5f} would worsen current SL {current_sl:.5f} "
+                                     f"(min_distance: {min_distance:.5f})")
+                        return None  # Cannot improve SL while respecting constraints
+                    
+                    return adjusted_sl
+        
+        # No constraints violated - return original target
+        return target_sl
     
     def cleanup_closed_position(self, ticket: int):
         """

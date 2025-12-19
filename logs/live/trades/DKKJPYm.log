@@ -1,9 +1,0 @@
-2025-12-19 12:18:58 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.80 pips
-2025-12-19 12:20:40 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
-2025-12-19 12:22:22 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1796s)
-2025-12-19 12:24:02 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1696s)
-2025-12-19 12:27:24 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1494s)
-2025-12-19 12:30:44 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1293s)
-2025-12-19 12:32:24 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1194s)
-2025-12-19 12:34:03 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1095s)
-2025-12-19 12:39:02 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 796s)

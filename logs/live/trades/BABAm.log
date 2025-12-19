@@ -1,7 +1,0 @@
-2025-12-19 12:10:43 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.70 pips < min 0.80 pips
-2025-12-19 12:22:23 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1795s)
-2025-12-19 13:07:08 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1796s)
-2025-12-19 13:10:27 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1597s)
-2025-12-19 13:30:20 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 403s)
-2025-12-19 13:32:02 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 302s)
-2025-12-19 13:42:04 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1593s)

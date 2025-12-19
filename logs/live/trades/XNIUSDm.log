@@ -1,3 +1,0 @@
-2025-12-19 12:58:47 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1278.6% of avg range > max 30.0%
-2025-12-19 13:43:41 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1496s)
-2025-12-19 13:45:21 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1396s)

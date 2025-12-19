@@ -1,7 +1,0 @@
-2025-12-19 12:17:17 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 496.6% of avg range > max 30.0%
-2025-12-19 12:18:59 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 510.3% of avg range > max 30.0%
-2025-12-19 12:20:41 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 491.6% of avg range > max 30.0%
-2025-12-19 12:22:22 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1795s)
-2025-12-19 12:24:03 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1695s)
-2025-12-19 12:25:44 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1594s)
-2025-12-19 12:27:25 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1493s)

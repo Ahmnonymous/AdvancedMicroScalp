@@ -696,27 +696,24 @@ class TradingSystemLauncher:
                                 f"{profit_color}${profit:,.2f}{Colors.END}",
                                 effective_sl_str,
                                 sl_status_indicator,
-                                last_sl_update_time_str,
-                                last_sl_update_reason[:15] if last_sl_update_reason != "N/A" else "N/A",
-                                duration_str,
                                 status_display
                             ])
                         
                         if TABULATE_AVAILABLE:
-                            headers = ["Ticket", "Symbol", "Type", "Lot", "Entry", "Current", "SL (Price)", "P/L", "Effective SL", "SL Status", "Last Update", "Update Reason", "Duration", "Status"]
+                            headers = ["Ticket", "Symbol", "Type", "Lot", "Entry", "Current", "SL (Price)", "P/L", "Effective SL", "SL Status", "Status"]
                             print(tabulate(positions_table, headers=headers, tablefmt="grid", stralign="left"))
                             
                             # Total row
                             total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
                             total_row = [f"{Colors.BOLD}TOTAL{Colors.END}", "", "", "", "", "", "", 
-                                       f"{total_color}${total_profit:,.2f}{Colors.END}", "", "", "", "", "", ""]
+                                       f"{total_color}${total_profit:,.2f}{Colors.END}", "", "", ""]
                             print(tabulate([total_row], tablefmt="grid", stralign="left"))
                         else:
                             # Fallback
-                            print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'Entry':<12} | {'Current':<12} | {'SL (Price)':<15} | {'P/L':<12} | {'Effective SL':<18} | {'SL Status':<12} | {'Last Update':<12} | {'Update Reason':<15} | {'Duration':<12} | {'Status'}{Colors.END}")
-                            print(f"{Colors.BLUE}{'-' * 200}{Colors.END}")
+                            print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'Entry':<12} | {'Current':<12} | {'SL (Price)':<15} | {'P/L':<12} | {'Effective SL':<18} | {'SL Status':<12} | {'Status'}{Colors.END}")
+                            print(f"{Colors.BLUE}{'-' * 150}{Colors.END}")
                             for row in positions_table:
-                                print(" | ".join(f"{str(cell):<25}" if i in [8, 10] else f"{str(cell):<15}" if i == 11 else f"{str(cell):<12}" for i, cell in enumerate(row)))
+                                print(" | ".join(f"{str(cell):<25}" if i == 8 else f"{str(cell):<15}" if i == 9 else f"{str(cell):<12}" for i, cell in enumerate(row)))
                             total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
                             print(f"{Colors.BOLD}{'TOTAL FLOATING P/L':<25} | {total_color}${total_profit:>12,.2f}{Colors.END}")
                     else:
@@ -734,18 +731,27 @@ class TradingSystemLauncher:
                     closed_trades = profitable_trades + losing_trades  # Total closed trades
                     success_rate = (successful / total_trades * 100) if total_trades > 0 else 0
                     
-                    # Win/Loss statistics
+                    # Win/Loss statistics - ensure correct calculation
                     profitable_count = trade_stats.get('profitable_trades', 0)
                     losing_count = trade_stats.get('losing_trades', 0)
-                    total_profit_sum = trade_stats.get('total_profit', 0.0)
-                    total_loss_sum = trade_stats.get('total_loss', 0.0)  # This is negative
+                    total_profit_sum = float(trade_stats.get('total_profit', 0.0))
+                    # total_loss is stored as negative, convert to absolute value for display
+                    total_loss_raw = float(trade_stats.get('total_loss', 0.0))
+                    total_loss_sum = abs(total_loss_raw)  # Display as positive number
                     
                     # Micro-HFT Performance
                     hft_trades = monitor_summary.get('hft_trades', 0) if monitor_summary else 0
                     sweet_spot_rate = monitor_summary.get('hft_sweet_spot_rate', 0) if monitor_summary else 0
                     
-                    # Session P/L (moved from Profit & Loss table)
-                    session_pnl = getattr(self.bot, 'session_pnl', daily_pnl) if self.bot else daily_pnl
+                    # Session P/L - calculate correctly from bot or use daily_pnl
+                    if self.bot:
+                        # Try to get session_pnl from bot (calculated from balance difference)
+                        session_pnl = getattr(self.bot, 'session_pnl', None)
+                        if session_pnl is None:
+                            # Fallback to daily_pnl if session_pnl not available
+                            session_pnl = daily_pnl
+                    else:
+                        session_pnl = daily_pnl
                     session_pnl_color = Colors.GREEN if session_pnl >= 0 else Colors.RED
                     
                     # Calculate floating_pnl and calculated_daily_pnl for logging
@@ -764,23 +770,20 @@ class TradingSystemLauncher:
                             f"{Colors.RED}{failed}{Colors.END}",
                             f"{Colors.YELLOW}{filtered}{Colors.END}",
                             f"{Colors.CYAN}{closed_trades}{Colors.END}",
-                            f"{success_rate_color}{success_rate:.1f}%{Colors.END}",
                             f"{Colors.GREEN}{profitable_count}{Colors.END}",
                             f"{Colors.GREEN}${total_profit_sum:,.2f}{Colors.END}",
                             f"{Colors.RED}{losing_count}{Colors.END}",
                             f"{Colors.RED}${total_loss_sum:,.2f}{Colors.END}",
-                            hft_trades,
-                            f"{sweet_spot_color}{sweet_spot_rate:.1f}%{Colors.END}",
                             f"{session_pnl_color}${session_pnl:,.2f}{Colors.END}"
                         ]]
-                        headers = ["Total Trades", "Successful", "Failed", "Filtered", "Closed Trades", "Success Rate", 
-                                 "Profitable", "Total Profit", "Losing", "Total Loss", "HFT Trades", "Sweet Spot Rate", "Session P/L"]
+                        headers = ["Total Trades", "Successful", "Failed", "Filtered", "Closed Trades", 
+                                 "Profitable", "Total Profit", "Losing", "Total Loss", "Session P/L"]
                         print(tabulate(stats_table, headers=headers, tablefmt="grid", stralign="right"))
                     else:
                         # Fallback
-                        print(f"{Colors.BOLD}{'Total Trades':<15} | {'Successful':<15} | {'Failed':<15} | {'Filtered':<15} | {'Closed':<15} | {'Success Rate':<15} | {'Profitable':<15} | {'Total Profit':<18} | {'Losing':<15} | {'Total Loss':<18} | {'HFT Trades':<15} | {'Sweet Spot':<15} | {'Session P/L':<18}{Colors.END}")
-                        print(f"{Colors.CYAN}{'-' * 240}{Colors.END}")
-                        print(f"{total_trades:<15} | {Colors.GREEN}{successful:<15}{Colors.END} | {Colors.RED}{failed:<15}{Colors.END} | {Colors.YELLOW}{filtered:<15}{Colors.END} | {Colors.CYAN}{closed_trades:<15}{Colors.END} | {success_rate_color}{success_rate:>6.1f}%{Colors.END}{' ' * 7} | {Colors.GREEN}{profitable_count:<15}{Colors.END} | {Colors.GREEN}${total_profit_sum:>12,.2f}{Colors.END}{' ' * 3} | {Colors.RED}{losing_count:<15}{Colors.END} | {Colors.RED}${total_loss_sum:>12,.2f}{Colors.END}{' ' * 3} | {hft_trades:<15} | {sweet_spot_color}{sweet_spot_rate:>6.1f}%{Colors.END}{' ' * 7} | {session_pnl_color}${session_pnl:>12,.2f}{Colors.END}{' ' * 3}")
+                        print(f"{Colors.BOLD}{'Total Trades':<15} | {'Successful':<15} | {'Failed':<15} | {'Filtered':<15} | {'Closed':<15} | {'Profitable':<15} | {'Total Profit':<18} | {'Losing':<15} | {'Total Loss':<18} | {'Session P/L':<18}{Colors.END}")
+                        print(f"{Colors.CYAN}{'-' * 180}{Colors.END}")
+                        print(f"{total_trades:<15} | {Colors.GREEN}{successful:<15}{Colors.END} | {Colors.RED}{failed:<15}{Colors.END} | {Colors.YELLOW}{filtered:<15}{Colors.END} | {Colors.CYAN}{closed_trades:<15}{Colors.END} | {Colors.GREEN}{profitable_count:<15}{Colors.END} | {Colors.GREEN}${total_profit_sum:>12,.2f}{Colors.END}{' ' * 3} | {Colors.RED}{losing_count:<15}{Colors.END} | {Colors.RED}${total_loss_sum:>12,.2f}{Colors.END}{' ' * 3} | {session_pnl_color}${session_pnl:>12,.2f}{Colors.END}{' ' * 3}")
                     print()
                     
                     # ==================== REAL-TIME SL PROTECTION WARNINGS ====================

@@ -126,6 +126,10 @@ class RiskManager:
             self.sl_manager = SLManager(config, mt5_connector, order_manager)
             # CRITICAL FIX: Connect SLManager to RiskManager for ProfitLockingEngine/MicroProfitEngine access
             self.sl_manager._risk_manager = self
+            # CRITICAL FIX: Connect SLManager to OrderManager for synchronous SL application when stop_loss=0.0
+            # This ensures trades never remain with SL = 0.0 (hard safety invariant)
+            if hasattr(order_manager, 'set_sl_manager'):
+                order_manager.set_sl_manager(self.sl_manager)
             logger.info("[OK] SLManager initialized successfully")
             logger.info(f"SLManager instance: {self.sl_manager}")
             logger.info(f"SLManager available: {self.sl_manager is not None}")

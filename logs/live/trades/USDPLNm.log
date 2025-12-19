@@ -1,8 +1,0 @@
-2025-12-19 12:24:06 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1692s)
-2025-12-19 12:25:47 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1591s)
-2025-12-19 12:27:28 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1490s)
-2025-12-19 12:29:09 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1389s)
-2025-12-19 12:30:48 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1289s)
-2025-12-19 12:32:27 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1191s)
-2025-12-19 12:34:08 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1090s)
-2025-12-19 12:35:47 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 990s)

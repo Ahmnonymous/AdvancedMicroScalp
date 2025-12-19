@@ -1,5 +1,0 @@
-2025-12-19 12:12:20 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.78 pips < min 0.80 pips
-2025-12-19 12:14:00 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
-2025-12-19 13:40:24 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1693s)
-2025-12-19 13:43:46 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1491s)
-2025-12-19 13:45:27 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1391s)

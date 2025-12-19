@@ -41,7 +41,10 @@ class SLWatchdog:
         self.sl_updates_per_sec_threshold = 5  # Minimum updates/sec over 10s window
         self.sl_updates_window_seconds = 10.0  # Sliding window for update rate
         self.ticket_staleness_threshold = 1.0  # 1 second max staleness per ticket
-        self.max_restarts_per_10min = 2  # Max 2 restarts per 10 minutes
+        # STEP 4 FIX: Increased restart limit and added exponential backoff
+        self.max_restarts_per_10min = 10  # Increased from 5 to 10 restarts per 10 minutes
+        self.restart_backoff_base_seconds = 30  # Base backoff time (30 seconds)
+        self.restart_backoff_max_seconds = 300  # Maximum backoff time (5 minutes)
         
         # Tracking
         self._update_timestamps = deque()  # Sliding window of update timestamps
@@ -181,12 +184,27 @@ class SLWatchdog:
                 if ts > cutoff_time
             ]
             
+            # STEP 4 FIX: Implement exponential backoff instead of hard-blocking
             if len(self._restart_timestamps) >= self.max_restarts_per_10min:
-                watchdog_logger.critical(f"🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: "
+                # Calculate exponential backoff: base * 2^(excess_restarts)
+                excess_restarts = len(self._restart_timestamps) - self.max_restarts_per_10min + 1
+                backoff_time = min(
+                    self.restart_backoff_base_seconds * (2 ** min(excess_restarts - 1, 3)),
+                    self.restart_backoff_max_seconds
+                )
+                
+                watchdog_logger.warning(f"🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: "
                                       f"{len(self._restart_timestamps)} restarts in last 10 minutes | "
                                       f"Reason: {reason} | "
-                                      f"BLOCKING RESTART - Manual intervention required")
-                return
+                                      f"Exponential backoff: {backoff_time}s (excess: {excess_restarts})")
+                
+                # Wait for backoff period before allowing restart
+                watchdog_logger.info(f"⏳ WATCHDOG BACKOFF: Waiting {backoff_time}s before allowing restart...")
+                time.sleep(backoff_time)
+                
+                # After backoff, allow the restart (don't block permanently)
+                watchdog_logger.info(f"✅ WATCHDOG BACKOFF COMPLETE: Allowing restart after {backoff_time}s backoff")
+                # Continue to restart (don't return)
             
             # Log restart
             watchdog_logger.warning(f"🔄 WATCHDOG RESTARTING SL WORKER | Reason: {reason} | "

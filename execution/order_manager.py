@@ -33,6 +33,10 @@ class OrderManager:
         self._position_cache = {}  # {ticket: (position, timestamp)}
         self._position_cache_ttl = 0.030  # 30ms TTL
         self._position_cache_lock = threading.Lock()
+        
+        # CRITICAL FIX: Reference to SLManager for synchronous SL application when stop_loss=0.0
+        # This ensures trades never remain with SL = 0.0 (hard safety invariant)
+        self._sl_manager = None  # Set via set_sl_manager() after initialization
     
     def _get_position_by_ticket(self, ticket: int, use_cache: bool = True):
         """
@@ -537,6 +541,65 @@ class OrderManager:
                    f"Volume: {actual_filled_volume:.4f} (requested: {lot_size:.4f}) | "
                    f"SL: {sl_price:.5f} | Entry Price: {actual_entry_price:.5f} (requested: {price:.5f}) | "
                    f"Slippage: {slippage:.5f}")
+        
+        # FIX #1: CRITICAL - If order was opened with stop_loss=0.0, synchronously apply protective SL
+        # This is a hard safety invariant - trades may never remain with SL = 0.0 beyond 100ms
+        if stop_loss == 0.0 and self._sl_manager is not None:
+            ticket = result.order
+            logger.info(f"[SYNCHRONOUS_SL] {symbol} Ticket {ticket} | Order opened with stop_loss=0.0, applying protective SL synchronously...")
+            
+            # Wait briefly for position to be available in MT5
+            import time
+            time.sleep(0.1)  # 100ms delay for MT5 to register position
+            
+            # FIX #1: Retry up to 3 times if position not immediately available
+            position = None
+            for retry in range(3):
+                position = self._get_position_by_ticket(ticket, use_cache=False)
+                if position:
+                    break
+                if retry < 2:
+                    time.sleep(0.05)  # 50ms between retries
+            
+            if position:
+                # Convert position to dict format expected by SLManager
+                position_dict = {
+                    'ticket': ticket,
+                    'symbol': symbol,
+                    'type': 'BUY' if order_type == OrderType.BUY else 'SELL',
+                    'price_open': actual_entry_price,
+                    'volume': actual_filled_volume,
+                    'sl': 0.0,  # Current SL is 0.0
+                    'profit': position.profit if hasattr(position, 'profit') else 0.0
+                }
+                
+                # FIX #1: Apply strict loss limit synchronously (this enforces -$2.00 max risk immediately)
+                try:
+                    success, reason, applied_sl = self._sl_manager._enforce_strict_loss_limit(position_dict)
+                    if success:
+                        logger.info(f"[SYNCHRONOUS_SL_SUCCESS] {symbol} Ticket {ticket} | Protective SL applied: {applied_sl:.5f} | Reason: {reason}")
+                    else:
+                        logger.error(f"[SYNCHRONOUS_SL_FAILED] {symbol} Ticket {ticket} | Failed to apply protective SL: {reason} | Will retry via scheduled task")
+                        # FIX #1: If synchronous application fails, schedule immediate retry (0.1s delay instead of 0.5s)
+                        # This minimizes the SL=0.0 window even if synchronous application fails
+                        if hasattr(self._sl_manager, 'schedule_initial_sl_application'):
+                            self._sl_manager.schedule_initial_sl_application(
+                                ticket, symbol, position_dict['type'], actual_filled_volume, actual_entry_price, delay_seconds=0.1
+                            )
+                except Exception as e:
+                    logger.error(f"[SYNCHRONOUS_SL_EXCEPTION] {symbol} Ticket {ticket} | Exception applying protective SL: {e}", exc_info=True)
+                    # FIX #1: Schedule immediate retry if exception occurs
+                    if hasattr(self._sl_manager, 'schedule_initial_sl_application'):
+                        self._sl_manager.schedule_initial_sl_application(
+                            ticket, symbol, position_dict['type'], actual_filled_volume, actual_entry_price, delay_seconds=0.1
+                        )
+            else:
+                logger.warning(f"[SYNCHRONOUS_SL] {symbol} Ticket {ticket} | Position not found after retries, scheduling immediate SL application")
+                # FIX #1: Schedule immediate SL application if position not found
+                if hasattr(self._sl_manager, 'schedule_initial_sl_application'):
+                    self._sl_manager.schedule_initial_sl_application(
+                        ticket, symbol, 'BUY' if order_type == OrderType.BUY else 'SELL', actual_filled_volume, actual_entry_price, delay_seconds=0.1
+                    )
         
         # Return comprehensive result with actual fill price
         return {

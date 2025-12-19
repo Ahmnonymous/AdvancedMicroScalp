@@ -1,7 +1,0 @@
-2025-12-19 12:25:42 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1596s)
-2025-12-19 12:27:23 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1495s)
-2025-12-19 12:29:03 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1395s)
-2025-12-19 12:30:43 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1295s)
-2025-12-19 12:32:22 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1196s)
-2025-12-19 12:34:02 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1096s)
-2025-12-19 12:35:42 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 996s)

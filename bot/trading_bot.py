@@ -514,7 +514,14 @@ class TradingBot:
             self.session_pnl = self.daily_pnl  # Fallback
     
     def _calculate_realized_pnl_today(self) -> float:
-        """Calculate realized P/L from closed trades today by reading trade logs."""
+        """
+        Calculate realized P/L from closed trades today by reading trade logs.
+        
+        NOTE: This function ONLY calculates and returns the total realized P/L value.
+        It does NOT update trade_stats (profitable_trades, losing_trades, total_profit, total_loss).
+        Those stats are updated in real-time by the _update_realized_pnl_on_closure callback
+        when positions close, which is more reliable than reading from logs.
+        """
         import os
         import glob
         import json
@@ -527,14 +534,6 @@ class TradingBot:
         trade_log_dir = "logs/trades"
         if not os.path.exists(trade_log_dir):
             return 0.0
-        
-        # Count profitable and losing trades from CURRENT SESSION ONLY
-        # Only count trades that closed after session start time
-        session_start = getattr(self, 'session_start_time', None)
-        profitable_count = 0
-        losing_count = 0
-        total_profit = 0.0
-        total_loss = 0.0
         
         for log_file in glob.glob(os.path.join(trade_log_dir, "*.log")):
             try:
@@ -554,16 +553,6 @@ class TradingBot:
                                                 profit = trade.get('profit_usd', 0.0)
                                                 if profit is not None:
                                                     total_realized += profit
-                                                    
-                                                    # Only count for session stats if trade closed after session start
-                                                    if session_start and trade_time >= session_start:
-                                                        # Track win/loss for session stats
-                                                        if profit > 0:
-                                                            profitable_count += 1
-                                                            total_profit += profit
-                                                        elif profit < 0:
-                                                            losing_count += 1
-                                                            total_loss += profit
                                         except (ValueError, AttributeError):
                                             continue
                             except json.JSONDecodeError:
@@ -571,19 +560,9 @@ class TradingBot:
             except Exception:
                 continue
         
-        # Update session stats from logs (only for trades after session start)
-        # These will be updated in real-time as new trades close via _update_realized_pnl_on_closure
-        if session_start:
-            self.trade_stats['profitable_trades'] = profitable_count
-            self.trade_stats['losing_trades'] = losing_count
-            self.trade_stats['total_profit'] = total_profit
-            self.trade_stats['total_loss'] = total_loss
-        else:
-            # Session not started yet, initialize to 0
-            self.trade_stats['profitable_trades'] = 0
-            self.trade_stats['losing_trades'] = 0
-            self.trade_stats['total_profit'] = 0.0
-            self.trade_stats['total_loss'] = 0.0
+        # NOTE: We do NOT update trade_stats here. Stats are updated by _update_realized_pnl_on_closure
+        # callback when positions close, which is the authoritative source of truth.
+        # Reading from logs is only used for calculating total realized P/L as a backup.
         
         return total_realized
     
@@ -620,9 +599,13 @@ class TradingBot:
                 if profit > 0:
                     self.trade_stats['profitable_trades'] += 1
                     self.trade_stats['total_profit'] += profit
+                    logger.info(f"📊 Trade Stats Updated: Profitable trade closed | Profit: ${profit:.2f} | Total Profitable: {self.trade_stats['profitable_trades']} | Total Profit: ${self.trade_stats['total_profit']:.2f}")
                 elif profit < 0:
                     self.trade_stats['losing_trades'] += 1
                     self.trade_stats['total_loss'] += profit  # profit is negative, so this accumulates losses
+                    logger.info(f"📊 Trade Stats Updated: Losing trade closed | Loss: ${profit:.2f} | Total Losing: {self.trade_stats['losing_trades']} | Total Loss: ${self.trade_stats['total_loss']:.2f}")
+            else:
+                logger.debug(f"📊 Trade closed before session start, not updating session stats | Close time: {close_datetime} | Session start: {self.session_start_time if hasattr(self, 'session_start_time') else 'N/A'}")
             
             logger.debug(f"📊 Updated realized P/L: +${profit:.2f} | Today: ${self.realized_pnl_today:.2f} | Total: ${self.realized_pnl:.2f}")
     

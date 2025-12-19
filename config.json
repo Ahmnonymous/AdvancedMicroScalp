@@ -24,11 +24,12 @@
     "min_pip_stoploss": null,
     "continuous_trailing_enabled": true,
       "trailing_cycle_interval_ms": 2000,
-      "lock_acquisition_timeout_seconds": 1.0,
-      "profit_locking_lock_timeout_seconds": 1.0,
-      "sl_update_min_interval_ms": 2000,
-      "lock_max_hold_time_seconds": 0.3,
+      "lock_acquisition_timeout_seconds": 1.5,
+      "profit_locking_lock_timeout_seconds": 3.0,
+      "sl_update_min_interval_ms": 150,
+      "lock_max_hold_time_seconds": 0.5,
       "stale_lock_threshold_ms": 300,
+      "orphaned_lock_timeout_seconds": 10.0,
     "big_jump_threshold_usd": 0.40,
     "staged_open_enabled": true,
     "staged_open_window_seconds": 150,
@@ -171,13 +172,15 @@
   },
   "execution": {
     "order_timeout_seconds": 15.0,
-    "order_max_retries": 3,
+    "order_max_retries": 5,
     "order_retry_backoff_base_seconds": 2.0,
-    "sl_verification_delay_seconds": 2.0,
+    "sl_verification_delay_seconds": 0.3,
+    "global_rpc_max_per_second": 30,
     "verification": {
-      "effective_profit_tolerance_usd": 1.0,
+      "effective_profit_tolerance_usd": 1.5,
       "price_tolerance_multiplier": 1.0,
-      "use_exponential_backoff": true
+      "use_exponential_backoff": true,
+      "verification_delays_ms": [300, 500, 800]
     }
   },
   "news": {
