@@ -1,0 +1,3 @@
+2025-12-18 23:22:43 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 192s)
+2025-12-18 23:24:24 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 90s)
+2025-12-18 23:27:47 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1694s)

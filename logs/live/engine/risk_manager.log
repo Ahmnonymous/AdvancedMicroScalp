@@ -1,0 +1,236 @@
+2025-12-18 21:41:28 - risk_manager - INFO - Initializing SLManager...
+2025-12-18 21:41:28 - risk_manager - INFO - [OK] SLManager initialized successfully
+2025-12-18 21:41:28 - risk_manager - INFO - SLManager instance: <risk.sl_manager.SLManager object at 0x000001B7C9B62410>
+2025-12-18 21:41:28 - risk_manager - INFO - SLManager available: True
+2025-12-18 21:41:28 - risk_manager - INFO - Micro-HFT Profit Engine registered with RiskManager
+2025-12-18 21:41:28 - risk_manager - INFO - Profit-Locking Engine registered with RiskManager
+2025-12-18 21:41:31 - risk_manager - WARNING - [FILTER BLOCK] XAUAUDm: Spread sanity: spread 450.8% of avg range > max 30.0%
+2025-12-18 21:41:31 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 550.3% of avg range > max 30.0%
+2025-12-18 21:41:32 - risk_manager - WARNING - [FILTER BLOCK] US30_x10m: Spread sanity: spread 41.3% of avg range > max 30.0%
+2025-12-18 21:41:32 - risk_manager - WARNING - [FILTER BLOCK] US500_x100m: Spread sanity: spread 111.3% of avg range > max 30.0%
+2025-12-18 21:41:33 - risk_manager - WARNING - [FILTER BLOCK] US500m: Spread sanity: spread 111.3% of avg range > max 30.0%
+2025-12-18 21:41:34 - risk_manager - WARNING - [FILTER BLOCK] DE30m: Spread sanity: spread 590.0% of avg range > max 30.0%
+2025-12-18 21:41:36 - risk_manager - WARNING - [FILTER BLOCK] NZDCHFm: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-18 21:41:36 - risk_manager - WARNING - [FILTER BLOCK] NZDUSDm: Volatility floor: avg range 0.23 pips < min 0.80 pips
+2025-12-18 21:41:36 - risk_manager - WARNING - [FILTER BLOCK] FR40m: Spread sanity: spread 3222.6% of avg range > max 30.0%
+2025-12-18 21:41:37 - risk_manager - WARNING - [FILTER BLOCK] XAGUSDm: Spread sanity: spread 109.3% of avg range > max 30.0%
+2025-12-18 21:41:37 - risk_manager - WARNING - [FILTER BLOCK] AUDCADm: Volatility floor: avg range 0.54 pips < min 0.80 pips
+2025-12-18 21:41:37 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 74.4% of avg range > max 30.0%
+2025-12-18 21:41:38 - risk_manager - WARNING - [FILTER BLOCK] EURCHFm: Volatility floor: avg range 0.18 pips < min 0.80 pips
+2025-12-18 21:41:38 - risk_manager - WARNING - [FILTER BLOCK] XAGEURm: Spread sanity: spread 98.0% of avg range > max 30.0%
+2025-12-18 21:41:39 - risk_manager - WARNING - [FILTER BLOCK] HKDJPYm: Volatility floor: avg range 0.30 pips < min 0.80 pips
+2025-12-18 21:41:39 - risk_manager - WARNING - [FILTER BLOCK] DKKJPYm: Volatility floor: avg range 0.29 pips < min 0.80 pips
+2025-12-18 21:41:40 - risk_manager - WARNING - [FILTER BLOCK] XAGAUDm: Spread sanity: spread 252.8% of avg range > max 30.0%
+2025-12-18 21:41:41 - risk_manager - WARNING - [FILTER BLOCK] XPTUSDm: Spread sanity: spread 9825.7% of avg range > max 30.0%
+2025-12-18 21:41:42 - risk_manager - WARNING - [FILTER BLOCK] GBPNOKm: Spread sanity: spread 3743.3% of avg range > max 30.0%
+2025-12-18 21:41:42 - risk_manager - WARNING - [FILTER BLOCK] CHFNOKm: Spread sanity: spread 8170.2% of avg range > max 30.0%
+2025-12-18 21:41:43 - risk_manager - WARNING - [FILTER BLOCK] CHFSEKm: Spread sanity: spread 14782.5% of avg range > max 30.0%
+2025-12-18 21:41:43 - risk_manager - WARNING - [FILTER BLOCK] NOKJPYm: Volatility floor: avg range 0.23 pips < min 0.80 pips
+2025-12-18 21:41:43 - risk_manager - WARNING - [FILTER BLOCK] CHFSGDm: Spread sanity: spread 1256.5% of avg range > max 30.0%
+2025-12-18 21:41:43 - risk_manager - WARNING - [FILTER BLOCK] XPDUSDm: Spread sanity: spread 6956.6% of avg range > max 30.0%
+2025-12-18 21:41:44 - risk_manager - WARNING - [FILTER BLOCK] XNGUSDm: Spread sanity: spread 1135.6% of avg range > max 30.0%
+2025-12-18 21:41:45 - risk_manager - WARNING - [FILTER BLOCK] MXNJPYm: Volatility floor: avg range 0.52 pips < min 0.80 pips
+2025-12-18 21:41:45 - risk_manager - WARNING - [FILTER BLOCK] BTCXAUm: Spread sanity: spread 62.9% of avg range > max 30.0%
+2025-12-18 21:41:47 - risk_manager - WARNING - [FILTER BLOCK] AUDMXNm: Spread sanity: spread 494.8% of avg range > max 30.0%
+2025-12-18 21:41:47 - risk_manager - WARNING - [FILTER BLOCK] NZDMXNm: Spread sanity: spread 600.2% of avg range > max 30.0%
+2025-12-18 21:41:47 - risk_manager - WARNING - [FILTER BLOCK] NOKDKKm: Volatility floor: avg range 0.23 pips < min 0.80 pips
+2025-12-18 21:41:47 - risk_manager - WARNING - [FILTER BLOCK] DKKZARm: Spread sanity: spread 583.7% of avg range > max 30.0%
+2025-12-18 21:41:48 - risk_manager - WARNING - [FILTER BLOCK] CHFDKKm: Spread sanity: spread 1399.2% of avg range > max 30.0%
+2025-12-18 21:41:48 - risk_manager - WARNING - [FILTER BLOCK] GBPMXNm: Spread sanity: spread 152.5% of avg range > max 30.0%
+2025-12-18 21:41:49 - risk_manager - WARNING - [FILTER BLOCK] NZDDKKm: Spread sanity: spread 15209.9% of avg range > max 30.0%
+2025-12-18 21:41:50 - risk_manager - WARNING - [FILTER BLOCK] USDPLNm: Volatility floor: avg range 0.68 pips < min 0.80 pips
+2025-12-18 21:41:50 - risk_manager - WARNING - [FILTER BLOCK] NOKSEKm: Spread sanity: spread 23275.0% of avg range > max 30.0%
+2025-12-18 21:41:51 - risk_manager - WARNING - [FILTER BLOCK] AUDNOKm: Spread sanity: spread 1170.6% of avg range > max 30.0%
+2025-12-18 21:41:52 - risk_manager - WARNING - [FILTER BLOCK] EURNOKm: Spread sanity: spread 2472.5% of avg range > max 30.0%
+2025-12-18 21:41:52 - risk_manager - WARNING - [FILTER BLOCK] CHFZARm: Spread sanity: spread 358.3% of avg range > max 30.0%
+2025-12-18 21:41:53 - risk_manager - WARNING - [FILTER BLOCK] NZDNOKm: Spread sanity: spread 8834.4% of avg range > max 30.0%
+2025-12-18 21:41:53 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: BTCUSDm Ticket 536026289 | Entry: 85237.23000 | Immediately integrating into monitoring loop
+2025-12-18 21:41:53 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: BTCUSDm Ticket 536026289 | Entry: 85237.23000 | Immediately integrating into monitoring loop
+2025-12-18 21:43:24 - risk_manager - WARNING - [FILTER BLOCK] XAUUSDm: Candle quality: current range 23.9% of avg < min 55.0%
+2025-12-18 21:43:24 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 610.2% of avg range > max 30.0%
+2025-12-18 21:43:25 - risk_manager - WARNING - [FILTER BLOCK] XAUGBPm: Spread sanity: spread 767.1% of avg range > max 30.0%
+2025-12-18 21:43:25 - risk_manager - WARNING - [FILTER BLOCK] US30_x10m: Spread sanity: spread 41.5% of avg range > max 30.0%
+2025-12-18 21:43:25 - risk_manager - WARNING - [FILTER BLOCK] US30m: Spread sanity: spread 41.5% of avg range > max 30.0%
+2025-12-18 21:43:25 - risk_manager - WARNING - [FILTER BLOCK] USTEC_x100m: Spread sanity: spread 65.3% of avg range > max 30.0%
+2025-12-18 21:43:25 - risk_manager - WARNING - [FILTER BLOCK] USTECm: Spread sanity: spread 65.3% of avg range > max 30.0%
+2025-12-18 21:43:26 - risk_manager - WARNING - [FILTER BLOCK] US500_x100m: Spread sanity: spread 110.1% of avg range > max 30.0%
+2025-12-18 21:43:26 - risk_manager - WARNING - [FILTER BLOCK] US500m: Spread sanity: spread 110.1% of avg range > max 30.0%
+2025-12-18 21:43:26 - risk_manager - WARNING - [FILTER BLOCK] BTCUSDm: Candle quality: current range 44.9% of avg < min 55.0%
+2025-12-18 21:43:26 - risk_manager - WARNING - [FILTER BLOCK] DE30m: Spread sanity: spread 579.7% of avg range > max 30.0%
+2025-12-18 21:43:26 - risk_manager - WARNING - [FILTER BLOCK] BTCJPYm: Spread sanity: spread 35.0% of avg range > max 30.0%
+2025-12-18 21:43:27 - risk_manager - WARNING - [FILTER BLOCK] UK100m: Spread sanity: spread 2673.8% of avg range > max 30.0%
+2025-12-18 21:43:27 - risk_manager - WARNING - [FILTER BLOCK] HK50m: Spread sanity: spread 4536.1% of avg range > max 30.0%
+2025-12-18 21:43:27 - risk_manager - WARNING - [FILTER BLOCK] FR40m: Spread sanity: spread 3343.8% of avg range > max 30.0%
+2025-12-18 21:43:27 - risk_manager - WARNING - [FILTER BLOCK] XAGUSDm: Spread sanity: spread 115.3% of avg range > max 30.0%
+2025-12-18 21:43:28 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 204.3% of avg range > max 30.0%
+2025-12-18 21:43:28 - risk_manager - WARNING - [FILTER BLOCK] XAGEURm: Spread sanity: spread 215.1% of avg range > max 30.0%
+2025-12-18 21:43:29 - risk_manager - WARNING - [FILTER BLOCK] XAGAUDm: Spread sanity: spread 260.9% of avg range > max 30.0%
+2025-12-18 21:43:29 - risk_manager - WARNING - [FILTER BLOCK] XPTUSDm: Spread sanity: spread 8422.9% of avg range > max 30.0%
+2025-12-18 21:43:30 - risk_manager - WARNING - [FILTER BLOCK] GBPNOKm: Spread sanity: spread 28161.1% of avg range > max 30.0%
+2025-12-18 21:43:30 - risk_manager - WARNING - [FILTER BLOCK] GBPSEKm: Spread sanity: spread 42966.4% of avg range > max 30.0%
+2025-12-18 21:43:30 - risk_manager - WARNING - [FILTER BLOCK] XPDUSDm: Spread sanity: spread 7423.5% of avg range > max 30.0%
+2025-12-18 21:43:30 - risk_manager - WARNING - [FILTER BLOCK] XNGUSDm: Spread sanity: spread 2268.1% of avg range > max 30.0%
+2025-12-18 21:43:31 - risk_manager - WARNING - [FILTER BLOCK] BTCXAUm: Candle quality: current range 39.3% of avg < min 55.0%
+2025-12-18 21:43:31 - risk_manager - WARNING - [FILTER BLOCK] NOKDKKm: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-18 21:43:33 - risk_manager - WARNING - [FILTER BLOCK] EURSEKm: Spread sanity: spread 530.5% of avg range > max 30.0%
+2025-12-18 21:43:33 - risk_manager - WARNING - [FILTER BLOCK] PLNSEKm: Volatility floor: avg range 0.53 pips < min 0.80 pips
+2025-12-18 21:45:05 - risk_manager - WARNING - [FILTER BLOCK] XAUAUDm: Spread sanity: spread 490.1% of avg range > max 30.0%
+2025-12-18 21:45:05 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 613.1% of avg range > max 30.0%
+2025-12-18 21:45:05 - risk_manager - WARNING - [FILTER BLOCK] XAUGBPm: Spread sanity: spread 771.9% of avg range > max 30.0%
+2025-12-18 21:45:06 - risk_manager - WARNING - [FILTER BLOCK] US30_x10m: Spread sanity: spread 39.5% of avg range > max 30.0%
+2025-12-18 21:45:06 - risk_manager - WARNING - [FILTER BLOCK] US30m: Spread sanity: spread 39.5% of avg range > max 30.0%
+2025-12-18 21:45:06 - risk_manager - WARNING - [FILTER BLOCK] USTEC_x100m: Spread sanity: spread 53.6% of avg range > max 30.0%
+2025-12-18 21:45:06 - risk_manager - WARNING - [FILTER BLOCK] USTECm: Spread sanity: spread 53.6% of avg range > max 30.0%
+2025-12-18 21:45:06 - risk_manager - WARNING - [FILTER BLOCK] US500_x100m: Spread sanity: spread 99.4% of avg range > max 30.0%
+2025-12-18 21:45:06 - risk_manager - WARNING - [FILTER BLOCK] US500m: Spread sanity: spread 99.4% of avg range > max 30.0%
+2025-12-18 21:45:06 - risk_manager - WARNING - [FILTER BLOCK] BTCUSDm: Candle quality: current range 47.9% of avg < min 55.0%
+2025-12-18 21:45:07 - risk_manager - WARNING - [FILTER BLOCK] BTCJPYm: Candle quality: current range 51.9% of avg < min 55.0%
+2025-12-18 21:45:08 - risk_manager - WARNING - [FILTER BLOCK] HK50m: Spread sanity: spread 4055.3% of avg range > max 30.0%
+2025-12-18 21:45:08 - risk_manager - WARNING - [FILTER BLOCK] XAGUSDm: Spread sanity: spread 121.6% of avg range > max 30.0%
+2025-12-18 21:45:08 - risk_manager - WARNING - [FILTER BLOCK] AUS200m: Spread sanity: spread 2191.6% of avg range > max 30.0%
+2025-12-18 21:45:08 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 216.2% of avg range > max 30.0%
+2025-12-18 21:45:08 - risk_manager - WARNING - [FILTER BLOCK] STOXX50m: Spread sanity: spread 1624.3% of avg range > max 30.0%
+2025-12-18 21:45:09 - risk_manager - WARNING - [FILTER BLOCK] XAGEURm: Spread sanity: spread 228.8% of avg range > max 30.0%
+2025-12-18 21:45:09 - risk_manager - WARNING - [FILTER BLOCK] XAGAUDm: Spread sanity: spread 278.0% of avg range > max 30.0%
+2025-12-18 21:45:10 - risk_manager - WARNING - [FILTER BLOCK] XPTUSDm: Spread sanity: spread 7676.0% of avg range > max 30.0%
+2025-12-18 21:45:10 - risk_manager - WARNING - [FILTER BLOCK] GBPNOKm: Spread sanity: spread 26542.4% of avg range > max 30.0%
+2025-12-18 21:45:10 - risk_manager - WARNING - [FILTER BLOCK] XPDUSDm: Spread sanity: spread 7533.5% of avg range > max 30.0%
+2025-12-18 21:45:10 - risk_manager - WARNING - [FILTER BLOCK] BTCXAUm: Candle quality: current range 49.7% of avg < min 55.0%
+2025-12-18 21:45:12 - risk_manager - WARNING - [FILTER BLOCK] EURNOKm: Spread sanity: spread 1463.4% of avg range > max 30.0%
+2025-12-18 21:45:12 - risk_manager - WARNING - [FILTER BLOCK] EURSEKm: Spread sanity: spread 577.8% of avg range > max 30.0%
+2025-12-18 21:46:44 - risk_manager - WARNING - [FILTER BLOCK] XAUAUDm: Spread sanity: spread 455.5% of avg range > max 30.0%
+2025-12-18 21:46:44 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 575.8% of avg range > max 30.0%
+2025-12-18 21:46:44 - risk_manager - WARNING - [FILTER BLOCK] XAUGBPm: Spread sanity: spread 723.1% of avg range > max 30.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] US30_x10m: Spread sanity: spread 39.8% of avg range > max 30.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] US30m: Spread sanity: spread 39.8% of avg range > max 30.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] USTEC_x100m: Spread sanity: spread 59.0% of avg range > max 30.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] USTECm: Spread sanity: spread 59.0% of avg range > max 30.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] US500_x100m: Spread sanity: spread 97.6% of avg range > max 30.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] US500m: Spread sanity: spread 97.6% of avg range > max 30.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] BTCUSDm: Candle quality: current range 29.2% of avg < min 55.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] BTCJPYm: Candle quality: current range 30.1% of avg < min 55.0%
+2025-12-18 21:46:45 - risk_manager - WARNING - [FILTER BLOCK] DE30m: Spread sanity: spread 531.9% of avg range > max 30.0%
+2025-12-18 21:46:46 - risk_manager - WARNING - [FILTER BLOCK] FR40m: Spread sanity: spread 2799.7% of avg range > max 30.0%
+2025-12-18 21:46:46 - risk_manager - WARNING - [FILTER BLOCK] XAGUSDm: Spread sanity: spread 117.3% of avg range > max 30.0%
+2025-12-18 21:46:47 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 210.5% of avg range > max 30.0%
+2025-12-18 21:46:47 - risk_manager - WARNING - [FILTER BLOCK] STOXX50m: Spread sanity: spread 1633.1% of avg range > max 30.0%
+2025-12-18 21:46:47 - risk_manager - WARNING - [FILTER BLOCK] XAGEURm: Spread sanity: spread 223.1% of avg range > max 30.0%
+2025-12-18 21:46:48 - risk_manager - WARNING - [FILTER BLOCK] XAGAUDm: Spread sanity: spread 269.5% of avg range > max 30.0%
+2025-12-18 21:46:48 - risk_manager - WARNING - [FILTER BLOCK] XPTUSDm: Spread sanity: spread 7167.7% of avg range > max 30.0%
+2025-12-18 21:46:48 - risk_manager - WARNING - [FILTER BLOCK] GBPNOKm: Spread sanity: spread 26485.3% of avg range > max 30.0%
+2025-12-18 21:46:49 - risk_manager - WARNING - [FILTER BLOCK] BTCXAUm: Candle quality: current range 31.2% of avg < min 55.0%
+2025-12-18 21:46:51 - risk_manager - WARNING - [FILTER BLOCK] EURSEKm: Spread sanity: spread 515.1% of avg range > max 30.0%
+2025-12-18 21:46:51 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: XAUUSDm Ticket 536036243 | Entry: 4331.63500 | Immediately integrating into monitoring loop
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] XAUAUDm: Spread sanity: spread 441.2% of avg range > max 30.0%
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 548.6% of avg range > max 30.0%
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] XAUGBPm: Spread sanity: spread 687.0% of avg range > max 30.0%
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] US30_x10m: Spread sanity: spread 38.5% of avg range > max 30.0%
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] US30m: Spread sanity: spread 38.5% of avg range > max 30.0%
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] USTEC_x100m: Spread sanity: spread 54.4% of avg range > max 30.0%
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] USTECm: Spread sanity: spread 54.4% of avg range > max 30.0%
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] US500_x100m: Spread sanity: spread 95.9% of avg range > max 30.0%
+2025-12-18 21:48:23 - risk_manager - WARNING - [FILTER BLOCK] US500m: Spread sanity: spread 95.9% of avg range > max 30.0%
+2025-12-18 21:48:24 - risk_manager - WARNING - [FILTER BLOCK] DE30m: Spread sanity: spread 516.8% of avg range > max 30.0%
+2025-12-18 21:48:25 - risk_manager - WARNING - [FILTER BLOCK] FR40m: Spread sanity: spread 2686.8% of avg range > max 30.0%
+2025-12-18 21:48:25 - risk_manager - WARNING - [FILTER BLOCK] XAGUSDm: Spread sanity: spread 109.9% of avg range > max 30.0%
+2025-12-18 21:48:25 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 192.8% of avg range > max 30.0%
+2025-12-18 21:48:26 - risk_manager - WARNING - [FILTER BLOCK] XAGEURm: Spread sanity: spread 203.8% of avg range > max 30.0%
+2025-12-18 21:48:26 - risk_manager - WARNING - [FILTER BLOCK] XAGAUDm: Spread sanity: spread 248.4% of avg range > max 30.0%
+2025-12-18 21:48:27 - risk_manager - WARNING - [FILTER BLOCK] XPTUSDm: Spread sanity: spread 6841.8% of avg range > max 30.0%
+2025-12-18 21:48:30 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: BTCXAUm Ticket 536039349 | Entry: 19.72682 | Immediately integrating into monitoring loop
+2025-12-18 21:48:30 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: BTCXAUm Ticket 536039349 | Entry: 19.72682 | Immediately integrating into monitoring loop
+2025-12-18 21:48:30 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: BTCUSDm Ticket 536039363 | Entry: 85448.07000 | Immediately integrating into monitoring loop
+2025-12-18 21:50:04 - risk_manager - WARNING - [FILTER BLOCK] XAUAUDm: Spread sanity: spread 472.1% of avg range > max 30.0%
+2025-12-18 21:50:04 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 574.4% of avg range > max 30.0%
+2025-12-18 21:50:04 - risk_manager - WARNING - [FILTER BLOCK] XAUGBPm: Spread sanity: spread 713.7% of avg range > max 30.0%
+2025-12-18 21:50:04 - risk_manager - WARNING - [FILTER BLOCK] US30_x10m: Spread sanity: spread 39.7% of avg range > max 30.0%
+2025-12-18 21:50:04 - risk_manager - WARNING - [FILTER BLOCK] US30m: Spread sanity: spread 39.7% of avg range > max 30.0%
+2025-12-18 21:50:05 - risk_manager - WARNING - [FILTER BLOCK] USTEC_x100m: Spread sanity: spread 56.0% of avg range > max 30.0%
+2025-12-18 21:50:05 - risk_manager - WARNING - [FILTER BLOCK] USTECm: Spread sanity: spread 56.0% of avg range > max 30.0%
+2025-12-18 21:50:05 - risk_manager - WARNING - [FILTER BLOCK] US500_x100m: Spread sanity: spread 97.8% of avg range > max 30.0%
+2025-12-18 21:50:05 - risk_manager - WARNING - [FILTER BLOCK] US500m: Spread sanity: spread 97.8% of avg range > max 30.0%
+2025-12-18 21:50:05 - risk_manager - WARNING - [FILTER BLOCK] BTCUSDm: Candle quality: current range 54.5% of avg < min 55.0%
+2025-12-18 21:50:05 - risk_manager - WARNING - [FILTER BLOCK] BTCJPYm: Candle quality: current range 51.9% of avg < min 55.0%
+2025-12-18 21:50:05 - risk_manager - WARNING - [FILTER BLOCK] DE30m: Spread sanity: spread 516.8% of avg range > max 30.0%
+2025-12-18 21:50:06 - risk_manager - WARNING - [FILTER BLOCK] FR40m: Spread sanity: spread 2582.7% of avg range > max 30.0%
+2025-12-18 21:50:07 - risk_manager - WARNING - [FILTER BLOCK] XAGUSDm: Spread sanity: spread 118.7% of avg range > max 30.0%
+2025-12-18 21:50:07 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 217.2% of avg range > max 30.0%
+2025-12-18 21:50:07 - risk_manager - WARNING - [FILTER BLOCK] XAGEURm: Spread sanity: spread 225.9% of avg range > max 30.0%
+2025-12-18 21:50:08 - risk_manager - WARNING - [FILTER BLOCK] XAGAUDm: Spread sanity: spread 277.4% of avg range > max 30.0%
+2025-12-18 21:50:09 - risk_manager - WARNING - [FILTER BLOCK] BTCXAUm: Candle quality: current range 40.6% of avg < min 55.0%
+2025-12-18 21:51:41 - risk_manager - WARNING - [FILTER BLOCK] XAUAUDm: Spread sanity: spread 464.6% of avg range > max 30.0%
+2025-12-18 21:51:41 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 563.9% of avg range > max 30.0%
+2025-12-18 21:51:41 - risk_manager - WARNING - [FILTER BLOCK] XAUGBPm: Spread sanity: spread 709.3% of avg range > max 30.0%
+2025-12-18 21:51:42 - risk_manager - WARNING - [FILTER BLOCK] BTCUSDm: Candle quality: current range 36.7% of avg < min 55.0%
+2025-12-18 21:51:42 - risk_manager - WARNING - [FILTER BLOCK] BTCJPYm: Spread sanity: spread 31.3% of avg range > max 30.0%
+2025-12-18 21:51:43 - risk_manager - WARNING - [FILTER BLOCK] UK100m: Spread sanity: spread 1828.2% of avg range > max 30.0%
+2025-12-18 21:51:43 - risk_manager - WARNING - [FILTER BLOCK] FR40m: Spread sanity: spread 2482.5% of avg range > max 30.0%
+2025-12-18 21:51:43 - risk_manager - WARNING - [FILTER BLOCK] XAGUSDm: Spread sanity: spread 114.3% of avg range > max 30.0%
+2025-12-18 21:51:43 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 206.9% of avg range > max 30.0%
+2025-12-18 21:51:44 - risk_manager - WARNING - [FILTER BLOCK] XAGEURm: Spread sanity: spread 213.4% of avg range > max 30.0%
+2025-12-18 21:51:44 - risk_manager - WARNING - [FILTER BLOCK] XAGAUDm: Spread sanity: spread 263.3% of avg range > max 30.0%
+2025-12-18 21:51:45 - risk_manager - WARNING - [FILTER BLOCK] XPTUSDm: Spread sanity: spread 5907.2% of avg range > max 30.0%
+2025-12-18 21:51:46 - risk_manager - WARNING - [FILTER BLOCK] BTCXAUm: Candle quality: current range 48.1% of avg < min 55.0%
+2025-12-18 21:53:19 - risk_manager - WARNING - [FILTER BLOCK] XAUAUDm: Spread sanity: spread 440.1% of avg range > max 30.0%
+2025-12-18 21:53:19 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 557.5% of avg range > max 30.0%
+2025-12-18 21:53:19 - risk_manager - WARNING - [FILTER BLOCK] XAUGBPm: Spread sanity: spread 697.9% of avg range > max 30.0%
+2025-12-18 21:53:20 - risk_manager - WARNING - [FILTER BLOCK] UK100m: Spread sanity: spread 1828.2% of avg range > max 30.0%
+2025-12-18 21:53:21 - risk_manager - WARNING - [FILTER BLOCK] XAGUSDm: Spread sanity: spread 98.5% of avg range > max 30.0%
+2025-12-18 21:53:21 - risk_manager - WARNING - [FILTER BLOCK] AUS200m: Spread sanity: spread 2780.4% of avg range > max 30.0%
+2025-12-18 21:53:21 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 186.0% of avg range > max 30.0%
+2025-12-18 21:53:22 - risk_manager - WARNING - [FILTER BLOCK] XAGEURm: Spread sanity: spread 180.6% of avg range > max 30.0%
+2025-12-18 21:53:23 - risk_manager - WARNING - [FILTER BLOCK] XAGAUDm: Spread sanity: spread 222.2% of avg range > max 30.0%
+2025-12-18 21:53:23 - risk_manager - WARNING - [FILTER BLOCK] XPTUSDm: Spread sanity: spread 5709.8% of avg range > max 30.0%
+2025-12-18 21:53:24 - risk_manager - WARNING - [FILTER BLOCK] XPDUSDm: Spread sanity: spread 7047.3% of avg range > max 30.0%
+2025-12-18 21:53:26 - risk_manager - INFO - 🆕 NEW TRADE DETECTED: BTCXAUm Ticket 536050613 | Entry: 19.71231 | Immediately integrating into monitoring loop
+2025-12-18 21:53:37 - risk_manager - INFO - 🛑 STOP-LOSS TRIGGERED: Ticket 536036243 | XAUUSDm | Profit: $-2.00 | Reason: Hit configured stop-loss at -$2.00
+2025-12-18 21:53:37 - risk_manager - INFO - 🛑 STOP-LOSS TRIGGERED: Ticket 536036243 | XAUUSDm | Profit: $-2.00 | Reason: Hit configured stop-loss at -$2.00
+2025-12-18 21:54:57 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-18 22:25:24 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-18 22:25:24 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-18 22:55:54 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-18 22:55:54 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-18 23:26:01 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-18 23:26:01 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-18 23:56:03 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-18 23:56:03 - risk_manager - WARNING - [FILTER BLOCK] NZDNOKm: Spread sanity: spread 16769.1% of avg range > max 30.0%
+2025-12-18 23:56:04 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 00:26:04 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 00:26:04 - risk_manager - WARNING - [FILTER BLOCK] CADPLNm: Spread sanity: spread 28844.9% of avg range > max 30.0%
+2025-12-19 00:26:04 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 00:56:26 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 00:56:26 - risk_manager - WARNING - [FILTER BLOCK] US30_x10m: Spread sanity: spread 41.6% of avg range > max 30.0%
+2025-12-19 00:56:26 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 01:27:23 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 01:27:24 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 01:57:25 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 01:57:25 - risk_manager - WARNING - [FILTER BLOCK] NZDSGDm: Spread sanity: spread 1488.1% of avg range > max 30.0%
+2025-12-19 01:57:26 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 02:28:54 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 02:28:55 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 02:59:48 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 02:59:48 - risk_manager - WARNING - [FILTER BLOCK] XAUUSDm: Session guard: last 1 minutes of hour blocked
+2025-12-19 02:59:48 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 03:30:41 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 03:30:41 - risk_manager - WARNING - [FILTER BLOCK] AUDUSDm: Spread sanity: spread 74.4% of avg range > max 30.0%
+2025-12-19 03:30:42 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 04:02:16 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 04:02:16 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 04:32:17 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 04:32:17 - risk_manager - WARNING - [FILTER BLOCK] XCUUSDm: Spread sanity: spread 1539.1% of avg range > max 30.0%
+2025-12-19 04:32:18 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 05:02:18 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 05:02:18 - risk_manager - WARNING - [FILTER BLOCK] CADJPYm: Spread sanity: spread 275.4% of avg range > max 30.0%
+2025-12-19 05:02:19 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 05:33:18 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 05:33:18 - risk_manager - WARNING - [FILTER BLOCK] XAUEURm: Spread sanity: spread 439.8% of avg range > max 30.0%
+2025-12-19 05:33:18 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 06:04:33 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 06:04:33 - risk_manager - WARNING - [FILTER BLOCK] XAUUSDm: Candle quality: current range 53.8% of avg < min 55.0%
+2025-12-19 06:04:33 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 06:34:34 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 06:34:34 - risk_manager - WARNING - [FILTER BLOCK] XAGGBPm: Spread sanity: spread 51.7% of avg range > max 30.0%
+2025-12-19 06:34:35 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)
+2025-12-19 07:04:36 - risk_manager - INFO - [CIRCUIT BREAKER] Trading resumed after pause (previous reason: Consecutive losses >= 10 (10 losses))
+2025-12-19 07:04:36 - risk_manager - WARNING - [FILTER BLOCK] AUDSEKm: Spread sanity: spread 4403.7% of avg range > max 30.0%
+2025-12-19 07:04:36 - risk_manager - WARNING - [CIRCUIT BREAKER] Trading paused: Consecutive losses >= 10 (10 losses) (pause duration: 30 minutes)

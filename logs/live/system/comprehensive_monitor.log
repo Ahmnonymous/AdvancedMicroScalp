@@ -1,0 +1,564 @@
+2025-12-18 21:41:31 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 21:41:31 - comprehensive_monitor - INFO - STARTING COMPREHENSIVE BOT MONITOR
+2025-12-18 21:41:31 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 21:41:31 - comprehensive_monitor - INFO - Monitor interval: 10.0s
+2025-12-18 21:41:32 - comprehensive_monitor - INFO - Report interval: 300.0s
+2025-12-18 21:41:32 - comprehensive_monitor - INFO - [OK] Comprehensive monitor started
+2025-12-18 21:46:32 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 21:46:32 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 21:46:32 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 21:46:32 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_214632.json
+2025-12-18 21:46:32 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_214632.csv
+2025-12-18 21:51:33 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 21:51:33 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 21:51:33 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 21:51:33 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_215133.json
+2025-12-18 21:51:33 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_215133.csv
+2025-12-18 21:56:34 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 21:56:34 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 21:56:34 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 21:56:34 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_215634.json
+2025-12-18 21:56:34 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_215634.csv
+2025-12-18 22:01:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:01:35 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:01:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:01:35 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_220135.json
+2025-12-18 22:01:35 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_220135.csv
+2025-12-18 22:06:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:06:35 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:06:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:06:35 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_220635.json
+2025-12-18 22:06:35 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_220635.csv
+2025-12-18 22:11:36 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:11:36 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:11:36 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:11:36 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_221136.json
+2025-12-18 22:11:36 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_221136.csv
+2025-12-18 22:16:36 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:16:36 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:16:36 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:16:37 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_221637.json
+2025-12-18 22:16:37 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_221637.csv
+2025-12-18 22:21:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:21:37 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:21:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:21:37 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_222137.json
+2025-12-18 22:21:37 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_222137.csv
+2025-12-18 22:26:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:26:37 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:26:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:26:38 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_222638.json
+2025-12-18 22:26:38 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_222638.csv
+2025-12-18 22:31:38 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:31:38 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:31:38 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:31:38 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_223138.json
+2025-12-18 22:31:38 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_223138.csv
+2025-12-18 22:36:39 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:36:39 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:36:39 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:36:39 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_223639.json
+2025-12-18 22:36:39 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_223639.csv
+2025-12-18 22:41:40 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:41:40 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:41:40 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:41:41 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_224141.json
+2025-12-18 22:41:41 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_224141.csv
+2025-12-18 22:46:42 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:46:42 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:46:42 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:46:42 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_224642.json
+2025-12-18 22:46:42 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_224642.csv
+2025-12-18 22:51:42 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:51:42 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:51:42 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:51:42 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_225142.json
+2025-12-18 22:51:42 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_225142.csv
+2025-12-18 22:56:43 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:56:43 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 22:56:43 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 22:56:43 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_225643.json
+2025-12-18 22:56:43 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_225643.csv
+2025-12-18 23:01:44 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:01:44 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:01:44 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:01:44 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_230144.json
+2025-12-18 23:01:44 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_230144.csv
+2025-12-18 23:06:45 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:06:45 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:06:45 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:06:45 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_230645.json
+2025-12-18 23:06:45 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_230645.csv
+2025-12-18 23:11:46 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:11:46 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:11:46 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:11:46 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_231146.json
+2025-12-18 23:11:46 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_231146.csv
+2025-12-18 23:16:46 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:16:46 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:16:46 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:16:46 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_231646.json
+2025-12-18 23:16:46 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_231646.csv
+2025-12-18 23:21:47 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:21:47 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:21:47 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:21:48 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_232148.json
+2025-12-18 23:21:48 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_232148.csv
+2025-12-18 23:26:49 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:26:49 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:26:49 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:26:49 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_232649.json
+2025-12-18 23:26:49 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_232649.csv
+2025-12-18 23:31:49 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:31:49 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:31:49 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:31:50 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_233150.json
+2025-12-18 23:31:50 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_233150.csv
+2025-12-18 23:36:50 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:36:50 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:36:50 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:36:50 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_233650.json
+2025-12-18 23:36:50 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_233650.csv
+2025-12-18 23:41:51 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:41:51 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:41:51 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:41:52 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_234151.json
+2025-12-18 23:41:52 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_234151.csv
+2025-12-18 23:46:52 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:46:52 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:46:52 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:46:52 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_234652.json
+2025-12-18 23:46:52 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_234652.csv
+2025-12-18 23:51:53 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:51:53 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:51:53 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:51:53 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_235153.json
+2025-12-18 23:51:53 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_235153.csv
+2025-12-18 23:56:53 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:56:53 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-18 23:56:54 - comprehensive_monitor - INFO - ================================================================================
+2025-12-18 23:56:54 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251218_235654.json
+2025-12-18 23:56:54 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251218_235654.csv
+2025-12-19 00:01:54 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:01:54 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:01:54 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:01:55 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_000155.json
+2025-12-19 00:01:55 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_000155.csv
+2025-12-19 00:06:55 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:06:55 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:06:55 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:06:56 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_000656.json
+2025-12-19 00:06:56 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_000656.csv
+2025-12-19 00:11:56 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:11:56 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:11:56 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:11:57 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_001157.json
+2025-12-19 00:11:57 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_001157.csv
+2025-12-19 00:16:57 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:16:57 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:16:58 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:16:58 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_001658.json
+2025-12-19 00:16:58 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_001658.csv
+2025-12-19 00:21:58 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:21:58 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:21:58 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:21:59 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_002159.json
+2025-12-19 00:21:59 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_002159.csv
+2025-12-19 00:26:59 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:26:59 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:26:59 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:27:00 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_002700.json
+2025-12-19 00:27:00 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_002700.csv
+2025-12-19 00:32:01 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:32:01 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:32:01 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:32:04 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_003204.json
+2025-12-19 00:32:04 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_003204.csv
+2025-12-19 00:37:04 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:37:04 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:37:04 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:37:05 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_003705.json
+2025-12-19 00:37:05 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_003705.csv
+2025-12-19 00:42:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:42:09 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:42:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:42:11 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_004211.json
+2025-12-19 00:42:11 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_004211.csv
+2025-12-19 00:47:18 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:47:18 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:47:18 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:47:21 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_004720.json
+2025-12-19 00:47:21 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_004720.csv
+2025-12-19 00:52:27 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:52:27 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:52:27 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:52:31 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_005231.json
+2025-12-19 00:52:31 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_005231.csv
+2025-12-19 00:57:39 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:57:39 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 00:57:39 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 00:57:42 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_005742.json
+2025-12-19 00:57:42 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_005742.csv
+2025-12-19 01:02:49 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:02:49 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:02:50 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:02:54 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_010253.json
+2025-12-19 01:02:54 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_010253.csv
+2025-12-19 01:08:00 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:08:00 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:08:00 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:08:04 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_010804.json
+2025-12-19 01:08:04 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_010804.csv
+2025-12-19 01:13:10 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:13:11 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:13:11 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:13:26 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_011326.json
+2025-12-19 01:13:26 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_011326.csv
+2025-12-19 01:18:32 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:18:32 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:18:32 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:18:33 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_011833.json
+2025-12-19 01:18:33 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_011833.csv
+2025-12-19 01:23:40 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:23:40 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:23:40 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:23:42 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_012342.json
+2025-12-19 01:23:42 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_012342.csv
+2025-12-19 01:28:47 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:28:47 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:28:47 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:28:48 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_012848.json
+2025-12-19 01:28:48 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_012848.csv
+2025-12-19 01:33:52 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:33:52 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:33:52 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:33:54 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_013353.json
+2025-12-19 01:33:54 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_013353.csv
+2025-12-19 01:38:59 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:38:59 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:38:59 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:39:09 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_013909.json
+2025-12-19 01:39:09 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_013909.csv
+2025-12-19 01:44:17 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:44:17 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:44:17 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:44:19 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_014419.json
+2025-12-19 01:44:19 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_014419.csv
+2025-12-19 01:49:28 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:49:28 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:49:28 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:49:29 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_014929.json
+2025-12-19 01:49:30 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_014929.csv
+2025-12-19 01:54:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:54:38 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:54:38 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:54:51 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_015451.json
+2025-12-19 01:54:52 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_015451.csv
+2025-12-19 01:59:58 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 01:59:58 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 01:59:59 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:00:06 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_020005.json
+2025-12-19 02:00:06 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_020005.csv
+2025-12-19 02:05:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:05:09 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:05:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:05:16 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_020516.json
+2025-12-19 02:05:16 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_020516.csv
+2025-12-19 02:10:24 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:10:24 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:10:24 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:10:27 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_021027.json
+2025-12-19 02:10:27 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_021027.csv
+2025-12-19 02:15:33 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:15:33 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:15:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:15:49 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_021548.json
+2025-12-19 02:15:49 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_021548.csv
+2025-12-19 02:20:56 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:20:56 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:20:56 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:21:04 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_022104.json
+2025-12-19 02:21:04 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_022104.csv
+2025-12-19 02:26:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:26:09 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:26:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:26:11 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_022611.json
+2025-12-19 02:26:12 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_022611.csv
+2025-12-19 02:31:14 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:31:14 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:31:14 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:31:22 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_023122.json
+2025-12-19 02:31:22 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_023122.csv
+2025-12-19 02:36:29 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:36:29 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:36:29 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:36:30 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_023630.json
+2025-12-19 02:36:30 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_023630.csv
+2025-12-19 02:41:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:41:35 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:41:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:41:38 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_024138.json
+2025-12-19 02:41:38 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_024138.csv
+2025-12-19 02:46:48 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:46:48 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:46:48 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:46:55 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_024655.json
+2025-12-19 02:46:55 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_024655.csv
+2025-12-19 02:52:00 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:52:00 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:52:00 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:52:00 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_025200.json
+2025-12-19 02:52:01 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_025200.csv
+2025-12-19 02:57:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:57:09 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 02:57:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 02:57:09 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_025709.json
+2025-12-19 02:57:09 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_025709.csv
+2025-12-19 03:02:15 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:02:16 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:02:16 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:02:24 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_030222.json
+2025-12-19 03:02:25 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_030222.csv
+2025-12-19 03:07:29 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:07:29 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:07:29 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:07:30 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_030730.json
+2025-12-19 03:07:31 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_030730.csv
+2025-12-19 03:12:36 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:12:36 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:12:36 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:12:39 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_031238.json
+2025-12-19 03:12:39 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_031238.csv
+2025-12-19 03:17:48 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:17:49 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:17:49 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:17:57 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_031757.json
+2025-12-19 03:17:58 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_031757.csv
+2025-12-19 03:23:06 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:23:06 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:23:06 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:23:07 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_032307.json
+2025-12-19 03:23:07 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_032307.csv
+2025-12-19 03:28:13 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:28:13 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:28:13 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:28:14 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_032814.json
+2025-12-19 03:28:14 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_032814.csv
+2025-12-19 03:33:17 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:33:18 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:33:18 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:33:19 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_033319.json
+2025-12-19 03:33:21 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_033319.csv
+2025-12-19 03:38:30 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:38:30 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:38:31 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:38:31 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_033831.json
+2025-12-19 03:38:31 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_033831.csv
+2025-12-19 03:43:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:43:37 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:43:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:43:38 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_034338.json
+2025-12-19 03:43:40 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_034338.csv
+2025-12-19 03:48:48 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:48:48 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:48:48 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:48:48 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_034848.json
+2025-12-19 03:48:48 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_034848.csv
+2025-12-19 03:53:54 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:53:54 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:53:54 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:53:56 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_035356.json
+2025-12-19 03:53:56 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_035356.csv
+2025-12-19 03:59:02 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:59:02 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 03:59:02 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 03:59:03 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_035903.json
+2025-12-19 03:59:06 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_035903.csv
+2025-12-19 04:04:14 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:04:14 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:04:14 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:04:15 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_040415.json
+2025-12-19 04:04:15 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_040415.csv
+2025-12-19 04:09:22 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:09:22 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:09:22 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:09:27 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_040925.json
+2025-12-19 04:09:28 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_040925.csv
+2025-12-19 04:14:36 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:14:36 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:14:36 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:14:38 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_041437.json
+2025-12-19 04:14:38 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_041437.csv
+2025-12-19 04:19:47 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:19:47 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:19:47 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:19:50 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_041948.json
+2025-12-19 04:19:50 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_041948.csv
+2025-12-19 04:24:58 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:24:58 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:24:58 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:25:02 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_042502.json
+2025-12-19 04:25:03 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_042502.csv
+2025-12-19 04:30:08 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:30:09 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:30:09 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:30:17 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_043017.json
+2025-12-19 04:30:17 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_043017.csv
+2025-12-19 04:35:26 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:35:26 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:35:26 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:35:29 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_043529.json
+2025-12-19 04:35:29 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_043529.csv
+2025-12-19 04:40:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:40:35 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:40:35 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:40:37 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_044037.json
+2025-12-19 04:40:37 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_044037.csv
+2025-12-19 04:45:44 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:45:44 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:45:44 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:45:45 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_044545.json
+2025-12-19 04:45:45 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_044545.csv
+2025-12-19 04:50:51 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:50:52 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:50:54 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:51:11 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_045110.json
+2025-12-19 04:51:13 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_045110.csv
+2025-12-19 04:56:21 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:56:21 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 04:56:21 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 04:56:26 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_045625.json
+2025-12-19 04:56:26 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_045625.csv
+2025-12-19 05:01:30 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:01:30 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:01:30 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:01:31 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_050131.json
+2025-12-19 05:01:32 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_050131.csv
+2025-12-19 05:06:32 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:06:32 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:06:32 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:06:34 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_050634.json
+2025-12-19 05:06:34 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_050634.csv
+2025-12-19 05:11:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:11:37 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:11:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:11:38 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_051138.json
+2025-12-19 05:11:38 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_051138.csv
+2025-12-19 05:16:46 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:16:47 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:16:47 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:16:50 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_051650.json
+2025-12-19 05:16:50 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_051650.csv
+2025-12-19 05:21:56 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:21:56 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:21:57 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:21:59 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_052159.json
+2025-12-19 05:21:59 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_052159.csv
+2025-12-19 05:27:06 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:27:06 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:27:06 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:27:07 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_052707.json
+2025-12-19 05:27:10 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_052707.csv
+2025-12-19 05:32:14 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:32:15 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:32:15 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:32:15 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_053215.json
+2025-12-19 05:32:15 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_053215.csv
+2025-12-19 05:37:20 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:37:20 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:37:20 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:37:23 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_053723.json
+2025-12-19 05:37:24 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_053723.csv
+2025-12-19 05:42:26 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:42:26 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:42:27 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:42:36 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_054233.json
+2025-12-19 05:42:37 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_054233.csv
+2025-12-19 05:47:42 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:47:42 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:47:42 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:47:43 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_054743.json
+2025-12-19 05:47:43 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_054743.csv
+2025-12-19 05:52:49 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:52:49 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:52:49 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:52:50 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_055250.json
+2025-12-19 05:52:50 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_055250.csv
+2025-12-19 05:57:58 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:57:58 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 05:57:58 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 05:58:15 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_055815.json
+2025-12-19 05:58:16 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_055815.csv
+2025-12-19 06:03:20 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:03:20 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:03:20 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:03:23 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_060323.json
+2025-12-19 06:03:23 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_060323.csv
+2025-12-19 06:08:27 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:08:27 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:08:27 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:08:30 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_060830.json
+2025-12-19 06:08:30 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_060830.csv
+2025-12-19 06:13:38 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:13:38 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:13:38 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:13:43 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_061343.json
+2025-12-19 06:13:43 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_061343.csv
+2025-12-19 06:18:51 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:18:51 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:18:51 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:18:53 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_061853.json
+2025-12-19 06:18:53 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_061853.csv
+2025-12-19 06:23:59 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:23:59 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:23:59 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:24:00 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_062400.json
+2025-12-19 06:24:00 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_062400.csv
+2025-12-19 06:29:04 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:29:05 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:29:05 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:29:13 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_062913.json
+2025-12-19 06:29:13 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_062913.csv
+2025-12-19 06:34:19 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:34:19 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:34:19 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:34:23 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_063423.json
+2025-12-19 06:34:23 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_063423.csv
+2025-12-19 06:39:27 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:39:27 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:39:28 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:39:35 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_063934.json
+2025-12-19 06:39:36 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_063934.csv
+2025-12-19 06:44:42 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:44:42 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:44:43 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:44:44 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_064444.json
+2025-12-19 06:44:45 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_064444.csv
+2025-12-19 06:49:51 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:49:51 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:49:51 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:49:55 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_064955.json
+2025-12-19 06:49:55 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_064955.csv
+2025-12-19 06:55:03 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:55:03 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 06:55:03 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 06:55:09 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_065509.json
+2025-12-19 06:55:09 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_065509.csv
+2025-12-19 07:00:15 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 07:00:15 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 07:00:16 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 07:00:19 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_070019.json
+2025-12-19 07:00:20 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_070019.csv
+2025-12-19 07:05:26 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 07:05:26 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 07:05:27 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 07:05:30 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_070529.json
+2025-12-19 07:05:30 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_070529.csv
+2025-12-19 07:10:37 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 07:10:37 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 07:10:38 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 07:10:39 - comprehensive_monitor - INFO - [OK] Report saved: logs/reports\comprehensive_analysis_20251219_071039.json
+2025-12-19 07:10:39 - comprehensive_monitor - INFO - [OK] CSV summary saved: logs/reports\comprehensive_analysis_20251219_071039.csv
+2025-12-19 07:15:41 - comprehensive_monitor - INFO - ================================================================================
+2025-12-19 07:15:41 - comprehensive_monitor - INFO - GENERATING COMPREHENSIVE ANALYSIS REPORT
+2025-12-19 07:15:41 - comprehensive_monitor - INFO - ================================================================================

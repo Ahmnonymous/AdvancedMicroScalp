@@ -1,0 +1,36 @@
+2025-12-18 21:41:53 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 85237.23000 | SL: None (will be applied later)
+2025-12-18 21:41:53 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=536026289 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 0.00000 | Entry Price: 85237.23000 (requested: 85237.23000) | Slippage: 0.00000
+2025-12-18 21:41:54 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=536026289 Symbol=BTCUSDm NewSL=85219.13000 OldSL=0.00000
+2025-12-18 21:41:54 - order_manager - INFO - Order 536026289 modified: SL 85219.13000, TP 0.00000
+2025-12-18 21:41:55 - order_manager - WARNING - Modify order failed for ticket 536026289 (attempt 1/3): 10016 - Invalid stops. Retrying...
+2025-12-18 21:41:55 - order_manager - WARNING - Modify order failed for ticket 536026289 (attempt 2/3): 10016 - Invalid stops. Retrying...
+2025-12-18 21:41:56 - order_manager - ERROR - [ERROR] SL UPDATE FAILED: Ticket=536026289 Symbol=BTCUSDm Code=10016 Reason=Invalid stops Attempts=3
+2025-12-18 21:41:56 - order_manager - ERROR - Modify order failed for ticket 536026289 after 3 attempts: 10016 - Invalid stops
+2025-12-18 21:41:56 - order_manager - WARNING - [FALLBACK] Attempting direct MT5 API call for ticket 536026289
+2025-12-18 21:41:56 - order_manager - ERROR - [FALLBACK FAILED] Direct MT5 API call failed for ticket 536026289: 10016
+2025-12-18 21:41:57 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=536026289 Symbol=BTCUSDm NewSL=85219.68000 OldSL=85219.13000
+2025-12-18 21:41:57 - order_manager - INFO - Order 536026289 modified: SL 85219.68000, TP 0.00000
+2025-12-18 21:46:51 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 4331.63500 | SL: None (will be applied later)
+2025-12-18 21:46:51 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=536036243 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 0.00000 | Entry Price: 4331.63500 (requested: 4331.63500) | Slippage: 0.00000
+2025-12-18 21:46:52 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=536036243 Symbol=XAUUSDm NewSL=4333.63500 OldSL=0.00000
+2025-12-18 21:46:52 - order_manager - INFO - Order 536036243 modified: SL 4333.63500, TP 0.00000
+2025-12-18 21:47:09 - order_manager - WARNING - SL 4331.60500 too close to market (ASK: 4331.64400, min allowed: 4331.64410, freeze_level: 0, stops_level: 0)
+2025-12-18 21:47:38 - order_manager - WARNING - SL 4331.60500 too close to market (ASK: 4331.60900, min allowed: 4331.60910, freeze_level: 0, stops_level: 0)
+2025-12-18 21:47:44 - order_manager - WARNING - Modify order failed for ticket 536036243 (attempt 1/3): 10016 - Invalid stops. Retrying...
+2025-12-18 21:47:44 - order_manager - WARNING - Modify order failed for ticket 536036243 (attempt 2/3): 10016 - Invalid stops. Retrying...
+2025-12-18 21:47:44 - order_manager - ERROR - [ERROR] SL UPDATE FAILED: Ticket=536036243 Symbol=XAUUSDm Code=10016 Reason=Invalid stops Attempts=3
+2025-12-18 21:47:44 - order_manager - ERROR - Modify order failed for ticket 536036243 after 3 attempts: 10016 - Invalid stops
+2025-12-18 21:47:44 - order_manager - WARNING - [FALLBACK] Attempting direct MT5 API call for ticket 536036243
+2025-12-18 21:47:44 - order_manager - ERROR - [FALLBACK FAILED] Direct MT5 API call failed for ticket 536036243: 10016
+2025-12-18 21:48:29 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 19.72395 | SL: None (will be applied later)
+2025-12-18 21:48:30 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=536039349 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 0.00000 | Entry Price: 19.72395 (requested: 19.72395) | Slippage: 0.00000
+2025-12-18 21:48:30 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 85448.07000 | SL: None (will be applied later)
+2025-12-18 21:48:30 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=536039363 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 0.00000 | Entry Price: 85448.07000 (requested: 85448.07000) | Slippage: 0.00000
+2025-12-18 21:48:30 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=536039349 Symbol=BTCXAUm NewSL=19.72037 OldSL=0.00000
+2025-12-18 21:48:30 - order_manager - INFO - Order 536039349 modified: SL 19.72037, TP 0.00000
+2025-12-18 21:48:31 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=536039363 Symbol=BTCUSDm NewSL=85427.04000 OldSL=0.00000
+2025-12-18 21:48:31 - order_manager - INFO - Order 536039363 modified: SL 85427.04000, TP 0.00000
+2025-12-18 21:53:26 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 19.71231 | SL: None (will be applied later)
+2025-12-18 21:53:26 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=536050613 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 0.00000 | Entry Price: 19.71231 (requested: 19.71231) | Slippage: 0.00000
+2025-12-18 21:53:26 - order_manager - INFO - [OK] SL UPDATE SUCCESS: Ticket=536050613 Symbol=BTCXAUm NewSL=19.70586 OldSL=0.00000
+2025-12-18 21:53:26 - order_manager - INFO - Order 536050613 modified: SL 19.70586, TP 0.00000
