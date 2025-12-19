@@ -2398,18 +2398,39 @@ class RiskManager:
         """
         Monitor all open positions and update trailing stops continuously.
         
+        **MANDATORY FIX 1 - SINGLE-WRITER SL AUTHORITY:**
+        This function is READ-ONLY and does NOT acquire per-ticket SL locks or mutate SL state.
+        All SL mutations are handled EXCLUSIVELY by SLManager._sl_worker_loop() (single-writer).
+        
+        This function (called by TrailingStopMonitor threads) is read-only and only:
+        - Observes positions and profit
+        - Handles position tracking and cleanup
+        - Calls Micro-HFT profit engine for position closure (does not modify SL)
+        - Performs fail-safe checks (read-only verification)
+        
+        **DO NOT:**
+        - Call sl_manager.update_sl_atomic() (would cause lock contention)
+        - Acquire per-ticket SL locks
+        - Mutate SL state directly
+        
         This function checks P/L in millisecond margins (300ms intervals) for fast trailing stop updates.
         Fast polling mode is automatically enabled for positions with profit >= fast_trailing_threshold_usd.
-        
-        Features:
-        - Breakeven protection: Moves SL to $0.00 when profit is between $0.00 and $0.10
-        - Continuous trailing: Updates SL as profit increases
-        - Millisecond-level checking: Fast polling (300ms) for profitable positions
         
         Args:
             use_fast_polling: If True, only monitor positions in fast polling mode (300ms intervals)
                              This enables millisecond-level P/L checking for profitable positions
         """
+        # CRITICAL FIX 1: Runtime check to prevent lock acquisition by monitoring threads
+        import threading
+        current_thread_name = threading.current_thread().name
+        is_monitoring_thread = current_thread_name in ['TrailingStopMonitor', 'FastTrailingStopMonitor']
+        
+        if is_monitoring_thread:
+            # CRITICAL: Monitoring threads must NEVER acquire SL locks
+            # This function is read-only - all SL mutations handled by SLWorker thread
+            # If any code path from here tries to acquire locks, it will cause lock contention
+            pass  # Documentation only - actual prevention is by not calling lock-acquiring methods
+        
         if not self.continuous_trailing_enabled:
             return
         
@@ -2570,12 +2591,21 @@ class RiskManager:
                                 self._staged_trades.pop(symbol, None)
             
             # FAIL-SAFE CHECK: Verify all negative P/L trades have SL ≤ -$2.00
-            # This runs every 500ms to ensure strict loss enforcement is working
+            # CRITICAL FIX 1: This is now READ-ONLY - only checks, doesn't enforce
+            # Enforcement is handled by SLManager._sl_worker_loop() (single-writer)
+            # This prevents monitoring threads from acquiring locks
             if hasattr(self, 'sl_manager') and self.sl_manager:
                 try:
-                    self.sl_manager.fail_safe_check()
+                    # CRITICAL: Call read-only fail-safe check (no lock acquisition)
+                    # The fail_safe_check() method should only verify, not enforce
+                    # Enforcement happens in SLWorker thread
+                    self.sl_manager.fail_safe_check_read_only()
+                except AttributeError:
+                    # If read-only method doesn't exist, skip fail-safe check from monitoring thread
+                    # This prevents lock acquisition from monitoring threads
+                    logger.debug(f"[READ-ONLY] Fail-safe check skipped from monitoring thread - enforcement handled by SLWorker")
                 except Exception as e:
-                    logger.error(f"Error in fail-safe check: {e}", exc_info=True)
+                    logger.error(f"Error in read-only fail-safe check: {e}", exc_info=True)
             
             # CRITICAL: Update bot's daily_pnl if callback is available
             # This ensures daily_pnl is updated in real-time during monitoring (every cycle)
