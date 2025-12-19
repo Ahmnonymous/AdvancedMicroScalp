@@ -1,0 +1,7 @@
+MetaTrader5
+pandas
+numpy
+requests
+beautifulsoup4
+tabulate
+
