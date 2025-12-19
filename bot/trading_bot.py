@@ -2349,7 +2349,22 @@ class TradingBot:
             return False
     
     def _continuous_trailing_stop_loop(self):
-        """Background thread loop for continuous trailing stop monitoring."""
+        """
+        Background thread loop for continuous trailing stop monitoring.
+        
+        **MANDATORY FIX 1 - SINGLE-WRITER SL AUTHORITY:**
+        This thread (TrailingStopMonitor) is READ-ONLY and does NOT acquire per-ticket SL locks.
+        It only calls monitor_all_positions_continuous() which is read-only (observes positions, does not mutate SL).
+        All SL mutations are handled EXCLUSIVELY by SLManager._sl_worker_loop() (single-writer).
+        
+        CRITICAL: This thread must NEVER:
+        - Call sl_manager.update_sl_atomic()
+        - Call sl_manager._acquire_ticket_lock_with_timeout()
+        - Call sl_manager.fail_safe_check() (use fail_safe_check_read_only() instead)
+        - Acquire any per-ticket SL locks
+        
+        If this thread acquires locks, it will cause lock contention with SLWorker and block all SL updates.
+        """
         # MANDATORY OBSERVABILITY: Wrap entire loop in try-except to catch fatal crashes
         try:
             # Instant trailing: if trigger_on_tick is True and interval is 0, run immediately on every call
@@ -2430,7 +2445,22 @@ class TradingBot:
                 pass
     
     def _fast_trailing_stop_loop(self):
-        """Background thread loop for fast trailing stop monitoring (positions with profit >= threshold)."""
+        """
+        Background thread loop for fast trailing stop monitoring (positions with profit >= threshold).
+        
+        **MANDATORY FIX 1 - SINGLE-WRITER SL AUTHORITY:**
+        This thread (FastTrailingStopMonitor) is READ-ONLY and does NOT acquire per-ticket SL locks.
+        It only calls monitor_all_positions_continuous() which is read-only (observes positions, does not mutate SL).
+        All SL mutations are handled EXCLUSIVELY by SLManager._sl_worker_loop() (single-writer).
+        
+        CRITICAL: This thread must NEVER:
+        - Call sl_manager.update_sl_atomic()
+        - Call sl_manager._acquire_ticket_lock_with_timeout()
+        - Call sl_manager.fail_safe_check() (use fail_safe_check_read_only() instead)
+        - Acquire any per-ticket SL locks
+        
+        If this thread acquires locks, it will cause lock contention with SLWorker and block all SL updates.
+        """
         # MANDATORY OBSERVABILITY: Wrap entire loop in try-except to catch fatal crashes
         try:
             fast_interval_seconds = self.fast_trailing_interval_ms / 1000.0
