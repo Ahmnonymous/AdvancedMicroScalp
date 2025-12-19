@@ -4,4 +4,4 @@ numpy
 requests
 beautifulsoup4
 tabulate
-
+rich

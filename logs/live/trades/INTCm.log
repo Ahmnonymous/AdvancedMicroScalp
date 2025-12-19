@@ -1,0 +1,8 @@
+2025-12-19 13:00:28 - trades.INTCm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-19 13:05:25 - trades.INTCm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.80 pips
+2025-12-19 13:07:07 - trades.INTCm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1797s)
+2025-12-19 13:08:46 - trades.INTCm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1698s)
+2025-12-19 13:10:26 - trades.INTCm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1598s)
+2025-12-19 13:12:06 - trades.INTCm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1497s)
+2025-12-19 13:13:47 - trades.INTCm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1397s)
+2025-12-19 13:15:27 - trades.INTCm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1297s)

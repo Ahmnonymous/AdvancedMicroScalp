@@ -1,0 +1,4 @@
+2025-12-19 12:34:04 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1093s)
+2025-12-19 12:35:44 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 994s)
+2025-12-19 12:40:42 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 696s)
+2025-12-19 12:42:21 - trades.FTNTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 597s)

@@ -1,0 +1,15 @@
+2025-12-19 12:07:12 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 435.4% of avg range > max 30.0%
+2025-12-19 12:20:41 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 395.9% of avg range > max 30.0%
+2025-12-19 12:22:23 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1795s)
+2025-12-19 12:24:03 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1694s)
+2025-12-19 12:25:44 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1594s)
+2025-12-19 12:29:05 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1392s)
+2025-12-19 12:34:05 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1093s)
+2025-12-19 12:37:24 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 894s)
+2025-12-19 12:39:03 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 794s)
+2025-12-19 12:40:42 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 696s)
+2025-12-19 12:44:01 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 497s)
+2025-12-19 12:48:57 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 200s)
+2025-12-19 12:57:11 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 489.8% of avg range > max 30.0%
+2025-12-19 12:58:49 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 493.6% of avg range > max 30.0%
+2025-12-19 13:03:47 - trades.MSFTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 531.9% of avg range > max 30.0%

@@ -1,0 +1,9 @@
+2025-12-19 12:07:10 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.72 pips < min 0.80 pips
+2025-12-19 12:09:05 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.68 pips < min 0.80 pips
+2025-12-19 12:12:18 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.63 pips < min 0.80 pips
+2025-12-19 12:13:58 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.65 pips < min 0.80 pips
+2025-12-19 12:15:38 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-19 12:18:59 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.63 pips < min 0.80 pips
+2025-12-19 13:25:24 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 700s)
+2025-12-19 13:28:41 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 502s)
+2025-12-19 13:32:02 - trades.PYPLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 302s)

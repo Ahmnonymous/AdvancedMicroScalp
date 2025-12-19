@@ -1,0 +1,50 @@
+2025-12-19 12:07:12 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 700.7% of avg range > max 30.0%
+2025-12-19 12:09:05 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 685.7% of avg range > max 30.0%
+2025-12-19 12:10:42 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 435.4% of avg range > max 30.0%
+2025-12-19 12:12:18 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 421.1% of avg range > max 30.0%
+2025-12-19 12:13:58 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 442.9% of avg range > max 30.0%
+2025-12-19 12:15:38 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 449.1% of avg range > max 30.0%
+2025-12-19 12:17:17 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 463.8% of avg range > max 30.0%
+2025-12-19 12:18:59 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 465.5% of avg range > max 30.0%
+2025-12-19 12:20:41 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 457.1% of avg range > max 30.0%
+2025-12-19 12:22:22 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1796s)
+2025-12-19 12:24:03 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1695s)
+2025-12-19 12:25:43 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1594s)
+2025-12-19 12:39:03 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 795s)
+2025-12-19 12:40:41 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 696s)
+2025-12-19 12:42:21 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 597s)
+2025-12-19 12:44:01 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 497s)
+2025-12-19 12:45:40 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 398s)
+2025-12-19 12:47:18 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 300s)
+2025-12-19 12:48:57 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 201s)
+2025-12-19 12:50:35 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 103s)
+2025-12-19 12:52:13 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 5s)
+2025-12-19 12:53:52 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 761.9% of avg range > max 30.0%
+2025-12-19 13:00:29 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-19 13:02:07 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 688.2% of avg range > max 30.0%
+2025-12-19 13:03:46 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 659.8% of avg range > max 30.0%
+2025-12-19 13:05:26 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 609.5% of avg range > max 30.0%
+2025-12-19 13:07:08 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1796s)
+2025-12-19 13:08:47 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1697s)
+2025-12-19 13:10:27 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1597s)
+2025-12-19 13:12:07 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1497s)
+2025-12-19 13:13:47 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1396s)
+2025-12-19 13:15:28 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1296s)
+2025-12-19 13:17:07 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1196s)
+2025-12-19 13:18:47 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1097s)
+2025-12-19 13:20:26 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 997s)
+2025-12-19 13:22:06 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 898s)
+2025-12-19 13:23:45 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 799s)
+2025-12-19 13:25:24 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 700s)
+2025-12-19 13:27:03 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 601s)
+2025-12-19 13:28:41 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 502s)
+2025-12-19 13:30:20 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 404s)
+2025-12-19 13:32:02 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 302s)
+2025-12-19 13:33:42 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 202s)
+2025-12-19 13:35:22 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 101s)
+2025-12-19 13:37:02 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 2s)
+2025-12-19 13:38:41 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1796s)
+2025-12-19 13:40:21 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1696s)
+2025-12-19 13:42:03 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1594s)
+2025-12-19 13:43:44 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1493s)
+2025-12-19 13:45:24 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1393s)

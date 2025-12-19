@@ -1,0 +1,6 @@
+2025-12-19 12:37:23 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 895s)
+2025-12-19 13:08:47 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1697s)
+2025-12-19 13:15:28 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1296s)
+2025-12-19 13:28:41 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 502s)
+2025-12-19 13:42:04 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1593s)
+2025-12-19 13:43:44 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (10 losses) (resumes in 1493s)
