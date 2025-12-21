@@ -51,7 +51,8 @@ class MicroProfitEngine:
         
         # CRITICAL: Minimum profit buffer to account for spread/slippage
         # This ensures actual closing profit will be positive even after spread/slippage
-        self.min_profit_buffer = 0.05  # $0.05 buffer to account for spread/slippage
+        # Reduced to $0.02 for sweet spot range to allow full $0.03-$0.10 capture
+        self.min_profit_buffer = 0.02  # $0.02 buffer to account for spread/slippage
         
         # Track positions being closed to prevent duplicate attempts
         self._closing_tickets = set()
