@@ -1,0 +1,9 @@
+2025-12-22 17:29:15 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 17:31:18 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.80 pips
+2025-12-22 17:33:10 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.80 pips
+2025-12-22 17:34:58 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.80 pips
+2025-12-22 17:36:47 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.80 pips
+2025-12-22 17:38:34 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.80 pips
+2025-12-22 17:40:20 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.80 pips
+2025-12-22 17:47:28 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 18:14:15 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.80 pips

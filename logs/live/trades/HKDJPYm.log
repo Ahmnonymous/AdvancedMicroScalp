@@ -1,0 +1,17 @@
+2025-12-22 17:29:04 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-22 18:01:41 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.80 pips
+2025-12-22 18:03:28 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-22 18:05:15 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.80 pips
+2025-12-22 18:07:02 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.80 pips
+2025-12-22 18:08:49 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.80 pips
+2025-12-22 18:14:11 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.80 pips
+2025-12-22 18:15:58 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-22 18:17:45 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-22 18:19:32 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-22 18:26:36 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.17 pips < min 0.80 pips
+2025-12-22 18:31:46 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.80 pips
+2025-12-22 18:36:35 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.80 pips
+2025-12-22 18:41:19 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.80 pips
+2025-12-22 18:46:06 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 18:51:11 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.80 pips
+2025-12-22 19:09:30 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.16 pips < min 0.80 pips

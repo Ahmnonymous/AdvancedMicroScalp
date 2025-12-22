@@ -1,0 +1,152 @@
+2025-12-22 17:28:18 - system_events - INFO - [BOOT_TEST] {"message": "system_events logging verified"}
+2025-12-22 17:28:40 - system_events - INFO - [SYSTEM_READY] {"all_critical_threads_alive": true}
+2025-12-22 17:29:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:29:26.183605", "openTrades": 4, "equity": 9999.31, "balance": 10000.0}
+2025-12-22 17:29:41 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 553397603, "symbol": "XAUUSDm", "old_sl": 4436.508, "new_sl": 4434.408, "profit": 0.14, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 276.547908782959}
+2025-12-22 17:30:04 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "thread_name": "SLWorker", "thread_id": "unknown", "reason": "heartbeat_detected_dead"}
+2025-12-22 17:30:04 - system_events - WARNING - Invalid system event tag: WATCHDOG_RESTART_ALERT
+2025-12-22 17:31:24 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:31:24 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:31:24 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:31:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:31:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:31:25 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:31:25.293894", "openTrades": 2, "equity": 9998.22, "balance": 9999.88}
+2025-12-22 17:33:14 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:33:14 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:33:14 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:33:14 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:33:14 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:33:14 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:33:14.788650", "openTrades": 2, "equity": 9998.44, "balance": 9999.88}
+2025-12-22 17:35:03 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:35:03 - system_events - WARNING - Invalid system event tag: PROFIT_ZONE_ENTERED
+2025-12-22 17:35:03 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:35:03 - system_events - WARNING - Invalid system event tag: LOCK_APPLIED
+2025-12-22 17:35:03 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:35:03 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:35:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:35:03.913350", "openTrades": 2, "equity": 9999.98, "balance": 9999.88}
+2025-12-22 17:36:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:36:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:36:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:36:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:36:51 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:36:51.561128", "openTrades": 1, "equity": 9999.85, "balance": 9999.96}
+2025-12-22 17:38:33 - system_events - WARNING - Invalid system event tag: WATCHDOG_RESTART_ALERT
+2025-12-22 17:38:37 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:38:37 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:38:38 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:38:38.091210", "openTrades": 1, "equity": 9999.9, "balance": 9999.96}
+2025-12-22 17:40:24 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:40:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:40:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:40:25 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:40:25.330075", "openTrades": 1, "equity": 9999.76, "balance": 9999.96}
+2025-12-22 17:42:12 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:42:12 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:42:12 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:42:12.616666", "openTrades": 1, "equity": 9999.77, "balance": 9999.96}
+2025-12-22 17:43:58 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:43:58 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:43:58.800625", "openTrades": 1, "equity": 9999.48, "balance": 9999.96}
+2025-12-22 17:44:08 - system_events - WARNING - Invalid system event tag: WATCHDOG_RESTART_ALERT
+2025-12-22 17:45:45 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:45:45 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:45:45 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:45:45 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:45:45 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:45:45.516323", "openTrades": 1, "equity": 9999.48, "balance": 9999.96}
+2025-12-22 17:47:32 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:47:32 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:47:32 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:47:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:47:32.524902", "openTrades": 1, "equity": 9999.52, "balance": 9999.96}
+2025-12-22 17:49:18 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:49:18.596846", "openTrades": 1, "equity": 9999.54, "balance": 9999.96}
+2025-12-22 17:51:05 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:51:05 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:51:05 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:51:05 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:51:05.736635", "openTrades": 1, "equity": 9999.38, "balance": 9999.96}
+2025-12-22 17:52:37 - system_events - WARNING - Invalid system event tag: WATCHDOG_RESTART_ALERT
+2025-12-22 17:52:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:52:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:52:52 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:52:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:52:52.183292", "openTrades": 1, "equity": 9999.32, "balance": 9999.96}
+2025-12-22 17:54:38 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:54:38 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:54:39 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:54:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:54:39.318955", "openTrades": 1, "equity": 9999.29, "balance": 9999.96}
+2025-12-22 17:56:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:56:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:56:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:56:26.025067", "openTrades": 1, "equity": 9999.3, "balance": 9999.96}
+2025-12-22 17:58:11 - system_events - WARNING - Invalid system event tag: WATCHDOG_RESTART_ALERT
+2025-12-22 17:58:14 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:58:14 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 17:58:14 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T17:58:14.334745", "openTrades": 1, "equity": 9999.32, "balance": 9999.96}
+2025-12-22 18:00:01 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:00:01.832689", "openTrades": 1, "equity": 9999.31, "balance": 9999.96}
+2025-12-22 18:01:49 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:01:49 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:01:49.329792", "openTrades": 1, "equity": 9999.44, "balance": 9999.96}
+2025-12-22 18:03:35 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:03:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:03:36.006745", "openTrades": 1, "equity": 9999.49, "balance": 9999.96}
+2025-12-22 18:05:23 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:05:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:05:23.070749", "openTrades": 1, "equity": 9999.64, "balance": 9999.96}
+2025-12-22 18:06:35 - system_events - WARNING - Invalid system event tag: WATCHDOG_RESTART_ALERT
+2025-12-22 18:07:10 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:07:10 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:07:10.217001", "openTrades": 1, "equity": 9999.67, "balance": 9999.96}
+2025-12-22 18:08:57 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:08:57 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:08:57 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:08:57 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:08:57.374161", "openTrades": 1, "equity": 9999.59, "balance": 9999.96}
+2025-12-22 18:10:43 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:10:43 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:10:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:10:44.019968", "openTrades": 1, "equity": 9999.73, "balance": 9999.96}
+2025-12-22 18:12:08 - system_events - WARNING - Invalid system event tag: WATCHDOG_RESTART_ALERT
+2025-12-22 18:12:30 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:12:31 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:12:31 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:12:31 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:12:31.389737", "openTrades": 1, "equity": 9999.72, "balance": 9999.96}
+2025-12-22 18:14:18 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:14:18 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:14:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:14:19.201571", "openTrades": 1, "equity": 9999.78, "balance": 9999.96}
+2025-12-22 18:16:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:16:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:16:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:16:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:16:06.419118", "openTrades": 1, "equity": 9999.76, "balance": 9999.96}
+2025-12-22 18:17:53 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:17:53 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:17:53 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:17:53.510009", "openTrades": 1, "equity": 9999.78, "balance": 9999.96}
+2025-12-22 18:19:39 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:19:40 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:19:40 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:19:40.139407", "openTrades": 1, "equity": 9999.71, "balance": 9999.96}
+2025-12-22 18:20:34 - system_events - WARNING - Invalid system event tag: WATCHDOG_RESTART_ALERT
+2025-12-22 18:21:26 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:21:26 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:21:26 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:21:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:21:26.868434", "openTrades": 1, "equity": 9999.88, "balance": 9999.96}
+2025-12-22 18:23:13 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:23:13 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:23:13.663461", "openTrades": 1, "equity": 9999.92, "balance": 9999.96}
+2025-12-22 18:24:54 - system_events - WARNING - Invalid system event tag: PROFIT_ZONE_ENTERED
+2025-12-22 18:24:57 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:24:57 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:24:57.865007", "openTrades": 1, "equity": 9999.95, "balance": 9999.96}
+2025-12-22 18:25:15 - system_events - WARNING - Invalid system event tag: LOCK_FAILED
+2025-12-22 18:25:25 - system_events - WARNING - Invalid system event tag: LOCK_APPLIED
+2025-12-22 18:25:26 - system_events - WARNING - Invalid system event tag: PROFIT_LOCK_FAILURE_ALERT
+2025-12-22 18:26:44 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:26:44 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:26:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:26:44.594646", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 18:28:31 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:28:31 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:28:31 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:28:31.643594", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 18:33:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:33:08.136905", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 18:38:00 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:38:01 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:38:02 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:38:02.073632", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 18:42:40 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:42:42 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:42:42.614679", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 18:47:32 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:47:35 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:47:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:47:37.733842", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 18:52:33 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:52:34 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:52:35 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 18:52:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:52:37.419403", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 18:56:56 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T18:56:56.934404", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 19:01:31 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 19:01:31 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 19:01:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T19:01:32.858777", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 19:06:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 19:06:08 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 19:06:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T19:06:08.704378", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}
+2025-12-22 19:10:55 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 19:10:56 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 19:10:57 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 19:10:58 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T19:10:58.452839", "openTrades": 0, "equity": 9999.99, "balance": 9999.99}

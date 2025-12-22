@@ -1,0 +1,19 @@
+2025-12-22 17:29:05 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.80 pips
+2025-12-22 17:33:06 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 17:34:55 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.80 pips
+2025-12-22 17:36:43 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.80 pips
+2025-12-22 17:38:30 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.80 pips
+2025-12-22 17:40:17 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.80 pips
+2025-12-22 17:47:25 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.80 pips
+2025-12-22 17:49:12 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.80 pips
+2025-12-22 17:50:58 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.80 pips
+2025-12-22 17:52:45 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.80 pips
+2025-12-22 17:54:32 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.80 pips
+2025-12-22 17:56:19 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-22 17:59:54 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:42 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-22 18:03:29 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 18:07:03 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 18:08:50 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 18:10:36 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 18:12:24 - trades.DKKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips

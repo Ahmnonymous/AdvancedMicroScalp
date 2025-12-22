@@ -1,0 +1,32 @@
+2025-12-22 17:28:48 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.41 pips < min 0.80 pips
+2025-12-22 17:31:05 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.41 pips < min 0.80 pips
+2025-12-22 17:33:01 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips
+2025-12-22 17:34:49 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.43 pips < min 0.80 pips
+2025-12-22 17:40:11 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.46 pips < min 0.80 pips
+2025-12-22 17:43:46 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.47 pips < min 0.80 pips
+2025-12-22 17:45:33 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.50 pips < min 0.80 pips
+2025-12-22 17:47:19 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.47 pips < min 0.80 pips
+2025-12-22 17:49:06 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.45 pips < min 0.80 pips
+2025-12-22 17:50:52 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.45 pips < min 0.80 pips
+2025-12-22 17:52:39 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips
+2025-12-22 17:54:27 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.80 pips
+2025-12-22 17:56:13 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.80 pips
+2025-12-22 17:58:00 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.80 pips
+2025-12-22 17:59:48 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:36 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
+2025-12-22 18:03:23 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.80 pips
+2025-12-22 18:05:10 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.80 pips
+2025-12-22 18:06:57 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.80 pips
+2025-12-22 18:08:44 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.80 pips
+2025-12-22 18:17:40 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
+2025-12-22 18:19:27 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.80 pips
+2025-12-22 18:21:14 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.80 pips
+2025-12-22 18:23:00 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.80 pips
+2025-12-22 18:24:46 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.80 pips
+2025-12-22 18:26:31 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.80 pips
+2025-12-22 18:28:18 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.80 pips
+2025-12-22 18:35:26 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
+2025-12-22 18:40:17 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.80 pips
+2025-12-22 18:59:06 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 19:03:59 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.80 pips
+2025-12-22 19:08:24 - trades.XOMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.80 pips

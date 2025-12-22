@@ -1,0 +1,8 @@
+2025-12-22 17:49:04 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 28.6% of avg < min 55.0%
+2025-12-22 17:59:46 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:10:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 30.2% of avg range > max 30.0%
+2025-12-22 18:30:22 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.2% of avg < min 55.0%
+2025-12-22 18:39:54 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 30.1% of avg range > max 30.0%
+2025-12-22 18:44:35 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 32.4% of avg range > max 30.0%
+2025-12-22 18:49:40 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.9% of avg range > max 30.0%
+2025-12-22 18:54:28 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.2% of avg range > max 30.0%

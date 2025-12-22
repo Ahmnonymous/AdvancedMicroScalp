@@ -1,0 +1,18 @@
+2025-12-22 17:28:40 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 100.1% of avg range > max 30.0%
+2025-12-22 17:31:01 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 98.3% of avg range > max 30.0%
+2025-12-22 17:45:30 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 101.5% of avg range > max 30.0%
+2025-12-22 17:47:17 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 100.5% of avg range > max 30.0%
+2025-12-22 17:49:04 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 108.1% of avg range > max 30.0%
+2025-12-22 17:50:50 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 106.2% of avg range > max 30.0%
+2025-12-22 17:52:37 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 108.2% of avg range > max 30.0%
+2025-12-22 17:54:24 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 111.8% of avg range > max 30.0%
+2025-12-22 17:56:11 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 114.4% of avg range > max 30.0%
+2025-12-22 17:57:57 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.8% of avg range > max 30.0%
+2025-12-22 17:59:46 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:33 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 116.4% of avg range > max 30.0%
+2025-12-22 18:03:21 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 133.2% of avg range > max 30.0%
+2025-12-22 18:05:07 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 144.2% of avg range > max 30.0%
+2025-12-22 18:06:54 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 140.5% of avg range > max 30.0%
+2025-12-22 18:49:38 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 149.2% of avg range > max 30.0%
+2025-12-22 19:03:31 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 159.0% of avg range > max 30.0%
+2025-12-22 19:08:15 - trades.UK100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 148.7% of avg range > max 30.0%

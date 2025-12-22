@@ -1,0 +1,8 @@
+2025-12-22 17:28:39 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.9% of avg range > max 30.0%
+2025-12-22 17:31:00 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 37.8% of avg range > max 30.0%
+2025-12-22 17:32:57 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.0% of avg range > max 30.0%
+2025-12-22 17:34:46 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.4% of avg range > max 30.0%
+2025-12-22 17:36:35 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.8% of avg range > max 30.0%
+2025-12-22 17:49:04 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.1% of avg range > max 30.0%
+2025-12-22 19:03:26 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 41.0% of avg range > max 30.0%
+2025-12-22 19:08:12 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.9% of avg range > max 30.0%

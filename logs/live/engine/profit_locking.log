@@ -1,0 +1,39 @@
+2025-12-22 17:28:19 - profit_locking - INFO - Profit-Locking Engine initialized | Sweet spot: $0.03-$0.1 | Step: $0.1
+2025-12-22 17:28:19 - profit_locking - INFO - Dynamic Sweet Spot Locking: Enabled | Poll interval: 1000ms | Track minimum: True | Apply immediately: True
+2025-12-22 17:34:59 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397522 Symbol=US30_x10m Profit=$0.04 Enabled=True
+2025-12-22 17:34:59 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: US30_x10m Ticket 553397522 | Entered sweet spot at $0.04 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-22 17:34:59 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=553397522 Symbol=US30_x10m Profit=$0.04 TargetLock=$0.04 TargetSL=48435.20000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2025-12-22 17:35:03 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397522 Symbol=US30_x10m Profit=$0.09 Enabled=True
+2025-12-22 17:35:03 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=553397522 Symbol=US30_x10m OldSL=48436.20000 NewSL=48434.80000 TargetLock=$0.08
+2025-12-22 17:35:03 - profit_locking - INFO - [OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket=553397522 Symbol=US30_x10m NewSL=48434.80000
+2025-12-22 17:35:04 - profit_locking - WARNING - [POSITION_CLOSED_DURING_VERIFY] Ticket=553397522 Symbol=US30_x10m | Position closed during verification attempt 1/3 | Cannot verify SL - position no longer exists
+2025-12-22 17:35:04 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=553397522 Symbol=US30_x10m Profit=$0.09 TargetLock=$0.08 TargetSL=48434.80000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2025-12-22 18:25:14 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.03 Enabled=True
+2025-12-22 18:25:14 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: US30m Ticket 553397346 | Entered sweet spot at $0.03 | Applying IMMEDIATE SL lock to prevent negative P/L
+2025-12-22 18:25:14 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=553397346 Symbol=US30m OldSL=48635.30000 NewSL=48432.30000 TargetLock=$0.03
+2025-12-22 18:25:14 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=553397346 Symbol=US30m TargetSL=48432.30000
+2025-12-22 18:25:15 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=553397346 Symbol=US30m Profit=$0.03 TargetLock=$0.03 TargetSL=48432.30000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2025-12-22 18:25:19 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.03 Enabled=True
+2025-12-22 18:25:19 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=553397346 Symbol=US30m OldSL=48635.30000 NewSL=48432.30000 TargetLock=$0.03
+2025-12-22 18:25:19 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=553397346 Symbol=US30m TargetSL=48432.30000
+2025-12-22 18:25:20 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=553397346 Symbol=US30m OldSL=48635.30000 NewSL=48432.30000 TargetLock=$0.03
+2025-12-22 18:25:20 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=553397346 Symbol=US30m TargetSL=48432.30000
+2025-12-22 18:25:21 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=553397346 Symbol=US30m OldSL=48635.30000 NewSL=48432.30000 TargetLock=$0.03
+2025-12-22 18:25:21 - profit_locking - INFO - [OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket=553397346 Symbol=US30m NewSL=48432.30000
+2025-12-22 18:25:22 - profit_locking - INFO - [VERIFY_SUCCESS] Ticket=553397346 Symbol=US30m | Attempt 1/3 | Target: 48432.30000 | Applied: 48432.30000 | Diff: 0.00000 | Tolerance: 1.00000
+2025-12-22 18:25:22 - profit_locking - INFO - [OK] SWEET SPOT LOCK APPLIED (BROKER VERIFIED): US30m Ticket 553397346 | Attempt 3/5 | Current profit: $0.03 | Locked at: $0.03 | Target SL: 48432.30000 | Applied SL: 48432.30000 | SUCCESS
+2025-12-22 18:25:22 - profit_locking - INFO - [LOCK_SUCCESS] Ticket=553397346 Symbol=US30m Profit=$0.03 LockedAt=$0.03 TargetSL=48432.30000 | Min in sweet spot: $0.03 Status=[OK] VERIFIED
+2025-12-22 18:25:26 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.05 Enabled=True
+2025-12-22 18:25:26 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=553397346 Symbol=US30m Profit=$0.05 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2025-12-22 18:25:26 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.05 Enabled=True
+2025-12-22 18:25:26 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=553397346 Symbol=US30m Profit=$0.05 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2025-12-22 18:25:26 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.05 Enabled=True
+2025-12-22 18:25:26 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=553397346 Symbol=US30m Profit=$0.05 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2025-12-22 18:25:27 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.05 Enabled=True
+2025-12-22 18:25:27 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=553397346 Symbol=US30m Profit=$0.05 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2025-12-22 18:25:27 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.04 Enabled=True
+2025-12-22 18:25:27 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=553397346 Symbol=US30m Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2025-12-22 18:25:28 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.04 Enabled=True
+2025-12-22 18:25:28 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=553397346 Symbol=US30m Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2025-12-22 18:25:29 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=553397346 Symbol=US30m Profit=$0.04 Enabled=True
+2025-12-22 18:25:29 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=553397346 Symbol=US30m Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)

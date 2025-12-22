@@ -1,0 +1,5 @@
+2025-12-22 18:10:33 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.77 pips < min 0.80 pips
+2025-12-22 18:12:20 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 223.6% of avg range > max 30.0%
+2025-12-22 18:45:33 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-22 18:50:35 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.62 pips < min 0.80 pips
+2025-12-22 18:55:21 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.60 pips < min 0.80 pips

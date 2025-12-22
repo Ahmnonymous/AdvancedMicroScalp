@@ -1,0 +1,22 @@
+2025-12-22 17:28:59 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 127.0% of avg range > max 30.0%
+2025-12-22 17:31:11 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.8% of avg range > max 30.0%
+2025-12-22 17:33:04 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 137.9% of avg range > max 30.0%
+2025-12-22 17:34:52 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.8% of avg range > max 30.0%
+2025-12-22 17:36:41 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 128.3% of avg range > max 30.0%
+2025-12-22 17:38:28 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 129.4% of avg range > max 30.0%
+2025-12-22 17:40:15 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 129.7% of avg range > max 30.0%
+2025-12-22 17:47:23 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 102.6% of avg range > max 30.0%
+2025-12-22 17:49:09 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 105.7% of avg range > max 30.0%
+2025-12-22 17:50:56 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 101.5% of avg range > max 30.0%
+2025-12-22 17:52:43 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 104.6% of avg range > max 30.0%
+2025-12-22 17:54:30 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 109.3% of avg range > max 30.0%
+2025-12-22 17:56:16 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 120.0% of avg range > max 30.0%
+2025-12-22 17:58:04 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 117.1% of avg range > max 30.0%
+2025-12-22 17:59:52 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:40 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 120.0% of avg range > max 30.0%
+2025-12-22 18:03:27 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 142.4% of avg range > max 30.0%
+2025-12-22 18:05:13 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 142.4% of avg range > max 30.0%
+2025-12-22 18:07:01 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 147.7% of avg range > max 30.0%
+2025-12-22 18:08:47 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 142.9% of avg range > max 30.0%
+2025-12-22 18:10:34 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 152.9% of avg range > max 30.0%
+2025-12-22 18:12:21 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.5% of avg range > max 30.0%

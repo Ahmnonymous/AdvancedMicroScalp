@@ -1,0 +1,31 @@
+2025-12-22 17:31:09 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.80 pips
+2025-12-22 17:36:40 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.80 pips
+2025-12-22 17:38:27 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
+2025-12-22 17:40:14 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.80 pips
+2025-12-22 17:42:02 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 0.80 pips
+2025-12-22 17:43:48 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.80 pips
+2025-12-22 17:47:21 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.80 pips
+2025-12-22 17:49:08 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.80 pips
+2025-12-22 17:54:28 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.80 pips
+2025-12-22 17:56:14 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.41 pips < min 0.80 pips
+2025-12-22 17:58:02 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.80 pips
+2025-12-22 17:59:50 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:38 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-22 18:03:25 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.52 pips < min 0.80 pips
+2025-12-22 18:05:12 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.52 pips < min 0.80 pips
+2025-12-22 18:06:59 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.53 pips < min 0.80 pips
+2025-12-22 18:08:46 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.51 pips < min 0.80 pips
+2025-12-22 18:10:33 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.51 pips < min 0.80 pips
+2025-12-22 18:12:20 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-22 18:14:08 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-22 18:15:55 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.50 pips < min 0.80 pips
+2025-12-22 18:17:42 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.51 pips < min 0.80 pips
+2025-12-22 18:19:29 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips
+2025-12-22 18:21:16 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips
+2025-12-22 18:23:03 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.80 pips
+2025-12-22 18:24:48 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.80 pips
+2025-12-22 18:35:53 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 0.80 pips
+2025-12-22 18:45:23 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.45 pips < min 0.80 pips
+2025-12-22 18:50:27 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.55 pips < min 0.80 pips
+2025-12-22 18:55:12 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.55 pips < min 0.80 pips
+2025-12-22 18:59:26 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked

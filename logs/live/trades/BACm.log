@@ -1,0 +1,12 @@
+2025-12-22 17:31:05 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.80 pips
+2025-12-22 17:33:00 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.80 pips
+2025-12-22 17:43:46 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.80 pips
+2025-12-22 17:56:12 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.80 pips
+2025-12-22 17:57:59 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.80 pips
+2025-12-22 17:59:48 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:24:47 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.80 pips
+2025-12-22 18:30:43 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.80 pips
+2025-12-22 18:35:29 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.15 pips < min 0.80 pips
+2025-12-22 18:54:44 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.80 pips
+2025-12-22 19:03:53 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.15 pips < min 0.80 pips
+2025-12-22 19:08:25 - trades.BACm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.16 pips < min 0.80 pips

@@ -1,0 +1,35 @@
+2025-12-22 17:29:06 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.7% of avg range > max 30.0%
+2025-12-22 17:31:14 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 208.3% of avg range > max 30.0%
+2025-12-22 17:33:06 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 218.6% of avg range > max 30.0%
+2025-12-22 17:34:55 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.7% of avg range > max 30.0%
+2025-12-22 17:36:43 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 243.7% of avg range > max 30.0%
+2025-12-22 17:38:30 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.1% of avg range > max 30.0%
+2025-12-22 17:40:17 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 225.3% of avg range > max 30.0%
+2025-12-22 17:42:06 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 231.3% of avg range > max 30.0%
+2025-12-22 17:43:51 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 245.5% of avg range > max 30.0%
+2025-12-22 17:45:38 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 246.4% of avg range > max 30.0%
+2025-12-22 17:47:24 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 247.3% of avg range > max 30.0%
+2025-12-22 17:49:11 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 227.4% of avg range > max 30.0%
+2025-12-22 17:50:58 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.8% of avg range > max 30.0%
+2025-12-22 17:52:45 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 264.0% of avg range > max 30.0%
+2025-12-22 17:54:31 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 250.0% of avg range > max 30.0%
+2025-12-22 17:56:18 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 237.0% of avg range > max 30.0%
+2025-12-22 17:58:06 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.5% of avg range > max 30.0%
+2025-12-22 17:59:53 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:10:36 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 237.0% of avg range > max 30.0%
+2025-12-22 18:12:23 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 227.0% of avg range > max 30.0%
+2025-12-22 18:14:11 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 219.1% of avg range > max 30.0%
+2025-12-22 18:15:58 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.3% of avg range > max 30.0%
+2025-12-22 18:17:45 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 220.6% of avg range > max 30.0%
+2025-12-22 18:19:32 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 233.6% of avg range > max 30.0%
+2025-12-22 18:21:19 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 224.5% of avg range > max 30.0%
+2025-12-22 18:23:06 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.1% of avg range > max 30.0%
+2025-12-22 18:24:51 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 230.2% of avg range > max 30.0%
+2025-12-22 18:31:49 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 220.7% of avg range > max 30.0%
+2025-12-22 18:36:35 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 216.0% of avg range > max 30.0%
+2025-12-22 18:41:20 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 262.0% of avg range > max 30.0%
+2025-12-22 18:46:01 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 253.2% of avg range > max 30.0%
+2025-12-22 18:51:10 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 307.7% of avg range > max 30.0%
+2025-12-22 18:55:41 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 299.0% of avg range > max 30.0%
+2025-12-22 19:00:01 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-22 19:04:48 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 242.9% of avg range > max 30.0%

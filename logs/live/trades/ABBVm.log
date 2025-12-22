@@ -1,0 +1,36 @@
+2025-12-22 17:29:00 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 251.3% of avg range > max 30.0%
+2025-12-22 17:31:11 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 292.7% of avg range > max 30.0%
+2025-12-22 17:33:04 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.80 pips < min 0.80 pips
+2025-12-22 17:34:52 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 301.2% of avg range > max 30.0%
+2025-12-22 17:38:28 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 243.7% of avg range > max 30.0%
+2025-12-22 17:40:15 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 235.8% of avg range > max 30.0%
+2025-12-22 17:42:04 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.4% of avg range > max 30.0%
+2025-12-22 17:43:50 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.4% of avg range > max 30.0%
+2025-12-22 17:45:36 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 221.2% of avg range > max 30.0%
+2025-12-22 17:47:22 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 238.8% of avg range > max 30.0%
+2025-12-22 17:49:09 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 236.5% of avg range > max 30.0%
+2025-12-22 17:50:56 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 237.6% of avg range > max 30.0%
+2025-12-22 17:52:43 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 224.3% of avg range > max 30.0%
+2025-12-22 17:54:30 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 229.7% of avg range > max 30.0%
+2025-12-22 17:56:17 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 271.7% of avg range > max 30.0%
+2025-12-22 17:59:52 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:40 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 285.7% of avg range > max 30.0%
+2025-12-22 18:08:48 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 294.5% of avg range > max 30.0%
+2025-12-22 18:10:34 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 289.2% of avg range > max 30.0%
+2025-12-22 18:12:22 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.75 pips < min 0.80 pips
+2025-12-22 18:14:09 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.72 pips < min 0.80 pips
+2025-12-22 18:15:56 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.73 pips < min 0.80 pips
+2025-12-22 18:17:44 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.69 pips < min 0.80 pips
+2025-12-22 18:19:30 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.68 pips < min 0.80 pips
+2025-12-22 18:21:17 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.65 pips < min 0.80 pips
+2025-12-22 18:23:05 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.63 pips < min 0.80 pips
+2025-12-22 18:24:49 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.59 pips < min 0.80 pips
+2025-12-22 18:26:35 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.60 pips < min 0.80 pips
+2025-12-22 18:31:25 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.69 pips < min 0.80 pips
+2025-12-22 18:36:10 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
+2025-12-22 18:40:57 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.70 pips < min 0.80 pips
+2025-12-22 18:45:42 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.73 pips < min 0.80 pips
+2025-12-22 18:50:46 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 259.5% of avg range > max 30.0%
+2025-12-22 18:55:33 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.2% of avg range > max 30.0%
+2025-12-22 18:59:50 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 19:04:35 - trades.ABBVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 231.5% of avg range > max 30.0%

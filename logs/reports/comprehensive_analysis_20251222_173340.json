@@ -1,0 +1,64 @@
+{
+  "report_timestamp": "2025-12-22T17:33:40.912835",
+  "session_duration_minutes": 5.099492616666667,
+  "active_positions": {
+    "total": 2,
+    "positions": [
+      {
+        "ticket": 553397346,
+        "symbol": "US30m",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 48435.3,
+        "current_price": 48447.6,
+        "profit": -0.12,
+        "time_open": "2025-12-22 17:29:23"
+      },
+      {
+        "ticket": 553397522,
+        "symbol": "US30_x10m",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 48435.600000000006,
+        "current_price": 48447.6,
+        "profit": -1.2,
+        "time_open": "2025-12-22 17:29:24"
+      }
+    ],
+    "lot_size_issues": [],
+    "symbols": {
+      "US30m": 1,
+      "US30_x10m": 1
+    },
+    "total_profit": -1.3199999999999998
+  },
+  "trade_statistics": {
+    "total_trades": 0,
+    "closed_trades": 0,
+    "open_trades": 0
+  },
+  "micro_hft_performance": {
+    "capture_rate": 0.0,
+    "total_closures": 0,
+    "sweet_spot_closures": 0,
+    "missed_sweet_spot": 0,
+    "status": "No closures yet"
+  },
+  "filter_effectiveness": {
+    "statistics": {
+      "other_rejected": 255,
+      "trend_strength_rejected": 109,
+      "lot_size_rejected": 14,
+      "volume_rejected": 46,
+      "rsi_rejected": 20,
+      "opportunities_found": 5
+    },
+    "last_scan_time": "2025-12-22T17:33:40.886759"
+  },
+  "lot_size_compliance": {
+    "violations": [],
+    "max_lot_size": 0.03
+  },
+  "errors_detected": [],
+  "recommendations": []
+}

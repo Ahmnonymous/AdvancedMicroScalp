@@ -1,0 +1,18 @@
+2025-12-22 17:28:41 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 169.8% of avg range > max 30.0%
+2025-12-22 17:45:30 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.7% of avg range > max 30.0%
+2025-12-22 17:47:17 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 171.9% of avg range > max 30.0%
+2025-12-22 17:49:04 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 181.2% of avg range > max 30.0%
+2025-12-22 17:50:50 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 188.0% of avg range > max 30.0%
+2025-12-22 17:54:24 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 199.9% of avg range > max 30.0%
+2025-12-22 17:56:11 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 208.9% of avg range > max 30.0%
+2025-12-22 17:57:58 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 202.6% of avg range > max 30.0%
+2025-12-22 17:59:46 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:34 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 198.9% of avg range > max 30.0%
+2025-12-22 18:03:21 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 193.1% of avg range > max 30.0%
+2025-12-22 18:05:08 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 191.4% of avg range > max 30.0%
+2025-12-22 18:06:55 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 185.8% of avg range > max 30.0%
+2025-12-22 18:39:56 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 162.7% of avg range > max 30.0%
+2025-12-22 18:44:37 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 172.1% of avg range > max 30.0%
+2025-12-22 18:49:42 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.2% of avg range > max 30.0%
+2025-12-22 19:03:32 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 299.8% of avg range > max 30.0%
+2025-12-22 19:08:15 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 251.0% of avg range > max 30.0%

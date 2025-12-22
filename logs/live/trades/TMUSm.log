@@ -1,0 +1,37 @@
+2025-12-22 17:31:09 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 216.9% of avg range > max 30.0%
+2025-12-22 17:33:03 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.77 pips < min 0.80 pips
+2025-12-22 17:34:51 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.76 pips < min 0.80 pips
+2025-12-22 17:36:40 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.78 pips < min 0.80 pips
+2025-12-22 17:38:27 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.80 pips < min 0.80 pips
+2025-12-22 17:40:14 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 196.7% of avg range > max 30.0%
+2025-12-22 17:42:03 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 198.9% of avg range > max 30.0%
+2025-12-22 17:43:49 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 218.2% of avg range > max 30.0%
+2025-12-22 17:45:35 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.78 pips < min 0.80 pips
+2025-12-22 17:47:22 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.80 pips < min 0.80 pips
+2025-12-22 17:49:08 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 216.9% of avg range > max 30.0%
+2025-12-22 17:50:55 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 218.2% of avg range > max 30.0%
+2025-12-22 17:52:42 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 216.9% of avg range > max 30.0%
+2025-12-22 17:54:29 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.79 pips < min 0.80 pips
+2025-12-22 17:56:15 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 223.6% of avg range > max 30.0%
+2025-12-22 17:58:03 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 225.0% of avg range > max 30.0%
+2025-12-22 17:59:50 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:38 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
+2025-12-22 18:03:26 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.70 pips < min 0.80 pips
+2025-12-22 18:05:12 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.68 pips < min 0.80 pips
+2025-12-22 18:06:59 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.73 pips < min 0.80 pips
+2025-12-22 18:08:46 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.75 pips < min 0.80 pips
+2025-12-22 18:14:08 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 198.8% of avg range > max 30.0%
+2025-12-22 18:15:55 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 188.9% of avg range > max 30.0%
+2025-12-22 18:17:43 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 201.2% of avg range > max 30.0%
+2025-12-22 18:19:30 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 198.8% of avg range > max 30.0%
+2025-12-22 18:21:16 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.1% of avg range > max 30.0%
+2025-12-22 18:23:03 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 211.2% of avg range > max 30.0%
+2025-12-22 18:24:49 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 193.9% of avg range > max 30.0%
+2025-12-22 18:26:34 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.80 pips < min 0.80 pips
+2025-12-22 18:28:20 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.79 pips < min 0.80 pips
+2025-12-22 18:31:12 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.79 pips < min 0.80 pips
+2025-12-22 18:35:57 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.74 pips < min 0.80 pips
+2025-12-22 18:40:48 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.74 pips < min 0.80 pips
+2025-12-22 18:45:30 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 196.3% of avg range > max 30.0%
+2025-12-22 18:55:15 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.74 pips < min 0.80 pips
+2025-12-22 18:59:29 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked

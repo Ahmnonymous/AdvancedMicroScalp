@@ -1,0 +1,7 @@
+2025-12-22 17:31:22 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1573.1% of avg range > max 30.0%
+2025-12-22 17:33:12 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1699.1% of avg range > max 30.0%
+2025-12-22 17:58:12 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1529.8% of avg range > max 30.0%
+2025-12-22 18:00:00 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-22 18:01:47 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1459.7% of avg range > max 30.0%
+2025-12-22 19:05:53 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2156.6% of avg range > max 30.0%
+2025-12-22 19:10:41 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2313.4% of avg range > max 30.0%

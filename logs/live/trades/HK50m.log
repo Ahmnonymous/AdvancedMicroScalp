@@ -1,0 +1,16 @@
+2025-12-22 17:31:04 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 421.7% of avg range > max 30.0%
+2025-12-22 17:32:58 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 407.2% of avg range > max 30.0%
+2025-12-22 17:34:48 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 404.4% of avg range > max 30.0%
+2025-12-22 17:36:36 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 407.7% of avg range > max 30.0%
+2025-12-22 17:54:25 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 425.9% of avg range > max 30.0%
+2025-12-22 17:56:11 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 417.5% of avg range > max 30.0%
+2025-12-22 17:57:58 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 418.1% of avg range > max 30.0%
+2025-12-22 17:59:47 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:34 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 406.0% of avg range > max 30.0%
+2025-12-22 18:39:59 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 433.4% of avg range > max 30.0%
+2025-12-22 18:44:43 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 408.8% of avg range > max 30.0%
+2025-12-22 18:49:46 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 428.4% of avg range > max 30.0%
+2025-12-22 18:54:34 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 513.9% of avg range > max 30.0%
+2025-12-22 18:58:53 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 540.1% of avg range > max 30.0%
+2025-12-22 19:04:23 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1597.1% of avg range > max 30.0%
+2025-12-22 19:08:59 - trades.HK50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1792.3% of avg range > max 30.0%

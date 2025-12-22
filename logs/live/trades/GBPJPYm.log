@@ -1,0 +1,10 @@
+2025-12-22 17:33:05 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 84.6% of avg range > max 30.0%
+2025-12-22 18:10:34 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.2% of avg range > max 30.0%
+2025-12-22 18:12:21 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.0% of avg range > max 30.0%
+2025-12-22 18:14:09 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 92.4% of avg range > max 30.0%
+2025-12-22 18:15:56 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.0% of avg range > max 30.0%
+2025-12-22 18:17:43 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.4% of avg range > max 30.0%
+2025-12-22 18:19:30 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.4% of avg range > max 30.0%
+2025-12-22 18:21:17 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 110.0% of avg range > max 30.0%
+2025-12-22 18:23:04 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 117.6% of avg range > max 30.0%
+2025-12-22 18:24:49 - trades.GBPJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 118.3% of avg range > max 30.0%

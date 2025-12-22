@@ -1,0 +1,2 @@
+2025-12-22 18:07:06 - trades.EDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.80 pips
+2025-12-22 18:08:53 - trades.EDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.80 pips

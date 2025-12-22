@@ -1,0 +1,37 @@
+2025-12-22 17:29:05 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 230.2% of avg range > max 30.0%
+2025-12-22 17:31:14 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 237.0% of avg range > max 30.0%
+2025-12-22 17:33:06 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.5% of avg range > max 30.0%
+2025-12-22 17:34:54 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 248.1% of avg range > max 30.0%
+2025-12-22 17:36:43 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 266.7% of avg range > max 30.0%
+2025-12-22 17:45:37 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 229.4% of avg range > max 30.0%
+2025-12-22 17:47:24 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 234.4% of avg range > max 30.0%
+2025-12-22 17:49:11 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 249.0% of avg range > max 30.0%
+2025-12-22 17:50:57 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 249.0% of avg range > max 30.0%
+2025-12-22 17:52:45 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 231.9% of avg range > max 30.0%
+2025-12-22 17:54:32 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 227.8% of avg range > max 30.0%
+2025-12-22 17:56:18 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 227.8% of avg range > max 30.0%
+2025-12-22 17:58:06 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 228.6% of avg range > max 30.0%
+2025-12-22 17:59:54 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:42 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 244.3% of avg range > max 30.0%
+2025-12-22 18:03:29 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 264.5% of avg range > max 30.0%
+2025-12-22 18:05:15 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 320.0% of avg range > max 30.0%
+2025-12-22 18:07:03 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 342.2% of avg range > max 30.0%
+2025-12-22 18:08:49 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 355.6% of avg range > max 30.0%
+2025-12-22 18:10:36 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 323.2% of avg range > max 30.0%
+2025-12-22 18:12:23 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 328.2% of avg range > max 30.0%
+2025-12-22 18:14:11 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 328.2% of avg range > max 30.0%
+2025-12-22 18:15:58 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 316.8% of avg range > max 30.0%
+2025-12-22 18:17:46 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 283.2% of avg range > max 30.0%
+2025-12-22 18:19:32 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 284.4% of avg range > max 30.0%
+2025-12-22 18:21:19 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 256.0% of avg range > max 30.0%
+2025-12-22 18:26:36 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 235.3% of avg range > max 30.0%
+2025-12-22 18:28:23 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 214.8% of avg range > max 30.0%
+2025-12-22 18:31:50 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 216.9% of avg range > max 30.0%
+2025-12-22 18:36:37 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 248.1% of avg range > max 30.0%
+2025-12-22 18:41:22 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.9% of avg range > max 30.0%
+2025-12-22 18:46:10 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 309.2% of avg range > max 30.0%
+2025-12-22 18:51:15 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 390.2% of avg range > max 30.0%
+2025-12-22 18:55:47 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 351.6% of avg range > max 30.0%
+2025-12-22 19:00:11 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-22 19:04:55 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 342.2% of avg range > max 30.0%
+2025-12-22 19:09:35 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 321.6% of avg range > max 30.0%

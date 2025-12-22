@@ -1,0 +1,10 @@
+2025-12-22 17:58:02 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.41 pips < min 0.80 pips
+2025-12-22 17:59:50 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:38 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.52 pips < min 0.80 pips
+2025-12-22 18:03:25 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.56 pips < min 0.80 pips
+2025-12-22 18:05:12 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.62 pips < min 0.80 pips
+2025-12-22 18:06:58 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.62 pips < min 0.80 pips
+2025-12-22 18:08:46 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.63 pips < min 0.80 pips
+2025-12-22 18:10:33 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.63 pips < min 0.80 pips
+2025-12-22 18:31:09 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips
+2025-12-22 18:35:54 - trades.NZDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips

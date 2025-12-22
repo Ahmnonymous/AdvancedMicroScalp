@@ -1,0 +1,8 @@
+2025-12-22 18:24:46 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-22 18:26:30 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.47 pips < min 0.80 pips
+2025-12-22 18:28:17 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-22 18:30:33 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.48 pips < min 0.80 pips
+2025-12-22 18:35:13 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.48 pips < min 0.80 pips
+2025-12-22 18:40:03 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-22 19:03:41 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.56 pips < min 0.80 pips
+2025-12-22 19:08:19 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.54 pips < min 0.80 pips

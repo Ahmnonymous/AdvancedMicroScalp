@@ -1,0 +1,30 @@
+2025-12-22 17:31:13 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 307.7% of avg range > max 30.0%
+2025-12-22 17:33:06 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 304.6% of avg range > max 30.0%
+2025-12-22 17:34:54 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 317.5% of avg range > max 30.0%
+2025-12-22 17:36:43 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.77 pips < min 0.80 pips
+2025-12-22 17:38:30 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 360.2% of avg range > max 30.0%
+2025-12-22 17:40:16 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 355.8% of avg range > max 30.0%
+2025-12-22 17:42:05 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 324.0% of avg range > max 30.0%
+2025-12-22 17:43:51 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 303.7% of avg range > max 30.0%
+2025-12-22 17:45:37 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 315.8% of avg range > max 30.0%
+2025-12-22 17:47:24 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.9% of avg range > max 30.0%
+2025-12-22 17:49:11 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 219.9% of avg range > max 30.0%
+2025-12-22 17:50:57 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 203.9% of avg range > max 30.0%
+2025-12-22 17:52:44 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 190.2% of avg range > max 30.0%
+2025-12-22 17:54:31 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 177.0% of avg range > max 30.0%
+2025-12-22 17:56:18 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 172.4% of avg range > max 30.0%
+2025-12-22 17:58:06 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.9% of avg range > max 30.0%
+2025-12-22 17:59:53 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:05:15 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 207.9% of avg range > max 30.0%
+2025-12-22 18:07:02 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 242.7% of avg range > max 30.0%
+2025-12-22 18:08:49 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 272.7% of avg range > max 30.0%
+2025-12-22 18:10:36 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 231.3% of avg range > max 30.0%
+2025-12-22 18:12:23 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 233.1% of avg range > max 30.0%
+2025-12-22 18:14:11 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 219.9% of avg range > max 30.0%
+2025-12-22 18:15:58 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 217.5% of avg range > max 30.0%
+2025-12-22 18:21:19 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 184.0% of avg range > max 30.0%
+2025-12-22 18:31:42 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 195.4% of avg range > max 30.0%
+2025-12-22 18:45:58 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 242.9% of avg range > max 30.0%
+2025-12-22 18:51:07 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 259.7% of avg range > max 30.0%
+2025-12-22 18:55:44 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 258.9% of avg range > max 30.0%
+2025-12-22 19:00:07 - trades.CHTRm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked

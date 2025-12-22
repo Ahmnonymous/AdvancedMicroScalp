@@ -1,0 +1,16 @@
+2025-12-22 17:28:41 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 373.8% of avg range > max 30.0%
+2025-12-22 17:32:58 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 357.9% of avg range > max 30.0%
+2025-12-22 17:34:47 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 337.3% of avg range > max 30.0%
+2025-12-22 17:36:36 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 340.3% of avg range > max 30.0%
+2025-12-22 17:38:23 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 340.3% of avg range > max 30.0%
+2025-12-22 17:40:10 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 357.9% of avg range > max 30.0%
+2025-12-22 17:41:57 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 340.1% of avg range > max 30.0%
+2025-12-22 18:01:34 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 419.4% of avg range > max 30.0%
+2025-12-22 18:03:21 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 451.3% of avg range > max 30.0%
+2025-12-22 18:05:08 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 451.3% of avg range > max 30.0%
+2025-12-22 18:08:42 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 423.6% of avg range > max 30.0%
+2025-12-22 18:14:04 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 451.3% of avg range > max 30.0%
+2025-12-22 18:17:38 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 329.0% of avg range > max 30.0%
+2025-12-22 18:19:25 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 348.3% of avg range > max 30.0%
+2025-12-22 18:21:12 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 348.3% of avg range > max 30.0%
+2025-12-22 18:22:58 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 366.8% of avg range > max 30.0%

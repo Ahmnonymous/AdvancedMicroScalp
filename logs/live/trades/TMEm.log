@@ -1,0 +1,3 @@
+2025-12-22 17:31:04 - trades.TMEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.80 pips
+2025-12-22 18:01:35 - trades.TMEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.80 pips
+2025-12-22 18:03:22 - trades.TMEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.80 pips

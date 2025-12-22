@@ -1,0 +1,35 @@
+2025-12-22 17:31:17 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1012.3% of avg range > max 30.0%
+2025-12-22 17:36:45 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 543.1% of avg range > max 30.0%
+2025-12-22 17:45:39 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 486.1% of avg range > max 30.0%
+2025-12-22 17:47:26 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 457.7% of avg range > max 30.0%
+2025-12-22 17:49:13 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 475.0% of avg range > max 30.0%
+2025-12-22 17:50:59 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 447.3% of avg range > max 30.0%
+2025-12-22 17:52:46 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 490.5% of avg range > max 30.0%
+2025-12-22 17:54:33 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 481.7% of avg range > max 30.0%
+2025-12-22 17:56:20 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 583.8% of avg range > max 30.0%
+2025-12-22 17:58:08 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 583.5% of avg range > max 30.0%
+2025-12-22 17:59:55 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:43 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 597.6% of avg range > max 30.0%
+2025-12-22 18:03:30 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 679.2% of avg range > max 30.0%
+2025-12-22 18:05:17 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 649.9% of avg range > max 30.0%
+2025-12-22 18:07:04 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 629.0% of avg range > max 30.0%
+2025-12-22 18:08:51 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 614.0% of avg range > max 30.0%
+2025-12-22 18:10:38 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 669.0% of avg range > max 30.0%
+2025-12-22 18:12:25 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 810.0% of avg range > max 30.0%
+2025-12-22 18:14:13 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 791.7% of avg range > max 30.0%
+2025-12-22 18:16:00 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 841.1% of avg range > max 30.0%
+2025-12-22 18:17:47 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 825.0% of avg range > max 30.0%
+2025-12-22 18:19:34 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 897.0% of avg range > max 30.0%
+2025-12-22 18:21:21 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 974.9% of avg range > max 30.0%
+2025-12-22 18:23:08 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 950.3% of avg range > max 30.0%
+2025-12-22 18:24:52 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 935.5% of avg range > max 30.0%
+2025-12-22 18:26:38 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 928.7% of avg range > max 30.0%
+2025-12-22 18:28:25 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 933.2% of avg range > max 30.0%
+2025-12-22 18:32:05 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 880.4% of avg range > max 30.0%
+2025-12-22 18:36:58 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1047.5% of avg range > max 30.0%
+2025-12-22 18:41:35 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1157.2% of avg range > max 30.0%
+2025-12-22 18:46:22 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1178.3% of avg range > max 30.0%
+2025-12-22 18:51:28 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1203.1% of avg range > max 30.0%
+2025-12-22 19:00:31 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-22 19:05:16 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1091.9% of avg range > max 30.0%
+2025-12-22 19:09:55 - trades.XPTUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 867.3% of avg range > max 30.0%

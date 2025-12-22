@@ -1,0 +1,6 @@
+2025-12-22 18:26:30 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips
+2025-12-22 18:28:17 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips
+2025-12-22 18:30:36 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.42 pips < min 0.80 pips
+2025-12-22 18:35:16 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.43 pips < min 0.80 pips
+2025-12-22 18:40:08 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.45 pips < min 0.80 pips
+2025-12-22 18:44:53 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.46 pips < min 0.80 pips

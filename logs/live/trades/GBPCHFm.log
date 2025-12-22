@@ -1,0 +1,18 @@
+2025-12-22 17:54:30 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 250.0% of avg range > max 30.0%
+2025-12-22 17:56:17 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 259.5% of avg range > max 30.0%
+2025-12-22 17:58:05 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 246.2% of avg range > max 30.0%
+2025-12-22 17:59:52 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:40 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 259.5% of avg range > max 30.0%
+2025-12-22 18:03:27 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 255.3% of avg range > max 30.0%
+2025-12-22 18:05:14 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 258.1% of avg range > max 30.0%
+2025-12-22 18:07:01 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 271.2% of avg range > max 30.0%
+2025-12-22 18:08:48 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 263.7% of avg range > max 30.0%
+2025-12-22 18:10:35 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 260.9% of avg range > max 30.0%
+2025-12-22 18:12:22 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 266.7% of avg range > max 30.0%
+2025-12-22 18:14:10 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 260.9% of avg range > max 30.0%
+2025-12-22 18:15:57 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 262.3% of avg range > max 30.0%
+2025-12-22 18:17:44 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 258.1% of avg range > max 30.0%
+2025-12-22 18:19:31 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.2% of avg range > max 30.0%
+2025-12-22 18:21:18 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 285.7% of avg range > max 30.0%
+2025-12-22 18:23:05 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.78 pips < min 0.80 pips
+2025-12-22 18:24:50 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.78 pips < min 0.80 pips

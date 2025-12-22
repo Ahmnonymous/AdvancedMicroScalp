@@ -1,0 +1,37 @@
+2025-12-22 17:29:16 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 30.8% of avg range > max 30.0%
+2025-12-22 17:33:10 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 33.8% of avg range > max 30.0%
+2025-12-22 17:34:59 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 33.5% of avg range > max 30.0%
+2025-12-22 17:36:48 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 35.3% of avg range > max 30.0%
+2025-12-22 17:38:34 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 37.1% of avg range > max 30.0%
+2025-12-22 17:40:21 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.6% of avg range > max 30.0%
+2025-12-22 17:42:09 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.5% of avg range > max 30.0%
+2025-12-22 17:43:55 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38.9% of avg range > max 30.0%
+2025-12-22 17:45:42 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 37.5% of avg range > max 30.0%
+2025-12-22 17:47:29 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.2% of avg range > max 30.0%
+2025-12-22 17:49:15 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 35.6% of avg range > max 30.0%
+2025-12-22 17:51:02 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 35.2% of avg range > max 30.0%
+2025-12-22 17:52:48 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.9% of avg range > max 30.0%
+2025-12-22 17:54:35 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.3% of avg range > max 30.0%
+2025-12-22 17:56:22 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 35.7% of avg range > max 30.0%
+2025-12-22 17:58:10 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.9% of avg range > max 30.0%
+2025-12-22 17:59:58 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:46 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.3% of avg range > max 30.0%
+2025-12-22 18:03:32 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 41.7% of avg range > max 30.0%
+2025-12-22 18:05:19 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 43.2% of avg range > max 30.0%
+2025-12-22 18:07:07 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 45.2% of avg range > max 30.0%
+2025-12-22 18:08:54 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 46.7% of avg range > max 30.0%
+2025-12-22 18:10:40 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 49.9% of avg range > max 30.0%
+2025-12-22 18:12:27 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 43.7% of avg range > max 30.0%
+2025-12-22 18:14:15 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 45.2% of avg range > max 30.0%
+2025-12-22 18:16:03 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 44.8% of avg range > max 30.0%
+2025-12-22 18:17:49 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 44.4% of avg range > max 30.0%
+2025-12-22 18:19:36 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.7% of avg range > max 30.0%
+2025-12-22 18:21:23 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 39.3% of avg range > max 30.0%
+2025-12-22 18:23:10 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 37.6% of avg range > max 30.0%
+2025-12-22 18:24:54 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.1% of avg range > max 30.0%
+2025-12-22 18:26:41 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 36.4% of avg range > max 30.0%
+2025-12-22 18:28:28 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 35.7% of avg range > max 30.0%
+2025-12-22 18:42:10 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 44.6% of avg range > max 30.0%
+2025-12-22 18:46:56 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 48.2% of avg range > max 30.0%
+2025-12-22 18:51:58 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 48.1% of avg range > max 30.0%
+2025-12-22 19:00:54 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked

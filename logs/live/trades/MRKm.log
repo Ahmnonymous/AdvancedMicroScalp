@@ -1,0 +1,33 @@
+2025-12-22 17:33:01 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.72 pips < min 0.80 pips
+2025-12-22 17:34:50 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.72 pips < min 0.80 pips
+2025-12-22 17:36:38 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.78 pips < min 0.80 pips
+2025-12-22 17:50:53 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.75 pips < min 0.80 pips
+2025-12-22 17:52:40 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.69 pips < min 0.80 pips
+2025-12-22 17:54:27 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.69 pips < min 0.80 pips
+2025-12-22 17:56:13 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.65 pips < min 0.80 pips
+2025-12-22 17:58:00 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.67 pips < min 0.80 pips
+2025-12-22 17:59:48 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 18:01:35 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-22 18:03:23 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.76 pips < min 0.80 pips
+2025-12-22 18:05:10 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.77 pips < min 0.80 pips
+2025-12-22 18:06:57 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.74 pips < min 0.80 pips
+2025-12-22 18:08:44 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.72 pips < min 0.80 pips
+2025-12-22 18:10:30 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.70 pips < min 0.80 pips
+2025-12-22 18:12:18 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.68 pips < min 0.80 pips
+2025-12-22 18:14:06 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
+2025-12-22 18:15:52 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
+2025-12-22 18:17:40 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.67 pips < min 0.80 pips
+2025-12-22 18:19:27 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.64 pips < min 0.80 pips
+2025-12-22 18:21:15 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
+2025-12-22 18:23:01 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.62 pips < min 0.80 pips
+2025-12-22 18:24:47 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.57 pips < min 0.80 pips
+2025-12-22 18:26:31 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.57 pips < min 0.80 pips
+2025-12-22 18:28:18 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.53 pips < min 0.80 pips
+2025-12-22 18:30:48 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.55 pips < min 0.80 pips
+2025-12-22 18:35:35 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.59 pips < min 0.80 pips
+2025-12-22 18:40:22 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.45 pips < min 0.80 pips
+2025-12-22 18:45:06 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.43 pips < min 0.80 pips
+2025-12-22 18:50:09 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.48 pips < min 0.80 pips
+2025-12-22 18:54:57 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.60 pips < min 0.80 pips
+2025-12-22 18:59:13 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 19:04:03 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.78 pips < min 0.80 pips

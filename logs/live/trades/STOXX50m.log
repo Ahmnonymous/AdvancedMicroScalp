@@ -1,0 +1,16 @@
+2025-12-22 17:28:41 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 205.5% of avg range > max 30.0%
+2025-12-22 17:31:01 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 219.1% of avg range > max 30.0%
+2025-12-22 17:50:51 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 223.1% of avg range > max 30.0%
+2025-12-22 18:03:21 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 233.5% of avg range > max 30.0%
+2025-12-22 18:06:55 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 233.8% of avg range > max 30.0%
+2025-12-22 18:12:16 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 304.8% of avg range > max 30.0%
+2025-12-22 18:14:04 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 292.3% of avg range > max 30.0%
+2025-12-22 18:15:51 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 308.6% of avg range > max 30.0%
+2025-12-22 18:17:38 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 240.8% of avg range > max 30.0%
+2025-12-22 18:19:25 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 258.7% of avg range > max 30.0%
+2025-12-22 18:21:12 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 261.8% of avg range > max 30.0%
+2025-12-22 18:22:58 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 261.8% of avg range > max 30.0%
+2025-12-22 18:24:45 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 228.9% of avg range > max 30.0%
+2025-12-22 18:28:16 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.1% of avg range > max 30.0%
+2025-12-22 18:30:24 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.1% of avg range > max 30.0%
+2025-12-22 18:35:05 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 174.4% of avg range > max 30.0%
