@@ -1,3 +1,0 @@
-2025-12-22 17:29:15 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1150.4% of avg range > max 30.0%
-2025-12-22 18:37:17 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2114.0% of avg range > max 30.0%
-2025-12-22 18:42:03 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2025.2% of avg range > max 30.0%

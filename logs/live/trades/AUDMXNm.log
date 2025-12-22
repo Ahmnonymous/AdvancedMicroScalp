@@ -1,9 +1,0 @@
-2025-12-22 17:31:20 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 749.5% of avg range > max 30.0%
-2025-12-22 18:17:50 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 714.3% of avg range > max 30.0%
-2025-12-22 18:19:37 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 666.9% of avg range > max 30.0%
-2025-12-22 18:21:23 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 630.2% of avg range > max 30.0%
-2025-12-22 18:23:10 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 616.5% of avg range > max 30.0%
-2025-12-22 18:24:55 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 620.3% of avg range > max 30.0%
-2025-12-22 18:26:41 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 599.1% of avg range > max 30.0%
-2025-12-22 18:28:28 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 543.7% of avg range > max 30.0%
-2025-12-22 18:32:36 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 634.7% of avg range > max 30.0%

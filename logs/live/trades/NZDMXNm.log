@@ -1,5 +1,0 @@
-2025-12-22 17:29:17 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 732.6% of avg range > max 30.0%
-2025-12-22 17:31:20 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 866.5% of avg range > max 30.0%
-2025-12-22 17:33:11 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 712.9% of avg range > max 30.0%
-2025-12-22 17:34:59 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 688.3% of avg range > max 30.0%
-2025-12-22 17:36:48 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 691.5% of avg range > max 30.0%

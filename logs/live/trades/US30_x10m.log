@@ -1,3 +1,0 @@
-{"timestamp": "2025-12-22 17:35:04", "symbol": "US30_x10m", "trade_type": null, "entry_price": 48435.600000000006, "exit_price": 48434.8, "profit_usd": 0.08, "status": "CLOSED", "order_id": "553397522", "additional_info": {"duration_minutes": 5.666666666666667, "close_reason": "Small profit target or slippage", "commission": 0.0, "swap": 0.0}}
-2025-12-22 17:49:03 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 49.7% of avg < min 55.0%
-2025-12-22 18:19:24 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.2% of avg < min 55.0%

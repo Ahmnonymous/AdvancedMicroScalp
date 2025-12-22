@@ -165,23 +165,36 @@ def _run_heartbeat_cycle() -> None:
                 all_have_heartbeat and state.first_heartbeat_ts is not None
             )
 
-        # Log SYSTEM_READY once, when all critical threads are truly alive
+        # CRITICAL FIX: Reset trading block when all threads recover (not just on initial startup)
+        # This allows trading to resume automatically after thread recovery
         if (
             all_started
             and all_alive
             and all_have_heartbeat
-            and not _system_ready_logged
         ):
-            _system_ready_logged = True
-            _trading_blocked = False  # allow trading
-            _logger.info("[SYSTEM_READY] all_critical_threads_alive=true")
-            try:
-                _system_event_logger.systemEvent(
-                    "SYSTEM_READY",
-                    {"all_critical_threads_alive": True},
-                )
-            except Exception:  # pragma: no cover - defensive
-                pass
+            # If trading was blocked but all threads are now healthy, reset the block
+            if _trading_blocked:
+                _trading_blocked = False
+                _logger.info("[SYSTEM_RECOVERED] All critical threads recovered - trading unblocked")
+                try:
+                    _system_event_logger.systemEvent(
+                        "SYSTEM_READY",
+                        {"all_critical_threads_alive": True, "recovered": True},
+                    )
+                except Exception:  # pragma: no cover - defensive
+                    pass
+            
+            # Log SYSTEM_READY once, when all critical threads are truly alive
+            if not _system_ready_logged:
+                _system_ready_logged = True
+                _logger.info("[SYSTEM_READY] all_critical_threads_alive=true")
+                try:
+                    _system_event_logger.systemEvent(
+                        "SYSTEM_READY",
+                        {"all_critical_threads_alive": True},
+                    )
+                except Exception:  # pragma: no cover - defensive
+                    pass
 
 
 def register_critical_thread(
@@ -300,6 +313,23 @@ def is_trading_allowed() -> bool:
         if _trading_blocked:
             return False
         return is_system_ready()
+
+
+def reset_thread_dead_flag(name: str) -> None:
+    """
+    Reset the dead flag for a thread when it's been restarted.
+    This allows the system to recover after thread restarts.
+    """
+    if name not in _CRITICAL_THREADS:
+        return
+    
+    with _lock:
+        state = _thread_states[name]
+        if state.dead:
+            state.dead = False
+            _logger.info(f"[THREAD_RECOVERY] Reset dead flag for {name} - thread restarted")
+            # Note: _trading_blocked will be reset automatically by _run_heartbeat_cycle
+            # when all threads are detected as alive again
 
 
 def get_health_snapshot() -> Dict[str, Dict[str, object]]:

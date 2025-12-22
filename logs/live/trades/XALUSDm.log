@@ -1,5 +1,0 @@
-2025-12-22 17:28:55 - trades.XALUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3166.2% of avg range > max 30.0%
-2025-12-22 17:33:03 - trades.XALUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5282.1% of avg range > max 30.0%
-2025-12-22 17:58:03 - trades.XALUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4672.8% of avg range > max 30.0%
-2025-12-22 17:59:50 - trades.XALUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
-2025-12-22 18:01:41 - trades.XALUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7141.6% of avg range > max 30.0%

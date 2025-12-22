@@ -1,6 +1,0 @@
-2025-12-22 17:32:59 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.80 pips
-2025-12-22 17:40:11 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.80 pips
-2025-12-22 17:41:58 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.80 pips
-2025-12-22 17:43:45 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.80 pips
-2025-12-22 18:19:26 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.80 pips
-2025-12-22 18:54:37 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.80 pips

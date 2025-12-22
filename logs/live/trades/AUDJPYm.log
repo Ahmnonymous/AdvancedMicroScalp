@@ -1,6 +1,0 @@
-2025-12-22 17:28:57 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 147.3% of avg range > max 30.0%
-2025-12-22 17:33:03 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 166.7% of avg range > max 30.0%
-2025-12-22 17:34:52 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 168.9% of avg range > max 30.0%
-2025-12-22 18:28:21 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 204.3% of avg range > max 30.0%
-2025-12-22 18:31:17 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 207.7% of avg range > max 30.0%
-2025-12-22 18:36:03 - trades.AUDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 178.4% of avg range > max 30.0%

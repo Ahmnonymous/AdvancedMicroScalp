@@ -1,3 +1,0 @@
-2025-12-22 17:28:34 - sl_monitor - INFO - SL Realtime Monitor initialized
-2025-12-22 17:28:39 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
-2025-12-22 17:29:26 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 553397522 | Symbol: US30_x10m | Type: strict_loss_violation | SL violation: Effective SL $-inf worse than -$2.00 limit

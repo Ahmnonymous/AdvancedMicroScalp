@@ -3794,6 +3794,9 @@ class TradingBot:
                         print(f"\n[OK] All trades finished. Ready for new scan.")
                         logger.info("All trades finished - ready for new scan")
                 
+                # CRITICAL FIX: Check and restart dead critical threads before trading cycle
+                self._check_and_restart_dead_threads()
+                
                 # Run one trading cycle (only if not already scanning/executing in manual mode)
                 if not self.manual_approval_mode or not self.manual_trades_executing:
                     scheduler_logger.info("Starting trading cycle")
@@ -3868,6 +3871,79 @@ class TradingBot:
                 self.risk_manager.max_open_trades = original_max_trades
                 logger.info(f"Restored max_open_trades to {original_max_trades}")
             self.shutdown()
+    
+    def _check_and_restart_dead_threads(self):
+        """
+        Check for dead critical threads and automatically restart them.
+        This ensures the bot continues trading even if threads crash.
+        """
+        # Get health snapshot to check thread status
+        health_snapshot = system_health.get_health_snapshot()
+        
+        # Check SLWorker thread
+        sl_worker_health = health_snapshot.get("SLWorker", {})
+        if sl_worker_health.get("dead", False):
+            logger.warning("[THREAD_RECOVERY] SLWorker thread is dead - attempting restart...")
+            try:
+                # Check if SLManager exists and can restart
+                if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                    sl_manager = self.risk_manager.sl_manager
+                    # Check if thread is actually dead (not just marked dead)
+                    if hasattr(sl_manager, '_sl_worker_thread') and sl_manager._sl_worker_thread:
+                        if not sl_manager._sl_worker_thread.is_alive():
+                            logger.info("[THREAD_RECOVERY] SLWorker thread confirmed dead - restarting...")
+                            # Stop any stale worker state
+                            try:
+                                sl_manager.stop_sl_worker()
+                            except Exception:
+                                pass  # Ignore errors during cleanup
+                            # Restart the worker
+                            sl_manager.start_sl_worker()
+                            logger.info("[THREAD_RECOVERY] SLWorker thread restarted successfully")
+                            # Reset the dead flag in system health
+                            system_health.reset_thread_dead_flag("SLWorker")
+                            # The system health monitor will detect the new thread on next heartbeat cycle
+                        else:
+                            # Thread is alive but marked dead - reset the dead flag
+                            logger.info("[THREAD_RECOVERY] SLWorker thread is alive but marked dead - resetting health state")
+                            system_health.reset_thread_dead_flag("SLWorker")
+                            # The heartbeat monitor will detect it's alive on next cycle
+                    else:
+                        # No thread reference - start it
+                        logger.info("[THREAD_RECOVERY] SLWorker thread missing - starting...")
+                        sl_manager.start_sl_worker()
+                        logger.info("[THREAD_RECOVERY] SLWorker thread started successfully")
+                        # Reset the dead flag in system health
+                        system_health.reset_thread_dead_flag("SLWorker")
+            except Exception as e:
+                logger.error(f"[THREAD_RECOVERY] Failed to restart SLWorker thread: {e}", exc_info=True)
+        
+        # Check other critical threads (TrailingStopMonitor, FastTrailingStopMonitor, PositionMonitor)
+        for thread_name in ["TrailingStopMonitor", "FastTrailingStopMonitor", "PositionMonitor"]:
+            thread_health = health_snapshot.get(thread_name, {})
+            if thread_health.get("dead", False):
+                logger.warning(f"[THREAD_RECOVERY] {thread_name} thread is dead - attempting restart...")
+                try:
+                    if thread_name == "TrailingStopMonitor":
+                        if not self.trailing_stop_running:
+                            logger.info(f"[THREAD_RECOVERY] Restarting {thread_name}...")
+                            self.start_continuous_trailing_stop()
+                            logger.info(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            system_health.reset_thread_dead_flag(thread_name)
+                    elif thread_name == "FastTrailingStopMonitor":
+                        if not self.fast_trailing_running:
+                            logger.info(f"[THREAD_RECOVERY] Restarting {thread_name}...")
+                            self.start_continuous_trailing_stop()  # This starts both threads
+                            logger.info(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            system_health.reset_thread_dead_flag(thread_name)
+                    elif thread_name == "PositionMonitor":
+                        if not self.position_monitor_running:
+                            logger.info(f"[THREAD_RECOVERY] Restarting {thread_name}...")
+                            self.start_position_monitor()
+                            logger.info(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            system_health.reset_thread_dead_flag(thread_name)
+                except Exception as e:
+                    logger.error(f"[THREAD_RECOVERY] Failed to restart {thread_name}: {e}", exc_info=True)
     
     def shutdown(self):
         """Shutdown the bot gracefully."""
