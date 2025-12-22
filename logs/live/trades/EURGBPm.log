@@ -1,0 +1,10 @@
+2025-12-22 08:34:48 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.79 pips < min 0.80 pips
+2025-12-22 08:38:18 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 173.9% of avg range > max 30.0%
+2025-12-22 08:41:32 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.7% of avg range > max 30.0%
+2025-12-22 08:44:49 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 173.9% of avg range > max 30.0%
+2025-12-22 08:48:11 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 159.1% of avg range > max 30.0%
+2025-12-22 08:51:51 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 161.8% of avg range > max 30.0%
+2025-12-22 09:49:11 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.79 pips < min 0.80 pips
+2025-12-22 09:52:56 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.70 pips < min 0.80 pips
+2025-12-22 09:56:32 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.79 pips < min 0.80 pips
+2025-12-22 10:00:13 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked

@@ -1,0 +1,14 @@
+2025-12-21 23:33:41 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 397.5% of avg range > max 30.0%
+2025-12-21 23:37:13 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 296.3% of avg range > max 30.0%
+2025-12-21 23:40:26 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 266.7% of avg range > max 30.0%
+2025-12-21 23:44:21 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 211.9% of avg range > max 30.0%
+2025-12-21 23:47:57 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 189.3% of avg range > max 30.0%
+2025-12-22 02:49:12 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 224.7% of avg range > max 30.0%
+2025-12-22 02:52:42 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 221.0% of avg range > max 30.0%
+2025-12-22 03:21:35 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 208.3% of avg range > max 30.0%
+2025-12-22 03:24:58 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 208.3% of avg range > max 30.0%
+2025-12-22 03:28:39 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 190.5% of avg range > max 30.0%
+2025-12-22 03:32:02 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 184.3% of avg range > max 30.0%
+2025-12-22 03:35:06 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 171.7% of avg range > max 30.0%
+2025-12-22 03:38:02 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 183.5% of avg range > max 30.0%
+2025-12-22 08:41:40 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.77 pips < min 0.80 pips

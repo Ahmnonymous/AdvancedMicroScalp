@@ -1,0 +1,531 @@
+2025-12-21 19:17:01 - system_events - INFO - [BOOT_TEST] {"message": "system_events logging verified"}
+2025-12-21 19:17:07 - system_events - INFO - [SYSTEM_READY] {"all_critical_threads_alive": true}
+2025-12-21 19:17:40 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:17:40.003659", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:19:16 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:19:16.782353", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:20:48 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:20:48.621465", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:22:20 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:22:20.775057", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:23:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:23:52.654690", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:25:24 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:25:24.415155", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:26:56 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:26:56.140322", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:28:28 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:28:28.408857", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:30:00 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:30:00.005716", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:31:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:31:32.606994", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:33:04 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:33:04.396135", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:34:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:34:36.002213", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:36:07 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:36:07.792388", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:37:40 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:37:40.214536", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:39:12 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:39:12.001057", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:40:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:40:44.326573", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:42:16 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:42:16.472790", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:43:48 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:43:48.304995", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:45:20 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:45:20.050087", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:46:51 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:46:51.923265", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:48:24 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:48:24.022599", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:49:55 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:49:55.896256", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:51:27 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:51:27.650292", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:52:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:52:59.872824", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:54:31 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:54:31.544611", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:56:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:56:03.816126", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:57:35 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:57:35.473022", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 19:59:07 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T19:59:07.732096", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:00:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:00:39.865029", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:02:11 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:02:11.462858", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:03:43 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:03:43.036733", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:05:14 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:05:14.727905", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:06:46 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:06:46.549758", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:08:18 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:08:18.877133", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:09:51 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:09:51.066741", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:11:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:11:22.937892", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:12:54 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:12:54.740715", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:14:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:14:26.496795", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:15:58 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:15:58.244005", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:17:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:17:29.968905", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:19:02 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:19:02.989003", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:20:34 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:20:34.732938", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:22:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:22:06.364926", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:23:38 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:23:38.001186", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:25:10 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:25:10.750801", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:26:42 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:26:42.905062", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:28:14 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:28:14.877914", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:29:46 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:29:46.585705", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:31:18 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:31:18.376924", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:32:50 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:32:50.866698", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:34:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:34:22.627488", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:35:54 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:35:54.437662", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:37:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:37:26.404232", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:38:58 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:38:58.223645", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:40:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:40:29.980188", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:42:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:42:03.887457", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:43:35 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:43:35.929296", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:45:07 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:45:07.487990", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:46:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:46:39.143300", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:48:11 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:48:11.231997", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:49:43 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:49:43.576657", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:51:15 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:51:15.437954", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:52:47 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:52:47.259775", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:54:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:54:19.919931", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:55:51 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:55:51.705045", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:57:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:57:23.486932", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 20:58:55 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T20:58:55.243872", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:00:27 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:00:27.354602", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:01:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:01:59.076931", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:03:30 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:03:30.826616", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:05:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:05:03.214976", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:06:34 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:06:34.937228", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:08:07 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:08:07.160539", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:09:38 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:09:38.872097", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:11:10 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:11:10.602086", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:12:42 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:12:42.245359", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:14:13 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:14:13.868118", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:15:45 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:15:45.562174", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:17:17 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:17:17.610124", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:18:49 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:18:49.359277", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:20:21 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:20:21.169950", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:21:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:21:52.934875", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:23:24 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:23:24.898478", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:24:56 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:24:56.610356", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:26:28 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:26:28.417777", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:28:00 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:28:00.539451", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:29:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:29:32.251647", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:31:04 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:31:04.575819", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:32:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:32:36.280006", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:34:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:34:08.050329", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:35:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:35:39.843481", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:37:11 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:37:11.602974", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:38:43 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:38:43.803080", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:40:15 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:40:15.431601", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:41:47 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:41:47.218338", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:43:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:43:19.895427", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:44:51 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:44:51.809540", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:46:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:46:23.494304", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:47:55 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:47:55.239046", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:49:27 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:49:27.200718", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:50:58 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:50:58.736088", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:52:30 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:52:30.504703", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:54:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:54:03.577345", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:55:35 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:55:35.901497", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:57:07 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:57:07.861350", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 21:58:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T21:58:39.587368", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:00:11 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:00:11.765456", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:01:43 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:01:43.522247", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:03:16 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:03:16.265901", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:04:48 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:04:48.055603", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:07:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:07:52.620208", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:10:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:10:03.172418", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:11:46 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:11:46.296650", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:13:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:13:23.148337", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:14:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:14:59.151869", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:16:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:16:36.489500", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:18:13 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:18:13.308577", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:19:50 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:19:50.246128", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:21:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:21:26.994164", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:23:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:23:03.743514", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:24:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:24:39.887643", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:26:16 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:26:16.519133", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:27:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:27:52.425623", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:29:28 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:29:28.215685", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:31:05 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:31:05.482204", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:32:41 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:32:41.477165", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:34:17 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:34:17.806144", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:35:54 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:35:54.285546", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:37:30 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:37:30.708039", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:39:07 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:39:07.849772", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:40:43 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:40:43.760033", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:42:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:42:19.632899", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:43:54 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:43:54.946946", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:45:30 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:45:30.772183", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:47:07 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:47:07.224640", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:48:43 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:48:43.222922", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:50:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:50:19.579157", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:51:56 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:51:56.444057", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:53:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:53:32.954479", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:55:10 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:55:10.094850", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:56:48 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:56:48.528981", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 22:58:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T22:58:26.966993", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 23:00:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:00:08.222221", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 23:02:01 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:02:01.795837", "openTrades": 0, "equity": 10000.0, "balance": 10000.0}
+2025-12-21 23:03:45 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:03:45.047920", "openTrades": 1, "equity": 9999.79, "balance": 10000.0}
+2025-12-21 23:05:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:05:32.831839", "openTrades": 2, "equity": 9999.71, "balance": 10000.0}
+2025-12-21 23:05:32 - system_events - WARNING - Invalid system event tag: PROFIT_ZONE_ENTERED
+2025-12-21 23:05:36 - system_events - WARNING - Invalid system event tag: LOCK_FAILED
+2025-12-21 23:06:00 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 545811548, "symbol": "XAUUSDm", "old_sl": 4342.935, "new_sl": 4340.8150000000005, "profit": 2.38, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 394.0870761871338}
+2025-12-21 23:07:16 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:07:16.531476", "openTrades": 2, "equity": 10001.68, "balance": 10001.9}
+2025-12-21 23:07:19 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 545821035, "symbol": "XAUUSDm", "old_sl": 4340.406, "new_sl": 4340.818, "profit": 0.37, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 235.78691482543945}
+2025-12-21 23:09:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:09:03.697237", "openTrades": 0, "equity": 10002.08, "balance": 10002.08}
+2025-12-21 23:10:48 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:10:48.863074", "openTrades": 0, "equity": 10002.08, "balance": 10002.08}
+2025-12-21 23:12:31 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:12:31.991920", "openTrades": 1, "equity": 10001.86, "balance": 10002.08}
+2025-12-21 23:12:40 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 545839416, "symbol": "XAUUSDm", "error": "Lock acquisition timeout (3000ms)", "reason": "Lock timeout", "profit": 0.02, "is_profit_locking": true}
+2025-12-21 23:12:41 - system_events - INFO - [SL_UPDATE_FAILED] {"ticket": 545839416, "symbol": "XAUUSDm", "error": "Lock acquisition timeout (1500ms)", "reason": "Lock timeout", "profit": 0.0, "is_profit_locking": false}
+2025-12-21 23:12:46 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 545839416, "symbol": "XAUUSDm", "old_sl": 0.0, "new_sl": 4344.677, "profit": 0.29, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 237.7161979675293}
+2025-12-21 23:16:10 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:16:10.539598", "openTrades": 0, "equity": 10002.36, "balance": 10002.36}
+2025-12-21 23:19:42 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:19:42.134885", "openTrades": 0, "equity": 10002.36, "balance": 10002.36}
+2025-12-21 23:23:31 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "thread_name": "SLWorker", "thread_id": "unknown", "reason": "heartbeat_detected_dead"}
+2025-12-21 23:23:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:23:32.373422", "openTrades": 3, "equity": 10001.97, "balance": 10002.36}
+2025-12-21 23:23:41 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 545887599, "symbol": "US30_x10m", "old_sl": 0.0, "new_sl": 48262.0, "profit": 0.35, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 1679.224967956543}
+2025-12-21 23:24:04 - system_events - WARNING - Invalid system event tag: LOCK_FAILED
+2025-12-21 23:24:18 - system_events - WARNING - Invalid system event tag: LOCK_FAILED
+2025-12-21 23:24:33 - system_events - WARNING - Invalid system event tag: PROFIT_ZONE_ENTERED
+2025-12-21 23:24:46 - system_events - WARNING - Invalid system event tag: LOCK_APPLIED
+2025-12-21 23:26:33 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 545886582, "symbol": "BTCUSDm", "old_sl": 88774.81, "new_sl": 88564.81, "profit": 0.25, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 642.1153545379639}
+2025-12-21 23:26:56 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 545886582, "symbol": "BTCUSDm", "old_sl": 88564.81, "new_sl": 88544.81, "profit": 0.45, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 400.1736640930176}
+2025-12-21 23:27:22 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 545886582, "symbol": "BTCUSDm", "old_sl": 88544.81, "new_sl": 88534.81, "profit": 0.52, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 479.1429042816162}
+2025-12-21 23:27:33 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:27:33.175754", "openTrades": 1, "equity": 10003.37, "balance": 10002.54}
+2025-12-21 23:27:40 - system_events - INFO - [TRAILING_EXECUTED] {"ticket": 545886582, "symbol": "BTCUSDm", "old_sl": 88534.81, "new_sl": 88524.81, "profit": 0.68, "authority_source": "TRAILING", "state": "TRAILING_ACTIVE", "execution_time_ms": 482.00392723083496}
+2025-12-21 23:31:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:31:26.936637", "openTrades": 1, "equity": 10004.16, "balance": 10002.54}
+2025-12-21 23:35:11 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:35:11.574124", "openTrades": 1, "equity": 10004.34, "balance": 10002.54}
+2025-12-21 23:38:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:38:19.253151", "openTrades": 1, "equity": 10003.77, "balance": 10002.54}
+2025-12-21 23:41:54 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:41:54.057845", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-21 23:45:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:45:44.217370", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-21 23:49:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:49:23.900832", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-21 23:52:45 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:52:45.095563", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-21 23:55:55 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:55:55.574633", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-21 23:59:25 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-21T23:59:25.333724", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:03:27 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:03:27.737992", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:07:13 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:07:13.733014", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:10:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:10:37.976191", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:14:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:14:29.261481", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:18:17 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:18:16.854625", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:22:32 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:22:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:22:32.772340", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:26:02 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:26:02 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:26:02 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:26:02.531228", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:29:36 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:29:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:29:36.770720", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:33:02 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:33:02 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:33:02.538808", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:36:05 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:36:08 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:36:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:36:08.773392", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:39:29 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:39:29 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:39:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:39:29.812059", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:42:52 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:42:53 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:42:53 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:42:53.176181", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:46:03 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:46:03 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:46:04 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:46:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:46:06.214370", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:49:24 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:49:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:49:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:49:26.755955", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:52:34 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:52:35 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:52:35 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:52:35.097386", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:56:12 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:56:17 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:56:19 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 00:56:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:56:19.734088", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 00:59:40 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T00:59:40.303710", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:03:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:03:52 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:03:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:03:52.219410", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:07:42 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:07:42 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:07:43 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:07:43.013463", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:11:53 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:11:59 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:11:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:11:59.979782", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:15:41 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:15:41.252674", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:19:22 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:19:22 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:19:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:19:22.453407", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:23:32 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:23:33 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:23:34 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:23:34.610772", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:27:18 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:27:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:27:19.970042", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:30:31 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:30:32 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:30:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:30:32.449481", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:33:59 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:33:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:33:59.415177", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:37:30 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:37:30 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:37:30 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:37:30.375345", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:40:46 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:40:48 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:40:48.768564", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:44:08 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:44:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:44:08.292633", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:47:10 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:47:11 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:47:11 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:47:11.980752", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:50:04 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:50:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:50:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:50:06.854120", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:53:04 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:53:04 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:53:04 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:53:04.779595", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:56:16 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 01:56:16 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:56:16.460379", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 01:59:32 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T01:59:32.938690", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:02:36 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:02:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:02:36.697440", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:05:58 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:05:58 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:05:58.613727", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:09:34 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:09:34 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:09:34.696045", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:12:49 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:12:50 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:12:50.136161", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:16:27 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:16:27 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:16:27.018445", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:19:47 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:19:47.412000", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:22:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:22:53 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:22:53 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:22:53.331136", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:26:27 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:26:28 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:26:28 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:26:28.134288", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:29:39 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:29:42 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:29:42.298504", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:33:14 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:33:15 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:33:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:33:22.693455", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:36:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:36:51 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:36:51 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:36:51.895111", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:40:10 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:40:15 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:40:15 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:40:15.174069", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:43:52 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:43:53 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:43:54 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:43:53.984556", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:47:01 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:47:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:47:03.813655", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:50:20 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:50:20.453790", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:53:47 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:53:50 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:53:50 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:53:50.052774", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 02:57:07 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 02:57:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T02:57:08.140869", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:00:27 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:00:27.497808", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:03:45 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:03:46 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:03:46.533010", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:07:00 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:07:04 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:07:04.050590", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:09:57 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:09:57.256031", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:13:28 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:13:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:13:29.012837", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:16:24 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:16:24.134360", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:19:21 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:19:21.179176", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:22:52 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:22:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:22:52.385153", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:26:24 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:26:28 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:26:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:26:29.016526", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:29:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:29:52.458811", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:32:52 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:32:52.857536", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:36:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:36:03.255586", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:39:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:39:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:39:06.220039", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:42:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:42:19.822070", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:45:34 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:45:34 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:45:34 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:45:34.936434", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:49:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:49:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:49:09 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:49:09.977916", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:52:17 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:52:17 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:52:17.739211", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:55:35 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:55:35.576334", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 03:58:37 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 03:58:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T03:58:37.818521", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:01:53 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:01:53.738271", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:05:15 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:05:15.098618", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:08:22 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:08:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:08:22.215181", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:11:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:11:36.217058", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:14:40 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:14:40.298418", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:17:34 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:17:34 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:17:34.460831", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:20:33 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:20:33.261240", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:23:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:23:39.580599", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:27:00 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:27:00 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:27:00.302735", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:30:21 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:30:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:30:23.016220", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:33:39 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:33:40 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:33:40.218482", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:36:56 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:36:56 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:36:56.292664", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:40:29 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:40:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:40:29.414863", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:43:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:43:25 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:43:25.333342", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:46:25 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:46:25.812368", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:49:46 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:49:46 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:49:46.776077", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:53:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:53:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:53:06.771786", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:56:37 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 04:56:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:56:39.812114", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 04:59:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T04:59:44.535371", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:02:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:02:44.934123", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:05:38 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:05:38.374097", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:08:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:08:37.095866", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:11:13 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 05:11:14 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:11:14.294324", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:14:16 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 05:14:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:14:19.738211", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:16:55 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 05:16:55 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:16:55.414715", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:19:40 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:19:40.294562", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:22:39 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 05:22:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:22:39.501140", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:25:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:25:26.774222", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:28:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:28:23.181199", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:31:27 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:31:27.900205", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:34:28 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:34:28.701595", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:37:31 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:37:31.572700", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:40:17 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:40:17.419044", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:42:57 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:42:57.573311", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:45:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:45:59.745127", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:48:56 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:48:56.856743", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:52:13 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:52:13.980676", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:55:02 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 05:55:02 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:55:02.856547", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 05:58:05 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 05:58:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T05:58:06.692148", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:01:10 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:01:10.135205", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:04:23 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:04:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:04:23.580186", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:07:23 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:07:23 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:07:23.651408", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:10:17 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:10:24 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:10:24.457621", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:13:25 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:13:26 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:13:26.052372", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:16:28 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:16:28 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:16:28.693181", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:19:36 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:19:36.133636", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:22:46 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:22:46 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:22:46.216967", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:25:38 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:25:38 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:25:38.454858", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:28:48 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:28:48 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:28:48.462417", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:32:58 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:33:01 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:33:01.261477", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:36:17 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:36:17 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:36:17.739927", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:39:34 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:39:34 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:39:34.293542", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:42:36 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:42:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:42:37.739302", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:45:44 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:45:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:45:44.692825", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:50:05 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 06:50:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:50:06.217308", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 06:59:01 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T06:59:01.651970", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 07:02:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:02:06.691129", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 07:05:19 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 07:05:20 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:05:20.055823", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 07:11:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:11:08.370215", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 07:14:11 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 07:14:11 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:14:11.810129", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 07:21:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:21:59.250389", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 07:30:02 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:30:02.926769", "openTrades": 0, "equity": 10003.04, "balance": 10003.04}
+2025-12-22 07:42:15 - system_events - INFO - [BOOT_TEST] {"message": "system_events logging verified"}
+2025-12-22 07:42:31 - system_events - INFO - [SYSTEM_READY] {"all_critical_threads_alive": true}
+2025-12-22 07:44:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:44:03.651102", "openTrades": 1, "equity": 10002.17, "balance": 10003.04}
+2025-12-22 07:44:59 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "thread_name": "SLWorker", "thread_id": 5628, "reason": "heartbeat_detected_dead"}
+2025-12-22 07:46:28 - system_events - WARNING - Invalid system event tag: LOCK_APPLIED
+2025-12-22 07:48:00 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:48:00.602399", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 07:51:19 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 07:51:20 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:51:20.212990", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 07:54:43 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 07:54:43 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:54:43.484269", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 07:59:13 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T07:59:13.876571", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:02:47 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:02:47.314002", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:05:57 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:05:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:05:59.071404", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:09:10 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:09:11 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:09:11.704562", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:12:22 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:12:23 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:12:24 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:12:24.748058", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:15:40 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:15:40.581965", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:19:04 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:19:08 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:19:08.821671", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:22:39 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:22:40 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:22:42 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:22:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:22:44.815454", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:26:10 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:26:10.737459", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:29:29 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:29:29.941755", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:32:47 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:32:47.296960", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:36:15 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:36:16 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:36:18 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:36:19 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:36:19.461830", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:39:38 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 08:39:38 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:39:38.098350", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:42:53 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:42:53.058968", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:46:17 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:46:17.143724", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:49:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:49:37.543508", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:53:45 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:53:45.063286", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 08:57:02 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T08:57:02.979657", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:00:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:00:22.346461", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:03:50 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:03:51 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:03:51.863552", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:07:12 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:07:13 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:07:13.460338", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:10:37 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:10:39 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:10:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:10:39.217893", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:14:05 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:14:06 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:14:06.584534", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:17:18 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:17:19 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:17:21 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:17:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:17:22.506826", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:20:35 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:20:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:20:37.539469", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:23:47 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:23:48 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:23:50 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:23:50.499373", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:27:06 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:27:07 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:27:07 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:27:07.705033", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:30:21 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:30:21 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:30:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:30:22.361437", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:33:40 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:33:42 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:33:44 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:33:44.699188", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:36:57 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:37:00 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:37:02 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:37:02.224173", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:40:17 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:40:18 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:40:18 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:40:18.933841", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:43:37 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:43:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:43:39.581433", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:47:07 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:47:09 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:47:09 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:47:09.819245", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:50:40 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:50:42 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:50:42.303440", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:54:20 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:54:22 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:54:22.064712", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 09:58:02 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:58:04 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 09:58:05 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T09:58:05.262119", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:01:37 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:01:37.104739", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:04:57 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 10:04:59 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:04:59.024802", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:08:21 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:08:21.177958", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:11:31 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:11:31.821242", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:14:39 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:14:39.498392", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:18:01 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 10:18:02 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 10:18:03 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:18:03.975245", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:21:20 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 10:21:21 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 10:21:23 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 10:21:25 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:21:25.424185", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:24:54 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 10:24:55 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:24:55.737503", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}
+2025-12-22 10:28:23 - system_events - INFO - [CRITICAL] {"tag": "SYSTEM_UNSAFE", "reason": "trade_blocked"}
+2025-12-22 10:28:25 - system_events - INFO - [BOT_LOOP_TICK] {"time": "2025-12-22T10:28:25.100534", "openTrades": 0, "equity": 10003.07, "balance": 10003.07}

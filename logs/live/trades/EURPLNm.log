@@ -1,0 +1,12 @@
+2025-12-21 23:45:32 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20938.3% of avg range > max 30.0%
+2025-12-21 23:49:15 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 17091.3% of avg range > max 30.0%
+2025-12-21 23:59:14 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 00:13:55 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8448.9% of avg range > max 30.0%
+2025-12-22 00:17:57 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6598.9% of avg range > max 30.0%
+2025-12-22 00:25:34 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6949.0% of avg range > max 30.0%
+2025-12-22 09:10:15 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5158.4% of avg range > max 30.0%
+2025-12-22 09:13:40 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4891.6% of avg range > max 30.0%
+2025-12-22 09:16:57 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4961.7% of avg range > max 30.0%
+2025-12-22 09:20:15 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4537.5% of avg range > max 30.0%
+2025-12-22 10:24:24 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6196.1% of avg range > max 30.0%
+2025-12-22 10:27:52 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6633.1% of avg range > max 30.0%

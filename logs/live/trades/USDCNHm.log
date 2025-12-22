@@ -1,0 +1,4 @@
+2025-12-22 02:19:21 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1223.5% of avg range > max 30.0%
+2025-12-22 02:22:30 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1574.1% of avg range > max 30.0%
+2025-12-22 02:25:48 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1708.4% of avg range > max 30.0%
+2025-12-22 02:29:14 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2350.0% of avg range > max 30.0%

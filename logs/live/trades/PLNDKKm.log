@@ -1,0 +1,45 @@
+2025-12-21 22:37:29 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6249.8% of avg range > max 30.0%
+2025-12-21 22:39:07 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6309.3% of avg range > max 30.0%
+2025-12-21 22:40:42 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6118.7% of avg range > max 30.0%
+2025-12-21 22:42:18 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5904.1% of avg range > max 30.0%
+2025-12-21 22:43:54 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5888.8% of avg range > max 30.0%
+2025-12-21 22:47:06 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5017.8% of avg range > max 30.0%
+2025-12-21 22:48:42 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4817.6% of avg range > max 30.0%
+2025-12-21 22:50:18 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4904.7% of avg range > max 30.0%
+2025-12-21 22:51:55 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5645.9% of avg range > max 30.0%
+2025-12-21 22:53:31 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6178.1% of avg range > max 30.0%
+2025-12-21 22:55:08 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6923.9% of avg range > max 30.0%
+2025-12-21 22:56:46 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7493.6% of avg range > max 30.0%
+2025-12-21 22:58:25 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7608.0% of avg range > max 30.0%
+2025-12-21 23:00:06 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-21 23:02:01 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14138.4% of avg range > max 30.0%
+2025-12-21 23:03:43 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13928.5% of avg range > max 30.0%
+2025-12-21 23:05:30 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14175.1% of avg range > max 30.0%
+2025-12-21 23:07:13 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 18700.5% of avg range > max 30.0%
+2025-12-21 23:09:02 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 19461.7% of avg range > max 30.0%
+2025-12-21 23:10:48 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 19102.1% of avg range > max 30.0%
+2025-12-21 23:12:30 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 21078.1% of avg range > max 30.0%
+2025-12-21 23:15:57 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20886.8% of avg range > max 30.0%
+2025-12-21 23:19:29 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20771.9% of avg range > max 30.0%
+2025-12-21 23:27:18 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 24862.7% of avg range > max 30.0%
+2025-12-21 23:45:33 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 21849.5% of avg range > max 30.0%
+2025-12-21 23:59:19 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 00:03:01 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10227.3% of avg range > max 30.0%
+2025-12-22 00:06:53 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10557.9% of avg range > max 30.0%
+2025-12-22 00:10:10 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 12856.3% of avg range > max 30.0%
+2025-12-22 00:13:57 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9832.6% of avg range > max 30.0%
+2025-12-22 00:17:59 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9331.9% of avg range > max 30.0%
+2025-12-22 00:25:37 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9720.1% of avg range > max 30.0%
+2025-12-22 00:49:01 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20269.2% of avg range > max 30.0%
+2025-12-22 00:59:17 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 01:03:29 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23542.9% of avg range > max 30.0%
+2025-12-22 01:07:06 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 21872.3% of avg range > max 30.0%
+2025-12-22 01:11:18 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20527.4% of avg range > max 30.0%
+2025-12-22 01:15:15 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20447.8% of avg range > max 30.0%
+2025-12-22 01:18:48 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23976.5% of avg range > max 30.0%
+2025-12-22 01:22:57 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.73 pips < min 0.80 pips
+2025-12-22 01:40:27 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.57 pips < min 0.80 pips
+2025-12-22 09:10:16 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14664.2% of avg range > max 30.0%
+2025-12-22 09:13:41 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13463.9% of avg range > max 30.0%
+2025-12-22 09:16:58 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13648.3% of avg range > max 30.0%
+2025-12-22 10:27:55 - trades.PLNDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13922.8% of avg range > max 30.0%

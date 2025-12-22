@@ -1,0 +1,51 @@
+2025-12-21 22:07:52 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2420.5% of avg range > max 30.0%
+2025-12-21 22:53:32 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 638.3% of avg range > max 30.0%
+2025-12-21 22:55:09 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 865.4% of avg range > max 30.0%
+2025-12-21 22:56:47 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 540.3% of avg range > max 30.0%
+2025-12-21 22:58:25 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 643.7% of avg range > max 30.0%
+2025-12-21 23:00:07 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-21 23:01:59 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 483.3% of avg range > max 30.0%
+2025-12-21 23:03:43 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 389.2% of avg range > max 30.0%
+2025-12-21 23:05:29 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 409.1% of avg range > max 30.0%
+2025-12-21 23:07:12 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 336.8% of avg range > max 30.0%
+2025-12-21 23:09:01 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 352.6% of avg range > max 30.0%
+2025-12-21 23:10:47 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 409.6% of avg range > max 30.0%
+2025-12-21 23:19:21 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 711.1% of avg range > max 30.0%
+2025-12-21 23:22:56 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 840.7% of avg range > max 30.0%
+2025-12-21 23:27:13 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1023.5% of avg range > max 30.0%
+2025-12-21 23:31:16 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1065.8% of avg range > max 30.0%
+2025-12-21 23:38:07 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1748.9% of avg range > max 30.0%
+2025-12-21 23:41:32 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 670.2% of avg range > max 30.0%
+2025-12-21 23:45:23 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 668.1% of avg range > max 30.0%
+2025-12-21 23:59:09 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 00:02:59 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 856.6% of avg range > max 30.0%
+2025-12-22 00:06:53 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 677.0% of avg range > max 30.0%
+2025-12-22 00:10:15 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 649.6% of avg range > max 30.0%
+2025-12-22 00:13:57 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 753.1% of avg range > max 30.0%
+2025-12-22 00:18:00 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 618.0% of avg range > max 30.0%
+2025-12-22 00:22:08 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 584.9% of avg range > max 30.0%
+2025-12-22 00:25:38 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 589.2% of avg range > max 30.0%
+2025-12-22 00:29:13 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 608.5% of avg range > max 30.0%
+2025-12-22 00:32:48 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 563.0% of avg range > max 30.0%
+2025-12-22 00:52:13 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 810.8% of avg range > max 30.0%
+2025-12-22 00:55:47 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 803.6% of avg range > max 30.0%
+2025-12-22 00:59:16 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 01:03:36 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 803.6% of avg range > max 30.0%
+2025-12-22 01:07:06 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 736.9% of avg range > max 30.0%
+2025-12-22 08:45:52 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 708.4% of avg range > max 30.0%
+2025-12-22 08:49:11 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 743.6% of avg range > max 30.0%
+2025-12-22 08:53:09 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 650.8% of avg range > max 30.0%
+2025-12-22 08:56:39 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 680.0% of avg range > max 30.0%
+2025-12-22 08:59:57 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 09:03:27 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 674.3% of avg range > max 30.0%
+2025-12-22 09:06:47 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 639.3% of avg range > max 30.0%
+2025-12-22 09:10:12 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 744.3% of avg range > max 30.0%
+2025-12-22 09:46:37 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 472.3% of avg range > max 30.0%
+2025-12-22 09:50:12 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 499.8% of avg range > max 30.0%
+2025-12-22 09:53:55 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 465.2% of avg range > max 30.0%
+2025-12-22 09:57:32 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 527.1% of avg range > max 30.0%
+2025-12-22 10:01:12 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 568.5% of avg range > max 30.0%
+2025-12-22 10:04:34 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 518.2% of avg range > max 30.0%
+2025-12-22 10:07:52 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 526.4% of avg range > max 30.0%
+2025-12-22 10:24:23 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 551.7% of avg range > max 30.0%
+2025-12-22 10:27:46 - trades.EURMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 593.5% of avg range > max 30.0%
