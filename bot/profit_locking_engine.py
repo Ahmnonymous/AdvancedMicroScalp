@@ -664,11 +664,14 @@ class ProfitLockingEngine:
                     verified = False
                     applied_sl = 0.0
                     for verify_attempt in range(3):
+                        # FIX 1: CRITICAL - Check position exists before verification
                         verify_position = self.order_manager.get_position_by_ticket(ticket)
-                        if not verify_position:
-                            # Position closed during verification
-                            logger.warning(f"[VERIFY_FAILED] Ticket={ticket} | Position closed during verification")
-                            return False
+                        if not verify_position or len(verify_position) == 0:
+                            # Position closed during verification - this is not a verification failure
+                            logger.warning(f"[POSITION_CLOSED_DURING_VERIFY] Ticket={ticket} Symbol={symbol} | "
+                                        f"Position closed during verification attempt {verify_attempt+1}/3 | "
+                                        f"Cannot verify SL - position no longer exists")
+                            return False  # Position closed, cannot verify
                         
                         applied_sl = verify_position.get('sl', 0.0)
                         

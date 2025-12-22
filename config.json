@@ -189,14 +189,14 @@
     "order_timeout_seconds": 15.0,
     "order_max_retries": 5,
     "order_retry_backoff_base_seconds": 2.0,
-    "sl_verification_delay_seconds": 2.0,
+    "sl_verification_delay_seconds": 3.0,
     "global_rpc_max_per_second": 30,
       "verification": {
         "effective_profit_tolerance_usd": 1.5,
         "price_tolerance_multiplier": 1.0,
         "use_exponential_backoff": true,
-        "verification_delays_ms": [1000, 2000, 3000],
-        "max_verification_time_seconds": 15.0
+        "verification_delays_ms": [2000, 3000, 4000],
+        "max_verification_time_seconds": 20.0
       }
   },
   "news": {

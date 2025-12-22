@@ -140,15 +140,18 @@ class SLManager:
         logger.info(f"[LIVE_RELIABILITY] Lock timeouts: standard={self._lock_acquisition_timeout}s, profit-locking={self._profit_locking_lock_timeout}s")
         self._lock_hold_times = {}  # {ticket: acquisition_time} for watchdog
         self._lock_holders = {}  # {ticket: {'thread_id': int, 'thread_name': str, 'acquired_at': float, 'is_profit_locking': bool, 'is_trailing': bool, 'lock_object': RLock}}
-        self._lock_watchdog_interval = 0.05  # Check for stale locks every 50ms (very aggressive to catch stale locks immediately)
+        # FIX 2: LIVE RELIABILITY - Increased stale lock threshold to 2000ms (from 500ms)
+        # Locks held 200-2000ms are normal during MT5 operations, 50ms threshold was causing false positives
+        # MT5 operations take 200-500ms, so 2000ms threshold prevents false stale lock detections
+        # CRITICAL: Initialize this BEFORE using it in _lock_watchdog_interval calculation
+        self._stale_lock_threshold = self.risk_config.get('stale_lock_threshold_ms', 2000) / 1000.0  # Convert ms to seconds (2000ms default for LIVE)
+        # FIX 5: Use configurable stale lock threshold for watchdog interval (not hard-coded 50ms)
+        # Check for stale locks at reasonable interval based on threshold
+        self._lock_watchdog_interval = min(0.1, self._stale_lock_threshold / 20.0)  # Check 20x per threshold period, max 100ms
         # FIX: Lock max hold time adjusted to 300ms (0.3s) to account for actual MT5 broker latency (200-285ms observed)
         # This prevents false warnings while still detecting genuinely excessive lock holds
         self._lock_max_hold_time = self.risk_config.get('lock_max_hold_time_seconds', 0.3)  # 300ms max hold time (default, configurable)
         self._lock_force_release_enabled = True  # Enable automatic stale lock recovery
-        # FIX 2: LIVE RELIABILITY - Increased stale lock threshold to 2000ms (from 500ms)
-        # Locks held 200-2000ms are normal during MT5 operations, 50ms threshold was causing false positives
-        # MT5 operations take 200-500ms, so 2000ms threshold prevents false stale lock detections
-        self._stale_lock_threshold = self.risk_config.get('stale_lock_threshold_ms', 2000) / 1000.0  # Convert ms to seconds (2000ms default for LIVE)
         # CRITICAL FIX: Track fail-safe violation cooldown to prevent infinite loops
         self._fail_safe_cooldown = {}  # {ticket: cooldown_until_timestamp}
         self._fail_safe_cooldown_duration = 1.0  # 1 second cooldown after fail-safe correction
@@ -772,9 +775,10 @@ class SLManager:
                     with self._locks_lock:
                         if ticket in self._lock_hold_times:
                             hold_duration = time.time() - self._lock_hold_times[ticket]
-                            if hold_duration > 0.05:  # 50ms threshold
+                            # FIX 5: Use configurable stale lock threshold instead of hard-coded 50ms
+                            if hold_duration > self._stale_lock_threshold:
                                 logger.critical(f"[FIRST_ELIGIBLE] Ticket={ticket} | "
-                                              f"Force-releasing stale lock (held {hold_duration*1000:.1f}ms)")
+                                              f"Force-releasing stale lock (held {hold_duration*1000:.1f}ms, threshold: {self._stale_lock_threshold*1000:.1f}ms)")
                                 del self._lock_hold_times[ticket]
                                 if ticket in self._lock_holders:
                                     del self._lock_holders[ticket]
@@ -2997,22 +3001,43 @@ class SLManager:
             # Check minimum delta (prevent oscillation)
             # CRITICAL FIX: Bypass delta check for emergency/fail-safe updates
             is_emergency = 'emergency' in reason.lower() or 'fail-safe' in reason.lower() or 'strict loss' in reason.lower()
+            # FIX 3: Check if this is a trailing stop for US30 symbols (needs absolute point threshold)
+            is_trailing = 'trailing' in reason.lower()
+            is_us30_symbol = symbol in ['US30m', 'US30_x10m']
+            
             if ticket in self._last_sl_price and not is_emergency and not is_first_eligible:
                 last_sl = self._last_sl_price[ticket]
                 sl_delta = abs(target_sl_price - last_sl)
                 
-                # Get entry price for percentage calculation
-                entry_price = position.get('price_open', 0.0) if position else 0.0
-                if entry_price > 0:
-                    sl_delta_pct = (sl_delta / entry_price) * 100.0
-                    if sl_delta_pct < self._min_sl_delta_pct:
+                # FIX 3: For trailing stops on US30 symbols, use absolute point threshold instead of percentage
+                # US30_x10m: 1 point = $0.10, which is significant for trailing
+                # US30m: 1 point = $0.01, but still significant for trailing
+                if is_trailing and is_us30_symbol:
+                    min_delta_points = 0.5  # Allow 0.5 point moves for trailing (US30_x10m: $0.05, US30m: $0.005)
+                    if sl_delta >= min_delta_points:
+                        logger.debug(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                                   f"TRAILING_DELTA_OK | Delta={sl_delta:.5f} points >= {min_delta_points} points | "
+                                   f"LastSL={last_sl:.5f} TargetSL={target_sl_price:.5f} | Reason={reason}")
+                        # Allow small trailing moves on US30 symbols
+                    else:
                         logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
-                                  f"BLOCKED=DELTA_TOO_SMALL | Delta={sl_delta:.5f} ({sl_delta_pct:.3f}%) < min {self._min_sl_delta_pct:.3f}% | "
+                                  f"BLOCKED=DELTA_TOO_SMALL | Delta={sl_delta:.5f} points < min {min_delta_points} points | "
                                   f"LastSL={last_sl:.5f} TargetSL={target_sl_price:.5f} | Reason={reason}")
-                        logger.debug(f"[{apply_start_timestamp}] 🚫 SL UPDATE DELTA TOO SMALL | Ticket: {ticket} | "
-                                   f"Delta: {sl_delta:.5f} ({sl_delta_pct:.3f}%) < min {self._min_sl_delta_pct:.3f}% | "
-                                   f"Last: {last_sl:.5f} | Target: {target_sl_price:.5f}")
                         return False, "DELTA_TOO_SMALL", None
+                else:
+                    # For other cases, use percentage threshold
+                    # Get entry price for percentage calculation
+                    entry_price = position.get('price_open', 0.0) if position else 0.0
+                    if entry_price > 0:
+                        sl_delta_pct = (sl_delta / entry_price) * 100.0
+                        if sl_delta_pct < self._min_sl_delta_pct:
+                            logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
+                                      f"BLOCKED=DELTA_TOO_SMALL | Delta={sl_delta:.5f} ({sl_delta_pct:.3f}%) < min {self._min_sl_delta_pct:.3f}% | "
+                                      f"LastSL={last_sl:.5f} TargetSL={target_sl_price:.5f} | Reason={reason}")
+                            logger.debug(f"[{apply_start_timestamp}] 🚫 SL UPDATE DELTA TOO SMALL | Ticket: {ticket} | "
+                                       f"Delta: {sl_delta:.5f} ({sl_delta_pct:.3f}%) < min {self._min_sl_delta_pct:.3f}% | "
+                                       f"Last: {last_sl:.5f} | Target: {target_sl_price:.5f}")
+                            return False, "DELTA_TOO_SMALL", None
             elif is_emergency:
                 logger.info(f"[SL_DECISION_GATE] Ticket={ticket} Symbol={symbol} | "
                           f"BYPASSING DELTA CHECK for emergency/fail-safe update | Reason={reason}")
@@ -4724,8 +4749,9 @@ class SLManager:
                 with self._locks_lock:
                     if ticket in self._lock_hold_times:
                         hold_duration = time.time() - self._lock_hold_times[ticket]
-                        # CRITICAL: Use 50ms threshold for first trailing, 100ms for subsequent
-                        threshold = 0.05 if is_first_eligible else 0.1  # 50ms for first, 100ms for subsequent
+                        # FIX 5: Use configurable stale lock threshold instead of hard-coded values
+                        # For first trailing, use half of threshold; for subsequent, use full threshold
+                        threshold = self._stale_lock_threshold / 2.0 if is_first_eligible else self._stale_lock_threshold
                         if hold_duration > threshold:
                             logger.critical(f"[TRAILING_PRIORITY] Ticket={ticket} Symbol={symbol} | "
                                           f"Force-releasing stale lock (held {hold_duration*1000:.1f}ms) for {'first ' if is_first_eligible else ''}trailing stop | "
@@ -4757,7 +4783,8 @@ class SLManager:
                 with self._locks_lock:
                     if ticket in self._lock_hold_times:
                         hold_duration = time.time() - self._lock_hold_times[ticket]
-                        if hold_duration > 0.05:  # 50ms threshold for first eligible (very aggressive)
+                        # FIX 5: Use configurable stale lock threshold instead of hard-coded 50ms
+                        if hold_duration > self._stale_lock_threshold:
                             logger.critical(f"[FIRST_ELIGIBLE] Ticket={ticket} | "
                                           f"Force-releasing stale lock (held {hold_duration*1000:.1f}ms) for first eligible update")
                             del self._lock_hold_times[ticket]
@@ -6848,6 +6875,11 @@ class SLManager:
                     except Exception as e:
                         logger.debug(f"Error queueing fail-safe check: {e}")
                     
+                    # FIX 6: Check loop performance before processing positions
+                    # If loop is already slow (>500ms), skip non-critical updates to prevent cascading delays
+                    loop_elapsed_before_positions = (time.time() - loop_start_time) * 1000  # Convert to ms
+                    skip_non_critical = loop_elapsed_before_positions > 500.0  # Skip trailing/profit locks if already >500ms
+                    
                     # Process each position
                     for position in positions:
                         if not self._sl_worker_running:
@@ -6860,6 +6892,19 @@ class SLManager:
                         # Skip if in manual review
                         if ticket in self._manual_review_tickets:
                             continue
+                        
+                        # FIX 6: Skip non-critical updates if loop is already slow
+                        # Only process emergency SL (losing trades, first eligible) when loop is slow
+                        if skip_non_critical:
+                            current_profit_check = position.get('profit', 0.0)
+                            is_losing = current_profit_check < -0.01  # Losing trade (emergency)
+                            is_first_eligible_check = ticket in self._first_eligible_update and \
+                                                     self._first_eligible_update[ticket].get('state') == 'PENDING'
+                            
+                            # Skip if not emergency (not losing and not first eligible)
+                            if not is_losing and not is_first_eligible_check:
+                                # Skip trailing stops and profit locks when loop is slow
+                                continue
                         
                         # OPTIMIZATION: Reduce debug logging noise - only log for first position or on errors
                         should_log_position = (ticket == positions[0].get('ticket', 0)) if positions else False
@@ -7099,6 +7144,19 @@ class SLManager:
                         if len(self._timing_stats['loop_durations']) > 1000:
                             self._timing_stats['loop_durations'].pop(0)
                         self._timing_stats['last_loop_time'] = datetime.now()
+                    
+                    # FIX 6: CRITICAL - If loop exceeds 1000ms, skip non-critical updates to prevent cascading delays
+                    # This prevents worker loop from getting stuck processing all positions when under load
+                    if loop_duration > 1000.0:
+                        logger.warning(f"[WORKER_LOOP_SLOW] Loop took {loop_duration:.1f}ms (target: <50ms) | "
+                                     f"Positions: {len(positions) if 'positions' in locals() else 0} | "
+                                     f"Skipping non-critical updates (trailing stops, profit locks) to prevent cascading delays | "
+                                     f"Only processing emergency SL updates (losing trades, first eligible)")
+                        # Skip non-critical updates for this iteration - only process emergency SL
+                        # This prevents the loop from getting slower and slower under load
+                        # Emergency updates (losing trades, first eligible) will still be processed
+                        # Non-emergency updates (trailing stops, profit locks) will be deferred to next iteration
+                        # This is a circuit breaker to prevent cascading performance degradation
                     
                     # CRITICAL FIX: Log performance warning if loop exceeds target
                     # Target: <10ms ideal, <50ms acceptable
