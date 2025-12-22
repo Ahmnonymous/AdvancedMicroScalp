@@ -13,9 +13,9 @@
     "max_risk_per_trade_usd": 2.0,
     "risk_per_trade_usd": 2.0,
     "default_lot_size": 0.01,
-    "max_open_trades": 6,
-    "max_open_trades_strict": true,
-    "max_portfolio_risk_pct": 15.0,
+    "max_open_trades": 10,
+    "max_open_trades_strict": false,
+    "max_portfolio_risk_pct": 20.0,
     "max_portfolio_risk_usd": null,
     "high_quality_setup_override": true,
     "trailing_stop_increment_usd": 0.1,
@@ -24,14 +24,24 @@
     "min_pip_stoploss": null,
     "continuous_trailing_enabled": true,
       "trailing_cycle_interval_ms": 500,
-      "lock_acquisition_timeout_seconds": 1.5,
-      "profit_locking_lock_timeout_seconds": 3.0,
-      "sl_update_min_interval_ms": 75,
-      "lock_max_hold_time_seconds": 0.5,
-      "stale_lock_threshold_ms": 300,
-      "orphaned_lock_timeout_seconds": 10.0,
+      "lock_acquisition_timeout_seconds": 5.0,
+      "profit_locking_lock_timeout_seconds": 6.0,
+      "sl_update_min_interval_ms": 500,
+      "lock_max_hold_time_seconds": 1.0,
+      "stale_lock_threshold_ms": 3000,
+      "delta_min_percent": 0.003,
+      "orphaned_lock_timeout_seconds": 5.0,
+      "watchdog_restart_threshold": 10,
+      "sl_verification_max_time_seconds": 15.0,
+      "watchdog": {
+        "restart_alert_threshold": 5,
+        "stale_threshold_profitable_seconds": 2.0,
+        "stale_threshold_breakeven_seconds": 1.0,
+        "stale_threshold_losing_seconds": 1.0,
+        "stale_threshold_crypto_multiplier": 2.0
+      },
     "big_jump_threshold_usd": 0.40,
-    "staged_open_enabled": true,
+    "staged_open_enabled": false,
     "staged_open_window_seconds": 60,
     "staged_quality_threshold": 40.0,
     "staged_min_profit_usd": -0.50,
@@ -64,6 +74,10 @@
       "candle_quality": {
         "enabled": true,
         "min_percent_of_avg": 55.0
+      },
+      "cooldown_after_loss": {
+        "enabled": false,
+        "candles": 3
       },
       "session_guard": {
         "enabled": true,
@@ -106,7 +120,8 @@
       "lock_step_usd": 0.10,
       "lock_tolerance_usd": 0.01,
       "max_lock_retries": 5,
-      "lock_retry_delay_ms": 2000,
+      "lock_retry_delay_ms": 1000,
+      "alert_failure_threshold": 3,
       "dynamic_sweet_spot": {
         "enabled": true,
         "min_duration_seconds": 0.0,
@@ -115,7 +130,7 @@
         "sweet_spot_min_profit": 0.03,
         "sweet_spot_max_profit": 0.10,
         "retry_attempts": 5,
-        "retry_backoff_ms": [1000, 2000, 3000],
+        "retry_backoff_ms": [500, 1000, 2000],
         "track_minimum_profit": true,
         "never_decrease_sl": true
       }
@@ -174,14 +189,15 @@
     "order_timeout_seconds": 15.0,
     "order_max_retries": 5,
     "order_retry_backoff_base_seconds": 2.0,
-    "sl_verification_delay_seconds": 0.35,
+    "sl_verification_delay_seconds": 2.0,
     "global_rpc_max_per_second": 30,
-    "verification": {
-      "effective_profit_tolerance_usd": 1.5,
-      "price_tolerance_multiplier": 1.0,
-      "use_exponential_backoff": true,
-      "verification_delays_ms": [300, 500, 800]
-    }
+      "verification": {
+        "effective_profit_tolerance_usd": 1.5,
+        "price_tolerance_multiplier": 1.0,
+        "use_exponential_backoff": true,
+        "verification_delays_ms": [1000, 2000, 3000],
+        "max_verification_time_seconds": 15.0
+      }
   },
   "news": {
     "enabled": true,

@@ -216,7 +216,9 @@ class PositionMonitor:
         
         if entry_time:
             duration_minutes = (exit_time - entry_time).total_seconds() / 60.0
-            if duration_minutes < 5 and 0.01 <= abs(profit) <= 0.50:
+            # CRITICAL FIX: Only label as Micro-HFT if profit is POSITIVE
+            # Micro-HFT only closes profitable trades, never losses
+            if duration_minutes < 5 and profit > 0 and 0.01 <= profit <= 0.50:
                 return "Micro-HFT sweet spot profit"
         
         # Check profit to determine reason

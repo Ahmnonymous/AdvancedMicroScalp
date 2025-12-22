@@ -1244,7 +1244,9 @@ class OrderManager:
             duration = exit_deal['time'] - entry_deal['time']
             duration_minutes = duration.total_seconds() / 60.0
             
-            if duration_minutes < 5 and 0.01 <= abs(total_profit) <= 0.50:
+            # CRITICAL FIX: Only label as Micro-HFT if profit is POSITIVE
+            # Micro-HFT only closes profitable trades, never losses
+            if duration_minutes < 5 and total_profit > 0 and 0.01 <= total_profit <= 0.50:
                 return "Micro-HFT sweet spot profit"
         
         # Determine by profit

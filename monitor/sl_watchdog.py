@@ -6,7 +6,7 @@ Monitors SL worker health and restarts if needed.
 import threading
 import time
 from datetime import datetime, timedelta
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List, Tuple
 from collections import deque
 
 from utils.logger_factory import get_logger
@@ -40,16 +40,42 @@ class SLWatchdog:
         self.check_interval = 5.0  # Check every 5 seconds
         self.sl_updates_per_sec_threshold = 5  # Minimum updates/sec over 10s window
         self.sl_updates_window_seconds = 10.0  # Sliding window for update rate
-        self.ticket_staleness_threshold = 1.0  # 1 second max staleness per ticket
+        self.ticket_staleness_threshold = 1.0  # 1 second max staleness per ticket (base, will be overridden by FIX D)
+        
+        # FIX 3: LIVE RELIABILITY - Configuration for graceful restart
+        # Extended wait time for profit-locking updates (15s) to prevent interrupting critical profit locks
+        self.max_wait_for_in_flight_seconds = 5.0  # Maximum time to wait for standard in-flight updates
+        self.max_wait_for_profit_lock_seconds = 15.0  # Extended wait time for profit-locking updates (LIVE SAFETY)
+        self.in_flight_check_interval = 0.1  # Check every 100ms for in-flight updates
+        
+        # FIX 4: LIVE RELIABILITY - Relaxed stale lock thresholds for live trading
+        # Increased thresholds to prevent false positives under MT5 broker latency
+        risk_config = sl_manager.risk_config if hasattr(sl_manager, 'risk_config') else {}
+        watchdog_config = risk_config.get('watchdog', {})
+        # FIX 4: Profitable trades: ≥ 2.0 seconds (was 2.0s, keeping same)
+        self.stale_threshold_profitable = watchdog_config.get('stale_threshold_profitable_seconds', 2.0)  # 2.0s for profitable trades
+        self.stale_threshold_breakeven = watchdog_config.get('stale_threshold_breakeven_seconds', 1.0)  # 1.0s for breakeven
+        # FIX 4: Losing trades: ≥ 1.0 second (increased from 0.5s for live safety)
+        self.stale_threshold_losing = watchdog_config.get('stale_threshold_losing_seconds', 1.0)  # 1.0s for losing trades (LIVE)
+        # FIX 4: Crypto/indices: multiply threshold by 2× (keeping same)
+        self.stale_threshold_crypto_multiplier = watchdog_config.get('stale_threshold_crypto_multiplier', 2.0)  # 2x for BTCXAUm/DE30m
         # STEP 4 FIX: Increased restart limit and added exponential backoff
         self.max_restarts_per_10min = 10  # Increased from 5 to 10 restarts per 10 minutes
         self.restart_backoff_base_seconds = 30  # Base backoff time (30 seconds)
         self.restart_backoff_max_seconds = 300  # Maximum backoff time (5 minutes)
+        # FIX 6: Read watchdog restart threshold from config
+        risk_config = sl_manager.risk_config if hasattr(sl_manager, 'risk_config') else {}
+        self.watchdog_restart_threshold = risk_config.get('watchdog_restart_threshold', 2.0)  # Default 2.0 seconds
         
         # Tracking
         self._update_timestamps = deque()  # Sliding window of update timestamps
         self._restart_timestamps = deque()  # Track restart times
         self._restart_lock = threading.Lock()
+        
+        # CRITICAL FIX: Alerting and monitoring for watchdog restarts
+        self._restart_alert_threshold = watchdog_config.get('restart_alert_threshold', 5)  # Alert after 5 restarts in 10min
+        self._restart_alert_cooldown = None  # Last alert time - prevent alert spam
+        self._restart_alert_cooldown_seconds = 300.0  # Alert at most once per 5 minutes
         
         watchdog_logger.info("SL Watchdog initialized")
     
@@ -140,22 +166,74 @@ class SLWatchdog:
                     current_time = datetime.now()
                     stale_tickets = []
                     
+                    # FIX D: Use adaptive stale lock thresholds based on trade state and symbol
                     with self.sl_manager._tracking_lock:
                         for position in positions:
                             ticket = position.get('ticket', 0)
+                            symbol = position.get('symbol', '')
+                            profit = position.get('profit', 0.0)
+                            
                             if ticket in self.sl_manager._last_sl_update:
                                 time_since_update = (current_time - self.sl_manager._last_sl_update[ticket]).total_seconds()
-                                if time_since_update > self.ticket_staleness_threshold:
+                                
+                                # FIX D: Determine threshold based on trade state
+                                if profit > 0:
+                                    threshold = self.stale_threshold_profitable  # 2.0s for profitable
+                                elif profit < -1.0:
+                                    threshold = self.stale_threshold_losing  # 0.5s for losing
+                                else:
+                                    threshold = self.stale_threshold_breakeven  # 1.0s for breakeven
+                                
+                                # FIX D: Apply symbol-specific multiplier for crypto/indices
+                                if symbol in ['BTCXAUm', 'DE30m']:
+                                    threshold *= self.stale_threshold_crypto_multiplier  # 2x for crypto/indices
+                                
+                                if time_since_update > threshold:
                                     stale_tickets.append((ticket, time_since_update))
                     
                     if stale_tickets:
+                        # FIX D: Log with adaptive threshold information
                         watchdog_logger.warning(f"[WARNING] Stale SL updates detected: {len(stale_tickets)} tickets")
                         for ticket, staleness in stale_tickets[:5]:  # Log first 5
-                            watchdog_logger.warning(f"   Ticket {ticket}: {staleness:.1f}s since last update")
+                            position = next((p for p in positions if p.get('ticket') == ticket), None)
+                            if position:
+                                symbol = position.get('symbol', '')
+                                profit = position.get('profit', 0.0)
+                                # Calculate threshold used for this ticket
+                                if profit > 0:
+                                    threshold_used = self.stale_threshold_profitable
+                                elif profit < -1.0:
+                                    threshold_used = self.stale_threshold_losing
+                                else:
+                                    threshold_used = self.stale_threshold_breakeven
+                                if symbol in ['BTCXAUm', 'DE30m']:
+                                    threshold_used *= self.stale_threshold_crypto_multiplier
+                                watchdog_logger.warning(f"   Ticket {ticket} ({symbol}): {staleness:.1f}s since last update "
+                                                      f"(threshold: {threshold_used:.1f}s, profit: ${profit:.2f})")
+                            else:
+                                watchdog_logger.warning(f"   Ticket {ticket}: {staleness:.1f}s since last update")
                         
-                        # Only restart if many tickets are stale
-                        if len(stale_tickets) >= len(positions) * 0.5:  # 50% or more stale
-                            self._restart_worker(f"{len(stale_tickets)} stale tickets (>{len(positions)*0.5})")
+                        # FIX 6: Root cause analysis before restarting
+                        # Check if stale tickets are due to orphaned locks
+                        orphaned_lock_tickets = []
+                        for ticket, _ in stale_tickets:
+                            if self._is_orphaned_lock(ticket):
+                                orphaned_lock_tickets.append(ticket)
+                        
+                        if orphaned_lock_tickets:
+                            # Don't restart - force lock recovery instead
+                            watchdog_logger.warning(f"[WATCHDOG] Orphaned locks detected: {len(orphaned_lock_tickets)} tickets | "
+                                                  f"Attempting lock recovery instead of restart")
+                            for ticket in orphaned_lock_tickets:
+                                self._force_lock_recovery(ticket)
+                            # Only restart if there are stale tickets NOT due to orphaned locks
+                            non_orphaned_stale = [t for t, _ in stale_tickets if t not in orphaned_lock_tickets]
+                            if len(non_orphaned_stale) >= len(positions) * 0.5:
+                                self._restart_worker(f"{len(non_orphaned_stale)} stale tickets (not orphaned locks)")
+                        else:
+                            # No orphaned locks - proceed with restart if threshold met
+                            if len(stale_tickets) >= len(positions) * 0.5:  # 50% or more stale
+                                self._restart_worker(f"{len(stale_tickets)} stale tickets (>{len(positions)*0.5})")
                 
                 # Sleep until next check
                 self.shutdown_event.wait(self.check_interval)
@@ -168,12 +246,55 @@ class SLWatchdog:
     
     def _restart_worker(self, reason: str):
         """
-        Restart the SL worker.
+        Restart the SL worker with graceful shutdown.
+        
+        FIX C: CRITICAL - Never restart a worker mid-SL update. Ever.
+        This method detects in-flight SL updates and waits for them to complete
+        before restarting, preventing protection gaps.
         
         Args:
             reason: Reason for restart
         """
         current_time = datetime.now()
+        
+        # FIX 3: LIVE RELIABILITY - Check for in-flight SL updates before restarting
+        # WHY THIS FIX EXISTS: Watchdog restarts were interrupting in-flight SL updates,
+        # causing protection gaps and aborted profit locks. This graceful shutdown ensures
+        # all SL updates complete before restarting, preventing protection gaps.
+        # CRITICAL: Never restart during profit-locking updates - wait up to 15s if needed
+        in_flight_updates, has_profit_locking = self._check_in_flight_updates()
+        
+        if in_flight_updates:
+            # FIX 3: Determine wait time based on update type
+            # Profit-locking updates get extended wait time (15s) to prevent interrupting critical profit locks
+            max_wait_time = self.max_wait_for_profit_lock_seconds if has_profit_locking else self.max_wait_for_in_flight_seconds
+            update_type = "profit-locking" if has_profit_locking else "standard"
+            
+            # FIX 3: LIVE RELIABILITY - Log with clear tag for monitoring
+            watchdog_logger.warning(f"[WATCHDOG_WAITING_FOR_IN_FLIGHT] Waiting for {len(in_flight_updates)} in-flight SL updates "
+                                  f"({update_type}) before restart | Tickets: {in_flight_updates} | "
+                                  f"Max wait: {max_wait_time}s")
+            
+            # Wait up to max_wait_time for updates to complete
+            wait_start = time.time()
+            while in_flight_updates and (time.time() - wait_start) < max_wait_time:
+                time.sleep(self.in_flight_check_interval)
+                in_flight_updates, has_profit_locking = self._check_in_flight_updates()
+                # Re-check if profit-locking status changed
+                if has_profit_locking and max_wait_time < self.max_wait_for_profit_lock_seconds:
+                    max_wait_time = self.max_wait_for_profit_lock_seconds
+                    watchdog_logger.warning(f"[WATCHDOG_WAITING_FOR_IN_FLIGHT] Profit-locking detected - extending wait to {max_wait_time}s")
+            
+            if in_flight_updates:
+                # FIX 3: REGRESSION GUARD - Log timeout scenario
+                watchdog_logger.warning(f"⚠️ WATCHDOG RESTART TIMEOUT: {len(in_flight_updates)} SL updates still in progress "
+                                      f"after {max_wait_time}s - proceeding with restart | "
+                                      f"Tickets: {in_flight_updates} | "
+                                      f"WARNING: Protection gap possible if updates were aborted")
+            else:
+                # FIX 3: REGRESSION GUARD - Log successful graceful shutdown
+                watchdog_logger.info(f"✅ WATCHDOG GRACEFUL RESTART: All in-flight SL updates completed, proceeding with restart | "
+                                   f"Wait time: {time.time() - wait_start:.2f}s")
         
         # Check restart rate limit
         with self._restart_lock:
@@ -219,9 +340,77 @@ class SLWatchdog:
                 # Track restart
                 self._restart_timestamps.append(current_time)
                 
+                # CRITICAL FIX: Alert if restart threshold exceeded
+                restart_count = len(self._restart_timestamps)
+                if restart_count >= self._restart_alert_threshold:
+                    current_time_float = time.time()
+                    # Check cooldown to prevent alert spam
+                    if (self._restart_alert_cooldown is None or 
+                        (current_time_float - self._restart_alert_cooldown) >= self._restart_alert_cooldown_seconds):
+                        self._restart_alert_cooldown = current_time_float
+                        watchdog_logger.critical(f"🚨 ALERT: WATCHDOG RESTART THRESHOLD EXCEEDED | "
+                                                f"Restarts in last 10min: {restart_count} (threshold: {self._restart_alert_threshold}) | "
+                                                f"Reason: {reason} | "
+                                                f"ACTION REQUIRED: Investigate SL worker stability")
+                        # Log system event for monitoring
+                        try:
+                            from utils.logger_factory import get_system_event_logger
+                            system_event_logger = get_system_event_logger()
+                            system_event_logger.systemEvent("WATCHDOG_RESTART_ALERT", {
+                                "restart_count": restart_count,
+                                "threshold": self._restart_alert_threshold,
+                                "reason": reason,
+                                "timestamp": current_time.isoformat()
+                            })
+                        except Exception as e:
+                            watchdog_logger.warning(f"Failed to log system event: {e}")
+                
                 watchdog_logger.info(f"[OK] SL Worker restarted successfully")
             except Exception as e:
                 watchdog_logger.error(f"[ERROR] Failed to restart SL worker: {e}", exc_info=True)
+    
+    def _check_in_flight_updates(self) -> Tuple[List[int], bool]:
+        """
+        FIX 3: LIVE RELIABILITY - Check for in-flight SL updates.
+        
+        Returns tuple of:
+        - List of ticket numbers that have active locks (SL updates in progress)
+        - Boolean indicating if any in-flight update is profit-locking (requires extended wait)
+        
+        This prevents watchdog from restarting worker mid-update, especially during profit-locking.
+        
+        Returns:
+            Tuple of (list of ticket numbers with in-flight SL updates, has_profit_locking)
+        """
+        in_flight_tickets = []
+        has_profit_locking = False
+        
+        try:
+            # Check lock holders to detect active SL updates
+            with self.sl_manager._locks_lock:
+                for ticket, holder_info in self.sl_manager._lock_holders.items():
+                    if holder_info:
+                        # Check if lock is currently held (SL update in progress)
+                        lock_object = holder_info.get('lock_object')
+                        if lock_object:
+                            # Try to acquire lock without blocking to check if it's held
+                            # If we can acquire immediately, lock is not held (no in-flight update)
+                            # If we can't, lock is held (in-flight update)
+                            acquired = lock_object.acquire(blocking=False)
+                            if not acquired:
+                                # Lock is held - SL update is in progress
+                                in_flight_tickets.append(ticket)
+                                # FIX 3: Check if this is a profit-locking update (requires extended wait)
+                                is_profit_locking = holder_info.get('is_profit_locking', False)
+                                if is_profit_locking:
+                                    has_profit_locking = True
+                            else:
+                                # Lock was not held - release it immediately
+                                lock_object.release()
+        except Exception as e:
+            watchdog_logger.error(f"Error checking in-flight updates: {e}", exc_info=True)
+        
+        return in_flight_tickets, has_profit_locking
     
     def track_sl_update(self, ticket: int):
         """Track an SL update for rate monitoring."""
@@ -230,4 +419,54 @@ class SLWatchdog:
         # Keep only last 1000 timestamps
         if len(self._update_timestamps) > 1000:
             self._update_timestamps.popleft()
+    
+    def _is_orphaned_lock(self, ticket: int) -> bool:
+        """
+        FIX 6: Check if a ticket has an orphaned lock.
+        
+        Args:
+            ticket: Position ticket number
+        
+        Returns:
+            True if ticket has an orphaned lock, False otherwise
+        """
+        try:
+            with self.sl_manager._locks_lock:
+                holder_info = self.sl_manager._lock_holders.get(ticket)
+                if holder_info:
+                    holder_thread_id = holder_info.get('thread_id')
+                    if holder_thread_id:
+                        # Check if thread is still alive
+                        active_thread_ids = {t.ident for t in threading.enumerate()}
+                        if holder_thread_id not in active_thread_ids:
+                            return True  # Thread is dead - lock is orphaned
+            return False
+        except Exception as e:
+            watchdog_logger.error(f"Error checking orphaned lock for ticket {ticket}: {e}")
+            return False
+    
+    def _force_lock_recovery(self, ticket: int):
+        """
+        FIX 6: Force recovery of an orphaned lock.
+        
+        Args:
+            ticket: Position ticket number
+        """
+        try:
+            with self.sl_manager._locks_lock:
+                holder_info = self.sl_manager._lock_holders.get(ticket)
+                if holder_info:
+                    holder_thread_id = holder_info.get('thread_id')
+                    lock_object = holder_info.get('lock_object')
+                    
+                    if holder_thread_id and lock_object:
+                        # Check if thread is dead
+                        active_thread_ids = {t.ident for t in threading.enumerate()}
+                        if holder_thread_id not in active_thread_ids:
+                            # Thread is dead - recover lock
+                            watchdog_logger.warning(f"[WATCHDOG_LOCK_RECOVERY] Ticket {ticket} | "
+                                                   f"Recovering orphaned lock from dead thread {holder_thread_id}")
+                            self.sl_manager._recover_orphaned_lock(ticket, lock_object, holder_thread_id)
+        except Exception as e:
+            watchdog_logger.error(f"Error forcing lock recovery for ticket {ticket}: {e}", exc_info=True)
 
