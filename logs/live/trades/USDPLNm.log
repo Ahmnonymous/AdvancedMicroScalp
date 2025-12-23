@@ -1,0 +1,8 @@
+2025-12-23 10:00:16 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:12:08 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1589s)
+2025-12-23 10:13:48 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1488s)
+2025-12-23 10:15:29 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1387s)
+2025-12-23 10:17:11 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1286s)
+2025-12-23 10:18:51 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1185s)
+2025-12-23 10:31:51 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 405s)
+2025-12-23 10:35:16 - trades.USDPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 201s)

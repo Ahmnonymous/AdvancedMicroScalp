@@ -1,0 +1,12 @@
+2025-12-23 10:03:37 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
+2025-12-23 10:05:19 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.80 pips
+2025-12-23 10:07:01 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.80 pips
+2025-12-23 10:08:43 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1793s)
+2025-12-23 10:10:23 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1693s)
+2025-12-23 10:12:05 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1591s)
+2025-12-23 10:13:46 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1490s)
+2025-12-23 10:15:27 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1389s)
+2025-12-23 10:17:08 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1288s)
+2025-12-23 10:18:49 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1187s)
+2025-12-23 10:21:37 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1019s)
+2025-12-23 10:24:51 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 826s)

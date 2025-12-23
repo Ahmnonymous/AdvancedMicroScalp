@@ -1,0 +1,11 @@
+2025-12-23 10:00:12 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:52 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.4% of avg range > max 30.0%
+2025-12-23 10:03:34 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.4% of avg range > max 30.0%
+2025-12-23 10:05:16 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.0% of avg range > max 30.0%
+2025-12-23 10:06:58 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.9% of avg range > max 30.0%
+2025-12-23 10:08:40 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1797s)
+2025-12-23 10:10:21 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1696s)
+2025-12-23 10:24:25 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 852s)
+2025-12-23 10:27:50 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 647s)
+2025-12-23 10:31:07 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 449s)
+2025-12-23 10:34:23 - trades.GBPAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 253s)

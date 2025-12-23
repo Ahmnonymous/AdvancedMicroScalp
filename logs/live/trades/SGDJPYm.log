@@ -1,0 +1,14 @@
+2025-12-23 10:00:13 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:54 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 257.8% of avg range > max 30.0%
+2025-12-23 10:03:35 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 273.9% of avg range > max 30.0%
+2025-12-23 10:05:17 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 258.5% of avg range > max 30.0%
+2025-12-23 10:06:59 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 280.9% of avg range > max 30.0%
+2025-12-23 10:08:41 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1795s)
+2025-12-23 10:10:22 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1694s)
+2025-12-23 10:12:04 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1592s)
+2025-12-23 10:13:45 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1492s)
+2025-12-23 10:15:26 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1391s)
+2025-12-23 10:17:07 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1290s)
+2025-12-23 10:18:48 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1189s)
+2025-12-23 10:21:23 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1033s)
+2025-12-23 10:24:39 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 838s)

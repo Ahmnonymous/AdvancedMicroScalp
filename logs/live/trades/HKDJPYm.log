@@ -1,0 +1,16 @@
+2025-12-23 10:00:12 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:52 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.80 pips
+2025-12-23 10:03:34 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.80 pips
+2025-12-23 10:05:16 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.80 pips
+2025-12-23 10:06:58 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.80 pips
+2025-12-23 10:08:40 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1796s)
+2025-12-23 10:10:21 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1695s)
+2025-12-23 10:12:03 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1593s)
+2025-12-23 10:13:44 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1493s)
+2025-12-23 10:15:25 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1392s)
+2025-12-23 10:17:06 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1291s)
+2025-12-23 10:18:47 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1190s)
+2025-12-23 10:21:11 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1045s)
+2025-12-23 10:24:28 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 848s)
+2025-12-23 10:27:52 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 644s)
+2025-12-23 10:34:28 - trades.HKDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 249s)

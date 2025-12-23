@@ -1,0 +1,3 @@
+2025-12-23 10:28:50 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 586s)
+2025-12-23 10:32:05 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 391s)
+2025-12-23 10:35:29 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 187s)

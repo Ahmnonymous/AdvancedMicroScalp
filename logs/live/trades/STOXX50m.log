@@ -1,0 +1,8 @@
+2025-12-23 10:00:09 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:50 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.0% of avg range > max 30.0%
+2025-12-23 10:03:31 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 117.5% of avg range > max 30.0%
+2025-12-23 10:05:13 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 114.0% of avg range > max 30.0%
+2025-12-23 10:06:56 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 118.2% of avg range > max 30.0%
+2025-12-23 10:11:59 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1598s)
+2025-12-23 10:13:41 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1496s)
+2025-12-23 10:15:22 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1395s)

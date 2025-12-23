@@ -1,0 +1,6 @@
+2025-12-23 10:12:06 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1590s)
+2025-12-23 10:13:47 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1489s)
+2025-12-23 10:15:28 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1389s)
+2025-12-23 10:17:09 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1287s)
+2025-12-23 10:18:50 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1186s)
+2025-12-23 10:21:46 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1010s)

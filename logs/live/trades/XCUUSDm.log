@@ -1,0 +1,10 @@
+2025-12-23 10:00:10 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:50 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 504.4% of avg range > max 30.0%
+2025-12-23 10:03:32 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 487.2% of avg range > max 30.0%
+2025-12-23 10:05:14 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 483.7% of avg range > max 30.0%
+2025-12-23 10:06:56 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 493.0% of avg range > max 30.0%
+2025-12-23 10:08:38 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1798s)
+2025-12-23 10:10:19 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1698s)
+2025-12-23 10:11:59 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1597s)
+2025-12-23 10:13:41 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1495s)
+2025-12-23 10:37:30 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 66s)

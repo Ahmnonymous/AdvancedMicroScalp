@@ -1,0 +1,16 @@
+2025-12-23 10:00:11 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:52 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.0% of avg range > max 30.0%
+2025-12-23 10:03:33 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.7% of avg range > max 30.0%
+2025-12-23 10:05:16 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.2% of avg range > max 30.0%
+2025-12-23 10:06:58 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.9% of avg range > max 30.0%
+2025-12-23 10:08:40 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1797s)
+2025-12-23 10:10:20 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1696s)
+2025-12-23 10:12:02 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1594s)
+2025-12-23 10:13:43 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1493s)
+2025-12-23 10:15:24 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1392s)
+2025-12-23 10:17:05 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1291s)
+2025-12-23 10:18:46 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1190s)
+2025-12-23 10:21:06 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1051s)
+2025-12-23 10:24:23 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 854s)
+2025-12-23 10:34:21 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 256s)
+2025-12-23 10:37:45 - trades.EURJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 52s)

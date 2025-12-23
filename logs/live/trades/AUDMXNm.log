@@ -1,0 +1,12 @@
+2025-12-23 10:03:38 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 556.9% of avg range > max 30.0%
+2025-12-23 10:05:20 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 563.9% of avg range > max 30.0%
+2025-12-23 10:08:44 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1793s)
+2025-12-23 10:10:24 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1692s)
+2025-12-23 10:12:06 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1590s)
+2025-12-23 10:13:47 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1489s)
+2025-12-23 10:15:28 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1388s)
+2025-12-23 10:17:09 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1287s)
+2025-12-23 10:18:50 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1186s)
+2025-12-23 10:25:02 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 814s)
+2025-12-23 10:28:25 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 612s)
+2025-12-23 10:31:40 - trades.AUDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 417s)

@@ -1,0 +1,3 @@
+2025-12-23 10:27:46 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 650s)
+2025-12-23 10:31:02 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 454s)
+2025-12-23 10:34:20 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 256s)

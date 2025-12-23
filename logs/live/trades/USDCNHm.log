@@ -1,0 +1,4 @@
+2025-12-23 10:18:49 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1187s)
+2025-12-23 10:21:39 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1017s)
+2025-12-23 10:24:54 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 823s)
+2025-12-23 10:28:16 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 621s)

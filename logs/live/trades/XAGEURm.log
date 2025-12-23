@@ -1,0 +1,14 @@
+2025-12-23 10:00:12 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:52 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 102.1% of avg range > max 30.0%
+2025-12-23 10:03:34 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.9% of avg range > max 30.0%
+2025-12-23 10:05:16 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 92.5% of avg range > max 30.0%
+2025-12-23 10:06:58 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.7% of avg range > max 30.0%
+2025-12-23 10:08:40 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1796s)
+2025-12-23 10:10:21 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1696s)
+2025-12-23 10:12:03 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1594s)
+2025-12-23 10:13:43 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1493s)
+2025-12-23 10:15:24 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1392s)
+2025-12-23 10:17:06 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1291s)
+2025-12-23 10:18:46 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1190s)
+2025-12-23 10:21:09 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1047s)
+2025-12-23 10:24:26 - trades.XAGEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 850s)

@@ -1,0 +1,11 @@
+2025-12-23 10:00:17 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:57 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.7% of avg range > max 30.0%
+2025-12-23 10:03:38 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.4% of avg range > max 30.0%
+2025-12-23 10:05:20 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.0% of avg range > max 30.0%
+2025-12-23 10:07:03 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.7% of avg range > max 30.0%
+2025-12-23 10:08:44 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1792s)
+2025-12-23 10:10:25 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1692s)
+2025-12-23 10:12:07 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1589s)
+2025-12-23 10:13:49 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1488s)
+2025-12-23 10:15:30 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1387s)
+2025-12-23 10:17:10 - trades.CHFZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1287s)

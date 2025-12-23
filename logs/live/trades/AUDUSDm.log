@@ -1,0 +1,13 @@
+2025-12-23 10:00:08 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:49 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.67 pips < min 0.80 pips
+2025-12-23 10:03:30 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-23 10:05:12 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 111.8% of avg range > max 30.0%
+2025-12-23 10:06:55 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.1% of avg range > max 30.0%
+2025-12-23 10:08:37 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1800s)
+2025-12-23 10:10:17 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1699s)
+2025-12-23 10:11:58 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1599s)
+2025-12-23 10:13:40 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1496s)
+2025-12-23 10:15:21 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1396s)
+2025-12-23 10:17:02 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1294s)
+2025-12-23 10:18:43 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1193s)
+2025-12-23 10:23:53 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 883s)

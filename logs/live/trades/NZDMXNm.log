@@ -1,0 +1,12 @@
+2025-12-23 10:01:56 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 558.2% of avg range > max 30.0%
+2025-12-23 10:03:38 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 548.0% of avg range > max 30.0%
+2025-12-23 10:05:20 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 589.3% of avg range > max 30.0%
+2025-12-23 10:07:02 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 563.1% of avg range > max 30.0%
+2025-12-23 10:08:44 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1793s)
+2025-12-23 10:10:24 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1692s)
+2025-12-23 10:12:06 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1590s)
+2025-12-23 10:13:47 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1489s)
+2025-12-23 10:15:28 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1388s)
+2025-12-23 10:17:09 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1287s)
+2025-12-23 10:18:50 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1186s)
+2025-12-23 10:25:03 - trades.NZDMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 813s)

@@ -1,0 +1,12 @@
+2025-12-23 10:00:14 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:54 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8670.6% of avg range > max 30.0%
+2025-12-23 10:03:36 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8634.1% of avg range > max 30.0%
+2025-12-23 10:05:18 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8476.2% of avg range > max 30.0%
+2025-12-23 10:07:00 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8303.3% of avg range > max 30.0%
+2025-12-23 10:08:42 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1794s)
+2025-12-23 10:10:23 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1694s)
+2025-12-23 10:12:05 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1592s)
+2025-12-23 10:13:45 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1491s)
+2025-12-23 10:15:26 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1390s)
+2025-12-23 10:31:25 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 431s)
+2025-12-23 10:34:46 - trades.GBPNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 230s)

@@ -1,0 +1,3 @@
+2025-12-23 10:28:23 - trades.DKKPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 613s)
+2025-12-23 10:31:38 - trades.DKKPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 418s)
+2025-12-23 10:34:59 - trades.DKKPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 217s)

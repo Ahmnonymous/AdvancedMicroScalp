@@ -1,0 +1,4 @@
+2025-12-23 10:00:17 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:58 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15027.6% of avg range > max 30.0%
+2025-12-23 10:03:40 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15107.0% of avg range > max 30.0%
+2025-12-23 10:05:22 - trades.AUDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13581.9% of avg range > max 30.0%

@@ -1,0 +1,5 @@
+2025-12-23 10:01:56 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4666.7% of avg range > max 30.0%
+2025-12-23 10:03:39 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4781.4% of avg range > max 30.0%
+2025-12-23 10:05:21 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4869.6% of avg range > max 30.0%
+2025-12-23 10:07:02 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4947.8% of avg range > max 30.0%
+2025-12-23 10:08:45 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1792s)

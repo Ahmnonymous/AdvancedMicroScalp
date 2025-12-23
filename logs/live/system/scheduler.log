@@ -1,0 +1,109 @@
+2025-12-23 10:00:07 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:00:07 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:00:07.445
+2025-12-23 10:00:18 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:00:18.144 | Duration: 10.698s
+2025-12-23 10:00:18 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:00:18 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:01:48 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.015s (target: 90s)
+2025-12-23 10:01:48 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:01:48 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:01:48.215
+2025-12-23 10:01:59 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:01:59.622 | Duration: 11.408s
+2025-12-23 10:01:59 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:01:59 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:03:29 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.010s (target: 90s)
+2025-12-23 10:03:29 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:03:29 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:03:29.664
+2025-12-23 10:03:41 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:03:41.315 | Duration: 11.650s
+2025-12-23 10:03:41 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:03:41 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:05:11 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.012s (target: 90s)
+2025-12-23 10:05:11 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:05:11 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:05:11.386
+2025-12-23 10:05:24 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:05:24.119 | Duration: 12.733s
+2025-12-23 10:05:24 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:05:24 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:06:54 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.018s (target: 90s)
+2025-12-23 10:06:54 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:06:54 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:06:54.182
+2025-12-23 10:07:06 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:07:06.068 | Duration: 11.887s
+2025-12-23 10:07:06 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:07:06 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:08:36 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.008s (target: 90s)
+2025-12-23 10:08:36 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:08:36 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:08:36.129
+2025-12-23 10:08:46 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:08:46.686 | Duration: 10.557s
+2025-12-23 10:08:46 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:08:46 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:10:16 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.014s (target: 90s)
+2025-12-23 10:10:16 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:10:16 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:10:16.769
+2025-12-23 10:10:27 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:10:27.181 | Duration: 10.412s
+2025-12-23 10:10:27 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:10:27 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:11:57 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.009s (target: 90s)
+2025-12-23 10:11:57 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:11:57 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:11:57.258
+2025-12-23 10:12:09 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:12:09.046 | Duration: 11.788s
+2025-12-23 10:12:09 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:12:09 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:13:39 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.015s (target: 90s)
+2025-12-23 10:13:39 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:13:39 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:13:39.128
+2025-12-23 10:13:49 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:13:49.970 | Duration: 10.843s
+2025-12-23 10:13:49 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:13:50 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:15:20 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.008s (target: 90s)
+2025-12-23 10:15:20 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:15:20 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:15:20.039
+2025-12-23 10:15:30 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:15:30.809 | Duration: 10.770s
+2025-12-23 10:15:30 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:15:30 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:17:00 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.010s (target: 90s)
+2025-12-23 10:17:00 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:17:00 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:17:00.877
+2025-12-23 10:17:12 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:17:12.091 | Duration: 11.214s
+2025-12-23 10:17:12 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:17:12 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:18:42 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.004s (target: 90s)
+2025-12-23 10:18:42 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:18:42 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:18:42.154
+2025-12-23 10:18:53 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:18:53.118 | Duration: 10.964s
+2025-12-23 10:18:53 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:18:53 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:20:23 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.020s (target: 90s)
+2025-12-23 10:20:23 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:20:25 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:20:24.541
+2025-12-23 10:22:12 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:22:12.055 | Duration: 107.514s
+2025-12-23 10:22:12 - scheduler - WARNING - mode=LIVE | [RUN_CYCLE] WARNING: Cycle overrun detected
+2025-12-23 10:22:12 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:22:12 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:23:42 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.150s (target: 90s)
+2025-12-23 10:23:42 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:23:43 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:23:43.014
+2025-12-23 10:25:31 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:25:31.014 | Duration: 108.000s
+2025-12-23 10:25:31 - scheduler - WARNING - mode=LIVE | [RUN_CYCLE] WARNING: Cycle overrun detected
+2025-12-23 10:25:31 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:25:31 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:27:01 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.012s (target: 90s)
+2025-12-23 10:27:01 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:27:01 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:27:01.341
+2025-12-23 10:28:52 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:28:52.543 | Duration: 111.201s
+2025-12-23 10:28:52 - scheduler - WARNING - mode=LIVE | [RUN_CYCLE] WARNING: Cycle overrun detected
+2025-12-23 10:28:52 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:28:52 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:30:23 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.084s (target: 90s)
+2025-12-23 10:30:23 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:30:23 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:30:23.184
+2025-12-23 10:32:07 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:32:07.737 | Duration: 104.554s
+2025-12-23 10:32:07 - scheduler - WARNING - mode=LIVE | [RUN_CYCLE] WARNING: Cycle overrun detected
+2025-12-23 10:32:07 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:32:08 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:33:38 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.478s (target: 90s)
+2025-12-23 10:33:39 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:33:39 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:33:39.254
+2025-12-23 10:35:32 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle end timestamp: 2025-12-23 10:35:32.296 | Duration: 113.042s
+2025-12-23 10:35:32 - scheduler - WARNING - mode=LIVE | [RUN_CYCLE] WARNING: Cycle overrun detected
+2025-12-23 10:35:32 - scheduler - INFO - Trading cycle completed
+2025-12-23 10:35:32 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Waiting 90s until next cycle
+2025-12-23 10:37:02 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Sleep completed | Duration: 90.083s (target: 90s)
+2025-12-23 10:37:03 - scheduler - INFO - Starting trading cycle
+2025-12-23 10:37:03 - scheduler - INFO - mode=LIVE | [RUN_CYCLE] Cycle start timestamp: 2025-12-23 10:37:03.340

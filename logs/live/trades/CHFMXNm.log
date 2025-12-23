@@ -1,0 +1,14 @@
+2025-12-23 10:03:38 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 386.4% of avg range > max 30.0%
+2025-12-23 10:05:21 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 402.2% of avg range > max 30.0%
+2025-12-23 10:07:02 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 358.3% of avg range > max 30.0%
+2025-12-23 10:08:44 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1792s)
+2025-12-23 10:10:25 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1691s)
+2025-12-23 10:12:07 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1589s)
+2025-12-23 10:13:48 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1488s)
+2025-12-23 10:15:29 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1388s)
+2025-12-23 10:17:10 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1286s)
+2025-12-23 10:18:51 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1185s)
+2025-12-23 10:25:07 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 809s)
+2025-12-23 10:28:29 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 607s)
+2025-12-23 10:31:45 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 411s)
+2025-12-23 10:35:08 - trades.CHFMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 209s)

@@ -1,0 +1,14 @@
+2025-12-23 10:00:14 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:54 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7201.4% of avg range > max 30.0%
+2025-12-23 10:03:36 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6945.9% of avg range > max 30.0%
+2025-12-23 10:05:18 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6433.0% of avg range > max 30.0%
+2025-12-23 10:07:00 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6403.0% of avg range > max 30.0%
+2025-12-23 10:08:42 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1794s)
+2025-12-23 10:10:22 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1694s)
+2025-12-23 10:12:04 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1592s)
+2025-12-23 10:13:45 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1491s)
+2025-12-23 10:15:26 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1390s)
+2025-12-23 10:17:07 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1289s)
+2025-12-23 10:18:48 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1188s)
+2025-12-23 10:31:22 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 434s)
+2025-12-23 10:34:41 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 235s)

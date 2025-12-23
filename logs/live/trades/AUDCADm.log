@@ -1,0 +1,5 @@
+2025-12-23 10:15:24 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1393s)
+2025-12-23 10:17:05 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1292s)
+2025-12-23 10:18:46 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1191s)
+2025-12-23 10:24:20 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 856s)
+2025-12-23 10:27:43 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 653s)

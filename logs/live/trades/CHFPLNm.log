@@ -1,0 +1,12 @@
+2025-12-23 10:05:21 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6563.6% of avg range > max 30.0%
+2025-12-23 10:07:03 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6515.9% of avg range > max 30.0%
+2025-12-23 10:08:45 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1791s)
+2025-12-23 10:13:49 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1488s)
+2025-12-23 10:15:30 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1387s)
+2025-12-23 10:17:11 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1285s)
+2025-12-23 10:18:52 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1184s)
+2025-12-23 10:22:04 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 993s)
+2025-12-23 10:25:20 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 796s)
+2025-12-23 10:28:41 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 595s)
+2025-12-23 10:31:55 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 401s)
+2025-12-23 10:35:21 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 195s)

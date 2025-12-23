@@ -1,0 +1,6 @@
+2025-12-23 10:10:23 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1693s)
+2025-12-23 10:13:46 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1491s)
+2025-12-23 10:15:27 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1390s)
+2025-12-23 10:21:33 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1023s)
+2025-12-23 10:24:48 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 829s)
+2025-12-23 10:34:50 - trades.NOKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 227s)

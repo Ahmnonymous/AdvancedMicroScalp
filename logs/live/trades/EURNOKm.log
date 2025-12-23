@@ -1,0 +1,13 @@
+2025-12-23 10:00:17 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:58 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3245.4% of avg range > max 30.0%
+2025-12-23 10:03:40 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3243.0% of avg range > max 30.0%
+2025-12-23 10:05:22 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3019.0% of avg range > max 30.0%
+2025-12-23 10:07:04 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2929.6% of avg range > max 30.0%
+2025-12-23 10:08:46 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1791s)
+2025-12-23 10:10:26 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1690s)
+2025-12-23 10:12:08 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1588s)
+2025-12-23 10:13:49 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1487s)
+2025-12-23 10:25:25 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 791s)
+2025-12-23 10:28:45 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 591s)
+2025-12-23 10:31:58 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 399s)
+2025-12-23 10:35:24 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 193s)

@@ -1,0 +1,15 @@
+2025-12-23 10:00:13 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 10:01:53 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 128.4% of avg range > max 30.0%
+2025-12-23 10:03:35 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.4% of avg range > max 30.0%
+2025-12-23 10:05:17 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.4% of avg range > max 30.0%
+2025-12-23 10:06:59 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.1% of avg range > max 30.0%
+2025-12-23 10:08:41 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1795s)
+2025-12-23 10:10:22 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1695s)
+2025-12-23 10:12:04 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1593s)
+2025-12-23 10:13:44 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1492s)
+2025-12-23 10:15:25 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1391s)
+2025-12-23 10:17:06 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1290s)
+2025-12-23 10:18:47 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1189s)
+2025-12-23 10:21:19 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1037s)
+2025-12-23 10:24:35 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 841s)
+2025-12-23 10:27:58 - trades.XAGAUDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 639s)

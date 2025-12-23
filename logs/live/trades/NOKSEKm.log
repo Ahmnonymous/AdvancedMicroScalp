@@ -1,0 +1,3 @@
+2025-12-23 10:25:17 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 800s)
+2025-12-23 10:31:52 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 404s)
+2025-12-23 10:35:17 - trades.NOKSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 199s)

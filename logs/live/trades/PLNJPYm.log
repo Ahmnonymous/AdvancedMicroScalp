@@ -1,0 +1,14 @@
+2025-12-23 10:01:57 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4995.4% of avg range > max 30.0%
+2025-12-23 10:03:39 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5267.1% of avg range > max 30.0%
+2025-12-23 10:05:21 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5416.7% of avg range > max 30.0%
+2025-12-23 10:07:03 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5174.3% of avg range > max 30.0%
+2025-12-23 10:08:45 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1791s)
+2025-12-23 10:10:26 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1690s)
+2025-12-23 10:12:08 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1589s)
+2025-12-23 10:13:49 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1488s)
+2025-12-23 10:15:30 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1387s)
+2025-12-23 10:17:11 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1286s)
+2025-12-23 10:18:52 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1185s)
+2025-12-23 10:22:02 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 994s)
+2025-12-23 10:25:19 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 797s)
+2025-12-23 10:28:39 - trades.PLNJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 597s)
