@@ -2020,11 +2020,31 @@ class SLManager:
                 entry_price, -self.max_risk_usd, order_type, lot_size, symbol_info, position=position
             )
             
+            # CRITICAL VALIDATION: Verify calculated SL produces correct -$2.00 loss
+            # Create test position to verify effective SL
+            test_position = position.copy() if position else {}
+            test_position['sl'] = target_sl
+            test_position['price_open'] = entry_price
+            test_position['type'] = order_type
+            test_position['volume'] = lot_size
+            test_effective_sl = self.get_effective_sl_profit(test_position)
+            target_effective_sl = -self.max_risk_usd
+            calculation_error = abs(test_effective_sl - target_effective_sl)
+            
+            # CRITICAL: Ensure SL never sets tighter than -$2.00 (more negative = worse)
+            if test_effective_sl < target_effective_sl:
+                logger.critical(f"[CRITICAL] SL CALCULATION VIOLATION: {symbol} Ticket {ticket} | "
+                              f"Calculated SL produces ${test_effective_sl:.2f} loss (WORSE than target ${target_effective_sl:.2f}) | "
+                              f"Entry: {entry_price:.5f} | Target SL: {target_sl:.5f} | "
+                              f"BLOCKING SL UPDATE - calculation error")
+                return False, f"SL calculation produces loss worse than -${self.max_risk_usd:.2f} (calculated: ${test_effective_sl:.2f})", None
+            
             # CRITICAL VALIDATION: Log calculation details for debugging
-            logger.debug(f"🔍 SL CALCULATION DEBUG: {symbol} Ticket {ticket} | "
-                        f"Entry: {entry_price:.5f} | Target SL: {target_sl:.5f} | "
-                        f"Order: {order_type} | Lot: {lot_size} | "
-                        f"Current Price: {current_price:.5f} | Current Profit: ${current_profit:.2f}")
+            logger.info(f"[SL_CALCULATION] {symbol} Ticket {ticket} | "
+                       f"Entry: {entry_price:.5f} | Target SL: {target_sl:.5f} | "
+                       f"Order: {order_type} | Lot: {lot_size} | "
+                       f"Current Price: {current_price:.5f} | Current Profit: ${current_profit:.2f} | "
+                       f"Effective SL: ${test_effective_sl:.2f} (target: ${target_effective_sl:.2f}, error: ${calculation_error:.2f})")
         except ValueError as e:
             # SL calculation produced suspicious result - disable symbol and return
             logger.critical(f"CRITICAL: SL calculation failed for {symbol} Ticket {ticket}: {e}")
@@ -2123,11 +2143,12 @@ class SLManager:
                     verify_error = abs(verify_effective_sl - (-self.max_risk_usd))
                     # Allow tolerance for floating point and broker rounding
                     tolerance = 0.50  # $0.50 tolerance for strict loss verification
+                    mode = "BACKTEST" if self.config.get('mode') == 'backtest' else "LIVE"
                     if verify_error < tolerance:  # Within tolerance
-                        mode = "BACKTEST" if self.config.get('mode') == 'backtest' else "LIVE"
-                    logger.info(f"[HARD SL] STRICT LOSS ENFORCED: mode={mode} | ticket={ticket} | symbol={symbol} | "
-                                f"sl_price={final_sl_price:.5f} | effective_sl=${verify_effective_sl:.2f} | "
-                                f"reason=Strict loss enforcement (-${self.max_risk_usd:.2f})")
+                        logger.info(f"[HARD SL] STRICT LOSS ENFORCED: mode={mode} | ticket={ticket} | symbol={symbol} | "
+                                    f"sl_price={final_sl_price:.5f} | effective_sl=${verify_effective_sl:.2f} | "
+                                    f"reason=Strict loss enforcement (-${self.max_risk_usd:.2f}) | "
+                                    f"Verification: PASSED (error: ${verify_error:.2f} < tolerance: ${tolerance:.2f})")
                     tracer.trace(
                         function_name="SLManager._enforce_strict_loss_limit",
                         expected=f"Enforce strict loss -$2.00 for {symbol} Ticket {ticket}",
@@ -4422,6 +4443,30 @@ class SLManager:
                                  f"Target: ${target_effective_sl:.2f} | Error: ${calculation_error:.2f} | "
                                  f"Recalculating...")
                     # Recalculate with corrected parameters
+                    target_sl_price = self._calculate_target_sl_price(
+                        entry_price=entry_price,
+                        target_profit_usd=-self.max_risk_usd,
+                        order_type=order_type,
+                        lot_size=lot_size,
+                        symbol_info=symbol_info,
+                        position=position
+                    )
+                    logger.info(f"[INITIAL_SL_RECALCULATED] Ticket={ticket} Symbol={symbol} | "
+                              f"Recalculated SL: {target_sl_price:.5f}")
+                
+                # CRITICAL: Verify calculated SL before applying
+                temp_position = position.copy()
+                temp_position['sl'] = target_sl_price
+                calculated_effective_sl = self.get_effective_sl_profit(temp_position)
+                target_effective_sl = -self.max_risk_usd
+                
+                # CRITICAL: Block SL update if it would produce loss worse than -$2.00
+                if calculated_effective_sl < target_effective_sl:
+                    logger.critical(f"[CRITICAL] INITIAL SL BLOCKED: {symbol} Ticket {ticket} | "
+                                  f"Calculated SL produces ${calculated_effective_sl:.2f} loss (WORSE than target ${target_effective_sl:.2f}) | "
+                                  f"Entry: {entry_price:.5f} | Target SL: {target_sl_price:.5f} | "
+                                  f"BLOCKING - will recalculate")
+                    # Recalculate with more conservative approach
                     target_sl_price = self._calculate_target_sl_price(
                         entry_price=entry_price,
                         target_profit_usd=-self.max_risk_usd,

@@ -1,8 +1,0 @@
-2025-12-23 10:17:02 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1294s)
-2025-12-23 10:18:43 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1193s)
-2025-12-23 10:20:38 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1078s)
-2025-12-23 10:23:57 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 879s)
-2025-12-23 10:27:18 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 679s)
-2025-12-23 10:30:37 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 480s)
-2025-12-23 10:33:54 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 282s)
-2025-12-23 10:37:18 - trades.USTEC_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 78s)

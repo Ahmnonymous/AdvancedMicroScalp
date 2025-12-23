@@ -1,2 +1,0 @@
-2025-12-23 10:33:51 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 285s)
-2025-12-23 10:37:14 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 82s)

@@ -1,7 +1,0 @@
-2025-12-23 10:17:07 - trades.CHFNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1289s)
-2025-12-23 10:18:48 - trades.CHFNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1188s)
-2025-12-23 10:21:29 - trades.CHFNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1028s)
-2025-12-23 10:24:46 - trades.CHFNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 831s)
-2025-12-23 10:28:07 - trades.CHFNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 629s)
-2025-12-23 10:31:26 - trades.CHFNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 430s)
-2025-12-23 10:34:47 - trades.CHFNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 229s)

@@ -1958,6 +1958,13 @@ class TradingBot:
                         logger.warning(f"[WARNING] {symbol}: Order placed but exceeded timeout ({elapsed:.3f}s > {execution_timeout}s)")
                     else:
                         logger.debug(f"[OK] {symbol}: Order placed within timeout ({elapsed:.3f}s < {execution_timeout}s)")
+                    
+                    # CRITICAL: Log trade open with comprehensive details
+                    logger.info(f"[TRADE_OPENED] Ticket {ticket} | Symbol {symbol} | Signal: {signal} | "
+                              f"Entry Price: {entry_price_actual:.5f} | Requested: {entry_price:.5f} | Slippage: {slippage:.5f} | "
+                              f"Lot Size: {lot_size:.4f} | Stop Loss Price: {stop_loss_price:.5f} | "
+                              f"Risk: ${estimated_risk:.2f} (max: ${self.risk_manager.max_risk_usd:.2f}) | "
+                              f"Quality Score: {quality_score:.1f} | Execution Time: {elapsed:.3f}s")
                     break
                 
                 # Error code classification:

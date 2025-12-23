@@ -151,6 +151,14 @@ class RiskManager:
         self._circuit_breaker_paused_until = None  # datetime when pause expires
         self._circuit_breaker_reason = None  # Reason for current pause
         
+        # Configurable max consecutive losses threshold
+        # -1 = unlimited (bot never stops due to losses), 0+ = stop after N consecutive losses
+        self.max_consecutive_losses_threshold = self.risk_config.get('max_consecutive_losses', -1)
+        if self.max_consecutive_losses_threshold == -1:
+            logger.info("[CIRCUIT_BREAKER] max_consecutive_losses=-1 → Unlimited losses allowed (bot will never stop due to consecutive losses)")
+        else:
+            logger.info(f"[CIRCUIT_BREAKER] max_consecutive_losses={self.max_consecutive_losses_threshold} → Bot will pause after {self.max_consecutive_losses_threshold} consecutive losses")
+        
         # Hard Entry Filters Configuration
         filter_config = self.risk_config.get('entry_filters', {})
         self.entry_filters_enabled = filter_config.get('enabled', True)
@@ -624,11 +632,11 @@ class RiskManager:
                 remaining_seconds = (self._circuit_breaker_paused_until - now).total_seconds()
                 return True, f"{self._circuit_breaker_reason} (resumes in {remaining_seconds:.0f}s)"
             
-            # Check consecutive losses rule
-            if self._consecutive_losses >= 10:
+            # Check consecutive losses rule (only if threshold is configured, -1 = unlimited)
+            if self.max_consecutive_losses_threshold >= 0 and self._consecutive_losses >= self.max_consecutive_losses_threshold:
                 pause_duration_minutes = 30
                 self._circuit_breaker_paused_until = now + timedelta(minutes=pause_duration_minutes)
-                self._circuit_breaker_reason = f"Consecutive losses >= 10 ({self._consecutive_losses} losses)"
+                self._circuit_breaker_reason = f"Consecutive losses >= {self.max_consecutive_losses_threshold} ({self._consecutive_losses} losses)"
                 logger.warning(f"[CIRCUIT BREAKER] Trading paused: {self._circuit_breaker_reason} (pause duration: {pause_duration_minutes} minutes)")
                 return True, self._circuit_breaker_reason
             
@@ -1540,12 +1548,14 @@ class RiskManager:
         # Check circuit breaker first
         is_paused, pause_reason = self._check_circuit_breaker()
         if is_paused:
+            logger.debug(f"[TRADE_BLOCKED] Symbol: {symbol} | Reason: Circuit breaker - {pause_reason}")
             return False, f"Circuit breaker: {pause_reason}"
         
         # Check entry filters (requires symbol)
         if symbol:
             passed, filter_reason = self._check_entry_filters(symbol)
             if not passed:
+                logger.debug(f"[TRADE_BLOCKED] Symbol: {symbol} | Reason: Entry filter - {filter_reason}")
                 return False, f"Entry filter: {filter_reason}"
         
         # Get all positions and filter out those on closed/halted markets
@@ -2339,8 +2349,15 @@ class RiskManager:
             
             # If SL modification failed after all retries, manually close position to prevent late exit
             if not success:
-                logger.error(f"[ERROR] Ticket {ticket}: SL modification failed after {max_retries} attempts. "
-                           f"Manually closing position to prevent late exit. Error: {last_error}")
+                # Get current profit before closing
+                position_before_close = self.order_manager.get_position_by_ticket(ticket)
+                current_profit_before_close = position_before_close.get('profit', 0.0) if position_before_close else 0.0
+                
+                logger.error(f"[CRITICAL] SL_MODIFICATION_FAILED: Ticket {ticket} | Symbol {symbol} | "
+                           f"SL modification failed after {max_retries} attempts | "
+                           f"Current profit: ${current_profit_before_close:.2f} | "
+                           f"Error: {last_error} | "
+                           f"Manually closing position to prevent late exit (unprotected position)")
                 
                 # Calculate expected loss (should be -$2.00)
                 expected_loss = -self.max_risk_usd
@@ -2348,13 +2365,17 @@ class RiskManager:
                 # Close position manually
                 close_success = self.order_manager.close_position(ticket, comment="SL modification failed - prevent late exit")
                 if close_success:
-                    logger.warning(f"[WARNING] Ticket {ticket}: Position closed manually due to SL modification failure")
+                    logger.warning(f"[SAFETY_CLOSE] Ticket {ticket} | Symbol {symbol} | "
+                                 f"Position closed manually due to SL modification failure | "
+                                 f"Profit at close: ${current_profit_before_close:.2f} | "
+                                 f"Expected loss threshold: ${expected_loss:.2f} | "
+                                 f"Reason: SL could not be set, closing to prevent unlimited loss")
                     # Log late exit prevention
                     from trade_logging.trade_logger import TradeLogger
                     trade_logger = TradeLogger(self.config)
                     # Get actual profit from position before it closes
                     position = self.order_manager.get_position_by_ticket(ticket)
-                    actual_profit = position.get('profit', expected_loss) if position else expected_loss
+                    actual_profit = position.get('profit', expected_loss) if position else current_profit_before_close
                     trade_logger.log_late_exit_prevention(
                         symbol=symbol,
                         ticket=ticket,
@@ -2363,7 +2384,9 @@ class RiskManager:
                         sl_modification_failed=True
                     )
                 else:
-                    logger.error(f"[ERROR] Ticket {ticket}: Failed to close position manually after SL modification failure")
+                    logger.error(f"[ERROR] Ticket {ticket} | Symbol {symbol} | "
+                               f"Failed to close position manually after SL modification failure | "
+                               f"Position may be unprotected - manual intervention required")
                 
                 tracking['last_profit'] = current_profit_usd
                 return False, f"SL modification failed after {max_retries} attempts, position closed manually"
@@ -2516,23 +2539,28 @@ class RiskManager:
                                     # Determine close reason with improved detection
                                     close_reason = "Unknown"
                                     # CRITICAL: Detect stop-loss closures accurately
-                                    # Allow small tolerance for rounding (within $0.05 of -$2.00)
-                                    if abs(total_profit + 2.0) <= 0.05:  # Close to -$2.00 (within $0.05 tolerance)
+                                    # Allow small tolerance for rounding (within $0.10 of -$2.00 for broker rounding/slippage)
+                                    if abs(total_profit + 2.0) <= 0.10:  # Close to -$2.00 (within $0.10 tolerance)
                                         close_reason = "Stop Loss (-$2.00)"
                                         logger.info(f"🛑 STOP-LOSS TRIGGERED: Ticket {ticket} | {symbol} | "
-                                                  f"Profit: ${total_profit:.2f} | Reason: Hit configured stop-loss at -$2.00")
-                                    elif abs(total_profit + 1.0) <= 0.05:  # Close to -$1.00 (EARLY CLOSURE ISSUE)
-                                        close_reason = "Stop Loss (-$1.00) - EARLY CLOSURE DETECTED"
-                                        logger.warning(f"[WARNING] EARLY STOP-LOSS CLOSURE: Ticket {ticket} | {symbol} | "
+                                                  f"Profit: ${total_profit:.2f} | Reason: Hit configured stop-loss at -$2.00 | "
+                                                  f"Entry: {entry_price:.5f} | Close: {close_price:.5f} | Duration: {duration_min:.2f} min")
+                                    elif total_profit < 0 and total_profit > -2.0:  # Loss but better than -$2.00 (EARLY CLOSURE)
+                                        close_reason = f"Early Closure (${total_profit:.2f}) - Expected -$2.00"
+                                        logger.warning(f"[CRITICAL] EARLY CLOSURE DETECTED: Ticket {ticket} | {symbol} | "
                                                      f"Profit: ${total_profit:.2f} | Expected: -$2.00 | "
-                                                     f"This trade closed at -$1.00 instead of configured -$2.00 stop-loss")
+                                                     f"Entry: {entry_price:.5f} | Close: {close_price:.5f} | Duration: {duration_min:.2f} min | "
+                                                     f"Possible causes: Manual close, broker closure, SL calculation error, slippage, or margin call")
                                     elif total_profit > 0:
                                         close_reason = "Take Profit or Trailing Stop"
-                                    elif total_profit < -2.05:  # More than $0.05 below -$2.00
+                                        logger.info(f"✅ PROFITABLE CLOSE: Ticket {ticket} | {symbol} | "
+                                                  f"Profit: ${total_profit:.2f} | Entry: {entry_price:.5f} | Close: {close_price:.5f} | Duration: {duration_min:.2f} min")
+                                    elif total_profit < -2.10:  # More than $0.10 below -$2.00 (exceeded threshold)
                                         close_reason = f"Stop Loss exceeded (${total_profit:.2f})"
                                         logger.warning(f"[WARNING] STOP-LOSS EXCEEDED: Ticket {ticket} | {symbol} | "
                                                      f"Profit: ${total_profit:.2f} | Expected max: -$2.00 | "
-                                                     f"Loss exceeded configured stop-loss limit")
+                                                     f"Entry: {entry_price:.5f} | Close: {close_price:.5f} | Duration: {duration_min:.2f} min | "
+                                                     f"Loss exceeded configured stop-loss limit - possible slippage or broker execution issue")
                                         # Log late exit warning
                                         trade_logger.log_late_exit_prevention(
                                             symbol=symbol,

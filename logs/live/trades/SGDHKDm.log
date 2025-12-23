@@ -1,6 +1,0 @@
-2025-12-23 10:12:07 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1590s)
-2025-12-23 10:13:47 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1489s)
-2025-12-23 10:15:28 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1388s)
-2025-12-23 10:18:51 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1186s)
-2025-12-23 10:21:50 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1007s)
-2025-12-23 10:25:04 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 812s)

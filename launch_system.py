@@ -457,6 +457,17 @@ class TradingSystemLauncher:
                     if self.monitor:
                         monitor_summary = self.monitor.get_monitoring_summary()
                     
+                    # Calculate Session P/L early (needed for account information table)
+                    if self.bot:
+                        # Try to get session_pnl from bot (calculated from balance difference)
+                        session_pnl = getattr(self.bot, 'session_pnl', None)
+                        if session_pnl is None:
+                            # Fallback to daily_pnl if session_pnl not available
+                            session_pnl = daily_pnl
+                    else:
+                        session_pnl = daily_pnl
+                    session_pnl_color = Colors.GREEN if session_pnl >= 0 else Colors.RED
+                    
                     # Clear screen and display summary
                     clear_screen()
                     
@@ -497,15 +508,16 @@ class TradingSystemLauncher:
                                  f"{equity_color}${equity:,.2f} {currency}{Colors.END}", 
                                  f"{profit_color}${profit:,.2f} {currency}{Colors.END}", 
                                  f"${free_margin:,.2f} {currency}", 
-                                 f"${margin:,.2f} {currency}"]
+                                 f"${margin:,.2f} {currency}",
+                                 f"{session_pnl_color}${session_pnl:,.2f} {currency}{Colors.END}"]
                             ]
-                            headers = ["Balance", "Equity", "Floating P/L", "Free Margin", "Used Margin"]
+                            headers = ["Balance", "Equity", "Floating P/L", "Free Margin", "Used Margin", "Session P/L"]
                             print(tabulate(account_table, headers=headers, tablefmt="grid", stralign="right"))
                         else:
                             # Fallback to simple format
-                            print(f"{Colors.BOLD}{'Balance':<20} | {'Equity':<20} | {'Floating P/L':<20} | {'Free Margin':<20} | {'Used Margin':<20}{Colors.END}")
-                            print(f"{Colors.BLUE}{'-' * 120}{Colors.END}")
-                            print(f"${balance:>12,.2f} {currency:<6} | {equity_color}${equity:>12,.2f}{Colors.END} {currency:<6} | {profit_color}${profit:>12,.2f}{Colors.END} {currency:<6} | ${free_margin:>12,.2f} {currency:<6} | ${margin:>12,.2f} {currency:<6}")
+                            print(f"{Colors.BOLD}{'Balance':<20} | {'Equity':<20} | {'Floating P/L':<20} | {'Free Margin':<20} | {'Used Margin':<20} | {'Session P/L':<20}{Colors.END}")
+                            print(f"{Colors.BLUE}{'-' * 140}{Colors.END}")
+                            print(f"${balance:>12,.2f} {currency:<6} | {equity_color}${equity:>12,.2f}{Colors.END} {currency:<6} | {profit_color}${profit:>12,.2f}{Colors.END} {currency:<6} | ${free_margin:>12,.2f} {currency:<6} | ${margin:>12,.2f} {currency:<6} | {session_pnl_color}${session_pnl:>12,.2f}{Colors.END} {currency:<6}")
                         print()
                     
                     # ==================== OPEN POSITIONS TABLE ====================
@@ -743,17 +755,7 @@ class TradingSystemLauncher:
                     hft_trades = monitor_summary.get('hft_trades', 0) if monitor_summary else 0
                     sweet_spot_rate = monitor_summary.get('hft_sweet_spot_rate', 0) if monitor_summary else 0
                     
-                    # Session P/L - calculate correctly from bot or use daily_pnl
-                    if self.bot:
-                        # Try to get session_pnl from bot (calculated from balance difference)
-                        session_pnl = getattr(self.bot, 'session_pnl', None)
-                        if session_pnl is None:
-                            # Fallback to daily_pnl if session_pnl not available
-                            session_pnl = daily_pnl
-                    else:
-                        session_pnl = daily_pnl
-                    session_pnl_color = Colors.GREEN if session_pnl >= 0 else Colors.RED
-                    
+                    # Session P/L already calculated above for account information table
                     # Calculate floating_pnl and calculated_daily_pnl for logging
                     floating_pnl = total_profit  # Floating P/L is the total profit from open positions
                     calculated_daily_pnl = realized_pnl_today  # Calculated daily P/L is the realized P/L for today
@@ -769,21 +771,15 @@ class TradingSystemLauncher:
                             f"{Colors.GREEN}{successful}{Colors.END}",
                             f"{Colors.RED}{failed}{Colors.END}",
                             f"{Colors.YELLOW}{filtered}{Colors.END}",
-                            f"{Colors.CYAN}{closed_trades}{Colors.END}",
-                            f"{Colors.GREEN}{profitable_count}{Colors.END}",
-                            f"{Colors.GREEN}${total_profit_sum:,.2f}{Colors.END}",
-                            f"{Colors.RED}{losing_count}{Colors.END}",
-                            f"{Colors.RED}${total_loss_sum:,.2f}{Colors.END}",
-                            f"{session_pnl_color}${session_pnl:,.2f}{Colors.END}"
+                            f"{Colors.CYAN}{closed_trades}{Colors.END}"
                         ]]
-                        headers = ["Total Trades", "Successful", "Failed", "Filtered", "Closed Trades", 
-                                 "Profitable", "Total Profit", "Losing", "Total Loss", "Session P/L"]
+                        headers = ["Total Trades", "Successful", "Failed", "Filtered", "Closed Trades"]
                         print(tabulate(stats_table, headers=headers, tablefmt="grid", stralign="right"))
                     else:
                         # Fallback
-                        print(f"{Colors.BOLD}{'Total Trades':<15} | {'Successful':<15} | {'Failed':<15} | {'Filtered':<15} | {'Closed':<15} | {'Profitable':<15} | {'Total Profit':<18} | {'Losing':<15} | {'Total Loss':<18} | {'Session P/L':<18}{Colors.END}")
-                        print(f"{Colors.CYAN}{'-' * 180}{Colors.END}")
-                        print(f"{total_trades:<15} | {Colors.GREEN}{successful:<15}{Colors.END} | {Colors.RED}{failed:<15}{Colors.END} | {Colors.YELLOW}{filtered:<15}{Colors.END} | {Colors.CYAN}{closed_trades:<15}{Colors.END} | {Colors.GREEN}{profitable_count:<15}{Colors.END} | {Colors.GREEN}${total_profit_sum:>12,.2f}{Colors.END}{' ' * 3} | {Colors.RED}{losing_count:<15}{Colors.END} | {Colors.RED}${total_loss_sum:>12,.2f}{Colors.END}{' ' * 3} | {session_pnl_color}${session_pnl:>12,.2f}{Colors.END}{' ' * 3}")
+                        print(f"{Colors.BOLD}{'Total Trades':<15} | {'Successful':<15} | {'Failed':<15} | {'Filtered':<15} | {'Closed':<15}{Colors.END}")
+                        print(f"{Colors.CYAN}{'-' * 90}{Colors.END}")
+                        print(f"{total_trades:<15} | {Colors.GREEN}{successful:<15}{Colors.END} | {Colors.RED}{failed:<15}{Colors.END} | {Colors.YELLOW}{filtered:<15}{Colors.END} | {Colors.CYAN}{closed_trades:<15}{Colors.END}")
                     print()
                     
                     # ==================== REAL-TIME SL PROTECTION WARNINGS ====================

@@ -1,5 +1,0 @@
-2025-12-23 10:10:18 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1698s)
-2025-12-23 10:11:59 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1597s)
-2025-12-23 10:15:22 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1395s)
-2025-12-23 10:20:43 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1073s)
-2025-12-23 10:30:43 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 473s)

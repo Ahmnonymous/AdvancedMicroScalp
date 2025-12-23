@@ -68,6 +68,9 @@ class OrderManager:
             try:
                 position = mt5.position_get(ticket)
                 if position is not None:
+                    # CRITICAL FIX: mt5.position_get() may return a tuple, extract first element if needed
+                    if isinstance(position, (tuple, list)) and len(position) > 0:
+                        position = position[0]
                     # Update cache
                     if use_cache:
                         with self._position_cache_lock:
@@ -924,11 +927,41 @@ class OrderManager:
             )
             return False
         
-        position = position[0]
+        # CRITICAL FIX: Handle both tuple/list and single position object
+        # mt5.position_get() may return a tuple, while other methods return a single object
+        if isinstance(position, (tuple, list)) and len(position) > 0:
+            position = position[0]
+        elif not hasattr(position, 'symbol'):
+            # If position doesn't have 'symbol' attribute, it's not a valid position object
+            logger.error(f"Position {ticket} returned invalid format: {type(position)}")
+            return False
+        
         symbol = position.symbol
         profit = position.profit
+        ticket = position.ticket
+        
+        # CRITICAL: Log trade closure with comprehensive details
+        # Get entry price and SL for logging
+        entry_price = position.price_open
+        sl_price = position.sl
+        tp_price = position.tp if hasattr(position, 'tp') else 0.0
+        volume = position.volume
+        
+        logger.info(f"[TRADE_CLOSE_REQUEST] Ticket {ticket} | Symbol {symbol} | "
+                   f"Entry: {entry_price:.5f} | SL: {sl_price:.5f} | TP: {tp_price:.5f} | "
+                   f"Volume: {volume} | Current Profit: ${profit:.2f} | Comment: {comment}")
+        
+        # CRITICAL: Validate loss threshold before closing
+        # If profit is negative but better than -$2.00, log warning (but allow close - may be manual/other reason)
+        if profit < 0 and profit > -2.0:
+            logger.warning(f"[EARLY_CLOSURE_WARNING] Ticket {ticket} | Symbol {symbol} | "
+                          f"Trade closing at ${profit:.2f} (better than configured -$2.00 threshold) | "
+                          f"This may indicate: manual close, broker closure, or SL calculation issue | "
+                          f"Comment: {comment}")
+        
         symbol_info = self.mt5_connector.get_symbol_info(symbol)
         if symbol_info is None:
+            logger.error(f"[TRADE_CLOSE_ERROR] Ticket {ticket} | Symbol {symbol} | Cannot get symbol info")
             return False
         
         # Determine close price and type
@@ -1013,7 +1046,9 @@ class OrderManager:
             return False
         
         if result.retcode != mt5.TRADE_RETCODE_DONE:
-            logger.error(f"Close position failed: {result.retcode} - {result.comment}")
+            logger.error(f"[TRADE_CLOSE_FAILED] Ticket {ticket} | Symbol {symbol} | "
+                        f"MT5 retcode: {result.retcode} | Comment: {result.comment} | "
+                        f"Floating profit at close attempt: ${profit:.2f}")
             tracer.trace(
                 function_name="OrderManager.close_position",
                 expected=f"Close position Ticket {ticket} ({symbol})",
@@ -1027,7 +1062,31 @@ class OrderManager:
             )
             return False
         
-        logger.info(f"Position {ticket} closed successfully")
+        # CRITICAL: Log successful close with comprehensive details
+        # Get deal history to get actual realized profit
+        deal_info = self.get_deal_history(ticket)
+        realized_profit = profit  # Default to floating profit if deal history unavailable
+        if deal_info and deal_info.get('exit_deal'):
+            realized_profit = deal_info.get('total_profit', profit)
+        
+        logger.info(f"[TRADE_CLOSED] Ticket {ticket} | Symbol {symbol} | "
+                   f"Entry: {entry_price:.5f} | SL: {sl_price:.5f} | "
+                   f"Floating Profit: ${profit:.2f} | Realized Profit: ${realized_profit:.2f} | "
+                   f"Comment: {comment} | Execution Time: {execution_time_ms:.0f}ms")
+        
+        # CRITICAL: Validate loss threshold - log warning if closing before -$2.00
+        if realized_profit < 0 and realized_profit > -2.0:
+            logger.warning(f"[EARLY_CLOSURE_DETECTED] Ticket {ticket} | Symbol {symbol} | "
+                          f"Trade closed at ${realized_profit:.2f} (better than configured -$2.00 threshold) | "
+                          f"Expected loss threshold: -$2.00 | "
+                          f"Possible causes: Manual close, broker closure, SL calculation error, or slippage | "
+                          f"Comment: {comment}")
+        
+        # Validate if loss is close to -$2.00 (within tolerance)
+        if abs(realized_profit + 2.0) <= 0.10:
+            logger.info(f"[STOP_LOSS_HIT] Ticket {ticket} | Symbol {symbol} | "
+                       f"Trade closed at ${realized_profit:.2f} (within $0.10 of configured -$2.00 stop loss) | "
+                       f"Stop loss threshold correctly enforced")
         
         # Clear position cache for closed position
         with self._position_cache_lock:

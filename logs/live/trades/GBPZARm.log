@@ -1,6 +1,0 @@
-2025-12-23 10:18:52 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1184s)
-2025-12-23 10:22:05 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 992s)
-2025-12-23 10:25:22 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 795s)
-2025-12-23 10:28:42 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 594s)
-2025-12-23 10:31:56 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 400s)
-2025-12-23 10:35:22 - trades.GBPZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 195s)

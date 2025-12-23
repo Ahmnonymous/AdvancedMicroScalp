@@ -1,3 +1,0 @@
-2025-12-23 10:00:17 - trades.EURSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
-2025-12-23 10:01:58 - trades.EURSEKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2509.0% of avg range > max 30.0%
-2025-12-23 10:35:25 - trades.EURSEKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 191s)
