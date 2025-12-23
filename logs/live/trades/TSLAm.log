@@ -1,0 +1,11 @@
+{"timestamp": "2025-12-22 19:31:35", "symbol": "TSLAm", "trade_type": "LONG", "entry_price": 493.61, "exit_price": 493.4, "profit_usd": -0.18, "status": "CLOSED", "order_id": "554225036", "additional_info": {"entry_price_requested": 493.58, "lot_size": 0.01, "stop_loss_pips": 200.0, "stop_loss_price": 491.58, "slippage": 0.03000000000002956, "quality_score": 85, "spread_points": 10.99999999999568, "spread_fees_cost": 0.10999999999995681, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 494.78149999999994, "sma_slow": 494.3226, "rsi": 65.98639455782121, "duration_minutes": 0.38333333333333336, "close_reason": "Unknown"}}
+2025-12-22 19:48:38 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31.2% of avg range > max 30.0%
+2025-12-22 19:53:24 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 30.2% of avg range > max 30.0%
+2025-12-22 19:58:21 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 30.6% of avg range > max 30.0%
+2025-12-22 20:02:54 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 30.8% of avg range > max 30.0%
+2025-12-22 20:20:13 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1010s)
+2025-12-22 20:24:31 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 752s)
+2025-12-22 20:28:42 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 501s)
+2025-12-22 20:32:53 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 250s)
+2025-12-22 20:37:08 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1798s)
+2025-12-22 20:45:48 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1278s)

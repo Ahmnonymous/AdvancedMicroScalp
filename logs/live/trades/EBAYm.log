@@ -1,0 +1,14 @@
+2025-12-22 19:28:10 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.80 pips
+2025-12-22 19:33:47 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.80 pips
+2025-12-22 19:43:28 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.80 pips
+2025-12-22 19:58:13 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.80 pips
+2025-12-22 20:02:47 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
+2025-12-22 20:07:36 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1767s)
+2025-12-22 20:11:45 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1518s)
+2025-12-22 20:15:53 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1269s)
+2025-12-22 20:20:00 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1022s)
+2025-12-22 20:28:37 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 505s)
+2025-12-22 20:32:45 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 258s)
+2025-12-22 20:36:57 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 6s)
+2025-12-22 20:41:24 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1542s)
+2025-12-22 20:45:45 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1280s)

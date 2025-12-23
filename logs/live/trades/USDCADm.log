@@ -1,0 +1,10 @@
+2025-12-22 20:03:09 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 139.5% of avg range > max 30.0%
+2025-12-22 20:07:55 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1748s)
+2025-12-22 20:12:07 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1496s)
+2025-12-22 20:16:22 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1241s)
+2025-12-22 20:20:28 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 995s)
+2025-12-22 22:32:17 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 443s)
+2025-12-22 22:34:52 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 288s)
+2025-12-22 22:42:28 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1646s)
+2025-12-22 22:44:57 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1497s)
+2025-12-22 22:47:31 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1344s)

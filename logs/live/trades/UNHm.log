@@ -1,0 +1,14 @@
+2025-12-22 19:44:32 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 144.9% of avg range > max 30.0%
+2025-12-22 19:49:21 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 149.7% of avg range > max 30.0%
+2025-12-22 19:54:11 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.6% of avg range > max 30.0%
+2025-12-22 19:59:01 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 20:03:37 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.5% of avg range > max 30.0%
+2025-12-22 20:08:19 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1723s)
+2025-12-22 20:12:37 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1466s)
+2025-12-22 20:16:40 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1223s)
+2025-12-22 20:20:55 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 968s)
+2025-12-22 20:25:08 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 715s)
+2025-12-22 20:29:20 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 463s)
+2025-12-22 20:33:22 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 220s)
+2025-12-22 20:37:37 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1768s)
+2025-12-22 20:41:57 - trades.UNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1509s)

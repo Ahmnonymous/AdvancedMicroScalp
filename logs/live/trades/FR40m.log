@@ -1,0 +1,17 @@
+2025-12-22 19:33:24 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 251.3% of avg range > max 30.0%
+2025-12-22 19:38:08 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 243.5% of avg range > max 30.0%
+2025-12-22 20:41:46 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1519s)
+2025-12-22 20:46:03 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1262s)
+2025-12-22 20:52:29 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 876s)
+2025-12-22 20:55:32 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 693s)
+2025-12-22 21:33:49 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 233s)
+2025-12-22 21:36:28 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 74s)
+2025-12-23 01:52:09 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1242s)
+2025-12-23 01:58:31 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 861s)
+2025-12-23 02:01:42 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 669s)
+2025-12-23 02:04:55 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 477s)
+2025-12-23 02:08:34 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 257s)
+2025-12-23 02:15:03 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1673s)
+2025-12-23 02:33:25 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 570s)
+2025-12-23 03:26:03 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1018s)
+2025-12-23 06:25:16 - trades.FR40m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1234s)

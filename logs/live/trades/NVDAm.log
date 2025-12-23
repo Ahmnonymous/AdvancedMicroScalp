@@ -1,0 +1,6 @@
+2025-12-22 20:07:56 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1747s)
+2025-12-22 20:16:23 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1240s)
+2025-12-22 20:28:57 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 486s)
+2025-12-22 20:33:07 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 236s)
+2025-12-22 20:37:24 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1781s)
+2025-12-22 20:41:41 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1525s)

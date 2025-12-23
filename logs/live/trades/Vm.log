@@ -1,0 +1,14 @@
+2025-12-22 19:29:17 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 260.9% of avg range > max 30.0%
+2025-12-22 19:34:36 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 266.7% of avg range > max 30.0%
+2025-12-22 19:39:24 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 292.7% of avg range > max 30.0%
+2025-12-22 19:44:24 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 282.4% of avg range > max 30.0%
+2025-12-22 19:49:23 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 300.0% of avg range > max 30.0%
+2025-12-22 19:54:08 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 277.5% of avg range > max 30.0%
+2025-12-22 19:58:54 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 294.5% of avg range > max 30.0%
+2025-12-22 20:03:39 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.73 pips < min 0.80 pips
+2025-12-22 20:08:13 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1730s)
+2025-12-22 20:12:33 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1470s)
+2025-12-22 20:16:40 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1223s)
+2025-12-22 20:20:51 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 972s)
+2025-12-22 20:25:04 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 719s)
+2025-12-22 20:29:21 - trades.Vm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 462s)

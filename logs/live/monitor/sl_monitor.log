@@ -1,0 +1,10 @@
+2025-12-22 19:27:08 - sl_monitor - INFO - SL Realtime Monitor initialized
+2025-12-22 19:27:22 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
+2025-12-22 19:31:17 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 554225036 | Symbol: TSLAm | Type: strict_loss_violation | SL violation: Effective SL $-inf worse than -$2.00 limit
+2025-12-22 19:31:30 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 554226116 | Symbol: US30_x10m | Type: strict_loss_violation | SL violation: Effective SL $-inf worse than -$2.00 limit
+2025-12-22 19:31:58 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 554226116 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 8.9s
+2025-12-22 19:32:10 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 554226116 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 20.7s
+2025-12-22 19:32:21 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 554226116 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 31.7s
+2025-12-22 19:42:04 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 554278952 | Symbol: US30m | Type: strict_loss_violation | SL violation: Effective SL $-inf worse than -$2.00 limit
+2025-12-22 19:43:48 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 554278952 | Symbol: US30m | Type: sl_stale | SL not updated for 77.8s
+2025-12-22 19:50:59 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 554308998 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-inf worse than -$2.00 limit

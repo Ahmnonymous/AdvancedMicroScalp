@@ -1,0 +1,14 @@
+2025-12-22 19:28:33 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.80 pips
+2025-12-22 19:33:58 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.80 pips
+2025-12-22 19:38:46 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 0.80 pips
+2025-12-22 19:43:52 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.30 pips < min 0.80 pips
+2025-12-22 19:58:25 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.80 pips
+2025-12-22 20:02:59 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.80 pips
+2025-12-22 20:07:43 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1760s)
+2025-12-22 20:16:10 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1253s)
+2025-12-22 20:20:17 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1006s)
+2025-12-22 20:24:34 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 749s)
+2025-12-22 20:28:48 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 495s)
+2025-12-22 20:32:55 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 247s)
+2025-12-22 20:37:15 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1790s)
+2025-12-22 20:41:30 - trades.NKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1536s)

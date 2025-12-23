@@ -1,0 +1,15 @@
+2025-12-22 19:29:40 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 215.0% of avg range > max 30.0%
+2025-12-22 19:35:08 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 234.2% of avg range > max 30.0%
+2025-12-22 19:39:54 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 233.9% of avg range > max 30.0%
+2025-12-22 19:44:59 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 270.6% of avg range > max 30.0%
+2025-12-22 19:49:45 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 260.9% of avg range > max 30.0%
+2025-12-22 19:54:31 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 248.2% of avg range > max 30.0%
+2025-12-22 19:59:23 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 20:04:06 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 235.6% of avg range > max 30.0%
+2025-12-22 20:08:41 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1701s)
+2025-12-22 20:12:56 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1447s)
+2025-12-22 20:25:24 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 698s)
+2025-12-22 20:29:40 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 444s)
+2025-12-22 20:33:47 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 196s)
+2025-12-22 20:38:08 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1738s)
+2025-12-22 20:42:24 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1481s)

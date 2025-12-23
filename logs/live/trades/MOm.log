@@ -1,0 +1,11 @@
+2025-12-22 19:28:04 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.16 pips < min 0.80 pips
+2025-12-22 19:58:06 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.80 pips
+2025-12-22 20:07:29 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1774s)
+2025-12-22 20:11:36 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1527s)
+2025-12-22 20:15:48 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1275s)
+2025-12-22 20:19:57 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1026s)
+2025-12-22 20:24:15 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 768s)
+2025-12-22 20:32:40 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 263s)
+2025-12-22 20:36:50 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 13s)
+2025-12-22 20:41:14 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1551s)
+2025-12-22 20:45:37 - trades.MOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1289s)

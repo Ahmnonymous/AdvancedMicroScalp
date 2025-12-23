@@ -1,0 +1,9 @@
+2025-12-22 19:39:51 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 312.7% of avg range > max 30.0%
+2025-12-22 20:04:05 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 251.3% of avg range > max 30.0%
+2025-12-22 20:08:41 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1702s)
+2025-12-22 20:12:54 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1448s)
+2025-12-23 00:02:31 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 508s)
+2025-12-23 00:05:36 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 323s)
+2025-12-23 00:08:44 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 135s)
+2025-12-23 01:02:18 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 587s)
+2025-12-23 01:05:47 - trades.GBPCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 378s)

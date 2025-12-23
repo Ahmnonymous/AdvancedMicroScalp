@@ -1,0 +1,2 @@
+2025-12-22 20:49:10 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1075s)
+2025-12-22 20:52:26 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 879s)

@@ -1,0 +1,19 @@
+{"timestamp": "2025-12-22 19:44:02", "symbol": "US30m", "trade_type": null, "entry_price": 48434.700000000004, "exit_price": 48438.7, "profit_usd": 0.04, "status": "CLOSED", "order_id": "554278952", "additional_info": {"duration_minutes": 2.933333333333333, "close_reason": "Micro-HFT sweet spot profit", "commission": 0.0, "swap": 0.0}}
+{"timestamp": "2025-12-22 19:51:06", "symbol": "US30m", "trade_type": "LONG", "entry_price": 48443.5, "exit_price": 48441.5, "profit_usd": -0.02, "status": "CLOSED", "order_id": "554308934", "additional_info": {"entry_price_requested": 48443.5, "lot_size": 0.01, "stop_loss_pips": 2000.0, "stop_loss_price": 48243.5, "slippage": 0.0, "quality_score": 70, "spread_points": 0.39222486457950506, "spread_fees_cost": 0.019000000000014554, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 48448.155, "sma_slow": 48435.912000000004, "rsi": 37.07165109034048, "duration_minutes": 0.3, "close_reason": "Unknown"}}
+{"timestamp": "2025-12-22 20:05:27", "symbol": "US30m", "trade_type": "LONG", "entry_price": 48449.2, "exit_price": 48445.8, "profit_usd": -0.03, "status": "CLOSED", "order_id": "554377496", "additional_info": {"entry_price_requested": 48449.2, "lot_size": 0.01, "stop_loss_pips": 2000.0, "stop_loss_price": 48249.2, "slippage": 0.0, "quality_score": 70, "spread_points": 0.3921787179046467, "spread_fees_cost": 0.018999999999941793, "risk_usd": 2.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 48439.015, "sma_slow": 48424.502, "rsi": 45.83963691376647, "duration_minutes": 0.21666666666666667, "close_reason": "Small profit target or slippage", "commission": 0.0, "swap": 0.0}}
+2025-12-22 20:07:09 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1794s)
+2025-12-22 20:11:17 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1546s)
+2025-12-22 20:36:26 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 37s)
+2025-12-22 20:40:52 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1574s)
+2025-12-22 20:45:15 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1310s)
+2025-12-22 20:48:50 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1096s)
+2025-12-22 20:52:10 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 895s)
+2025-12-22 20:55:14 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 711s)
+2025-12-22 23:03:32 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 382s)
+2025-12-23 03:48:12 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1494s)
+2025-12-23 03:51:28 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1298s)
+2025-12-23 03:54:48 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1098s)
+2025-12-23 05:45:04 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 33s)
+2025-12-23 05:48:02 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1665s)
+2025-12-23 05:51:02 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1485s)
+2025-12-23 05:53:57 - trades.US30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1310s)

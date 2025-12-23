@@ -1,0 +1,4 @@
+2025-12-23 02:53:10 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1187s)
+2025-12-23 02:56:27 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 990s)
+2025-12-23 02:59:50 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 787s)
+2025-12-23 03:03:18 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 579s)

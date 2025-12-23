@@ -1,0 +1,13 @@
+2025-12-22 19:44:17 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.72 pips < min 0.80 pips
+2025-12-22 19:49:08 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.75 pips < min 0.80 pips
+2025-12-22 19:53:57 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.69 pips < min 0.80 pips
+2025-12-22 19:58:51 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.70 pips < min 0.80 pips
+2025-12-22 20:03:27 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.69 pips < min 0.80 pips
+2025-12-22 20:08:12 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1731s)
+2025-12-22 20:12:25 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1479s)
+2025-12-22 20:16:34 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1228s)
+2025-12-22 20:20:45 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 978s)
+2025-12-22 20:25:03 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 720s)
+2025-12-22 20:29:18 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 465s)
+2025-12-22 20:33:19 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 224s)
+2025-12-22 20:37:36 - trades.HDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1769s)

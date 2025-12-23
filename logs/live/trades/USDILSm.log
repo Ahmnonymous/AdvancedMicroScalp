@@ -1,0 +1,7 @@
+2025-12-23 06:09:41 - trades.USDILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 367s)
+2025-12-23 06:12:40 - trades.USDILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 187s)
+2025-12-23 06:15:53 - trades.USDILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1797s)
+2025-12-23 06:19:14 - trades.USDILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1596s)
+2025-12-23 06:22:40 - trades.USDILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1390s)
+2025-12-23 06:25:53 - trades.USDILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1198s)
+2025-12-23 06:29:08 - trades.USDILSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1002s)

@@ -1,0 +1,2 @@
+2025-12-22 20:11:27 - trades.VIPSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1536s)
+2025-12-22 20:15:41 - trades.VIPSm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1282s)

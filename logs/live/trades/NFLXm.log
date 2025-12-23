@@ -1,0 +1,15 @@
+2025-12-22 19:29:35 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.80 pips
+2025-12-22 19:35:04 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.41 pips < min 0.80 pips
+2025-12-22 19:39:49 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.80 pips
+2025-12-22 19:44:54 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
+2025-12-22 19:54:27 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 0.80 pips
+2025-12-22 19:59:18 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 20:04:03 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.80 pips
+2025-12-22 20:08:38 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1705s)
+2025-12-22 20:12:51 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1452s)
+2025-12-22 20:21:14 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 949s)
+2025-12-22 20:25:19 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 704s)
+2025-12-22 20:29:35 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 448s)
+2025-12-22 20:33:44 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 198s)
+2025-12-22 20:38:03 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1742s)
+2025-12-22 20:42:20 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1485s)

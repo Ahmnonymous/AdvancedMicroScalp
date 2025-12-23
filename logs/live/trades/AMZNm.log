@@ -1,0 +1,13 @@
+2025-12-22 19:27:59 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.77 pips < min 0.80 pips
+2025-12-22 19:38:16 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-22 19:43:23 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.77 pips < min 0.80 pips
+2025-12-22 19:48:19 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.75 pips < min 0.80 pips
+2025-12-22 19:53:05 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
+2025-12-22 19:57:59 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.62 pips < min 0.80 pips
+2025-12-22 20:02:32 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.61 pips < min 0.80 pips
+2025-12-22 20:19:51 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1032s)
+2025-12-22 20:24:05 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 777s)
+2025-12-22 20:28:23 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 520s)
+2025-12-22 20:36:42 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 21s)
+2025-12-22 20:41:10 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1556s)
+2025-12-22 20:45:32 - trades.AMZNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1294s)

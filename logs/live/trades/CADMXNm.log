@@ -1,0 +1,16 @@
+2025-12-22 19:29:56 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13612.2% of avg range > max 30.0%
+2025-12-22 20:04:22 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14531.6% of avg range > max 30.0%
+2025-12-22 20:08:57 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1686s)
+2025-12-22 20:13:09 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1434s)
+2025-12-22 20:17:20 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1183s)
+2025-12-22 20:21:32 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 931s)
+2025-12-22 21:47:39 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1282s)
+2025-12-22 21:50:23 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1117s)
+2025-12-22 22:32:30 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 430s)
+2025-12-22 22:35:05 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 275s)
+2025-12-22 22:37:36 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 124s)
+2025-12-23 00:12:01 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1755s)
+2025-12-23 00:15:15 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1562s)
+2025-12-23 00:18:21 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1376s)
+2025-12-23 00:21:29 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1188s)
+2025-12-23 00:24:41 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 996s)

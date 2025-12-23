@@ -1,0 +1,5 @@
+2025-12-22 19:38:41 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 128.3% of avg range > max 30.0%
+2025-12-22 19:43:47 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 127.0% of avg range > max 30.0%
+2025-12-22 20:37:23 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1783s)
+2025-12-22 20:41:31 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1535s)
+2025-12-22 20:45:52 - trades.TSMm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1273s)

@@ -1,0 +1,11 @@
+2025-12-22 19:29:28 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 255.0% of avg range > max 30.0%
+2025-12-22 19:34:53 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 289.6% of avg range > max 30.0%
+2025-12-22 19:39:41 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 321.6% of avg range > max 30.0%
+2025-12-22 20:03:55 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-22 20:08:33 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1709s)
+2025-12-22 20:12:45 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1458s)
+2025-12-22 20:16:55 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1208s)
+2025-12-22 20:21:06 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 957s)
+2025-12-22 20:33:40 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 203s)
+2025-12-22 20:37:57 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1748s)
+2025-12-22 20:42:17 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1489s)

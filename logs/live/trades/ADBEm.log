@@ -1,0 +1,15 @@
+2025-12-22 19:29:24 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 214.3% of avg range > max 30.0%
+2025-12-22 19:39:37 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.9% of avg range > max 30.0%
+2025-12-22 19:44:41 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.0% of avg range > max 30.0%
+2025-12-22 19:49:32 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 208.6% of avg range > max 30.0%
+2025-12-22 19:54:18 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 232.0% of avg range > max 30.0%
+2025-12-22 19:59:12 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2025-12-22 20:03:49 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 234.3% of avg range > max 30.0%
+2025-12-22 20:08:28 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1715s)
+2025-12-22 20:12:39 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1464s)
+2025-12-22 20:16:47 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1216s)
+2025-12-22 20:20:57 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 966s)
+2025-12-22 20:25:11 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 712s)
+2025-12-22 20:29:28 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 455s)
+2025-12-22 20:33:36 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 207s)
+2025-12-22 20:37:54 - trades.ADBEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1752s)
