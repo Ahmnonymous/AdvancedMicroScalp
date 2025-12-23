@@ -1,6 +1,0 @@
-2025-12-22 19:29:01 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.80 pips
-2025-12-22 19:34:24 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.80 pips
-2025-12-22 19:39:14 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.80 pips
-2025-12-22 20:16:28 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1235s)
-2025-12-22 20:20:35 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 988s)
-2025-12-22 20:41:53 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1512s)

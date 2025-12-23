@@ -1,6 +1,0 @@
-2025-12-22 19:35:20 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 591.2% of avg range > max 30.0%
-2025-12-22 19:40:04 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 598.5% of avg range > max 30.0%
-2025-12-22 19:45:11 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 666.7% of avg range > max 30.0%
-2025-12-22 19:49:58 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 628.6% of avg range > max 30.0%
-2025-12-22 19:54:44 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 853.9% of avg range > max 30.0%
-2025-12-22 20:13:04 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1439s)

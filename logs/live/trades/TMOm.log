@@ -1,7 +1,0 @@
-2025-12-22 19:29:46 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 521.7% of avg range > max 30.0%
-2025-12-22 20:04:10 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 479.0% of avg range > max 30.0%
-2025-12-22 20:08:47 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1696s)
-2025-12-22 20:12:58 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1445s)
-2025-12-22 20:33:52 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 190s)
-2025-12-22 20:38:13 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1732s)
-2025-12-22 20:42:32 - trades.TMOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1473s)

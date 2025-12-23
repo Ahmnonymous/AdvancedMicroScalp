@@ -613,7 +613,10 @@ class RiskManager:
                 reason = self._circuit_breaker_reason
                 self._circuit_breaker_paused_until = None
                 self._circuit_breaker_reason = None
-                logger.info(f"[CIRCUIT BREAKER] Trading resumed after pause (previous reason: {reason})")
+                # CRITICAL FIX: Reset consecutive losses counter when pause expires
+                # This prevents infinite pause loop where bot resumes but immediately pauses again
+                self._consecutive_losses = 0
+                logger.info(f"[CIRCUIT BREAKER] Trading resumed after pause (previous reason: {reason}). Consecutive losses counter reset to 0.")
                 return False, None
             
             # If already paused, return pause status

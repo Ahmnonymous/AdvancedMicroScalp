@@ -1,3 +1,0 @@
-2025-12-22 20:02:31 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.80 pips
-2025-12-22 20:11:30 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1533s)
-2025-12-22 20:28:21 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 522s)

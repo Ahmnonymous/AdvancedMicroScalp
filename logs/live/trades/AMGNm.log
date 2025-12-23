@@ -1,4 +1,0 @@
-2025-12-22 19:29:26 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 375.0% of avg range > max 30.0%
-2025-12-22 19:34:48 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 310.2% of avg range > max 30.0%
-2025-12-22 19:39:33 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 325.8% of avg range > max 30.0%
-2025-12-22 19:44:38 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.73 pips < min 0.80 pips

@@ -1,9 +1,0 @@
-2025-12-22 19:29:33 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 287.9% of avg range > max 30.0%
-2025-12-22 19:34:59 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 370.0% of avg range > max 30.0%
-2025-12-22 19:44:50 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 377.6% of avg range > max 30.0%
-2025-12-22 19:49:37 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 370.0% of avg range > max 30.0%
-2025-12-22 20:03:59 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 406.6% of avg range > max 30.0%
-2025-12-22 20:08:35 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1708s)
-2025-12-22 20:12:49 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1454s)
-2025-12-22 20:16:57 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1206s)
-2025-12-22 20:21:13 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 950s)

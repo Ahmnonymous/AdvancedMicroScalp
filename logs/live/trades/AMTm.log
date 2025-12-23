@@ -1,9 +1,0 @@
-2025-12-22 19:28:48 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
-2025-12-22 19:48:46 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.80 pips
-2025-12-22 19:53:39 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.41 pips < min 0.80 pips
-2025-12-22 19:58:26 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.50 pips < min 0.80 pips
-2025-12-22 20:02:58 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.54 pips < min 0.80 pips
-2025-12-22 20:07:47 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1756s)
-2025-12-22 20:12:00 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1503s)
-2025-12-22 20:16:18 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1245s)
-2025-12-22 20:20:25 - trades.AMTm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 998s)
