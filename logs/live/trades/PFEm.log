@@ -1,0 +1,4 @@
+2025-12-23 14:54:09 - trades.PFEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1752s)
+2025-12-23 16:11:45 - trades.PFEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1240s)
+2025-12-24 14:48:44 - trades.PFEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3360s)
+2025-12-24 14:54:03 - trades.PFEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3042s)

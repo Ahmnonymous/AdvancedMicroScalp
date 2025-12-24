@@ -1,0 +1,17 @@
+2025-12-23 12:07:19 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.80 pips
+2025-12-23 14:30:41 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.80 pips
+2025-12-23 14:35:04 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.80 pips
+2025-12-23 14:39:41 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.30 pips < min 0.80 pips
+2025-12-23 14:44:48 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.80 pips
+2025-12-23 14:53:45 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1775s)
+2025-12-23 14:59:36 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1425s)
+2025-12-23 15:05:05 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1096s)
+2025-12-23 15:10:29 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 772s)
+2025-12-23 15:16:19 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 422s)
+2025-12-23 15:27:46 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.14 pips < min 0.80 pips
+2025-12-23 16:11:19 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1266s)
+2025-12-23 16:16:34 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 951s)
+2025-12-23 16:57:16 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2111s)
+2025-12-24 14:33:47 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 649s)
+2025-12-24 14:37:51 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 405s)
+2025-12-24 15:23:15 - trades.JDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1289s)

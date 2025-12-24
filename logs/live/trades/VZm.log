@@ -1,0 +1,11 @@
+2025-12-23 14:54:12 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1749s)
+2025-12-23 14:59:58 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1403s)
+2025-12-23 15:05:25 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1076s)
+2025-12-23 15:22:22 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 59s)
+2025-12-23 15:28:20 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.17 pips < min 0.80 pips
+2025-12-23 15:41:31 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3054s)
+2025-12-23 15:47:37 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2688s)
+2025-12-23 16:11:47 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1238s)
+2025-12-23 16:37:27 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3300s)
+2025-12-23 17:22:42 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 585s)
+2025-12-24 15:04:10 - trades.VZm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2434s)

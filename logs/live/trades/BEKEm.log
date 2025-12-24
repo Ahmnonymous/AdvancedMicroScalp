@@ -1,0 +1,4 @@
+2025-12-23 15:28:02 - trades.BEKEm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.80 pips
+2025-12-23 15:41:17 - trades.BEKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3068s)
+2025-12-24 14:49:07 - trades.BEKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3337s)
+2025-12-24 14:59:19 - trades.BEKEm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2725s)
