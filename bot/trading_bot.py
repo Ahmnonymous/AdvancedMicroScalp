@@ -1565,17 +1565,17 @@ class TradingBot:
                 # This allows multiple trades to execute quickly when slots are available
                 # Example: If max_trades=6 and current_positions=5, we can still execute 1 more trade
                 # NOTE: Position count is validated at batch level, so this is just a safety check
-                if max_trades_strict and current_positions > max_trades:
+                if max_trades is not None and max_trades_strict and current_positions > max_trades:
                     logger.warning(f"🚫 MAX TRADES STRICT: {symbol} | Cannot execute trade | Current: {current_positions} > {max_trades} | Strict mode enabled")
                     return None  # Filtered, not failed
-                elif max_trades_strict and current_positions == max_trades:
+                elif max_trades is not None and max_trades_strict and current_positions == max_trades:
                     # At max in strict mode - this shouldn't happen if batch reservation worked, but allow it
                     logger.info(f"[WARNING] MAX TRADES AT LIMIT: {symbol} | Current: {current_positions} == {max_trades} | "
                               f"Strict mode - ALLOWING execution (batch reservation mode)")
                     # Continue execution - batch reservation allows this
                 
                 # Non-strict mode: Only block if strictly above max (allow at max for high-quality setups)
-                if current_positions > max_trades:
+                if max_trades is not None and current_positions > max_trades:
                     # Check if override is allowed (only if not strict)
                     quality_score = opportunity.get('quality_score', 0.0)
                     high_quality_setup = opportunity.get('high_quality_setup', False)
@@ -2309,6 +2309,17 @@ class TradingBot:
                                   f"Loss-side SL application scheduled after 2.5s delay | "
                                   f"Entry: {entry_price_actual:.5f} | Type: {order_type_str} | "
                                   f"Current profit: ${fresh_profit:.2f} | Current SL: {current_sl:.5f}")
+                        
+                        # Apply TP to position
+                        if hasattr(self.risk_manager, 'tp_manager') and self.risk_manager.tp_manager:
+                            try:
+                                success, reason = self.risk_manager.tp_manager.apply_tp_to_position(ticket)
+                                if success:
+                                    logger.info(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP applied successfully")
+                                else:
+                                    logger.warning(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP application failed: {reason}")
+                            except Exception as e:
+                                logger.error(f"[INITIAL_TP] {symbol} Ticket {ticket} | Error applying TP: {e}", exc_info=True)
                     else:
                         # Fallback: Use legacy protective SL if SLManager not available
                         logger.warning(f"[INITIAL_SL] {symbol} Ticket {ticket} | "
@@ -3274,7 +3285,11 @@ class TradingBot:
                     
                     # Get current position count before approval
                     initial_positions = self.order_manager.get_position_count()
-                    remaining_slots = max_trades - initial_positions
+                    if max_trades is None:
+                        # Unlimited trades - no slot limit
+                        remaining_slots = len(opportunities)  # Process all
+                    else:
+                        remaining_slots = max_trades - initial_positions
                     
                     # Display top opportunities (limit to available slots)
                     display_count = min(len(opportunities), remaining_slots) if remaining_slots > 0 else 0
@@ -3282,7 +3297,8 @@ class TradingBot:
                     if display_count > 0:
                         self.display_opportunities(opportunities, display_count)
                     else:
-                        print(f"\n[WARNING]  No available trade slots. Current positions: {initial_positions}/{max_trades}")
+                        max_trades_display = "unlimited" if max_trades is None else str(max_trades)
+                        print(f"\n[WARNING]  No available trade slots. Current positions: {initial_positions}/{max_trades_display}")
                         opportunities = []  # Clear opportunities
                     
                     # Get user approval for each trade
@@ -3290,7 +3306,8 @@ class TradingBot:
                     approve_all = False
                     
                     if remaining_slots <= 0:
-                        print(f"\n[PAUSE]  Max open trades ({max_trades}) already reached - cannot take more trades.")
+                        max_trades_display = "unlimited" if max_trades is None else str(max_trades)
+                        print(f"\n[PAUSE]  Max open trades ({max_trades_display}) already reached - cannot take more trades.")
                         opportunities = []  # Clear opportunities
                     else:
                         # Limit opportunities to remaining slots
@@ -3302,8 +3319,9 @@ class TradingBot:
                             
                             # Check if we've reached max open trades (re-check after each approval)
                             current_positions = self.order_manager.get_position_count()
-                            if current_positions >= max_trades:
-                                print(f"\n[PAUSE]  Max open trades ({max_trades}) reached - cannot take more trades.")
+                            if max_trades is not None and current_positions >= max_trades:
+                                max_trades_display = str(max_trades)
+                                print(f"\n[PAUSE]  Max open trades ({max_trades_display}) reached - cannot take more trades.")
                                 break
                             
                             if not approve_all:
@@ -3339,7 +3357,7 @@ class TradingBot:
                                     for remaining_opp in remaining_in_batch:
                                         if len(approved_opportunities) < remaining_slots:
                                             current_positions = self.order_manager.get_position_count()
-                                            if current_positions >= max_trades:
+                                            if max_trades is not None and current_positions >= max_trades:
                                                 break
                                             approved_opportunities.append(remaining_opp)
                                     break
@@ -3390,19 +3408,27 @@ class TradingBot:
                 failed_symbols_in_batch = set()  # Track symbols that failed in this batch to prevent duplicates
                 
                 # Limit opportunities to available slots at the start (allow multiple trades to execute quickly)
-                available_slots = max_trades - current_positions
-                if available_slots <= 0:
-                    logger.info(f"[PAUSE]  Max open trades ({max_trades}) already reached - skipping all opportunities")
-                    opportunities = []
-                else:
-                    # CRITICAL FIX: Reserve slots by limiting opportunities, but allow all reserved slots to execute
-                    # This ensures multiple trades can execute quickly without position count blocking
-                    original_count = len(opportunities)
-                    opportunities = opportunities[:available_slots]
-                    logger.info(f"📊 Processing {len(opportunities)} opportunity(ies) out of {original_count} found | "
-                              f"Available slots: {available_slots}/{max_trades} | "
-                              f"Reserved {available_slots} slot(s) for batch execution | "
+                if max_trades is None:
+                    # Unlimited trades - process all opportunities
+                    available_slots = len(opportunities)  # Process all
+                    logger.info(f"📊 Processing {len(opportunities)} opportunity(ies) | "
+                              f"Unlimited trades enabled - no slot limit | "
                               f"Current positions: {current_positions}")
+                else:
+                    # Limited trades - calculate available slots
+                    available_slots = max_trades - current_positions
+                    if available_slots <= 0:
+                        logger.info(f"[PAUSE]  Max open trades ({max_trades}) already reached - skipping all opportunities")
+                        opportunities = []
+                    else:
+                        # CRITICAL FIX: Reserve slots by limiting opportunities, but allow all reserved slots to execute
+                        # This ensures multiple trades can execute quickly without position count blocking
+                        original_count = len(opportunities)
+                        opportunities = opportunities[:available_slots]
+                        logger.info(f"📊 Processing {len(opportunities)} opportunity(ies) out of {original_count} found | "
+                                  f"Available slots: {available_slots}/{max_trades} | "
+                                  f"Reserved {available_slots} slot(s) for batch execution | "
+                                  f"Current positions: {current_positions}")
                 
                 # Execute opportunities (sequential in manual mode, parallel in automatic mode)
                 # CRITICAL FIX: Since we've already reserved slots at the batch level, we can execute all reserved opportunities
@@ -3410,8 +3436,9 @@ class TradingBot:
                 logger.info(f"🔄 Starting batch execution loop: {len(opportunities)} opportunity(ies) to process")
                 for idx, opportunity in enumerate(opportunities, 1):
                     symbol = opportunity.get('symbol', 'N/A')
+                    max_trades_display = "unlimited" if max_trades is None else str(max_trades)
                     logger.info(f"🔄 [BATCH {idx}/{len(opportunities)}] Processing: {symbol} | "
-                              f"Current positions: {self.order_manager.get_position_count()}/{max_trades}")
+                              f"Current positions: {self.order_manager.get_position_count()}/{max_trades_display}")
                     
                     # CRITICAL: Don't re-check position count for each trade - we've already reserved slots
                     # The execute_trade function will do a final safety check, but we trust the batch reservation
@@ -3428,7 +3455,11 @@ class TradingBot:
                     # This allows quick execution of multiple trades, but becomes selective near capacity
                     # Example: If max_trades=6, only apply strict conditions when current_positions >= 4
                     # NOTE: Use initial position count (before batch) to determine threshold
-                    strict_condition_threshold = max(1, max_trades - 2)  # Apply when within 2 of limit
+                    # Apply strict conditions when within 2 of limit (or always if unlimited)
+                    if max_trades is None:
+                        strict_condition_threshold = 0  # Unlimited - always apply strict conditions
+                    else:
+                        strict_condition_threshold = max(1, max_trades - 2)  # Apply when within 2 of limit
                     
                     if max_open_trades_strict and current_positions >= strict_condition_threshold:
                         # Check if this opportunity meets entry conditions
@@ -3653,21 +3684,23 @@ class TradingBot:
                         else:  # result is False - actual execution failure
                             if test_mode:
                                 logger.info(f"{symbol:<12} | {signal:<6} | Q:{quality_score:.1f} | {min_lot:<8.4f} | {spread:<10.1f}pts | {fees_str:<10} | {'FAILED':<20} | Trade execution failed")
+                            max_trades_display = "unlimited" if max_trades is None else str(max_trades)
                             logger.info(f"[ERROR] [FAILED] [BATCH {idx}/{len(opportunities)}] {symbol} | Reason: Trade execution failed (order placement error) | "
-                                      f"Position count: {self.order_manager.get_position_count()}/{max_trades}")
+                                      f"Position count: {self.order_manager.get_position_count()}/{max_trades_display}")
                             trades_skipped += 1
                         
                         # CRITICAL FIX: Don't re-check position count after each trade - we've already reserved slots
                         # Only check if we've exceeded the reserved slots (shouldn't happen, but safety check)
                         # This allows all reserved trades to execute quickly without position count blocking
                         current_positions_after = self.order_manager.get_position_count()
+                        max_trades_display = "unlimited" if max_trades is None else str(max_trades)
                         logger.info(f"📊 [BATCH {idx}/{len(opportunities)}] After {symbol} execution: "
-                                  f"Position count: {current_positions_after}/{max_trades} | "
+                                  f"Position count: {current_positions_after}/{max_trades_display} | "
                                   f"Trades executed: {trades_executed} | Trades skipped: {trades_skipped}")
                         
-                        if current_positions_after > max_trades:
+                        if max_trades is not None and current_positions_after > max_trades:
                             # Only break if we've EXCEEDED max (not at max) - this shouldn't happen with proper reservation
-                            logger.warning(f"[WARNING]  Position count ({current_positions_after}) exceeded max ({max_trades}) after trade {idx} - stopping batch execution")
+                            logger.warning(f"[WARNING]  Position count ({current_positions_after}) exceeded max ({max_trades_display}) after trade {idx} - stopping batch execution")
                             if idx < len(opportunities):
                                 print(f"\n[WARNING]  Position count exceeded max - stopping batch execution.")
                                 trades_skipped += len(opportunities) - idx

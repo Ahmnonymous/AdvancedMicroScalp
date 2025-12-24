@@ -687,10 +687,12 @@ class TradingSystemLauncher:
                                 # Positive = locked profit (above sweet spot)
                                 effective_sl_str = f"{Colors.GREEN}${effective_sl_profit:,.2f}{Colors.END}"
                             
-                            # Format entry, current, and SL prices based on symbol precision
+                            # Format entry, current, SL, and TP prices based on symbol precision
                             entry_str = f"{entry:.5f}" if entry < 1000 else f"{entry:.2f}"
                             current_str = f"{current:.5f}" if current < 1000 else f"{current:.2f}"
                             sl_str = f"{sl:.5f}" if sl < 1000 and sl > 0 else f"{sl:.2f}" if sl > 0 else "N/A"
+                            tp_price = pos.get('tp', 0.0)
+                            tp_str = f"{tp_price:.5f}" if tp_price < 1000 and tp_price > 0 else f"{tp_price:.2f}" if tp_price > 0 else "N/A"
                             
                             # Add SL violation indicator to status if needed
                             status_display = hft_status
@@ -705,6 +707,7 @@ class TradingSystemLauncher:
                                 entry_str,
                                 current_str,
                                 sl_str,
+                                tp_str,
                                 f"{profit_color}${profit:,.2f}{Colors.END}",
                                 effective_sl_str,
                                 sl_status_indicator,
@@ -712,18 +715,18 @@ class TradingSystemLauncher:
                             ])
                         
                         if TABULATE_AVAILABLE:
-                            headers = ["Ticket", "Symbol", "Type", "Lot", "Entry", "Current", "SL (Price)", "P/L", "Effective SL", "SL Status", "Status"]
+                            headers = ["Ticket", "Symbol", "Type", "Lot", "Entry", "Current", "SL (Price)", "TP (Price)", "P/L", "Effective SL", "SL Status", "Status"]
                             print(tabulate(positions_table, headers=headers, tablefmt="grid", stralign="left"))
                             
                             # Total row
                             total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
-                            total_row = [f"{Colors.BOLD}TOTAL{Colors.END}", "", "", "", "", "", "", 
+                            total_row = [f"{Colors.BOLD}TOTAL{Colors.END}", "", "", "", "", "", "", "", 
                                        f"{total_color}${total_profit:,.2f}{Colors.END}", "", "", ""]
                             print(tabulate([total_row], tablefmt="grid", stralign="left"))
                         else:
                             # Fallback
-                            print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'Entry':<12} | {'Current':<12} | {'SL (Price)':<15} | {'P/L':<12} | {'Effective SL':<18} | {'SL Status':<12} | {'Status'}{Colors.END}")
-                            print(f"{Colors.BLUE}{'-' * 150}{Colors.END}")
+                            print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'Entry':<12} | {'Current':<12} | {'SL (Price)':<15} | {'TP (Price)':<15} | {'P/L':<12} | {'Effective SL':<18} | {'SL Status':<12} | {'Status'}{Colors.END}")
+                            print(f"{Colors.BLUE}{'-' * 180}{Colors.END}")
                             for row in positions_table:
                                 print(" | ".join(f"{str(cell):<25}" if i == 8 else f"{str(cell):<15}" if i == 9 else f"{str(cell):<12}" for i, cell in enumerate(row)))
                             total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
@@ -781,58 +784,6 @@ class TradingSystemLauncher:
                         print(f"{Colors.CYAN}{'-' * 90}{Colors.END}")
                         print(f"{total_trades:<15} | {Colors.GREEN}{successful:<15}{Colors.END} | {Colors.RED}{failed:<15}{Colors.END} | {Colors.YELLOW}{filtered:<15}{Colors.END} | {Colors.CYAN}{closed_trades:<15}{Colors.END}")
                     print()
-                    
-                    # ==================== REAL-TIME SL PROTECTION WARNINGS ====================
-                    if self.bot and self.bot.risk_manager and positions:
-                        critical_warnings = []
-                        for pos in positions:
-                            ticket = pos.get('ticket', 0)
-                            symbol = pos.get('symbol', '')
-                            current_profit = pos.get('profit', 0.0)
-                            sl_price = pos.get('sl', 0.0)
-                            entry_price = pos.get('price_open', 0.0)
-                            pos_type = pos.get('type', '')
-                            
-                            # Check if trade exceeds -$2.00
-                            if current_profit < -2.0:
-                                critical_warnings.append({
-                                    'severity': 'critical',
-                                    'message': f"🚨 {symbol} Ticket {ticket} EXCEEDS -$2.00 LIMIT: ${current_profit:.2f}"
-                                })
-                            
-                            # Check if SL failed to update for >5 seconds
-                            if self.sl_monitor and ticket in self.sl_monitor.last_sl_update_time:
-                                time_since_update = (datetime.now() - self.sl_monitor.last_sl_update_time[ticket]).total_seconds()
-                                if time_since_update > 5.0:
-                                    critical_warnings.append({
-                                        'severity': 'warning',
-                                        'message': f"[WARNING] {symbol} Ticket {ticket} SL not updated for {time_since_update:.1f}s"
-                                    })
-                            
-                            # Check if SL is invalid (BUY SL >= entry or SELL SL <= entry)
-                            if sl_price > 0 and entry_price > 0:
-                                if pos_type == 'BUY' and sl_price >= entry_price:
-                                    critical_warnings.append({
-                                        'severity': 'critical',
-                                        'message': f"🚨 {symbol} Ticket {ticket} INVALID BUY SL: {sl_price:.5f} >= Entry {entry_price:.5f}"
-                                    })
-                                elif pos_type == 'SELL' and sl_price <= entry_price:
-                                    critical_warnings.append({
-                                        'severity': 'critical',
-                                        'message': f"🚨 {symbol} Ticket {ticket} INVALID SELL SL: {sl_price:.5f} <= Entry {entry_price:.5f}"
-                                    })
-                        
-                        # Display critical warnings
-                        if critical_warnings:
-                            print(f"{Colors.BOLD}{Colors.RED}{'=' * 120}{Colors.END}")
-                            print(f"{Colors.BOLD}{Colors.RED}🚨 REAL-TIME SL PROTECTION ALERTS{Colors.END}")
-                            print(f"{Colors.BOLD}{Colors.RED}{'=' * 120}{Colors.END}")
-                            for warning in critical_warnings:
-                                severity = warning.get('severity', 'warning')
-                                color = Colors.RED if severity == 'critical' else Colors.YELLOW
-                                print(f"{color}{Colors.BOLD}{warning['message']}{Colors.END}")
-                            print(f"{Colors.BOLD}{Colors.RED}{'=' * 120}{Colors.END}")
-                            print()
                     
                     # Footer
                     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")

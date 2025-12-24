@@ -86,10 +86,13 @@ class ConfigValidator:
         if not isinstance(trailing, (int, float)) or trailing <= 0:
             self.errors.append("risk.trailing_stop_increment_usd must be a positive number")
         
-        # Validate max_open_trades (allow up to 6 for medium-frequency trading)
+        # Validate max_open_trades (allow null/-1 for unlimited, or integer 1-10)
         max_trades = risk_config.get('max_open_trades', 1)
-        if not isinstance(max_trades, int) or max_trades < 1 or max_trades > 10:
-            self.errors.append("risk.max_open_trades must be an integer between 1 and 10")
+        if max_trades is None or max_trades == -1:
+            # Unlimited trades allowed - no validation needed
+            pass
+        elif not isinstance(max_trades, int) or max_trades < 1 or max_trades > 101:
+            self.errors.append("risk.max_open_trades must be null (unlimited), -1 (unlimited), or an integer between 1 and 10")
         elif max_trades > 6:
             self.warnings.append(f"Max open trades ({max_trades}) is high. Ensure sufficient capital and risk management.")
         

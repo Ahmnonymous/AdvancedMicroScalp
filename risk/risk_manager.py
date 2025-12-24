@@ -142,6 +142,22 @@ class RiskManager:
             self.sl_manager = None
             logger.critical("CRITICAL: SLManager initialization FAILED - SL updates will not work!")
         
+        # Initialize TP Manager
+        self._tp_manager_error = None
+        try:
+            from risk.tp_manager import TPManager
+            logger.info("Initializing TPManager...")
+            self.tp_manager = TPManager(config, mt5_connector, order_manager)
+            logger.info("[OK] TPManager initialized successfully")
+        except Exception as e:
+            self._tp_manager_error = str(e)
+            import traceback
+            error_traceback = traceback.format_exc()
+            logger.error(f"[ERROR] Failed to initialize TP Manager: {e}", exc_info=True)
+            logger.error(f"TPManager initialization traceback:\n{error_traceback}")
+            self.tp_manager = None
+            logger.warning("WARNING: TPManager initialization FAILED - TP functionality will not work!")
+        
         # Circuit Breaker State
         self._circuit_breaker_lock = threading.Lock()
         self._consecutive_losses = 0
