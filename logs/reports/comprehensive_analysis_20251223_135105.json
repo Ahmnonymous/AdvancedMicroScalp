@@ -1,0 +1,64 @@
+{
+  "report_timestamp": "2025-12-23T13:51:05.014308",
+  "session_duration_minutes": 112.85807461666667,
+  "active_positions": {
+    "total": 2,
+    "positions": [
+      {
+        "ticket": 560213332,
+        "symbol": "BTCXAUm",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 19.508470000000003,
+        "current_price": 19.51903,
+        "profit": -0.47,
+        "time_open": "2025-12-23 13:49:50"
+      },
+      {
+        "ticket": 560214563,
+        "symbol": "BTCUSDm",
+        "lot_size": 0.01,
+        "type": "SELL",
+        "entry_price": 87539.44,
+        "current_price": 87568.15,
+        "profit": -0.29,
+        "time_open": "2025-12-23 13:49:53"
+      }
+    ],
+    "lot_size_issues": [],
+    "symbols": {
+      "BTCXAUm": 1,
+      "BTCUSDm": 1
+    },
+    "total_profit": -0.76
+  },
+  "trade_statistics": {
+    "total_trades": 0,
+    "closed_trades": 0,
+    "open_trades": 0
+  },
+  "micro_hft_performance": {
+    "capture_rate": 0.0,
+    "total_closures": 0,
+    "sweet_spot_closures": 0,
+    "missed_sweet_spot": 0,
+    "status": "No closures yet"
+  },
+  "filter_effectiveness": {
+    "statistics": {
+      "trend_strength_rejected": 221,
+      "volume_rejected": 15,
+      "other_rejected": 110,
+      "lot_size_rejected": 15,
+      "rsi_rejected": 16,
+      "opportunities_found": 2
+    },
+    "last_scan_time": "2025-12-23T13:51:04.854316"
+  },
+  "lot_size_compliance": {
+    "violations": [],
+    "max_lot_size": 0.03
+  },
+  "errors_detected": [],
+  "recommendations": []
+}

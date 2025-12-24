@@ -1,0 +1,51 @@
+2025-12-23 11:58:18 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 143.6% of avg range > max 30.0%
+2025-12-23 12:05:10 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 145.1% of avg range > max 30.0%
+2025-12-23 12:10:48 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 148.1% of avg range > max 30.0%
+2025-12-23 12:14:12 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.9% of avg range > max 30.0%
+2025-12-23 12:17:59 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 161.8% of avg range > max 30.0%
+2025-12-23 14:00:33 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 14:04:41 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 112.4% of avg range > max 30.0%
+2025-12-23 14:09:02 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 108.1% of avg range > max 30.0%
+2025-12-23 14:13:38 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 113.8% of avg range > max 30.0%
+2025-12-23 14:18:20 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 115.7% of avg range > max 30.0%
+2025-12-23 14:22:46 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 126.7% of avg range > max 30.0%
+2025-12-23 14:26:34 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 137.9% of avg range > max 30.0%
+2025-12-23 14:39:40 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 129.6% of avg range > max 30.0%
+2025-12-23 14:46:30 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.2% of avg range > max 30.0%
+2025-12-23 14:54:21 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1741s)
+2025-12-23 15:16:56 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 385s)
+2025-12-23 15:22:39 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 42s)
+2025-12-23 15:59:51 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1953s)
+2025-12-23 16:47:52 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2675s)
+2025-12-23 16:52:54 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2373s)
+2025-12-23 16:58:04 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2063s)
+2025-12-23 17:13:08 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1159s)
+2025-12-23 17:18:07 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 860s)
+2025-12-23 17:23:04 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 562s)
+2025-12-23 22:33:37 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 72s)
+2025-12-23 22:36:20 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3595s)
+2025-12-23 22:38:55 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3441s)
+2025-12-23 22:41:26 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3289s)
+2025-12-23 22:43:56 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3139s)
+2025-12-23 22:48:55 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2840s)
+2025-12-23 22:54:06 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2529s)
+2025-12-23 22:56:49 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2366s)
+2025-12-23 23:09:11 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1624s)
+2025-12-23 23:12:26 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1429s)
+2025-12-23 23:15:36 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1240s)
+2025-12-23 23:18:53 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1042s)
+2025-12-24 00:02:20 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2128s)
+2025-12-24 00:04:29 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1998s)
+2025-12-24 00:06:37 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1871s)
+2025-12-24 00:08:48 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1739s)
+2025-12-24 00:10:58 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1610s)
+2025-12-24 00:13:11 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1476s)
+2025-12-24 00:15:22 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1346s)
+2025-12-24 02:39:49 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3599s)
+2025-12-24 02:42:18 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3450s)
+2025-12-24 02:44:34 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3314s)
+2025-12-24 02:46:53 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3176s)
+2025-12-24 02:49:12 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3036s)
+2025-12-24 02:51:27 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2902s)
+2025-12-24 02:53:38 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2771s)
+2025-12-24 02:55:53 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2635s)

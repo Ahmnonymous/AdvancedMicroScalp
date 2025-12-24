@@ -1,0 +1,114 @@
+2025-12-23 11:58:27 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.47 pips < min 0.80 pips
+2025-12-23 12:00:14 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 12:01:55 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.50 pips < min 0.80 pips
+2025-12-23 12:03:35 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-23 12:05:15 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.54 pips < min 0.80 pips
+2025-12-23 12:08:23 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.53 pips < min 0.80 pips
+2025-12-23 12:11:43 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.53 pips < min 0.80 pips
+2025-12-23 12:15:27 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.58 pips < min 0.80 pips
+2025-12-23 12:18:53 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.54 pips < min 0.80 pips
+2025-12-23 12:22:09 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.54 pips < min 0.80 pips
+2025-12-23 12:25:23 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.50 pips < min 0.80 pips
+2025-12-23 13:11:19 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.61 pips < min 0.80 pips
+2025-12-23 13:21:33 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.60 pips < min 0.80 pips
+2025-12-23 13:24:59 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.62 pips < min 0.80 pips
+2025-12-23 13:45:56 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-23 13:49:23 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.75 pips < min 0.80 pips
+2025-12-23 13:53:20 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.68 pips < min 0.80 pips
+2025-12-23 13:57:35 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.80 pips < min 0.80 pips
+2025-12-23 14:02:03 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13673.7% of avg range > max 30.0%
+2025-12-23 14:06:15 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 11818.2% of avg range > max 30.0%
+2025-12-23 14:10:39 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 11386.0% of avg range > max 30.0%
+2025-12-23 14:15:24 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 11345.0% of avg range > max 30.0%
+2025-12-23 14:20:06 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13450.8% of avg range > max 30.0%
+2025-12-23 14:50:50 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8195.0% of avg range > max 30.0%
+2025-12-23 14:56:53 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1588s)
+2025-12-23 15:02:25 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1256s)
+2025-12-23 15:07:52 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 929s)
+2025-12-23 15:13:37 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 584s)
+2025-12-23 15:19:21 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 240s)
+2025-12-23 15:31:09 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14397.8% of avg range > max 30.0%
+2025-12-23 15:44:20 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2884s)
+2025-12-23 15:50:45 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2500s)
+2025-12-23 15:56:26 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2158s)
+2025-12-23 16:02:26 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1798s)
+2025-12-23 16:19:15 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 790s)
+2025-12-23 16:24:15 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 490s)
+2025-12-23 16:29:23 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 182s)
+2025-12-23 16:34:24 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3482s)
+2025-12-23 16:39:49 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3158s)
+2025-12-23 16:44:44 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2863s)
+2025-12-23 16:49:40 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2566s)
+2025-12-23 22:54:39 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2497s)
+2025-12-23 22:57:24 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2331s)
+2025-12-23 23:03:28 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1968s)
+2025-12-23 23:06:46 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1769s)
+2025-12-23 23:10:00 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1575s)
+2025-12-23 23:13:15 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1380s)
+2025-12-23 23:16:31 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1185s)
+2025-12-23 23:32:44 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 211s)
+2025-12-23 23:35:48 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 28s)
+2025-12-23 23:38:58 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3530s)
+2025-12-23 23:42:10 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3338s)
+2025-12-23 23:48:35 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2953s)
+2025-12-23 23:51:42 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2765s)
+2025-12-23 23:54:49 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2578s)
+2025-12-23 23:58:01 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2386s)
+2025-12-24 00:00:28 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2239s)
+2025-12-24 00:02:38 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2110s)
+2025-12-24 00:06:57 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1851s)
+2025-12-24 00:11:19 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1588s)
+2025-12-24 00:13:33 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1455s)
+2025-12-24 00:15:44 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1324s)
+2025-12-24 00:17:59 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1189s)
+2025-12-24 00:20:16 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1052s)
+2025-12-24 00:22:33 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 914s)
+2025-12-24 00:24:43 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 784s)
+2025-12-24 00:26:55 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 652s)
+2025-12-24 00:29:04 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 523s)
+2025-12-24 00:31:14 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 394s)
+2025-12-24 00:33:20 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 268s)
+2025-12-24 00:39:39 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3579s)
+2025-12-24 01:03:07 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2171s)
+2025-12-24 01:05:19 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2038s)
+2025-12-24 01:07:28 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1909s)
+2025-12-24 01:09:39 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1778s)
+2025-12-24 01:11:54 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1644s)
+2025-12-24 01:16:28 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1370s)
+2025-12-24 01:18:45 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1233s)
+2025-12-24 01:21:01 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1097s)
+2025-12-24 01:23:17 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 961s)
+2025-12-24 01:25:29 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 828s)
+2025-12-24 09:28:10 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 828s)
+2025-12-24 09:31:26 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 632s)
+2025-12-24 09:34:39 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 439s)
+2025-12-24 09:37:51 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 246s)
+2025-12-24 09:54:29 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2923s)
+2025-12-24 09:57:55 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2718s)
+2025-12-24 10:01:29 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2504s)
+2025-12-24 10:04:52 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2300s)
+2025-12-24 10:08:22 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2091s)
+2025-12-24 10:50:40 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3157s)
+2025-12-24 10:53:42 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2976s)
+2025-12-24 11:01:08 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2529s)
+2025-12-24 11:04:45 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2312s)
+2025-12-24 11:08:26 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2091s)
+2025-12-24 11:23:59 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1158s)
+2025-12-24 11:27:18 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 959s)
+2025-12-24 11:30:39 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 759s)
+2025-12-24 11:34:00 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 557s)
+2025-12-24 11:37:21 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 356s)
+2025-12-24 11:40:47 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 150s)
+2025-12-24 11:44:04 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3557s)
+2025-12-24 11:47:21 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3360s)
+2025-12-24 12:28:47 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 874s)
+2025-12-24 12:35:15 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 486s)
+2025-12-24 12:38:32 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 289s)
+2025-12-24 13:01:09 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2561s)
+2025-12-24 13:10:38 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1992s)
+2025-12-24 13:13:55 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1796s)
+2025-12-24 14:10:17 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2059s)
+2025-12-24 14:13:43 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1853s)
+2025-12-24 14:31:10 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 806s)
+2025-12-24 14:35:17 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 559s)
+2025-12-24 14:39:33 - trades.SEKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 303s)

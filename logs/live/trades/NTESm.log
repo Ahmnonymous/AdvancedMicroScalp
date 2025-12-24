@@ -1,0 +1,12 @@
+2025-12-23 14:41:31 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 585.9% of avg range > max 30.0%
+2025-12-23 14:49:36 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 644.4% of avg range > max 30.0%
+2025-12-23 14:55:57 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1644s)
+2025-12-23 15:01:27 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1313s)
+2025-12-23 15:18:01 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 319s)
+2025-12-23 15:23:29 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 369.9% of avg range > max 30.0%
+2025-12-23 15:29:42 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
+2025-12-23 15:36:17 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3367s)
+2025-12-23 16:00:41 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1904s)
+2025-12-23 16:28:03 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 262s)
+2025-12-23 16:38:37 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3230s)
+2025-12-23 19:52:31 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2506s)

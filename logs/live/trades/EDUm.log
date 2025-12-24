@@ -1,0 +1,3 @@
+2025-12-23 14:56:26 - trades.EDUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1614s)
+2025-12-23 15:01:57 - trades.EDUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1284s)
+2025-12-23 18:45:23 - trades.EDUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2828s)

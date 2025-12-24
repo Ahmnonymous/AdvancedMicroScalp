@@ -1,0 +1,2 @@
+2025-12-23 16:21:56 - trades.ZTOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 629s)
+2025-12-23 16:31:52 - trades.ZTOm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 32s)

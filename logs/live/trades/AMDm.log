@@ -1,0 +1,120 @@
+2025-12-23 12:00:11 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2025-12-23 12:01:52 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.50 pips < min 0.80 pips
+2025-12-23 12:03:32 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.66 pips < min 0.80 pips
+2025-12-23 12:05:13 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1116.3% of avg range > max 30.0%
+2025-12-23 12:07:53 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 884.8% of avg range > max 30.0%
+2025-12-23 12:11:18 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 842.1% of avg range > max 30.0%
+2025-12-23 12:14:52 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 838.4% of avg range > max 30.0%
+2025-12-23 12:21:40 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 817.0% of avg range > max 30.0%
+2025-12-23 12:24:58 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1015.9% of avg range > max 30.0%
+2025-12-23 12:28:10 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.51 pips < min 0.80 pips
+2025-12-23 12:31:12 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.59 pips < min 0.80 pips
+2025-12-23 12:34:26 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.59 pips < min 0.80 pips
+2025-12-23 12:37:33 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-23 12:40:46 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.46 pips < min 0.80 pips
+2025-12-23 12:43:56 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.45 pips < min 0.80 pips
+2025-12-23 12:50:39 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.80 pips
+2025-12-23 12:57:22 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.30 pips < min 0.80 pips
+2025-12-23 13:04:06 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.49 pips < min 0.80 pips
+2025-12-23 13:17:38 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-23 13:21:05 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.61 pips < min 0.80 pips
+2025-12-23 13:24:37 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.61 pips < min 0.80 pips
+2025-12-23 13:28:07 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.70 pips < min 0.80 pips
+2025-12-23 13:31:29 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.71 pips < min 0.80 pips
+2025-12-23 13:35:03 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1163.6% of avg range > max 30.0%
+2025-12-23 13:38:31 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1090.9% of avg range > max 30.0%
+2025-12-23 13:41:57 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 932.0% of avg range > max 30.0%
+2025-12-23 13:48:54 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 777.3% of avg range > max 30.0%
+2025-12-23 13:52:40 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 738.5% of avg range > max 30.0%
+2025-12-23 13:56:59 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 752.9% of avg range > max 30.0%
+2025-12-23 14:01:25 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 657.5% of avg range > max 30.0%
+2025-12-23 14:05:41 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 629.5% of avg range > max 30.0%
+2025-12-23 14:10:04 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 556.5% of avg range > max 30.0%
+2025-12-23 14:14:37 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 536.3% of avg range > max 30.0%
+2025-12-23 14:27:18 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 780.5% of avg range > max 30.0%
+2025-12-23 14:36:07 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.4% of avg range > max 30.0%
+2025-12-23 14:41:10 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 119.2% of avg range > max 30.0%
+2025-12-23 14:49:25 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.4% of avg range > max 30.0%
+2025-12-23 14:55:54 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1646s)
+2025-12-23 15:01:33 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1308s)
+2025-12-23 15:18:27 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 293s)
+2025-12-23 15:24:00 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 118.8% of avg range > max 30.0%
+2025-12-23 15:30:12 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 103.6% of avg range > max 30.0%
+2025-12-23 15:37:15 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3310s)
+2025-12-23 15:55:13 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2232s)
+2025-12-23 16:01:12 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1873s)
+2025-12-23 16:07:30 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1495s)
+2025-12-23 16:12:56 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1169s)
+2025-12-23 16:18:21 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 844s)
+2025-12-23 16:23:22 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 542s)
+2025-12-23 16:28:15 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 250s)
+2025-12-23 16:33:23 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3544s)
+2025-12-23 16:38:52 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3215s)
+2025-12-23 16:43:43 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2924s)
+2025-12-23 16:48:41 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2626s)
+2025-12-23 16:53:48 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2318s)
+2025-12-23 16:58:58 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2008s)
+2025-12-23 17:04:02 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1705s)
+2025-12-23 17:08:49 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1418s)
+2025-12-23 17:19:02 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 805s)
+2025-12-23 17:23:51 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 516s)
+2025-12-23 17:28:42 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 225s)
+2025-12-23 17:33:22 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3546s)
+2025-12-23 17:37:50 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3278s)
+2025-12-23 17:42:15 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3013s)
+2025-12-23 17:46:44 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2745s)
+2025-12-23 17:56:03 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2186s)
+2025-12-23 18:00:34 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1914s)
+2025-12-23 18:05:03 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1646s)
+2025-12-23 18:09:37 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1371s)
+2025-12-23 18:14:05 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1103s)
+2025-12-23 18:22:31 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 597s)
+2025-12-23 18:26:54 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 334s)
+2025-12-23 18:31:25 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 64s)
+2025-12-23 18:35:53 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3397s)
+2025-12-23 18:40:27 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3123s)
+2025-12-23 18:44:51 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2860s)
+2025-12-23 18:49:06 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2604s)
+2025-12-23 18:53:30 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2340s)
+2025-12-23 18:57:51 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2080s)
+2025-12-23 19:02:16 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1815s)
+2025-12-23 19:06:27 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1563s)
+2025-12-23 19:10:36 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1315s)
+2025-12-23 19:14:49 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1061s)
+2025-12-23 19:18:50 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 821s)
+2025-12-23 19:31:30 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 60s)
+2025-12-23 19:44:33 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2985s)
+2025-12-23 19:48:39 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2738s)
+2025-12-23 19:52:40 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2496s)
+2025-12-23 19:56:56 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2241s)
+2025-12-23 20:05:15 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1742s)
+2025-12-23 20:09:34 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1483s)
+2025-12-23 20:13:57 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1220s)
+2025-12-23 20:18:25 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 952s)
+2025-12-23 20:22:37 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 700s)
+2025-12-23 20:26:38 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 459s)
+2025-12-23 20:35:29 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3531s)
+2025-12-23 20:40:11 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3249s)
+2025-12-23 20:44:39 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2981s)
+2025-12-24 11:53:37 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2984s)
+2025-12-24 11:57:03 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2778s)
+2025-12-24 12:00:26 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2575s)
+2025-12-24 12:03:36 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2385s)
+2025-12-24 12:06:42 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2199s)
+2025-12-24 12:15:56 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1645s)
+2025-12-24 12:25:16 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1085s)
+2025-12-24 12:28:25 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 896s)
+2025-12-24 12:31:36 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 705s)
+2025-12-24 12:34:48 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 513s)
+2025-12-24 12:38:07 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 314s)
+2025-12-24 12:41:15 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 126s)
+2025-12-24 13:29:36 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 854s)
+2025-12-24 13:32:40 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 671s)
+2025-12-24 13:35:51 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 480s)
+2025-12-24 13:42:08 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 102s)
+2025-12-24 14:06:11 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2305s)
+2025-12-24 14:09:46 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2091s)
+2025-12-24 14:16:34 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1682s)
+2025-12-24 14:19:51 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1485s)
+2025-12-24 14:50:20 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3264s)
+2025-12-24 15:19:51 - trades.AMDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1494s)

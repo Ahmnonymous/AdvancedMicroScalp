@@ -1,0 +1,49 @@
+2025-12-23 13:06:44 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 106.0% of avg range > max 30.0%
+2025-12-23 13:10:08 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.6% of avg range > max 30.0%
+2025-12-23 13:13:30 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 84.0% of avg range > max 30.0%
+2025-12-23 13:16:53 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 78.9% of avg range > max 30.0%
+2025-12-23 13:20:15 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.3% of avg range > max 30.0%
+2025-12-23 13:23:54 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.4% of avg range > max 30.0%
+2025-12-23 13:27:13 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.2% of avg range > max 30.0%
+2025-12-23 13:30:44 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 78.5% of avg range > max 30.0%
+2025-12-23 14:34:37 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 55.0%
+2025-12-23 14:39:20 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 23.5% of avg < min 55.0%
+2025-12-23 14:44:32 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 43.7% of avg < min 55.0%
+2025-12-23 14:53:34 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1786s)
+2025-12-23 14:59:24 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1436s)
+2025-12-23 15:04:57 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1104s)
+2025-12-23 15:10:19 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 782s)
+2025-12-23 15:34:19 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3486s)
+2025-12-23 15:40:50 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3095s)
+2025-12-23 15:46:53 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2732s)
+2025-12-23 15:53:12 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2352s)
+2025-12-23 15:59:05 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2000s)
+2025-12-23 16:16:21 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 963s)
+2025-12-23 16:21:37 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 648s)
+2025-12-23 16:31:35 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 50s)
+2025-12-23 16:36:53 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3334s)
+2025-12-23 16:42:16 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3011s)
+2025-12-23 16:47:05 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2721s)
+2025-12-23 16:52:07 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2420s)
+2025-12-23 16:57:10 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2117s)
+2025-12-23 17:02:25 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1802s)
+2025-12-23 17:12:14 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1212s)
+2025-12-23 17:17:27 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 900s)
+2025-12-23 17:22:16 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 611s)
+2025-12-23 17:27:00 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 326s)
+2025-12-23 17:59:00 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2008s)
+2025-12-23 18:03:35 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1734s)
+2025-12-23 18:07:59 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1469s)
+2025-12-23 18:12:23 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1205s)
+2025-12-23 19:13:33 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1138s)
+2025-12-23 19:17:39 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 892s)
+2025-12-23 19:21:41 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 649s)
+2025-12-23 19:25:53 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 397s)
+2025-12-23 19:30:08 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 142s)
+2025-12-23 19:34:26 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3591s)
+2025-12-23 19:38:58 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3319s)
+2025-12-24 10:27:16 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 956s)
+2025-12-24 10:30:27 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 766s)
+2025-12-24 10:33:45 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 568s)
+2025-12-24 13:22:38 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1273s)
+2025-12-24 14:48:17 - trades.US500_x100m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3387s)

@@ -1,0 +1,44 @@
+2025-12-23 11:58:30 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6189.4% of avg range > max 30.0%
+2025-12-23 12:03:37 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6348.6% of avg range > max 30.0%
+2025-12-23 12:05:17 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6795.1% of avg range > max 30.0%
+2025-12-23 12:08:45 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6914.9% of avg range > max 30.0%
+2025-12-23 12:12:06 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7532.2% of avg range > max 30.0%
+2025-12-23 12:15:51 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7419.0% of avg range > max 30.0%
+2025-12-23 14:02:27 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5330.7% of avg range > max 30.0%
+2025-12-23 14:06:43 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5273.7% of avg range > max 30.0%
+2025-12-23 14:11:09 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5594.6% of avg range > max 30.0%
+2025-12-23 14:15:50 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5719.4% of avg range > max 30.0%
+2025-12-23 14:20:25 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5668.4% of avg range > max 30.0%
+2025-12-23 14:24:21 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6363.7% of avg range > max 30.0%
+2025-12-23 14:37:06 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5868.0% of avg range > max 30.0%
+2025-12-23 14:42:19 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5575.9% of avg range > max 30.0%
+2025-12-23 14:51:21 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5244.7% of avg range > max 30.0%
+2025-12-23 14:57:23 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1558s)
+2025-12-23 15:14:08 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 553s)
+2025-12-23 15:19:50 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 211s)
+2025-12-23 16:50:05 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2542s)
+2025-12-23 16:55:12 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2235s)
+2025-12-23 17:00:26 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1920s)
+2025-12-23 17:05:19 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1627s)
+2025-12-23 17:10:17 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1330s)
+2025-12-23 17:15:28 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1019s)
+2025-12-23 17:20:17 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 729s)
+2025-12-23 22:34:28 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 21s)
+2025-12-23 22:37:01 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3554s)
+2025-12-23 22:39:32 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3403s)
+2025-12-23 22:42:05 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3251s)
+2025-12-23 22:44:40 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3095s)
+2025-12-23 22:47:07 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2948s)
+2025-12-23 22:49:37 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2799s)
+2025-12-23 22:52:15 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2641s)
+2025-12-23 22:55:02 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2473s)
+2025-12-23 22:57:41 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2315s)
+2025-12-24 02:37:55 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 110s)
+2025-12-24 02:40:32 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3556s)
+2025-12-24 02:42:49 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3420s)
+2025-12-24 02:45:08 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3280s)
+2025-12-24 02:47:26 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3142s)
+2025-12-24 02:49:41 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3007s)
+2025-12-24 02:54:10 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2738s)
+2025-12-24 02:56:21 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2607s)
+2025-12-24 08:36:55 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 246s)
