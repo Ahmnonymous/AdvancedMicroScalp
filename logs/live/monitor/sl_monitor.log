@@ -1,2 +1,7 @@
-2025-12-23 10:00:07 - sl_monitor - INFO - SL Realtime Monitor initialized
-2025-12-23 10:00:10 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
+2025-12-23 11:58:13 - sl_monitor - INFO - SL Realtime Monitor initialized
+2025-12-23 11:58:16 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
+2025-12-23 12:44:48 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 559508516 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-inf worse than -$2.00 limit
+2025-12-23 14:33:01 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 560761089 | Symbol: BTCUSDm | Type: strict_loss_violation | SL violation: Effective SL $-inf worse than -$2.00 limit
+2025-12-23 14:51:34 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 561056741 | Symbol: DE30m | Type: strict_loss_violation | SL violation: Effective SL $-inf worse than -$2.00 limit
+2025-12-23 15:35:04 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 561677854 | Symbol: BTCXAUm | Type: sl_stale | SL not updated for 111.4s
+2025-12-23 16:11:30 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 561680199 | Symbol: DE30m | Type: sl_stale | SL not updated for 706.1s

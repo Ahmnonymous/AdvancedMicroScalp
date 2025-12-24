@@ -1,17 +1,64 @@
-2025-12-23 10:00:12 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
-2025-12-23 10:01:52 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 216.5% of avg range > max 30.0%
-2025-12-23 10:03:34 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 215.5% of avg range > max 30.0%
-2025-12-23 10:05:16 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 207.5% of avg range > max 30.0%
-2025-12-23 10:06:58 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 196.1% of avg range > max 30.0%
-2025-12-23 10:08:40 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1796s)
-2025-12-23 10:10:21 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1696s)
-2025-12-23 10:12:03 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1594s)
-2025-12-23 10:13:43 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1493s)
-2025-12-23 10:15:24 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1392s)
-2025-12-23 10:17:05 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1291s)
-2025-12-23 10:18:46 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1190s)
-2025-12-23 10:21:08 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1049s)
-2025-12-23 10:24:25 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 851s)
-2025-12-23 10:27:48 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 648s)
-2025-12-23 10:31:09 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 448s)
-2025-12-23 10:34:22 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 254s)
+2025-12-23 11:58:20 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.73 pips < min 0.80 pips
+2025-12-23 13:38:07 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 237.0% of avg range > max 30.0%
+2025-12-23 13:41:39 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 229.4% of avg range > max 30.0%
+2025-12-23 13:45:06 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 211.9% of avg range > max 30.0%
+2025-12-23 13:48:38 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 218.3% of avg range > max 30.0%
+2025-12-23 13:52:12 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 223.2% of avg range > max 30.0%
+2025-12-23 14:35:26 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.5% of avg range > max 30.0%
+2025-12-23 14:40:01 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.2% of avg range > max 30.0%
+2025-12-23 14:47:26 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 242.7% of avg range > max 30.0%
+2025-12-23 14:55:03 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1698s)
+2025-12-23 15:00:51 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1350s)
+2025-12-23 15:11:48 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 693s)
+2025-12-23 15:17:39 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 342s)
+2025-12-23 15:23:15 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 6s)
+2025-12-23 15:29:23 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.74 pips < min 0.80 pips
+2025-12-23 15:36:17 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3368s)
+2025-12-23 15:42:38 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2986s)
+2025-12-23 15:48:40 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2624s)
+2025-12-23 15:54:48 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2257s)
+2025-12-23 16:17:59 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 865s)
+2025-12-23 16:23:00 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 565s)
+2025-12-23 17:03:41 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1726s)
+2025-12-23 17:08:28 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1438s)
+2025-12-23 17:13:38 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1129s)
+2025-12-23 17:23:30 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 537s)
+2025-12-23 17:28:22 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 244s)
+2025-12-23 17:50:53 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2495s)
+2025-12-23 17:55:42 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2206s)
+2025-12-23 18:26:39 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 349s)
+2025-12-23 18:31:07 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 82s)
+2025-12-23 18:35:40 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3410s)
+2025-12-23 18:40:07 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3143s)
+2025-12-23 18:44:29 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2882s)
+2025-12-23 18:48:51 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2620s)
+2025-12-23 18:53:10 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2360s)
+2025-12-23 21:32:11 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 129s)
+2025-12-23 21:35:01 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3588s)
+2025-12-23 23:12:23 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1433s)
+2025-12-23 23:15:33 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1242s)
+2025-12-23 23:18:50 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1046s)
+2025-12-23 23:22:09 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 847s)
+2025-12-23 23:25:28 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 647s)
+2025-12-24 10:11:08 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1924s)
+2025-12-24 10:14:38 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1715s)
+2025-12-24 10:18:05 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1507s)
+2025-12-24 10:21:13 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1319s)
+2025-12-24 10:24:28 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1125s)
+2025-12-24 10:27:44 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 929s)
+2025-12-24 12:41:00 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 141s)
+2025-12-24 12:44:15 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3575s)
+2025-12-24 12:47:25 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3386s)
+2025-12-24 12:50:37 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3194s)
+2025-12-24 12:53:48 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3002s)
+2025-12-24 12:57:09 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2801s)
+2025-12-24 13:00:27 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2603s)
+2025-12-24 13:45:10 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3566s)
+2025-12-24 13:48:34 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3362s)
+2025-12-24 13:51:52 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3164s)
+2025-12-24 13:55:25 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2951s)
+2025-12-24 13:58:56 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2740s)
+2025-12-24 14:02:28 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2528s)
+2025-12-24 14:05:54 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2322s)
+2025-12-24 15:09:49 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2095s)
+2025-12-24 15:14:30 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1814s)

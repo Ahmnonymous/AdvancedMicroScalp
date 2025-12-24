@@ -1,14 +1,64 @@
-2025-12-23 10:00:10 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
-2025-12-23 10:01:51 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 153.1% of avg range > max 30.0%
-2025-12-23 10:03:32 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 155.4% of avg range > max 30.0%
-2025-12-23 10:05:14 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 155.4% of avg range > max 30.0%
-2025-12-23 10:06:57 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 138.9% of avg range > max 30.0%
-2025-12-23 10:08:38 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1798s)
-2025-12-23 10:10:19 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1697s)
-2025-12-23 10:12:00 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1596s)
-2025-12-23 10:13:42 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1495s)
-2025-12-23 10:15:23 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1394s)
-2025-12-23 10:17:04 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1292s)
-2025-12-23 10:18:45 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1192s)
-2025-12-23 10:20:53 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 1063s)
-2025-12-23 10:34:09 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (12 losses) (resumes in 268s)
+2025-12-23 12:07:21 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 135.7% of avg range > max 30.0%
+2025-12-23 12:10:50 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.5% of avg range > max 30.0%
+2025-12-23 12:30:45 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 105.6% of avg range > max 30.0%
+2025-12-23 12:33:56 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.7% of avg range > max 30.0%
+2025-12-23 12:37:07 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 86.5% of avg range > max 30.0%
+2025-12-23 12:40:17 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.0% of avg range > max 30.0%
+2025-12-23 13:30:57 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.9% of avg range > max 30.0%
+2025-12-23 13:34:25 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.1% of avg range > max 30.0%
+2025-12-23 13:37:46 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.3% of avg range > max 30.0%
+2025-12-23 14:26:35 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.2% of avg range > max 30.0%
+2025-12-23 14:30:38 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.2% of avg range > max 30.0%
+2025-12-23 14:35:03 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.9% of avg range > max 30.0%
+2025-12-23 15:05:46 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1055s)
+2025-12-23 15:11:18 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 723s)
+2025-12-23 15:16:59 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 381s)
+2025-12-23 15:22:41 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 40s)
+2025-12-23 15:28:47 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.3% of avg range > max 30.0%
+2025-12-23 15:35:31 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3414s)
+2025-12-23 15:41:47 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3038s)
+2025-12-23 17:07:55 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1471s)
+2025-12-23 17:13:09 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1158s)
+2025-12-23 17:18:08 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 858s)
+2025-12-23 17:55:12 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2236s)
+2025-12-23 19:26:30 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 361s)
+2025-12-23 19:30:49 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 102s)
+2025-12-23 19:35:15 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3542s)
+2025-12-23 19:39:43 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3274s)
+2025-12-23 19:43:57 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3020s)
+2025-12-23 19:47:50 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2787s)
+2025-12-23 19:51:57 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2540s)
+2025-12-23 19:56:17 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2280s)
+2025-12-23 20:00:31 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2026s)
+2025-12-23 20:04:38 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1779s)
+2025-12-23 20:08:55 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1522s)
+2025-12-23 20:13:16 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1261s)
+2025-12-23 20:17:39 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 998s)
+2025-12-23 20:21:52 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 745s)
+2025-12-24 02:34:32 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 313s)
+2025-12-24 02:37:11 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 154s)
+2025-12-24 02:39:49 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3599s)
+2025-12-24 02:42:18 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3450s)
+2025-12-24 02:44:35 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3314s)
+2025-12-24 02:46:53 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3175s)
+2025-12-24 02:49:13 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3035s)
+2025-12-24 09:10:51 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1867s)
+2025-12-24 09:13:58 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1680s)
+2025-12-24 09:17:17 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1481s)
+2025-12-24 09:20:39 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1279s)
+2025-12-24 10:00:28 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2564s)
+2025-12-24 10:03:51 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2361s)
+2025-12-24 10:07:21 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2152s)
+2025-12-24 10:10:52 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1940s)
+2025-12-24 10:14:23 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1729s)
+2025-12-24 10:17:48 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1525s)
+2025-12-24 10:21:02 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1330s)
+2025-12-24 13:38:30 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 320s)
+2025-12-24 13:41:32 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 138s)
+2025-12-24 13:44:53 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3583s)
+2025-12-24 13:48:15 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3381s)
+2025-12-24 13:51:37 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3179s)
+2025-12-24 13:58:38 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2758s)
+2025-12-24 15:09:29 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2116s)
+2025-12-24 15:14:08 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1836s)
+2025-12-24 15:18:53 - trades.USDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1551s)
