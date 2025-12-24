@@ -1,6 +1,0 @@
-2025-12-23 14:59:44 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 1417s)
-2025-12-23 15:16:25 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Consecutive losses >= 10 (11 losses) (resumes in 416s)
-2025-12-23 15:47:17 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 2708s)
-2025-12-23 16:05:42 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 1603s)
-2025-12-23 16:52:22 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 2404s)
-2025-12-24 14:48:32 - trades.CSXm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3373s)

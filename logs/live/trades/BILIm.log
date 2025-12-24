@@ -1,7 +1,0 @@
-2025-12-23 15:28:23 - trades.BILIm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.16 pips < min 0.80 pips
-2025-12-23 15:35:02 - trades.BILIm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 3443s)
-2025-12-23 16:26:50 - trades.BILIm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-17.00) (resumes in 335s)
-2025-12-23 18:39:11 - trades.BILIm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3199s)
-2025-12-23 19:39:09 - trades.BILIm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 3308s)
-2025-12-24 14:38:19 - trades.BILIm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 377s)
-2025-12-24 15:23:28 - trades.BILIm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-11.59) (resumes in 1276s)
