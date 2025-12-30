@@ -267,6 +267,16 @@ class TradingSystemLauncher:
                     watchdog = SLWatchdog(sl_manager)
                     watchdog.start()
                     
+                    # CRITICAL SAFETY FIX #5: Initialize and start SL Safety Guard
+                    from monitor.sl_safety_guard import SLSafetyGuard
+                    sl_safety_guard = SLSafetyGuard(
+                        order_manager=self.bot.order_manager,
+                        risk_manager=self.bot.risk_manager,
+                        trading_bot=self.bot
+                    )
+                    sl_safety_guard.start()
+                    logger.info("[OK] SL Safety Guard started")
+                    
                     # Start SL worker with watchdog
                     sl_manager.start_sl_worker(watchdog=watchdog)
                     logger.info("[OK] SL Worker started (500ms cadence)")
@@ -458,13 +468,22 @@ class TradingSystemLauncher:
                         monitor_summary = self.monitor.get_monitoring_summary()
                     
                     # Calculate Session P/L early (needed for account information table)
-                    if self.bot:
-                        # Try to get session_pnl from bot (calculated from balance difference)
-                        session_pnl = getattr(self.bot, 'session_pnl', None)
-                        if session_pnl is None:
-                            # Fallback to daily_pnl if session_pnl not available
-                            session_pnl = daily_pnl
+                    # CRITICAL FIX: Calculate session P/L directly from balance difference for accuracy
+                    if self.bot and account_info:
+                        # Get session start balance
+                        session_start_balance = getattr(self.bot, 'session_start_balance', None)
+                        if session_start_balance is not None and session_start_balance > 0:
+                            # Calculate session P/L as: Current Balance - Session Start Balance
+                            current_balance = account_info.get('balance', 0)
+                            session_pnl = current_balance - session_start_balance
+                        else:
+                            # Fallback: Try to get from bot's calculated value
+                            session_pnl = getattr(self.bot, 'session_pnl', None)
+                            if session_pnl is None:
+                                # Final fallback to daily_pnl
+                                session_pnl = daily_pnl
                     else:
+                        # No bot or account info - use daily_pnl as fallback
                         session_pnl = daily_pnl
                     session_pnl_color = Colors.GREEN if session_pnl >= 0 else Colors.RED
                     
@@ -476,7 +495,7 @@ class TradingSystemLauncher:
                     print(f"{Colors.BOLD}{Colors.HEADER}📊 TRADING BOT - REAL-TIME SUMMARY{Colors.END}")
                     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
                     
-                    # Start time and total time
+                    # Start time, total time, and current time in one line
                     if self.start_time:
                         start_time_str = self.start_time.strftime('%Y-%m-%d %H:%M:%S')
                         total_time = datetime.now() - self.start_time
@@ -484,8 +503,11 @@ class TradingSystemLauncher:
                         total_minutes = int((total_time.total_seconds() % 3600) // 60)
                         total_seconds = int(total_time.total_seconds() % 60)
                         total_time_str = f"{total_hours:02d}:{total_minutes:02d}:{total_seconds:02d}"
-                        print(f"{Colors.BOLD}Start Time: {Colors.END}{start_time_str} | {Colors.BOLD}Total Time: {Colors.END}{total_time_str}")
-                    print(f"{Colors.BOLD}Current Time: {Colors.END}{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                        current_time_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                        print(f"{Colors.BOLD}Start Time: {Colors.END}{start_time_str} | {Colors.BOLD}Total Time: {Colors.END}{total_time_str} | {Colors.BOLD}Current Time: {Colors.END}{current_time_str}")
+                    else:
+                        current_time_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                        print(f"{Colors.BOLD}Current Time: {Colors.END}{current_time_str}")
                     print()
                     
                     # ==================== ACCOUNT INFORMATION TABLE ====================
@@ -687,12 +709,49 @@ class TradingSystemLauncher:
                                 # Positive = locked profit (above sweet spot)
                                 effective_sl_str = f"{Colors.GREEN}${effective_sl_profit:,.2f}{Colors.END}"
                             
-                            # Format entry, current, SL, and TP prices based on symbol precision
+                            # Calculate effective TP profit (similar to effective SL)
+                            effective_tp_profit = 0.0
+                            tp_price = pos.get('tp', 0.0)
+                            if tp_price > 0 and self.bot and self.bot.mt5_connector:
+                                try:
+                                    # Get symbol info for contract size or trade_tick_value
+                                    symbol_info = self.bot.mt5_connector.get_symbol_info(symbol)
+                                    if symbol_info:
+                                        # CRITICAL FIX: Use trade_tick_value for indices/commodities (like XAUUSDm)
+                                        # For indices: Profit = (price_diff_in_points) * lot_size * point_value
+                                        # For forex: Profit = (price_diff) * lot_size * contract_size
+                                        point_value = symbol_info.get('trade_tick_value', None)
+                                        contract_size = symbol_info.get('contract_size', 100000)
+                                        point = symbol_info.get('point', 0.00001)
+                                        
+                                        # Calculate price difference
+                                        if pos_type == 'BUY' or (isinstance(pos_type, int) and pos_type == 0):
+                                            price_diff = tp_price - entry
+                                        else:  # SELL
+                                            price_diff = entry - tp_price
+                                        
+                                        # Use trade_tick_value if available (for indices/commodities)
+                                        if point_value is not None and point_value > 0:
+                                            # For indices/commodities: convert price_diff to points, then multiply by point_value
+                                            price_diff_in_points = price_diff / point
+                                            effective_tp_profit = price_diff_in_points * volume * point_value
+                                        else:
+                                            # For forex: use contract_size
+                                            effective_tp_profit = price_diff * volume * contract_size
+                                except Exception as e:
+                                    logger.debug(f"Error calculating effective TP for ticket {ticket}: {e}")
+                            
+                            # Format effective TP for display
+                            if effective_tp_profit > 0:
+                                effective_tp_str = f"{Colors.GREEN}${effective_tp_profit:,.2f}{Colors.END}"
+                            elif effective_tp_profit == 0:
+                                effective_tp_str = "N/A"
+                            else:
+                                effective_tp_str = f"{Colors.RED}${effective_tp_profit:,.2f}{Colors.END}"
+                            
+                            # Format entry and current prices based on symbol precision
                             entry_str = f"{entry:.5f}" if entry < 1000 else f"{entry:.2f}"
                             current_str = f"{current:.5f}" if current < 1000 else f"{current:.2f}"
-                            sl_str = f"{sl:.5f}" if sl < 1000 and sl > 0 else f"{sl:.2f}" if sl > 0 else "N/A"
-                            tp_price = pos.get('tp', 0.0)
-                            tp_str = f"{tp_price:.5f}" if tp_price < 1000 and tp_price > 0 else f"{tp_price:.2f}" if tp_price > 0 else "N/A"
                             
                             # Add SL violation indicator to status if needed
                             status_display = hft_status
@@ -706,29 +765,28 @@ class TradingSystemLauncher:
                                 f"{volume:.4f}",
                                 entry_str,
                                 current_str,
-                                sl_str,
-                                tp_str,
                                 f"{profit_color}${profit:,.2f}{Colors.END}",
                                 effective_sl_str,
+                                effective_tp_str,
                                 sl_status_indicator,
                                 status_display
                             ])
                         
                         if TABULATE_AVAILABLE:
-                            headers = ["Ticket", "Symbol", "Type", "Lot", "Entry", "Current", "SL (Price)", "TP (Price)", "P/L", "Effective SL", "SL Status", "Status"]
+                            headers = ["Ticket", "Symbol", "Type", "Lot", "Entry", "Current", "P/L", "Effective SL", "Effective TP", "SL Status", "Status"]
                             print(tabulate(positions_table, headers=headers, tablefmt="grid", stralign="left"))
                             
                             # Total row
                             total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
-                            total_row = [f"{Colors.BOLD}TOTAL{Colors.END}", "", "", "", "", "", "", "", 
-                                       f"{total_color}${total_profit:,.2f}{Colors.END}", "", "", ""]
+                            total_row = [f"{Colors.BOLD}TOTAL{Colors.END}", "", "", "", "", "", 
+                                       f"{total_color}${total_profit:,.2f}{Colors.END}", "", "", "", ""]
                             print(tabulate([total_row], tablefmt="grid", stralign="left"))
                         else:
                             # Fallback
-                            print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'Entry':<12} | {'Current':<12} | {'SL (Price)':<15} | {'TP (Price)':<15} | {'P/L':<12} | {'Effective SL':<18} | {'SL Status':<12} | {'Status'}{Colors.END}")
+                            print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'Entry':<12} | {'Current':<12} | {'P/L':<12} | {'Effective SL':<18} | {'Effective TP':<18} | {'SL Status':<12} | {'Status'}{Colors.END}")
                             print(f"{Colors.BLUE}{'-' * 180}{Colors.END}")
                             for row in positions_table:
-                                print(" | ".join(f"{str(cell):<25}" if i == 8 else f"{str(cell):<15}" if i == 9 else f"{str(cell):<12}" for i, cell in enumerate(row)))
+                                print(" | ".join(f"{str(cell):<25}" if i == 6 else f"{str(cell):<15}" if i in [7, 8] else f"{str(cell):<12}" for i, cell in enumerate(row)))
                             total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
                             print(f"{Colors.BOLD}{'TOTAL FLOATING P/L':<25} | {total_color}${total_profit:>12,.2f}{Colors.END}")
                     else:
@@ -773,16 +831,15 @@ class TradingSystemLauncher:
                             total_trades,
                             f"{Colors.GREEN}{successful}{Colors.END}",
                             f"{Colors.RED}{failed}{Colors.END}",
-                            f"{Colors.YELLOW}{filtered}{Colors.END}",
-                            f"{Colors.CYAN}{closed_trades}{Colors.END}"
+                            f"{Colors.YELLOW}{filtered}{Colors.END}"
                         ]]
-                        headers = ["Total Trades", "Successful", "Failed", "Filtered", "Closed Trades"]
+                        headers = ["Total Trades", "Successful", "Failed", "Filtered"]
                         print(tabulate(stats_table, headers=headers, tablefmt="grid", stralign="right"))
                     else:
                         # Fallback
-                        print(f"{Colors.BOLD}{'Total Trades':<15} | {'Successful':<15} | {'Failed':<15} | {'Filtered':<15} | {'Closed':<15}{Colors.END}")
-                        print(f"{Colors.CYAN}{'-' * 90}{Colors.END}")
-                        print(f"{total_trades:<15} | {Colors.GREEN}{successful:<15}{Colors.END} | {Colors.RED}{failed:<15}{Colors.END} | {Colors.YELLOW}{filtered:<15}{Colors.END} | {Colors.CYAN}{closed_trades:<15}{Colors.END}")
+                        print(f"{Colors.BOLD}{'Total Trades':<15} | {'Successful':<15} | {'Failed':<15} | {'Filtered':<15}{Colors.END}")
+                        print(f"{Colors.CYAN}{'-' * 75}{Colors.END}")
+                        print(f"{total_trades:<15} | {Colors.GREEN}{successful:<15}{Colors.END} | {Colors.RED}{failed:<15}{Colors.END} | {Colors.YELLOW}{filtered:<15}{Colors.END}")
                     print()
                     
                     # Footer

@@ -291,6 +291,41 @@ def mark_thread_dead(name: str, reason: str) -> None:
         pass
 
 
+def mark_system_unsafe(reason: str, details: Optional[str] = None) -> None:
+    """
+    Mark the system as unsafe and block trading.
+    
+    This can be called from anywhere in the system when a critical
+    safety violation is detected (e.g., watchdog detects issues,
+    safety guard violations, etc.).
+    
+    Emits:
+    - [CRITICAL][SYSTEM_UNSAFE]
+    """
+    global _trading_blocked
+    
+    with _lock:
+        _trading_blocked = True
+    
+    pid = os.getpid()
+    _logger.critical(
+        f"[CRITICAL][SYSTEM_UNSAFE] reason={reason} details={details or 'N/A'} pid={pid}"
+    )
+    
+    try:
+        _system_event_logger.systemEvent(
+            "CRITICAL",
+            {
+                "tag": "SYSTEM_UNSAFE",
+                "reason": reason,
+                "details": details,
+                "pid": pid,
+            },
+        )
+    except Exception:  # pragma: no cover - defensive
+        pass
+
+
 def is_system_ready() -> bool:
     """Return True only if all critical threads have started and heartbeated and none are dead."""
     with _lock:

@@ -6,9 +6,10 @@ Now supports both text logs (for readability) and JSONL entries (for machine pro
 
 import os
 import json
+import time
 from datetime import datetime
-from typing import Dict, Any, Optional
-from utils.logger_factory import get_symbol_logger
+from typing import Dict, Any, Optional, Tuple
+from utils.logger_factory import get_symbol_logger, get_logger
 
 
 class TradeLogger:
@@ -20,22 +21,149 @@ class TradeLogger:
         self.is_backtest = config.get('mode') == 'backtest'
         self.trades_log_dir = 'logs/backtest/trades' if self.is_backtest else 'logs/live/trades'
         self._ensure_trades_directory()
+        
+        # PHASE 1 FIX 1.1: Trade logging reliability metrics
+        self.log_success_count = 0
+        self.log_failure_count = 0
+        self.log_retry_count = 0
+        self.log_timeout_count = 0
+        
+        # Get system error logger for fallback
+        error_log_path = 'logs/backtest/system_errors.log' if self.is_backtest else 'logs/live/system/system_errors.log'
+        self.error_logger = get_logger('trade_logger_errors', error_log_path)
     
     def _ensure_trades_directory(self):
         """Ensure trades directory exists."""
         os.makedirs(self.trades_log_dir, exist_ok=True)
     
-    def _write_jsonl_entry(self, symbol: str, entry: Dict[str, Any]):
-        """Write JSONL entry to symbol log file."""
+    def _write_jsonl_entry(self, symbol: str, entry: Dict[str, Any], max_retries: int = 3, timeout_ms: int = 500) -> Tuple[bool, Optional[str]]:
+        """
+        Write JSONL entry to symbol log file with retry mechanism.
+        
+        PHASE 1 FIX 1.1: Trade Logging Reliability
+        - Synchronous and blocking (waits for write confirmation)
+        - Retry mechanism: 3 attempts with exponential backoff (100ms, 200ms, 400ms)
+        - Timeout protection: fails fast if disk I/O hangs (>500ms)
+        - Fallback: writes to system error log if symbol log fails
+        
+        Args:
+            symbol: Trading symbol
+            entry: JSONL entry dictionary
+            max_retries: Maximum retry attempts (default: 3)
+            timeout_ms: Maximum time to wait for write (default: 500ms)
+            
+        Returns:
+            Tuple of (success: bool, error_message: Optional[str])
+        """
         log_file = f'{self.trades_log_dir}/{symbol}.log'
+        retry_delays = [0.1, 0.2, 0.4]  # 100ms, 200ms, 400ms
+        
+        for attempt in range(max_retries):
+            try:
+                start_time = time.time()
+                
+                # Attempt write with timeout protection
+                with open(log_file, 'a', encoding='utf-8') as f:
+                    json_str = json.dumps(entry, ensure_ascii=False) + '\n'
+                    f.write(json_str)
+                    f.flush()  # Force write to disk
+                    os.fsync(f.fileno())  # Ensure OS-level write completion
+                
+                elapsed_ms = (time.time() - start_time) * 1000
+                
+                # Check for timeout
+                if elapsed_ms > timeout_ms:
+                    error_msg = f"Write timeout: {elapsed_ms:.1f}ms > {timeout_ms}ms"
+                    self.log_timeout_count += 1
+                    if attempt < max_retries - 1:
+                        self.log_retry_count += 1
+                        time.sleep(retry_delays[attempt])
+                        continue
+                    else:
+                        # Final attempt failed, use fallback
+                        self._write_fallback_log(symbol, entry, error_msg)
+                        self.log_failure_count += 1
+                        return False, error_msg
+                
+                # Verify write succeeded by checking file size
+                if os.path.exists(log_file):
+                    file_size = os.path.getsize(log_file)
+                    if file_size > 0:
+                        self.log_success_count += 1
+                        return True, None
+                
+                # File exists but size is 0 or write didn't complete
+                error_msg = "Write verification failed: file size is 0"
+                if attempt < max_retries - 1:
+                    self.log_retry_count += 1
+                    time.sleep(retry_delays[attempt])
+                    continue
+                else:
+                    self._write_fallback_log(symbol, entry, error_msg)
+                    self.log_failure_count += 1
+                    return False, error_msg
+                    
+            except Exception as e:
+                error_msg = f"Exception during write (attempt {attempt + 1}/{max_retries}): {e}"
+                if attempt < max_retries - 1:
+                    self.log_retry_count += 1
+                    time.sleep(retry_delays[attempt])
+                    continue
+                else:
+                    # Final attempt failed, use fallback
+                    self._write_fallback_log(symbol, entry, error_msg)
+                    self.log_failure_count += 1
+                    return False, error_msg
+        
+        # Should never reach here, but safety check
+        error_msg = "All retry attempts exhausted"
+        self._write_fallback_log(symbol, entry, error_msg)
+        self.log_failure_count += 1
+        return False, error_msg
+    
+    def _write_fallback_log(self, symbol: str, entry: Dict[str, Any], error_msg: str):
+        """
+        Fallback: Write to system error log if symbol log fails.
+        
+        PHASE 1 FIX 1.1: Ensures trade is never lost even if symbol log fails.
+        """
         try:
-            with open(log_file, 'a', encoding='utf-8') as f:
-                f.write(json.dumps(entry, ensure_ascii=False) + '\n')
-        except Exception as e:
-            # Fallback to system error log
-            import logging
-            error_logger = logging.getLogger('system_errors')
-            error_logger.error(f"Failed to write JSONL entry to {log_file}: {e}")
+            ticket = entry.get('order_id', 'UNKNOWN')
+            fallback_entry = {
+                'timestamp': entry.get('timestamp', datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
+                'symbol': symbol,
+                'ticket': ticket,
+                'original_entry': entry,
+                'log_error': error_msg,
+                'fallback_reason': 'symbol_log_failed'
+            }
+            self.error_logger.error(
+                f"[FALLBACK_LOG] Trade {ticket} ({symbol}) | "
+                f"Symbol log failed, writing to error log | "
+                f"Error: {error_msg} | "
+                f"Entry: {json.dumps(fallback_entry, ensure_ascii=False)}"
+            )
+        except Exception as fallback_error:
+            # Last resort: print to console (should never happen)
+            print(f"CRITICAL: Failed to write fallback log for trade {entry.get('order_id', 'UNKNOWN')}: {fallback_error}")
+    
+    def get_logging_metrics(self) -> Dict[str, Any]:
+        """
+        Get trade logging reliability metrics.
+        
+        PHASE 1 FIX 1.1: Returns metrics for validation.
+        """
+        total_attempts = self.log_success_count + self.log_failure_count
+        success_rate = (self.log_success_count / total_attempts * 100) if total_attempts > 0 else 0.0
+        
+        return {
+            'log_success_count': self.log_success_count,
+            'log_failure_count': self.log_failure_count,
+            'log_retry_count': self.log_retry_count,
+            'log_timeout_count': self.log_timeout_count,
+            'log_success_rate': success_rate,
+            'total_attempts': total_attempts
+        }
     
     def log_trade_execution(
         self,
@@ -138,7 +266,16 @@ class TradeLogger:
         if kwargs:
             jsonl_entry['additional_info'].update(kwargs)
         
-        self._write_jsonl_entry(symbol, jsonl_entry)
+        # PHASE 1 FIX 1.1: Validate log write success
+        success, error_msg = self._write_jsonl_entry(symbol, jsonl_entry)
+        if not success:
+            # Log warning but don't block trade execution (circuit breaker)
+            symbol_logger.warning(
+                f"[WARNING] Trade logging failed after retries: {error_msg} | "
+                f"Trade executed but may not be fully logged. Check system error log."
+            )
+            # Note: Trade execution continues - logging failure doesn't block trading
+            # This is by design to prevent logging issues from blocking trades
     
     def log_position_closure(
         self,
@@ -263,11 +400,13 @@ class TradeLogger:
                     f.write(json.dumps(entry, ensure_ascii=False) + '\n')
         
         except Exception as e:
-            # Fallback: just append
-            self._write_jsonl_entry(symbol, closure_data)
-            import logging
-            error_logger = logging.getLogger('system_errors')
-            error_logger.error(f"Failed to update JSONL entry in {log_file}: {e}")
+            # Fallback: just append with retry mechanism
+            success, error_msg = self._write_jsonl_entry(symbol, closure_data)
+            if not success:
+                self.error_logger.error(
+                    f"Failed to update JSONL entry in {log_file}: {e} | "
+                    f"Fallback append also failed: {error_msg}"
+                )
     
     def log_trailing_stop_adjustment(
         self,

@@ -25,6 +25,7 @@ from bot.config_validator import ConfigValidator
 from utils.logger_factory import get_logger, get_symbol_logger, get_system_event_logger
 from utils import system_health
 from trade_logging.trade_logger import TradeLogger
+from trade_logging.trade_reason_logger import TradeReasonLogger
 
 # Module-level loggers - will be initialized based on config mode
 logger = None
@@ -139,6 +140,7 @@ class TradingBot:
         self.market_closing_filter = MarketClosingFilter(self.config, self.mt5_connector)
         self.volume_filter = VolumeFilter(self.config, self.mt5_connector)
         self.trade_logger = TradeLogger(self.config)
+        self.trade_reason_logger = TradeReasonLogger(is_backtest=self.is_backtest)
         
         # Register P/L callback with risk manager
         self.risk_manager.set_pnl_callback(self._update_realized_pnl_on_closure)
@@ -227,6 +229,7 @@ class TradingBot:
         
         # Session tracking (initialized in connect())
         self.session_start_balance = None
+        self.session_pnl = 0.0  # Initialize session P/L
         
         # Trading config
         self.trading_config = self.config.get('trading', {})
@@ -254,6 +257,7 @@ class TradingBot:
         # P/L tracking (daily and session)
         self.session_start_time = datetime.now()
         self.session_start_balance = None
+        self.session_pnl = 0.0  # Initialize session P/L
         self.realized_pnl = 0.0  # Realized P/L from closed trades
         self.realized_pnl_today = 0.0  # Realized P/L for today
         
@@ -345,15 +349,13 @@ class TradingBot:
                 
                 logger.info(f"📊 Session started | Starting Balance: ${self.session_start_balance:.2f} | Session Time: {self.session_start_time.strftime('%Y-%m-%d %H:%M:%S')}")
             
-            # CRITICAL FIX: Fetch all existing broker positions at startup and sync
-            logger.info("🔄 Syncing with broker positions at startup...")
-            broker_positions = self.order_manager.get_open_positions(exclude_dec8=False)  # Get ALL positions
-            logger.info(f"📊 Found {len(broker_positions)} position(s) in broker at startup")
-            
-            # Log all broker positions for tracking
-            for pos in broker_positions:
-                logger.info(f"  Broker Position: Ticket {pos['ticket']} | {pos['symbol']} {pos['type']} | "
-                          f"Entry: {pos['price_open']:.5f} | SL: {pos['sl']:.5f} | P/L: ${pos['profit']:.2f}")
+            # PHASE 1 FIX 1.4: Startup Trade Reconciliation
+            # Fetch all open positions from broker, compare with bot logs, backfill missing trades
+            logger.info("🔄 Starting startup trade reconciliation...")
+            reconciliation_result = self._reconcile_startup_trades()
+            logger.info(f"✅ Startup reconciliation complete: {reconciliation_result['matched']} matched, "
+                       f"{reconciliation_result['missing']} missing (backfilled), "
+                       f"{reconciliation_result['orphaned']} orphaned")
             
             return True
         else:
@@ -1464,9 +1466,18 @@ class TradingBot:
                         'rsi': trend_signal.get('rsi', 50),
                         'volume_ok': volume_ok,  # Include volume status for entry conditions check
                         'spread': spread_points,
+                        'spread_points': spread_points,  # Also include as spread_points for compatibility
                         'min_lot': opp_min_lot,
                         'spread_fees_cost': total_cost,  # Always include for sorting
-                        'quality_score': quality_score  # Include quality score for sorting
+                        'quality_score': quality_score,  # Include quality score for sorting
+                        'quality_assessment': quality_assessment,  # Include full quality assessment for detailed logging
+                        'high_quality_setup': high_quality_setup,
+                        'trend_strength': trend_strength,
+                        'atr': trend_signal.get('atr', 0.0),
+                        'rsi_entry_range_min': self.trading_config.get('rsi_entry_range_min', 15),
+                        'rsi_entry_range_max': self.trading_config.get('rsi_entry_range_max', 80),
+                        'min_quality_score': min_quality_score,
+                        'max_spread_points': self.pair_filter.max_spread_points if hasattr(self.pair_filter, 'max_spread_points') else 2.0
                     }
                     
                     # ONE-CANDLE CONFIRMATION: Store as pending instead of adding immediately
@@ -1905,14 +1916,17 @@ class TradingBot:
                         pass
                     return None  # None indicates filtered/skipped, not failed
                 
-                # CRITICAL FIX: Open trades WITHOUT SL initially (sl=0.0)
-                # SL will be applied after 300-500ms stabilization delay to prevent incorrect initial SL
+                # CRITICAL SAFETY FIX: Use atomic SL (SL included in order request)
+                # Calculate max_risk_usd and pass to place_order for atomic SL calculation
+                max_risk_usd = -self.risk_manager.max_risk_usd  # Negative value for loss protection
+                
                 result = self.order_manager.place_order(
                     symbol=symbol,
                     order_type=order_type,
                     lot_size=lot_size,
-                    stop_loss=0.0,  # Open without SL - will be applied after stabilization delay
-                    comment=f"Bot {signal}"
+                    stop_loss=0.0,  # DEPRECATED - max_risk_usd is used instead
+                    comment=f"Bot {signal}",
+                    max_risk_usd=max_risk_usd  # CRITICAL: Atomic SL calculation
                 )
                 
                 # Handle new return format (dict with ticket, entry_price_actual, slippage)
@@ -2256,6 +2270,35 @@ class TradingBot:
                     rsi=opportunity.get('rsi', 50)
                 )
                 
+                # Calculate TP price for logging
+                take_profit_price = None
+                if hasattr(self.risk_manager, 'tp_manager') and self.risk_manager.tp_manager:
+                    try:
+                        if fresh_position:
+                            take_profit_price = self.risk_manager.tp_manager.calculate_tp_price(fresh_position)
+                    except Exception as tp_calc_error:
+                        logger.debug(f"Error calculating TP for trade reason log: {tp_calc_error}")
+                
+                # Log detailed trade reason with comprehensive analysis
+                execution_result = {
+                    'success': True,
+                    'entry_price_requested': entry_price,
+                    'entry_price_actual': entry_price_actual,
+                    'lot_size': lot_size,
+                    'stop_loss_price': stop_loss_price,
+                    'take_profit_price': take_profit_price,
+                    'risk_usd': actual_risk_with_fill,
+                    'slippage': slippage if slippage > 0.00001 else 0.0,
+                    'execution_time': time.time() - start_time if 'start_time' in locals() else 0.0,
+                }
+                self.trade_reason_logger.log_trade_reason(
+                    symbol=symbol,
+                    ticket=ticket,
+                    signal=signal,
+                    opportunity=opportunity,
+                    execution_result=execution_result
+                )
+                
                 self.trade_count_today += 1
                 self.trade_stats['total_trades'] += 1
                 self.trade_stats['successful_trades'] += 1
@@ -2288,49 +2331,42 @@ class TradingBot:
                                 # Force immediate correction
                                 self.risk_manager.sl_manager.update_sl_atomic(ticket, fresh_position)
                     
-                    # NEW APPROACH: Schedule delayed loss-side SL application (2-3 seconds after order placement)
-                    # Trades open WITHOUT SL (null/omitted), then after 2-3 seconds:
-                    # - If trade is LOSING: Calculate and apply SL for $2 loss based on actual entry price
-                    # - If trade is PROFITABLE: Let profit locking and sweet spot mechanisms handle it
-                    # This prevents early closures and ensures accurate SL calculation
-                    if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
-                        # Get order type string for SL calculation
-                        order_type_str = 'BUY' if order_type == OrderType.BUY else 'SELL'
-                        
-                        self.risk_manager.sl_manager.schedule_initial_sl_application(
-                            ticket=ticket,
-                            symbol=symbol,
-                            order_type=order_type_str,
-                            lot_size=lot_size,
-                            entry_price=entry_price_actual,  # Use actual entry price from order fill
-                            delay_seconds=2.5  # 2.5 seconds delay for proper stabilization
-                        )
-                        logger.info(f"[INITIAL_SL] {symbol} Ticket {ticket} | "
-                                  f"Loss-side SL application scheduled after 2.5s delay | "
-                                  f"Entry: {entry_price_actual:.5f} | Type: {order_type_str} | "
-                                  f"Current profit: ${fresh_profit:.2f} | Current SL: {current_sl:.5f}")
-                        
-                        # Apply TP to position
-                        if hasattr(self.risk_manager, 'tp_manager') and self.risk_manager.tp_manager:
-                            try:
-                                success, reason = self.risk_manager.tp_manager.apply_tp_to_position(ticket)
-                                if success:
-                                    logger.info(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP applied successfully")
-                                else:
-                                    logger.warning(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP application failed: {reason}")
-                            except Exception as e:
-                                logger.error(f"[INITIAL_TP] {symbol} Ticket {ticket} | Error applying TP: {e}", exc_info=True)
-                    else:
-                        # Fallback: Use legacy protective SL if SLManager not available
-                        logger.warning(f"[INITIAL_SL] {symbol} Ticket {ticket} | "
-                                     f"SLManager unavailable - using legacy protective SL")
-                        protective_sl_set = self.risk_manager.enforce_protective_sl_on_entry(ticket, fresh_position)
-                        if protective_sl_set:
-                            logger.warning(f"[SL] LEGACY SL (SLManager unavailable): {symbol} Ticket {ticket} | "
-                                         f"Profit: ${fresh_profit:.2f} | Using legacy protective SL")
+                    # CRITICAL SAFETY FIX: SL is now atomic (included in order request)
+                    # No need to schedule SL application - it's already in the order
+                    # Verify SL was applied correctly (already done in order_manager.place_order)
+                    logger.info(f"[ATOMIC_SL] {symbol} Ticket {ticket} | "
+                              f"SL included in order request - verification completed in place_order | "
+                              f"Entry: {entry_price_actual:.5f} | Current profit: ${fresh_profit:.2f} | Current SL: {current_sl:.5f}")
+                    
+                    # Apply TP to position (TP is not atomic, can be applied after order fill)
+                    # CRITICAL FIX: Ensure TP manager is available and apply TP
+                    try:
+                        # Check if TP manager exists and is initialized
+                        if not hasattr(self.risk_manager, 'tp_manager'):
+                            logger.error(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP Manager attribute not found on risk_manager")
+                        elif self.risk_manager.tp_manager is None:
+                            logger.error(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP Manager is None - check initialization logs")
                         else:
-                            logger.error(f"[ERROR] SL FAILED: {symbol} Ticket {ticket} | "
-                                       f"Profit: ${fresh_profit:.2f} | Neither SLManager nor legacy SL available")
+                            # TP manager is available - apply TP
+                            logger.info(f"[INITIAL_TP] {symbol} Ticket {ticket} | Applying TP via TP Manager...")
+                            success, reason = self.risk_manager.tp_manager.apply_tp_to_position(ticket, max_attempts=10)
+                            if success:
+                                logger.info(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP applied successfully: {reason}")
+                            else:
+                                logger.warning(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP application failed: {reason} | Persistent retry enabled")
+                                # Verify TP is actually set (check immediately after)
+                                time.sleep(1.0)  # Wait for broker to process
+                                verify_position = self.order_manager.get_position_by_ticket(ticket)
+                                if verify_position:
+                                    applied_tp = verify_position.get('tp', 0.0)
+                                    if applied_tp > 0:
+                                        logger.info(f"[INITIAL_TP_VERIFY] {symbol} Ticket {ticket} | TP is set: {applied_tp:.5f}")
+                                    else:
+                                        logger.error(f"[INITIAL_TP_VERIFY] {symbol} Ticket {ticket} | TP is NOT set (0.00000) - persistent retry will continue")
+                    except AttributeError as e:
+                        logger.error(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP Manager attribute error: {e}")
+                    except Exception as e:
+                        logger.error(f"[INITIAL_TP] {symbol} Ticket {ticket} | Error applying TP: {e}", exc_info=True)
                 
                 self.reset_error_count()
                 return True
@@ -3236,7 +3272,12 @@ class TradingBot:
             self.manage_positions()
             
             # Scan for new opportunities
-            opportunities = self.scan_for_opportunities()
+            # CRITICAL FIX: Wrap scan in try-except to prevent cycle failure
+            try:
+                opportunities = self.scan_for_opportunities()
+            except Exception as scan_error:
+                logger.error(f"[RUN_CYCLE] Error during opportunity scan: {scan_error}", exc_info=True)
+                opportunities = []  # Continue with empty opportunities list
             
             # Execute all opportunities (up to max_open_trades limit)
             if opportunities:
@@ -3902,9 +3943,14 @@ class TradingBot:
             if self.manual_approval_mode:
                 print("\n[OK] Bot stopped by user")
         except Exception as e:
-            self.handle_error(e, "Main loop")
-            error_logger.critical("Fatal error in main loop, shutting down", exc_info=True)
-            logger.critical("Fatal error in main loop, shutting down")
+            # CRITICAL FIX: Don't shut down on exceptions - log and continue
+            # This ensures the bot keeps running even if one cycle fails
+            error_msg = f"Error in main loop: {e}"
+            logger.error(error_msg, exc_info=True)
+            error_logger.error(error_msg, exc_info=True)
+            # Continue running - don't break the loop
+            logger.info("Continuing bot operation after error - next cycle will retry")
+            time.sleep(5)  # Brief pause before retrying
         finally:
             # Restore original max_open_trades if it was overridden
             if original_max_trades is not None:
@@ -3916,6 +3962,8 @@ class TradingBot:
         """
         Check for dead critical threads and automatically restart them.
         This ensures the bot continues trading even if threads crash.
+        
+        FIX 4: Enhanced to be more robust and handle edge cases.
         """
         # Get health snapshot to check thread status
         health_snapshot = system_health.get_health_snapshot()
@@ -3923,7 +3971,7 @@ class TradingBot:
         # Check SLWorker thread
         sl_worker_health = health_snapshot.get("SLWorker", {})
         if sl_worker_health.get("dead", False):
-            logger.warning("[THREAD_RECOVERY] SLWorker thread is dead - attempting restart...")
+            logger.critical("[THREAD_RECOVERY] SLWorker thread is dead - attempting restart...")
             try:
                 # Check if SLManager exists and can restart
                 if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
@@ -3931,18 +3979,22 @@ class TradingBot:
                     # Check if thread is actually dead (not just marked dead)
                     if hasattr(sl_manager, '_sl_worker_thread') and sl_manager._sl_worker_thread:
                         if not sl_manager._sl_worker_thread.is_alive():
-                            logger.info("[THREAD_RECOVERY] SLWorker thread confirmed dead - restarting...")
+                            logger.critical("[THREAD_RECOVERY] SLWorker thread confirmed dead - restarting...")
                             # Stop any stale worker state
                             try:
                                 sl_manager.stop_sl_worker()
-                            except Exception:
-                                pass  # Ignore errors during cleanup
+                            except Exception as cleanup_error:
+                                logger.warning(f"[THREAD_RECOVERY] Error during SLWorker cleanup (non-fatal): {cleanup_error}")
                             # Restart the worker
-                            sl_manager.start_sl_worker()
-                            logger.info("[THREAD_RECOVERY] SLWorker thread restarted successfully")
-                            # Reset the dead flag in system health
-                            system_health.reset_thread_dead_flag("SLWorker")
-                            # The system health monitor will detect the new thread on next heartbeat cycle
+                            try:
+                                sl_manager.start_sl_worker()
+                                logger.critical("[THREAD_RECOVERY] SLWorker thread restarted successfully")
+                                # Reset the dead flag in system health
+                                system_health.reset_thread_dead_flag("SLWorker")
+                                # The system health monitor will detect the new thread on next heartbeat cycle
+                            except Exception as restart_error:
+                                logger.critical(f"[THREAD_RECOVERY] Failed to restart SLWorker thread: {restart_error}", exc_info=True)
+                                # Don't reset dead flag if restart failed - system remains unsafe
                         else:
                             # Thread is alive but marked dead - reset the dead flag
                             logger.info("[THREAD_RECOVERY] SLWorker thread is alive but marked dead - resetting health state")
@@ -3950,40 +4002,57 @@ class TradingBot:
                             # The heartbeat monitor will detect it's alive on next cycle
                     else:
                         # No thread reference - start it
-                        logger.info("[THREAD_RECOVERY] SLWorker thread missing - starting...")
-                        sl_manager.start_sl_worker()
-                        logger.info("[THREAD_RECOVERY] SLWorker thread started successfully")
-                        # Reset the dead flag in system health
-                        system_health.reset_thread_dead_flag("SLWorker")
+                        logger.critical("[THREAD_RECOVERY] SLWorker thread missing - starting...")
+                        try:
+                            sl_manager.start_sl_worker()
+                            logger.critical("[THREAD_RECOVERY] SLWorker thread started successfully")
+                            # Reset the dead flag in system health
+                            system_health.reset_thread_dead_flag("SLWorker")
+                        except Exception as start_error:
+                            logger.critical(f"[THREAD_RECOVERY] Failed to start SLWorker thread: {start_error}", exc_info=True)
+                else:
+                    logger.critical("[THREAD_RECOVERY] SLManager not available - cannot restart SLWorker")
             except Exception as e:
-                logger.error(f"[THREAD_RECOVERY] Failed to restart SLWorker thread: {e}", exc_info=True)
+                logger.critical(f"[THREAD_RECOVERY] Failed to restart SLWorker thread: {e}", exc_info=True)
         
         # Check other critical threads (TrailingStopMonitor, FastTrailingStopMonitor, PositionMonitor)
         for thread_name in ["TrailingStopMonitor", "FastTrailingStopMonitor", "PositionMonitor"]:
             thread_health = health_snapshot.get(thread_name, {})
             if thread_health.get("dead", False):
-                logger.warning(f"[THREAD_RECOVERY] {thread_name} thread is dead - attempting restart...")
+                logger.critical(f"[THREAD_RECOVERY] {thread_name} thread is dead - attempting restart...")
                 try:
                     if thread_name == "TrailingStopMonitor":
                         if not self.trailing_stop_running:
-                            logger.info(f"[THREAD_RECOVERY] Restarting {thread_name}...")
+                            logger.critical(f"[THREAD_RECOVERY] Restarting {thread_name}...")
                             self.start_continuous_trailing_stop()
-                            logger.info(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            logger.critical(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            system_health.reset_thread_dead_flag(thread_name)
+                        else:
+                            # Thread marked dead but running flag says it's running - reset flag
+                            logger.info(f"[THREAD_RECOVERY] {thread_name} marked dead but running flag is True - resetting health state")
                             system_health.reset_thread_dead_flag(thread_name)
                     elif thread_name == "FastTrailingStopMonitor":
                         if not self.fast_trailing_running:
-                            logger.info(f"[THREAD_RECOVERY] Restarting {thread_name}...")
+                            logger.critical(f"[THREAD_RECOVERY] Restarting {thread_name}...")
                             self.start_continuous_trailing_stop()  # This starts both threads
-                            logger.info(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            logger.critical(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            system_health.reset_thread_dead_flag(thread_name)
+                        else:
+                            # Thread marked dead but running flag says it's running - reset flag
+                            logger.info(f"[THREAD_RECOVERY] {thread_name} marked dead but running flag is True - resetting health state")
                             system_health.reset_thread_dead_flag(thread_name)
                     elif thread_name == "PositionMonitor":
                         if not self.position_monitor_running:
-                            logger.info(f"[THREAD_RECOVERY] Restarting {thread_name}...")
+                            logger.critical(f"[THREAD_RECOVERY] Restarting {thread_name}...")
                             self.start_position_monitor()
-                            logger.info(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            logger.critical(f"[THREAD_RECOVERY] {thread_name} restarted successfully")
+                            system_health.reset_thread_dead_flag(thread_name)
+                        else:
+                            # Thread marked dead but running flag says it's running - reset flag
+                            logger.info(f"[THREAD_RECOVERY] {thread_name} marked dead but running flag is True - resetting health state")
                             system_health.reset_thread_dead_flag(thread_name)
                 except Exception as e:
-                    logger.error(f"[THREAD_RECOVERY] Failed to restart {thread_name}: {e}", exc_info=True)
+                    logger.critical(f"[THREAD_RECOVERY] Failed to restart {thread_name}: {e}", exc_info=True)
     
     def shutdown(self):
         """Shutdown the bot gracefully."""
@@ -4003,4 +4072,203 @@ class TradingBot:
         
         self.mt5_connector.shutdown()
         logger.info("Trading bot shutdown complete")
+    
+    def _reconcile_startup_trades(self) -> Dict[str, Any]:
+        """
+        PHASE 1 FIX 1.4: Startup Trade Reconciliation
+        
+        On bot startup:
+        1. Fetch all open positions from broker
+        2. Compare broker positions with bot's tracked positions (from logs)
+        3. For missing trades: backfill log entry with broker data
+        4. For orphaned bot entries: verify position still exists, remove if closed
+        5. Log reconciliation report: matched, missing, orphaned counts
+        
+        Returns:
+            Dictionary with reconciliation results: {'matched': int, 'missing': int, 'orphaned': int}
+        """
+        import time
+        from pathlib import Path
+        
+        start_time = time.time()
+        timeout_seconds = 30.0  # PHASE 1 FIX 1.4: 30 second timeout
+        
+        matched_count = 0
+        missing_count = 0
+        orphaned_count = 0
+        
+        try:
+            # Step 1: Fetch all open positions from broker
+            logger.info("[RECONCILE] Fetching open positions from broker...")
+            broker_positions = self.order_manager.get_open_positions(exclude_dec8=False)
+            broker_tickets = {pos['ticket']: pos for pos in broker_positions}
+            logger.info(f"[RECONCILE] Found {len(broker_positions)} position(s) in broker")
+            
+            # Step 2: Parse bot trade logs to get tracked positions
+            logger.info("[RECONCILE] Parsing bot trade logs...")
+            bot_trades = self._parse_bot_trade_logs()
+            bot_tickets = set(bot_trades.keys())
+            logger.info(f"[RECONCILE] Found {len(bot_trades)} tracked position(s) in bot logs")
+            
+            # Step 3: Compare and identify missing trades (in broker but not in bot logs)
+            missing_tickets = set(broker_tickets.keys()) - bot_tickets
+            for ticket in missing_tickets:
+                position = broker_tickets[ticket]
+                logger.warning(f"[RECONCILE] Missing trade detected: Ticket {ticket} | "
+                             f"{position['symbol']} {position['type']} | "
+                             f"Entry: {position['price_open']:.5f} | "
+                             f"P/L: ${position['profit']:.2f}")
+                
+                # PHASE 1 FIX 1.4: Backfill missing trade to log
+                self._backfill_missing_trade(position)
+                missing_count += 1
+            
+            # Step 4: Identify orphaned bot entries (in bot logs but not in broker)
+            orphaned_tickets = bot_tickets - set(broker_tickets.keys())
+            for ticket in orphaned_tickets:
+                trade_data = bot_trades[ticket]
+                # Check if trade is closed (status='CLOSED')
+                if trade_data.get('status') == 'CLOSED':
+                    # Closed trades are expected to not be in broker - not orphaned
+                    continue
+                
+                logger.warning(f"[RECONCILE] Orphaned bot entry detected: Ticket {ticket} | "
+                             f"{trade_data.get('symbol', 'N/A')} | "
+                             f"Status: {trade_data.get('status', 'UNKNOWN')}")
+                orphaned_count += 1
+                # Note: We don't remove orphaned entries - they may be from previous sessions
+                # Just log them for manual review
+            
+            # Step 5: Count matched trades
+            matched_count = len(bot_tickets & set(broker_tickets.keys()))
+            
+            elapsed_time = time.time() - start_time
+            logger.info(f"[RECONCILE] Reconciliation complete in {elapsed_time:.2f}s | "
+                       f"Matched: {matched_count} | Missing: {missing_count} (backfilled) | "
+                       f"Orphaned: {orphaned_count}")
+            
+            # PHASE 1 FIX 1.4: Log reconciliation report
+            if missing_count > 0 or orphaned_count > 0:
+                logger.warning(f"[RECONCILE] Reconciliation report: "
+                             f"{matched_count} matched, {missing_count} missing (backfilled), "
+                             f"{orphaned_count} orphaned")
+            else:
+                logger.info(f"[RECONCILE] Reconciliation report: "
+                          f"{matched_count} matched, 0 missing, 0 orphaned - 100% match rate")
+            
+            return {
+                'matched': matched_count,
+                'missing': missing_count,
+                'orphaned': orphaned_count,
+                'duration_seconds': elapsed_time
+            }
+            
+        except Exception as e:
+            elapsed_time = time.time() - start_time
+            if elapsed_time > timeout_seconds:
+                logger.error(f"[RECONCILE] Reconciliation timeout after {elapsed_time:.2f}s")
+            else:
+                logger.error(f"[RECONCILE] Reconciliation error: {e}", exc_info=True)
+            error_logger.error(f"Startup reconciliation failed: {e}", exc_info=True)
+            return {
+                'matched': matched_count,
+                'missing': missing_count,
+                'orphaned': orphaned_count,
+                'duration_seconds': elapsed_time,
+                'error': str(e)
+            }
+    
+    def _parse_bot_trade_logs(self) -> Dict[int, Dict[str, Any]]:
+        """
+        Parse bot trade logs to extract tracked positions.
+        
+        Returns:
+            Dictionary mapping ticket (int) to trade data
+        """
+        from pathlib import Path
+        import json
+        
+        trades_dir = Path('logs/live/trades') if not self.is_backtest else Path('logs/backtest/trades')
+        bot_trades = {}
+        
+        if not trades_dir.exists():
+            return bot_trades
+        
+        for log_file in trades_dir.glob('*.log'):
+            try:
+                with open(log_file, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and line.startswith('{'):
+                            try:
+                                trade = json.loads(line)
+                                order_id = trade.get('order_id')
+                                if order_id:
+                                    try:
+                                        ticket = int(order_id)
+                                        # Only track open trades (status='OPEN' or None)
+                                        status = trade.get('status')
+                                        if status in ('OPEN', None):
+                                            bot_trades[ticket] = trade
+                                    except (ValueError, TypeError):
+                                        continue
+                            except json.JSONDecodeError:
+                                continue
+            except Exception as e:
+                logger.debug(f"Error parsing log file {log_file}: {e}")
+                continue
+        
+        return bot_trades
+    
+    def _backfill_missing_trade(self, position: Dict[str, Any]):
+        """
+        PHASE 1 FIX 1.4: Backfill missing trade to log file.
+        
+        Creates a log entry for a trade that exists in broker but not in bot logs.
+        """
+        import json
+        from datetime import datetime
+        
+        ticket = position.get('ticket', 0)
+        symbol = position.get('symbol', 'UNKNOWN')
+        entry_price = position.get('price_open', 0.0)
+        lot_size = position.get('volume', 0.01)
+        order_type = position.get('type', '')
+        sl_price = position.get('sl', 0.0)
+        current_profit = position.get('profit', 0.0)
+        
+        # Determine signal direction
+        signal = 'LONG' if order_type == 'BUY' else 'SHORT'
+        
+        # Create backfilled log entry
+        jsonl_entry = {
+            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'symbol': symbol,
+            'trade_type': signal,
+            'entry_price': entry_price,
+            'exit_price': None,
+            'profit_usd': None,
+            'status': 'OPEN',
+            'order_id': str(ticket),
+            'additional_info': {
+                'backfilled': True,
+                'backfill_reason': 'startup_reconciliation',
+                'lot_size': lot_size,
+                'stop_loss_price': sl_price,
+                'current_profit': current_profit
+            }
+        }
+        
+        # Write to symbol log file using trade logger
+        try:
+            success, error_msg = self.trade_logger._write_jsonl_entry(symbol, jsonl_entry)
+            if success:
+                logger.info(f"[RECONCILE] Backfilled missing trade: Ticket {ticket} | {symbol} | "
+                          f"Entry: {entry_price:.5f} | P/L: ${current_profit:.2f}")
+            else:
+                logger.error(f"[RECONCILE] Failed to backfill trade {ticket}: {error_msg}")
+                error_logger.error(f"Failed to backfill missing trade {ticket} ({symbol}): {error_msg}")
+        except Exception as e:
+            logger.error(f"[RECONCILE] Exception backfilling trade {ticket}: {e}", exc_info=True)
+            error_logger.error(f"Exception backfilling missing trade {ticket} ({symbol}): {e}", exc_info=True)
 

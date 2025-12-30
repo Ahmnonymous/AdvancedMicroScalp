@@ -38,6 +38,21 @@ class OrderManager:
         # This ensures trades never remain with SL = 0.0 (hard safety invariant)
         self._sl_manager = None  # Set via set_sl_manager() after initialization
     
+    def set_sl_manager(self, sl_manager):
+        """
+        Set the SLManager reference for atomic SL calculation.
+        
+        CRITICAL: This must be called after OrderManager initialization to enable atomic SL.
+        Without this, calculate_initial_sl_price() will fail and all orders will be rejected.
+        
+        Args:
+            sl_manager: SLManager instance
+        """
+        self._sl_manager = sl_manager
+        logger.info(f"[ORDER_MANAGER] SLManager reference set: {sl_manager is not None}")
+        if sl_manager is None:
+            logger.warning("[ORDER_MANAGER] WARNING: SLManager is None - atomic SL will not work!")
+    
     def _get_position_by_ticket(self, ticket: int, use_cache: bool = True):
         """
         Helper method to get position by ticket, handling both SIM_LIVE and live MT5.
@@ -133,6 +148,223 @@ class OrderManager:
         
         return False
     
+    def _perform_trade_gating_checks(self, symbol: str, order_type: OrderType, lot_size: float) -> Dict[str, Any]:
+        """
+        CRITICAL SAFETY FIX #9: Trade gating - final safety checks before opening trade.
+        
+        Performs all mandatory safety checks:
+        1. SL distance valid (checked in calculate_initial_sl_price)
+        2. SL accepted synchronously (will be checked after order fill)
+        3. SL visible on position immediately (will be checked after order fill)
+        4. No watchdog restart in progress
+        5. No worker backlog
+        6. System marked SAFE
+        
+        Args:
+            symbol: Trading symbol
+            order_type: Order type
+            lot_size: Lot size
+            
+        Returns:
+            Dict with 'allowed' (bool) and 'reason' (str)
+        """
+        checks = {
+            'allowed': True,
+            'reason': None
+        }
+        
+        # Check 4: No watchdog restart in progress
+        # (This would be checked via system health, but we'll check if SL manager is available)
+        if self._sl_manager:
+            try:
+                worker_status = self._sl_manager.get_worker_status()
+                if not worker_status.get('running', False):
+                    checks['allowed'] = False
+                    checks['reason'] = "SL worker not running"
+                    return checks
+                
+                if not worker_status.get('thread_alive', False):
+                    checks['allowed'] = False
+                    checks['reason'] = "SL worker thread not alive"
+                    return checks
+            except Exception as e:
+                logger.warning(f"[TRADE_GATING] Could not check SL worker status: {e}")
+                # Don't block trade if check fails - log warning only
+        
+        # Check 5: No worker backlog (check if worker is processing normally)
+        if self._sl_manager:
+            try:
+                timing_stats = self._sl_manager.get_timing_stats()
+                # Check if last update was recent (within 5 seconds)
+                last_update_time = timing_stats.get('last_update_time')
+                if last_update_time:
+                    from datetime import datetime, timedelta
+                    time_since_update = (datetime.now() - last_update_time).total_seconds()
+                    if time_since_update > 10.0:  # No updates for 10 seconds
+                        checks['allowed'] = False
+                        checks['reason'] = f"SL worker backlog detected (no updates for {time_since_update:.1f}s)"
+                        return checks
+            except Exception as e:
+                logger.warning(f"[TRADE_GATING] Could not check worker backlog: {e}")
+                # Don't block trade if check fails
+        
+        # Check 6: System marked SAFE (check if trading is blocked)
+        try:
+            from utils.system_health import is_trading_allowed, is_system_ready
+            if not is_trading_allowed() or not is_system_ready():
+                checks['allowed'] = False
+                checks['reason'] = "System marked UNSAFE or not ready - trading blocked"
+                return checks
+        except Exception as e:
+            logger.warning(f"[TRADE_GATING] Could not check system safety: {e}")
+            # Don't block trade if check fails - assume safe
+        
+        # All checks passed
+        return checks
+    
+    def calculate_initial_sl_price(self, symbol: str, order_type: OrderType, lot_size: float, 
+                                    entry_price: float, max_risk_usd: float) -> Optional[float]:
+        """
+        Calculate initial SL price for order placement using SLManager logic.
+        
+        CRITICAL SAFETY FIX: This ensures SL is calculated BEFORE order is placed,
+        allowing us to reject the order if SL cannot be set.
+        
+        Args:
+            symbol: Trading symbol
+            order_type: OrderType.BUY or OrderType.SELL
+            lot_size: Lot size
+            entry_price: Entry price (ASK for BUY, BID for SELL)
+            max_risk_usd: Maximum risk in USD (negative value, e.g., -3.0)
+        
+        Returns:
+            SL price if calculation succeeds, None if calculation fails
+        """
+        if not self._sl_manager:
+            logger.error(f"[ATOMIC_SL] Cannot calculate SL: SLManager not available")
+            return None
+        
+        try:
+            symbol_info = self.mt5_connector.get_symbol_info(symbol)
+            if not symbol_info:
+                logger.error(f"[ATOMIC_SL] Cannot get symbol info for {symbol}")
+                return None
+            
+            order_type_str = 'BUY' if order_type == OrderType.BUY else 'SELL'
+            
+            # Use SLManager's calculation method
+            target_sl = self._sl_manager._calculate_target_sl_price(
+                entry_price=entry_price,
+                target_profit_usd=max_risk_usd,  # Negative value for loss protection
+                order_type=order_type_str,
+                lot_size=lot_size,
+                symbol_info=symbol_info,
+                position=None  # No position yet
+            )
+            
+            # Validate SL against broker constraints BEFORE order placement
+            point = symbol_info.get('point', 0.00001)
+            stops_level = symbol_info.get('trade_stops_level', 0)
+            
+            # Get current market prices for validation
+            if hasattr(self.mt5_connector, 'get_symbol_info_tick'):
+                tick = self.mt5_connector.get_symbol_info_tick(symbol)
+            else:
+                tick = mt5.symbol_info_tick(symbol)
+            
+            if not tick:
+                logger.error(f"[ATOMIC_SL] Cannot get tick data for {symbol}")
+                return None
+            
+            current_bid = tick.bid
+            current_ask = tick.ask
+            
+            # Adjust SL for broker constraints
+            adjusted_sl = self._sl_manager._adjust_sl_for_broker_constraints(
+                target_sl=target_sl,
+                current_sl=0.0,
+                order_type=order_type_str,
+                symbol_info=symbol_info,
+                current_bid=current_bid,
+                current_ask=current_ask,
+                entry_price=entry_price
+            )
+            
+            # Validate adjusted SL is still valid
+            if order_type == OrderType.BUY:
+                validation_price = current_ask
+                if adjusted_sl >= validation_price:
+                    logger.error(f"[ATOMIC_SL] Invalid SL for BUY: {adjusted_sl:.5f} >= {validation_price:.5f}")
+                    return None
+            else:  # SELL
+                validation_price = current_ask
+                if adjusted_sl <= validation_price:
+                    logger.error(f"[ATOMIC_SL] Invalid SL for SELL: {adjusted_sl:.5f} <= {validation_price:.5f}")
+                    return None
+            
+            # Check stops_level constraint
+            if stops_level > 0:
+                min_distance = stops_level * point
+                actual_distance = abs(validation_price - adjusted_sl)
+                if actual_distance < min_distance:
+                    logger.error(f"[ATOMIC_SL] SL too close to market: {actual_distance:.5f} < {min_distance:.5f} (stops_level: {stops_level})")
+                    return None
+            
+            # CRITICAL SAFETY FIX: Validate adjusted SL is not too close to entry price
+            # If SL is too close, it will cause immediate early closure
+            # For BUY: SL should be below entry, distance should be entry - sl
+            # For SELL: SL should be above entry, distance should be sl - entry
+            if order_type == OrderType.BUY:
+                actual_sl_distance = entry_price - adjusted_sl
+                expected_sl_distance = entry_price - target_sl
+            else:  # SELL
+                actual_sl_distance = adjusted_sl - entry_price
+                expected_sl_distance = target_sl - entry_price
+            
+            # CRITICAL: Validate that adjusted SL distance is not significantly less than target
+            # If adjusted SL is more than 50% closer than target, it's too close (would cause early closure)
+            # This works for both forex (percentage-based) and indices/commodities (point-based)
+            if expected_sl_distance > 0:
+                distance_ratio = actual_sl_distance / expected_sl_distance
+                if distance_ratio < 0.5:  # Adjusted SL is less than 50% of target distance
+                    logger.error(f"[ATOMIC_SL] Adjusted SL too close to entry: {adjusted_sl:.5f} "
+                               f"(entry: {entry_price:.5f}, actual distance: {actual_sl_distance:.5f}) | "
+                               f"Target SL: {target_sl:.5f}, expected distance: {expected_sl_distance:.5f} | "
+                               f"Distance ratio: {distance_ratio:.2%} | "
+                               f"REJECTING ORDER - would cause early closure")
+                    return None
+            else:
+                # Fallback: If target SL calculation is wrong, use absolute minimum
+                # For indices/commodities: minimum 0.1% of entry
+                # For forex: minimum 0.5% of entry
+                point = symbol_info.get('point', 0.00001)
+                is_index_or_commodity = (point >= 0.01) or symbol_info.get('trade_tick_value', None) is not None
+                
+                if is_index_or_commodity:
+                    min_safe_distance = entry_price * 0.001  # 0.1% for indices/commodities
+                else:
+                    min_safe_distance = entry_price * 0.005  # 0.5% for forex
+                
+                if actual_sl_distance < min_safe_distance:
+                    logger.error(f"[ATOMIC_SL] Adjusted SL too close to entry: {adjusted_sl:.5f} "
+                               f"(entry: {entry_price:.5f}, distance: {actual_sl_distance:.5f}) | "
+                               f"Min safe distance: {min_safe_distance:.5f} | "
+                               f"REJECTING ORDER - would cause immediate early closure")
+                    return None
+            
+            # Additional check: If adjusted SL is significantly different from target, warn
+            sl_adjustment_error = abs(adjusted_sl - target_sl)
+            if sl_adjustment_error > entry_price * 0.01:  # More than 1% difference
+                logger.warning(f"[ATOMIC_SL] SL adjusted significantly: target {target_sl:.5f} -> adjusted {adjusted_sl:.5f} "
+                             f"(diff: {sl_adjustment_error:.5f}) | This may affect risk calculation")
+            
+            logger.info(f"[ATOMIC_SL] Calculated SL for {symbol} {order_type_str}: {adjusted_sl:.5f} (target: {target_sl:.5f}, distance from entry: {actual_sl_distance:.5f})")
+            return adjusted_sl
+            
+        except Exception as e:
+            logger.error(f"[ATOMIC_SL] Exception calculating SL for {symbol}: {e}", exc_info=True)
+            return None
+    
     def place_order(
         self,
         symbol: str,
@@ -140,18 +372,23 @@ class OrderManager:
         lot_size: float,
         stop_loss: float,
         take_profit: Optional[float] = None,
-        comment: str = "Trading Bot"
+        comment: str = "Trading Bot",
+        max_risk_usd: Optional[float] = None
     ) -> Optional[Dict[str, Any]]:
         """
-        Place a market order.
+        Place a market order with ATOMIC SL (SL included in order request).
+        
+        CRITICAL SAFETY FIX: Orders MUST include SL in the request. If SL cannot be calculated
+        or validated, the order is REJECTED and not placed.
         
         Args:
             symbol: Trading symbol (e.g., 'EURUSD')
             order_type: OrderType.BUY or OrderType.SELL
             lot_size: Lot size (e.g., 0.01)
-            stop_loss: Stop loss in pips (e.g., 20 for 20 pips)
+            stop_loss: Stop loss in pips (DEPRECATED - will be calculated from max_risk_usd)
             take_profit: Take profit in pips (optional)
             comment: Order comment
+            max_risk_usd: Maximum risk in USD (negative value, e.g., -3.0). If provided, SL is calculated from this.
         
         Returns:
             Dictionary with 'ticket' (int), 'entry_price_actual' (float), 'slippage' (float) if successful.
@@ -222,11 +459,25 @@ class OrderManager:
                     logger.warning(f"{symbol}: Symbol info is stale ({price_age:.2f}s old), rejecting order")
                     return None
         
-        # CRITICAL FIX: If stop_loss is 0.0, skip SL calculation and validation
-        # This allows orders to be opened without SL (SL will be applied later via scheduled task)
-        if stop_loss == 0.0:
-            sl_price = 0  # No SL - will be applied later after stabilization delay
-            # Still calculate TP if provided
+        # CRITICAL SAFETY FIX #9: TRADE GATING - Final safety checks before opening trade
+        # These checks are the last line of defense before placing an order
+        gate_checks = self._perform_trade_gating_checks(symbol, order_type, lot_size)
+        if not gate_checks['allowed']:
+            logger.error(f"[TRADE_GATING_REJECTED] {symbol} | Order rejected by trade gate | "
+                        f"Reason: {gate_checks['reason']}")
+            return {'error': -8, 'error_type': 'trade_gating_failed', 
+                   'mt5_comment': f"Trade gating check failed: {gate_checks['reason']}"}
+        
+        # CRITICAL SAFETY FIX #1: Calculate SL BEFORE order placement
+        # If max_risk_usd is provided, use it to calculate SL. Otherwise, reject order.
+        if max_risk_usd is not None and max_risk_usd < 0:
+            # Calculate SL using SLManager logic
+            sl_price = self.calculate_initial_sl_price(symbol, order_type, lot_size, price, max_risk_usd)
+            if sl_price is None:
+                logger.error(f"[ATOMIC_SL_FAILED] Cannot calculate valid SL for {symbol} - REJECTING ORDER")
+                return {'error': -6, 'error_type': 'sl_calculation_failed', 'mt5_comment': 'SL calculation failed - order rejected for safety'}
+            
+            # Calculate TP if provided
             if take_profit and take_profit > 0:
                 if order_type == OrderType.BUY:
                     tp_price = price + (take_profit * pip_value)
@@ -241,7 +492,14 @@ class OrderManager:
                 tp_price = round(tp_price / point) * point
                 tp_price = round(tp_price, digits)
             
-            logger.debug(f"{symbol}: Opening order without SL (stop_loss=0.0) - SL will be applied after stabilization delay")
+            # Validation price for constraint checking
+            validation_price = ask_price if order_type == OrderType.SELL else price
+            
+            logger.info(f"[ATOMIC_SL] {symbol} {order_type.name}: SL={sl_price:.5f} calculated from max_risk=${max_risk_usd:.2f}")
+        elif stop_loss == 0.0:
+            # CRITICAL: Orders MUST have SL. Reject if stop_loss=0.0 and no max_risk_usd provided.
+            logger.error(f"[ATOMIC_SL_REJECTED] Order rejected: stop_loss=0.0 and no max_risk_usd provided. Orders MUST have SL.")
+            return {'error': -6, 'error_type': 'sl_required', 'mt5_comment': 'SL is required - order rejected for safety'}
         else:
             # Calculate stop loss price when stop_loss > 0
             stop_loss_price = stop_loss * pip_value
@@ -545,64 +803,47 @@ class OrderManager:
                    f"SL: {sl_price:.5f} | Entry Price: {actual_entry_price:.5f} (requested: {price:.5f}) | "
                    f"Slippage: {slippage:.5f}")
         
-        # FIX #1: CRITICAL - If order was opened with stop_loss=0.0, synchronously apply protective SL
-        # This is a hard safety invariant - trades may never remain with SL = 0.0 beyond 100ms
-        if stop_loss == 0.0 and self._sl_manager is not None:
-            ticket = result.order
-            logger.info(f"[SYNCHRONOUS_SL] {symbol} Ticket {ticket} | Order opened with stop_loss=0.0, applying protective SL synchronously...")
-            
-            # Wait briefly for position to be available in MT5
-            import time
-            time.sleep(0.1)  # 100ms delay for MT5 to register position
-            
-            # FIX #1: Retry up to 3 times if position not immediately available
-            position = None
-            for retry in range(3):
-                position = self._get_position_by_ticket(ticket, use_cache=False)
-                if position:
-                    break
-                if retry < 2:
-                    time.sleep(0.05)  # 50ms between retries
-            
+        # CRITICAL SAFETY FIX #3: Synchronously verify SL was applied by broker
+        # If SL is missing or incorrect, immediately close the position (fail-safe)
+        ticket = result.order
+        import time
+        time.sleep(0.05)  # 50ms delay for MT5 to register position
+        
+        # Verify SL synchronously (retry up to 3 times)
+        position = None
+        for retry in range(3):
+            position = self._get_position_by_ticket(ticket, use_cache=False)
             if position:
-                # Convert position to dict format expected by SLManager
-                position_dict = {
-                    'ticket': ticket,
-                    'symbol': symbol,
-                    'type': 'BUY' if order_type == OrderType.BUY else 'SELL',
-                    'price_open': actual_entry_price,
-                    'volume': actual_filled_volume,
-                    'sl': 0.0,  # Current SL is 0.0
-                    'profit': position.profit if hasattr(position, 'profit') else 0.0
-                }
-                
-                # FIX #1: Apply strict loss limit synchronously (this enforces -$2.00 max risk immediately)
-                try:
-                    success, reason, applied_sl = self._sl_manager._enforce_strict_loss_limit(position_dict)
-                    if success:
-                        logger.info(f"[SYNCHRONOUS_SL_SUCCESS] {symbol} Ticket {ticket} | Protective SL applied: {applied_sl:.5f} | Reason: {reason}")
-                    else:
-                        logger.error(f"[SYNCHRONOUS_SL_FAILED] {symbol} Ticket {ticket} | Failed to apply protective SL: {reason} | Will retry via scheduled task")
-                        # FIX #1: If synchronous application fails, schedule immediate retry (0.1s delay instead of 0.5s)
-                        # This minimizes the SL=0.0 window even if synchronous application fails
-                        if hasattr(self._sl_manager, 'schedule_initial_sl_application'):
-                            self._sl_manager.schedule_initial_sl_application(
-                                ticket, symbol, position_dict['type'], actual_filled_volume, actual_entry_price, delay_seconds=0.1
-                            )
-                except Exception as e:
-                    logger.error(f"[SYNCHRONOUS_SL_EXCEPTION] {symbol} Ticket {ticket} | Exception applying protective SL: {e}", exc_info=True)
-                    # FIX #1: Schedule immediate retry if exception occurs
-                    if hasattr(self._sl_manager, 'schedule_initial_sl_application'):
-                        self._sl_manager.schedule_initial_sl_application(
-                            ticket, symbol, position_dict['type'], actual_filled_volume, actual_entry_price, delay_seconds=0.1
-                        )
+                break
+            if retry < 2:
+                time.sleep(0.05)  # 50ms between retries
+        
+        if position:
+            # Get actual SL from position
+            actual_sl = position.sl if hasattr(position, 'sl') else position.get('sl', 0.0)
+            
+            # CRITICAL: If SL is 0.0 or missing, this is a SAFETY VIOLATION
+            # Close position immediately (fail-safe)
+            if actual_sl == 0.0 or actual_sl is None:
+                logger.critical(f"[ATOMIC_SL_VERIFICATION_FAILED] {symbol} Ticket {ticket} | "
+                              f"CRITICAL: Position opened with SL=0.0 despite being in order request! "
+                              f"Closing position immediately for safety.")
+                self.close_position(ticket, comment="SL verification failed - safety violation")
+                return {'error': -7, 'error_type': 'sl_verification_failed', 
+                       'mt5_comment': 'SL verification failed - position closed for safety'}
+            
+            # Verify SL is within tolerance (allowing for broker rounding)
+            sl_tolerance = point * 10  # Allow 10 points tolerance for broker rounding
+            if abs(actual_sl - sl_price) > sl_tolerance:
+                logger.warning(f"[ATOMIC_SL_VERIFICATION_WARNING] {symbol} Ticket {ticket} | "
+                             f"SL mismatch: Expected {sl_price:.5f}, Got {actual_sl:.5f} (diff: {abs(actual_sl - sl_price):.5f})")
+                # Log warning but don't close - broker may have adjusted SL slightly
             else:
-                logger.warning(f"[SYNCHRONOUS_SL] {symbol} Ticket {ticket} | Position not found after retries, scheduling immediate SL application")
-                # FIX #1: Schedule immediate SL application if position not found
-                if hasattr(self._sl_manager, 'schedule_initial_sl_application'):
-                    self._sl_manager.schedule_initial_sl_application(
-                        ticket, symbol, 'BUY' if order_type == OrderType.BUY else 'SELL', actual_filled_volume, actual_entry_price, delay_seconds=0.1
-                    )
+                logger.info(f"[ATOMIC_SL_VERIFIED] {symbol} Ticket {ticket} | "
+                          f"SL verified: {actual_sl:.5f} (expected: {sl_price:.5f})")
+        else:
+            logger.warning(f"[ATOMIC_SL_VERIFICATION] {symbol} Ticket {ticket} | "
+                         f"Position not found after order fill - may have been closed immediately")
         
         # Return comprehensive result with actual fill price
         return {
@@ -668,14 +909,21 @@ class OrderManager:
         
         # CRITICAL FIX: Check if new SL is effectively the same as current SL before modifying
         # This prevents error 10025 (No changes)
+        # BUT: Skip this check if we're only modifying TP (stop_loss_price and stop_loss are both None)
+        # Otherwise we return True before modifying TP!
         current_sl = position.sl
-        if current_sl > 0:
+        is_sl_modification = stop_loss_price is not None or stop_loss is not None
+        if current_sl > 0 and is_sl_modification:
             point = symbol_info.get('point', 0.00001)
             # Use point size as tolerance (if prices differ by less than 1 point, consider them equal)
             sl_difference = abs(new_sl - current_sl)
             if sl_difference < point:
                 logger.debug(f"Skip SL modification for ticket {ticket}: new SL {new_sl:.5f} equals current SL {current_sl:.5f} (diff: {sl_difference:.8f} < point: {point:.8f})")
-                return True  # Return True since SL is already at desired level
+                # CRITICAL FIX: Only return True if we're not also modifying TP
+                # If we're only modifying TP, continue with the modification
+                if take_profit_price is None and take_profit is None:
+                    return True  # Return True since SL is already at desired level and no TP to modify
+                # Otherwise, continue to modify TP even though SL is unchanged
         
         if take_profit_price is not None:
             new_tp = take_profit_price
@@ -751,18 +999,137 @@ class OrderManager:
                 # Schedule retry with backoff - position may move away from market
                 return False  # Will be retried by caller with backoff
         
+        # CRITICAL FIX: Validate TP distance from market (MT5 requires TP to be minimum distance from market)
+        # This is the core issue - TP was being rejected silently by MT5 if too close to market
+        if take_profit_price is not None and new_tp > 0:
+            if self._is_buy_position(position):
+                # For BUY: TP must be above current ASK by at least freeze_level/stops_level
+                if freeze_level > 0:
+                    min_allowed_tp = current_ask + (freeze_level * point)
+                elif stops_level > 0:
+                    min_allowed_tp = current_ask + (stops_level * point)
+                else:
+                    # No freeze/stops level - TP just needs to be above ASK (but allow small tolerance for rounding)
+                    min_allowed_tp = current_ask + (point * 0.1)  # Very small buffer for rounding
+                
+                if new_tp <= min_allowed_tp:
+                    logger.warning(f"[TP_VALIDATION] TP {new_tp:.5f} too close to market (ASK: {current_ask:.5f}, min allowed: {min_allowed_tp:.5f}, freeze_level: {freeze_level}, stops_level: {stops_level})")
+                    # Adjust TP to minimum allowed distance
+                    new_tp = min_allowed_tp
+                    # Normalize to symbol's point precision
+                    digits = symbol_info.get('digits', 5)
+                    new_tp = round(new_tp / point) * point
+                    new_tp = round(new_tp, digits)
+                    logger.info(f"[TP_ADJUSTED] TP adjusted to minimum allowed distance: {new_tp:.5f}")
+                else:
+                    # TP passed validation - still normalize to ensure correct precision
+                    digits = symbol_info.get('digits', 5)
+                    new_tp = round(new_tp / point) * point
+                    new_tp = round(new_tp, digits)
+            else:  # SELL
+                # For SELL: TP must be below current BID by at least freeze_level/stops_level
+                if freeze_level > 0:
+                    min_allowed_tp = current_bid - (freeze_level * point)
+                elif stops_level > 0:
+                    min_allowed_tp = current_bid - (stops_level * point)
+                else:
+                    # No freeze/stops level - TP just needs to be below BID (but allow small tolerance for rounding)
+                    min_allowed_tp = current_bid - (point * 0.1)  # Very small buffer for rounding
+                
+                if new_tp >= min_allowed_tp:
+                    logger.warning(f"[TP_VALIDATION] TP {new_tp:.5f} too close to market (BID: {current_bid:.5f}, min allowed: {min_allowed_tp:.5f}, freeze_level: {freeze_level}, stops_level: {stops_level})")
+                    # Adjust TP to minimum allowed distance
+                    new_tp = min_allowed_tp
+                    # Normalize to symbol's point precision
+                    digits = symbol_info.get('digits', 5)
+                    new_tp = round(new_tp / point) * point
+                    new_tp = round(new_tp, digits)
+                    logger.info(f"[TP_ADJUSTED] TP adjusted to minimum allowed distance: {new_tp:.5f}")
+                else:
+                    # TP passed validation - still normalize to ensure correct precision
+                    digits = symbol_info.get('digits', 5)
+                    new_tp = round(new_tp / point) * point
+                    new_tp = round(new_tp, digits)
+        
+        # CRITICAL FIX: Only include SL/TP in request if they are > 0 (MT5 rejects 0 values)
+        # This is the core issue - MT5 silently ignores TP=0 in the request
         request = {
             "action": mt5.TRADE_ACTION_SLTP,
             "symbol": symbol,
             "position": ticket,
-            "sl": new_sl,
-            "tp": new_tp,
         }
         
-        # CRITICAL FIX: Retry logic for SL modification (up to 3 attempts with exponential backoff + jitter)
-        max_retries = 3
+        # Only include SL if it's > 0
+        if new_sl > 0:
+            request["sl"] = new_sl
+        
+        # Only include TP if it's > 0 (CRITICAL FIX: MT5 silently ignores TP=0)
+        if new_tp > 0:
+            request["tp"] = new_tp
+        
+        # Log the request details for debugging
+        logger.info(f"[MODIFY_ORDER] Ticket {ticket} | Symbol {symbol} | "
+                   f"SL: {new_sl:.5f} (included: {new_sl > 0}) | "
+                   f"TP: {new_tp:.5f} (included: {new_tp > 0})")
+        
+        # PHASE 1 FIX 1.2: Add aggressive timeout protection to MT5 API call
+        # Use 1 second timeout (more aggressive than 2s worker timeout) to fail fast
+        modify_start_time = time.time()
+        modify_timeout_seconds = 1.0  # 1 second timeout for MT5 API call (fail fast)
+        
+        # PHASE 1 FIX 1.2: Pre-check MT5 connection health before attempting
+        # If MT5 is unresponsive, skip immediately to prevent blocking
+        try:
+            # Quick health check: try to get terminal info (non-blocking check)
+            terminal_info = mt5.terminal_info()
+            if terminal_info is None:
+                logger.warning(f"[MT5_UNRESPONSIVE] Ticket {ticket} | MT5 terminal_info() returned None - skipping modify")
+                return False
+            
+            # Check if terminal is connected
+            if not terminal_info.connected:
+                logger.warning(f"[MT5_DISCONNECTED] Ticket {ticket} | MT5 terminal not connected - skipping modify")
+                return False
+        except Exception as health_check_error:
+            logger.warning(f"[MT5_HEALTH_CHECK_FAILED] Ticket {ticket} | Health check error: {health_check_error} - skipping modify")
+            return False
+        
+        # CRITICAL FIX: Retry logic for SL modification (up to 2 attempts with fast timeout)
+        # Reduced retries from 3 to 2 to fail faster
+        max_retries = 2
         for attempt in range(max_retries):
+            # PHASE 1 FIX 1.2: Check if we've already exceeded timeout before attempting
+            elapsed_time = time.time() - modify_start_time
+            if elapsed_time > modify_timeout_seconds:
+                logger.warning(f"[MODIFY_TIMEOUT] Ticket {ticket} | MT5 modify_order timeout: {elapsed_time:.2f}s > {modify_timeout_seconds}s limit")
+                return False  # Timeout - return False immediately
+            
+            # PHASE 1 FIX 1.2: Quick connection check before each attempt
+            if not self.mt5_connector.ensure_connected():
+                logger.warning(f"[MT5_NOT_CONNECTED] Ticket {ticket} | MT5 not connected on attempt {attempt + 1}")
+                return False
+            
+            # Make MT5 API call with timeout tracking
+            call_start = time.time()
             result = mt5.order_send(request)
+            call_duration = time.time() - call_start
+            
+            # PHASE 1 FIX 1.2: Check if call took too long (even if it succeeded)
+            if call_duration > modify_timeout_seconds:
+                logger.warning(f"[MODIFY_SLOW] Ticket {ticket} | MT5 modify_order took {call_duration:.2f}s (exceeded {modify_timeout_seconds}s limit)")
+                # If call succeeded but was slow, return True but log warning
+                # If call failed, continue to retry or return False
+                if result is not None and result.retcode == mt5.TRADE_RETCODE_DONE:
+                    logger.warning(f"[MODIFY_SLOW_SUCCESS] Ticket {ticket} | Modify succeeded but was slow ({call_duration:.2f}s)")
+                    # Continue to success handling below
+                else:
+                    # Call failed and was slow - retry if attempts remaining
+                    if attempt < max_retries - 1:
+                        logger.warning(f"[MODIFY_SLOW_RETRY] Ticket {ticket} | Retrying after slow call (attempt {attempt + 1}/{max_retries})")
+                        time.sleep(0.05)  # Short delay before retry
+                        continue
+                    else:
+                        return False
             
             if result is None:
                 error = mt5.last_error()
@@ -775,8 +1142,38 @@ class OrderManager:
                     return False
             
             if result.retcode == mt5.TRADE_RETCODE_DONE:
-                logger.info(f"[OK] SL UPDATE SUCCESS: Ticket={ticket} Symbol={symbol} NewSL={new_sl:.5f} OldSL={current_sl:.5f}")
-                logger.info(f"Order {ticket} modified: SL {new_sl:.5f}, TP {new_tp:.5f}")
+                logger.info(f"[OK] MODIFY SUCCESS: Ticket={ticket} Symbol={symbol} | "
+                           f"SL: {new_sl:.5f} (old: {current_sl:.5f}) | "
+                           f"TP: {new_tp:.5f} | "
+                           f"Result: retcode={result.retcode}, deal={result.deal}, order={result.order}, "
+                           f"volume={result.volume if hasattr(result, 'volume') else 'N/A'}, "
+                           f"price={result.price if hasattr(result, 'price') else 'N/A'}, "
+                           f"comment={result.comment if hasattr(result, 'comment') else 'N/A'}")
+                
+                # CRITICAL FIX: Verify TP was actually applied (MT5 broker bug - reports success but TP=0)
+                if take_profit_price is not None and new_tp > 0:
+                    # Wait for broker to process (longer delay for TP verification)
+                    time.sleep(0.3)  # 300ms delay for TP processing
+                    verify_position = self._get_position_by_ticket(ticket)
+                    if verify_position:
+                        applied_tp = verify_position.tp if hasattr(verify_position, 'tp') else verify_position.get('tp', 0.0)
+                        point = symbol_info.get('point', 0.00001)
+                        tp_tolerance = point * 10  # 1 pip tolerance
+                        if abs(applied_tp - new_tp) > tp_tolerance:
+                            # MT5 reported success but TP not applied - broker bug
+                            logger.warning(f"[TP_VERIFY_FAIL] Ticket {ticket} | MT5 success but TP not applied | "
+                                         f"Expected: {new_tp:.5f} | Applied: {applied_tp:.5f} | "
+                                         f"Diff: {abs(applied_tp - new_tp):.5f}")
+                            # Return False to trigger retry
+                            if attempt < max_retries - 1:
+                                logger.warning(f"Retrying TP modification (attempt {attempt + 1}/{max_retries})...")
+                                time.sleep(0.2 * (attempt + 1))  # Exponential backoff
+                                continue
+                            else:
+                                logger.error(f"[TP_VERIFY_FAIL] Ticket {ticket} | TP verification failed after {max_retries} attempts")
+                                return False  # Return False so caller knows TP wasn't set
+                        else:
+                            logger.info(f"[TP_VERIFIED] Ticket {ticket} | TP verified: {applied_tp:.5f} (expected: {new_tp:.5f})")
                 # Invalidate position cache to force refresh on next fetch
                 with self._position_cache_lock:
                     self._position_cache.pop(ticket, None)

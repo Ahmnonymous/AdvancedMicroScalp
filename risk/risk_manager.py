@@ -149,6 +149,10 @@ class RiskManager:
             logger.info("Initializing TPManager...")
             self.tp_manager = TPManager(config, mt5_connector, order_manager)
             logger.info("[OK] TPManager initialized successfully")
+            # CRITICAL FIX: Link TP manager to SL manager for partial close monitoring
+            if hasattr(self, 'sl_manager') and self.sl_manager:
+                self.sl_manager.tp_manager = self.tp_manager
+                logger.info("[OK] TP Manager linked to SL Manager for partial close monitoring")
         except Exception as e:
             self._tp_manager_error = str(e)
             import traceback

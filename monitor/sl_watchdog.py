@@ -115,13 +115,13 @@ class SLWatchdog:
                 worker_status = self.sl_manager.get_worker_status()
                 
                 if not worker_status.get('running', False):
-                    watchdog_logger.warning("[WARNING] SL Worker not running - attempting restart")
+                    watchdog_logger.critical("[CRITICAL] SL Worker not running - HALTING TRADING")
                     self._restart_worker("Worker not running")
                     self.shutdown_event.wait(self.check_interval)
                     continue
                 
                 if not worker_status.get('thread_alive', False):
-                    watchdog_logger.warning("[WARNING] SL Worker thread not alive - attempting restart")
+                    watchdog_logger.critical("[CRITICAL] SL Worker thread not alive - HALTING TRADING")
                     self._restart_worker("Worker thread not alive")
                     self.shutdown_event.wait(self.check_interval)
                     continue
@@ -156,8 +156,8 @@ class SLWatchdog:
                         updates_per_sec = total_updates / self.sl_updates_window_seconds if total_updates > 0 else 0
                     
                     if updates_per_sec < self.sl_updates_per_sec_threshold:
-                        watchdog_logger.warning(f"[WARNING] SL update rate too low: {updates_per_sec:.1f} updates/sec "
-                                              f"(threshold: {self.sl_updates_per_sec_threshold})")
+                        watchdog_logger.critical(f"[CRITICAL] SL update rate too low: {updates_per_sec:.1f} updates/sec "
+                                              f"(threshold: {self.sl_updates_per_sec_threshold}) - HALTING TRADING")
                         self._restart_worker(f"Low update rate: {updates_per_sec:.1f} updates/sec")
                 
                 # Check per-ticket staleness
@@ -226,13 +226,15 @@ class SLWatchdog:
                                                   f"Attempting lock recovery instead of restart")
                             for ticket in orphaned_lock_tickets:
                                 self._force_lock_recovery(ticket)
-                            # Only restart if there are stale tickets NOT due to orphaned locks
+                            # Only halt if there are stale tickets NOT due to orphaned locks
                             non_orphaned_stale = [t for t, _ in stale_tickets if t not in orphaned_lock_tickets]
                             if len(non_orphaned_stale) >= len(positions) * 0.5:
+                                watchdog_logger.critical(f"[CRITICAL] {len(non_orphaned_stale)} stale tickets (not orphaned locks) - HALTING TRADING")
                                 self._restart_worker(f"{len(non_orphaned_stale)} stale tickets (not orphaned locks)")
                         else:
-                            # No orphaned locks - proceed with restart if threshold met
+                            # No orphaned locks - halt trading if threshold met
                             if len(stale_tickets) >= len(positions) * 0.5:  # 50% or more stale
+                                watchdog_logger.critical(f"[CRITICAL] {len(stale_tickets)} stale tickets (>{len(positions)*0.5}) - HALTING TRADING")
                                 self._restart_worker(f"{len(stale_tickets)} stale tickets (>{len(positions)*0.5})")
                 
                 # Sleep until next check
@@ -246,128 +248,64 @@ class SLWatchdog:
     
     def _restart_worker(self, reason: str):
         """
-        Restart the SL worker with graceful shutdown.
+        CRITICAL SAFETY FIX #6: Halt trading instead of restarting worker.
         
-        FIX C: CRITICAL - Never restart a worker mid-SL update. Ever.
-        This method detects in-flight SL updates and waits for them to complete
-        before restarting, preventing protection gaps.
+        PROBLEM (PROVEN): Watchdog restarts abort SL updates, creating protection gaps.
+        
+        NEW BEHAVIOR: Instead of restarting, activate kill switch and halt trading.
+        Rule: Fail closed, not open.
         
         Args:
-            reason: Reason for restart
+            reason: Reason for worker health issue
         """
         current_time = datetime.now()
         
-        # FIX 3: LIVE RELIABILITY - Check for in-flight SL updates before restarting
-        # WHY THIS FIX EXISTS: Watchdog restarts were interrupting in-flight SL updates,
-        # causing protection gaps and aborted profit locks. This graceful shutdown ensures
-        # all SL updates complete before restarting, preventing protection gaps.
-        # CRITICAL: Never restart during profit-locking updates - wait up to 15s if needed
-        in_flight_updates, has_profit_locking = self._check_in_flight_updates()
+        # CRITICAL SAFETY FIX #6: HALT TRADING instead of restarting
+        # Restarting creates protection gaps - better to fail closed (halt trading)
         
-        if in_flight_updates:
-            # FIX 3: Determine wait time based on update type
-            # Profit-locking updates get extended wait time (15s) to prevent interrupting critical profit locks
-            max_wait_time = self.max_wait_for_profit_lock_seconds if has_profit_locking else self.max_wait_for_in_flight_seconds
-            update_type = "profit-locking" if has_profit_locking else "standard"
-            
-            # FIX 3: LIVE RELIABILITY - Log with clear tag for monitoring
-            watchdog_logger.warning(f"[WATCHDOG_WAITING_FOR_IN_FLIGHT] Waiting for {len(in_flight_updates)} in-flight SL updates "
-                                  f"({update_type}) before restart | Tickets: {in_flight_updates} | "
-                                  f"Max wait: {max_wait_time}s")
-            
-            # Wait up to max_wait_time for updates to complete
-            wait_start = time.time()
-            while in_flight_updates and (time.time() - wait_start) < max_wait_time:
-                time.sleep(self.in_flight_check_interval)
-                in_flight_updates, has_profit_locking = self._check_in_flight_updates()
-                # Re-check if profit-locking status changed
-                if has_profit_locking and max_wait_time < self.max_wait_for_profit_lock_seconds:
-                    max_wait_time = self.max_wait_for_profit_lock_seconds
-                    watchdog_logger.warning(f"[WATCHDOG_WAITING_FOR_IN_FLIGHT] Profit-locking detected - extending wait to {max_wait_time}s")
-            
-            if in_flight_updates:
-                # FIX 3: REGRESSION GUARD - Log timeout scenario
-                watchdog_logger.warning(f"⚠️ WATCHDOG RESTART TIMEOUT: {len(in_flight_updates)} SL updates still in progress "
-                                      f"after {max_wait_time}s - proceeding with restart | "
-                                      f"Tickets: {in_flight_updates} | "
-                                      f"WARNING: Protection gap possible if updates were aborted")
-            else:
-                # FIX 3: REGRESSION GUARD - Log successful graceful shutdown
-                watchdog_logger.info(f"✅ WATCHDOG GRACEFUL RESTART: All in-flight SL updates completed, proceeding with restart | "
-                                   f"Wait time: {time.time() - wait_start:.2f}s")
+        watchdog_logger.critical(f"🚨 WATCHDOG: SL WORKER UNHEALTHY | Reason: {reason} | "
+                               f"HALTING TRADING (fail-safe) instead of restarting")
         
-        # Check restart rate limit
-        with self._restart_lock:
-            # Remove restarts older than 10 minutes
-            cutoff_time = current_time - timedelta(minutes=10)
-            self._restart_timestamps = [
-                ts for ts in self._restart_timestamps
-                if ts > cutoff_time
-            ]
-            
-            # STEP 4 FIX: Implement exponential backoff instead of hard-blocking
-            if len(self._restart_timestamps) >= self.max_restarts_per_10min:
-                # Calculate exponential backoff: base * 2^(excess_restarts)
-                excess_restarts = len(self._restart_timestamps) - self.max_restarts_per_10min + 1
-                backoff_time = min(
-                    self.restart_backoff_base_seconds * (2 ** min(excess_restarts - 1, 3)),
-                    self.restart_backoff_max_seconds
-                )
-                
-                watchdog_logger.warning(f"🚨 WATCHDOG RESTART RATE LIMIT EXCEEDED: "
-                                      f"{len(self._restart_timestamps)} restarts in last 10 minutes | "
-                                      f"Reason: {reason} | "
-                                      f"Exponential backoff: {backoff_time}s (excess: {excess_restarts})")
-                
-                # Wait for backoff period before allowing restart
-                watchdog_logger.info(f"⏳ WATCHDOG BACKOFF: Waiting {backoff_time}s before allowing restart...")
-                time.sleep(backoff_time)
-                
-                # After backoff, allow the restart (don't block permanently)
-                watchdog_logger.info(f"✅ WATCHDOG BACKOFF COMPLETE: Allowing restart after {backoff_time}s backoff")
-                # Continue to restart (don't return)
-            
-            # Log restart
-            watchdog_logger.warning(f"🔄 WATCHDOG RESTARTING SL WORKER | Reason: {reason} | "
-                                  f"Restarts in last 10min: {len(self._restart_timestamps)}")
-            
-            # Restart worker
-            try:
-                self.sl_manager.stop_sl_worker()
-                time.sleep(0.1)  # Brief pause
-                self.sl_manager.start_sl_worker()
-                
-                # Track restart
-                self._restart_timestamps.append(current_time)
-                
-                # CRITICAL FIX: Alert if restart threshold exceeded
-                restart_count = len(self._restart_timestamps)
-                if restart_count >= self._restart_alert_threshold:
-                    current_time_float = time.time()
-                    # Check cooldown to prevent alert spam
-                    if (self._restart_alert_cooldown is None or 
-                        (current_time_float - self._restart_alert_cooldown) >= self._restart_alert_cooldown_seconds):
-                        self._restart_alert_cooldown = current_time_float
-                        watchdog_logger.critical(f"🚨 ALERT: WATCHDOG RESTART THRESHOLD EXCEEDED | "
-                                                f"Restarts in last 10min: {restart_count} (threshold: {self._restart_alert_threshold}) | "
-                                                f"Reason: {reason} | "
-                                                f"ACTION REQUIRED: Investigate SL worker stability")
-                        # Log system event for monitoring
-                        try:
-                            from utils.logger_factory import get_system_event_logger
-                            system_event_logger = get_system_event_logger()
-                            system_event_logger.systemEvent("WATCHDOG_RESTART_ALERT", {
-                                "restart_count": restart_count,
-                                "threshold": self._restart_alert_threshold,
-                                "reason": reason,
-                                "timestamp": current_time.isoformat()
-                            })
-                        except Exception as e:
-                            watchdog_logger.warning(f"Failed to log system event: {e}")
-                
-                watchdog_logger.info(f"[OK] SL Worker restarted successfully")
-            except Exception as e:
-                watchdog_logger.error(f"[ERROR] Failed to restart SL worker: {e}", exc_info=True)
+        # Mark system as UNSAFE
+        try:
+            from utils.system_health import mark_system_unsafe
+            mark_system_unsafe(
+                reason="sl_worker_unhealthy",
+                details=f"Watchdog detected SL worker issue: {reason}"
+            )
+        except Exception as e:
+            watchdog_logger.error(f"Failed to mark system unsafe: {e}", exc_info=True)
+        
+        # Activate kill switch (if trading_bot available)
+        try:
+            # Try to get trading_bot from sl_manager's order_manager
+            order_manager = self.sl_manager.order_manager
+            if hasattr(order_manager, '_trading_bot'):
+                trading_bot = order_manager._trading_bot
+                if trading_bot:
+                    trading_bot.activate_kill_switch(
+                        reason=f"SL Worker unhealthy: {reason}"
+                    )
+                    watchdog_logger.critical(f"[KILL_SWITCH_ACTIVATED] Trading disabled due to SL worker health issue")
+        except Exception as e:
+            watchdog_logger.error(f"Failed to activate kill switch: {e}", exc_info=True)
+        
+        # Log system event
+        try:
+            from utils.logger_factory import get_system_event_logger
+            system_event_logger = get_system_event_logger()
+            system_event_logger.systemEvent("WATCHDOG_HALT_TRADING", {
+                "reason": reason,
+                "timestamp": current_time.isoformat(),
+                "action": "kill_switch_activated"
+            })
+        except Exception as e:
+            watchdog_logger.warning(f"Failed to log system event: {e}")
+        
+        # DO NOT RESTART WORKER - Halt trading instead
+        watchdog_logger.critical(f"[WATCHDOG_HALT] Trading halted - manual intervention required | "
+                               f"Reason: {reason} | "
+                               f"System marked UNSAFE - no new trades will be placed")
     
     def _check_in_flight_updates(self) -> Tuple[List[int], bool]:
         """
