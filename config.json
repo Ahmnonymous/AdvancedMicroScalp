@@ -70,7 +70,7 @@
       "volatility_floor": {
         "enabled": true,
         "candle_count": 20,
-        "min_range_pips": 0.8
+        "min_range_pips": 0.6
       },
       "spread_sanity": {
         "enabled": true,
@@ -179,7 +179,7 @@
     "atr_period": 14,
     "atr_multiplier": 2.0,
     "min_trend_strength": 0.000001,
-    "min_trend_strength_pct": 0.02,
+    "min_trend_strength_pct": 0.015,
     "max_choppiness": 0.90,
     "min_adx": 8,
     "use_volatility_filter": true,
