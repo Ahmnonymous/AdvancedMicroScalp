@@ -950,19 +950,62 @@ class TradeReasonLogger:
             
             # Get historical price data after trade closure (up to 4 hours or until breakeven would have triggered)
             import MetaTrader5 as mt5
-            if not self.mt5_connector.ensure_connected():
+            import time as time_module
+            
+            # Ensure connection with retry
+            max_connection_retries = 3
+            connection_retry_delay = 0.5
+            connected = False
+            for retry in range(max_connection_retries):
+                if self.mt5_connector.ensure_connected():
+                    connected = True
+                    break
+                if retry < max_connection_retries - 1:
+                    time_module.sleep(connection_retry_delay)
+                    connection_retry_delay *= 2  # Exponential backoff
+            
+            if not connected:
+                if self.text_logger:
+                    self.text_logger.debug(f"Failed to connect to MT5 for post-trade analysis after {max_connection_retries} retries")
                 return analysis
             
-            # Calculate time window: from entry to 4 hours after closure (or until breakeven would trigger)
+            # Calculate time window: from entry to 4 hours after closure (or until breakeven would have triggered)
             from datetime import timedelta
             exit_time = datetime.now()
             analysis_end_time = exit_time + timedelta(hours=4)
             
-            # Get M1 candles from entry time to analysis end time
+            # Get M1 candles from entry time to analysis end time with retry logic
             timeframe = mt5.TIMEFRAME_M1
-            rates = mt5.copy_rates_range(symbol, timeframe, entry_time, analysis_end_time)
+            rates = None
+            max_data_retries = 3
+            data_retry_delay = 0.5
+            
+            for retry in range(max_data_retries):
+                try:
+                    rates = mt5.copy_rates_range(symbol, timeframe, entry_time, analysis_end_time)
+                    if rates is not None and len(rates) > 0:
+                        break
+                except Exception as data_error:
+                    if self.text_logger and retry == max_data_retries - 1:
+                        self.text_logger.debug(f"Error fetching historical data for {symbol} (attempt {retry + 1}/{max_data_retries}): {data_error}")
+                
+                if retry < max_data_retries - 1:
+                    time_module.sleep(data_retry_delay)
+                    data_retry_delay *= 2  # Exponential backoff
+            
+            # If M1 candles failed, try H1 candles as fallback
+            if rates is None or len(rates) == 0:
+                if self.text_logger:
+                    self.text_logger.debug(f"M1 candles unavailable for {symbol}, trying H1 candles as fallback")
+                try:
+                    rates = mt5.copy_rates_range(symbol, mt5.TIMEFRAME_H1, entry_time, analysis_end_time)
+                except Exception as fallback_error:
+                    if self.text_logger:
+                        self.text_logger.debug(f"Fallback to H1 candles also failed for {symbol}: {fallback_error}")
             
             if rates is None or len(rates) == 0:
+                if self.text_logger:
+                    self.text_logger.debug(f"No historical data available for post-trade analysis: {symbol} | Entry: {entry_time} | Exit: {exit_time}")
                 return analysis
             
             # Convert to list for easier processing

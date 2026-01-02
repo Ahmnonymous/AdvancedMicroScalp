@@ -76,12 +76,20 @@ class TPManager:
         
         logger.info(f"TP Manager initialized | TP target: ${self.tp_target_usd:.2f} | Partial close: {self.partial_close_pct}%")
     
-    def calculate_tp_price(self, position: Dict[str, Any]) -> Optional[float]:
+    def calculate_tp_price(self, position: Dict[str, Any], strategy_tp_price: Optional[float] = None, 
+                          quality_score: Optional[float] = None, trend_strength: Optional[float] = None) -> Optional[float]:
         """
         Calculate TP price for a position to achieve target profit.
         
+        NEW: Supports strategy-suggested TP and quality-based adjustments.
+        - If strategy_tp_price is provided, uses it (adjusted by quality/trend)
+        - Otherwise, uses configured tp_target_usd
+        
         Args:
             position: Position dictionary
+            strategy_tp_price: Strategy-suggested TP price (optional)
+            quality_score: Quality score for adjustment (optional, 0-100)
+            trend_strength: Trend strength for adjustment (optional, 0-1)
             
         Returns:
             TP price or None if calculation fails
@@ -105,6 +113,85 @@ class TPManager:
         tick_value = symbol_info.get('tick_value', 0.0)
         tick_size = symbol_info.get('tick_size', point)
         
+        # NEW: If strategy TP is provided, use it with quality/trend adjustments
+        if strategy_tp_price is not None and strategy_tp_price > 0:
+            # Validate strategy TP is reasonable
+            if order_type == 'BUY' or (isinstance(order_type, int) and order_type == mt5.ORDER_TYPE_BUY):
+                if strategy_tp_price <= entry_price:
+                    logger.warning(f"[TP_STRATEGY_INVALID] Strategy TP ({strategy_tp_price:.5f}) <= entry ({entry_price:.5f}) for BUY - using default")
+                else:
+                    # Apply quality/trend-based adjustment
+                    adjustment_factor = 1.0
+                    if quality_score is not None:
+                        # High quality (85+): use 60-70% of strategy TP (more conservative)
+                        # Medium quality (70-84): use 50-60% of strategy TP
+                        # Lower quality (<70): use 40-50% of strategy TP
+                        if quality_score >= 85:
+                            adjustment_factor = 0.65  # Use 65% of strategy TP for high quality
+                        elif quality_score >= 70:
+                            adjustment_factor = 0.55  # Use 55% of strategy TP for medium quality
+                        else:
+                            adjustment_factor = 0.45  # Use 45% of strategy TP for lower quality
+                    
+                    if trend_strength is not None:
+                        # Adjust based on trend strength
+                        # Strong trend (>0.05): increase by 10%
+                        # Weak trend (<0.02): decrease by 10%
+                        if trend_strength > 0.05:
+                            adjustment_factor *= 1.10
+                        elif trend_strength < 0.02:
+                            adjustment_factor *= 0.90
+                    
+                    # Calculate adjusted TP
+                    tp_distance = strategy_tp_price - entry_price
+                    adjusted_tp_distance = tp_distance * adjustment_factor
+                    adjusted_tp_price = entry_price + adjusted_tp_distance
+                    
+                    # Normalize to symbol's tick size
+                    adjusted_tp_price = round(adjusted_tp_price / point) * point
+                    adjusted_tp_price = round(adjusted_tp_price, digits)
+                    
+                    logger.info(f"[TP_STRATEGY] {symbol} | Using strategy TP with adjustment | "
+                              f"Strategy TP: {strategy_tp_price:.5f} | Adjusted: {adjusted_tp_price:.5f} | "
+                              f"Quality: {quality_score} | Trend: {trend_strength} | Factor: {adjustment_factor:.2f}")
+                    
+                    return adjusted_tp_price
+            else:  # SELL
+                if strategy_tp_price >= entry_price or strategy_tp_price <= 0:
+                    logger.warning(f"[TP_STRATEGY_INVALID] Strategy TP ({strategy_tp_price:.5f}) invalid for SELL - using default")
+                else:
+                    # Apply quality/trend-based adjustment (same logic as BUY)
+                    adjustment_factor = 1.0
+                    if quality_score is not None:
+                        if quality_score >= 85:
+                            adjustment_factor = 0.65
+                        elif quality_score >= 70:
+                            adjustment_factor = 0.55
+                        else:
+                            adjustment_factor = 0.45
+                    
+                    if trend_strength is not None:
+                        if trend_strength > 0.05:
+                            adjustment_factor *= 1.10
+                        elif trend_strength < 0.02:
+                            adjustment_factor *= 0.90
+                    
+                    # Calculate adjusted TP
+                    tp_distance = entry_price - strategy_tp_price
+                    adjusted_tp_distance = tp_distance * adjustment_factor
+                    adjusted_tp_price = entry_price - adjusted_tp_distance
+                    
+                    # Normalize to symbol's tick size
+                    adjusted_tp_price = round(adjusted_tp_price / point) * point
+                    adjusted_tp_price = round(adjusted_tp_price, digits)
+                    
+                    logger.info(f"[TP_STRATEGY] {symbol} | Using strategy TP with adjustment | "
+                              f"Strategy TP: {strategy_tp_price:.5f} | Adjusted: {adjusted_tp_price:.5f} | "
+                              f"Quality: {quality_score} | Trend: {trend_strength} | Factor: {adjustment_factor:.2f}")
+                    
+                    return adjusted_tp_price
+        
+        # Default: Calculate TP from configured tp_target_usd
         # CRITICAL FIX: Use trade_tick_value or tick_value for crypto/special symbols (same logic as SL manager)
         # For symbols with contract_size = 1 or very small contract_size, use tick_value
         # This handles crypto pairs like BTCXAUm where contract_size is reported as 1 but effective is 1000
@@ -229,7 +316,17 @@ class TPManager:
                     expected_tp = self._position_tracking[ticket].get('tp_price', 0.0)
                     
                     # Recalculate expected TP from fresh position (position may have changed)
-                    recalculated_expected_tp = self.calculate_tp_price(fresh_check)
+                    # Check if strategy TP info is available in tracking
+                    strategy_tp_price = self._position_tracking[ticket].get('strategy_tp_price', None)
+                    quality_score = self._position_tracking[ticket].get('quality_score', None)
+                    trend_strength = self._position_tracking[ticket].get('trend_strength', None)
+                    
+                    recalculated_expected_tp = self.calculate_tp_price(
+                        fresh_check,
+                        strategy_tp_price=strategy_tp_price,
+                        quality_score=quality_score,
+                        trend_strength=trend_strength
+                    )
                     
                     # Use recalculated TP if available, otherwise use stored expected TP
                     if recalculated_expected_tp is not None:
@@ -258,8 +355,23 @@ class TPManager:
                                      f"Current: {applied_tp:.5f} | Reapplying...")
                         self._position_tracking[ticket]['tp_applied'] = False
         
-        # Calculate TP price
-        tp_price = self.calculate_tp_price(position)
+        # Calculate TP price - check if strategy TP info is available in tracking
+        strategy_tp_price = None
+        quality_score = None
+        trend_strength = None
+        
+        with self._tracking_lock:
+            if ticket in self._position_tracking:
+                strategy_tp_price = self._position_tracking[ticket].get('strategy_tp_price', None)
+                quality_score = self._position_tracking[ticket].get('quality_score', None)
+                trend_strength = self._position_tracking[ticket].get('trend_strength', None)
+        
+        tp_price = self.calculate_tp_price(
+            position,
+            strategy_tp_price=strategy_tp_price,
+            quality_score=quality_score,
+            trend_strength=trend_strength
+        )
         if tp_price is None:
             return False, "Failed to calculate TP price"
         
@@ -276,7 +388,22 @@ class TPManager:
                 return False, "Position closed during TP application"
             
             # Recalculate TP from fresh position data (in case position changed)
-            recalculated_tp = self.calculate_tp_price(fresh_position_before)
+            # Get strategy TP info from tracking
+            strategy_tp_price = None
+            quality_score = None
+            trend_strength = None
+            with self._tracking_lock:
+                if ticket in self._position_tracking:
+                    strategy_tp_price = self._position_tracking[ticket].get('strategy_tp_price', None)
+                    quality_score = self._position_tracking[ticket].get('quality_score', None)
+                    trend_strength = self._position_tracking[ticket].get('trend_strength', None)
+            
+            recalculated_tp = self.calculate_tp_price(
+                fresh_position_before,
+                strategy_tp_price=strategy_tp_price,
+                quality_score=quality_score,
+                trend_strength=trend_strength
+            )
             if recalculated_tp is None:
                 logger.error(f"[TP_CALC_FAIL] Ticket {ticket} | Failed to recalculate TP on attempt {attempt + 1}")
                 if attempt < max_retries - 1:
@@ -379,7 +506,22 @@ class TPManager:
         # CRITICAL FIX: Final attempt - get fresh position and recalculate TP
         fresh_position = self.order_manager.get_position_by_ticket(ticket)
         if fresh_position:
-            final_tp_price = self.calculate_tp_price(fresh_position)
+            # Get strategy TP info from tracking
+            strategy_tp_price = None
+            quality_score = None
+            trend_strength = None
+            with self._tracking_lock:
+                if ticket in self._position_tracking:
+                    strategy_tp_price = self._position_tracking[ticket].get('strategy_tp_price', None)
+                    quality_score = self._position_tracking[ticket].get('quality_score', None)
+                    trend_strength = self._position_tracking[ticket].get('trend_strength', None)
+            
+            final_tp_price = self.calculate_tp_price(
+                fresh_position,
+                strategy_tp_price=strategy_tp_price,
+                quality_score=quality_score,
+                trend_strength=trend_strength
+            )
             if final_tp_price:
                 logger.info(f"[TP_FINAL_RECALC] Ticket {ticket} | "
                           f"Final TP recalculation: {final_tp_price:.5f} | "
@@ -598,6 +740,33 @@ class TPManager:
             return current_price >= tp_price
         else:  # SELL
             return current_price <= tp_price
+    
+    def store_strategy_tp_info(self, ticket: int, strategy_tp_price: Optional[float] = None,
+                              quality_score: Optional[float] = None, trend_strength: Optional[float] = None):
+        """
+        Store strategy TP information for a position.
+        
+        This allows TP Manager to use strategy-suggested TP when calculating and applying TP.
+        
+        Args:
+            ticket: Position ticket
+            strategy_tp_price: Strategy-suggested TP price
+            quality_score: Quality score (0-100)
+            trend_strength: Trend strength (0-1)
+        """
+        with self._tracking_lock:
+            if ticket not in self._position_tracking:
+                self._position_tracking[ticket] = {}
+            
+            if strategy_tp_price is not None:
+                self._position_tracking[ticket]['strategy_tp_price'] = strategy_tp_price
+            if quality_score is not None:
+                self._position_tracking[ticket]['quality_score'] = quality_score
+            if trend_strength is not None:
+                self._position_tracking[ticket]['trend_strength'] = trend_strength
+            
+            logger.info(f"[TP_STRATEGY_STORED] Ticket {ticket} | Strategy TP: {strategy_tp_price} | "
+                       f"Quality: {quality_score} | Trend: {trend_strength}")
     
     def cleanup_ticket(self, ticket: int):
         """Remove tracking for closed position."""

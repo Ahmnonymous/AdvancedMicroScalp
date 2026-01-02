@@ -102,6 +102,39 @@ class MicroProfitEngine:
         if ticket in self._closing_tickets:
             return False
         
+        # NEW: Get quality score from TP Manager if available (for quality-based thresholds)
+        quality_score = None
+        if hasattr(self, 'risk_manager') and self.risk_manager:
+            if hasattr(self.risk_manager, 'tp_manager') and self.risk_manager.tp_manager:
+                try:
+                    # Access TP Manager's position tracking to get quality score
+                    with self.risk_manager.tp_manager._tracking_lock:
+                        if ticket in self.risk_manager.tp_manager._position_tracking:
+                            quality_score = self.risk_manager.tp_manager._position_tracking[ticket].get('quality_score', None)
+                except Exception as quality_error:
+                    logger.debug(f"Could not get quality score for ticket {ticket}: {quality_error}")
+        
+        # Adjust thresholds based on quality score
+        min_threshold = self.min_profit_threshold_usd
+        max_threshold = self.max_profit_threshold_usd
+        
+        if quality_score is not None:
+            if quality_score >= 85:
+                # High quality: Hold longer, allow higher profits (target 50-70% of strategy TP)
+                min_threshold = 0.05  # $0.05 minimum
+                max_threshold = 0.20  # $0.20 maximum (allow higher profits)
+                logger.debug(f"Micro-HFT: Ticket {ticket} | High quality ({quality_score}) - Adjusted thresholds: ${min_threshold:.2f}-${max_threshold:.2f}")
+            elif quality_score >= 70:
+                # Medium quality: Current behavior
+                min_threshold = self.min_profit_threshold_usd  # $0.03
+                max_threshold = self.max_profit_threshold_usd  # $0.10
+                logger.debug(f"Micro-HFT: Ticket {ticket} | Medium quality ({quality_score}) - Using default thresholds: ${min_threshold:.2f}-${max_threshold:.2f}")
+            else:
+                # Lower quality: Tighter thresholds (close earlier)
+                min_threshold = self.min_profit_threshold_usd  # $0.03
+                max_threshold = 0.08  # $0.08 maximum (tighter)
+                logger.debug(f"Micro-HFT: Ticket {ticket} | Lower quality ({quality_score}) - Tighter thresholds: ${min_threshold:.2f}-${max_threshold:.2f}")
+        
         # CRITICAL FIX 4.1: Get FRESHEST profit from MT5 position data
         # Do not trust cached or stale position data
         # Get actual profit from MT5 (not estimated) - use position parameter which should be fresh
@@ -141,8 +174,8 @@ class MicroProfitEngine:
         if hasattr(self, 'risk_manager') and self.risk_manager:
             if hasattr(self.risk_manager, '_profit_locking_engine') and self.risk_manager._profit_locking_engine:
                 profit_locking_engine = self.risk_manager._profit_locking_engine
-                # Check if trade is in sweet spot
-                if self.min_profit_threshold_usd <= current_profit <= self.max_profit_threshold_usd:
+                # Check if trade is in sweet spot (using quality-adjusted thresholds)
+                if min_threshold <= current_profit <= max_threshold:
                     # Trade is in sweet spot - verify SL is applied
                     if hasattr(profit_locking_engine, 'is_sl_verified'):
                         is_verified = profit_locking_engine.is_sl_verified(ticket)
@@ -224,10 +257,10 @@ class MicroProfitEngine:
             logger.debug(f"Micro-HFT: Ticket {ticket} profit ${current_profit:.2f} <= ${self.min_profit_buffer:.2f} buffer after calculations - rejecting")
             return False
         
-        # Case 1: Sweet spot ($0.03–$0.10) - can close immediately ONLY if:
-        # - Trailing stop hasn't locked at $0.10 yet (profit hasn't exceeded sweet spot)
+        # Case 1: Sweet spot (quality-adjusted) - can close immediately ONLY if:
+        # - Trailing stop hasn't locked at max threshold yet (profit hasn't exceeded sweet spot)
         # - OR profit dropped back to sweet spot but trailing stop has locked at a lower level
-        in_sweet_spot = (self.min_profit_threshold_usd <= current_profit <= self.max_profit_threshold_usd)
+        in_sweet_spot = (min_threshold <= current_profit <= max_threshold)
         
         if in_sweet_spot:
             # Only close in sweet spot if trailing stop hasn't locked at $0.10 yet
@@ -310,7 +343,11 @@ class MicroProfitEngine:
             logger.debug(f"Micro-HFT: Ticket {ticket} has profit ${fresh_profit:.2f} < ${self.min_profit_buffer:.2f} buffer - not closing (insufficient to cover spread/slippage)")
             return False
         
-        in_sweet_spot = (self.min_profit_threshold_usd <= fresh_profit <= self.max_profit_threshold_usd)
+        # Use quality-adjusted thresholds (recalculate if needed)
+        min_threshold_final = min_threshold if 'min_threshold' in locals() else self.min_profit_threshold_usd
+        max_threshold_final = max_threshold if 'max_threshold' in locals() else self.max_profit_threshold_usd
+        
+        in_sweet_spot = (min_threshold_final <= fresh_profit <= max_threshold_final)
         is_multiple_of_ten_cents = (fresh_profit > self.max_profit_threshold_usd and 
                                      abs(fresh_profit % 0.10) < 0.005)  # Allow small floating point errors
         
@@ -360,7 +397,7 @@ class MicroProfitEngine:
             
             # Log initial decision for audit trail
             logger.info(f"Micro-HFT: Ticket {ticket} | Initial decision profit: ${target_profit:.2f} | "
-                      f"Sweet spot: {self.min_profit_threshold_usd} - {self.max_profit_threshold_usd}")
+                      f"Sweet spot: {min_threshold_final} - {max_threshold_final} | Quality: {quality_score}")
             
             for attempt in range(self.max_retries):
                 # Get latest position data before each attempt
@@ -390,7 +427,7 @@ class MicroProfitEngine:
                     self._closing_tickets.discard(ticket)  # Remove from closing set
                     return False  # Complete abort - do not use break
                 
-                in_sweet_spot_retry = (self.min_profit_threshold_usd <= latest_profit <= self.max_profit_threshold_usd)
+                in_sweet_spot_retry = (min_threshold_final <= latest_profit <= max_threshold_final)
                 is_multiple_retry = (latest_profit > self.max_profit_threshold_usd and 
                                      abs(latest_profit % 0.10) < 0.005)
                 
@@ -417,7 +454,7 @@ class MicroProfitEngine:
                     return False  # Complete abort - do not use break
                 
                 # Double-verify profit is still in acceptable range
-                final_in_sweet_spot = (self.min_profit_threshold_usd <= final_pre_close_profit <= self.max_profit_threshold_usd)
+                final_in_sweet_spot = (min_threshold_final <= final_pre_close_profit <= max_threshold_final)
                 final_is_multiple = (final_pre_close_profit > self.max_profit_threshold_usd and 
                                     abs(final_pre_close_profit % 0.10) < 0.005)
                 
@@ -430,7 +467,7 @@ class MicroProfitEngine:
                 logger.info(f"Micro-HFT: Ticket {ticket} | Decision profit: ${latest_profit:.2f} | Final pre-close profit: ${final_pre_close_profit:.2f} | Proceeding with close")
                 
                 # Close position using existing order_manager
-                logger.info(f"🔥 MICRO PROFIT CLOSURE ATTEMPT: Ticket={ticket} Symbol={symbol} Profit=${final_pre_close_profit:.2f} SweetSpot={self.min_profit_threshold_usd}-${self.max_profit_threshold_usd}")
+                logger.info(f"🔥 MICRO PROFIT CLOSURE ATTEMPT: Ticket={ticket} Symbol={symbol} Profit=${final_pre_close_profit:.2f} SweetSpot={min_threshold_final}-${max_threshold_final} Quality={quality_score}")
                 close_success = self.order_manager.close_position(
                     ticket=ticket,
                     comment=f"Micro-HFT sweet spot profit (${final_pre_close_profit:.2f})"

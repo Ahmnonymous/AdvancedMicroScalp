@@ -297,12 +297,18 @@
   },
   "governance": {
     "master_kill_switch": {
-      "enabled": false,
-      "reason": "Auto-cleared: was triggered due to insufficient data (no trades)",
+      "enabled": true,
+      "reason": "Regression guard: win_rate breached: 0.0 vs threshold 0.8",
       "revert_to_phase": 3,
-      "disable_features": [],
-      "log_level": "INFO",
-      "cleared_at": "2026-01-03T00:51:11.008074"
+      "disable_features": [
+        "breakeven_logic",
+        "partial_profit_taking",
+        "runner_positions",
+        "improved_sl_placement",
+        "shadow_mode_filters"
+      ],
+      "log_level": "CRITICAL",
+      "activated_at": "2026-01-03T01:26:59.438960"
     },
     "deployment": {
       "current_phase": 1

@@ -2555,12 +2555,40 @@ class TradingBot:
                     rsi=opportunity.get('rsi', 50)
                 )
                 
-                # Calculate TP price for logging
+                # Calculate strategy-suggested TP and store it for TP Manager
+                strategy_tp_price = None
+                quality_score = opportunity.get('quality_score', 0.0)
+                trend_strength = opportunity.get('trend_strength', 0.0)
+                
+                # Calculate strategy TP using trade reason logger's method
+                if hasattr(self, 'trade_reason_logger') and self.trade_reason_logger:
+                    try:
+                        strategy_tp_analysis = self.trade_reason_logger._calculate_strategy_suggested_tp(
+                            symbol=symbol,
+                            entry_price=entry_price_actual,
+                            signal=signal,
+                            opportunity=opportunity,
+                            lot_size=lot_size
+                        )
+                        if strategy_tp_analysis.get('analysis_available') and strategy_tp_analysis.get('suggested_tp_price'):
+                            strategy_tp_price = strategy_tp_analysis.get('suggested_tp_price')
+                            logger.info(f"[STRATEGY_TP] {symbol} Ticket {ticket} | Strategy TP calculated: {strategy_tp_price:.5f} | "
+                                      f"Quality: {quality_score} | Trend: {trend_strength}")
+                    except Exception as strategy_tp_error:
+                        logger.debug(f"Error calculating strategy TP: {strategy_tp_error}")
+                
+                # Calculate TP price for logging (default TP)
                 take_profit_price = None
                 if hasattr(self.risk_manager, 'tp_manager') and self.risk_manager.tp_manager:
                     try:
                         if fresh_position:
-                            take_profit_price = self.risk_manager.tp_manager.calculate_tp_price(fresh_position)
+                            # Use strategy TP if available, otherwise use default
+                            take_profit_price = self.risk_manager.tp_manager.calculate_tp_price(
+                                fresh_position,
+                                strategy_tp_price=strategy_tp_price,
+                                quality_score=quality_score,
+                                trend_strength=trend_strength
+                            )
                     except Exception as tp_calc_error:
                         logger.debug(f"Error calculating TP for trade reason log: {tp_calc_error}")
                 
@@ -2635,6 +2663,15 @@ class TradingBot:
                         elif self.risk_manager.tp_manager is None:
                             logger.error(f"[INITIAL_TP] {symbol} Ticket {ticket} | TP Manager is None - check initialization logs")
                         else:
+                            # Store strategy TP info in TP Manager before applying TP
+                            if strategy_tp_price is not None:
+                                self.risk_manager.tp_manager.store_strategy_tp_info(
+                                    ticket=ticket,
+                                    strategy_tp_price=strategy_tp_price,
+                                    quality_score=quality_score,
+                                    trend_strength=trend_strength
+                                )
+                            
                             # TP manager is available - apply TP
                             logger.info(f"[INITIAL_TP] {symbol} Ticket {ticket} | Applying TP via TP Manager...")
                             success, reason = self.risk_manager.tp_manager.apply_tp_to_position(ticket, max_attempts=10)
