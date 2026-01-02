@@ -140,7 +140,11 @@ class TradingBot:
         self.market_closing_filter = MarketClosingFilter(self.config, self.mt5_connector)
         self.volume_filter = VolumeFilter(self.config, self.mt5_connector)
         self.trade_logger = TradeLogger(self.config)
-        self.trade_reason_logger = TradeReasonLogger(is_backtest=self.is_backtest)
+        self.trade_reason_logger = TradeReasonLogger(
+            is_backtest=self.is_backtest,
+            mt5_connector=self.mt5_connector,
+            order_manager=self.order_manager
+        )
         
         # Register P/L callback with risk manager
         self.risk_manager.set_pnl_callback(self._update_realized_pnl_on_closure)
@@ -213,6 +217,10 @@ class TradingBot:
         self._error_throttle = {}  # {error_signature: last_counted_time}
         self._error_throttle_window = 5.0  # seconds - same error only counted once per window
         self.running = False
+        
+        # P2-12 FIX: Position Reconciliation Enhancement - Track last reconciliation time
+        self._last_reconciliation_time = None
+        self._reconciliation_interval_minutes = 5  # Reconcile every 5 minutes
         
         # Master kill switch (governance)
         self.master_kill_switch = self._load_master_kill_switch()
@@ -426,17 +434,53 @@ class TradingBot:
     
     def check_master_kill_switch(self) -> bool:
         """Check master kill switch - called on every trade cycle."""
-        # Reload config to check for changes
+        # P0-4 FIX: Master Kill Switch Config Validation
+        # Reload config with validation to prevent trading with corrupted config
         try:
-            with open(self.config_path, 'r') as f:
-                current_config = json.load(f)
-            self.master_kill_switch = current_config.get('governance', {}).get('master_kill_switch', {
-                'enabled': False,
-                'revert_to_phase': 3,
-                'disable_features': []
-            })
+            from utils.config_validator_enhanced import validate_config_json, validate_master_kill_switch
+            
+            # Validate JSON structure first
+            is_valid, current_config, error_msg = validate_config_json(self.config_path)
+            if not is_valid:
+                # Config is corrupted - use last known good config
+                logger.critical(f"[CONFIG_CORRUPTION] Config validation failed: {error_msg} | Using last known good config")
+                error_logger.critical(f"[CONFIG_CORRUPTION] Config validation failed: {error_msg} | Using last known good config")
+                # Keep existing master_kill_switch value (don't update)
+                if not hasattr(self, 'master_kill_switch') or self.master_kill_switch is None:
+                    self.master_kill_switch = {
+                        'enabled': False,
+                        'revert_to_phase': 3,
+                        'disable_features': []
+                    }
+            else:
+                # Config is valid - validate master kill switch section
+                is_kill_switch_valid, kill_switch_error = validate_master_kill_switch(current_config)
+                if not is_kill_switch_valid:
+                    logger.critical(f"[CONFIG_CORRUPTION] Master kill switch validation failed: {kill_switch_error} | Using last known good config")
+                    error_logger.critical(f"[CONFIG_CORRUPTION] Master kill switch validation failed: {kill_switch_error} | Using last known good config")
+                    # Keep existing master_kill_switch value
+                    if not hasattr(self, 'master_kill_switch') or self.master_kill_switch is None:
+                        self.master_kill_switch = {
+                            'enabled': False,
+                            'revert_to_phase': 3,
+                            'disable_features': []
+                        }
+                else:
+                    # Config is valid - update master kill switch
+                    self.master_kill_switch = current_config.get('governance', {}).get('master_kill_switch', {
+                        'enabled': False,
+                        'revert_to_phase': 3,
+                        'disable_features': []
+                    })
         except Exception as e:
             logger.warning(f"Failed to reload master kill switch config: {e}")
+            # Keep existing master_kill_switch value on error
+            if not hasattr(self, 'master_kill_switch') or self.master_kill_switch is None:
+                self.master_kill_switch = {
+                    'enabled': False,
+                    'revert_to_phase': 3,
+                    'disable_features': []
+                }
         
         if not self.master_kill_switch.get('enabled', False):
             return False
@@ -1024,28 +1068,45 @@ class TradingBot:
                     else:
                         logger.debug(f"[OK] {symbol}: Symbol is tradeable and executable")
                     
+                    # P3-18 FIX: Decision Context Logging - Log all filter results
+                    filter_results = {}  # Track all filter decisions
+                    
                     # 0b. Check if market is closing soon (30 minutes filter)
                     should_skip_close, close_reason = self.market_closing_filter.should_skip(symbol)
+                    filter_results['market_closing'] = {'passed': not should_skip_close, 'reason': close_reason}
                     if should_skip_close:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {close_reason}")
+                        # P3-18 FIX: Log decision context
+                        logger.debug(f"[DECISION_CONTEXT] {symbol} | Filter: market_closing | Result: REJECTED | Reason: {close_reason}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
+                    else:
+                        logger.debug(f"[DECISION_CONTEXT] {symbol} | Filter: market_closing | Result: PASSED")
                     
                     # 0c. Check if volume/liquidity is sufficient
                     should_skip_volume, volume_reason, volume_value = self.volume_filter.should_skip(symbol)
+                    filter_results['volume'] = {'passed': not should_skip_volume, 'reason': volume_reason, 'value': volume_value}
                     if should_skip_volume:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: {volume_reason}")
+                        # P3-18 FIX: Log decision context
+                        logger.debug(f"[DECISION_CONTEXT] {symbol} | Filter: volume | Result: REJECTED | Reason: {volume_reason} | Value: {volume_value}")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
+                    else:
+                        logger.debug(f"[DECISION_CONTEXT] {symbol} | Filter: volume | Result: PASSED | Value: {volume_value}")
                     
                     # 1. Check if news is blocking (but allow trading if API fails)
                     news_blocking = self.news_filter.is_news_blocking(symbol)
+                    filter_results['news'] = {'passed': not news_blocking, 'blocking': news_blocking}
                     if news_blocking:
                         logger.info(f"[SKIP] [SKIP] {symbol} | Reason: NEWS BLOCKING (high-impact news within 10 min window)")
+                        # P3-18 FIX: Log decision context
+                        logger.debug(f"[DECISION_CONTEXT] {symbol} | Filter: news | Result: REJECTED | Reason: High-impact news blocking")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     else:
                         logger.debug(f"[OK] {symbol}: No news blocking")
+                        logger.debug(f"[DECISION_CONTEXT] {symbol} | Filter: news | Result: PASSED")
                     
                     # 2a. ONE-CANDLE CONFIRMATION: Check for pending signal first
                     # This check happens BEFORE filters to confirm direction consistency only
@@ -1667,6 +1728,17 @@ class TradingBot:
                         'max_spread_points': self.pair_filter.max_spread_points if hasattr(self.pair_filter, 'max_spread_points') else 2.0
                     }
                     
+                    # P3-18 FIX: Add decision context to opportunity
+                    opportunity_data['decision_context'] = {
+                        'filter_results': filter_results,
+                        'quality_score': quality_score,
+                        'quality_assessment': quality_assessment,
+                        'trend_strength_pct': sma_separation_pct,
+                        'spread_points': spread_points,
+                        'min_lot': min_lot,
+                        'all_checks_passed': True
+                    }
+                    
                     # ONE-CANDLE CONFIRMATION: Store as pending instead of adding immediately
                     df_current = self.trend_filter.get_rates(symbol, count=1)
                     if df_current is not None and len(df_current) > 0:
@@ -1681,11 +1753,19 @@ class TradingBot:
                                 'opportunity_data': opportunity_data  # Store all opportunity data
                             }
                         logger.info(f"[ENTRY PENDING] {symbol}: signal {signal_type} stored, waiting for next candle close")
+                        # P3-18 FIX: Log decision context for pending signals
+                        logger.debug(f"[DECISION_CONTEXT] {symbol} | All filters passed | Quality: {quality_score:.1f} | "
+                                   f"Trend Strength: {sma_separation_pct:.4f}% | Spread: {spread_points:.2f}pts | "
+                                   f"Status: PENDING (waiting for candle confirmation)")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue  # Don't add to opportunities yet - wait for confirmation
                     else:
                         # Can't get candle time - add immediately (fallback behavior)
                         logger.debug(f"[WARNING] {symbol}: cannot get candle time for confirmation, adding immediately")
+                        # P3-18 FIX: Log decision context for immediate opportunities
+                        logger.debug(f"[DECISION_CONTEXT] {symbol} | All filters passed | Quality: {quality_score:.1f} | "
+                                   f"Trend Strength: {sma_separation_pct:.4f}% | Spread: {spread_points:.2f}pts | "
+                                   f"Status: IMMEDIATE (candle time unavailable)")
                         opportunities.append(opportunity_data)
                     
                     # DRY-RUN ONLY: Analyze limit entry (does NOT affect execution)
@@ -1749,7 +1829,14 @@ class TradingBot:
         symbol = opportunity['symbol']
         signal = opportunity['signal']
         
+        # P0-3 FIX: Kill Switch Bypass Prevention - Check at start and wrap in try-finally
+        kill_switch_checked = False
         try:
+            # Check kill switch at start of execution
+            if self.check_kill_switch() or self.check_master_kill_switch():
+                logger.warning(f"[KILL_SWITCH_BYPASS_PREVENTION] {symbol} | Trade execution blocked by kill switch")
+                return None  # Blocked, not failed
+            kill_switch_checked = True
             # CRITICAL: Check max trades BEFORE executing (enforce strict limit)
             # NOTE: Position count is checked at batch level (line 2208), so this is a safety check
             # We allow execution if we're within the batch limit (already validated upstream)
@@ -2591,6 +2678,15 @@ class TradingBot:
             # If ticket exists, trade was opened successfully and stats were already updated
             # Don't double-count as failed
             return False
+        finally:
+            # P0-3 FIX: Kill Switch Bypass Prevention - Final check in finally block
+            # This ensures kill switch is checked even if exceptions occur
+            if kill_switch_checked:
+                # Verify kill switch wasn't activated during execution
+                if self.check_kill_switch() or self.check_master_kill_switch():
+                    logger.warning(f"[KILL_SWITCH_BYPASS_PREVENTION] {symbol} | Kill switch activated during trade execution - future trades will be blocked")
+                    # Log bypass attempt for monitoring
+                    error_logger.warning(f"[KILL_SWITCH_BYPASS_PREVENTION] {symbol} | Kill switch check in finally block - execution completed but kill switch is now active")
     
     def _continuous_trailing_stop_loop(self):
         """
@@ -3658,27 +3754,62 @@ class TradingBot:
         # Regression guard check (governance)
         # CRITICAL FIX: Only check regression guard if we have sufficient sample size
         # Don't trigger kill switch on 0.0 win rate when there are no trades yet
+        # CRITICAL FIX: Skip regression guard check if master kill switch is already active
         if self.regression_guard:
-            try:
-                # Collect current metrics
-                current_metrics = self._collect_metrics_for_regression_guard()
-                if current_metrics:
-                    # CRITICAL FIX: Pass min_sample_size to regression guard check
-                    # Regression guard will now check sample size internally and skip if insufficient
-                    min_sample_size = 10  # Require at least 10 trades before checking metrics
-                    is_safe, rollback_reason = self.regression_guard.check_metrics(current_metrics, min_sample_size=min_sample_size)
-                    if not is_safe:
-                        logger.critical(f"[REGRESSION_GUARD] Metrics breach detected: {rollback_reason}")
-                        logger.critical(f"[REGRESSION_GUARD] Triggering master kill switch")
-                        self.regression_guard.trigger_master_kill_switch(f"Regression guard: {rollback_reason}")
+            # CRITICAL FIX: Check if master kill switch is active due to insufficient data
+            # If so, and we still have no trades, clear it automatically
+            if self.check_master_kill_switch():
+                master_kill_reason = self.master_kill_switch.get('reason', '')
+                # Check if kill switch was triggered due to insufficient data (win_rate 0.0 with no trades)
+                if 'win_rate breached: 0.0' in master_kill_reason or 'insufficient sample size' in master_kill_reason.lower():
+                    # Check current trade count
+                    current_metrics = self._collect_metrics_for_regression_guard()
+                    total_trades = current_metrics.get('total_trades', 0) if current_metrics else 0
+                    min_sample_size = 10
+                    
+                    if total_trades < min_sample_size:
+                        # Still no trades - clear the kill switch as it was a false trigger
+                        logger.info(f"[REGRESSION_GUARD] Clearing master kill switch - was triggered due to insufficient data (no trades) and still no trades ({total_trades} < {min_sample_size})")
+                        self.regression_guard.clear_master_kill_switch("Auto-cleared: was triggered due to insufficient data (no trades)")
                         # Reload kill switch config
                         self.master_kill_switch = self._load_master_kill_switch()
-                        # CRITICAL FIX: Don't abort cycle - allow scanning to continue
-                        if self.check_master_kill_switch():
-                            logger.warning(f"mode={mode} | [RUN_CYCLE] Master kill switch active (regression guard) - scanning allowed, trade execution blocked")
-                            master_kill_switch_active = True  # Update flag
-            except Exception as e:
-                logger.warning(f"Error in regression guard check: {e}")
+                        master_kill_switch_active = False  # Update flag
+            else:
+                # Master kill switch not active - proceed with normal regression guard check
+                try:
+                    # Collect current metrics
+                    current_metrics = self._collect_metrics_for_regression_guard()
+                    if current_metrics:
+                        # CRITICAL FIX: Double-check that we have sufficient trades before checking metrics
+                        total_trades = current_metrics.get('total_trades', 0)
+                        min_sample_size = 10  # Require at least 10 trades before checking metrics
+                        
+                        if total_trades < min_sample_size:
+                            logger.debug(f"[REGRESSION_GUARD] Skipping check - insufficient sample size ({total_trades} trades < {min_sample_size})")
+                        else:
+                            # CRITICAL FIX: Pass min_sample_size to regression guard check
+                            # Regression guard will now check sample size internally and skip if insufficient
+                            is_safe, rollback_reason = self.regression_guard.check_metrics(current_metrics, min_sample_size=min_sample_size)
+                            if not is_safe:
+                                logger.critical(f"[REGRESSION_GUARD] Metrics breach detected: {rollback_reason}")
+                                logger.critical(f"[REGRESSION_GUARD] Triggering master kill switch")
+                                self.regression_guard.trigger_master_kill_switch(f"Regression guard: {rollback_reason}")
+                                # Reload kill switch config
+                                self.master_kill_switch = self._load_master_kill_switch()
+                                # CRITICAL FIX: Don't abort cycle - allow scanning to continue
+                                if self.check_master_kill_switch():
+                                    logger.warning(f"mode={mode} | [RUN_CYCLE] Master kill switch active (regression guard) - scanning allowed, trade execution blocked")
+                                    master_kill_switch_active = True  # Update flag
+                except Exception as e:
+                    logger.warning(f"Error in regression guard check: {e}")
+        
+        # P0-1 FIX: MT5 Connection Loss Protection - Get position snapshot before reconnection
+        position_snapshot = None
+        if not self.mt5_connector.connected:
+            # Get snapshot before attempting reconnection
+            position_snapshot = self.mt5_connector.get_position_snapshot()
+            if position_snapshot:
+                logger.info(f"[POSITION_SNAPSHOT] Captured {len(position_snapshot)} positions before reconnection")
         
         # Ensure MT5 connection with retry logic and exponential backoff
         if not self.mt5_connector.ensure_connected():
@@ -3689,6 +3820,27 @@ class TradingBot:
                 if self.mt5_connector.reconnect():
                     reconnect_success = True
                     logger.info(f"[OK] MT5 reconnected successfully (attempt {reconnect_attempt + 1})")
+                    
+                    # P0-1 FIX: Verify positions after reconnection
+                    if position_snapshot:
+                        logger.info("[POSITION_VERIFICATION] Verifying positions after reconnection...")
+                        verification_results = self.mt5_connector.verify_positions_after_reconnection(self.order_manager)
+                        
+                        if verification_results['exceeded_risk']:
+                            logger.critical(f"[POSITION_VERIFICATION] {len(verification_results['exceeded_risk'])} positions exceed risk limits after reconnection")
+                            for pos_info in verification_results['exceeded_risk']:
+                                logger.critical(f"  Ticket {pos_info['ticket']} ({pos_info['symbol']}): ${pos_info['profit']:.2f}")
+                                # Close positions that exceed risk
+                                try:
+                                    self.order_manager.close_position(pos_info['ticket'], comment="Risk limit exceeded after reconnection")
+                                except Exception as close_error:
+                                    logger.error(f"Failed to close position {pos_info['ticket']}: {close_error}")
+                        
+                        if verification_results['missing']:
+                            logger.warning(f"[POSITION_VERIFICATION] {len(verification_results['missing'])} positions missing after reconnection (may have been closed)")
+                        
+                        logger.info(f"[POSITION_VERIFICATION] Verified: {len(verification_results['verified'])}, Missing: {len(verification_results['missing'])}, Exceeded Risk: {len(verification_results['exceeded_risk'])}")
+                    
                     break
                 else:
                     # Exponential backoff: 2^attempt seconds
@@ -3699,6 +3851,12 @@ class TradingBot:
             if not reconnect_success:
                 error_msg = f"MT5 reconnection failed after {max_reconnect_attempts} attempts"
                 logger.error(f"[ERROR] {error_msg}")
+                
+                # P0-1 FIX: Activate kill switch if reconnection fails
+                if self.mt5_connector._reconnection_failure_count >= self.mt5_connector._max_reconnection_failures:
+                    logger.critical("[CIRCUIT_BREAKER] MT5 reconnection circuit breaker activated - halting trading")
+                    self.activate_kill_switch("MT5 reconnection circuit breaker activated", close_positions=False)
+                
                 if self.manual_approval_mode:
                     print(f"\n[ERROR] {error_msg} - Aborting batch execution")
                     self.manual_batch_cancelled = True
@@ -3712,6 +3870,27 @@ class TradingBot:
         try:
             # Update daily P&L
             self.update_daily_pnl()
+            
+            # P2-12 FIX: Periodic Position Reconciliation - Reconcile every 5 minutes
+            current_time = datetime.now()
+            should_reconcile = False
+            if self._last_reconciliation_time is None:
+                should_reconcile = True  # First reconciliation
+            else:
+                time_since_reconciliation = (current_time - self._last_reconciliation_time).total_seconds() / 60.0
+                if time_since_reconciliation >= self._reconciliation_interval_minutes:
+                    should_reconcile = True
+            
+            if should_reconcile:
+                logger.info(f"[PERIODIC_RECONCILIATION] Starting periodic position reconciliation...")
+                try:
+                    reconciliation_result = self._reconcile_positions_periodic()
+                    logger.info(f"[PERIODIC_RECONCILIATION] Complete: {reconciliation_result.get('matched', 0)} matched, "
+                              f"{reconciliation_result.get('missing', 0)} missing, "
+                              f"{reconciliation_result.get('orphaned', 0)} orphaned")
+                    self._last_reconciliation_time = current_time
+                except Exception as recon_error:
+                    logger.error(f"[PERIODIC_RECONCILIATION] Error during reconciliation: {recon_error}", exc_info=True)
             
             # CRITICAL FIX: Auto-reset kill switch if conditions have improved
             # Check if kill switch was activated due to SL worker issues and if those issues are resolved
@@ -4565,6 +4744,70 @@ class TradingBot:
         
         self.mt5_connector.shutdown()
         logger.info("Trading bot shutdown complete")
+    
+    def _reconcile_positions_periodic(self) -> Dict[str, Any]:
+        """
+        P2-12 FIX: Periodic Position Reconciliation Enhancement.
+        
+        Reconciles positions periodically (every 5 minutes) to detect:
+        - Positions opened externally
+        - Positions closed externally
+        - Orphaned bot entries
+        
+        Returns:
+            Dictionary with reconciliation results: {'matched': int, 'missing': int, 'orphaned': int}
+        """
+        matched_count = 0
+        missing_count = 0
+        orphaned_count = 0
+        
+        try:
+            # Get current broker positions
+            broker_positions = self.order_manager.get_open_positions(exclude_dec8=False)
+            broker_tickets = {pos['ticket']: pos for pos in broker_positions}
+            
+            # Get bot tracked positions (from tracked_tickets)
+            bot_tickets = self.tracked_tickets.copy()
+            
+            # Find missing positions (in broker but not tracked by bot)
+            missing_tickets = set(broker_tickets.keys()) - bot_tickets
+            for ticket in missing_tickets:
+                position = broker_tickets[ticket]
+                logger.warning(f"[PERIODIC_RECONCILIATION] External position detected: Ticket {ticket} | "
+                             f"{position['symbol']} {position['type']} | "
+                             f"Entry: {position['price_open']:.5f} | "
+                             f"P/L: ${position['profit']:.2f}")
+                # Add to tracking
+                self.tracked_tickets.add(ticket)
+                self.position_monitor.update_tracked_positions(ticket)
+                missing_count += 1
+            
+            # Find orphaned bot entries (tracked but not in broker)
+            orphaned_tickets = bot_tickets - set(broker_tickets.keys())
+            for ticket in orphaned_tickets:
+                logger.info(f"[PERIODIC_RECONCILIATION] Orphaned entry detected: Ticket {ticket} | Removing from tracking")
+                # Remove from tracking
+                self.tracked_tickets.discard(ticket)
+                # Clean up SL manager tracking
+                if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                    self.risk_manager.sl_manager.cleanup_closed_position(ticket)
+                orphaned_count += 1
+            
+            matched_count = len(broker_tickets) - missing_count
+            
+            return {
+                'matched': matched_count,
+                'missing': missing_count,
+                'orphaned': orphaned_count
+            }
+        except Exception as e:
+            logger.error(f"Error during periodic reconciliation: {e}", exc_info=True)
+            return {
+                'matched': 0,
+                'missing': 0,
+                'orphaned': 0,
+                'error': str(e)
+            }
     
     def _reconcile_startup_trades(self) -> Dict[str, Any]:
         """

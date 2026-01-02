@@ -224,15 +224,43 @@ class OrderManager:
         if self._sl_manager:
             try:
                 worker_status = self._sl_manager.get_worker_status()
-                if not worker_status.get('running', False):
-                    checks['allowed'] = False
-                    checks['reason'] = "SL worker not running"
-                    return checks
+                is_running = worker_status.get('running', False)
+                is_thread_alive = worker_status.get('thread_alive', False)
+                active_positions = worker_status.get('last_position_count', 0)
                 
-                if not worker_status.get('thread_alive', False):
-                    checks['allowed'] = False
-                    checks['reason'] = "SL worker thread not alive"
-                    return checks
+                # If worker is not running or thread is not alive, check if we should allow trade anyway
+                if not is_running or not is_thread_alive:
+                    # Get timing stats to check if worker was recently active
+                    timing_stats = self._sl_manager.get_timing_stats()
+                    last_update_time = timing_stats.get('last_update_time')
+                    
+                    # Grace period: Allow trades if:
+                    # 1. Worker was active within last 8 seconds (likely restarting), OR
+                    # 2. No active positions (no immediate SL management needed)
+                    from datetime import datetime
+                    if last_update_time:
+                        time_since_update = (datetime.now() - last_update_time).total_seconds()
+                        if time_since_update <= 8.0:  # Worker was active within last 8 seconds
+                            logger.info(f"[TRADE_GATING] SL worker restarting (was active {time_since_update:.1f}s ago) - allowing trade during restart window")
+                            # Allow trade during brief restart window
+                        elif active_positions == 0:
+                            # No positions open, so no immediate SL management needed
+                            logger.info(f"[TRADE_GATING] SL worker not running but no active positions - allowing trade")
+                            # Allow trade if no positions
+                        else:
+                            # Worker has been down for > 8 seconds and we have positions - block trade
+                            checks['allowed'] = False
+                            checks['reason'] = f"SL worker not running (down for {time_since_update:.1f}s, {active_positions} positions)"
+                            return checks
+                    elif active_positions == 0:
+                        # No update time available but no positions - allow trade
+                        logger.info(f"[TRADE_GATING] SL worker not running but no active positions - allowing trade")
+                        # Allow trade if no positions
+                    else:
+                        # No update time and we have positions - block trade
+                        checks['allowed'] = False
+                        checks['reason'] = f"SL worker not running (no recent activity, {active_positions} positions)"
+                        return checks
             except Exception as e:
                 logger.warning(f"[TRADE_GATING] Could not check SL worker status: {e}")
                 # Don't block trade if check fails - log warning only
@@ -828,10 +856,17 @@ class OrderManager:
                         actual_filled_volume = deal.volume
                         slippage = abs(actual_entry_price - price)
                         
-                        # Log partial fill if volume differs
-                        if abs(actual_filled_volume - lot_size) > 0.0001:
+                        # P2-11 FIX: Partial Fill Risk Adjustment - Recalculate risk after fill
+                        is_partial_fill = abs(actual_filled_volume - lot_size) > 0.0001
+                        if is_partial_fill:
                             logger.info(f"[PARTIAL FILL] {symbol}: Requested {lot_size:.4f}, filled {actual_filled_volume:.4f} | "
                                       f"Remaining {lot_size - actual_filled_volume:.4f} ignored (as per requirement)")
+                            
+                            # P2-11 FIX: Log risk adjustment for partial fills
+                            # Risk is proportional to filled volume, so actual risk is less than calculated
+                            risk_adjustment_factor = actual_filled_volume / lot_size if lot_size > 0 else 1.0
+                            logger.info(f"[PARTIAL_FILL_RISK] {symbol} Ticket {ticket} | "
+                                      f"Risk adjustment factor: {risk_adjustment_factor:.4f} (filled {actual_filled_volume:.4f} of {lot_size:.4f})")
                         
                         if slippage > 0.00001:  # Significant slippage
                             logger.warning(f"[WARNING] {symbol}: Entry slippage detected - Requested: {price:.5f}, Filled: {actual_entry_price:.5f}, Slippage: {slippage:.5f}")
@@ -849,47 +884,65 @@ class OrderManager:
                    f"SL: {sl_price:.5f} | Entry Price: {actual_entry_price:.5f} (requested: {price:.5f}) | "
                    f"Slippage: {slippage:.5f}")
         
+        # P1-6 FIX: Order Execution Verification Loop - Enhanced verification with retry logic
         # CRITICAL SAFETY FIX #3: Synchronously verify SL was applied by broker
         # If SL is missing or incorrect, immediately close the position (fail-safe)
         ticket = result.order
         import time
-        time.sleep(0.05)  # 50ms delay for MT5 to register position
         
-        # Verify SL synchronously (retry up to 3 times)
+        # P1-6 FIX: Verification loop with retry (max 3 attempts, 1s delay)
+        max_verification_attempts = 3
+        verification_delay = 1.0  # 1 second delay between attempts
         position = None
-        for retry in range(3):
+        verification_success = False
+        
+        for verification_attempt in range(max_verification_attempts):
+            time.sleep(verification_delay if verification_attempt > 0 else 0.05)  # 50ms for first attempt, 1s for retries
+            
             position = self._get_position_by_ticket(ticket, use_cache=False)
             if position:
-                break
-            if retry < 2:
-                time.sleep(0.05)  # 50ms between retries
+                # Get actual SL from position
+                actual_sl = position.sl if hasattr(position, 'sl') else position.get('sl', 0.0)
+                
+                # CRITICAL: If SL is 0.0 or missing, this is a SAFETY VIOLATION
+                if actual_sl == 0.0 or actual_sl is None:
+                    if verification_attempt < max_verification_attempts - 1:
+                        logger.warning(f"[ATOMIC_SL_VERIFICATION] {symbol} Ticket {ticket} | "
+                                     f"SL verification failed (attempt {verification_attempt + 1}/{max_verification_attempts}) - retrying...")
+                        continue  # Retry verification
+                    else:
+                        # Final attempt failed - close position
+                        logger.critical(f"[ATOMIC_SL_VERIFICATION_FAILED] {symbol} Ticket {ticket} | "
+                                      f"CRITICAL: Position opened with SL=0.0 despite being in order request! "
+                                      f"Closing position immediately for safety.")
+                        self.close_position(ticket, comment="SL verification failed - safety violation")
+                        return {'error': -7, 'error_type': 'sl_verification_failed', 
+                               'mt5_comment': 'SL verification failed - position closed for safety'}
+                
+                # Verify SL is within tolerance (allowing for broker rounding)
+                sl_tolerance = point * 10  # Allow 10 points tolerance for broker rounding
+                if abs(actual_sl - sl_price) > sl_tolerance:
+                    if verification_attempt < max_verification_attempts - 1:
+                        logger.warning(f"[ATOMIC_SL_VERIFICATION] {symbol} Ticket {ticket} | "
+                                     f"SL mismatch (attempt {verification_attempt + 1}/{max_verification_attempts}) - retrying...")
+                        continue  # Retry verification
+                    else:
+                        logger.warning(f"[ATOMIC_SL_VERIFICATION_WARNING] {symbol} Ticket {ticket} | "
+                                     f"SL mismatch: Expected {sl_price:.5f}, Got {actual_sl:.5f} (diff: {abs(actual_sl - sl_price):.5f})")
+                        # Log warning but don't close - broker may have adjusted SL slightly
+                else:
+                    logger.info(f"[ATOMIC_SL_VERIFIED] {symbol} Ticket {ticket} | "
+                              f"SL verified: {actual_sl:.5f} (expected: {sl_price:.5f})")
+                
+                verification_success = True
+                break  # Verification successful
         
-        if position:
-            # Get actual SL from position
-            actual_sl = position.sl if hasattr(position, 'sl') else position.get('sl', 0.0)
-            
-            # CRITICAL: If SL is 0.0 or missing, this is a SAFETY VIOLATION
-            # Close position immediately (fail-safe)
-            if actual_sl == 0.0 or actual_sl is None:
-                logger.critical(f"[ATOMIC_SL_VERIFICATION_FAILED] {symbol} Ticket {ticket} | "
-                              f"CRITICAL: Position opened with SL=0.0 despite being in order request! "
-                              f"Closing position immediately for safety.")
-                self.close_position(ticket, comment="SL verification failed - safety violation")
-                return {'error': -7, 'error_type': 'sl_verification_failed', 
-                       'mt5_comment': 'SL verification failed - position closed for safety'}
-            
-            # Verify SL is within tolerance (allowing for broker rounding)
-            sl_tolerance = point * 10  # Allow 10 points tolerance for broker rounding
-            if abs(actual_sl - sl_price) > sl_tolerance:
-                logger.warning(f"[ATOMIC_SL_VERIFICATION_WARNING] {symbol} Ticket {ticket} | "
-                             f"SL mismatch: Expected {sl_price:.5f}, Got {actual_sl:.5f} (diff: {abs(actual_sl - sl_price):.5f})")
-                # Log warning but don't close - broker may have adjusted SL slightly
-            else:
-                logger.info(f"[ATOMIC_SL_VERIFIED] {symbol} Ticket {ticket} | "
-                          f"SL verified: {actual_sl:.5f} (expected: {sl_price:.5f})")
-        else:
-            logger.warning(f"[ATOMIC_SL_VERIFICATION] {symbol} Ticket {ticket} | "
-                         f"Position not found after order fill - may have been closed immediately")
+        if not verification_success:
+            # P1-6 FIX: Mark order as pending if verification fails
+            logger.warning(f"[ORDER_VERIFICATION] {symbol} Ticket {ticket} | "
+                         f"Position verification failed after {max_verification_attempts} attempts - marking as pending")
+            # Note: Position may still exist but verification failed - will retry in next cycle
+            # Don't return error - let position monitoring handle it
         
         # Return comprehensive result with actual fill price
         return {

@@ -11,17 +11,47 @@ from pathlib import Path
 from typing import Dict, Any, Optional, Tuple
 from utils.logger_factory import get_logger
 
+def _make_json_serializable(obj):
+    """
+    Recursively convert objects to JSON-serializable types.
+    Handles bool, numpy types, and other non-serializable objects.
+    """
+    if isinstance(obj, bool):
+        return bool(obj)  # Ensure native Python bool
+    elif isinstance(obj, (int, float, str, type(None))):
+        return obj
+    elif isinstance(obj, dict):
+        return {key: _make_json_serializable(value) for key, value in obj.items()}
+    elif isinstance(obj, (list, tuple)):
+        return [_make_json_serializable(item) for item in obj]
+    else:
+        # Try to convert to string for unknown types
+        try:
+            # Try to convert numpy types and other special types
+            if hasattr(obj, 'item'):  # numpy scalar
+                return obj.item()
+            elif hasattr(obj, 'tolist'):  # numpy array
+                return obj.tolist()
+            else:
+                return str(obj)
+        except Exception:
+            return str(obj)
+
 class TradeReasonLogger:
     """Logs detailed trade execution reasons with comprehensive analysis."""
     
-    def __init__(self, is_backtest: bool = False):
+    def __init__(self, is_backtest: bool = False, mt5_connector=None, order_manager=None):
         """
         Initialize Trade Reason Logger.
         
         Args:
             is_backtest: If True, log to backtest directory
+            mt5_connector: MT5 connector instance for historical data access (optional)
+            order_manager: Order manager instance for symbol info access (optional)
         """
         self.is_backtest = is_backtest
+        self.mt5_connector = mt5_connector
+        self.order_manager = order_manager
         
         # Create log directory
         log_dir = Path("logs/backtest/trades/reasons" if is_backtest else "logs/live/trades/reasons")
@@ -108,15 +138,15 @@ class TradeReasonLogger:
         if 'min_quality_score' not in opportunity:
             opportunity['min_quality_score'] = min_quality_score
         
-        # Extract filter results
+        # Extract filter results - ensure all are native Python booleans
         filters_passed = {
-            'news_filter': opportunity.get('news_filter_passed', True),
-            'volume_filter': opportunity.get('volume_filter_passed', True),
-            'market_closing_filter': opportunity.get('market_closing_filter_passed', True),
-            'rsi_filter': opportunity.get('rsi_filter_passed', True),
-            'spread_filter': opportunity.get('spread_filter_passed', True),
-            'volatility_filter': opportunity.get('volatility_filter_passed', True),
-            'trend_strength_filter': opportunity.get('trend_strength_filter_passed', True),
+            'news_filter': bool(opportunity.get('news_filter_passed', True)),
+            'volume_filter': bool(opportunity.get('volume_filter_passed', True)),
+            'market_closing_filter': bool(opportunity.get('market_closing_filter_passed', True)),
+            'rsi_filter': bool(opportunity.get('rsi_filter_passed', True)),
+            'spread_filter': bool(opportunity.get('spread_filter_passed', True)),
+            'volatility_filter': bool(opportunity.get('volatility_filter_passed', True)),
+            'trend_strength_filter': bool(opportunity.get('trend_strength_filter_passed', True)),
         }
         
         # Extract execution details
@@ -178,6 +208,7 @@ class TradeReasonLogger:
             'take_profit_price': take_profit_price,
             'quality_score': quality_score,
             'trend_strength': trend_strength,
+            'lot_size': lot_size,  # Store lot_size for post-trade analysis
             'opportunity': opportunity.copy()
         }
         
@@ -187,7 +218,7 @@ class TradeReasonLogger:
             'symbol': symbol,
             'ticket': ticket,
             'signal': signal,
-            'execution_status': execution_result.get('success', False),
+            'execution_status': bool(execution_result.get('success', False)),
             
             # Strategy Information
             'strategy': {
@@ -200,7 +231,7 @@ class TradeReasonLogger:
             
             # Quality Metrics
             'quality_score': quality_score,
-            'high_quality_setup': high_quality_setup,
+            'high_quality_setup': bool(high_quality_setup),
             'trend_strength_pct': trend_strength * 100 if trend_strength else 0.0,
             
             # Technical Indicators
@@ -269,8 +300,26 @@ class TradeReasonLogger:
             'detailed_analysis': self._generate_detailed_analysis(opportunity, signal, quality_score),
         }
         
-        # Write JSONL entry
-        json.dump(reason_analysis, self.log_file, ensure_ascii=False)
+        # Write JSONL entry - ensure all values are JSON-serializable
+        try:
+            # Convert all values to JSON-serializable types
+            serializable_analysis = _make_json_serializable(reason_analysis)
+            json.dump(serializable_analysis, self.log_file, ensure_ascii=False)
+            self.log_file.write('\n')
+            self.log_file.flush()
+        except (TypeError, ValueError) as e:
+            # If serialization still fails, log error but don't crash
+            if self.text_logger:
+                self.text_logger.error(f"JSON serialization error for ticket {ticket}: {e}")
+            # Try to write a minimal entry instead
+            minimal_entry = {
+                'timestamp': timestamp,
+                'symbol': symbol,
+                'ticket': ticket,
+                'signal': signal,
+                'error': f"Serialization failed: {str(e)}"
+            }
+            json.dump(minimal_entry, self.log_file, ensure_ascii=False)
         self.log_file.write('\n')
         self.log_file.flush()
         
@@ -854,14 +903,263 @@ class TradeReasonLogger:
     def _get_filter_configuration(self, opportunity: Dict[str, Any]) -> Dict[str, Any]:
         """Get filter configuration used."""
         return {
-            'news_filter': opportunity.get('news_filter_passed', True),
-            'volume_filter': opportunity.get('volume_filter_passed', True),
-            'market_closing_filter': opportunity.get('market_closing_filter_passed', True),
-            'rsi_filter': opportunity.get('rsi_filter_passed', True),
-            'spread_filter': opportunity.get('spread_filter_passed', True),
-            'volatility_filter': opportunity.get('volatility_filter_passed', True),
-            'trend_strength_filter': opportunity.get('trend_strength_filter_passed', True),
+            'news_filter': bool(opportunity.get('news_filter_passed', True)),
+            'volume_filter': bool(opportunity.get('volume_filter_passed', True)),
+            'market_closing_filter': bool(opportunity.get('market_closing_filter_passed', True)),
+            'rsi_filter': bool(opportunity.get('rsi_filter_passed', True)),
+            'spread_filter': bool(opportunity.get('spread_filter_passed', True)),
+            'volatility_filter': bool(opportunity.get('volatility_filter_passed', True)),
+            'trend_strength_filter': bool(opportunity.get('trend_strength_filter_passed', True)),
         }
+    
+    def _analyze_post_trade_price_movement(
+        self,
+        symbol: str,
+        entry_price: float,
+        exit_price: float,
+        signal: str,
+        entry_time: datetime,
+        lot_size: float,
+        duration_minutes: float,
+        actual_profit_usd: float
+    ) -> Dict[str, Any]:
+        """
+        Analyze price movement after trade closure to determine maximum profit potential.
+        
+        Returns:
+            Dictionary with max_profit_usd, max_profit_price, max_profit_time, etc.
+        """
+        analysis = {
+            'max_profit_usd': actual_profit_usd,  # Default to actual profit
+            'max_profit_price': exit_price,  # Default to exit price
+            'max_profit_time_minutes': duration_minutes,  # Default to duration
+            'profit_left_on_table_usd': 0.0,
+            'max_profit_achieved_after_close': False,
+            'analysis_available': False
+        }
+        
+        # Only analyze if we have MT5 connector and order manager
+        if not self.mt5_connector or not self.order_manager:
+            return analysis
+        
+        try:
+            # Get symbol info for profit calculation
+            symbol_info = self.mt5_connector.get_symbol_info(symbol)
+            if not symbol_info:
+                return analysis
+            
+            # Get historical price data after trade closure (up to 4 hours or until breakeven would have triggered)
+            import MetaTrader5 as mt5
+            if not self.mt5_connector.ensure_connected():
+                return analysis
+            
+            # Calculate time window: from entry to 4 hours after closure (or until breakeven would trigger)
+            from datetime import timedelta
+            exit_time = datetime.now()
+            analysis_end_time = exit_time + timedelta(hours=4)
+            
+            # Get M1 candles from entry time to analysis end time
+            timeframe = mt5.TIMEFRAME_M1
+            rates = mt5.copy_rates_range(symbol, timeframe, entry_time, analysis_end_time)
+            
+            if rates is None or len(rates) == 0:
+                return analysis
+            
+            # Convert to list for easier processing
+            import numpy as np
+            if isinstance(rates, np.ndarray):
+                rates_list = [dict(zip(rates.dtype.names, rate)) for rate in rates]
+            else:
+                rates_list = rates
+            
+            # Calculate profit for each candle
+            point_value = symbol_info.get('trade_tick_value', None)
+            contract_size = symbol_info.get('contract_size', 100000)
+            point = symbol_info.get('point', 0.00001)
+            
+            max_profit_usd = actual_profit_usd
+            max_profit_price = exit_price
+            max_profit_time = exit_time
+            max_profit_candle_idx = -1
+            
+            # Find maximum profit point
+            for idx, candle in enumerate(rates_list):
+                candle_time = datetime.fromtimestamp(candle['time'])
+                high = candle['high']
+                low = candle['low']
+                
+                # Calculate profit at high/low depending on signal
+                if signal == 'LONG':
+                    # For LONG: profit increases with higher prices
+                    price_diff = high - entry_price
+                    price_diff_points = price_diff / point if point > 0 else 0
+                    
+                    if point_value and point_value > 0:
+                        profit_at_high = price_diff_points * lot_size * point_value
+                    else:
+                        profit_at_high = price_diff * lot_size * contract_size
+                    
+                    if profit_at_high > max_profit_usd:
+                        max_profit_usd = profit_at_high
+                        max_profit_price = high
+                        max_profit_time = candle_time
+                        max_profit_candle_idx = idx
+                else:  # SHORT
+                    # For SHORT: profit increases with lower prices
+                    price_diff = entry_price - low
+                    price_diff_points = price_diff / point if point > 0 else 0
+                    
+                    if point_value and point_value > 0:
+                        profit_at_low = price_diff_points * lot_size * point_value
+                    else:
+                        profit_at_low = price_diff * lot_size * contract_size
+                    
+                    if profit_at_low > max_profit_usd:
+                        max_profit_usd = profit_at_low
+                        max_profit_price = low
+                        max_profit_time = candle_time
+                        max_profit_candle_idx = idx
+            
+            # Calculate profit left on table
+            profit_left_on_table = max(0.0, max_profit_usd - actual_profit_usd)
+            
+            # Check if max profit was achieved after trade closure
+            max_profit_after_close = max_profit_time > exit_time
+            
+            analysis.update({
+                'max_profit_usd': max_profit_usd,
+                'max_profit_price': max_profit_price,
+                'max_profit_time': max_profit_time.isoformat() if isinstance(max_profit_time, datetime) else str(max_profit_time),
+                'max_profit_time_minutes': (max_profit_time - entry_time).total_seconds() / 60 if isinstance(max_profit_time, datetime) else duration_minutes,
+                'profit_left_on_table_usd': profit_left_on_table,
+                'max_profit_achieved_after_close': max_profit_after_close,
+                'analysis_available': True
+            })
+            
+        except Exception as e:
+            # Log error but don't fail
+            if self.text_logger:
+                self.text_logger.debug(f"Error analyzing post-trade price movement for {symbol}: {e}")
+        
+        return analysis
+    
+    def _calculate_strategy_suggested_tp(
+        self,
+        symbol: str,
+        entry_price: float,
+        signal: str,
+        opportunity: Dict[str, Any],
+        lot_size: float
+    ) -> Dict[str, Any]:
+        """
+        Calculate what TP the strategy would suggest based on entry conditions.
+        
+        Uses ATR, trend strength, and quality score to determine optimal TP.
+        """
+        suggestion = {
+            'suggested_tp_price': None,
+            'suggested_tp_usd': None,
+            'calculation_method': 'unknown',
+            'reasoning': [],
+            'analysis_available': False
+        }
+        
+        if not self.order_manager:
+            return suggestion
+        
+        try:
+            # Get symbol info
+            symbol_info = self.order_manager.mt5_connector.get_symbol_info(symbol) if hasattr(self.order_manager, 'mt5_connector') else None
+            if not symbol_info:
+                return suggestion
+            
+            # Extract entry conditions
+            atr = opportunity.get('atr', 0.0)
+            trend_strength = opportunity.get('trend_strength', 0.0)
+            quality_score = opportunity.get('quality_score', 0.0)
+            point = symbol_info.get('point', 0.00001)
+            point_value = symbol_info.get('trade_tick_value', None)
+            contract_size = symbol_info.get('contract_size', 100000)
+            
+            # Method 1: ATR-based TP (most common for scalping)
+            if atr > 0:
+                # For scalping: TP = 1.5-3x ATR depending on quality
+                if quality_score >= 85:
+                    atr_multiplier = 3.0  # High quality: take more profit
+                elif quality_score >= 70:
+                    atr_multiplier = 2.5
+                else:
+                    atr_multiplier = 2.0
+                
+                tp_distance = atr * atr_multiplier
+                
+                if signal == 'LONG':
+                    suggested_tp_price = entry_price + tp_distance
+                else:  # SHORT
+                    suggested_tp_price = entry_price - tp_distance
+                
+                # Calculate profit in USD
+                if point_value and point_value > 0:
+                    tp_distance_points = tp_distance / point
+                    suggested_tp_usd = tp_distance_points * lot_size * point_value
+                else:
+                    suggested_tp_usd = tp_distance * lot_size * contract_size
+                
+                suggestion.update({
+                    'suggested_tp_price': suggested_tp_price,
+                    'suggested_tp_usd': suggested_tp_usd,
+                    'calculation_method': 'atr_based',
+                    'reasoning': [
+                        f"ATR-based calculation: {atr_multiplier}x ATR ({atr:.5f})",
+                        f"Quality score: {quality_score:.1f} (determines multiplier)",
+                        f"Trend strength: {trend_strength:.4f}"
+                    ],
+                    'analysis_available': True
+                })
+            
+            # Method 2: Trend strength-based TP (if ATR not available)
+            elif trend_strength > 0:
+                # Use trend strength to determine TP distance
+                # Strong trends: 2-3% of entry price
+                # Weak trends: 1-1.5% of entry price
+                if trend_strength > 0.05:
+                    tp_pct = 0.03  # 3% for strong trends
+                elif trend_strength > 0.02:
+                    tp_pct = 0.02  # 2% for moderate trends
+                else:
+                    tp_pct = 0.015  # 1.5% for weak trends
+                
+                if signal == 'LONG':
+                    suggested_tp_price = entry_price * (1 + tp_pct)
+                else:  # SHORT
+                    suggested_tp_price = entry_price * (1 - tp_pct)
+                
+                tp_distance = abs(suggested_tp_price - entry_price)
+                
+                # Calculate profit in USD
+                if point_value and point_value > 0:
+                    tp_distance_points = tp_distance / point
+                    suggested_tp_usd = tp_distance_points * lot_size * point_value
+                else:
+                    suggested_tp_usd = tp_distance * lot_size * contract_size
+                
+                suggestion.update({
+                    'suggested_tp_price': suggested_tp_price,
+                    'suggested_tp_usd': suggested_tp_usd,
+                    'calculation_method': 'trend_strength_based',
+                    'reasoning': [
+                        f"Trend strength-based: {tp_pct*100:.1f}% of entry price",
+                        f"Trend strength: {trend_strength:.4f}",
+                        f"Quality score: {quality_score:.1f}"
+                    ],
+                    'analysis_available': True
+                })
+            
+        except Exception as e:
+            if self.text_logger:
+                self.text_logger.debug(f"Error calculating strategy-suggested TP for {symbol}: {e}")
+        
+        return suggestion
     
     def log_trade_outcome(
         self,
@@ -880,9 +1178,14 @@ class TradeReasonLogger:
         strategy_id = trade_data.get('strategy_id', 'UNKNOWN')
         strategy_name = trade_data.get('strategy_name', 'Unknown Strategy')
         entry_price = trade_data.get('entry_price', 0.0)
-        entry_time = trade_data.get('entry_time', datetime.now())
+        entry_time_str = trade_data.get('entry_time', datetime.now().isoformat())
+        entry_time = datetime.fromisoformat(entry_time_str) if isinstance(entry_time_str, str) else entry_time_str
         quality_score = trade_data.get('quality_score', 0.0)
         signal = trade_data.get('signal', 'UNKNOWN')
+        symbol = trade_data.get('symbol', 'UNKNOWN')
+        opportunity = trade_data.get('opportunity', {})
+        # Get lot_size from stored trade data or opportunity
+        lot_size = trade_data.get('lot_size', opportunity.get('lot_size', 0.01) if opportunity else 0.01)
         
         # Analyze what worked and what didn't
         what_worked = []
@@ -908,6 +1211,52 @@ class TradeReasonLogger:
         price_movement = abs(exit_price - entry_price) if entry_price > 0 else 0.0
         price_movement_pct = (price_movement / entry_price * 100) if entry_price > 0 else 0.0
         
+        # Post-trade analysis: Maximum profit potential
+        post_trade_analysis = self._analyze_post_trade_price_movement(
+            symbol=symbol,
+            entry_price=entry_price,
+            exit_price=exit_price,
+            signal=signal,
+            entry_time=entry_time,
+            lot_size=lot_size,
+            duration_minutes=duration_minutes,
+            actual_profit_usd=profit_usd
+        )
+        
+        # Strategy-suggested TP analysis
+        strategy_tp_analysis = self._calculate_strategy_suggested_tp(
+            symbol=symbol,
+            entry_price=entry_price,
+            signal=signal,
+            opportunity=opportunity,
+            lot_size=lot_size
+        )
+        
+        # Get configured TP for comparison
+        configured_tp_price = opportunity.get('take_profit_price') if opportunity else None
+        configured_tp_usd = None
+        if configured_tp_price and entry_price > 0:
+            # Calculate configured TP profit
+            try:
+                symbol_info = self.order_manager.mt5_connector.get_symbol_info(symbol) if self.order_manager and hasattr(self.order_manager, 'mt5_connector') else None
+                if symbol_info:
+                    point = symbol_info.get('point', 0.00001)
+                    point_value = symbol_info.get('trade_tick_value', None)
+                    contract_size = symbol_info.get('contract_size', 100000)
+                    
+                    if signal == 'LONG':
+                        tp_distance = configured_tp_price - entry_price
+                    else:  # SHORT
+                        tp_distance = entry_price - configured_tp_price
+                    
+                    if point_value and point_value > 0:
+                        tp_distance_points = tp_distance / point
+                        configured_tp_usd = tp_distance_points * lot_size * point_value
+                    else:
+                        configured_tp_usd = tp_distance * lot_size * contract_size
+            except Exception:
+                pass
+        
         # Build outcome analysis
         outcome_analysis = {
             'timestamp': datetime.now().isoformat(),
@@ -924,12 +1273,27 @@ class TradeReasonLogger:
             'what_worked': what_worked,
             'what_didnt_work': what_didnt_work,
             'entry_quality_score': quality_score,
-            'signal': signal
+            'signal': signal,
+            
+            # Post-trade analysis: Maximum profit potential
+            'post_trade_analysis': post_trade_analysis,
+            
+            # Strategy-suggested TP analysis
+            'strategy_tp_analysis': strategy_tp_analysis,
+            
+            # Configured TP for comparison
+            'configured_tp': {
+                'tp_price': configured_tp_price,
+                'tp_usd': configured_tp_usd,
+                'vs_suggested_tp_usd': strategy_tp_analysis.get('suggested_tp_usd') - configured_tp_usd if configured_tp_usd and strategy_tp_analysis.get('suggested_tp_usd') else None
+            }
         }
         
-        # Write to log file
+        # Write to log file - ensure all values are JSON-serializable
         try:
-            json.dump(outcome_analysis, self.log_file, ensure_ascii=False)
+            # Convert all values to JSON-serializable types
+            serializable_analysis = _make_json_serializable(outcome_analysis)
+            json.dump(serializable_analysis, self.log_file, ensure_ascii=False)
             self.log_file.write('\n')
             self.log_file.flush()
         except Exception as e:

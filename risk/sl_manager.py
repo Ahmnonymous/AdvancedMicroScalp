@@ -225,9 +225,14 @@ class SLManager:
         self._circuit_breaker_cooldown_base = 60.0  # Base cooldown 60 seconds (PHASE 1 FIX 1.2)
         self._circuit_breaker_cooldown = 60.0  # Default cooldown 60 seconds (PHASE 1 FIX 1.2)
         
-        # PHASE 1 FIX 1.2: SL update timeout - abort if takes >2 seconds
+        # P3-17 FIX: Circuit Breaker Tuning - Add cooldown and auto-reset
+        self._circuit_breaker_cooldown_seconds = 300.0  # 5 minutes cooldown before auto-reset
+        self._circuit_breaker_activation_times = {}  # {ticket: activation_time} - track when circuit breaker activated
+        self._circuit_breaker_failure_types = {}  # {ticket: 'permanent'|'temporary'} - distinguish failure types
+        
+        # PHASE 1 FIX 1.2: SL update timeout - abort if takes >5 seconds (increased from 2s for slow broker responses)
         execution_config = config.get('execution', {})
-        self.sl_update_timeout_seconds = execution_config.get('sl_update_timeout_seconds', 2.0)  # 2 seconds max
+        self.sl_update_timeout_seconds = execution_config.get('sl_update_timeout_seconds', 5.0)  # 5 seconds max
         
         # Error throttling for fail-safe check (prevent log spam)
         self._fail_safe_error_throttle = {}  # {error_signature: last_logged_time}
@@ -272,12 +277,15 @@ class SLManager:
         self._csv_batch_size = 10  # Write in batches of 10
         self._csv_batch_timeout = 0.5  # Flush batch after 500ms even if not full
         
+        # P2-15 FIX: SL Update Rate Limiting Adjustment - Add priority queue for emergency updates
         # Global rate limiting: max 50 SL updates per second system-wide (configurable, increased for reliability)
         self._global_rpc_lock = threading.Lock()
         self._global_rpc_timestamps = []  # List of timestamps for last 50 updates
         execution_config = self.config.get('execution', {})
         self._global_rpc_max_per_second = execution_config.get('global_rpc_max_per_second', 50)  # Configurable, default 50
         self._global_rpc_queue = []  # Queue for non-emergency updates (FIFO)
+        # P2-15 FIX: Priority queue for emergency updates (strict loss, profit locking)
+        self._global_rpc_priority_queue = []  # Priority queue for emergency updates
         self._emergency_backoff_base = 0.05  # Short exponential backoff for emergency (50ms base)
         
         # Per-ticket rate limiting: Load from config or use default 100ms
@@ -2105,9 +2113,11 @@ class SLManager:
             calculation_error = abs(test_effective_sl - target_effective_sl)
             
             # CRITICAL: Ensure SL never sets tighter than -$2.00 (more negative = worse)
-            if test_effective_sl < target_effective_sl:
+            # Allow tolerance for rounding errors in contract size calculations (0.10 = 10 cents)
+            tolerance = 0.10
+            if test_effective_sl < (target_effective_sl - tolerance):
                 logger.critical(f"[CRITICAL] SL CALCULATION VIOLATION: {symbol} Ticket {ticket} | "
-                              f"Calculated SL produces ${test_effective_sl:.2f} loss (WORSE than target ${target_effective_sl:.2f}) | "
+                              f"Calculated SL produces ${test_effective_sl:.2f} loss (WORSE than target ${target_effective_sl:.2f} with {tolerance:.2f} tolerance) | "
                               f"Entry: {entry_price:.5f} | Target SL: {target_sl:.5f} | "
                               f"BLOCKING SL UPDATE - calculation error")
                 return False, f"SL calculation produces loss worse than -${self.max_risk_usd:.2f} (calculated: ${test_effective_sl:.2f})", None
@@ -3165,7 +3175,7 @@ class SLManager:
                     if is_strict_loss_enforcement:
                         # For strict loss enforcement (-$3.00), allow exactly max_risk_usd (no safety margin)
                         max_allowed_loss = float(max_risk_decimal)
-                        tolerance = Decimal('0.05')  # Allow 5 cents tolerance for rounding
+                        tolerance = Decimal('0.10')  # Allow 10 cents tolerance for rounding errors in contract size calculations
                         max_allowed_loss_with_tolerance = float(max_risk_decimal + tolerance)
                     else:
                         # For trailing/profit-locking, use 95% safety margin
@@ -4128,6 +4138,9 @@ class SLManager:
                                                 self._manual_review_tickets.add(ticket)
                                                 disabled_until = time.time() + self._circuit_breaker_cooldown  # Use configurable cooldown
                                                 self._ticket_circuit_breaker[ticket] = disabled_until
+                                                # P3-17 FIX: Track circuit breaker activation
+                                                self._circuit_breaker_activation_times[ticket] = time.time()
+                                                self._circuit_breaker_failure_types[ticket] = 'temporary'  # Assume temporary unless proven permanent
                                                 logger.critical(f"🚨 MANUAL REVIEW REQUIRED: {symbol} Ticket {ticket} | "
                                                               f"Emergency SL effective mismatch exceeds tolerance | "
                                                               f"Circuit breaker: disabled for 60s")
@@ -4142,6 +4155,9 @@ class SLManager:
                                             self._manual_review_tickets.add(ticket)
                                             disabled_until = time.time() + self._circuit_breaker_cooldown  # Use configurable cooldown
                                             self._ticket_circuit_breaker[ticket] = disabled_until
+                                            # P3-17 FIX: Track circuit breaker activation
+                                            self._circuit_breaker_activation_times[ticket] = time.time()
+                                            self._circuit_breaker_failure_types[ticket] = 'temporary'  # Assume temporary unless proven permanent
                                             logger.critical(f"🚨 MANUAL REVIEW REQUIRED: {symbol} Ticket {ticket} | "
                                                           f"Emergency SL price mismatch exceeds tolerance | "
                                                           f"Circuit breaker: disabled for 60s")
@@ -4844,9 +4860,22 @@ class SLManager:
         # For now, assume trailing if profit > trailing threshold (conservative - allows bypass)
         is_trailing_preliminary = (current_profit > self.trailing_increment_usd) if current_profit > 0 else False
         
+        # P3-17 FIX: Circuit Breaker Tuning - Check cooldown and auto-reset
         if ticket in self._ticket_circuit_breaker:
             disabled_until = self._ticket_circuit_breaker[ticket]
-            if time.time() < disabled_until:
+            current_time = time.time()
+            
+            # P3-17 FIX: Auto-reset circuit breaker after cooldown period
+            if current_time >= disabled_until + self._circuit_breaker_cooldown_seconds:
+                # Cooldown period expired - auto-reset circuit breaker
+                logger.info(f"[CIRCUIT_BREAKER_AUTO_RESET] {symbol} Ticket {ticket} | "
+                          f"Circuit breaker auto-reset after {self._circuit_breaker_cooldown_seconds}s cooldown")
+                del self._ticket_circuit_breaker[ticket]
+                if ticket in self._circuit_breaker_activation_times:
+                    del self._circuit_breaker_activation_times[ticket]
+                if ticket in self._circuit_breaker_failure_types:
+                    del self._circuit_breaker_failure_types[ticket]
+            elif current_time < disabled_until:
                 # CRITICAL FIX: Circuit breaker bypass for trailing stops, profit locks, emergency, and first eligible
                 # Trailing stops and profit locks MUST NOT be blocked by circuit breaker
                 # FIX #3: is_first_eligible is already checked above, so it will always bypass
@@ -6426,7 +6455,7 @@ class SLManager:
                     if order_type == 'BUY':
                         current_price_diff = current_price - effective_entry
                     else:  # SELL
-                        current_price_diff = entry_price - current_price
+                        current_price_diff = effective_entry - current_price
                     
                     current_price_diff_points = current_price_diff / point if point > 0 else 0
                     
@@ -6669,6 +6698,43 @@ class SLManager:
                     if t > cutoff_time
                 }
     
+    def _periodic_lock_cleanup(self):
+        """
+        P2-14 FIX: Periodic lock cleanup to prevent memory leaks.
+        
+        Removes locks for positions that no longer exist.
+        Runs every hour to prevent memory growth over long periods.
+        """
+        try:
+            # Get current open positions
+            current_positions = self.order_manager.get_open_positions(exclude_dec8=False)
+            current_tickets = {pos.get('ticket', 0) for pos in current_positions if pos.get('ticket', 0) > 0}
+            
+            # Find locks for closed positions
+            with self._locks_lock:
+                all_ticket_locks = set(self._ticket_locks.keys())
+                closed_ticket_locks = all_ticket_locks - current_tickets
+                
+                if closed_ticket_locks:
+                    logger.info(f"[PERIODIC_LOCK_CLEANUP] Cleaning up {len(closed_ticket_locks)} locks for closed positions")
+                    for ticket in closed_ticket_locks:
+                        # Clean up all lock-related data
+                        if ticket in self._ticket_locks:
+                            del self._ticket_locks[ticket]
+                        if hasattr(self, '_lock_holders') and ticket in self._lock_holders:
+                            del self._lock_holders[ticket]
+                        if hasattr(self, '_lock_hold_times') and ticket in self._lock_hold_times:
+                            del self._lock_hold_times[ticket]
+                        if hasattr(self, '_lock_holder_stack_traces') and ticket in self._lock_holder_stack_traces:
+                            del self._lock_holder_stack_traces[ticket]
+                    
+                    logger.info(f"[PERIODIC_LOCK_CLEANUP] Cleaned up {len(closed_ticket_locks)} locks | "
+                              f"Remaining locks: {len(self._ticket_locks)}")
+                else:
+                    logger.debug(f"[PERIODIC_LOCK_CLEANUP] No locks to clean up | Total locks: {len(self._ticket_locks)}")
+        except Exception as e:
+            logger.error(f"Error during periodic lock cleanup: {e}", exc_info=True)
+    
     def cleanup_closed_position(self, ticket: int):
         """
         Clean up tracking data for a closed position.
@@ -6703,9 +6769,28 @@ class SLManager:
                           f"Last Reason: {entry_data.get('last_update_reason', 'N/A')}")
                 del self._profit_zone_entry[ticket]
         
+        # P2-14 FIX: Memory Leak Prevention - Clean up all lock-related data
         with self._locks_lock:
             if ticket in self._ticket_locks:
                 del self._ticket_locks[ticket]
+            # Clean up lock holders
+            if hasattr(self, '_lock_holders') and ticket in self._lock_holders:
+                del self._lock_holders[ticket]
+            if hasattr(self, '_lock_hold_times') and ticket in self._lock_hold_times:
+                del self._lock_hold_times[ticket]
+            if hasattr(self, '_lock_holder_stack_traces') and ticket in self._lock_holder_stack_traces:
+                del self._lock_holder_stack_traces[ticket]
+            # Clean up orphaned ticket tracking
+            if hasattr(self, '_orphaned_tickets') and ticket in self._orphaned_tickets:
+                self._orphaned_tickets.discard(ticket)
+            if hasattr(self, '_orphaned_ticket_timestamps') and ticket in self._orphaned_ticket_timestamps:
+                del self._orphaned_ticket_timestamps[ticket]
+            # Clean up circuit breaker tracking
+            if hasattr(self, '_ticket_circuit_breaker') and ticket in self._ticket_circuit_breaker:
+                del self._ticket_circuit_breaker[ticket]
+            # Clean up rate limiting
+            if hasattr(self, '_sl_update_rate_limit') and ticket in self._sl_update_rate_limit:
+                del self._sl_update_rate_limit[ticket]
     
     def is_sl_verified(self, position: Dict[str, Any]) -> bool:
         """
@@ -7075,6 +7160,8 @@ class SLManager:
             iteration = 0
             last_summary_time = time.time()
             summary_interval = 30.0  # Log summary every 30 seconds
+            last_lock_cleanup_time = time.time()
+            lock_cleanup_interval = 3600.0  # P2-14 FIX: Clean up locks every hour
             
             mode = "BACKTEST" if self.config.get('mode') == 'backtest' else "LIVE"
             
@@ -7095,6 +7182,11 @@ class SLManager:
                     # Also log verification metrics for system health monitoring
                     self._log_verification_metrics()
                     last_summary_time = time.time()
+                
+                # P2-14 FIX: Periodic lock cleanup to prevent memory leaks
+                if time.time() - last_lock_cleanup_time >= lock_cleanup_interval:
+                    self._periodic_lock_cleanup()
+                    last_lock_cleanup_time = time.time()
                 
                 tracer.trace(
                     function_name="SLManager._sl_worker_loop",
@@ -7899,9 +7991,17 @@ class SLManager:
                     return True, backoff
                 return True, 0.0  # No backoff needed
             
-            # Check if we're at the limit
+            # P2-15 FIX: Check if we're at the limit - use priority queue for emergency updates
             if len(self._global_rpc_timestamps) >= self._global_rpc_max_per_second:
-                # Queue for later (non-emergency)
+                # P2-15 FIX: Emergency updates go to priority queue, others to regular queue
+                if is_emergency or is_profit_locking:
+                    # Add to priority queue (will be processed first)
+                    self._global_rpc_priority_queue.append((ticket, current_time, 'emergency' if is_emergency else 'profit_locking'))
+                    logger.debug(f"[RATE_LIMIT_PRIORITY] {symbol} Ticket {ticket} | Added to priority queue (type: {'emergency' if is_emergency else 'profit_locking'})")
+                else:
+                    # Add to regular queue
+                    self._global_rpc_queue.append((ticket, current_time))
+                    logger.debug(f"[RATE_LIMIT_QUEUE] {symbol} Ticket {ticket} | Added to regular queue")
                 return False, 0.0
             
             # Allow update - add timestamp

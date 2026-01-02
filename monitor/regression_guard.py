@@ -160,6 +160,12 @@ class RegressionGuard:
             logger.debug(f"[REGRESSION_GUARD] Insufficient sample size ({total_trades} trades < {min_sample_size}) - skipping check")
             return True, None  # Safe - not enough data to make decision
         
+        # CRITICAL FIX: Additional safety check - if total_trades is 0, definitely skip
+        # This prevents false triggers when metrics are collected but no trades exist
+        if total_trades == 0:
+            logger.debug(f"[REGRESSION_GUARD] No trades yet (total_trades=0) - skipping check to prevent false triggers")
+            return True, None  # Safe - no trades means no metrics to evaluate
+        
         budget = self.phase_budgets.get(self.current_phase, {})
         
         for metric_name, value in metrics.items():
@@ -258,6 +264,37 @@ class RegressionGuard:
             
         except Exception as e:
             logger.error(f"Failed to trigger master kill switch: {e}", exc_info=True)
+    
+    def clear_master_kill_switch(self, reason: str = "Auto-cleared due to insufficient data"):
+        """Clear master kill switch via config update."""
+        try:
+            # Load current config
+            with open(self.config_path, 'r') as f:
+                config = json.load(f)
+            
+            # Initialize governance section if not exists
+            if 'governance' not in config:
+                config['governance'] = {}
+            
+            # Clear master kill switch
+            config['governance']['master_kill_switch'] = {
+                'enabled': False,
+                'reason': reason,
+                'revert_to_phase': 3,
+                'disable_features': [],
+                'log_level': 'INFO',
+                'cleared_at': datetime.now().isoformat()
+            }
+            
+            # Save config
+            with open(self.config_path, 'w') as f:
+                json.dump(config, f, indent=2)
+            
+            logger.info(f"[AUTO_KILL_SWITCH] Cleared: {reason}")
+            logger.info(f"[AUTO_KILL_SWITCH] Config updated: {self.config_path}")
+            
+        except Exception as e:
+            logger.error(f"Failed to clear master kill switch: {e}", exc_info=True)
     
     def save_phase_result(self, phase: int, metrics: Dict[str, float]):
         """Save phase result for use in next phase baseline."""

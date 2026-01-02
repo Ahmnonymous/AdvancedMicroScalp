@@ -298,19 +298,11 @@
   "governance": {
     "master_kill_switch": {
       "enabled": false,
-      "reason": "Regression guard: win_rate breached: 0.0 vs threshold 0.8",
+      "reason": "Auto-cleared: was triggered due to insufficient data (no trades)",
       "revert_to_phase": 3,
-      "disable_features": [
-        "breakeven_logic",
-        "partial_profit_taking",
-        "runner_positions",
-        "improved_sl_placement",
-        "shadow_mode_filters"
-      ],
-      "log_level": "CRITICAL",
-      "activated_at": "2026-01-02T23:36:37.091673",
-      "disabled_at": "2026-01-02T23:50:00.000000",
-      "disabled_reason": "Insufficient sample size - regression guard triggered on 0 trades"
+      "disable_features": [],
+      "log_level": "INFO",
+      "cleared_at": "2026-01-03T00:51:11.008074"
     },
     "deployment": {
       "current_phase": 1

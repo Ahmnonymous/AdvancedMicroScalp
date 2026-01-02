@@ -256,66 +256,118 @@ class SLWatchdog:
     
     def _restart_worker(self, reason: str):
         """
-        CRITICAL SAFETY FIX #6: Halt trading instead of restarting worker.
+        P0-2 FIX: SL Worker Thread Crash Recovery with automatic restart and exponential backoff.
         
-        PROBLEM (PROVEN): Watchdog restarts abort SL updates, creating protection gaps.
-        
-        NEW BEHAVIOR: Instead of restarting, activate kill switch and halt trading.
-        Rule: Fail closed, not open.
+        NEW BEHAVIOR: Attempt automatic restart with exponential backoff (max 3 attempts).
+        If restart fails, activate kill switch and close all positions.
         
         Args:
             reason: Reason for worker health issue
         """
         current_time = datetime.now()
         
-        # CRITICAL SAFETY FIX #6: HALT TRADING instead of restarting
-        # Restarting creates protection gaps - better to fail closed (halt trading)
+        # P0-2 FIX: Track restart attempts
+        if not hasattr(self, '_restart_attempts'):
+            self._restart_attempts = {}
+        
+        restart_key = f"{reason}_{current_time.strftime('%Y%m%d%H%M')}"  # Group by reason and minute
+        if restart_key not in self._restart_attempts:
+            self._restart_attempts[restart_key] = {
+                'count': 0,
+                'first_attempt': current_time,
+                'last_attempt': current_time
+            }
+        
+        attempt_info = self._restart_attempts[restart_key]
+        attempt_info['count'] += 1
+        attempt_info['last_attempt'] = current_time
+        
+        max_restart_attempts = 3
+        base_backoff_seconds = 2.0  # Start with 2 seconds
         
         watchdog_logger.critical(f"🚨 WATCHDOG: SL WORKER UNHEALTHY | Reason: {reason} | "
-                               f"HALTING TRADING (fail-safe) instead of restarting")
+                               f"Attempt {attempt_info['count']}/{max_restart_attempts}")
         
-        # Mark system as UNSAFE
-        try:
-            from utils.system_health import mark_system_unsafe
-            mark_system_unsafe(
-                reason="sl_worker_unhealthy",
-                details=f"Watchdog detected SL worker issue: {reason}"
-            )
-        except Exception as e:
-            watchdog_logger.error(f"Failed to mark system unsafe: {e}", exc_info=True)
+        # P0-2 FIX: Attempt automatic restart with exponential backoff
+        if attempt_info['count'] <= max_restart_attempts:
+            try:
+                # Calculate backoff delay (exponential: 2s, 4s, 8s)
+                backoff_delay = base_backoff_seconds * (2 ** (attempt_info['count'] - 1))
+                watchdog_logger.info(f"[WORKER_RESTART] Waiting {backoff_delay:.1f}s before restart attempt {attempt_info['count']}...")
+                time.sleep(backoff_delay)
+                
+                # Attempt to restart worker
+                watchdog_logger.info(f"[WORKER_RESTART] Attempting to restart SL worker (attempt {attempt_info['count']}/{max_restart_attempts})...")
+                
+                # Stop current worker if running
+                if self.sl_manager._sl_worker_running:
+                    self.sl_manager.stop_sl_worker()
+                    time.sleep(0.5)  # Wait for thread to stop
+                
+                # Start worker again
+                self.sl_manager.start_sl_worker(watchdog=self)
+                
+                # Verify worker started
+                time.sleep(1.0)  # Give worker time to start
+                worker_status = self.sl_manager.get_worker_status()
+                
+                if worker_status.get('running', False) and worker_status.get('thread_alive', False):
+                    watchdog_logger.info(f"[WORKER_RESTART] SL worker restarted successfully (attempt {attempt_info['count']})")
+                    # Reset attempt count on success
+                    attempt_info['count'] = 0
+                    return  # Success - worker restarted
+                else:
+                    watchdog_logger.warning(f"[WORKER_RESTART] SL worker restart failed (attempt {attempt_info['count']}) - worker not running")
+                    
+            except Exception as restart_error:
+                watchdog_logger.error(f"[WORKER_RESTART] Error during restart attempt {attempt_info['count']}: {restart_error}", exc_info=True)
         
-        # Activate kill switch (if trading_bot available)
-        try:
-            # Try to get trading_bot from sl_manager's order_manager
-            order_manager = self.sl_manager.order_manager
-            if hasattr(order_manager, '_trading_bot'):
-                trading_bot = order_manager._trading_bot
-                if trading_bot:
-                    # FIX: Don't close positions for SL worker health issues - just halt new trades
-                    trading_bot.activate_kill_switch(
-                        f"SL worker unhealthy: {reason}",
-                        close_positions=False  # Only halt new trades, don't close existing positions
-                    )
-                    watchdog_logger.critical(f"[KILL_SWITCH_ACTIVATED] Trading disabled due to SL worker health issue")
-        except Exception as e:
-            watchdog_logger.error(f"Failed to activate kill switch: {e}", exc_info=True)
-        
-        # Log system event
-        try:
-            from utils.logger_factory import get_system_event_logger
-            system_event_logger = get_system_event_logger()
-            system_event_logger.systemEvent("WATCHDOG_HALT_TRADING", {
-                "reason": reason,
-                "timestamp": current_time.isoformat(),
-                "action": "kill_switch_activated"
-            })
-        except Exception as e:
-            watchdog_logger.warning(f"Failed to log system event: {e}")
-        
-        # DO NOT RESTART WORKER - Halt trading instead
-        watchdog_logger.critical(f"[WATCHDOG_HALT] Trading halted - manual intervention required | "
-                               f"Reason: {reason} | "
-                               f"System marked UNSAFE - no new trades will be placed")
+        # P0-2 FIX: If all restart attempts failed, activate kill switch and close positions
+        if attempt_info['count'] > max_restart_attempts:
+            watchdog_logger.critical(f"[WORKER_RESTART] All restart attempts failed - activating kill switch and closing positions")
+            
+            # Mark system as UNSAFE
+            try:
+                from utils.system_health import mark_system_unsafe
+                mark_system_unsafe(
+                    reason="sl_worker_restart_failed",
+                    details=f"SL worker restart failed after {max_restart_attempts} attempts: {reason}"
+                )
+            except Exception as e:
+                watchdog_logger.error(f"Failed to mark system unsafe: {e}", exc_info=True)
+            
+            # Activate kill switch and close positions
+            try:
+                order_manager = self.sl_manager.order_manager
+                if hasattr(order_manager, '_trading_bot'):
+                    trading_bot = order_manager._trading_bot
+                    if trading_bot:
+                        # P0-2 FIX: Close positions if restart failed
+                        trading_bot.activate_kill_switch(
+                            f"SL worker restart failed after {max_restart_attempts} attempts: {reason}",
+                            close_positions=True  # Close positions if restart failed
+                        )
+                        watchdog_logger.critical(f"[KILL_SWITCH_ACTIVATED] Trading disabled and positions closed due to SL worker restart failure")
+            except Exception as e:
+                watchdog_logger.error(f"Failed to activate kill switch: {e}", exc_info=True)
+            
+            # Log system event
+            try:
+                from utils.logger_factory import get_system_event_logger
+                system_event_logger = get_system_event_logger()
+                system_event_logger.systemEvent("WATCHDOG_RESTART_FAILED", {
+                    "reason": reason,
+                    "attempts": attempt_info['count'],
+                    "timestamp": current_time.isoformat(),
+                    "action": "kill_switch_activated_positions_closed"
+                })
+            except Exception as e:
+                watchdog_logger.warning(f"Failed to log system event: {e}")
+            
+            watchdog_logger.critical(f"[WATCHDOG_HALT] Trading halted and positions closed - manual intervention required | "
+                                   f"Reason: {reason} | "
+                                   f"Restart attempts: {attempt_info['count']} | "
+                                   f"System marked UNSAFE")
     
     def _check_in_flight_updates(self) -> Tuple[List[int], bool]:
         """

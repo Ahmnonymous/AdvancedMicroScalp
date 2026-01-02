@@ -94,7 +94,7 @@ def get_logger(name: str, logfile_path: str, level: int = logging.INFO) -> loggi
                     if attempt < max_retries - 1:
                         time.sleep(retry_delay * (attempt + 1))  # Exponential backoff
                     else:
-                        # Last attempt failed - create a fallback handler that writes to stderr
+                        # P3-16 FIX: Last attempt failed - create a fallback handler that writes to stderr
                         import sys
                         print(f"WARNING: Could not open log file {logfile_path} after {max_retries} attempts: {e}", file=sys.stderr)
                         print(f"Falling back to stderr logging for logger '{name}'", file=sys.stderr)
