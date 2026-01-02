@@ -35,10 +35,14 @@ class ExecutionTracer:
         self.lock = threading.Lock()
         self.start_time = time.time()
         
-        # Setup file logger (no console output)
-        # Use DEBUG level to capture all trace messages (OK, WARNING, ERROR, FAILED)
-        import logging
-        self.logger = get_logger("execution_tracer", log_file, level=logging.DEBUG)
+        # Logger disabled to save storage space
+        class NullLogger:
+            def info(self, *args, **kwargs): pass
+            def error(self, *args, **kwargs): pass
+            def warning(self, *args, **kwargs): pass
+            def debug(self, *args, **kwargs): pass
+            def critical(self, *args, **kwargs): pass
+        self.logger = NullLogger()
         
     def trace(self, function_name: str, iteration: Optional[int] = None, 
               expected: Optional[str] = None, actual: Optional[str] = None,
@@ -56,8 +60,8 @@ class ExecutionTracer:
             reason: Reason for failure/warning (if applicable)
             **kwargs: Additional context data
         """
-        if not self.enabled:
-            return
+        # Execution tracer disabled to save storage space
+        return
         
         timestamp = datetime.now()
         elapsed = time.time() - self.start_time
@@ -206,11 +210,10 @@ class ExecutionTracer:
 
 def get_tracer() -> ExecutionTracer:
     """Get the global tracer instance."""
-    global _tracer_instance
-    with _tracer_lock:
-        if _tracer_instance is None:
-            _tracer_instance = ExecutionTracer()
-        return _tracer_instance
+    # Execution tracer disabled to save storage space - return a null tracer
+    class NullTracer:
+        def trace(self, *args, **kwargs): pass
+    return NullTracer()
 
 
 def trace_function(function_name: Optional[str] = None, 

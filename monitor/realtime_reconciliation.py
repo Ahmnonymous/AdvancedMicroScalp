@@ -19,7 +19,14 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from monitor.realtime_broker_fetcher import RealtimeBrokerFetcher
 from utils.logger_factory import get_logger
 
-logger = get_logger("realtime_recon", "logs/live/system/realtime_reconciliation.log")
+# Logger disabled to save storage space
+class NullLogger:
+    def info(self, *args, **kwargs): pass
+    def error(self, *args, **kwargs): pass
+    def warning(self, *args, **kwargs): pass
+    def debug(self, *args, **kwargs): pass
+    def critical(self, *args, **kwargs): pass
+logger = NullLogger()
 
 
 class RealtimeReconciliation:

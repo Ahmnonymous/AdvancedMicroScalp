@@ -9,7 +9,7 @@ import os
 import random
 import threading
 from datetime import datetime, timedelta
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Tuple
 
 from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager, OrderType
@@ -146,6 +146,8 @@ class TradingBot:
         self.risk_manager.set_pnl_callback(self._update_realized_pnl_on_closure)
         # Also set callback for daily_pnl updates during monitoring loop
         self.risk_manager.bot_pnl_callback = self.update_daily_pnl
+        # Set bot reference for trade reason outcome logging
+        self.risk_manager.bot = self
         
         # Initialize Position Monitor for closure detection
         self.position_monitor = PositionMonitor(self.config, self.trade_logger)
@@ -205,10 +207,52 @@ class TradingBot:
         self.consecutive_errors = 0
         self.last_error_time = None
         self.kill_switch_active = False
+        self.kill_switch_reason = None
+        self.kill_switch_activated_at = None
         # Error throttling: track recent errors to avoid counting duplicates
         self._error_throttle = {}  # {error_signature: last_counted_time}
         self._error_throttle_window = 5.0  # seconds - same error only counted once per window
         self.running = False
+        
+        # Master kill switch (governance)
+        self.master_kill_switch = self._load_master_kill_switch()
+        self.config_path = config_path
+        
+        # Initialize regression guard (governance)
+        try:
+            from monitor.regression_guard import RegressionGuard
+            self.regression_guard = RegressionGuard(self.config)
+            logger.info("Regression guard initialized")
+        except Exception as e:
+            logger.warning(f"Failed to initialize regression guard: {e}")
+            self.regression_guard = None
+        
+        # Initialize expectancy gate (governance)
+        try:
+            from monitor.expectancy_gate import ExpectancyGate
+            self.expectancy_gate = ExpectancyGate()
+            logger.info("Expectancy gate initialized")
+        except Exception as e:
+            logger.warning(f"Failed to initialize expectancy gate: {e}")
+            self.expectancy_gate = None
+        
+        # Initialize strategy evolution locks (governance)
+        try:
+            from monitor.strategy_evolution_locks import StrategyEvolutionLocks
+            self.strategy_locks = StrategyEvolutionLocks()
+            logger.info("Strategy evolution locks initialized")
+        except Exception as e:
+            logger.warning(f"Failed to initialize strategy evolution locks: {e}")
+            self.strategy_locks = None
+        
+        # Set trading_bot references for governance checks
+        if hasattr(self.risk_manager, 'set_trading_bot'):
+            self.risk_manager.set_trading_bot(self)
+        if hasattr(self.order_manager, 'set_trading_bot'):
+            self.order_manager.set_trading_bot(self)
+        # Set trading_bot reference in order_manager for sl_manager access
+        if hasattr(self.order_manager, '_trading_bot'):
+            self.order_manager._trading_bot = self
         
         # Lightweight logger state tracking (thread-safe)
         self._state_lock = threading.Lock()
@@ -364,23 +408,152 @@ class TradingBot:
     
     def check_kill_switch(self) -> bool:
         """Check if kill switch is active."""
+        # CRITICAL FIX: Don't log every time - only log once per cycle or use debug level
+        # This prevents thousands of log entries when called repeatedly
         if self.kill_switch_active:
-            logger.warning("KILL SWITCH ACTIVE - Trading halted")
+            # Only log at debug level to avoid spam - the cycle-level logging will show the status
+            logger.debug("Kill switch active (execution blocked)")
             return True
         return False
     
-    def activate_kill_switch(self, reason: str):
-        """Activate kill switch to stop all trading."""
-        self.kill_switch_active = True
-        error_logger.critical(f"KILL SWITCH ACTIVATED: {reason}")
-        logger.critical(f"KILL SWITCH ACTIVATED: {reason}")
+    def _load_master_kill_switch(self) -> Dict[str, Any]:
+        """Load master kill switch config."""
+        return self.config.get('governance', {}).get('master_kill_switch', {
+            'enabled': False,
+            'revert_to_phase': 3,
+            'disable_features': []
+        })
+    
+    def check_master_kill_switch(self) -> bool:
+        """Check master kill switch - called on every trade cycle."""
+        # Reload config to check for changes
+        try:
+            with open(self.config_path, 'r') as f:
+                current_config = json.load(f)
+            self.master_kill_switch = current_config.get('governance', {}).get('master_kill_switch', {
+                'enabled': False,
+                'revert_to_phase': 3,
+                'disable_features': []
+            })
+        except Exception as e:
+            logger.warning(f"Failed to reload master kill switch config: {e}")
         
-        # Close all positions if needed
-        positions = self.order_manager.get_open_positions()
-        for position in positions:
-            error_logger.warning(f"Closing position {position['ticket']} due to kill switch")
-            logger.warning(f"Closing position {position['ticket']} due to kill switch")
-            self.order_manager.close_position(position['ticket'], comment="Kill switch activated")
+        if not self.master_kill_switch.get('enabled', False):
+            return False
+        
+        reason = self.master_kill_switch.get('reason', 'Unknown')
+        revert_phase = self.master_kill_switch.get('revert_to_phase', 3)
+        
+        logger.critical(f"[MASTER_KILL_SWITCH] ACTIVE - Reason: {reason}")
+        logger.critical(f"[MASTER_KILL_SWITCH] Reverting to Phase {revert_phase} behavior")
+        
+        # Log loudly via system events
+        try:
+            from utils.logger_factory import get_system_event_logger
+            system_event_logger = get_system_event_logger()
+            system_event_logger.systemEvent("MASTER_KILL_SWITCH_ACTIVE", {
+                "reason": reason,
+                "revert_to_phase": revert_phase,
+                "disabled_features": self.master_kill_switch.get('disable_features', []),
+                "timestamp": datetime.now().isoformat()
+            })
+        except Exception as e:
+            logger.warning(f"Failed to log master kill switch event: {e}")
+        
+        return True
+    
+    def is_feature_enabled(self, feature_name: str) -> bool:
+        """Check if a feature is enabled (respects master kill switch)."""
+        if self.check_master_kill_switch():
+            disabled_features = self.master_kill_switch.get('disable_features', [])
+            if feature_name in disabled_features:
+                logger.warning(f"[FEATURE_DISABLED] {feature_name} disabled by master kill switch")
+                return False
+        
+        # Check feature-specific config
+        return self.config.get('features', {}).get(feature_name, {}).get('enabled', False)
+    
+    def _collect_metrics_for_regression_guard(self) -> Optional[Dict[str, float]]:
+        """Collect current metrics for regression guard check."""
+        try:
+            # Get trade statistics
+            total_trades = self.trade_stats.get('total_trades', 0)
+            wins = self.trade_stats.get('profitable_trades', 0)
+            losses = total_trades - wins
+            
+            if total_trades == 0:
+                return None
+            
+            # Calculate win rate
+            win_rate = wins / total_trades if total_trades > 0 else 0.0
+            
+            # Calculate expectancy (simplified - would need profit/loss data)
+            # For now, return basic metrics
+            metrics = {
+                'win_rate': win_rate,
+                'total_trades': total_trades  # CRITICAL: Include total_trades so regression guard can check sample size
+            }
+            
+            # Add latency if available (would need to track this)
+            # Add other metrics as they become available
+            
+            return metrics
+        except Exception as e:
+            logger.warning(f"Error collecting metrics for regression guard: {e}")
+            return None
+    
+    def activate_kill_switch(self, reason: str, close_positions: bool = False):
+        """
+        Activate kill switch to stop all trading.
+        
+        CRITICAL FIX: Separated "halt new trades" from "close existing positions"
+        
+        Args:
+            reason: Reason for kill switch activation
+            close_positions: If True, close all existing positions. If False, only halt new trades (default: False)
+        """
+        # CRITICAL FIX: Don't reactivate if already active (prevents spam and repeated position closing)
+        if self.kill_switch_active:
+            logger.debug(f"Kill switch already active (reason: {reason}) - skipping reactivation")
+            return
+        
+        self.kill_switch_active = True
+        self.kill_switch_reason = reason  # Store reason for logging
+        self.kill_switch_activated_at = datetime.now()  # Track when activated
+        error_logger.critical(f"KILL SWITCH ACTIVATED: {reason} | Close positions: {close_positions}")
+        logger.critical(f"KILL SWITCH ACTIVATED: {reason} | Close positions: {close_positions}")
+        
+        # FIX: Only close positions if explicitly requested (e.g., SL safety guard violations)
+        # For SL worker health issues, just halt new trades - don't close existing positions
+        if close_positions:
+            positions = self.order_manager.get_open_positions()
+            for position in positions:
+                ticket = position.get('ticket') if isinstance(position, dict) else getattr(position, 'ticket', None)
+                if ticket:
+                    error_logger.warning(f"Closing position {ticket} due to kill switch")
+                    logger.warning(f"Closing position {ticket} due to kill switch")
+                    try:
+                        # Log trade outcome before closing
+                        if hasattr(self, 'trade_reason_logger'):
+                            try:
+                                close_price = position.get('price_current', 0.0)
+                                profit = position.get('profit', 0.0)
+                                self.trade_reason_logger.log_trade_outcome(
+                                    ticket=ticket,
+                                    exit_price=close_price,
+                                    profit_usd=profit,
+                                    close_reason=f"Kill switch activated: {reason}",
+                                    duration_minutes=0.0  # Unknown duration
+                                )
+                            except Exception as outcome_error:
+                                logger.debug(f"Error logging trade outcome for ticket {ticket}: {outcome_error}")
+                        
+                        self.order_manager.close_position(ticket, comment=f"Kill switch activated: {reason}")
+                    except Exception as e:
+                        error_logger.error(f"Failed to close position {ticket}: {e}", exc_info=True)
+                        logger.error(f"Failed to close position {ticket}: {e}", exc_info=True)
+        else:
+            logger.info(f"Kill switch activated - halting new trades only (not closing existing positions)")
     
     def handle_error(self, error: Exception, context: str = ""):
         """
@@ -441,8 +614,11 @@ class TradingBot:
     def reset_kill_switch(self):
         """Reset kill switch and error count for fresh start."""
         if self.kill_switch_active:
-            logger.info("Resetting kill switch - trading will resume")
+            reason = self.kill_switch_reason if hasattr(self, 'kill_switch_reason') else "unknown"
+            logger.info(f"Resetting kill switch - trading will resume (was active due to: {reason})")
         self.kill_switch_active = False
+        self.kill_switch_reason = None
+        self.kill_switch_activated_at = None
         self.consecutive_errors = 0
         self.last_error_time = None
         logger.info("Kill switch and error count reset - system ready for trading")
@@ -802,6 +978,14 @@ class TradingBot:
     def scan_for_opportunities(self) -> List[Dict[str, Any]]:
         """Scan for trading opportunities with SIMPLE logic and comprehensive logging."""
         opportunities = []
+        
+        # CRITICAL FIX: Allow scanning even when kill switch is active
+        # Kill switch will block trade execution, but scanning should continue for monitoring
+        # Check circuit breaker FIRST (governance - Phase 1.3)
+        is_paused, pause_reason = self.risk_manager._check_circuit_breaker()
+        if is_paused:
+            logger.info(f"[CIRCUIT_BREAKER] Trading paused: {pause_reason}")
+            return []  # Return empty list, no opportunities
         
         # Import SIM_LIVE diagnostic logging functions if in SIM_LIVE mode
         if self.is_sim_live:
@@ -1455,6 +1639,9 @@ class TradingBot:
                     # Since we passed the volume filter, volume_ok should be True
                     volume_ok = True  # If we reach here, volume check passed
                     
+                    # Convert sma_separation_pct (percentage) to trend_strength (decimal 0.0-1.0)
+                    trend_strength = sma_separation_pct / 100.0
+                    
                     # Create opportunity data structure
                     opportunity_data = {
                         'symbol': symbol,
@@ -1538,6 +1725,11 @@ class TradingBot:
         # Update state back to IDLE if no opportunities
         if not opportunities:
             self._update_state('IDLE', 'N/A', 'Scan completed - no opportunities')
+        
+        # Log scan completion with summary
+        total_scanned = len(symbols) if 'symbols' in locals() else 0
+        total_opportunities = len(opportunities)
+        logger.info(f"🔍 Scan completed: {total_scanned} symbols scanned, {total_opportunities} opportunity(ies) found")
         
         return opportunities
     
@@ -2248,6 +2440,12 @@ class TradingBot:
                     actual_risk_with_fill = estimated_risk if 'estimated_risk' in locals() else lot_size * stop_loss_pips * 0.10
                     risk_with_slippage_actual = actual_risk_with_fill * 1.10  # 10% buffer
                 
+                # CRITICAL FIX: Update trade stats IMMEDIATELY after trade opens successfully
+                # This ensures stats are correct even if logging fails later
+                self.trade_count_today += 1
+                self.trade_stats['total_trades'] += 1
+                self.trade_stats['successful_trades'] += 1
+                
                 # Use unified trade logger
                 self.trade_logger.log_trade_execution(
                     symbol=symbol,
@@ -2280,6 +2478,7 @@ class TradingBot:
                         logger.debug(f"Error calculating TP for trade reason log: {tp_calc_error}")
                 
                 # Log detailed trade reason with comprehensive analysis
+                # Wrap in try-except so logging errors don't affect trade success
                 execution_result = {
                     'success': True,
                     'entry_price_requested': entry_price,
@@ -2291,17 +2490,19 @@ class TradingBot:
                     'slippage': slippage if slippage > 0.00001 else 0.0,
                     'execution_time': time.time() - start_time if 'start_time' in locals() else 0.0,
                 }
-                self.trade_reason_logger.log_trade_reason(
-                    symbol=symbol,
-                    ticket=ticket,
-                    signal=signal,
-                    opportunity=opportunity,
-                    execution_result=execution_result
-                )
-                
-                self.trade_count_today += 1
-                self.trade_stats['total_trades'] += 1
-                self.trade_stats['successful_trades'] += 1
+                try:
+                    self.trade_reason_logger.log_trade_reason(
+                        symbol=symbol,
+                        ticket=ticket,
+                        signal=signal,
+                        opportunity=opportunity,
+                        execution_result=execution_result,
+                        config=self.config
+                    )
+                except Exception as log_error:
+                    # Logging error should not affect trade success - trade was already opened and stats updated
+                    logger.warning(f"[WARNING] {symbol} Ticket {ticket} | Trade reason logging failed (non-fatal): {log_error}")
+                    logger.debug(f"Trade reason logging error details: {log_error}", exc_info=True)
                 
                 # Track this position for closure monitoring
                 self.tracked_tickets.add(ticket)
@@ -2382,7 +2583,13 @@ class TradingBot:
         except Exception as e:
             logger.error(f"[ERROR] {symbol}: Exception during trade execution: {e}", exc_info=True)
             self.handle_error(e, f"Executing trade {symbol}")
-            self.trade_stats['failed_trades'] += 1
+            # Only increment failed_trades if trade was NOT successfully opened
+            # Check if ticket exists (trade was opened) - if so, stats were already updated
+            if 'ticket' not in locals() or ticket is None:
+                # Trade never opened - this is a real failure
+                self.trade_stats['failed_trades'] += 1
+            # If ticket exists, trade was opened successfully and stats were already updated
+            # Don't double-count as failed
             return False
     
     def _continuous_trailing_stop_loop(self):
@@ -2448,6 +2655,11 @@ class TradingBot:
                         time.sleep(0.001)
                 except Exception as e:
                     logger.error(f"Error in continuous trailing stop loop: {e}", exc_info=True)
+                    # CRITICAL FIX: Send heartbeat even on error to prevent false dead detection
+                    try:
+                        system_health.mark_thread_heartbeat("TrailingStopMonitor")
+                    except Exception:
+                        pass
                     # Continue running even if there's an error, but ensure connection
                     try:
                         self.mt5_connector.ensure_connected()
@@ -2480,6 +2692,31 @@ class TradingBot:
                 system_health.mark_thread_dead("TrailingStopMonitor", f"fatal_exception: {type(fatal_error).__name__}")
             except Exception:
                 pass
+            
+            # CRITICAL FIX: Attempt automatic restart instead of just dying
+            # Wait a short time before restart attempt to avoid rapid restart loops
+            try:
+                time.sleep(2.0)  # Wait 2 seconds before restart attempt
+                if self.trailing_stop_running and self.running:  # Only restart if we're supposed to be running
+                    logger.critical("[THREAD_RECOVERY] Attempting automatic restart of TrailingStopMonitor...")
+                    try:
+                        # Clean up old thread state
+                        self.trailing_stop_running = False
+                        if hasattr(self, '_trailing_stop_thread') and self._trailing_stop_thread and self._trailing_stop_thread.is_alive():
+                            # Thread is still alive but crashed - wait for it to finish
+                            self._trailing_stop_thread.join(timeout=1.0)
+                        # Restart the thread
+                        self.start_continuous_trailing_stop()
+                        logger.critical("[THREAD_RECOVERY] TrailingStopMonitor automatically restarted after crash")
+                        # Reset dead flag
+                        try:
+                            system_health.reset_thread_dead_flag("TrailingStopMonitor")
+                        except Exception:
+                            pass
+                    except Exception as restart_error:
+                        logger.critical(f"[THREAD_RECOVERY] Failed to automatically restart TrailingStopMonitor: {restart_error}", exc_info=True)
+            except Exception as recovery_error:
+                logger.critical(f"[THREAD_RECOVERY] Error during automatic restart attempt: {recovery_error}", exc_info=True)
     
     def _fast_trailing_stop_loop(self):
         """
@@ -2512,6 +2749,12 @@ class TradingBot:
                 pass
             
             while self.fast_trailing_running and self.running:
+                # CRITICAL FIX: Send heartbeat at start of each loop iteration to prevent false dead detection
+                try:
+                    system_health.mark_thread_heartbeat("FastTrailingStopMonitor")
+                except Exception:
+                    pass  # Heartbeat failure must not break the loop
+                
                 try:
                     if not self.check_kill_switch():
                         # Ensure connection before monitoring
@@ -2546,6 +2789,11 @@ class TradingBot:
                     tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
                     logger.critical(f"[THREAD_CRASH] FastTrailingStopMonitor pid={pid} tid={tid}")
                     logger.error(f"Error in fast trailing stop loop: {e}", exc_info=True)
+                    # CRITICAL FIX: Send heartbeat even on error to prevent false dead detection
+                    try:
+                        system_health.mark_thread_heartbeat("FastTrailingStopMonitor")
+                    except Exception:
+                        pass
                     try:
                         self.system_event_logger.systemEvent("CRITICAL", {
                             "tag": "THREAD_DIED",
@@ -2591,13 +2839,31 @@ class TradingBot:
                 system_health.mark_thread_dead("FastTrailingStopMonitor", f"fatal_exception: {type(fatal_error).__name__}")
             except Exception:
                 pass
-                # Continue running even if there's an error, but ensure connection
-                try:
-                    self.mt5_connector.ensure_connected()
-                except:
-                    pass
-                # Small sleep on error to prevent rapid retry loops
-                time.sleep(0.001)
+            
+            # CRITICAL FIX: Attempt automatic restart instead of just dying
+            # Wait a short time before restart attempt to avoid rapid restart loops
+            try:
+                time.sleep(2.0)  # Wait 2 seconds before restart attempt
+                if self.fast_trailing_running and self.running:  # Only restart if we're supposed to be running
+                    logger.critical("[THREAD_RECOVERY] Attempting automatic restart of FastTrailingStopMonitor...")
+                    try:
+                        # Clean up old thread state
+                        self.fast_trailing_running = False
+                        if hasattr(self, '_fast_trailing_thread') and self._fast_trailing_thread and self._fast_trailing_thread.is_alive():
+                            # Thread is still alive but crashed - wait for it to finish
+                            self._fast_trailing_thread.join(timeout=1.0)
+                        # Restart the thread (start_continuous_trailing_stop starts both threads)
+                        self.start_continuous_trailing_stop()
+                        logger.critical("[THREAD_RECOVERY] FastTrailingStopMonitor automatically restarted after crash")
+                        # Reset dead flag
+                        try:
+                            system_health.reset_thread_dead_flag("FastTrailingStopMonitor")
+                        except Exception:
+                            pass
+                    except Exception as restart_error:
+                        logger.critical(f"[THREAD_RECOVERY] Failed to automatically restart FastTrailingStopMonitor: {restart_error}", exc_info=True)
+            except Exception as recovery_error:
+                logger.critical(f"[THREAD_RECOVERY] Error during automatic restart attempt: {recovery_error}", exc_info=True)
         
         logger.info("Fast trailing stop monitor stopped")
     
@@ -2713,6 +2979,12 @@ class TradingBot:
                 pass
             
             while self.position_monitor_running:
+                # CRITICAL FIX: Send heartbeat at start of each loop iteration to prevent false dead detection
+                try:
+                    system_health.mark_thread_heartbeat("PositionMonitor")
+                except Exception:
+                    pass  # Heartbeat failure must not break the loop
+                
                 try:
                     # Detect and log closures
                     logged_closures = self.position_monitor.detect_and_log_closures(self.tracked_tickets)
@@ -2740,6 +3012,11 @@ class TradingBot:
                     tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
                     logger.critical(f"[THREAD_CRASH] PositionMonitor pid={pid} tid={tid}")
                     error_logger.error(f"Error in position monitor loop: {e}", exc_info=True)
+                    # CRITICAL FIX: Send heartbeat even on error to prevent false dead detection
+                    try:
+                        system_health.mark_thread_heartbeat("PositionMonitor")
+                    except Exception:
+                        pass
                     try:
                         self.system_event_logger.systemEvent("CRITICAL", {
                             "tag": "THREAD_DIED",
@@ -2781,6 +3058,35 @@ class TradingBot:
                 })
             except Exception:
                 pass
+            try:
+                system_health.mark_thread_dead("PositionMonitor", f"fatal_exception: {type(fatal_error).__name__}")
+            except Exception:
+                pass
+            
+            # CRITICAL FIX: Attempt automatic restart instead of just dying
+            # Wait a short time before restart attempt to avoid rapid restart loops
+            try:
+                time.sleep(2.0)  # Wait 2 seconds before restart attempt
+                if self.position_monitor_running and self.running:  # Only restart if we're supposed to be running
+                    logger.critical("[THREAD_RECOVERY] Attempting automatic restart of PositionMonitor...")
+                    try:
+                        # Clean up old thread state
+                        self.position_monitor_running = False
+                        if hasattr(self, '_position_monitor_thread') and self._position_monitor_thread and self._position_monitor_thread.is_alive():
+                            # Thread is still alive but crashed - wait for it to finish
+                            self._position_monitor_thread.join(timeout=1.0)
+                        # Restart the thread
+                        self.start_position_monitor()
+                        logger.critical("[THREAD_RECOVERY] PositionMonitor automatically restarted after crash")
+                        # Reset dead flag
+                        try:
+                            system_health.reset_thread_dead_flag("PositionMonitor")
+                        except Exception:
+                            pass
+                    except Exception as restart_error:
+                        logger.critical(f"[THREAD_RECOVERY] Failed to automatically restart PositionMonitor: {restart_error}", exc_info=True)
+            except Exception as recovery_error:
+                logger.critical(f"[THREAD_RECOVERY] Error during automatic restart attempt: {recovery_error}", exc_info=True)
     
     def stop_continuous_trailing_stop(self):
         """Stop the continuous trailing stop monitoring threads (normal + fast)."""
@@ -3222,6 +3528,112 @@ class TradingBot:
                     return -1  # Special value indicating success but no ticket
                 return None
     
+    def can_proceed_to_phase5(self) -> Tuple[bool, str]:
+        """Check if system can proceed to Phase 5 (governance - expectancy gate)."""
+        if not self.expectancy_gate:
+            return True, "Expectancy gate not initialized - allowing by default"
+        
+        # Collect metrics
+        metrics = self._collect_metrics_for_expectancy_gate()
+        if not metrics:
+            return False, "Insufficient metrics for expectancy gate check"
+        
+        return self.expectancy_gate.can_proceed_past_phase4(metrics)
+    
+    def can_scale_position_size(self) -> Tuple[bool, str]:
+        """Check if position size scaling is allowed (governance - expectancy gate)."""
+        if not self.expectancy_gate:
+            return False, "Expectancy gate not initialized"
+        
+        # Collect metrics
+        metrics = self._collect_metrics_for_expectancy_gate()
+        if not metrics:
+            return False, "Insufficient metrics for expectancy gate check"
+        
+        return self.expectancy_gate.can_scale_position_size(metrics)
+    
+    def can_enable_runners(self) -> Tuple[bool, str]:
+        """Check if runner positions can be enabled (governance - expectancy gate)."""
+        if not self.expectancy_gate:
+            return False, "Expectancy gate not initialized"
+        
+        # Collect metrics
+        metrics = self._collect_metrics_for_expectancy_gate()
+        if not metrics:
+            return False, "Insufficient metrics for expectancy gate check"
+        
+        return self.expectancy_gate.can_enable_runners(metrics)
+    
+    def _collect_metrics_for_expectancy_gate(self) -> Optional[Dict[str, Any]]:
+        """Collect metrics for expectancy gate evaluation."""
+        try:
+            # Get trade statistics
+            total_trades = self.trade_stats.get('total_trades', 0)
+            wins = self.trade_stats.get('profitable_trades', 0)
+            losses = total_trades - wins
+            
+            # Calculate time-based metrics
+            if hasattr(self, 'session_start_time'):
+                hours_active = (time.time() - self.session_start_time) / 3600
+                days_active = hours_active / 24
+            else:
+                hours_active = 1.0
+                days_active = 0.0
+            
+            # Get profit/loss data (would need to track this)
+            # For now, use placeholder - actual implementation would track from closed trades
+            total_profit = 0.0  # Would need to sum from closed profitable trades
+            total_loss = 0.0    # Would need to sum from closed losing trades
+            
+            metrics = {
+                'total_trades': total_trades,
+                'wins': wins,
+                'losses': losses,
+                'total_profit': total_profit,
+                'total_loss': total_loss,
+                'hours_active': hours_active,
+                'days_active': days_active,
+                'active_symbols': len(set())  # Would need to track active symbols
+            }
+            
+            return metrics
+        except Exception as e:
+            logger.warning(f"Error collecting metrics for expectancy gate: {e}")
+            return None
+    
+    def can_remain_micro_hft_dominant(self) -> Tuple[bool, str]:
+        """Check if Micro-HFT can remain dominant strategy (governance - strategy evolution locks)."""
+        if not self.strategy_locks:
+            return True, "Strategy evolution locks not initialized - allowing by default"
+        
+        metrics = self._collect_metrics_for_expectancy_gate()
+        if not metrics:
+            return False, "Insufficient metrics for strategy evolution check"
+        
+        return self.strategy_locks.can_remain_micro_hft_dominant(metrics)
+    
+    def can_enable_hybrid_strategy(self) -> Tuple[bool, str]:
+        """Check if hybrid strategy (Micro-HFT + Runners) can be enabled (governance - strategy evolution locks)."""
+        if not self.strategy_locks:
+            return False, "Strategy evolution locks not initialized"
+        
+        metrics = self._collect_metrics_for_expectancy_gate()
+        if not metrics:
+            return False, "Insufficient metrics for strategy evolution check"
+        
+        return self.strategy_locks.can_enable_hybrid_strategy(metrics)
+    
+    def must_re_evaluate_micro_hft(self) -> Tuple[bool, str]:
+        """Check if Micro-HFT must be re-evaluated (governance - strategy evolution locks)."""
+        if not self.strategy_locks:
+            return False, "Strategy evolution locks not initialized"
+        
+        metrics = self._collect_metrics_for_expectancy_gate()
+        if not metrics:
+            return False, "Insufficient metrics for strategy evolution check"
+        
+        return self.strategy_locks.must_re_evaluate_micro_hft(metrics)
+    
     def run_cycle(self):
         """Execute one trading cycle."""
         mode = "BACKTEST" if self.is_backtest else "LIVE"
@@ -3231,9 +3643,42 @@ class TradingBot:
         logger.info(f"mode={mode} | [RUN_CYCLE] Starting trading cycle at {cycle_timestamp}")
         scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Cycle start timestamp: {cycle_timestamp}")
         
-        if self.check_kill_switch():
-            logger.warning(f"mode={mode} | [RUN_CYCLE] Cycle aborted - kill switch active")
-            return
+        # Check master kill switch FIRST (governance)
+        # CRITICAL FIX: Allow scanning even when kill switch is active - only prevent trade execution
+        # This allows the bot to continue monitoring the market and logging opportunities
+        master_kill_switch_active = self.check_master_kill_switch()
+        kill_switch_active = self.check_kill_switch()
+        
+        if master_kill_switch_active:
+            logger.warning(f"mode={mode} | [RUN_CYCLE] Master kill switch active - scanning allowed, trade execution blocked")
+        
+        if kill_switch_active:
+            logger.warning(f"mode={mode} | [RUN_CYCLE] Kill switch active - scanning allowed, trade execution blocked")
+        
+        # Regression guard check (governance)
+        # CRITICAL FIX: Only check regression guard if we have sufficient sample size
+        # Don't trigger kill switch on 0.0 win rate when there are no trades yet
+        if self.regression_guard:
+            try:
+                # Collect current metrics
+                current_metrics = self._collect_metrics_for_regression_guard()
+                if current_metrics:
+                    # CRITICAL FIX: Pass min_sample_size to regression guard check
+                    # Regression guard will now check sample size internally and skip if insufficient
+                    min_sample_size = 10  # Require at least 10 trades before checking metrics
+                    is_safe, rollback_reason = self.regression_guard.check_metrics(current_metrics, min_sample_size=min_sample_size)
+                    if not is_safe:
+                        logger.critical(f"[REGRESSION_GUARD] Metrics breach detected: {rollback_reason}")
+                        logger.critical(f"[REGRESSION_GUARD] Triggering master kill switch")
+                        self.regression_guard.trigger_master_kill_switch(f"Regression guard: {rollback_reason}")
+                        # Reload kill switch config
+                        self.master_kill_switch = self._load_master_kill_switch()
+                        # CRITICAL FIX: Don't abort cycle - allow scanning to continue
+                        if self.check_master_kill_switch():
+                            logger.warning(f"mode={mode} | [RUN_CYCLE] Master kill switch active (regression guard) - scanning allowed, trade execution blocked")
+                            master_kill_switch_active = True  # Update flag
+            except Exception as e:
+                logger.warning(f"Error in regression guard check: {e}")
         
         # Ensure MT5 connection with retry logic and exponential backoff
         if not self.mt5_connector.ensure_connected():
@@ -3267,6 +3712,21 @@ class TradingBot:
         try:
             # Update daily P&L
             self.update_daily_pnl()
+            
+            # CRITICAL FIX: Auto-reset kill switch if conditions have improved
+            # Check if kill switch was activated due to SL worker issues and if those issues are resolved
+            if self.kill_switch_active and hasattr(self, 'kill_switch_reason') and self.kill_switch_reason and "SL Worker" in self.kill_switch_reason:
+                # Check if SL worker is now healthy (no stale tickets)
+                try:
+                    from utils import system_health
+                    if system_health.is_trading_allowed():
+                        # System is now safe - reset kill switch
+                        time_since_activation = (datetime.now() - self.kill_switch_activated_at).total_seconds() if hasattr(self, 'kill_switch_activated_at') and self.kill_switch_activated_at else 0
+                        if time_since_activation > 30:  # Wait at least 30 seconds before auto-reset
+                            logger.info(f"[KILL_SWITCH_AUTO_RESET] System is now safe - auto-resetting kill switch (was active for {time_since_activation:.1f}s)")
+                            self.reset_kill_switch()
+                except Exception as e:
+                    logger.debug(f"Error checking system health for kill switch auto-reset: {e}")
             
             # Manage existing positions
             self.manage_positions()
@@ -3480,6 +3940,16 @@ class TradingBot:
                     max_trades_display = "unlimited" if max_trades is None else str(max_trades)
                     logger.info(f"🔄 [BATCH {idx}/{len(opportunities)}] Processing: {symbol} | "
                               f"Current positions: {self.order_manager.get_position_count()}/{max_trades_display}")
+                    
+                    # CRITICAL: Check kill switch before executing trade (scanning allowed, execution blocked)
+                    # Re-check kill switch status here (it may have been activated during the cycle by SL watchdog)
+                    current_master_kill_switch = self.check_master_kill_switch()
+                    current_kill_switch = self.check_kill_switch()
+                    if current_master_kill_switch or current_kill_switch:
+                        reason = "master kill switch" if current_master_kill_switch else "kill switch"
+                        logger.warning(f"[SKIP] [SKIP] {symbol} | Reason: {reason} active - trade execution blocked")
+                        trades_skipped += 1
+                        continue
                     
                     # CRITICAL: Don't re-check position count for each trade - we've already reserved slots
                     # The execute_trade function will do a final safety check, but we trust the batch reservation
@@ -3856,7 +4326,11 @@ class TradingBot:
         self.start_state_watchdog()
         
         try:
+            cycle_count = 0
             while self.running:
+                cycle_count += 1
+                logger.info(f"[MAIN_LOOP] Starting cycle #{cycle_count} | Running: {self.running}")
+                
                 # In manual mode, check if we need to wait for trades to finish
                 if self.manual_approval_mode:
                     # Check if there are open positions from approved trades
@@ -3881,8 +4355,17 @@ class TradingBot:
                 # Run one trading cycle (only if not already scanning/executing in manual mode)
                 if not self.manual_approval_mode or not self.manual_trades_executing:
                     scheduler_logger.info("Starting trading cycle")
-                    self.run_cycle()
-                    scheduler_logger.info("Trading cycle completed")
+                    try:
+                        self.run_cycle()
+                        scheduler_logger.info("Trading cycle completed")
+                    except Exception as cycle_error:
+                        # CRITICAL FIX: Catch exceptions in run_cycle to prevent loop from stopping
+                        error_msg = f"Error in trading cycle: {cycle_error}"
+                        logger.error(error_msg, exc_info=True)
+                        error_logger.error(error_msg, exc_info=True)
+                        scheduler_logger.error(f"Trading cycle failed: {cycle_error}")
+                        # Continue to next cycle - don't let one failed cycle stop the bot
+                        logger.info("Continuing to next cycle after error")
                     
                     # Per-tick monitor: emit BOT_LOOP_TICK event (lightweight, non-blocking)
                     try:
@@ -3933,15 +4416,19 @@ class TradingBot:
                     # Automatic mode: wait for cycle interval
                     mode = "BACKTEST" if self.is_backtest else "LIVE"
                     sleep_start = time.time()
+                    logger.info(f"[MAIN_LOOP] Cycle #{cycle_count} completed. Waiting {cycle_interval_seconds}s until next cycle...")
                     scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Waiting {cycle_interval_seconds}s until next cycle")
                     time.sleep(cycle_interval_seconds)
                     sleep_duration = time.time() - sleep_start
+                    logger.info(f"[MAIN_LOOP] Sleep completed. Duration: {sleep_duration:.3f}s (target: {cycle_interval_seconds}s). Continuing to next cycle...")
                     scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Sleep completed | Duration: {sleep_duration:.3f}s (target: {cycle_interval_seconds}s)")
         
         except KeyboardInterrupt:
             logger.info("Trading bot stopped by user")
             if self.manual_approval_mode:
                 print("\n[OK] Bot stopped by user")
+            # Set running to False to exit the loop
+            self.running = False
         except Exception as e:
             # CRITICAL FIX: Don't shut down on exceptions - log and continue
             # This ensures the bot keeps running even if one cycle fails
@@ -3951,12 +4438,18 @@ class TradingBot:
             # Continue running - don't break the loop
             logger.info("Continuing bot operation after error - next cycle will retry")
             time.sleep(5)  # Brief pause before retrying
+            # DO NOT set self.running = False here - we want to continue
         finally:
-            # Restore original max_open_trades if it was overridden
+            # CRITICAL FIX: Only restore max_open_trades, don't shutdown unless we're actually exiting
+            # The finally block executes even on exceptions, but we only want to cleanup, not shutdown
             if original_max_trades is not None:
                 self.risk_manager.max_open_trades = original_max_trades
                 logger.info(f"Restored max_open_trades to {original_max_trades}")
-            self.shutdown()
+            
+            # Only shutdown if we're actually exiting (self.running is False)
+            # This prevents shutdown from being called on exceptions that we want to recover from
+            if not self.running:
+                self.shutdown()
     
     def _check_and_restart_dead_threads(self):
         """

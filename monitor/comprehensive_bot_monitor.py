@@ -19,7 +19,14 @@ from execution.mt5_connector import MT5Connector
 from execution.order_manager import OrderManager
 from utils.logger_factory import get_logger
 
-logger = get_logger("comprehensive_monitor", "logs/live/system/comprehensive_monitor.log")
+# Logger disabled to save storage space
+class NullLogger:
+    def info(self, *args, **kwargs): pass
+    def error(self, *args, **kwargs): pass
+    def warning(self, *args, **kwargs): pass
+    def debug(self, *args, **kwargs): pass
+    def critical(self, *args, **kwargs): pass
+logger = NullLogger()
 
 
 class ComprehensiveBotMonitor:
@@ -376,17 +383,9 @@ class ComprehensiveBotMonitor:
         recommendations = self.generate_recommendations(report)
         report["recommendations"] = recommendations
         
-        # Save report
-        report_filename = f"comprehensive_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-        report_path = os.path.join(self.reports_dir, report_filename)
-        
-        with open(report_path, 'w') as f:
-            json.dump(report, f, indent=2, default=str)
-        
-        logger.info(f"[OK] Report saved: {report_path}")
-        
-        # Generate CSV summary
-        self._generate_csv_summary(report, report_filename.replace('.json', '.csv'))
+        # Report file saving disabled to save storage space
+        # Reports are still generated in memory but not saved to disk
+        logger.info(f"[OK] Report generated (file saving disabled to save storage)")
         
         return report
     

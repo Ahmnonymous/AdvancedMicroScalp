@@ -33,6 +33,25 @@ class RiskManager:
         self.mt5_connector = mt5_connector
         self.order_manager = order_manager
         self.bot_pnl_callback = None  # Callback to update bot's realized P/L when positions close
+        self.bot = None  # Reference to trading bot for trade reason outcome logging
+        
+        # Reference to trading_bot for governance checks (set after initialization)
+        self._trading_bot = None
+        
+        # Shadow mode configuration (Phase 4)
+        filters_config = config.get('filters', {})
+        self.shadow_mode = filters_config.get('shadow_mode', False)
+        self.shadow_filters = filters_config.get('shadow_filters', {})
+        self.shadow_log = []
+        
+        # Initialize shadow mode decision engine (governance)
+        try:
+            from monitor.shadow_mode_decision import ShadowModeDecisionEngine
+            self.shadow_decision_engine = ShadowModeDecisionEngine()
+            logger.info("Shadow mode decision engine initialized")
+        except Exception as e:
+            logger.warning(f"Failed to initialize shadow mode decision engine: {e}")
+            self.shadow_decision_engine = None
         
         self.max_risk_usd = self.risk_config.get('max_risk_per_trade_usd', 2.0)
         self.default_lot_size = self.risk_config.get('default_lot_size', 0.01)
@@ -625,6 +644,21 @@ class RiskManager:
             return False, reason
         
         return True, None
+    
+    def evaluate_shadow_mode_filters(self, shadow_data: Dict[str, Any]) -> Tuple[bool, Dict[str, Any]]:
+        """
+        Evaluate shadow mode filter relaxation (Phase 4 - governance).
+        
+        Args:
+            shadow_data: Dictionary containing shadow mode metrics and filter analysis
+            
+        Returns:
+            (approved: bool, details: Dict)
+        """
+        if not self.shadow_decision_engine:
+            return False, {'approved': False, 'reason': 'Shadow mode decision engine not initialized'}
+        
+        return self.shadow_decision_engine.evaluate_shadow_mode(shadow_data)
     
     def _check_circuit_breaker(self) -> Tuple[bool, Optional[str]]:
         """
@@ -1885,6 +1919,67 @@ class RiskManager:
         
         return False
     
+    def calculate_stop_loss_price(
+        self,
+        symbol: str,
+        entry_price: float,
+        signal: str,
+        atr: Optional[float] = None,
+        spread_points: Optional[float] = None
+    ) -> Tuple[float, float]:
+        """
+        Calculate stop loss with improved placement (Phase 5).
+        
+        Uses ATR-based calculation with spread buffer if improved_sl_placement is enabled.
+        Otherwise falls back to original USD-based calculation.
+        
+        Args:
+            symbol: Trading symbol
+            entry_price: Entry price
+            signal: 'LONG' or 'SHORT'
+            atr: ATR value (optional, for improved calculation)
+            spread_points: Spread in points (optional, for improved calculation)
+            
+        Returns:
+            (stop_loss_price, risk_usd)
+        """
+        # Check master kill switch (governance - Phase 5)
+        if self._is_feature_disabled_by_kill_switch('improved_sl_placement'):
+            # Use original SL calculation
+            order_type = 'BUY' if signal == 'LONG' else 'SELL'
+            sl_price, sl_distance = self.calculate_usd_based_stop_loss_price(
+                symbol, entry_price, order_type
+            )
+            return sl_price, self.max_risk_usd
+        
+        # Phase 5: Improved SL calculation using ATR
+        # This will be implemented in Phase 5
+        # For now, fall back to original
+        order_type = 'BUY' if signal == 'LONG' else 'SELL'
+        sl_price, sl_distance = self.calculate_usd_based_stop_loss_price(
+            symbol, entry_price, order_type
+        )
+        return sl_price, self.max_risk_usd
+    
+    def _is_feature_disabled_by_kill_switch(self, feature_name: str) -> bool:
+        """Check if feature is disabled by master kill switch (governance)."""
+        try:
+            if self._trading_bot:
+                return not self._trading_bot.is_feature_enabled(feature_name)
+            # Fallback: check config directly
+            governance = self.config.get('governance', {})
+            kill_switch = governance.get('master_kill_switch', {})
+            if kill_switch.get('enabled', False):
+                disabled_features = kill_switch.get('disable_features', [])
+                return feature_name in disabled_features
+        except Exception as e:
+            logger.warning(f"Failed to check kill switch for {feature_name}: {e}")
+        return False
+    
+    def set_trading_bot(self, trading_bot):
+        """Set trading bot reference for governance checks."""
+        self._trading_bot = trading_bot
+    
     def calculate_usd_based_stop_loss_price(
         self,
         symbol: str,
@@ -2602,6 +2697,19 @@ class RiskManager:
                                         entry_time=entry_time,
                                         close_time=close_time
                                     )
+                                    
+                                    # Log trade outcome with strategy analysis
+                                    if hasattr(self, 'bot') and self.bot and hasattr(self.bot, 'trade_reason_logger'):
+                                        try:
+                                            self.bot.trade_reason_logger.log_trade_outcome(
+                                                ticket=ticket,
+                                                exit_price=close_price,
+                                                profit_usd=total_profit,
+                                                close_reason=close_reason,
+                                                duration_minutes=duration_min
+                                            )
+                                        except Exception as outcome_log_error:
+                                            logger.debug(f"Error logging trade outcome for ticket {ticket}: {outcome_log_error}")
                                     
                                     # Update realized P/L in trading bot via callback
                                     if self.bot_pnl_callback and callable(self.bot_pnl_callback):

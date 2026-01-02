@@ -26,32 +26,36 @@
     "use_usd_stoploss": true,
     "min_pip_stoploss": null,
     "continuous_trailing_enabled": true,
-      "trailing_cycle_interval_ms": 500,
-      "lock_acquisition_timeout_seconds": 5.0,
-      "profit_locking_lock_timeout_seconds": 10.0,
-      "sl_update_min_interval_ms": 500,
-      "lock_max_hold_time_seconds": 0.5,
-      "lock_retry_max_attempts": 3,
-      "lock_retry_backoff_seconds": [0.1, 0.3, 0.5],
-      "stale_lock_threshold_ms": 3000,
-      "delta_min_percent": 0.003,
-      "orphaned_lock_timeout_seconds": 5.0,
-      "watchdog_restart_threshold": 10,
-      "sl_verification_max_time_seconds": 15.0,
-      "watchdog": {
-        "restart_alert_threshold": 5,
-        "stale_threshold_profitable_seconds": 2.0,
-        "stale_threshold_breakeven_seconds": 1.0,
-        "stale_threshold_losing_seconds": 1.0,
-        "stale_threshold_crypto_multiplier": 2.0
-      },
-    "big_jump_threshold_usd": 0.40,
+    "trailing_cycle_interval_ms": 500,
+    "lock_acquisition_timeout_seconds": 5.0,
+    "profit_locking_lock_timeout_seconds": 10.0,
+    "sl_update_min_interval_ms": 500,
+    "lock_max_hold_time_seconds": 0.5,
+    "lock_retry_max_attempts": 3,
+    "lock_retry_backoff_seconds": [
+      0.1,
+      0.3,
+      0.5
+    ],
+    "stale_lock_threshold_ms": 3000,
+    "delta_min_percent": 0.003,
+    "orphaned_lock_timeout_seconds": 5.0,
+    "watchdog_restart_threshold": 10,
+    "sl_verification_max_time_seconds": 15.0,
+    "watchdog": {
+      "restart_alert_threshold": 5,
+      "stale_threshold_profitable_seconds": 2.0,
+      "stale_threshold_breakeven_seconds": 1.0,
+      "stale_threshold_losing_seconds": 1.0,
+      "stale_threshold_crypto_multiplier": 2.0
+    },
+    "big_jump_threshold_usd": 0.4,
     "staged_open_enabled": false,
     "staged_open_window_seconds": 60,
     "staged_quality_threshold": 40.0,
-    "staged_min_profit_usd": -0.50,
-    "fast_trailing_threshold_usd": 0.10,
-      "fast_trailing_interval_ms": 1000,
+    "staged_min_profit_usd": -0.5,
+    "fast_trailing_threshold_usd": 0.1,
+    "fast_trailing_interval_ms": 1000,
     "fast_trailing_debounce_cycles": 3,
     "trailing": {
       "enabled": true,
@@ -70,11 +74,11 @@
       "volatility_floor": {
         "enabled": true,
         "candle_count": 20,
-        "min_range_pips": 0.6
+        "min_range_pips": 0.4
       },
       "spread_sanity": {
         "enabled": true,
-        "max_percent_of_range": 30.0
+        "max_percent_of_range": 50.0
       },
       "candle_quality": {
         "enabled": true,
@@ -95,20 +99,19 @@
         }
       }
     },
-    "symbol_limits": {
-    },
+    "symbol_limits": {},
     "elastic_trailing": {
       "enabled": true,
       "pullback_tolerance_pct": 0.25,
-      "min_lock_increment_usd": 0.10,
-      "big_jump_threshold_usd": 0.40,
-      "big_jump_lock_margin_usd": 0.10,
-      "max_peak_lock_usd": 2.50
+      "min_lock_increment_usd": 0.1,
+      "big_jump_threshold_usd": 0.4,
+      "big_jump_lock_margin_usd": 0.1,
+      "max_peak_lock_usd": 2.5
     },
     "micro_profit_engine": {
       "enabled": true,
       "min_profit_threshold_usd": 0.03,
-      "max_profit_threshold_usd": 0.10,
+      "max_profit_threshold_usd": 0.1,
       "max_retries": 5,
       "retry_delay_ms": 2000
     },
@@ -121,8 +124,8 @@
     "profit_locking": {
       "enabled": true,
       "min_profit_threshold_usd": 0.03,
-      "max_profit_threshold_usd": 0.10,
-      "lock_step_usd": 0.10,
+      "max_profit_threshold_usd": 0.1,
+      "lock_step_usd": 0.1,
       "lock_tolerance_usd": 0.01,
       "max_lock_retries": 5,
       "lock_retry_delay_ms": 1000,
@@ -133,9 +136,13 @@
         "apply_immediately": true,
         "poll_interval_ms": 1000,
         "sweet_spot_min_profit": 0.03,
-        "sweet_spot_max_profit": 0.10,
+        "sweet_spot_max_profit": 0.1,
         "retry_attempts": 5,
-        "retry_backoff_ms": [500, 1000, 2000],
+        "retry_backoff_ms": [
+          500,
+          1000,
+          2000
+        ],
         "track_minimum_profit": true,
         "never_decrease_sl": true
       }
@@ -156,7 +163,7 @@
     "volume": {
       "enabled": true,
       "volume_filter": "low",
-      "min_tick_volume": 3,
+      "min_tick_volume": 1,
       "check_period_minutes": 1,
       "min_avg_volume": 3.0
     }
@@ -175,12 +182,12 @@
     "cycle_interval_seconds": 90,
     "randomize_timing": false,
     "max_delay_seconds": 10,
-    "randomness_factor": 0.10,
+    "randomness_factor": 0.1,
     "atr_period": 14,
     "atr_multiplier": 2.0,
-    "min_trend_strength": 0.000001,
-    "min_trend_strength_pct": 0.015,
-    "max_choppiness": 0.90,
+    "min_trend_strength": 1e-06,
+    "min_trend_strength_pct": 0.01,
+    "max_choppiness": 0.9,
     "min_adx": 8,
     "use_volatility_filter": true,
     "min_quality_score": 50,
@@ -196,13 +203,17 @@
     "order_retry_backoff_base_seconds": 2.0,
     "sl_verification_delay_seconds": 3.0,
     "global_rpc_max_per_second": 30,
-      "verification": {
-        "effective_profit_tolerance_usd": 1.5,
-        "price_tolerance_multiplier": 1.0,
-        "use_exponential_backoff": true,
-        "verification_delays_ms": [2000, 3000, 4000],
-        "max_verification_time_seconds": 20.0
-      }
+    "verification": {
+      "effective_profit_tolerance_usd": 1.5,
+      "price_tolerance_multiplier": 1.0,
+      "use_exponential_backoff": true,
+      "verification_delays_ms": [
+        2000,
+        3000,
+        4000
+      ],
+      "max_verification_time_seconds": 20.0
+    }
   },
   "news": {
     "enabled": true,
@@ -283,5 +294,81 @@
     "spread_multiplier": 1.0,
     "fill_delay_ms": 0,
     "partial_fills_enabled": false
+  },
+  "governance": {
+    "master_kill_switch": {
+      "enabled": false,
+      "reason": "Regression guard: win_rate breached: 0.0 vs threshold 0.8",
+      "revert_to_phase": 3,
+      "disable_features": [
+        "breakeven_logic",
+        "partial_profit_taking",
+        "runner_positions",
+        "improved_sl_placement",
+        "shadow_mode_filters"
+      ],
+      "log_level": "CRITICAL",
+      "activated_at": "2026-01-02T23:36:37.091673",
+      "disabled_at": "2026-01-02T23:50:00.000000",
+      "disabled_reason": "Insufficient sample size - regression guard triggered on 0 trades"
+    },
+    "deployment": {
+      "current_phase": 1
+    },
+    "expectancy_gate": {
+      "min_expectancy_per_trade_scale": 0.1,
+      "min_expectancy_per_hour_scale": 0.5,
+      "min_win_rate_scale": 0.8,
+      "min_risk_reward_scale": 0.3,
+      "min_trades_scale": 100,
+      "min_days_scale": 7,
+      "min_expectancy_per_trade_runners": 0.15,
+      "min_expectancy_per_hour_runners": 1.0,
+      "min_win_rate_runners": 0.82,
+      "min_risk_reward_runners": 0.4,
+      "min_trades_runners": 200,
+      "min_days_runners": 14,
+      "min_expectancy_per_trade_phase5": 0.05,
+      "min_expectancy_per_hour_phase5": 0.3,
+      "min_win_rate_phase5": 0.78,
+      "min_risk_reward_phase5": 0.25,
+      "min_trades_phase5": 50,
+      "min_days_phase5": 7
+    },
+    "strategy_evolution": {
+      "min_days_micro_hft_dominant": 30,
+      "min_days_before_hybrid": 60,
+      "min_days_before_re_evaluate": 90,
+      "min_trades_micro_hft": 500,
+      "min_trades_before_hybrid": 1000,
+      "min_trades_before_re_evaluate": 2000,
+      "min_symbols_active": 5,
+      "min_trades_per_symbol": 20
+    },
+    "shadow_mode": {
+      "min_expectancy_increase": 0.2,
+      "max_drawdown_increase": 0.1,
+      "min_trades_shadow": 500,
+      "min_days_shadow": 7,
+      "min_win_rate_shadow": 0.75,
+      "max_rejection_rate": 0.95
+    },
+    "features": {
+      "breakeven_logic": {
+        "enabled": false
+      },
+      "partial_profit_taking": {
+        "enabled": false
+      },
+      "runner_positions": {
+        "enabled": false
+      },
+      "improved_sl_placement": {
+        "enabled": false
+      },
+      "shadow_mode_filters": {
+        "enabled": false
+      }
+    }
   }
 }

@@ -5,12 +5,21 @@ Provides a centralized logging utility with file rotation, UTF-8 encoding, and t
 
 import logging
 import os
-from logging.handlers import RotatingFileHandler
+import threading
+import time
+import queue
+from logging.handlers import RotatingFileHandler, QueueHandler, QueueListener
 from typing import Optional, Dict, Any
 
 
 # Cache for loggers to prevent duplicate handlers
 _logger_cache = {}
+# Cache for file handlers to share handlers for the same file path (prevents file locking issues)
+_file_handler_cache = {}
+_file_handler_lock = threading.Lock()
+# Cache for queue listeners (one per file path) to serialize writes
+_queue_listeners = {}
+_queue_listener_lock = threading.Lock()
 
 
 def get_logger(name: str, logfile_path: str, level: int = logging.INFO) -> logging.Logger:
@@ -45,28 +54,81 @@ def get_logger(name: str, logfile_path: str, level: int = logging.INFO) -> loggi
     # Remove existing handlers to avoid duplicates
     logger.handlers.clear()
     
-    # Create rotating file handler
-    # Max 5MB per file, keep 10 backup files
-    max_bytes = 5 * 1024 * 1024  # 5MB
-    backup_count = 10
+    # CRITICAL FIX: Use queue-based handler for thread-safe file writing
+    # This prevents file locking issues when multiple loggers write to the same file
+    with _file_handler_lock:
+        if logfile_path in _file_handler_cache:
+            # Reuse existing queue handler for this file path
+            queue_handler = _file_handler_cache[logfile_path]
+        else:
+            # Create new rotating file handler
+            # Max 5MB per file, keep 3 backup files
+            max_bytes = 5 * 1024 * 1024  # 5MB
+            backup_count = 3
+            
+            # CRITICAL FIX: Add retry logic for file access on Windows
+            # Windows can have file locking issues when multiple processes try to access the same file
+            file_handler = None
+            max_retries = 5
+            retry_delay = 0.1  # 100ms
+            
+            for attempt in range(max_retries):
+                try:
+                    file_handler = RotatingFileHandler(
+                        logfile_path,
+                        maxBytes=max_bytes,
+                        backupCount=backup_count,
+                        encoding='utf-8',
+                        delay=False  # Don't delay file opening - open immediately
+                    )
+                    file_handler.setLevel(level)
+                    
+                    # Set formatter with timestamp
+                    formatter = logging.Formatter(
+                        '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        datefmt='%Y-%m-%d %H:%M:%S'
+                    )
+                    file_handler.setFormatter(formatter)
+                    break  # Success - exit retry loop
+                except (OSError, PermissionError) as e:
+                    if attempt < max_retries - 1:
+                        time.sleep(retry_delay * (attempt + 1))  # Exponential backoff
+                    else:
+                        # Last attempt failed - create a fallback handler that writes to stderr
+                        import sys
+                        print(f"WARNING: Could not open log file {logfile_path} after {max_retries} attempts: {e}", file=sys.stderr)
+                        print(f"Falling back to stderr logging for logger '{name}'", file=sys.stderr)
+                        # Create a StreamHandler as fallback
+                        file_handler = logging.StreamHandler(sys.stderr)
+                        file_handler.setLevel(level)
+                        formatter = logging.Formatter(
+                            '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                            datefmt='%Y-%m-%d %H:%M:%S'
+                        )
+                        file_handler.setFormatter(formatter)
+                        # Don't cache fallback handlers
+                        break
+            
+            if file_handler:
+                # Create a queue for thread-safe logging
+                log_queue = queue.Queue(-1)  # Unlimited queue size
+                
+                # Create queue handler that will put records into the queue
+                queue_handler = QueueHandler(log_queue)
+                queue_handler.setLevel(level)
+                
+                # Create queue listener that will process records from the queue and write to file
+                # This runs in a separate thread, serializing all writes to the file
+                queue_listener = QueueListener(log_queue, file_handler, respect_handler_level=True)
+                queue_listener.start()
+                
+                # Cache both the queue handler and listener
+                _file_handler_cache[logfile_path] = queue_handler
+                with _queue_listener_lock:
+                    _queue_listeners[logfile_path] = queue_listener
     
-    file_handler = RotatingFileHandler(
-        logfile_path,
-        maxBytes=max_bytes,
-        backupCount=backup_count,
-        encoding='utf-8'
-    )
-    file_handler.setLevel(level)
-    
-    # Set formatter with timestamp
-    formatter = logging.Formatter(
-        '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
-    file_handler.setFormatter(formatter)
-    
-    # Add handler to logger
-    logger.addHandler(file_handler)
+    # Add queue handler to logger (writes go through queue, then to file handler in separate thread)
+    logger.addHandler(queue_handler)
     
     # Cache logger
     _logger_cache[cache_key] = logger
@@ -115,7 +177,13 @@ class SystemEventLogger:
             # Thread Health
             "THREAD_DIED", "CRITICAL", "SYSTEM_READY", "SYSTEM_UNSAFE",
             # Startup Test
-            "BOOT_TEST"
+            "BOOT_TEST",
+            # Watchdog & Safety
+            "WATCHDOG_HALT_TRADING", "TRADING_HALTED", "SL_WORKER_UNHEALTHY",
+            # Profit Locking
+            "PROFIT_ZONE_ENTERED", "LOCK_APPLIED", "LOCK_FAILED", "PROFIT_LOCK_FAILURE_ALERT",
+            # Master Kill Switch
+            "MASTER_KILL_SWITCH_ACTIVE"
         }
     
     def systemEvent(self, tag: str, details: Dict[str, Any]):
@@ -157,21 +225,37 @@ def close_all_loggers():
     Close all file handlers for all cached loggers.
     This prevents file locking issues when deleting log folders.
     """
-    global _logger_cache
+    global _logger_cache, _file_handler_cache, _queue_listeners
     
-    # Close all handlers for all cached loggers
-    for cache_key, logger in _logger_cache.items():
-        for handler in logger.handlers[:]:  # Copy list to avoid modification during iteration
-            try:
-                handler.close()
-                logger.removeHandler(handler)
-            except Exception as e:
-                # Log to stderr since we're closing loggers
-                import sys
-                print(f"Warning: Error closing logger handler: {e}", file=sys.stderr)
-    
-    # Clear the cache
-    _logger_cache.clear()
+    with _file_handler_lock:
+        # Stop all queue listeners first (they manage the actual file handlers)
+        with _queue_listener_lock:
+            for logfile_path, listener in _queue_listeners.items():
+                try:
+                    listener.stop()
+                except Exception as e:
+                    import sys
+                    print(f"Warning: Error stopping queue listener for {logfile_path}: {e}", file=sys.stderr)
+            _queue_listeners.clear()
+        
+        # Close all handlers for all cached loggers
+        for cache_key, logger in _logger_cache.items():
+            for handler in logger.handlers[:]:  # Copy list to avoid modification during iteration
+                try:
+                    if isinstance(handler, QueueHandler):
+                        # Queue handlers don't need to be closed, but remove them
+                        logger.removeHandler(handler)
+                    else:
+                        handler.close()
+                        logger.removeHandler(handler)
+                except Exception as e:
+                    # Log to stderr since we're closing loggers
+                    import sys
+                    print(f"Warning: Error closing logger handler: {e}", file=sys.stderr)
+        
+        # Clear the caches
+        _logger_cache.clear()
+        _file_handler_cache.clear()
     
     # Also close root logger handlers that might be open
     root_logger = logging.getLogger()
@@ -191,13 +275,39 @@ def close_logger(name: str, logfile_path: str):
         name: Logger name
         logfile_path: Log file path
     """
+    global _file_handler_cache, _queue_listeners
+    
     cache_key = (name, logfile_path)
-    if cache_key in _logger_cache:
-        logger = _logger_cache[cache_key]
-        for handler in logger.handlers[:]:
-            try:
-                handler.close()
-                logger.removeHandler(handler)
-            except Exception:
-                pass
-        del _logger_cache[cache_key]
+    with _file_handler_lock:
+        if cache_key in _logger_cache:
+            logger = _logger_cache[cache_key]
+            for handler in logger.handlers[:]:
+                try:
+                    if isinstance(handler, QueueHandler):
+                        # Queue handlers don't need to be closed, just remove them
+                        logger.removeHandler(handler)
+                    else:
+                        handler.close()
+                        logger.removeHandler(handler)
+                except Exception:
+                    pass
+            del _logger_cache[cache_key]
+        
+        # Only remove file handler from cache if no other logger is using it
+        # Check if any other logger is using this file path
+        handler_still_in_use = False
+        for (other_name, other_path), other_logger in _logger_cache.items():
+            if other_path == logfile_path and (other_name, other_path) != cache_key:
+                handler_still_in_use = True
+                break
+        
+        if not handler_still_in_use and logfile_path in _file_handler_cache:
+            # Stop the queue listener for this file path
+            with _queue_listener_lock:
+                if logfile_path in _queue_listeners:
+                    try:
+                        _queue_listeners[logfile_path].stop()
+                    except Exception:
+                        pass
+                    del _queue_listeners[logfile_path]
+            del _file_handler_cache[logfile_path]

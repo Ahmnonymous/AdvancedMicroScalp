@@ -37,6 +37,9 @@ class OrderManager:
         # CRITICAL FIX: Reference to SLManager for synchronous SL application when stop_loss=0.0
         # This ensures trades never remain with SL = 0.0 (hard safety invariant)
         self._sl_manager = None  # Set via set_sl_manager() after initialization
+        
+        # Reference to trading_bot for governance checks (set after initialization)
+        self._trading_bot = None
     
     def set_sl_manager(self, sl_manager):
         """
@@ -72,9 +75,19 @@ class OrderManager:
                     cached_position, cached_time = self._position_cache[ticket]
                     cache_age = time.time() - cached_time
                     if cache_age < self._position_cache_ttl:
-                        return cached_position
-                    # Cache expired, remove it
-                    del self._position_cache[ticket]
+                        # CRITICAL FIX: Validate cached position before returning
+                        # This prevents returning invalid cached data (e.g., integers)
+                        if isinstance(cached_position, (int, float, str)):
+                            logger.warning(f"_get_position_by_ticket: Invalid cached position type for ticket {ticket}: {type(cached_position)}. Clearing cache.")
+                            del self._position_cache[ticket]
+                        elif not hasattr(cached_position, 'ticket') and not hasattr(cached_position, 'symbol'):
+                            logger.warning(f"_get_position_by_ticket: Cached position for ticket {ticket} missing required attributes. Clearing cache.")
+                            del self._position_cache[ticket]
+                        else:
+                            return cached_position
+                    else:
+                        # Cache expired, remove it
+                        del self._position_cache[ticket]
         
         position = None
         
@@ -86,12 +99,25 @@ class OrderManager:
                     # CRITICAL FIX: mt5.position_get() may return a tuple, extract first element if needed
                     if isinstance(position, (tuple, list)) and len(position) > 0:
                         position = position[0]
+                    
+                    # CRITICAL FIX: Validate that position is not an integer or other invalid type
+                    # This prevents returning the ticket itself instead of a position object
+                    if isinstance(position, (int, float, str)):
+                        logger.warning(f"_get_position_by_ticket: mt5.position_get({ticket}) returned invalid type: {type(position)} (got {position})")
+                        return None
+                    
+                    # Validate that position has required attributes
+                    if not hasattr(position, 'ticket') and not hasattr(position, 'symbol'):
+                        logger.warning(f"_get_position_by_ticket: mt5.position_get({ticket}) returned object without required attributes: {type(position)}")
+                        return None
+                    
                     # Update cache
                     if use_cache:
                         with self._position_cache_lock:
                             self._position_cache[ticket] = (position, time.time())
                     return position
-            except (TypeError, AttributeError):
+            except (TypeError, AttributeError) as e:
+                logger.debug(f"_get_position_by_ticket: mt5.position_get({ticket}) failed: {e}")
                 pass
         
         # If position_get didn't work, try positions_get(ticket=ticket) for live MT5
@@ -99,6 +125,17 @@ class OrderManager:
             position_list = mt5.positions_get(ticket=ticket)
             if position_list is not None and len(position_list) > 0:
                 position = position_list[0]
+                
+                # CRITICAL FIX: Validate position type
+                if isinstance(position, (int, float, str)):
+                    logger.warning(f"_get_position_by_ticket: mt5.positions_get(ticket={ticket}) returned invalid type: {type(position)}")
+                    return None
+                
+                # Validate that position has required attributes
+                if not hasattr(position, 'ticket') and not hasattr(position, 'symbol'):
+                    logger.warning(f"_get_position_by_ticket: mt5.positions_get(ticket={ticket}) returned object without required attributes: {type(position)}")
+                    return None
+                
                 # Update cache
                 if use_cache:
                     with self._position_cache_lock:
@@ -107,15 +144,24 @@ class OrderManager:
         except (TypeError, AttributeError):
             # positions_get doesn't accept ticket parameter (SIM_LIVE case)
             # Fallback: get all positions and filter by ticket
-            all_positions = mt5.positions_get()
-            if all_positions:
-                for pos in all_positions:
-                    if hasattr(pos, 'ticket') and pos.ticket == ticket:
-                        # Update cache
-                        if use_cache:
-                            with self._position_cache_lock:
-                                self._position_cache[ticket] = (pos, time.time())
-                        return pos
+            try:
+                all_positions = mt5.positions_get()
+                if all_positions:
+                    for pos in all_positions:
+                        if hasattr(pos, 'ticket') and pos.ticket == ticket:
+                            # CRITICAL FIX: Validate position type before caching
+                            if isinstance(pos, (int, float, str)):
+                                logger.warning(f"_get_position_by_ticket: Found position with ticket {ticket} but invalid type: {type(pos)}")
+                                continue
+                            
+                            # Update cache
+                            if use_cache:
+                                with self._position_cache_lock:
+                                    self._position_cache[ticket] = (pos, time.time())
+                            return pos
+            except Exception as e:
+                logger.debug(f"_get_position_by_ticket: Error getting all positions: {e}")
+                pass
         
         # Position not found - clear cache entry
         if use_cache:
@@ -1150,6 +1196,32 @@ class OrderManager:
                            f"price={result.price if hasattr(result, 'price') else 'N/A'}, "
                            f"comment={result.comment if hasattr(result, 'comment') else 'N/A'}")
                 
+                # CRITICAL FIX: Verify SL was actually applied (MT5 broker bug - reports success but SL unchanged)
+                # FIX: Add SL verification similar to TP verification
+                if new_sl > 0:
+                    # Wait for broker to process (shorter delay for SL verification)
+                    time.sleep(0.2)  # 200ms delay for SL processing
+                    verify_position = self._get_position_by_ticket(ticket)
+                    if verify_position:
+                        applied_sl = verify_position.sl if hasattr(verify_position, 'sl') else verify_position.get('sl', 0.0)
+                        point = symbol_info.get('point', 0.00001)
+                        sl_tolerance = point * 10  # 1 pip tolerance
+                        if abs(applied_sl - new_sl) > sl_tolerance:
+                            # MT5 reported success but SL not applied - broker bug
+                            logger.warning(f"[SL_VERIFY_FAIL] Ticket {ticket} | MT5 success but SL not applied | "
+                                         f"Expected: {new_sl:.5f} | Applied: {applied_sl:.5f} | "
+                                         f"Diff: {abs(applied_sl - new_sl):.5f}")
+                            # Return False to trigger retry
+                            if attempt < max_retries - 1:
+                                logger.warning(f"Retrying SL modification (attempt {attempt + 1}/{max_retries})...")
+                                time.sleep(0.2 * (attempt + 1))  # Exponential backoff
+                                continue
+                            else:
+                                logger.error(f"[SL_VERIFY_FAIL] Ticket {ticket} | SL verification failed after {max_retries} attempts")
+                                return False  # Return False so caller knows SL wasn't set
+                        else:
+                            logger.info(f"[SL_VERIFIED] Ticket {ticket} | SL verified: {applied_sl:.5f} (expected: {new_sl:.5f})")
+                
                 # CRITICAL FIX: Verify TP was actually applied (MT5 broker bug - reports success but TP=0)
                 if take_profit_price is not None and new_tp > 0:
                     # Wait for broker to process (longer delay for TP verification)
@@ -1328,9 +1400,33 @@ class OrderManager:
         # mt5.position_get() may return a tuple, while other methods return a single object
         if isinstance(position, (tuple, list)) and len(position) > 0:
             position = position[0]
-        elif not hasattr(position, 'symbol'):
+        
+        # CRITICAL FIX: Check if position is a valid position object (not an integer or other invalid type)
+        # This prevents 'int' object has no attribute 'symbol' errors
+        if isinstance(position, (int, float, str)):
+            logger.error(f"Position {ticket} returned invalid type: {type(position)} (got {position}). Expected position object.")
+            tracer.trace(
+                function_name="OrderManager.close_position",
+                expected=f"Close position Ticket {ticket}",
+                actual=f"Position returned invalid type: {type(position)}",
+                status="ERROR",
+                ticket=ticket,
+                reason="Invalid position type returned"
+            )
+            return False
+        
+        # Check if position has required attributes
+        if not hasattr(position, 'symbol'):
             # If position doesn't have 'symbol' attribute, it's not a valid position object
-            logger.error(f"Position {ticket} returned invalid format: {type(position)}")
+            logger.error(f"Position {ticket} returned invalid format: {type(position)} (missing 'symbol' attribute)")
+            tracer.trace(
+                function_name="OrderManager.close_position",
+                expected=f"Close position Ticket {ticket}",
+                actual=f"Position missing 'symbol' attribute: {type(position)}",
+                status="ERROR",
+                ticket=ticket,
+                reason="Position object missing required attributes"
+            )
             return False
         
         symbol = position.symbol
@@ -1506,6 +1602,74 @@ class OrderManager:
             logger.warning(f"Slow close execution: {execution_time_ms:.0f}ms for ticket {ticket}")
         
         return True
+    
+    def close_position_partial(self, ticket: int, close_percent: float = 0.5) -> bool:
+        """
+        Close partial position (Phase 5 feature).
+        
+        Args:
+            ticket: Position ticket number
+            close_percent: Percentage of position to close (0.0 to 1.0)
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        # Check master kill switch (governance - Phase 5)
+        if self._is_feature_disabled_by_kill_switch('partial_profit_taking'):
+            logger.warning(f"[FEATURE_DISABLED] Partial close disabled by master kill switch for ticket {ticket}")
+            return False
+        
+        # Get position
+        position = self.get_position_by_ticket(ticket)
+        if not position:
+            logger.error(f"[PARTIAL_CLOSE_FAILED] Ticket {ticket} not found")
+            return False
+        
+        current_volume = position.volume
+        close_volume = current_volume * close_percent
+        
+        # Round to lot size
+        symbol_info = self.mt5_connector.get_symbol_info(position.symbol)
+        if not symbol_info:
+            logger.error(f"[PARTIAL_CLOSE_FAILED] Cannot get symbol info for {position.symbol}")
+            return False
+        
+        min_lot = symbol_info.get('volume_min', 0.01)
+        close_volume = round(close_volume / min_lot) * min_lot
+        
+        if close_volume < min_lot:
+            logger.warning(f"[PARTIAL_CLOSE_FAILED] Close volume {close_volume:.4f} < min lot {min_lot:.4f}")
+            return False
+        
+        if close_volume >= current_volume:
+            # Would close entire position, use regular close instead
+            return self.close_position(ticket, comment="Partial close (full)")
+        
+        # Close partial position
+        # Note: MT5 doesn't support partial closes directly - this would need to be implemented
+        # For now, log that it's disabled
+        logger.warning(f"[PARTIAL_CLOSE] Partial close not yet implemented - would close {close_volume:.4f} of {current_volume:.4f} for ticket {ticket}")
+        return False
+    
+    def _is_feature_disabled_by_kill_switch(self, feature_name: str) -> bool:
+        """Check if feature is disabled by master kill switch (governance)."""
+        try:
+            if self._trading_bot:
+                return not self._trading_bot.is_feature_enabled(feature_name)
+            # Fallback: check config directly
+            if hasattr(self.mt5_connector, 'config'):
+                governance = self.mt5_connector.config.get('governance', {})
+                kill_switch = governance.get('master_kill_switch', {})
+                if kill_switch.get('enabled', False):
+                    disabled_features = kill_switch.get('disable_features', [])
+                    return feature_name in disabled_features
+        except Exception as e:
+            logger.warning(f"Failed to check kill switch for {feature_name}: {e}")
+        return False
+    
+    def set_trading_bot(self, trading_bot):
+        """Set trading bot reference for governance checks."""
+        self._trading_bot = trading_bot
     
     def get_open_positions(self, exclude_dec8: bool = True) -> List[Dict[str, Any]]:
         """

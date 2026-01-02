@@ -141,6 +141,21 @@ class SLSafetyGuard:
             
             # Close position immediately
             try:
+                # Log trade outcome before closing (if trade_reason_logger available)
+                if hasattr(self.trading_bot, 'trade_reason_logger'):
+                    try:
+                        close_price = violation['position'].get('price_current', 0.0) if isinstance(violation['position'], dict) else getattr(violation['position'], 'price_current', 0.0)
+                        profit = violation['position'].get('profit', 0.0) if isinstance(violation['position'], dict) else getattr(violation['position'], 'profit', 0.0)
+                        self.trading_bot.trade_reason_logger.log_trade_outcome(
+                            ticket=ticket,
+                            exit_price=close_price,
+                            profit_usd=profit,
+                            close_reason="SL Safety Guard: SL=0.0 violation - position closed for safety",
+                            duration_minutes=0.0  # Unknown duration
+                        )
+                    except Exception as outcome_error:
+                        logger.debug(f"Error logging trade outcome for ticket {ticket}: {outcome_error}")
+                
                 success = self.order_manager.close_position(
                     ticket=ticket,
                     comment="SL Safety Guard: SL=0.0 violation - position closed for safety"
@@ -163,11 +178,14 @@ class SLSafetyGuard:
         except Exception as e:
             logger.error(f"[SL_SAFETY_GUARD] Exception marking system unsafe: {e}", exc_info=True)
         
-        # Activate kill switch to prevent new trades
+        # Activate kill switch to prevent new trades (positions already closed above)
         try:
             if self.trading_bot:
+                # FIX: Positions already closed above, so just halt new trades
+                # Positions already closed above, so just halt new trades
                 self.trading_bot.activate_kill_switch(
-                    reason=f"SL Safety Guard: {len(violations)} position(s) with SL=0.0 detected"
+                    f"SL Safety Guard: {len(violations)} position(s) with SL=0.0 detected",
+                    close_positions=False  # Positions already closed above
                 )
                 logger.critical(f"[SL_SAFETY_GUARD_KILL_SWITCH] Kill switch activated - trading disabled")
         except Exception as e:

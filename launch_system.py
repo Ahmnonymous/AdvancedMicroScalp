@@ -31,7 +31,8 @@ from monitor.comprehensive_bot_monitor import ComprehensiveBotMonitor
 from monitor.sl_realtime_monitor import SLRealtimeMonitor
 from monitor.lightweight_realtime_logger import start_realtime_logger
 from utils.logger_factory import get_logger
-from utils.execution_tracer import get_tracer, trace_function
+# Execution tracer disabled to save storage space
+# from utils.execution_tracer import get_tracer, trace_function
 
 # Import shared Colors utility
 from utils.colors import Colors
@@ -109,13 +110,9 @@ class TradingSystemLauncher:
     
     def start(self):
         """Start all system components in parallel."""
-        tracer = get_tracer()
-        tracer.trace(
-            function_name="launch_system.start",
-            expected="Initialize all components and start trading system",
-            actual="Starting system initialization",
-            status="OK"
-        )
+        # Execution tracer disabled to save storage space
+        # tracer = get_tracer()
+        # tracer.trace(...)
         
         try:
             # MANDATORY OBSERVABILITY: Test system events logging on startup
@@ -139,64 +136,36 @@ class TradingSystemLauncher:
             
             # Initialize Trading Bot
             logger.info("Initializing Trading Bot...")
-            tracer.trace(
-                function_name="launch_system.start",
-                expected="Create TradingBot instance",
-                actual="Creating TradingBot",
-                status="OK",
-                component="TradingBot"
-            )
+            # Execution tracer disabled to save storage space
             self.bot = TradingBot(self.config_path)
             
             # Connect to MT5
-            tracer.trace(
-                function_name="launch_system.start",
-                expected="Connect to MT5 successfully",
-                actual="Attempting MT5 connection",
-                status="OK",
-                component="MT5"
-            )
             if not self.bot.connect():
                 error_msg = "Failed to connect to MT5. Exiting."
                 logger.error(error_msg)
-                tracer.trace(
-                    function_name="launch_system.start",
-                    expected="Connect to MT5 successfully",
-                    actual="MT5 connection failed",
-                    status="FAILED",
-                    reason=error_msg,
-                    component="MT5"
-                )
                 print(f"[ERROR] {error_msg}")
                 return False
             
-            tracer.trace(
-                function_name="launch_system.start",
-                expected="Connect to MT5 successfully",
-                actual="MT5 connected successfully",
-                status="OK",
-                component="MT5"
-            )
             logger.info("[OK] Trading Bot initialized and connected")
             
-            # Initialize Real-Time Monitor
-            logger.info("Initializing Real-Time Monitor...")
-            self.monitor = RealtimeBotMonitor(self.config, self.reconciliation_interval)
-            logger.info("[OK] Real-Time Monitor initialized")
+            # Real-Time Monitor disabled to save storage space
+            # logger.info("Initializing Real-Time Monitor...")
+            # self.monitor = RealtimeBotMonitor(self.config, self.reconciliation_interval)
+            # logger.info("[OK] Real-Time Monitor initialized")
+            self.monitor = None
             
-            # Initialize Broker Reconciliation
-            logger.info("Initializing Broker Reconciliation...")
-            # Get bot session start time for filtering trades
-            bot_session_start = self.bot.session_start_time if self.bot and hasattr(self.bot, 'session_start_time') else None
-            self.reconciliation = RealtimeReconciliation(self.config, self.reconciliation_interval, session_start_time=bot_session_start)
-            logger.info("[OK] Broker Reconciliation initialized")
-            if bot_session_start:
-                logger.info(f"   Session start time: {bot_session_start.strftime('%Y-%m-%d %H:%M:%S')} - only reconciling trades from this session")
+            # Broker Reconciliation disabled to save storage space
+            # logger.info("Initializing Broker Reconciliation...")
+            # bot_session_start = self.bot.session_start_time if self.bot and hasattr(self.bot, 'session_start_time') else None
+            # self.reconciliation = RealtimeReconciliation(self.config, self.reconciliation_interval, session_start_time=bot_session_start)
+            # logger.info("[OK] Broker Reconciliation initialized")
+            self.reconciliation = None
             
-            # Initialize Comprehensive Bot Monitor
-            logger.info("Initializing Comprehensive Bot Monitor...")
-            self.comprehensive_monitor = ComprehensiveBotMonitor(self.config_path)
-            logger.info("[OK] Comprehensive Bot Monitor initialized")
+            # Comprehensive Bot Monitor disabled to save storage space
+            # logger.info("Initializing Comprehensive Bot Monitor...")
+            # self.comprehensive_monitor = ComprehensiveBotMonitor(self.config_path)
+            # logger.info("[OK] Comprehensive Bot Monitor initialized")
+            self.comprehensive_monitor = None
             
             # Initialize SL Realtime Monitor
             logger.info("Initializing SL Realtime Monitor...")
@@ -222,38 +191,25 @@ class TradingSystemLauncher:
             logger.info("[OK] Trading Bot thread started")
             time.sleep(0.5)  # Brief delay for bot initialization
             
-            # Start Real-Time Monitor in separate thread
-            logger.info("Starting Real-Time Monitor thread...")
-            self.monitor.start_monitoring()
+            # Real-Time Monitor disabled to save storage space
+            # logger.info("Starting Real-Time Monitor thread...")
+            # self.monitor.start_monitoring()
+            # self.monitor_thread = threading.Thread(...)
+            # self.monitor_thread.start()
+            # logger.info("[OK] Real-Time Monitor started")
+            self.monitor_thread = None
             
-            # Monitor uses internal threads, but we track it
-            self.monitor_thread = threading.Thread(
-                target=self._monitor_thread_wrapper,
-                name="MonitorWrapper",
-                daemon=False
-            )
-            self.monitor_thread.start()
-            logger.info("[OK] Real-Time Monitor started")
-            time.sleep(0.5)
+            # Broker Reconciliation disabled to save storage space
+            # logger.info("Starting Broker Reconciliation thread...")
+            # self.reconciliation_thread = threading.Thread(...)
+            # self.reconciliation_thread.start()
+            # logger.info("[OK] Broker Reconciliation started")
+            self.reconciliation_thread = None
             
-            # Start Broker Reconciliation in separate thread
-            logger.info("Starting Broker Reconciliation thread...")
-            # Update session start time if bot has connected (session_start_time should be set by now)
-            if self.bot and hasattr(self.bot, 'session_start_time') and self.bot.session_start_time:
-                self.reconciliation.set_session_start_time(self.bot.session_start_time)
-            self.reconciliation_thread = threading.Thread(
-                target=self._run_reconciliation,
-                name="Reconciliation",
-                daemon=False
-            )
-            self.reconciliation_thread.start()
-            logger.info("[OK] Broker Reconciliation started")
-            time.sleep(0.5)
-            
-            # Start Comprehensive Bot Monitor
-            logger.info("Starting Comprehensive Bot Monitor...")
-            self.comprehensive_monitor.start()
-            logger.info("[OK] Comprehensive Bot Monitor started")
+            # Comprehensive Bot Monitor disabled to save storage space
+            # logger.info("Starting Comprehensive Bot Monitor...")
+            # self.comprehensive_monitor.start()
+            # logger.info("[OK] Comprehensive Bot Monitor started")
             
             # Start SL Worker (500ms cadence)
             logger.info("Starting SL Worker...")
@@ -354,9 +310,10 @@ class TradingSystemLauncher:
                     if self.bot_thread and not self.bot_thread.is_alive():
                         logger.warning("Trading Bot thread died unexpectedly")
                         break
-                    if self.reconciliation_thread and not self.reconciliation_thread.is_alive():
-                        logger.warning("Reconciliation thread died unexpectedly")
-                        break
+                    # Reconciliation thread disabled to save storage space
+                    # if self.reconciliation_thread and not self.reconciliation_thread.is_alive():
+                    #     logger.warning("Reconciliation thread died unexpectedly")
+                    #     break
             
             except KeyboardInterrupt:
                 print("\nKeyboard interrupt received")
@@ -378,19 +335,29 @@ class TradingSystemLauncher:
         try:
             logger.info(f"Trading Bot thread started (cycle interval: {cycle_interval}s)")
             self.bot.run(cycle_interval_seconds=cycle_interval)
+        except KeyboardInterrupt:
+            logger.info("Trading Bot thread stopped by user (KeyboardInterrupt)")
+            self.shutdown_event.set()
         except Exception as e:
+            # CRITICAL FIX: Don't shut down on exceptions - the bot's internal loop should handle errors
+            # Only set shutdown event for fatal errors that require system restart
             error_msg = f"Error in Trading Bot thread: {e}"
             logger.error(error_msg, exc_info=True)
             error_logger.error(error_msg, exc_info=True)
-            self.shutdown_event.set()
+            # The bot's internal loop should continue running even if this thread encounters an error
+            # Only shut down if it's a truly fatal error (e.g., bot.run() returned unexpectedly)
+            logger.warning("Trading Bot thread encountered error, but bot should continue in its internal loop")
+            # Don't set shutdown_event - let the bot's internal error handling manage recovery
     
     def _monitor_thread_wrapper(self):
         """Wrapper to keep monitor thread alive."""
         try:
             logger.info("Monitor wrapper thread started")
             while self.running and not self.shutdown_event.is_set():
-                if self.monitor and not self.monitor.monitoring_active:
-                    break
+                # Real-Time Monitor disabled to save storage space
+                # if self.monitor and not self.monitor.monitoring_active:
+                #     break
+                break  # Exit immediately since monitor is disabled
                 time.sleep(5)
         except Exception as e:
             error_msg = f"Error in Monitor wrapper thread: {e}"
@@ -463,9 +430,10 @@ class TradingSystemLauncher:
                         realized_pnl_today = getattr(self.bot, 'realized_pnl_today', 0.0)
                     
                     # Get monitoring summary
+                    # Real-Time Monitor disabled to save storage space
                     monitor_summary = {}
-                    if self.monitor:
-                        monitor_summary = self.monitor.get_monitoring_summary()
+                    # if self.monitor:
+                    #     monitor_summary = self.monitor.get_monitoring_summary()
                     
                     # Calculate Session P/L early (needed for account information table)
                     # CRITICAL FIX: Calculate session P/L directly from balance difference for accuracy
@@ -826,7 +794,14 @@ class TradingSystemLauncher:
                     
                     print(f"{Colors.BOLD}{Colors.CYAN}[STATS] TRADE STATISTICS{Colors.END}")
                     
+                    # Win/Loss statistics
+                    win_rate = (profitable_count / closed_trades * 100) if closed_trades > 0 else 0.0
+                    win_rate_color = Colors.GREEN if win_rate >= 50 else Colors.YELLOW if win_rate >= 30 else Colors.RED
+                    profit_color = Colors.GREEN if total_profit_sum > 0 else Colors.END
+                    loss_color = Colors.RED if total_loss_sum > 0 else Colors.END
+                    
                     if TABULATE_AVAILABLE:
+                        # First table: Execution stats
                         stats_table = [[
                             total_trades,
                             f"{Colors.GREEN}{successful}{Colors.END}",
@@ -835,11 +810,33 @@ class TradingSystemLauncher:
                         ]]
                         headers = ["Total Trades", "Successful", "Failed", "Filtered"]
                         print(tabulate(stats_table, headers=headers, tablefmt="grid", stralign="right"))
+                        print()
+                        
+                        # Second table: Win/Loss stats
+                        if closed_trades > 0:
+                            winloss_table = [[
+                                closed_trades,
+                                f"{Colors.GREEN}{profitable_count}{Colors.END}",
+                                f"{Colors.RED}{losing_count}{Colors.END}",
+                                f"{win_rate_color}{win_rate:.1f}%{Colors.END}",
+                                f"{profit_color}${total_profit_sum:,.2f}{Colors.END}",
+                                f"{loss_color}${total_loss_sum:,.2f}{Colors.END}",
+                                f"{Colors.CYAN}${total_profit_sum + total_loss_sum:,.2f}{Colors.END}"
+                            ]]
+                            headers = ["Closed", "Wins", "Losses", "Win Rate", "Total Profit", "Total Loss", "Net P/L"]
+                            print(tabulate(winloss_table, headers=headers, tablefmt="grid", stralign="right"))
                     else:
-                        # Fallback
+                        # Fallback: Execution stats
                         print(f"{Colors.BOLD}{'Total Trades':<15} | {'Successful':<15} | {'Failed':<15} | {'Filtered':<15}{Colors.END}")
                         print(f"{Colors.CYAN}{'-' * 75}{Colors.END}")
                         print(f"{total_trades:<15} | {Colors.GREEN}{successful:<15}{Colors.END} | {Colors.RED}{failed:<15}{Colors.END} | {Colors.YELLOW}{filtered:<15}{Colors.END}")
+                        
+                        # Fallback: Win/Loss stats
+                        if closed_trades > 0:
+                            print()
+                            print(f"{Colors.BOLD}{'Closed Trades':<15} | {'Wins':<15} | {'Losses':<15} | {'Win Rate':<15} | {'Total Profit':<18} | {'Total Loss':<18} | {'Net P/L':<18}{Colors.END}")
+                            print(f"{Colors.CYAN}{'-' * 120}{Colors.END}")
+                            print(f"{closed_trades:<15} | {Colors.GREEN}{profitable_count:<15}{Colors.END} | {Colors.RED}{losing_count:<15}{Colors.END} | {win_rate_color}{win_rate:>13.1f}%{Colors.END} | {profit_color}${total_profit_sum:>15,.2f}{Colors.END} | {loss_color}${total_loss_sum:>15,.2f}{Colors.END} | {Colors.CYAN}${total_profit_sum + total_loss_sum:>15,.2f}{Colors.END}")
                     print()
                     
                     # Footer
@@ -946,9 +943,10 @@ class TradingSystemLauncher:
             if self.bot:
                 trade_stats = getattr(self.bot, 'trade_stats', {})
             
+            # Real-Time Monitor disabled to save storage space
             monitor_summary = {}
-            if self.monitor:
-                monitor_summary = self.monitor.get_monitoring_summary()
+            # if self.monitor:
+            #     monitor_summary = self.monitor.get_monitoring_summary()
             
             # Display final summary (only to console, minimal output)
             print("\n" + "=" * 80)
@@ -1014,16 +1012,12 @@ class TradingSystemLauncher:
             else:
                 logger.info("[OK] Trading Bot stopped")
         
-        # Stop Real-Time Monitor
-        logger.info("Stopping Real-Time Monitor...")
-        if self.monitor:
-            self.monitor.stop_monitoring()
-        if self.monitor_thread and self.monitor_thread.is_alive():
-            self.monitor_thread.join(timeout=5.0)
-            if self.monitor_thread.is_alive():
-                logger.warning("Monitor thread did not stop within timeout")
-            else:
-                logger.info("[OK] Real-Time Monitor stopped")
+        # Real-Time Monitor disabled to save storage space
+        # logger.info("Stopping Real-Time Monitor...")
+        # if self.monitor:
+        #     self.monitor.stop_monitoring()
+        # if self.monitor_thread and self.monitor_thread.is_alive():
+        #     self.monitor_thread.join(timeout=5.0)
         
         # Stop Trade Summary Display
         logger.info("Stopping Trade Summary Display...")
@@ -1037,11 +1031,10 @@ class TradingSystemLauncher:
         # Display final summary before stopping
         self._display_final_summary()
         
-        # Stop Comprehensive Bot Monitor
-        logger.info("Stopping Comprehensive Bot Monitor...")
-        if self.comprehensive_monitor:
-            self.comprehensive_monitor.stop()
-            logger.info("[OK] Comprehensive Bot Monitor stopped")
+        # Comprehensive Bot Monitor disabled to save storage space
+        # logger.info("Stopping Comprehensive Bot Monitor...")
+        # if self.comprehensive_monitor:
+        #     self.comprehensive_monitor.stop()
         
         # Stop SL Realtime Monitor (if running separately)
         if self.sl_monitor:
@@ -1149,37 +1142,15 @@ class TradingSystemLauncher:
                 logger.error(f"Error in heartbeat monitor: {e}", exc_info=True)
                 time.sleep(5)  # Continue even on error
         
-        # Stop Broker Reconciliation
-        logger.info("Stopping Broker Reconciliation...")
-        if self.reconciliation_thread and self.reconciliation_thread.is_alive():
-            self.reconciliation_thread.join(timeout=5.0)
-            if self.reconciliation_thread.is_alive():
-                logger.warning("Reconciliation thread did not stop within timeout")
-            else:
-                logger.info("[OK] Broker Reconciliation stopped")
+        # Broker Reconciliation disabled to save storage space
+        # logger.info("Stopping Broker Reconciliation...")
+        # if self.reconciliation_thread and self.reconciliation_thread.is_alive():
+        #     self.reconciliation_thread.join(timeout=5.0)
         
-        # Generate final reconciliation report
-        logger.info("Generating final reconciliation report...")
-        try:
-            if self.reconciliation:
-                final_results = self.reconciliation.reconcile()
-                if final_results:
-                    report_file = self.reconciliation.generate_realtime_report(final_results)
-                    logger.info(f"Final reconciliation report: {report_file}")
-        except Exception as e:
-            logger.error(f"Error generating final reconciliation report: {e}", exc_info=True)
-        
-        # Generate monitoring summary
-        logger.info("Generating monitoring summary...")
-        try:
-            if self.monitor:
-                summary = self.monitor.get_monitoring_summary()
-                logger.info("Monitoring Summary:")
-                logger.info(f"  HFT Trades: {summary.get('hft_trades', 0)}")
-                logger.info(f"  HFT Sweet Spot Rate: {summary.get('hft_sweet_spot_rate', 0):.1f}%")
-                logger.info(f"  Skipped Symbols: {summary.get('skipped_symbols_count', 0)}")
-        except Exception as e:
-            logger.error(f"Error generating monitoring summary: {e}", exc_info=True)
+        # Real-Time Monitor disabled to save storage space
+        # logger.info("Generating monitoring summary...")
+        # if self.monitor:
+        #     summary = self.monitor.get_monitoring_summary()
         
         # Flush all logs
         logger.info("Flushing all logs...")

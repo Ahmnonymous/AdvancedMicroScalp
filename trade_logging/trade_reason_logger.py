@@ -1,6 +1,7 @@
 """
 Detailed Trade Reason Logger
 Logs comprehensive analysis of why each trade was taken with exact reasons and detailed analysis.
+Includes strategy identification and outcome analysis.
 """
 
 import json
@@ -33,13 +34,11 @@ class TradeReasonLogger:
         # Open log file in append mode
         self.log_file = open(log_file, 'a', encoding='utf-8')
         
-        # Also create a text summary log
-        text_log_file = log_dir / f"trade_reasons_{timestamp}.log"
-        self.text_logger = get_logger("trade_reason", str(text_log_file))
+        # Text summary log disabled to save storage space (JSONL format is sufficient)
+        self.text_logger = None
         
-        self.text_logger.info("=" * 100)
-        self.text_logger.info("TRADE REASON LOGGER INITIALIZED")
-        self.text_logger.info("=" * 100)
+        # Track open trades for outcome logging
+        self._open_trades = {}  # {ticket: {strategy_id, entry_data, ...}}
     
     def log_trade_reason(
         self,
@@ -124,7 +123,7 @@ class TradeReasonLogger:
         entry_price = execution_result.get('entry_price_actual', 0.0)
         lot_size = execution_result.get('lot_size', 0.01)
         stop_loss_price = execution_result.get('stop_loss_price', 0.0)
-        take_profit_price = execution_result.get('take_profit_price', 0.0)
+        take_profit_price = execution_result.get('take_profit_price')  # Can be None
         risk_usd = execution_result.get('risk_usd', 0.0)
         slippage = execution_result.get('slippage', 0.0)
         
@@ -150,6 +149,38 @@ class TradeReasonLogger:
             signal, opportunity, sma_fast, sma_slow, rsi, quality_score, trend_strength
         )
         
+        # Generate strategy ID
+        try:
+            strategy_id = self._generate_strategy_id(opportunity, signal)
+            strategy_name = self._get_strategy_name(strategy_id, opportunity, signal)
+        except AttributeError as e:
+            # Fallback if method doesn't exist (shouldn't happen, but handle gracefully)
+            strategy_id = f"{signal}_FALLBACK_{datetime.now().timestamp()}"
+            strategy_name = f"{signal} Strategy (Fallback)"
+            if self.text_logger:
+                self.text_logger.warning(f"Strategy ID generation failed: {e}, using fallback")
+        except Exception as e:
+            # Fallback for any other error
+            strategy_id = f"{signal}_FALLBACK_{datetime.now().timestamp()}"
+            strategy_name = f"{signal} Strategy (Fallback)"
+            if self.text_logger:
+                self.text_logger.warning(f"Strategy ID generation failed: {e}, using fallback")
+        
+        # Store trade data for outcome logging
+        self._open_trades[ticket] = {
+            'strategy_id': strategy_id,
+            'strategy_name': strategy_name,
+            'symbol': symbol,
+            'signal': signal,
+            'entry_time': timestamp,
+            'entry_price': entry_price,
+            'stop_loss_price': stop_loss_price,
+            'take_profit_price': take_profit_price,
+            'quality_score': quality_score,
+            'trend_strength': trend_strength,
+            'opportunity': opportunity.copy()
+        }
+        
         # Build comprehensive reason analysis
         reason_analysis = {
             'timestamp': timestamp,
@@ -157,6 +188,15 @@ class TradeReasonLogger:
             'ticket': ticket,
             'signal': signal,
             'execution_status': execution_result.get('success', False),
+            
+            # Strategy Information
+            'strategy': {
+                'strategy_id': strategy_id,
+                'strategy_name': strategy_name,
+                'strategy_description': self._get_strategy_description(strategy_id, opportunity, signal),
+                'entry_logic': self._get_entry_logic_description(opportunity, signal),
+                'filter_configuration': self._get_filter_configuration(opportunity),
+            },
             
             # Quality Metrics
             'quality_score': quality_score,
@@ -212,7 +252,7 @@ class TradeReasonLogger:
             'execution': {
                 'entry_price_requested': execution_result.get('entry_price_requested', entry_price),
                 'entry_price_actual': entry_price,
-                'take_profit_price': take_profit_price,
+                'take_profit_price': take_profit_price if take_profit_price is not None else None,
                 'execution_time_seconds': execution_result.get('execution_time', 0.0),
             },
             
@@ -234,8 +274,7 @@ class TradeReasonLogger:
         self.log_file.write('\n')
         self.log_file.flush()
         
-        # Write formatted text log
-        self._write_text_log(reason_analysis)
+        # Text log writing disabled to save storage space
     
     def _extract_rejection_reasons(self, opportunity: Dict[str, Any]) -> list:
         """Extract all rejection reasons from opportunity."""
@@ -541,12 +580,19 @@ class TradeReasonLogger:
             }
         
         # Calculate expected move percentage
-        if signal == 'LONG' and take_profit_price > entry_price:
-            expected_move = ((take_profit_price - entry_price) / entry_price) * 100
-        elif signal == 'SHORT' and take_profit_price < entry_price:
-            expected_move = ((entry_price - take_profit_price) / entry_price) * 100
+        if take_profit_price is not None and entry_price > 0:
+            if signal == 'LONG' and take_profit_price > entry_price:
+                expected_move = ((take_profit_price - entry_price) / entry_price) * 100
+            elif signal == 'SHORT' and take_profit_price < entry_price:
+                expected_move = ((entry_price - take_profit_price) / entry_price) * 100
+            else:
+                # Fallback: estimate based on ATR
+                if atr > 0 and entry_price > 0:
+                    expected_move = (atr / entry_price) * 100
+                else:
+                    expected_move = 0.35  # Default estimate
         else:
-            # Fallback: estimate based on ATR
+            # Fallback: estimate based on ATR when take_profit_price is None
             if atr > 0 and entry_price > 0:
                 expected_move = (atr / entry_price) * 100
             else:
@@ -750,6 +796,146 @@ class TradeReasonLogger:
         
         self.text_logger.info("=" * 100)
         self.text_logger.info("")
+    
+    def _generate_strategy_id(self, opportunity: Dict[str, Any], signal: str) -> str:
+        """Generate strategy ID from opportunity."""
+        try:
+            from strategies.strategy_fingerprint import StrategyFingerprint
+            fingerprint = StrategyFingerprint()
+            return fingerprint.generate_strategy_id(opportunity)
+        except Exception as e:
+            # Fallback: simple strategy ID
+            trend_signal = opportunity.get('trend_signal', {})
+            sma_fast = trend_signal.get('sma_fast', 20)
+            sma_slow = trend_signal.get('sma_slow', 50)
+            rsi = opportunity.get('rsi', 50.0)
+            quality_score = opportunity.get('quality_score', 0.0)
+            return f"{signal}_SMA{int(sma_fast)}x{int(sma_slow)}_RSI{int(rsi)}_Q{int(quality_score)}"
+    
+    def _get_strategy_name(self, strategy_id: str, opportunity: Dict[str, Any], signal: str) -> str:
+        """Get human-readable strategy name."""
+        # Extract components from strategy_id
+        if '_' in strategy_id:
+            parts = strategy_id.split('_')
+            direction = parts[0] if parts else signal
+            entry_cluster = parts[1] if len(parts) > 1 else 'SMA20x50'
+            
+            # Build readable name
+            if 'SMA' in entry_cluster:
+                return f"{direction} {entry_cluster} Strategy"
+            else:
+                return f"{direction} {entry_cluster} Strategy"
+        return f"{signal} Strategy"
+    
+    def _get_strategy_description(self, strategy_id: str, opportunity: Dict[str, Any], signal: str) -> str:
+        """Get detailed strategy description."""
+        trend_signal = opportunity.get('trend_signal', {})
+        sma_fast = trend_signal.get('sma_fast', 20)
+        sma_slow = trend_signal.get('sma_slow', 50)
+        rsi = opportunity.get('rsi', 50.0)
+        quality_score = opportunity.get('quality_score', 0.0)
+        
+        description = f"{signal} entry on SMA{int(sma_fast)} crossing SMA{int(sma_slow)}"
+        description += f" with RSI {rsi:.1f}"
+        description += f" (Quality: {quality_score:.1f})"
+        
+        return description
+    
+    def _get_entry_logic_description(self, opportunity: Dict[str, Any], signal: str) -> str:
+        """Get entry logic description."""
+        trend_signal = opportunity.get('trend_signal', {})
+        trend_direction = trend_signal.get('signal', 'NONE')
+        
+        if signal == 'LONG':
+            return f"Enter LONG when SMA Fast > SMA Slow and trend confirms {trend_direction}"
+        else:
+            return f"Enter SHORT when SMA Fast < SMA Slow and trend confirms {trend_direction}"
+    
+    def _get_filter_configuration(self, opportunity: Dict[str, Any]) -> Dict[str, Any]:
+        """Get filter configuration used."""
+        return {
+            'news_filter': opportunity.get('news_filter_passed', True),
+            'volume_filter': opportunity.get('volume_filter_passed', True),
+            'market_closing_filter': opportunity.get('market_closing_filter_passed', True),
+            'rsi_filter': opportunity.get('rsi_filter_passed', True),
+            'spread_filter': opportunity.get('spread_filter_passed', True),
+            'volatility_filter': opportunity.get('volatility_filter_passed', True),
+            'trend_strength_filter': opportunity.get('trend_strength_filter_passed', True),
+        }
+    
+    def log_trade_outcome(
+        self,
+        ticket: int,
+        exit_price: float,
+        profit_usd: float,
+        close_reason: str,
+        duration_minutes: float
+    ):
+        """Log trade outcome analysis when position closes."""
+        if ticket not in self._open_trades:
+            # Trade not tracked - skip outcome logging
+            return
+        
+        trade_data = self._open_trades.pop(ticket)
+        strategy_id = trade_data.get('strategy_id', 'UNKNOWN')
+        strategy_name = trade_data.get('strategy_name', 'Unknown Strategy')
+        entry_price = trade_data.get('entry_price', 0.0)
+        entry_time = trade_data.get('entry_time', datetime.now())
+        quality_score = trade_data.get('quality_score', 0.0)
+        signal = trade_data.get('signal', 'UNKNOWN')
+        
+        # Analyze what worked and what didn't
+        what_worked = []
+        what_didnt_work = []
+        
+        # Analyze outcome
+        if profit_usd > 0:
+            what_worked.append("Trade closed in profit")
+            if quality_score >= 70:
+                what_worked.append("High quality setup delivered expected profit")
+            if "Take Profit" in close_reason or "Trailing Stop" in close_reason:
+                what_worked.append("Take profit target reached")
+        elif profit_usd < 0:
+            what_didnt_work.append("Trade closed at a loss")
+            if abs(profit_usd + 2.0) <= 0.10:  # Close to -$2.00
+                what_didnt_work.append("Stop loss hit as expected")
+            elif profit_usd > -2.0:
+                what_didnt_work.append("Early closure - SL calculation issue or manual close")
+            if quality_score >= 70:
+                what_didnt_work.append("High quality setup did not deliver expected profit")
+        
+        # Performance analysis
+        price_movement = abs(exit_price - entry_price) if entry_price > 0 else 0.0
+        price_movement_pct = (price_movement / entry_price * 100) if entry_price > 0 else 0.0
+        
+        # Build outcome analysis
+        outcome_analysis = {
+            'timestamp': datetime.now().isoformat(),
+            'ticket': ticket,
+            'strategy_id': strategy_id,
+            'strategy_name': strategy_name,
+            'entry_price': entry_price,
+            'exit_price': exit_price,
+            'profit_usd': profit_usd,
+            'close_reason': close_reason,
+            'duration_minutes': duration_minutes,
+            'price_movement': price_movement,
+            'price_movement_pct': price_movement_pct,
+            'what_worked': what_worked,
+            'what_didnt_work': what_didnt_work,
+            'entry_quality_score': quality_score,
+            'signal': signal
+        }
+        
+        # Write to log file
+        try:
+            json.dump(outcome_analysis, self.log_file, ensure_ascii=False)
+            self.log_file.write('\n')
+            self.log_file.flush()
+        except Exception as e:
+            # Log error but don't fail
+            if self.text_logger:
+                self.text_logger.warning(f"Failed to write outcome analysis for ticket {ticket}: {e}")
     
     def close(self):
         """Close log file."""

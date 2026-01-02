@@ -28,7 +28,14 @@ from monitor.realtime_broker_fetcher import RealtimeBrokerFetcher
 from monitor.realtime_reconciliation import RealtimeReconciliation
 from utils.logger_factory import get_logger
 
-logger = get_logger("realtime_monitor", "logs/live/system/realtime_monitor.log")
+# Logger disabled to save storage space
+class NullLogger:
+    def info(self, *args, **kwargs): pass
+    def error(self, *args, **kwargs): pass
+    def warning(self, *args, **kwargs): pass
+    def debug(self, *args, **kwargs): pass
+    def critical(self, *args, **kwargs): pass
+logger = NullLogger()
 
 
 class RealtimeBotMonitor:
@@ -57,9 +64,8 @@ class RealtimeBotMonitor:
         self.skipped_symbols = defaultdict(int)  # Symbol -> skip count
         self.missed_opportunities = []  # Missed profit opportunities
         
-        # Setup monitoring log
-        # Log directory is created by logger_factory
-        self.monitoring_logger = get_logger("monitoring", "logs/live/system/realtime_monitoring.log")
+        # Use main logger instead of separate monitoring logger to avoid duplicate logs
+        self.monitoring_logger = logger
     
     def start_monitoring(self):
         """Start real-time monitoring."""

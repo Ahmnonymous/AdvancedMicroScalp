@@ -105,40 +105,78 @@ class TPManager:
         tick_value = symbol_info.get('tick_value', 0.0)
         tick_size = symbol_info.get('tick_size', point)
         
-        # CRITICAL FIX: Use tick_value for crypto/special symbols (same logic as SL manager)
+        # CRITICAL FIX: Use trade_tick_value or tick_value for crypto/special symbols (same logic as SL manager)
         # For symbols with contract_size = 1 or very small contract_size, use tick_value
         # This handles crypto pairs like BTCXAUm where contract_size is reported as 1 but effective is 1000
         # Profit = (price_diff_in_points) * lot_size * tick_value
         # For standard forex: Profit = (price_diff) * lot_size * contract_size
         
-        # Determine if we should use tick_value (crypto/special symbols)
-        use_tick_value = False
-        if contract_size == 1 and tick_value > 0:
-            use_tick_value = True
-        elif contract_size < 100 and tick_value > 0:
-            # For symbols with small contract_size, check if tick_value gives more reasonable calculation
-            # If using contract_size would give price_diff > 10% of entry, prefer tick_value
-            price_diff_contract = self.tp_target_usd / (lot_size * contract_size) if contract_size > 0 else float('inf')
-            if price_diff_contract > entry_price * 0.10:
-                use_tick_value = True
+        # CRITICAL: Check trade_tick_value first (most accurate, directly from broker)
+        point_value = symbol_info.get('trade_tick_value', None)
         
-        if use_tick_value and tick_value > 0:
+        # Calculate price_diff using contract_size first to check if it's reasonable
+        price_diff_contract = self.tp_target_usd / (lot_size * contract_size) if contract_size > 0 else float('inf')
+        
+        # Determine calculation method
+        use_tick_value = False
+        use_point_value = False
+        
+        # Priority 1: Use trade_tick_value if available (most accurate)
+        if point_value is not None and point_value > 0:
+            use_point_value = True
+        # Priority 2: Check if contract_size calculation gives unreasonable result
+        elif price_diff_contract > entry_price * 0.10 or price_diff_contract > 1000:
+            # Price diff is too large (>10% of entry or >1000) - likely wrong contract_size
+            # Try tick_value if available
+            if tick_value > 0:
+                use_tick_value = True
+            else:
+                # No tick_value - this is an error condition
+                logger.error(f"[TP_CALC_ERROR] {symbol} | contract_size calculation gives unreasonable price_diff ({price_diff_contract:.5f}) "
+                           f"and tick_value is not available | contract_size={contract_size}, lot_size={lot_size}, entry={entry_price:.5f}")
+                return None
+        # Priority 3: For contract_size=1, always try tick_value first
+        elif contract_size == 1 and tick_value > 0:
+            use_tick_value = True
+        
+        if use_point_value and point_value > 0:
+            # Use trade_tick_value (most accurate for indices/commodities)
+            # Profit = price_diff_in_points * lot_size * point_value
+            # So: price_diff_in_points = Profit / (lot_size * point_value)
+            price_diff_in_points = self.tp_target_usd / (lot_size * point_value)
+            price_diff = price_diff_in_points * tick_size
+            logger.info(f"[TP_CALC] {symbol} using trade_tick_value method | point_value={point_value:.8f} | "
+                       f"price_diff={price_diff:.5f} ({price_diff_in_points:.1f} points)")
+        elif use_tick_value and tick_value > 0:
             # Crypto or special symbols: use tick_value
             # price_diff_in_points = Profit / (lot_size * tick_value)
             price_diff_in_points = self.tp_target_usd / (lot_size * tick_value)
             price_diff = price_diff_in_points * tick_size
-            logger.debug(f"[TP_CALC] {symbol} using tick_value method | tick_value={tick_value:.8f} | price_diff={price_diff:.5f}")
+            logger.info(f"[TP_CALC] {symbol} using tick_value method | tick_value={tick_value:.8f} | price_diff={price_diff:.5f}")
         else:
             # Standard forex: use contract_size
             # Profit = (price_diff) * lot_size * contract_size
             # price_diff = Profit / (lot_size * contract_size)
-            price_diff = self.tp_target_usd / (lot_size * contract_size) if contract_size > 0 else 0.0
-            logger.debug(f"[TP_CALC] {symbol} using contract_size method | contract_size={contract_size} | price_diff={price_diff:.5f}")
+            price_diff = price_diff_contract
+            logger.info(f"[TP_CALC] {symbol} using contract_size method | contract_size={contract_size} | price_diff={price_diff:.5f}")
         
-        # Calculate TP price based on order type
+        # CRITICAL FIX: Validate price_diff is reasonable before calculation
+        # For SELL: price_diff must be less than entry_price to avoid negative TP
+        # For BUY: price_diff should be reasonable (not > 50% of entry)
         if order_type == 'BUY' or (isinstance(order_type, int) and order_type == mt5.ORDER_TYPE_BUY):
+            if price_diff > entry_price * 0.50:  # TP shouldn't be > 50% away
+                logger.error(f"[TP_CALC_ERROR] BUY order price_diff ({price_diff:.5f}) is too large (>50% of entry {entry_price:.5f})")
+                return None
             tp_price = entry_price + price_diff
         else:  # SELL
+            if price_diff >= entry_price:
+                # CRITICAL: For SELL, if price_diff >= entry_price, TP would be negative
+                # This can happen with very low-priced symbols or calculation errors
+                # Try alternative calculation or use minimum TP distance
+                logger.error(f"[TP_CALC_ERROR] SELL order price_diff ({price_diff:.5f}) >= entry_price ({entry_price:.5f}) - would result in negative TP")
+                # Fallback: Use 1% of entry_price as minimum TP distance
+                price_diff = entry_price * 0.01
+                logger.warning(f"[TP_CALC_FALLBACK] Using fallback price_diff: {price_diff:.5f} (1% of entry)")
             tp_price = entry_price - price_diff
         
         # CRITICAL FIX: Validate TP price is reasonable (not negative, not too far from entry)
@@ -150,7 +188,7 @@ class TPManager:
                 return None
         else:  # SELL
             if tp_price <= 0:
-                logger.error(f"[TP_CALC_ERROR] SELL order TP ({tp_price:.5f}) is negative or zero")
+                logger.error(f"[TP_CALC_ERROR] SELL order TP ({tp_price:.5f}) is negative or zero | entry={entry_price:.5f}, price_diff={price_diff:.5f}")
                 return None
             if tp_price >= entry_price:
                 logger.error(f"[TP_CALC_ERROR] SELL order TP ({tp_price:.5f}) must be below entry ({entry_price:.5f})")
@@ -180,20 +218,44 @@ class TPManager:
         if position is None:
             return False, "Position not found"
         
-        # Check if TP is already applied and verified
+        # CRITICAL FIX: Always verify TP is correctly set, even if marked as applied
+        # This ensures TP is always correct, even if broker removed it or it was set incorrectly
         with self._tracking_lock:
             if ticket in self._position_tracking and self._position_tracking[ticket].get('tp_applied', False):
-                # Verify TP is still set
+                # Verify TP is still set and correct
                 fresh_check = self.order_manager.get_position_by_ticket(ticket)
                 if fresh_check:
                     applied_tp = fresh_check.get('tp', 0.0)
                     expected_tp = self._position_tracking[ticket].get('tp_price', 0.0)
-                    if applied_tp != 0.0 and abs(applied_tp - expected_tp) / max(abs(expected_tp), 0.00001) < 0.001:
-                        return True, "TP already applied and verified"
+                    
+                    # Recalculate expected TP from fresh position (position may have changed)
+                    recalculated_expected_tp = self.calculate_tp_price(fresh_check)
+                    
+                    # Use recalculated TP if available, otherwise use stored expected TP
+                    if recalculated_expected_tp is not None:
+                        expected_tp = recalculated_expected_tp
+                        # Update stored TP price
+                        self._position_tracking[ticket]['tp_price'] = expected_tp
+                    
+                    if expected_tp is not None and expected_tp > 0:
+                        symbol_info = self.mt5_connector.get_symbol_info(fresh_check.get('symbol', ''))
+                        if symbol_info:
+                            point = symbol_info.get('point', 0.00001)
+                            tp_tolerance = point * 10  # 1 pip tolerance
+                            
+                            # Check if TP is correct (within tolerance)
+                            if applied_tp != 0.0 and abs(applied_tp - expected_tp) <= tp_tolerance:
+                                return True, "TP already applied and verified"
+                            else:
+                                # TP was removed, changed, or is wrong - need to reapply
+                                logger.warning(f"[TP_REAPPLY] Ticket {ticket} | TP is wrong or not set | "
+                                             f"Expected: {expected_tp:.5f} | Current: {applied_tp:.5f} | "
+                                             f"Diff: {abs(applied_tp - expected_tp):.5f} | Reapplying...")
+                                self._position_tracking[ticket]['tp_applied'] = False
                     else:
-                        # TP was removed or changed - need to reapply
-                        logger.warning(f"[TP_REAPPLY] Ticket {ticket} | TP was removed/changed | "
-                                     f"Expected: {expected_tp:.5f} | Current: {applied_tp:.5f} | Reapplying...")
+                        # Cannot calculate expected TP - mark as not applied
+                        logger.warning(f"[TP_REAPPLY] Ticket {ticket} | Cannot calculate expected TP | "
+                                     f"Current: {applied_tp:.5f} | Reapplying...")
                         self._position_tracking[ticket]['tp_applied'] = False
         
         # Calculate TP price

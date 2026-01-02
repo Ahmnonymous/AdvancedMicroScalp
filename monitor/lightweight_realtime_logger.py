@@ -33,31 +33,12 @@ def start_realtime_logger(mt5_connector, bot_state_getter, shutdown_event: threa
         sl_manager: Optional SLManager instance for metrics tracking
         console_output: If False, disable all console output (default: True)
     """
-    # Create logs/runtime directory if it doesn't exist
-    runtime_log_dir = Path("logs/runtime")
-    runtime_log_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Create timestamped log files
-    timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S')
-    jsonl_log_path = runtime_log_dir / f"sl_updates_{timestamp_str}.jsonl"
-    csv_log_path = runtime_log_dir / f"sl_summary_{timestamp_str}.csv"
-    text_log_path = runtime_log_dir / f"sl_runtime_{timestamp_str}.log"
-    
-    # Setup file logger
-    file_logger = get_logger("lightweight_realtime", str(text_log_path))
-    
-    # Open JSONL and CSV files for writing
-    jsonl_file = open(jsonl_log_path, 'w', encoding='utf-8')
-    csv_file = open(csv_log_path, 'w', encoding='utf-8', newline='')
-    csv_writer = csv.writer(csv_file)
-    
-    # Write CSV header
-    csv_writer.writerow([
-        'Timestamp', 'Ticket', 'Symbol', 'Type', 'Lot', 'Entry', 'Current_Price', 
-        'SL_Target', 'SL_Applied', 'Effective_SL', 'P_L', 'Last_Update_Time', 
-        'Last_Update_Result', 'Consecutive_Failures', 'Circuit_Breaker', 
-        'SL_Status', 'Sweet_Spot', 'Trailing', 'Close_Failures', 'Execution_Errors'
-    ])
+    # File logging disabled to save storage space
+    # Runtime logs are no longer written to files
+    jsonl_file = None
+    csv_file = None
+    csv_writer = None
+    file_logger = None
     
     def logger_loop():
         """Main logging loop - runs every 1 second."""
@@ -320,42 +301,7 @@ def start_realtime_logger(mt5_connector, bot_state_getter, shutdown_event: threa
                                     status_line += f" | 🔵 Trailing"
                                 print(status_line)
                             
-                            # Write structured JSON log
-                            json_log_entry = {
-                                'timestamp': timestamp_full,
-                                'ticket': ticket,
-                                'symbol': symbol,
-                                'type': pos_type,
-                                'lot': volume,
-                                'entry': entry,
-                                'current_price': current,
-                                'sl_target': last_sl_price_target if last_sl_price_target else sl,
-                                'sl_applied': sl,
-                                'effective_sl': effective_sl_profit,
-                                'profit': profit,
-                                'last_update_time': time_since_update,
-                                'last_update_result': last_update_result,
-                                'consecutive_failures': consecutive_failures,
-                                'circuit_breaker': str(circuit_breaker) if circuit_breaker else None,
-                                'sl_status': sl_status,
-                                'sweet_spot': in_sweet_spot,
-                                'trailing': in_trailing_zone,
-                                'last_sl_reason': last_sl_reason
-                            }
-                            jsonl_file.write(json.dumps(json_log_entry) + '\n')
-                            jsonl_file.flush()
-                            
-                            # Write CSV row
-                            csv_writer.writerow([
-                                timestamp_full, ticket, symbol, pos_type, volume, entry, current,
-                                last_sl_price_target if last_sl_price_target else sl, sl, effective_sl_profit, profit,
-                                time_since_update, last_update_result, consecutive_failures,
-                                str(circuit_breaker) if circuit_breaker else 'None',
-                                sl_status, in_sweet_spot, in_trailing_zone,
-                                len([e for e in close_failures if e.get('ticket') == ticket]),
-                                len([e for e in execution_errors if e.get('ticket') == ticket])
-                            ])
-                            csv_file.flush()
+                            # File logging disabled - no JSONL or CSV writes
                         
                         if console_output:
                             print(f"+{'------------'}+{'--------'}+{'------'}+{'-------+'}+{'---------'}+{'---------'}+{'---------'}+{'--------'}+")
@@ -387,25 +333,25 @@ def start_realtime_logger(mt5_connector, bot_state_getter, shutdown_event: threa
                             for event in events_summary:
                                 print(f"  {event}")
                     
-                    # Write to text log file
-                    log_message = f"[{timestamp_full}] Positions: {len(positions)} | State: {current_state} | Symbol: {current_symbol}"
-                    file_logger.info(log_message)
+                    # File logging disabled - no text log writes
                     
                 except Exception as e:
                     # Don't let logger errors break the system
                     error_msg = f"[ERROR] Logger error: {e}"
                     if console_output:
                         print(error_msg)
-                    file_logger.error(error_msg, exc_info=True)
+                    # File logging disabled - no file error logging
                 
                 # Sleep exactly 1 second
                 shutdown_event.wait(1.0)
         
         finally:
-            # Close files on shutdown
-            jsonl_file.close()
-            csv_file.close()
-            file_logger.info("Logger shutdown complete")
+            # Close files on shutdown (if they were opened)
+            if jsonl_file:
+                jsonl_file.close()
+            if csv_file:
+                csv_file.close()
+            # File logging disabled - no shutdown message
     
     # Start logger thread
     logger_thread = threading.Thread(

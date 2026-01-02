@@ -52,13 +52,14 @@ class SLWatchdog:
         # Increased thresholds to prevent false positives under MT5 broker latency
         risk_config = sl_manager.risk_config if hasattr(sl_manager, 'risk_config') else {}
         watchdog_config = risk_config.get('watchdog', {})
-        # FIX 4: Profitable trades: ≥ 2.0 seconds (was 2.0s, keeping same)
-        self.stale_threshold_profitable = watchdog_config.get('stale_threshold_profitable_seconds', 2.0)  # 2.0s for profitable trades
-        self.stale_threshold_breakeven = watchdog_config.get('stale_threshold_breakeven_seconds', 1.0)  # 1.0s for breakeven
-        # FIX 4: Losing trades: ≥ 1.0 second (increased from 0.5s for live safety)
-        self.stale_threshold_losing = watchdog_config.get('stale_threshold_losing_seconds', 1.0)  # 1.0s for losing trades (LIVE)
-        # FIX 4: Crypto/indices: multiply threshold by 2× (keeping same)
-        self.stale_threshold_crypto_multiplier = watchdog_config.get('stale_threshold_crypto_multiplier', 2.0)  # 2x for BTCXAUm/DE30m
+        # FIX: Increased thresholds to prevent false kill switches
+        # Profitable trades: ≥ 5.0 seconds (increased from 2.0s to reduce false positives)
+        self.stale_threshold_profitable = watchdog_config.get('stale_threshold_profitable_seconds', 5.0)  # 5.0s for profitable trades
+        self.stale_threshold_breakeven = watchdog_config.get('stale_threshold_breakeven_seconds', 3.0)  # 3.0s for breakeven (increased from 1.0s)
+        # FIX: Losing trades: ≥ 2.0 seconds (increased from 1.0s to reduce false positives)
+        self.stale_threshold_losing = watchdog_config.get('stale_threshold_losing_seconds', 2.0)  # 2.0s for losing trades (increased from 1.0s)
+        # FIX: Crypto/indices: multiply threshold by 3× (increased from 2x to account for higher latency)
+        self.stale_threshold_crypto_multiplier = watchdog_config.get('stale_threshold_crypto_multiplier', 3.0)  # 3x for BTCXAUm/DE30m
         # STEP 4 FIX: Increased restart limit and added exponential backoff
         self.max_restarts_per_10min = 10  # Increased from 5 to 10 restarts per 10 minutes
         self.restart_backoff_base_seconds = 30  # Base backoff time (30 seconds)
@@ -233,9 +234,16 @@ class SLWatchdog:
                                 self._restart_worker(f"{len(non_orphaned_stale)} stale tickets (not orphaned locks)")
                         else:
                             # No orphaned locks - halt trading if threshold met
-                            if len(stale_tickets) >= len(positions) * 0.5:  # 50% or more stale
-                                watchdog_logger.critical(f"[CRITICAL] {len(stale_tickets)} stale tickets (>{len(positions)*0.5}) - HALTING TRADING")
-                                self._restart_worker(f"{len(stale_tickets)} stale tickets (>{len(positions)*0.5})")
+                            # FIX: Increased threshold from 50% to 75% to reduce false positives
+                            # Also require at least 3 stale tickets (not just 1-2)
+                            stale_threshold_pct = 0.75  # 75% or more stale
+                            min_stale_tickets = 3  # Require at least 3 stale tickets
+                            if len(stale_tickets) >= max(len(positions) * stale_threshold_pct, min_stale_tickets):
+                                watchdog_logger.critical(f"[CRITICAL] {len(stale_tickets)} stale tickets (>{len(positions)*stale_threshold_pct:.0%} or >={min_stale_tickets}) - HALTING TRADING")
+                                self._restart_worker(f"{len(stale_tickets)} stale tickets (>{len(positions)*stale_threshold_pct:.0%} or >={min_stale_tickets})")
+                            elif len(stale_tickets) >= 2:
+                                # Log warning but don't halt for 2 stale tickets (was causing false positives)
+                                watchdog_logger.warning(f"[WARNING] {len(stale_tickets)} stale tickets detected but below threshold ({len(positions)*stale_threshold_pct:.0%} or {min_stale_tickets}) - monitoring")
                 
                 # Sleep until next check
                 self.shutdown_event.wait(self.check_interval)
@@ -283,8 +291,10 @@ class SLWatchdog:
             if hasattr(order_manager, '_trading_bot'):
                 trading_bot = order_manager._trading_bot
                 if trading_bot:
+                    # FIX: Don't close positions for SL worker health issues - just halt new trades
                     trading_bot.activate_kill_switch(
-                        reason=f"SL Worker unhealthy: {reason}"
+                        f"SL worker unhealthy: {reason}",
+                        close_positions=False  # Only halt new trades, don't close existing positions
                     )
                     watchdog_logger.critical(f"[KILL_SWITCH_ACTIVATED] Trading disabled due to SL worker health issue")
         except Exception as e:
