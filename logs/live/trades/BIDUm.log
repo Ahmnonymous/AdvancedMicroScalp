@@ -1,0 +1,4 @@
+2026-01-02 20:38:23 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 122.8% of avg range > max 50.0%
+2026-01-02 20:40:29 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 124.2% of avg range > max 50.0%
+2026-01-02 20:42:29 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.5% of avg range > max 50.0%
+2026-01-02 20:44:52 - trades.BIDUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 132.0% of avg range > max 50.0%

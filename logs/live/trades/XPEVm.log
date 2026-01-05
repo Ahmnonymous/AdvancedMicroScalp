@@ -1,0 +1,5 @@
+2026-01-02 20:35:49 - trades.XPEVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.40 pips
+2026-01-02 20:38:11 - trades.XPEVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.14 pips < min 0.40 pips
+2026-01-02 20:40:21 - trades.XPEVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips
+2026-01-02 20:42:17 - trades.XPEVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips
+2026-01-02 20:44:40 - trades.XPEVm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips

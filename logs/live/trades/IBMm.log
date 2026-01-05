@@ -1,0 +1,5 @@
+2026-01-02 20:36:07 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 146.9% of avg range > max 50.0%
+2026-01-02 20:38:25 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 153.8% of avg range > max 50.0%
+2026-01-02 20:40:30 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 156.7% of avg range > max 50.0%
+2026-01-02 20:42:32 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.3% of avg range > max 50.0%
+2026-01-02 20:44:55 - trades.IBMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 176.1% of avg range > max 50.0%

@@ -1,0 +1,10 @@
+2026-01-05 07:32:43 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 53.8% of avg range > max 50.0%
+2026-01-05 07:34:29 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 53.3% of avg range > max 50.0%
+2026-01-05 07:36:14 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.8% of avg range > max 50.0%
+2026-01-05 07:37:59 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.3% of avg range > max 50.0%
+2026-01-05 07:39:44 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.5% of avg range > max 50.0%
+2026-01-05 07:41:28 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 52.6% of avg range > max 50.0%
+2026-01-05 07:43:11 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 23.9% of avg < min 55.0%
+2026-01-05 07:48:22 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 49.7% of avg < min 55.0%
+2026-01-05 07:56:47 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 27.2% of avg < min 55.0%
+2026-01-05 08:25:13 - trades.GBPUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 51.4% of avg < min 55.0%

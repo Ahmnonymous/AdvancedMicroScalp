@@ -1,0 +1,5 @@
+2026-01-02 20:36:06 - trades.AVGOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 179.3% of avg range > max 50.0%
+2026-01-02 20:38:25 - trades.AVGOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 102.7% of avg range > max 50.0%
+2026-01-02 20:40:30 - trades.AVGOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 110.9% of avg range > max 50.0%
+2026-01-02 20:42:32 - trades.AVGOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 106.2% of avg range > max 50.0%
+2026-01-02 20:44:54 - trades.AVGOm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 98.8% of avg range > max 50.0%

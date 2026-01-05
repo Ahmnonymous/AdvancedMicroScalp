@@ -1,0 +1,23 @@
+2026-01-02 20:35:47 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 108.7% of avg range > max 50.0%
+2026-01-02 20:50:07 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 92.2% of avg range > max 50.0%
+2026-01-02 20:51:48 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 88.5% of avg range > max 50.0%
+2026-01-02 20:53:31 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.3% of avg range > max 50.0%
+2026-01-02 20:55:13 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 92.6% of avg range > max 50.0%
+2026-01-02 20:56:55 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.9% of avg range > max 50.0%
+2026-01-02 20:58:38 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.0% of avg range > max 50.0%
+2026-01-02 21:00:19 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-02 21:02:01 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.0% of avg range > max 50.0%
+2026-01-02 21:03:42 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.7% of avg range > max 50.0%
+2026-01-02 21:05:23 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.0% of avg range > max 50.0%
+2026-01-02 21:07:05 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.0% of avg range > max 50.0%
+2026-01-02 21:08:46 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 154.5% of avg range > max 50.0%
+2026-01-02 21:10:27 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.2% of avg range > max 50.0%
+2026-01-02 21:12:07 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.0% of avg range > max 50.0%
+2026-01-02 21:13:48 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 86.2% of avg range > max 50.0%
+2026-01-02 21:15:32 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 159.3% of avg range > max 50.0%
+2026-01-02 21:18:54 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.6% of avg range > max 50.0%
+2026-01-05 07:44:56 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 25.8% of avg < min 55.0%
+2026-01-05 08:06:49 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 51.8% of avg < min 55.0%
+2026-01-05 08:15:09 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 36.0% of avg < min 55.0%
+2026-01-05 08:16:49 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.0% of avg < min 55.0%
+2026-01-05 08:18:28 - trades.USDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 42.3% of avg < min 55.0%

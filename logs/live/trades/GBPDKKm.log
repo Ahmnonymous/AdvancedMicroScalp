@@ -1,0 +1,16 @@
+2026-01-02 20:36:22 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 12401.9% of avg range > max 50.0%
+2026-01-05 07:25:03 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10153.8% of avg range > max 50.0%
+2026-01-05 08:33:52 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6327.5% of avg range > max 50.0%
+2026-01-05 08:35:34 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6227.0% of avg range > max 50.0%
+2026-01-05 08:37:45 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5959.8% of avg range > max 50.0%
+2026-01-05 08:39:27 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5914.8% of avg range > max 50.0%
+2026-01-05 08:41:09 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6175.1% of avg range > max 50.0%
+2026-01-05 08:42:51 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6291.6% of avg range > max 50.0%
+2026-01-05 08:44:32 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6639.4% of avg range > max 50.0%
+2026-01-05 08:46:14 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6522.5% of avg range > max 50.0%
+2026-01-05 08:47:55 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6312.5% of avg range > max 50.0%
+2026-01-05 08:49:35 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6729.9% of avg range > max 50.0%
+2026-01-05 08:51:17 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7265.4% of avg range > max 50.0%
+2026-01-05 08:52:58 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7378.0% of avg range > max 50.0%
+2026-01-05 08:54:40 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7706.4% of avg range > max 50.0%
+2026-01-05 08:56:25 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7609.6% of avg range > max 50.0%

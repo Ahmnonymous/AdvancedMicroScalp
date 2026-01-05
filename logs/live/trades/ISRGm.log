@@ -1,0 +1,4 @@
+2026-01-02 20:36:12 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 477.1% of avg range > max 50.0%
+2026-01-02 20:38:30 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 249.1% of avg range > max 50.0%
+2026-01-02 20:40:34 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 256.3% of avg range > max 50.0%
+2026-01-02 20:45:03 - trades.ISRGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 256.0% of avg range > max 50.0%

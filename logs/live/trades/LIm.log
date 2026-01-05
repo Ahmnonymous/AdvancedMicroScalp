@@ -1,0 +1,2 @@
+2026-01-02 20:35:49 - trades.LIm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.03 pips < min 0.40 pips
+2026-01-02 20:44:39 - trades.LIm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.05 pips < min 0.40 pips

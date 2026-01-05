@@ -1,0 +1,4 @@
+2026-01-02 20:36:10 - trades.BAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 490.0% of avg range > max 50.0%
+2026-01-02 20:38:28 - trades.BAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 323.6% of avg range > max 50.0%
+2026-01-02 20:40:32 - trades.BAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 331.1% of avg range > max 50.0%
+2026-01-02 20:42:37 - trades.BAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 348.8% of avg range > max 50.0%

@@ -1,0 +1,5 @@
+2026-01-02 20:35:59 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 141.0% of avg range > max 50.0%
+2026-01-02 20:38:20 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 125.0% of avg range > max 50.0%
+2026-01-02 20:40:27 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 133.3% of avg range > max 50.0%
+2026-01-02 20:42:27 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 134.5% of avg range > max 50.0%
+2026-01-02 20:44:50 - trades.NVDAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 139.1% of avg range > max 50.0%

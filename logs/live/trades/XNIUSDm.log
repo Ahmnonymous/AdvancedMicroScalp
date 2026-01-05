@@ -1,0 +1,17 @@
+2026-01-05 08:05:10 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1458.4% of avg range > max 50.0%
+2026-01-05 08:06:51 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1335.2% of avg range > max 50.0%
+2026-01-05 08:08:32 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1103.3% of avg range > max 50.0%
+2026-01-05 08:20:11 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 831.6% of avg range > max 50.0%
+2026-01-05 08:21:52 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 812.4% of avg range > max 50.0%
+2026-01-05 08:23:33 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 870.2% of avg range > max 50.0%
+2026-01-05 08:37:39 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 785.5% of avg range > max 50.0%
+2026-01-05 08:39:20 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 785.4% of avg range > max 50.0%
+2026-01-05 08:41:02 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 670.6% of avg range > max 50.0%
+2026-01-05 08:42:44 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 698.3% of avg range > max 50.0%
+2026-01-05 08:44:26 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 643.0% of avg range > max 50.0%
+2026-01-05 08:46:07 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 624.7% of avg range > max 50.0%
+2026-01-05 08:47:48 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 615.3% of avg range > max 50.0%
+2026-01-05 08:49:29 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 646.0% of avg range > max 50.0%
+2026-01-05 08:51:10 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 662.5% of avg range > max 50.0%
+2026-01-05 08:54:33 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 620.0% of avg range > max 50.0%
+2026-01-05 08:56:17 - trades.XNIUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 591.1% of avg range > max 50.0%

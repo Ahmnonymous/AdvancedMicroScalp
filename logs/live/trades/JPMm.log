@@ -1,0 +1,3 @@
+2026-01-02 20:38:26 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 245.2% of avg range > max 50.0%
+2026-01-02 20:42:34 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 267.8% of avg range > max 50.0%
+2026-01-02 20:44:57 - trades.JPMm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 283.2% of avg range > max 50.0%

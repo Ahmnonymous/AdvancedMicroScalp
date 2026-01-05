@@ -1,0 +1,4 @@
+2026-01-02 20:35:53 - trades.PGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.40 pips
+2026-01-02 20:38:15 - trades.PGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 194.2% of avg range > max 50.0%
+2026-01-02 20:40:23 - trades.PGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 198.0% of avg range > max 50.0%
+2026-01-02 20:42:21 - trades.PGm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 194.2% of avg range > max 50.0%

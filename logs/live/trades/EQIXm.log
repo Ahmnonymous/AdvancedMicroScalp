@@ -1,0 +1,5 @@
+2026-01-02 20:36:14 - trades.EQIXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 465.3% of avg range > max 50.0%
+2026-01-02 20:38:30 - trades.EQIXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 478.0% of avg range > max 50.0%
+2026-01-02 20:40:34 - trades.EQIXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 421.7% of avg range > max 50.0%
+2026-01-02 20:42:41 - trades.EQIXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 399.2% of avg range > max 50.0%
+2026-01-02 20:45:04 - trades.EQIXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 399.2% of avg range > max 50.0%

@@ -1,0 +1,4 @@
+2026-01-02 20:38:21 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 206.9% of avg range > max 50.0%
+2026-01-02 20:40:27 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 198.9% of avg range > max 50.0%
+2026-01-02 20:42:28 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 189.5% of avg range > max 50.0%
+2026-01-02 20:44:51 - trades.BABAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 185.6% of avg range > max 50.0%

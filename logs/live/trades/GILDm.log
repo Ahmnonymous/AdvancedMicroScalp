@@ -1,0 +1,4 @@
+2026-01-02 20:38:19 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 258.6% of avg range > max 50.0%
+2026-01-02 20:40:26 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 254.2% of avg range > max 50.0%
+2026-01-02 20:42:25 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 270.3% of avg range > max 50.0%
+2026-01-02 20:44:48 - trades.GILDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 261.7% of avg range > max 50.0%

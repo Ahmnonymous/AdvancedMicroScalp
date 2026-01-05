@@ -1,0 +1,15 @@
+2026-01-05 07:24:47 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 189.2% of avg range > max 50.0%
+2026-01-05 08:33:45 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.6% of avg range > max 50.0%
+2026-01-05 08:35:27 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 135.3% of avg range > max 50.0%
+2026-01-05 08:37:38 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 130.8% of avg range > max 50.0%
+2026-01-05 08:39:20 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 129.6% of avg range > max 50.0%
+2026-01-05 08:41:02 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.6% of avg range > max 50.0%
+2026-01-05 08:42:44 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 145.1% of avg range > max 50.0%
+2026-01-05 08:44:25 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 158.2% of avg range > max 50.0%
+2026-01-05 08:46:07 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 163.7% of avg range > max 50.0%
+2026-01-05 08:47:48 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 162.8% of avg range > max 50.0%
+2026-01-05 08:49:29 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 179.5% of avg range > max 50.0%
+2026-01-05 08:51:09 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 194.4% of avg range > max 50.0%
+2026-01-05 08:52:51 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 193.1% of avg range > max 50.0%
+2026-01-05 08:54:33 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 209.0% of avg range > max 50.0%
+2026-01-05 08:56:17 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 197.2% of avg range > max 50.0%

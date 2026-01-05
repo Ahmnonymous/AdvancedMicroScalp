@@ -1,0 +1,2 @@
+2026-01-02 20:35:57 - trades.ORCLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 159.1% of avg range > max 50.0%
+2026-01-02 20:44:49 - trades.ORCLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 104.9% of avg range > max 50.0%

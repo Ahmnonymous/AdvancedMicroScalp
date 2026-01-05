@@ -1,0 +1,3 @@
+2026-01-02 20:36:11 - trades.VRTXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 492.8% of avg range > max 50.0%
+2026-01-02 20:40:33 - trades.VRTXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 277.0% of avg range > max 50.0%
+2026-01-02 20:45:00 - trades.VRTXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 248.8% of avg range > max 50.0%

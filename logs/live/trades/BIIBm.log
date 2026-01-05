@@ -1,0 +1,4 @@
+2026-01-02 20:38:23 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 320.6% of avg range > max 50.0%
+2026-01-02 20:40:29 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 320.6% of avg range > max 50.0%
+2026-01-02 20:42:30 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 259.3% of avg range > max 50.0%
+2026-01-02 20:44:53 - trades.BIIBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 289.7% of avg range > max 50.0%

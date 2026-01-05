@@ -1,0 +1,5 @@
+2026-01-02 20:36:07 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 255.5% of avg range > max 50.0%
+2026-01-02 20:38:26 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 291.5% of avg range > max 50.0%
+2026-01-02 20:40:30 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 273.6% of avg range > max 50.0%
+2026-01-02 20:42:33 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 276.2% of avg range > max 50.0%
+2026-01-02 20:44:56 - trades.AMGNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.5% of avg range > max 50.0%

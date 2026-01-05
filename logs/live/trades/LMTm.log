@@ -1,0 +1,4 @@
+2026-01-02 20:38:28 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 240.8% of avg range > max 50.0%
+2026-01-02 20:40:32 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 264.9% of avg range > max 50.0%
+2026-01-02 20:42:37 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 271.5% of avg range > max 50.0%
+2026-01-02 20:45:00 - trades.LMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 276.8% of avg range > max 50.0%

@@ -1,0 +1,5 @@
+2026-01-02 20:36:12 - trades.INTUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 112.2% of avg range > max 50.0%
+2026-01-02 20:38:29 - trades.INTUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 112.5% of avg range > max 50.0%
+2026-01-02 20:40:33 - trades.INTUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 120.5% of avg range > max 50.0%
+2026-01-02 20:42:39 - trades.INTUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 122.4% of avg range > max 50.0%
+2026-01-02 20:45:02 - trades.INTUm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 139.7% of avg range > max 50.0%

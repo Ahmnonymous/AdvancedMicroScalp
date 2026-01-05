@@ -1,0 +1,2 @@
+2026-01-02 20:40:32 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 817.2% of avg range > max 50.0%
+2026-01-02 20:44:59 - trades.NFLXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 783.5% of avg range > max 50.0%

@@ -1,0 +1,4 @@
+2026-01-02 20:38:29 - trades.METAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 213.0% of avg range > max 50.0%
+2026-01-02 20:40:33 - trades.METAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 213.7% of avg range > max 50.0%
+2026-01-02 20:42:39 - trades.METAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 213.7% of avg range > max 50.0%
+2026-01-02 20:45:02 - trades.METAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 220.7% of avg range > max 50.0%

@@ -1,0 +1,5 @@
+2026-01-02 20:35:53 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.40 pips
+2026-01-02 20:38:16 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 200.0% of avg range > max 50.0%
+2026-01-02 20:40:23 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 202.0% of avg range > max 50.0%
+2026-01-02 20:42:21 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 208.3% of avg range > max 50.0%
+2026-01-02 20:44:46 - trades.MRKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 222.2% of avg range > max 50.0%

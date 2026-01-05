@@ -1,0 +1,8 @@
+2026-01-02 20:34:11 - sl_monitor - INFO - SL Realtime Monitor initialized
+2026-01-02 20:34:14 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
+2026-01-02 20:41:28 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 625311947 | Symbol: BTCXAUm | Type: sl_stale | SL not updated for 22.2s
+2026-01-04 12:27:52 - sl_monitor - INFO - SL Realtime Monitor initialized
+2026-01-04 12:27:54 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
+2026-01-05 07:24:41 - sl_monitor - INFO - SL Realtime Monitor initialized
+2026-01-05 07:24:42 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
+2026-01-05 07:31:41 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 630825750 | Symbol: US30_x10m | Type: strict_loss_violation | SL violation: Effective SL $-3.08 worse than -$3.00 limit

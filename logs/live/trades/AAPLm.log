@@ -1,0 +1,5 @@
+2026-01-02 20:35:58 - trades.AAPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 111.1% of avg range > max 50.0%
+2026-01-02 20:38:17 - trades.AAPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.7% of avg range > max 50.0%
+2026-01-02 20:40:25 - trades.AAPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 113.8% of avg range > max 50.0%
+2026-01-02 20:42:24 - trades.AAPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 109.4% of avg range > max 50.0%
+2026-01-02 20:44:49 - trades.AAPLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 115.2% of avg range > max 50.0%

@@ -1,0 +1,4 @@
+2026-01-02 20:38:27 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 421.1% of avg range > max 50.0%
+2026-01-02 20:40:31 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 457.1% of avg range > max 50.0%
+2026-01-02 20:42:35 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 458.3% of avg range > max 50.0%
+2026-01-02 20:44:58 - trades.NTESm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 405.1% of avg range > max 50.0%

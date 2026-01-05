@@ -1,0 +1,19 @@
+{"timestamp": "2026-01-05 07:31:54", "symbol": "US30_x10m", "trade_type": "LONG", "entry_price": 48432.3, "exit_price": 48434.5, "profit_usd": 0.22, "status": "CLOSED", "order_id": "630825750", "additional_info": {"entry_price_requested": 48432.3, "lot_size": 0.01, "stop_loss_pips": 300.0, "stop_loss_price": 48402.3, "slippage": 0.0, "quality_score": 70, "spread_points": 0.43361373688438637, "spread_fees_cost": 0.21000000000058208, "risk_usd": 3.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 48379.665, "sma_slow": 48366.572, "rsi": 48.58199753390656, "duration_minutes": 6.7, "close_reason": "Take Profit or Trailing Stop", "commission": 0.0, "swap": 0.0}}
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Symbol: US30_x10m
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Ticket: 630825750
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Entry Time: 2026-01-05 07:25:12
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Entry Price: 48432.30000
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Close Time: 2026-01-05 07:31:54
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Close Price: 48434.50000
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Profit/Loss: $0.22 USD
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Duration: 6.7 minutes
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Close Reason: Take Profit or Trailing Stop
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Commission: 0.0
+2026-01-05 07:31:54 - trades.US30_x10m - INFO -    Swap: 0.0
+2026-01-05 07:31:54 - trades.US30_x10m - INFO - ================================================================================
+2026-01-05 07:36:15 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 48.4% of avg < min 55.0%
+2026-01-05 08:00:08 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 08:03:28 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.8% of avg < min 55.0%
+2026-01-05 08:25:13 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.4% of avg < min 55.0%
+2026-01-05 08:31:59 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.1% of avg < min 55.0%
+2026-01-05 08:49:27 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 55.0%

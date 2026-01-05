@@ -1,0 +1,318 @@
+{"timestamp": "2026-01-02 20:37:58", "symbol": "BTCUSDm", "trade_type": "SHORT", "entry_price": 89869.74, "exit_price": 89879.19, "profit_usd": -0.09, "status": "CLOSED", "order_id": "625303925", "additional_info": {"entry_price_requested": 89869.74, "lot_size": 0.01, "stop_loss_pips": 30000.0, "stop_loss_price": 90169.74, "slippage": 0.0, "quality_score": 70, "spread_points": 2.002898862286683, "spread_fees_cost": 0.18, "risk_usd": 3.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 88376.3845, "sma_slow": 88392.7096, "rsi": 43.17557069439317, "duration_minutes": 1.4, "close_reason": "Small profit target or slippage", "commission": 0.0, "swap": 0.0}}
+{"timestamp": "2026-01-02 20:46:19", "symbol": "BTCUSDm", "trade_type": "SHORT", "entry_price": 89836.93, "exit_price": 89833.34, "profit_usd": 0.04, "status": "CLOSED", "order_id": "625312253", "additional_info": {"entry_price_requested": 89836.93, "lot_size": 0.01, "stop_loss_pips": 30000.0, "stop_loss_price": 90136.93, "slippage": 0.0, "quality_score": 85, "spread_points": 2.003630355578714, "spread_fees_cost": 0.18, "risk_usd": 3.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 89809.955, "sma_slow": 89887.252, "rsi": 62.48214700900212, "duration_minutes": 7.55, "close_reason": "Small profit target or slippage", "commission": 0.0, "swap": 0.0}}
+{"timestamp": "2026-01-02 20:46:19", "symbol": "BTCUSDm", "trade_type": "SHORT", "entry_price": 89839.77, "exit_price": 89833.34, "profit_usd": 0.07, "status": "CLOSED", "order_id": "625326961", "additional_info": {"entry_price_requested": 89840.49, "lot_size": 0.01, "stop_loss_pips": 30000.0, "stop_loss_price": 90140.49, "slippage": 0.7200000000011642, "quality_score": 85, "spread_points": 2.0035509601517085, "spread_fees_cost": 0.18, "risk_usd": 3.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 89859.035, "sma_slow": 89904.56460000001, "rsi": 73.16350337347966, "duration_minutes": 3.283333333333333, "close_reason": "Micro-HFT sweet spot profit", "commission": 0.0, "swap": 0.0}}
+2026-01-02 20:46:21 - trades.BTCUSDm - INFO -    Duration: 3.3 minutes
+2026-01-02 20:46:21 - trades.BTCUSDm - INFO -    Close Reason: Micro-HFT sweet spot profit
+2026-01-02 20:46:21 - trades.BTCUSDm - INFO -    Commission: 0.0
+2026-01-02 20:46:21 - trades.BTCUSDm - INFO -    Swap: 0.0
+2026-01-02 20:46:21 - trades.BTCUSDm - INFO - ================================================================================
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO - ================================================================================
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO - [-] POSITION CLOSED
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Symbol: BTCUSDm
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Ticket: 625312253
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Entry Time: 2026-01-02 20:38:46
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Entry Price: 89836.93000
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Close Time: 2026-01-02 20:46:19
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Close Price: 89833.34000
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Profit/Loss: $0.04 USD
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Duration: 7.5 minutes
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Close Reason: Small profit target or slippage
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Commission: 0.0
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO -    Swap: 0.0
+2026-01-02 20:46:22 - trades.BTCUSDm - INFO - ================================================================================
+2026-01-02 21:00:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-02 21:25:32 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.7% of avg range > max 50.0%
+2026-01-02 21:28:51 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.7% of avg range > max 50.0%
+2026-01-02 21:30:30 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.3% of avg range > max 50.0%
+2026-01-02 21:32:03 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 52.3% of avg range > max 50.0%
+2026-01-02 21:33:37 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 52.1% of avg range > max 50.0%
+2026-01-02 21:35:10 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.4% of avg range > max 50.0%
+2026-01-02 21:36:43 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.2% of avg range > max 50.0%
+2026-01-02 21:41:21 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.8% of avg range > max 50.0%
+2026-01-02 21:42:54 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.7% of avg range > max 50.0%
+2026-01-02 21:44:27 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.9% of avg range > max 50.0%
+2026-01-02 21:46:00 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.7% of avg range > max 50.0%
+2026-01-02 21:47:33 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.8% of avg range > max 50.0%
+2026-01-02 21:49:06 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.1% of avg range > max 50.0%
+2026-01-02 21:50:39 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.3% of avg range > max 50.0%
+2026-01-02 21:52:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.3% of avg range > max 50.0%
+2026-01-02 21:53:45 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.9% of avg < min 55.0%
+2026-01-02 21:56:50 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 31.4% of avg < min 55.0%
+2026-01-02 22:00:30 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-02 22:03:36 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.6% of avg < min 55.0%
+2026-01-02 22:06:41 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.6% of avg < min 55.0%
+2026-01-02 22:08:13 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.2% of avg < min 55.0%
+2026-01-02 22:09:47 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.0% of avg < min 55.0%
+2026-01-02 22:14:24 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.5% of avg < min 55.0%
+2026-01-02 22:17:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 44.5% of avg < min 55.0%
+2026-01-02 22:19:01 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.1% of avg < min 55.0%
+2026-01-02 22:23:38 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 50.0% of avg < min 55.0%
+2026-01-02 22:45:15 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 51.6% of avg < min 55.0%
+2026-01-02 22:46:48 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 22.6% of avg < min 55.0%
+2026-01-02 22:48:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.5% of avg < min 55.0%
+2026-01-02 22:49:52 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 33.5% of avg < min 55.0%
+2026-01-02 23:00:40 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-02 23:10:10 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 53.1% of avg range > max 50.0%
+2026-01-02 23:11:43 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.1% of avg range > max 50.0%
+2026-01-02 23:13:15 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.0% of avg range > max 50.0%
+2026-01-02 23:14:47 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.3% of avg range > max 50.0%
+2026-01-02 23:16:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.0% of avg range > max 50.0%
+2026-01-02 23:17:52 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.6% of avg range > max 50.0%
+2026-01-02 23:19:25 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.9% of avg range > max 50.0%
+2026-01-02 23:20:57 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.1% of avg range > max 50.0%
+2026-01-02 23:22:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.2% of avg range > max 50.0%
+2026-01-02 23:24:03 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.2% of avg range > max 50.0%
+2026-01-02 23:25:35 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.0% of avg range > max 50.0%
+2026-01-02 23:27:08 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.3% of avg range > max 50.0%
+2026-01-02 23:28:40 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.0% of avg range > max 50.0%
+2026-01-02 23:30:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.6% of avg range > max 50.0%
+2026-01-02 23:31:45 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.3% of avg range > max 50.0%
+2026-01-02 23:33:17 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.6% of avg range > max 50.0%
+2026-01-02 23:34:50 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.6% of avg range > max 50.0%
+2026-01-02 23:36:24 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.2% of avg range > max 50.0%
+2026-01-02 23:37:56 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.6% of avg range > max 50.0%
+2026-01-02 23:39:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.0% of avg range > max 50.0%
+2026-01-02 23:41:02 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.5% of avg range > max 50.0%
+2026-01-02 23:42:34 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.5% of avg range > max 50.0%
+2026-01-02 23:44:07 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.1% of avg range > max 50.0%
+2026-01-02 23:45:39 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.9% of avg range > max 50.0%
+2026-01-02 23:47:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.8% of avg range > max 50.0%
+2026-01-02 23:48:44 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.4% of avg range > max 50.0%
+2026-01-02 23:50:16 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.4% of avg range > max 50.0%
+2026-01-02 23:51:49 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.2% of avg range > max 50.0%
+2026-01-02 23:53:21 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.1% of avg range > max 50.0%
+2026-01-02 23:54:53 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.9% of avg range > max 50.0%
+2026-01-02 23:56:26 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.1% of avg range > max 50.0%
+2026-01-02 23:57:58 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.7% of avg range > max 50.0%
+2026-01-02 23:59:30 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-03 00:01:04 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.4% of avg range > max 50.0%
+2026-01-03 00:02:37 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.0% of avg range > max 50.0%
+2026-01-03 00:04:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.9% of avg range > max 50.0%
+2026-01-03 00:07:14 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.5% of avg range > max 50.0%
+2026-01-03 00:12:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.4% of avg range > max 50.0%
+2026-01-03 00:15:25 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.1% of avg range > max 50.0%
+2026-01-03 00:16:58 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 52.9% of avg range > max 50.0%
+2026-01-03 00:18:30 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.4% of avg range > max 50.0%
+2026-01-03 00:20:03 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.0% of avg range > max 50.0%
+2026-01-03 00:21:36 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.9% of avg range > max 50.0%
+2026-01-03 00:23:08 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.9% of avg range > max 50.0%
+2026-01-03 00:27:45 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 52.5% of avg range > max 50.0%
+2026-01-03 00:29:18 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.8% of avg range > max 50.0%
+2026-01-03 00:32:22 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.7% of avg range > max 50.0%
+2026-01-03 00:33:55 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.4% of avg range > max 50.0%
+2026-01-03 00:35:27 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.1% of avg range > max 50.0%
+2026-01-03 00:36:59 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.7% of avg range > max 50.0%
+2026-01-03 00:38:32 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 53.4% of avg range > max 50.0%
+2026-01-03 00:40:04 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.5% of avg range > max 50.0%
+2026-01-03 00:41:37 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 53.5% of avg range > max 50.0%
+2026-01-03 00:43:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.8% of avg range > max 50.0%
+2026-01-03 00:44:42 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.3% of avg range > max 50.0%
+2026-01-03 00:46:14 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.0% of avg range > max 50.0%
+2026-01-03 00:47:47 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.7% of avg range > max 50.0%
+2026-01-03 00:49:19 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.8% of avg range > max 50.0%
+2026-01-03 00:59:13 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-03 01:00:46 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-03 01:02:18 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.8% of avg range > max 50.0%
+2026-01-03 01:03:50 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.7% of avg range > max 50.0%
+2026-01-03 01:05:23 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.2% of avg range > max 50.0%
+2026-01-03 01:06:55 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.9% of avg range > max 50.0%
+2026-01-03 01:08:27 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.1% of avg range > max 50.0%
+2026-01-03 01:10:00 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.2% of avg range > max 50.0%
+2026-01-03 01:11:34 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.9% of avg range > max 50.0%
+2026-01-03 01:13:06 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.7% of avg range > max 50.0%
+2026-01-03 01:14:39 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.3% of avg range > max 50.0%
+2026-01-03 01:16:11 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.0% of avg range > max 50.0%
+2026-01-03 01:17:44 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.0% of avg range > max 50.0%
+2026-01-03 01:19:16 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.5% of avg range > max 50.0%
+2026-01-03 01:20:48 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.9% of avg range > max 50.0%
+2026-01-03 01:22:21 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.3% of avg range > max 50.0%
+2026-01-03 01:23:53 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.9% of avg range > max 50.0%
+2026-01-03 01:25:26 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.6% of avg range > max 50.0%
+2026-01-03 01:26:58 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.8% of avg range > max 50.0%
+2026-01-03 01:28:43 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.5% of avg range > max 50.0%
+2026-01-03 01:30:38 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.3% of avg range > max 50.0%
+2026-01-03 01:39:42 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.7% of avg range > max 50.0%
+2026-01-03 01:41:31 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.4% of avg range > max 50.0%
+2026-01-03 01:43:21 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.9% of avg range > max 50.0%
+2026-01-03 01:45:10 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.3% of avg range > max 50.0%
+2026-01-03 01:46:59 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.9% of avg range > max 50.0%
+2026-01-03 01:48:49 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.6% of avg range > max 50.0%
+2026-01-03 01:50:39 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.6% of avg range > max 50.0%
+2026-01-03 01:52:27 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.3% of avg range > max 50.0%
+2026-01-03 01:54:19 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 83.8% of avg range > max 50.0%
+2026-01-03 01:56:08 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 88.0% of avg range > max 50.0%
+2026-01-03 01:57:59 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.4% of avg range > max 50.0%
+2026-01-03 01:59:49 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-03 02:03:28 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.9% of avg range > max 50.0%
+2026-01-03 02:05:19 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.4% of avg range > max 50.0%
+2026-01-03 02:07:10 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 53.3% of avg range > max 50.0%
+2026-01-03 02:09:02 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.2% of avg range > max 50.0%
+2026-01-03 02:10:51 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.0% of avg range > max 50.0%
+2026-01-03 02:12:41 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 36.1% of avg < min 55.0%
+2026-01-03 02:14:31 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.3% of avg range > max 50.0%
+2026-01-03 02:18:10 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.1% of avg range > max 50.0%
+2026-01-03 02:20:00 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.6% of avg range > max 50.0%
+2026-01-03 02:21:48 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.3% of avg range > max 50.0%
+2026-01-03 02:32:38 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.0% of avg range > max 50.0%
+2026-01-03 02:34:26 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.7% of avg range > max 50.0%
+2026-01-03 02:36:16 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.5% of avg range > max 50.0%
+2026-01-03 02:38:06 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.0% of avg range > max 50.0%
+2026-01-03 02:39:56 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.6% of avg range > max 50.0%
+2026-01-03 02:41:48 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.5% of avg range > max 50.0%
+2026-01-03 02:43:37 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.2% of avg range > max 50.0%
+2026-01-03 03:28:24 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.0% of avg range > max 50.0%
+2026-01-03 03:30:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.9% of avg range > max 50.0%
+2026-01-03 03:32:02 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.5% of avg range > max 50.0%
+2026-01-03 03:33:51 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 72.4% of avg range > max 50.0%
+2026-01-03 03:35:40 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.0% of avg range > max 50.0%
+2026-01-03 03:37:32 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.5% of avg range > max 50.0%
+2026-01-03 03:39:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.6% of avg range > max 50.0%
+2026-01-03 03:41:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.1% of avg range > max 50.0%
+2026-01-03 03:42:58 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.4% of avg range > max 50.0%
+2026-01-03 03:44:51 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.3% of avg range > max 50.0%
+2026-01-03 03:46:44 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 97.5% of avg range > max 50.0%
+2026-01-03 03:48:33 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.6% of avg range > max 50.0%
+2026-01-03 03:50:22 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.3% of avg range > max 50.0%
+2026-01-03 03:52:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.6% of avg range > max 50.0%
+2026-01-03 03:54:01 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.8% of avg range > max 50.0%
+2026-01-03 03:55:52 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.5% of avg range > max 50.0%
+2026-01-03 03:57:43 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.1% of avg range > max 50.0%
+2026-01-03 03:59:32 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-03 04:01:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.7% of avg range > max 50.0%
+2026-01-03 04:03:11 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.9% of avg range > max 50.0%
+2026-01-03 04:05:02 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.5% of avg range > max 50.0%
+2026-01-03 04:12:21 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 49.6% of avg < min 55.0%
+2026-01-03 04:14:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 49.2% of avg < min 55.0%
+2026-01-03 04:16:06 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 28.0% of avg < min 55.0%
+2026-01-03 04:17:56 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.3% of avg < min 55.0%
+2026-01-03 04:23:27 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.6% of avg range > max 50.0%
+2026-01-03 04:25:18 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.2% of avg range > max 50.0%
+2026-01-03 04:27:08 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.2% of avg range > max 50.0%
+2026-01-03 04:28:59 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.5% of avg range > max 50.0%
+2026-01-03 04:30:48 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.7% of avg range > max 50.0%
+2026-01-03 04:32:38 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.3% of avg range > max 50.0%
+2026-01-03 04:34:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.6% of avg range > max 50.0%
+2026-01-03 04:36:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.3% of avg range > max 50.0%
+2026-01-03 04:38:11 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.8% of avg range > max 50.0%
+2026-01-03 04:40:00 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.2% of avg range > max 50.0%
+2026-01-03 04:45:26 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.8% of avg range > max 50.0%
+2026-01-03 04:47:16 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.9% of avg < min 55.0%
+2026-01-03 04:54:37 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.7% of avg range > max 50.0%
+2026-01-03 04:56:26 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 36.6% of avg < min 55.0%
+2026-01-03 05:00:06 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-03 05:03:46 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.8% of avg range > max 50.0%
+2026-01-03 05:05:38 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.3% of avg range > max 50.0%
+2026-01-03 05:07:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.0% of avg range > max 50.0%
+2026-01-03 05:09:18 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.0% of avg range > max 50.0%
+2026-01-03 05:11:07 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.6% of avg range > max 50.0%
+2026-01-03 05:20:25 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.2% of avg range > max 50.0%
+2026-01-03 05:22:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.4% of avg range > max 50.0%
+2026-01-03 05:24:11 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.6% of avg range > max 50.0%
+2026-01-03 05:26:02 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.8% of avg range > max 50.0%
+2026-01-03 05:27:50 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.5% of avg range > max 50.0%
+2026-01-03 05:29:40 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.0% of avg range > max 50.0%
+2026-01-03 05:31:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.6% of avg range > max 50.0%
+2026-01-03 05:33:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.2% of avg range > max 50.0%
+2026-01-03 05:35:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.3% of avg range > max 50.0%
+2026-01-03 05:36:58 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.2% of avg range > max 50.0%
+2026-01-03 05:38:48 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.7% of avg range > max 50.0%
+2026-01-03 05:40:38 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.9% of avg range > max 50.0%
+2026-01-03 05:42:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.4% of avg range > max 50.0%
+2026-01-03 05:44:20 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.8% of avg range > max 50.0%
+2026-01-03 05:46:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.3% of avg range > max 50.0%
+2026-01-03 05:48:03 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.2% of avg range > max 50.0%
+2026-01-03 05:49:54 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.6% of avg range > max 50.0%
+2026-01-03 05:51:43 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.2% of avg range > max 50.0%
+2026-01-03 05:53:32 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.7% of avg range > max 50.0%
+2026-01-03 05:55:23 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.4% of avg range > max 50.0%
+2026-01-03 05:57:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.6% of avg range > max 50.0%
+2026-01-03 05:59:01 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-03 06:00:50 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-03 06:02:41 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 72.9% of avg range > max 50.0%
+2026-01-03 06:04:30 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.8% of avg range > max 50.0%
+2026-01-03 06:06:19 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 78.3% of avg range > max 50.0%
+2026-01-03 06:08:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 83.2% of avg range > max 50.0%
+2026-01-03 06:09:58 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 85.7% of avg range > max 50.0%
+2026-01-03 06:11:47 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 88.5% of avg range > max 50.0%
+2026-01-03 06:13:38 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 92.9% of avg range > max 50.0%
+2026-01-03 06:15:26 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 88.3% of avg range > max 50.0%
+2026-01-03 06:17:15 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.8% of avg range > max 50.0%
+2026-01-03 06:19:06 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.3% of avg range > max 50.0%
+2026-01-03 06:20:55 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.7% of avg range > max 50.0%
+2026-01-03 06:22:45 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.8% of avg range > max 50.0%
+2026-01-03 06:24:33 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 78.2% of avg range > max 50.0%
+2026-01-03 06:26:22 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.9% of avg range > max 50.0%
+2026-01-03 06:28:13 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.7% of avg range > max 50.0%
+2026-01-03 06:30:03 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.5% of avg range > max 50.0%
+2026-01-03 06:31:51 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.4% of avg range > max 50.0%
+2026-01-03 06:33:42 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.7% of avg range > max 50.0%
+2026-01-03 06:35:28 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.8% of avg range > max 50.0%
+2026-01-03 06:37:17 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.5% of avg range > max 50.0%
+2026-01-03 06:39:08 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.9% of avg range > max 50.0%
+2026-01-03 06:40:58 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.0% of avg range > max 50.0%
+2026-01-03 06:42:47 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.7% of avg range > max 50.0%
+2026-01-03 06:44:39 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.9% of avg range > max 50.0%
+2026-01-03 06:46:36 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.6% of avg range > max 50.0%
+2026-01-03 06:48:26 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.4% of avg range > max 50.0%
+2026-01-03 06:50:13 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.7% of avg range > max 50.0%
+2026-01-03 06:52:04 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.1% of avg range > max 50.0%
+2026-01-03 06:53:53 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.2% of avg range > max 50.0%
+2026-01-03 06:55:43 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.1% of avg range > max 50.0%
+2026-01-03 06:57:33 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.2% of avg range > max 50.0%
+2026-01-03 07:01:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.2% of avg range > max 50.0%
+2026-01-03 07:03:02 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.9% of avg range > max 50.0%
+2026-01-03 07:04:52 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.8% of avg range > max 50.0%
+2026-01-03 07:06:42 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.2% of avg range > max 50.0%
+2026-01-03 07:08:31 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.1% of avg range > max 50.0%
+2026-01-03 07:10:19 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.1% of avg range > max 50.0%
+2026-01-03 07:12:11 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.8% of avg range > max 50.0%
+2026-01-03 07:14:01 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 53.6% of avg range > max 50.0%
+2026-01-03 07:15:51 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 52.9% of avg range > max 50.0%
+2026-01-03 07:17:41 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.2% of avg range > max 50.0%
+2026-01-03 07:19:30 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.6% of avg < min 55.0%
+2026-01-03 07:30:31 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 27.7% of avg < min 55.0%
+2026-01-03 07:34:14 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 48.8% of avg < min 55.0%
+2026-01-03 07:39:39 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 50.0% of avg < min 55.0%
+2026-01-03 07:59:56 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-03 08:03:37 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 52.0% of avg < min 55.0%
+2026-01-03 08:18:24 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 54.0% of avg < min 55.0%
+2026-01-04 12:27:56 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.3% of avg range > max 50.0%
+2026-01-04 12:29:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.3% of avg range > max 50.0%
+2026-01-05 07:24:45 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.1% of avg range > max 50.0%
+2026-01-05 07:26:49 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.7% of avg range > max 50.0%
+2026-01-05 07:28:39 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.8% of avg range > max 50.0%
+2026-01-05 07:30:41 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.5% of avg range > max 50.0%
+2026-01-05 07:32:43 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.7% of avg range > max 50.0%
+2026-01-05 07:34:30 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.4% of avg range > max 50.0%
+2026-01-05 07:36:16 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.6% of avg range > max 50.0%
+2026-01-05 07:38:00 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.2% of avg range > max 50.0%
+2026-01-05 07:39:45 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.5% of avg range > max 50.0%
+2026-01-05 07:41:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.9% of avg range > max 50.0%
+2026-01-05 07:43:12 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 72.2% of avg range > max 50.0%
+2026-01-05 07:44:57 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.0% of avg range > max 50.0%
+2026-01-05 07:46:41 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 72.7% of avg range > max 50.0%
+2026-01-05 07:48:23 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 78.1% of avg range > max 50.0%
+2026-01-05 07:51:44 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.5% of avg range > max 50.0%
+2026-01-05 07:53:26 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 84.4% of avg range > max 50.0%
+2026-01-05 07:55:07 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.6% of avg range > max 50.0%
+2026-01-05 07:58:28 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 83.3% of avg range > max 50.0%
+2026-01-05 08:00:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 08:01:48 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.9% of avg range > max 50.0%
+2026-01-05 08:03:28 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.9% of avg range > max 50.0%
+2026-01-05 08:05:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.6% of avg range > max 50.0%
+2026-01-05 08:06:50 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.1% of avg range > max 50.0%
+2026-01-05 08:08:30 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.4% of avg range > max 50.0%
+2026-01-05 08:10:11 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.5% of avg range > max 50.0%
+2026-01-05 08:11:50 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 52.3% of avg range > max 50.0%
+2026-01-05 08:13:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.1% of avg range > max 50.0%
+2026-01-05 08:15:09 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 32.8% of avg < min 55.0%
+2026-01-05 08:16:49 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 51.6% of avg < min 55.0%
+2026-01-05 08:18:29 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 26.8% of avg < min 55.0%
+2026-01-05 08:32:00 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 35.4% of avg < min 55.0%
+2026-01-05 08:46:05 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.0% of avg range > max 50.0%
+2026-01-05 08:47:47 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.5% of avg range > max 50.0%
+2026-01-05 08:49:27 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.8% of avg range > max 50.0%
+2026-01-05 08:51:08 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.2% of avg range > max 50.0%
+2026-01-05 08:52:50 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.5% of avg range > max 50.0%
+2026-01-05 08:54:32 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.9% of avg range > max 50.0%
+2026-01-05 08:56:16 - trades.BTCUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.9% of avg range > max 50.0%

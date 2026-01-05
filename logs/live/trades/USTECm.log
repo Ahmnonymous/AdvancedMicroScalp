@@ -1,0 +1,23 @@
+{"timestamp": "2026-01-05 07:25:24", "symbol": "USTECm", "trade_type": "SHORT", "entry_price": 25309.56, "exit_price": 25307.09, "profit_usd": 0.02, "status": "CLOSED", "order_id": "630825411", "additional_info": {"entry_price_requested": 25309.39, "lot_size": 0.01, "stop_loss_pips": 30000.0, "stop_loss_price": 25609.39, "slippage": 0.17000000000189175, "quality_score": 85, "spread_points": 0.8534381903316731, "spread_fees_cost": 0.021599999999998544, "risk_usd": 3.0, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 25167.470999999998, "sma_slow": 25215.6278, "rsi": 78.44908128308893, "duration_minutes": 0.3333333333333333, "close_reason": "Micro-HFT sweet spot profit", "commission": 0.0, "swap": 0.0}}
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Symbol: USTECm
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Ticket: 630825411
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Entry Time: 2026-01-05 07:25:04
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Entry Price: 25309.56000
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Close Time: 2026-01-05 07:25:24
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Close Price: 25307.09000
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Profit/Loss: $0.02 USD
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Duration: 0.3 minutes
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Close Reason: Micro-HFT sweet spot profit
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Commission: 0.0
+2026-01-05 07:25:27 - trades.USTECm - INFO -    Swap: 0.0
+2026-01-05 07:25:27 - trades.USTECm - INFO - ================================================================================
+2026-01-05 07:28:38 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.4% of avg < min 55.0%
+2026-01-05 07:30:40 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 51.5% of avg < min 55.0%
+2026-01-05 07:36:15 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 41.3% of avg < min 55.0%
+2026-01-05 07:38:00 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 50.1% of avg < min 55.0%
+2026-01-05 07:53:26 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.1% of avg range > max 50.0%
+2026-01-05 07:55:07 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.9% of avg range > max 50.0%
+2026-01-05 07:56:48 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.8% of avg range > max 50.0%
+2026-01-05 07:58:28 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.9% of avg range > max 50.0%
+2026-01-05 08:03:28 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 41.4% of avg < min 55.0%
+2026-01-05 08:18:28 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 36.5% of avg < min 55.0%

@@ -1,0 +1,5 @@
+2026-01-02 20:35:58 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 222.2% of avg range > max 50.0%
+2026-01-02 20:38:19 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 159.6% of avg range > max 50.0%
+2026-01-02 20:40:26 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 167.6% of avg range > max 50.0%
+2026-01-02 20:42:26 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 155.4% of avg range > max 50.0%
+2026-01-02 20:44:49 - trades.TMUSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.8% of avg range > max 50.0%

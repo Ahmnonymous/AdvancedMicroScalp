@@ -1,0 +1,5 @@
+2026-01-02 20:35:55 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 169.5% of avg range > max 50.0%
+2026-01-02 20:38:14 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 175.4% of avg range > max 50.0%
+2026-01-02 20:40:23 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 166.7% of avg range > max 50.0%
+2026-01-02 20:42:22 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.3% of avg range > max 50.0%
+2026-01-02 20:44:44 - trades.EBAYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 172.4% of avg range > max 50.0%

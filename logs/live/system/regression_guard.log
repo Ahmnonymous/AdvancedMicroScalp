@@ -1,0 +1,7 @@
+2026-01-02 20:34:12 - regression_guard - INFO - [AUTO_KILL_SWITCH] Cleared: Auto-cleared: was triggered due to insufficient data (no trades)
+2026-01-02 20:34:12 - regression_guard - INFO - [AUTO_KILL_SWITCH] Config updated: config.json
+2026-01-02 20:44:34 - regression_guard - CRITICAL - [REGRESSION_GUARD] win_rate breached: 0.0 vs threshold 0.8
+2026-01-02 20:44:34 - regression_guard - CRITICAL - [AUTO_KILL_SWITCH] Activated: Regression guard: win_rate breached: 0.0 vs threshold 0.8
+2026-01-02 20:44:34 - regression_guard - CRITICAL - [AUTO_KILL_SWITCH] Config updated: config.json
+2026-01-04 12:27:53 - regression_guard - INFO - [AUTO_KILL_SWITCH] Cleared: Auto-cleared: was triggered due to insufficient data (no trades)
+2026-01-04 12:27:53 - regression_guard - INFO - [AUTO_KILL_SWITCH] Config updated: config.json

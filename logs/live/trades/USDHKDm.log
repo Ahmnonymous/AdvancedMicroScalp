@@ -1,0 +1,7 @@
+2026-01-05 07:30:50 - trades.USDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2332.3% of avg range > max 50.0%
+2026-01-05 07:32:50 - trades.USDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2252.9% of avg range > max 50.0%
+2026-01-05 07:34:38 - trades.USDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2341.3% of avg range > max 50.0%
+2026-01-05 07:36:23 - trades.USDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2563.9% of avg range > max 50.0%
+2026-01-05 07:38:09 - trades.USDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2705.9% of avg range > max 50.0%
+2026-01-05 07:39:52 - trades.USDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2885.6% of avg range > max 50.0%
+2026-01-05 07:41:35 - trades.USDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3166.0% of avg range > max 50.0%

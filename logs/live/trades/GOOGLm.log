@@ -1,0 +1,5 @@
+2026-01-02 20:36:08 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 207.1% of avg range > max 50.0%
+2026-01-02 20:38:26 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 206.5% of avg range > max 50.0%
+2026-01-02 20:40:31 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 210.5% of avg range > max 50.0%
+2026-01-02 20:42:34 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 211.2% of avg range > max 50.0%
+2026-01-02 20:44:56 - trades.GOOGLm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 219.2% of avg range > max 50.0%

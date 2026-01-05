@@ -1,0 +1,2 @@
+2026-01-02 20:35:51 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-02 20:38:12 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.14 pips < min 0.40 pips

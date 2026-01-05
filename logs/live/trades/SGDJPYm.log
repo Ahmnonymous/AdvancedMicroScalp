@@ -1,0 +1,20 @@
+2026-01-05 07:26:55 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 419.2% of avg range > max 50.0%
+2026-01-05 07:28:45 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 412.1% of avg range > max 50.0%
+2026-01-05 07:30:48 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 429.3% of avg range > max 50.0%
+2026-01-05 07:32:48 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 452.3% of avg range > max 50.0%
+2026-01-05 07:34:35 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 434.6% of avg range > max 50.0%
+2026-01-05 07:36:21 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 445.0% of avg range > max 50.0%
+2026-01-05 07:38:07 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 446.3% of avg range > max 50.0%
+2026-01-05 07:39:50 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 453.6% of avg range > max 50.0%
+2026-01-05 07:41:33 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 458.2% of avg range > max 50.0%
+2026-01-05 07:43:18 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 451.6% of avg range > max 50.0%
+2026-01-05 07:45:03 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 433.0% of avg range > max 50.0%
+2026-01-05 07:46:46 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 417.3% of avg range > max 50.0%
+2026-01-05 07:48:27 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 417.3% of avg range > max 50.0%
+2026-01-05 07:50:07 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 396.1% of avg range > max 50.0%
+2026-01-05 07:51:48 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 395.2% of avg range > max 50.0%
+2026-01-05 07:53:30 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 425.2% of avg range > max 50.0%
+2026-01-05 07:55:11 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 409.3% of avg range > max 50.0%
+2026-01-05 07:56:51 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 423.9% of avg range > max 50.0%
+2026-01-05 07:58:32 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 410.4% of avg range > max 50.0%
+2026-01-05 08:00:12 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked

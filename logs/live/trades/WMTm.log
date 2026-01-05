@@ -1,0 +1,5 @@
+2026-01-02 20:35:57 - trades.WMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.40 pips
+2026-01-02 20:38:18 - trades.WMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 337.3% of avg range > max 50.0%
+2026-01-02 20:40:25 - trades.WMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 333.3% of avg range > max 50.0%
+2026-01-02 20:42:25 - trades.WMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 318.2% of avg range > max 50.0%
+2026-01-02 20:44:48 - trades.WMTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 329.4% of avg range > max 50.0%

@@ -1,0 +1,4 @@
+2026-01-02 20:38:13 - trades.UPSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 195.1% of avg range > max 50.0%
+2026-01-02 20:40:22 - trades.UPSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.8% of avg range > max 50.0%
+2026-01-02 20:42:19 - trades.UPSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 197.5% of avg range > max 50.0%
+2026-01-02 20:44:42 - trades.UPSm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.40 pips

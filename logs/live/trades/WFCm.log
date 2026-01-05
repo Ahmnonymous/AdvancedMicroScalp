@@ -1,0 +1,3 @@
+2026-01-02 20:35:55 - trades.WFCm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.0% of avg range > max 50.0%
+2026-01-02 20:38:15 - trades.WFCm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-02 20:44:46 - trades.WFCm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.40 pips

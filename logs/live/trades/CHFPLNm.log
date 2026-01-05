@@ -1,0 +1,8 @@
+2026-01-02 20:48:34 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20170.3% of avg range > max 50.0%
+2026-01-02 21:19:01 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25971.8% of avg range > max 50.0%
+2026-01-02 21:20:41 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 26176.6% of avg range > max 50.0%
+2026-01-02 21:22:20 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25910.1% of avg range > max 50.0%
+2026-01-02 21:23:59 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 27759.0% of avg range > max 50.0%
+2026-01-02 21:25:38 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29431.3% of avg range > max 50.0%
+2026-01-02 21:27:18 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 34125.5% of avg range > max 50.0%
+2026-01-02 21:28:58 - trades.CHFPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 35961.2% of avg range > max 50.0%
