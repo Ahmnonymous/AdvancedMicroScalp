@@ -4677,10 +4677,48 @@ class TradingBot:
         # Get health snapshot to check thread status
         health_snapshot = system_health.get_health_snapshot()
         
-        # Check SLWorker thread
+        # Check SLWorker thread - enhanced to be more proactive
         sl_worker_health = health_snapshot.get("SLWorker", {})
-        if sl_worker_health.get("dead", False):
-            logger.critical("[THREAD_RECOVERY] SLWorker thread is dead - attempting restart...")
+        is_marked_dead = sl_worker_health.get("dead", False)
+        
+        # CRITICAL FIX: Proactively check worker status, not just if marked dead
+        # This catches cases where thread stopped but wasn't marked dead yet
+        try:
+            if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                sl_manager = self.risk_manager.sl_manager
+                worker_status = sl_manager.get_worker_status()
+                is_running = worker_status.get('running', False)
+                is_thread_alive = worker_status.get('thread_alive', False)
+                
+                # Check if worker should be running but isn't
+                if not is_running or not is_thread_alive:
+                    logger.critical(f"[THREAD_RECOVERY] SLWorker not running properly (running={is_running}, thread_alive={is_thread_alive}) - attempting restart...")
+                    # Stop any stale worker state
+                    try:
+                        sl_manager.stop_sl_worker()
+                    except Exception as cleanup_error:
+                        logger.warning(f"[THREAD_RECOVERY] Error during SLWorker cleanup (non-fatal): {cleanup_error}")
+                    # Restart the worker
+                    try:
+                        sl_manager.start_sl_worker()
+                        logger.critical("[THREAD_RECOVERY] SLWorker thread restarted successfully")
+                        # Reset the dead flag in system health
+                        system_health.reset_thread_dead_flag("SLWorker")
+                        # The system health monitor will detect the new thread on next heartbeat cycle
+                    except Exception as restart_error:
+                        logger.critical(f"[THREAD_RECOVERY] Failed to restart SLWorker thread: {restart_error}", exc_info=True)
+                        # Don't reset dead flag if restart failed - system remains unsafe
+                elif is_marked_dead:
+                    # Thread is alive but marked dead - reset the dead flag
+                    logger.info("[THREAD_RECOVERY] SLWorker thread is alive but marked dead - resetting health state")
+                    system_health.reset_thread_dead_flag("SLWorker")
+                    # The heartbeat monitor will detect it's alive on next cycle
+        except Exception as e:
+            logger.critical(f"[THREAD_RECOVERY] Failed to check/restart SLWorker thread: {e}", exc_info=True)
+        
+        # Legacy check for marked dead (fallback)
+        if is_marked_dead:
+            logger.critical("[THREAD_RECOVERY] SLWorker thread is marked dead - attempting restart...")
             try:
                 # Check if SLManager exists and can restart
                 if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:

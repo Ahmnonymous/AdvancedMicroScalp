@@ -4934,7 +4934,9 @@ class SLManager:
             consecutive_failures=consecutive_failures,
             is_profit_locking=is_profit_locking,
             is_trailing=is_trailing_preliminary,  # Use preliminary trailing check
-            is_first_eligible=is_first_eligible
+            is_first_eligible=is_first_eligible,
+            ticket=ticket,
+            symbol=symbol
         )
         
         if not allowed:
@@ -7230,6 +7232,11 @@ class SLManager:
                     if not positions:
                         # MANDATORY OBSERVABILITY: Log idle state when no positions exist
                         logger.info(f"[IDLE][SL_WORKER] no_positions=true")
+                        # CRITICAL FIX: Update timing stats even when idle to prevent false backlog detection
+                        # This ensures trade gating checks know the worker is alive and active
+                        with self._timing_lock:
+                            self._timing_stats['last_update_time'] = datetime.now()
+                            self._timing_stats['last_loop_time'] = loop_start_time
                         # No positions - check if instant trailing (no sleep) or wait
                         if self._sl_worker_interval > 0:
                             sleep_start = time.time()
@@ -7837,8 +7844,10 @@ class SLManager:
             pid = os.getpid()
             tid = threading.current_thread().ident if threading.current_thread().ident else 'unknown'
             thread_name = threading.current_thread().name
-            logger.info(f"[THREAD_STOP] {thread_name} pid={pid} tid={tid} reason=normal_shutdown")
-            logger.info("SL Worker loop stopped normally")
+            # CRITICAL FIX: Log why the loop exited for debugging
+            shutdown_reason = "shutdown_event_set" if self._sl_worker_shutdown_event.is_set() else "running_flag_false"
+            logger.info(f"[THREAD_STOP] {thread_name} pid={pid} tid={tid} reason=normal_shutdown ({shutdown_reason})")
+            logger.info(f"SL Worker loop stopped normally - running={self._sl_worker_running}, shutdown_event={self._sl_worker_shutdown_event.is_set()}")
                 
         except Exception as e:
             # MANDATORY OBSERVABILITY: Log thread crash with full stack trace and system event
@@ -7956,7 +7965,8 @@ class SLManager:
     
     def _check_global_rpc_rate_limit(self, is_emergency: bool = False, consecutive_failures: int = 0, 
                                      is_profit_locking: bool = False, is_trailing: bool = False, 
-                                     is_first_eligible: bool = False) -> Tuple[bool, float]:
+                                     is_first_eligible: bool = False, ticket: Optional[int] = None, 
+                                     symbol: Optional[str] = None) -> Tuple[bool, float]:
         """
         Check if global RPC rate limit allows an update.
         
@@ -7966,6 +7976,8 @@ class SLManager:
             is_profit_locking: If True, bypass rate limit for profit protection
             is_trailing: If True, bypass rate limit for trailing stops
             is_first_eligible: If True, bypass rate limit for first eligible updates
+            ticket: Optional ticket number for logging purposes
+            symbol: Optional symbol name for logging purposes
         
         Returns:
             (allowed, backoff_delay) tuple. If allowed is False, backoff_delay is 0.
@@ -7996,12 +8008,18 @@ class SLManager:
                 # P2-15 FIX: Emergency updates go to priority queue, others to regular queue
                 if is_emergency or is_profit_locking:
                     # Add to priority queue (will be processed first)
-                    self._global_rpc_priority_queue.append((ticket, current_time, 'emergency' if is_emergency else 'profit_locking'))
-                    logger.debug(f"[RATE_LIMIT_PRIORITY] {symbol} Ticket {ticket} | Added to priority queue (type: {'emergency' if is_emergency else 'profit_locking'})")
+                    if ticket is not None:
+                        self._global_rpc_priority_queue.append((ticket, current_time, 'emergency' if is_emergency else 'profit_locking'))
+                    ticket_str = f"Ticket {ticket}" if ticket is not None else "Unknown ticket"
+                    symbol_str = symbol if symbol else "Unknown"
+                    logger.debug(f"[RATE_LIMIT_PRIORITY] {symbol_str} {ticket_str} | Added to priority queue (type: {'emergency' if is_emergency else 'profit_locking'})")
                 else:
                     # Add to regular queue
-                    self._global_rpc_queue.append((ticket, current_time))
-                    logger.debug(f"[RATE_LIMIT_QUEUE] {symbol} Ticket {ticket} | Added to regular queue")
+                    if ticket is not None:
+                        self._global_rpc_queue.append((ticket, current_time))
+                    ticket_str = f"Ticket {ticket}" if ticket is not None else "Unknown ticket"
+                    symbol_str = symbol if symbol else "Unknown"
+                    logger.debug(f"[RATE_LIMIT_QUEUE] {symbol_str} {ticket_str} | Added to regular queue")
                 return False, 0.0
             
             # Allow update - add timestamp

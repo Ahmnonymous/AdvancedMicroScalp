@@ -268,16 +268,24 @@ class OrderManager:
         # Check 5: No worker backlog (check if worker is processing normally)
         if self._sl_manager:
             try:
+                worker_status = self._sl_manager.get_worker_status()
+                active_positions = worker_status.get('last_position_count', 0)
                 timing_stats = self._sl_manager.get_timing_stats()
                 # Check if last update was recent (within 5 seconds)
                 last_update_time = timing_stats.get('last_update_time')
                 if last_update_time:
                     from datetime import datetime, timedelta
                     time_since_update = (datetime.now() - last_update_time).total_seconds()
-                    if time_since_update > 10.0:  # No updates for 10 seconds
+                    # CRITICAL FIX: Only block trades if worker backlog AND we have positions
+                    # When there are 0 positions, worker is idle and may not update timing stats
+                    # This is normal behavior - allow trades when no positions exist
+                    if time_since_update > 10.0 and active_positions > 0:  # No updates for 10 seconds AND we have positions
                         checks['allowed'] = False
-                        checks['reason'] = f"SL worker backlog detected (no updates for {time_since_update:.1f}s)"
+                        checks['reason'] = f"SL worker backlog detected (no updates for {time_since_update:.1f}s, {active_positions} positions)"
                         return checks
+                    elif time_since_update > 10.0 and active_positions == 0:
+                        # Worker idle (no positions) - this is normal, allow trades
+                        logger.info(f"[TRADE_GATING] SL worker idle (no updates for {time_since_update:.1f}s, 0 positions) - allowing trade")
             except Exception as e:
                 logger.warning(f"[TRADE_GATING] Could not check worker backlog: {e}")
                 # Don't block trade if check fails
