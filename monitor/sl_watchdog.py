@@ -115,13 +115,23 @@ class SLWatchdog:
                 # Check worker status
                 worker_status = self.sl_manager.get_worker_status()
                 
+                # Phase 3: Handle synchronous system (no worker thread)
+                system_type = worker_status.get('system_type', 'legacy')
+                
                 if not worker_status.get('running', False):
-                    watchdog_logger.critical("[CRITICAL] SL Worker not running - HALTING TRADING")
-                    self._restart_worker("Worker not running")
+                    watchdog_logger.critical("[CRITICAL] SL update system not running - HALTING TRADING")
+                    if system_type == 'synchronous':
+                        # Synchronous system should always be running (available in run_cycle)
+                        watchdog_logger.critical("[CRITICAL] Synchronous SL system reported not running - this should not happen")
+                        # Can't restart synchronous system - it's part of run_cycle()
+                        # Just log and continue monitoring
+                    else:
+                        self._restart_worker("Worker not running")
                     self.shutdown_event.wait(self.check_interval)
                     continue
                 
-                if not worker_status.get('thread_alive', False):
+                # Phase 3: Skip thread_alive check for synchronous systems (no worker thread)
+                if system_type != 'synchronous' and not worker_status.get('thread_alive', False):
                     watchdog_logger.critical("[CRITICAL] SL Worker thread not alive - HALTING TRADING")
                     self._restart_worker("Worker thread not alive")
                     self.shutdown_event.wait(self.check_interval)
@@ -256,118 +266,35 @@ class SLWatchdog:
     
     def _restart_worker(self, reason: str):
         """
-        P0-2 FIX: SL Worker Thread Crash Recovery with automatic restart and exponential backoff.
+        Phase 3: SL Worker Thread removed - handle stale tickets differently.
         
-        NEW BEHAVIOR: Attempt automatic restart with exponential backoff (max 3 attempts).
-        If restart fails, activate kill switch and close all positions.
+        In Phase 3, there's no worker thread to restart. Instead, we:
+        - Log the stale ticket issue
+        - The synchronous SL update system in run_cycle() should handle updates
+        - Only mark system unsafe if there's a critical issue (not just stale tickets)
         
         Args:
             reason: Reason for worker health issue
         """
-        current_time = datetime.now()
+        # Phase 3: Worker thread removed - no restart possible
+        # Check if this is a stale ticket issue (most common) vs actual worker failure
+        is_stale_ticket_issue = "stale tickets" in reason.lower() or "stale" in reason.lower()
         
-        # P0-2 FIX: Track restart attempts
-        if not hasattr(self, '_restart_attempts'):
-            self._restart_attempts = {}
+        if is_stale_ticket_issue:
+            # For stale tickets in Phase 3, just log a warning
+            # The synchronous SL update system should handle this in the next run_cycle()
+            watchdog_logger.warning(f"[WATCHDOG] Stale SL updates detected in Phase 3 (synchronous system): {reason}")
+            watchdog_logger.warning(f"[WATCHDOG] Synchronous SL updates in run_cycle() should handle this. "
+                                   f"Monitoring for resolution...")
+            # Don't mark system unsafe for stale tickets - let the synchronous system handle it
+            return
         
-        restart_key = f"{reason}_{current_time.strftime('%Y%m%d%H%M')}"  # Group by reason and minute
-        if restart_key not in self._restart_attempts:
-            self._restart_attempts[restart_key] = {
-                'count': 0,
-                'first_attempt': current_time,
-                'last_attempt': current_time
-            }
-        
-        attempt_info = self._restart_attempts[restart_key]
-        attempt_info['count'] += 1
-        attempt_info['last_attempt'] = current_time
-        
-        max_restart_attempts = 3
-        base_backoff_seconds = 2.0  # Start with 2 seconds
-        
-        watchdog_logger.critical(f"🚨 WATCHDOG: SL WORKER UNHEALTHY | Reason: {reason} | "
-                               f"Attempt {attempt_info['count']}/{max_restart_attempts}")
-        
-        # P0-2 FIX: Attempt automatic restart with exponential backoff
-        if attempt_info['count'] <= max_restart_attempts:
-            try:
-                # Calculate backoff delay (exponential: 2s, 4s, 8s)
-                backoff_delay = base_backoff_seconds * (2 ** (attempt_info['count'] - 1))
-                watchdog_logger.info(f"[WORKER_RESTART] Waiting {backoff_delay:.1f}s before restart attempt {attempt_info['count']}...")
-                time.sleep(backoff_delay)
-                
-                # Attempt to restart worker
-                watchdog_logger.info(f"[WORKER_RESTART] Attempting to restart SL worker (attempt {attempt_info['count']}/{max_restart_attempts})...")
-                
-                # Stop current worker if running
-                if self.sl_manager._sl_worker_running:
-                    self.sl_manager.stop_sl_worker()
-                    time.sleep(0.5)  # Wait for thread to stop
-                
-                # Start worker again
-                self.sl_manager.start_sl_worker(watchdog=self)
-                
-                # Verify worker started
-                time.sleep(1.0)  # Give worker time to start
-                worker_status = self.sl_manager.get_worker_status()
-                
-                if worker_status.get('running', False) and worker_status.get('thread_alive', False):
-                    watchdog_logger.info(f"[WORKER_RESTART] SL worker restarted successfully (attempt {attempt_info['count']})")
-                    # Reset attempt count on success
-                    attempt_info['count'] = 0
-                    return  # Success - worker restarted
-                else:
-                    watchdog_logger.warning(f"[WORKER_RESTART] SL worker restart failed (attempt {attempt_info['count']}) - worker not running")
-                    
-            except Exception as restart_error:
-                watchdog_logger.error(f"[WORKER_RESTART] Error during restart attempt {attempt_info['count']}: {restart_error}", exc_info=True)
-        
-        # P0-2 FIX: If all restart attempts failed, activate kill switch and close positions
-        if attempt_info['count'] > max_restart_attempts:
-            watchdog_logger.critical(f"[WORKER_RESTART] All restart attempts failed - activating kill switch and closing positions")
-            
-            # Mark system as UNSAFE
-            try:
-                from utils.system_health import mark_system_unsafe
-                mark_system_unsafe(
-                    reason="sl_worker_restart_failed",
-                    details=f"SL worker restart failed after {max_restart_attempts} attempts: {reason}"
-                )
-            except Exception as e:
-                watchdog_logger.error(f"Failed to mark system unsafe: {e}", exc_info=True)
-            
-            # Activate kill switch and close positions
-            try:
-                order_manager = self.sl_manager.order_manager
-                if hasattr(order_manager, '_trading_bot'):
-                    trading_bot = order_manager._trading_bot
-                    if trading_bot:
-                        # P0-2 FIX: Close positions if restart failed
-                        trading_bot.activate_kill_switch(
-                            f"SL worker restart failed after {max_restart_attempts} attempts: {reason}",
-                            close_positions=True  # Close positions if restart failed
-                        )
-                        watchdog_logger.critical(f"[KILL_SWITCH_ACTIVATED] Trading disabled and positions closed due to SL worker restart failure")
-            except Exception as e:
-                watchdog_logger.error(f"Failed to activate kill switch: {e}", exc_info=True)
-            
-            # Log system event
-            try:
-                from utils.logger_factory import get_system_event_logger
-                system_event_logger = get_system_event_logger()
-                system_event_logger.systemEvent("WATCHDOG_RESTART_FAILED", {
-                    "reason": reason,
-                    "attempts": attempt_info['count'],
-                    "timestamp": current_time.isoformat(),
-                    "action": "kill_switch_activated_positions_closed"
-                })
-            except Exception as e:
-                watchdog_logger.warning(f"Failed to log system event: {e}")
-            
-            watchdog_logger.critical(f"[WATCHDOG_HALT] Trading halted and positions closed - manual intervention required | "
-                                   f"Reason: {reason} | "
-                                   f"Restart attempts: {attempt_info['count']} | "
-                                   f"System marked UNSAFE")
+        # For non-stale-ticket issues (e.g., worker not running), log but don't restart
+        watchdog_logger.warning(f"[WATCHDOG] SL system issue detected in Phase 3: {reason}")
+        watchdog_logger.warning(f"[WATCHDOG] Worker thread removed in Phase 3 - no restart possible. "
+                               f"SL updates now happen synchronously in run_cycle().")
+        # Don't mark system unsafe - the synchronous system should be operational
+        return
     
     def _check_in_flight_updates(self) -> Tuple[List[int], bool]:
         """

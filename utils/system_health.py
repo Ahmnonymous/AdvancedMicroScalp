@@ -31,7 +31,8 @@ class ThreadHealthState:
 
 
 _CRITICAL_THREADS = {
-    "SLWorker",
+    # Phase 3: SLWorker removed - SL updates now synchronous in run_cycle()
+    # "SLWorker",
     "TrailingStopMonitor",
     "FastTrailingStopMonitor",
     "PositionMonitor",

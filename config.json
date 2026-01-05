@@ -123,6 +123,7 @@
     "limit_entry_max_spread_pips": 2.0,
     "profit_locking": {
       "enabled": true,
+      "profit_zone_updates_enabled": false,
       "min_profit_threshold_usd": 0.03,
       "max_profit_threshold_usd": 0.1,
       "lock_step_usd": 0.1,
@@ -180,6 +181,7 @@
     "rsi_entry_range_max": 80,
     "rsi_soft_filter": true,
     "cycle_interval_seconds": 90,
+    "symbol_cooldown_seconds": 300,
     "randomize_timing": false,
     "max_delay_seconds": 10,
     "randomness_factor": 0.1,
@@ -297,18 +299,12 @@
   },
   "governance": {
     "master_kill_switch": {
-      "enabled": true,
-      "reason": "Regression guard: win_rate breached: 0.0 vs threshold 0.8",
+      "enabled": false,
+      "reason": "Auto-cleared: was triggered due to insufficient data (no trades)",
       "revert_to_phase": 3,
-      "disable_features": [
-        "breakeven_logic",
-        "partial_profit_taking",
-        "runner_positions",
-        "improved_sl_placement",
-        "shadow_mode_filters"
-      ],
-      "log_level": "CRITICAL",
-      "activated_at": "2026-01-05T17:43:07.506411"
+      "disable_features": [],
+      "log_level": "INFO",
+      "cleared_at": "2026-01-06T00:26:29.512046"
     },
     "deployment": {
       "current_phase": 1

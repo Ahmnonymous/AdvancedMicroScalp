@@ -205,6 +205,10 @@ class TradingBot:
         self.supervisor_enabled = self.supervisor_config.get('enabled', True)
         self.max_consecutive_errors = self.supervisor_config.get('max_consecutive_errors', 5)
         self.error_cooldown_minutes = self.supervisor_config.get('error_cooldown_minutes', 15)
+        
+        # Symbol-specific cooldown tracking (for market closed symbols)
+        self.symbol_cooldowns = {}  # {symbol: cooldown_until_timestamp}
+        self.symbol_cooldown_seconds = trading_config.get('symbol_cooldown_seconds', 300)  # 5 minutes default
         self.kill_switch_enabled = self.supervisor_config.get('kill_switch_enabled', True)
         
         # State tracking
@@ -1031,9 +1035,42 @@ class TradingBot:
             self._state_watchdog_thread.join(timeout=5)
         logger.info("State watchdog thread stopped")
     
+    def _check_market_wide_closed(self) -> bool:
+        """
+        Check if entire market is closed by sampling a few symbols.
+        Returns True if market appears closed, False if at least one symbol is tradeable.
+        """
+        # Sample a few common symbols to detect market-wide closure
+        sample_symbols = ['EURUSDm', 'GBPUSDm', 'USDJPYm', 'XAUUSDm', 'BTCUSDm']
+        
+        tradeable_count = 0
+        for symbol in sample_symbols:
+            try:
+                is_tradeable, _ = self.mt5_connector.is_symbol_tradeable_now(symbol, check_trade_allowed=False)
+                if is_tradeable:
+                    tradeable_count += 1
+                    # If at least one symbol is tradeable, market is open
+                    if tradeable_count >= 1:
+                        return False
+            except Exception:
+                # Ignore errors for sample symbols
+                pass
+        
+        # If no symbols are tradeable, market is likely closed
+        return tradeable_count == 0
+    
     def scan_for_opportunities(self) -> List[Dict[str, Any]]:
         """Scan for trading opportunities with SIMPLE logic and comprehensive logging."""
         opportunities = []
+        
+        # Phase 1: Entry gating - SL health check
+        if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+            sl_manager = self.risk_manager.sl_manager
+            if sl_manager.pre_cycle_update_enabled:
+                sl_health_ok, violations = sl_manager._verify_sl_health()
+                if not sl_health_ok:
+                    logger.warning(f"[SCAN_GATING] SL health check failed - blocking opportunity scan: {len(violations)} violation(s)")
+                    return []  # Return empty list, no opportunities
         
         # CRITICAL FIX: Allow scanning even when kill switch is active
         # Kill switch will block trade execution, but scanning should continue for monitoring
@@ -1070,11 +1107,27 @@ class TradingBot:
                         self.trade_stats['filtered_opportunities'] += 1
                         continue
                     
+                    # 0b. Check symbol cooldown (if market was closed recently)
+                    symbol_upper = symbol.upper()
+                    if symbol_upper in self.symbol_cooldowns:
+                        cooldown_until = self.symbol_cooldowns[symbol_upper]
+                        if time.time() < cooldown_until:
+                            remaining = int(cooldown_until - time.time())
+                            logger.debug(f"[SKIP] [SKIP] {symbol} | Reason: Symbol in cooldown ({remaining}s remaining) - market was recently closed")
+                            self.trade_stats['filtered_opportunities'] += 1
+                            continue
+                        else:
+                            # Cooldown expired, remove from cooldown dict
+                            del self.symbol_cooldowns[symbol_upper]
+                    
                     # 0a. Check if symbol is tradeable/executable RIGHT NOW (market is open, trade mode enabled)
                     # This prevents non-executable symbols from appearing in opportunity lists
                     is_tradeable, reason = self.mt5_connector.is_symbol_tradeable_now(symbol)
                     if not is_tradeable:
-                        logger.debug(f"[SKIP] [SKIP] {symbol} | Reason: NOT EXECUTABLE - {reason}")
+                        # Market closed for this symbol - add to cooldown
+                        cooldown_until = time.time() + self.symbol_cooldown_seconds
+                        self.symbol_cooldowns[symbol_upper] = cooldown_until
+                        logger.debug(f"[SKIP] [SKIP] {symbol} | Reason: NOT EXECUTABLE - {reason} | Added to cooldown for {self.symbol_cooldown_seconds}s")
                         self.trade_stats['filtered_opportunities'] += 1
                         continue  # Skip this symbol - not tradeable right now
                     else:
@@ -1844,6 +1897,15 @@ class TradingBot:
         # P0-3 FIX: Kill Switch Bypass Prevention - Check at start and wrap in try-finally
         kill_switch_checked = False
         try:
+            # Phase 1: Entry gating - SL health check
+            if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                sl_manager = self.risk_manager.sl_manager
+                if sl_manager.pre_cycle_update_enabled:
+                    sl_health_ok, violations = sl_manager._verify_sl_health()
+                    if not sl_health_ok:
+                        logger.warning(f"[EXECUTE_GATING] SL health check failed - rejecting trade {symbol} {signal}: {len(violations)} violation(s)")
+                        return None  # Reject trade
+            
             # Check kill switch at start of execution
             if self.check_kill_switch() or self.check_master_kill_switch():
                 logger.warning(f"[KILL_SWITCH_BYPASS_PREVENTION] {symbol} | Trade execution blocked by kill switch")
@@ -2053,9 +2115,6 @@ class TradingBot:
             pip_value = point * 10 if symbol_info_for_lot.get('digits', 5) == 5 or symbol_info_for_lot.get('digits', 3) == 3 else point
             contract_size = symbol_info_for_lot.get('contract_size', 1.0)
             
-            # Calculate USD-based stop loss price (fixed $2.00 risk)
-            estimated_risk = self.risk_manager.max_risk_usd  # Always $2.00 with USD-based SL
-            
             # Round lot size to volume step
             volume_step = symbol_info_for_lot.get('volume_step', 0.01)
             if volume_step > 0:
@@ -2063,14 +2122,55 @@ class TradingBot:
                 if lot_size < volume_step:
                     lot_size = volume_step
             
-            # Recalculate stop loss price with rounded lot size (risk remains $2.00)
-            stop_loss_price, _ = self.risk_manager.calculate_usd_based_stop_loss_price(
-                symbol=symbol,
-                entry_price=entry_price,
-                order_type='BUY' if order_type == OrderType.BUY else 'SELL',
-                lot_size=lot_size,
-                risk_usd=self.risk_manager.max_risk_usd
-            )
+            # Calculate strategy-based stop loss price
+            strategy_sl_price = None
+            strategy_sl_usd = None
+            if hasattr(self, 'trade_reason_logger') and self.trade_reason_logger:
+                try:
+                    strategy_sl_analysis = self.trade_reason_logger._calculate_strategy_suggested_sl(
+                        symbol=symbol,
+                        entry_price=entry_price,
+                        signal=signal,
+                        opportunity=opportunity,
+                        lot_size=lot_size
+                    )
+                    if strategy_sl_analysis.get('analysis_available') and strategy_sl_analysis.get('suggested_sl_price'):
+                        strategy_sl_price = strategy_sl_analysis.get('suggested_sl_price')
+                        strategy_sl_usd = strategy_sl_analysis.get('suggested_sl_usd', 0.0)
+                        logger.info(f"[STRATEGY_SL] {symbol} | Strategy SL calculated: {strategy_sl_price:.5f} | "
+                                  f"Risk: ${strategy_sl_usd:.2f} | Method: {strategy_sl_analysis.get('calculation_method', 'unknown')}")
+                except Exception as strategy_sl_error:
+                    logger.warning(f"Error calculating strategy SL: {strategy_sl_error}")
+            
+            # Use strategy SL if available, otherwise fall back to USD-based SL
+            if strategy_sl_price and strategy_sl_price > 0:
+                stop_loss_price = strategy_sl_price
+                # Calculate actual risk from strategy SL
+                sl_distance = abs(entry_price - stop_loss_price)
+                point = symbol_info_for_lot.get('point', 0.00001)
+                pip_value = point * 10 if symbol_info_for_lot.get('digits', 5) == 5 or symbol_info_for_lot.get('digits', 3) == 3 else point
+                contract_size = symbol_info_for_lot.get('contract_size', 1.0)
+                point_value = symbol_info_for_lot.get('trade_tick_value', None)
+                
+                if point_value and point_value > 0:
+                    sl_distance_points = sl_distance / point
+                    estimated_risk = sl_distance_points * lot_size * point_value
+                else:
+                    estimated_risk = sl_distance * lot_size * contract_size
+                
+                logger.info(f"[STRATEGY_SL] {symbol} | Using strategy SL: {stop_loss_price:.5f} | "
+                          f"Estimated risk: ${estimated_risk:.2f}")
+            else:
+                # Fallback to USD-based SL (fixed $3.00 risk)
+                estimated_risk = self.risk_manager.max_risk_usd  # Always $3.00 with USD-based SL
+                stop_loss_price, _ = self.risk_manager.calculate_usd_based_stop_loss_price(
+                    symbol=symbol,
+                    entry_price=entry_price,
+                    order_type='BUY' if order_type == OrderType.BUY else 'SELL',
+                    lot_size=lot_size,
+                    risk_usd=self.risk_manager.max_risk_usd
+                )
+                logger.info(f"[FALLBACK_SL] {symbol} | Strategy SL not available, using USD-based SL: {stop_loss_price:.5f} | Risk: ${estimated_risk:.2f}")
             
             # Calculate stop_loss_pips for logging (not used for risk calculation)
             stop_loss_pips = abs(entry_price - stop_loss_price) / pip_value if pip_value > 0 else 0
@@ -2080,20 +2180,27 @@ class TradingBot:
                        f"Reason: {lot_reason} | "
                        f"Estimated Risk: ${estimated_risk:.2f} (target: ${self.risk_manager.max_risk_usd:.2f})")
             
-            # With USD-based stop loss, risk is already fixed at max_risk_usd ($2.00)
-            # No need for slippage buffer check since the SL is calculated to exactly match the risk limit
-            # The actual risk will be $2.00 regardless of slippage because the SL distance is calculated
-            # to ensure the risk is exactly $2.00 based on the lot size and contract value per point
+            # Risk validation: For strategy SL, allow wider tolerance since strategy may intentionally use different risk
+            # For USD-based SL, risk should match max_risk_usd closely
             max_risk_usd = self.risk_manager.max_risk_usd
             
-            # For USD-based SL, estimated_risk should always equal max_risk_usd
-            # Only reject if somehow the calculation is wrong (safety check)
-            if estimated_risk > max_risk_usd * 1.01:  # Allow 1% tolerance for rounding
-                logger.warning(f"[SKIP] {symbol}: REJECTED - Estimated risk ${estimated_risk:.2f} exceeds max ${max_risk_usd:.2f} | "
-                             f"Lot: {lot_size:.4f}, SL: {stop_loss_pips:.1f} pips, Contract: {contract_size}")
-                # Risk validation failure is NOT an execution failure - it's a pre-execution filter
-                # Don't increment failed_trades - this is expected risk management
-                return None  # None indicates filtered/skipped, not failed
+            if strategy_sl_price and strategy_sl_price > 0:
+                # Strategy SL: Allow up to 2x max_risk_usd (strategy may intentionally use wider stops)
+                # This allows strategy to set SL based on market conditions, not just fixed risk
+                if estimated_risk > max_risk_usd * 2.0:  # Allow up to 2x for strategy SL
+                    logger.warning(f"[SKIP] {symbol}: REJECTED - Strategy SL risk ${estimated_risk:.2f} exceeds 2x max ${max_risk_usd:.2f} | "
+                                 f"Lot: {lot_size:.4f}, SL: {stop_loss_pips:.1f} pips, Contract: {contract_size}")
+                    return None  # None indicates filtered/skipped, not failed
+                else:
+                    logger.info(f"[STRATEGY_SL_RISK] {symbol} | Strategy SL risk: ${estimated_risk:.2f} (max allowed: ${max_risk_usd * 2.0:.2f})")
+            else:
+                # USD-based SL: Should match max_risk_usd closely (1% tolerance)
+                if estimated_risk > max_risk_usd * 1.01:  # Allow 1% tolerance for rounding
+                    logger.warning(f"[SKIP] {symbol}: REJECTED - Estimated risk ${estimated_risk:.2f} exceeds max ${max_risk_usd:.2f} | "
+                                 f"Lot: {lot_size:.4f}, SL: {stop_loss_pips:.1f} pips, Contract: {contract_size}")
+                    # Risk validation failure is NOT an execution failure - it's a pre-execution filter
+                    # Don't increment failed_trades - this is expected risk management
+                    return None  # None indicates filtered/skipped, not failed
             
             # Log trade execution with lot size details
             logger.info(f"📦 {symbol}: EXECUTING WITH LOT SIZE = {lot_size:.4f} | "
@@ -2208,27 +2315,42 @@ class TradingBot:
                     return None  # None indicates filtered/skipped, not failed
                 
                 # CRITICAL SAFETY FIX: Use atomic SL (SL included in order request)
-                # Calculate max_risk_usd and pass to place_order for atomic SL calculation
-                max_risk_usd = -self.risk_manager.max_risk_usd  # Negative value for loss protection
+                # Use strategy SL if available, otherwise fall back to max_risk_usd
+                max_risk_usd = -self.risk_manager.max_risk_usd  # Negative value for loss protection (fallback)
                 
+                # Pass strategy SL price if available, otherwise use max_risk_usd
                 result = self.order_manager.place_order(
                     symbol=symbol,
                     order_type=order_type,
                     lot_size=lot_size,
-                    stop_loss=0.0,  # DEPRECATED - max_risk_usd is used instead
+                    stop_loss=0.0,  # DEPRECATED - strategy_sl_price or max_risk_usd is used instead
                     comment=f"Bot {signal}",
-                    max_risk_usd=max_risk_usd  # CRITICAL: Atomic SL calculation
+                    max_risk_usd=max_risk_usd if not (strategy_sl_price and strategy_sl_price > 0) else None,  # Only use if no strategy SL
+                    strategy_sl_price=strategy_sl_price if (strategy_sl_price and strategy_sl_price > 0) else None  # CRITICAL: Strategy SL price
                 )
                 
                 # Handle new return format (dict with ticket, entry_price_actual, slippage)
                 entry_price_actual = entry_price  # Default to requested price
                 slippage = 0.0
                 
+                # Initialize error variables
+                error_code = None
+                mt5_retcode = 'N/A'
+                mt5_comment = 'N/A'
+                error_type = 'unknown'
+                
                 if result is None:
+                    # place_order returned None - connection error, symbol not found, tick unavailable, or market closed
                     ticket = None
+                    error_code = -2  # Treat as transient error (connection/symbol/tick issue)
+                    mt5_retcode = 'N/A'
+                    mt5_comment = 'Order placement returned None (connection error, symbol not found, tick unavailable, or market closed)'
+                    error_type = 'connection_or_symbol_error'
+                    logger.warning(f"[WARNING] {symbol}: Order placement returned None - likely connection error, symbol not found, tick unavailable, or market closed")
                 elif isinstance(result, dict):
                     if 'error' in result:
                         ticket = result['error']  # Error code
+                        error_code = result.get('error')
                         # Extract detailed error information
                         mt5_retcode = result.get('mt5_retcode', 'N/A')
                         mt5_comment = result.get('mt5_comment', 'N/A')
@@ -2236,13 +2358,13 @@ class TradingBot:
                         
                         # Log detailed error information
                         logger.error(f"[ERROR] {symbol}: Order placement failed | "
-                                   f"Error Code: {result.get('error')} | "
+                                   f"Error Code: {error_code} | "
                                    f"MT5 Retcode: {mt5_retcode} | "
                                    f"MT5 Comment: {mt5_comment} | "
                                    f"Error Type: {error_type}")
                         
                         # Update state for error
-                        self._update_state('ERROR', symbol, f'Order failed: {result.get("error")} (MT5: {mt5_retcode})')
+                        self._update_state('ERROR', symbol, f'Order failed: {error_code} (MT5: {mt5_retcode})')
                     else:
                         ticket = result.get('ticket')
                         entry_price_actual = result.get('entry_price_actual', entry_price)
@@ -2279,13 +2401,7 @@ class TradingBot:
                 # -4: Market closed (10018) - non-retryable
                 # -5: Trading restriction (10027, 10044, etc.) - non-retryable
                 
-                # Handle error codes (from dict or legacy int)
-                error_code = ticket if isinstance(ticket, int) and ticket < 0 else (result.get('error') if isinstance(result, dict) else None)
-                
-                # Extract detailed error information for logging
-                mt5_retcode = result.get('mt5_retcode', 'N/A') if isinstance(result, dict) else 'N/A'
-                mt5_comment = result.get('mt5_comment', 'N/A') if isinstance(result, dict) else 'N/A'
-                error_type = result.get('error_type', 'unknown') if isinstance(result, dict) else 'unknown'
+                # error_code, mt5_retcode, mt5_comment, error_type already set above
                 
                 # Market closed - don't retry
                 if error_code == -4:
@@ -2488,6 +2604,20 @@ class TradingBot:
                 
                 # Register staged trade
                 self.risk_manager.register_staged_trade(symbol, ticket, signal)
+                
+                # CRITICAL: Initialize SL tracking for strategy SL positions to prevent violations
+                # This ensures _last_sl_update and _last_sl_attempt are set immediately after opening
+                if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                    sl_manager = self.risk_manager.sl_manager
+                    with sl_manager._tracking_lock:
+                        from datetime import datetime
+                        # Initialize _last_sl_update for positions opened with strategy SL
+                        if ticket not in sl_manager._last_sl_update:
+                            sl_manager._last_sl_update[ticket] = datetime.now()
+                            logger.debug(f"[STRATEGY_SL_INIT] ticket={ticket} symbol={symbol} | Initialized _last_sl_update for strategy SL position")
+                        # Initialize _last_sl_attempt to track when position was opened
+                        sl_manager._last_sl_attempt[ticket] = datetime.now()
+                        logger.debug(f"[STRATEGY_SL_INIT] ticket={ticket} symbol={symbol} | Initialized _last_sl_attempt for strategy SL position")
                 
                 # Get quality score from opportunity for logging
                 quality_score = opportunity.get('quality_score', None)
@@ -2870,7 +3000,7 @@ class TradingBot:
         **MANDATORY FIX 1 - SINGLE-WRITER SL AUTHORITY:**
         This thread (FastTrailingStopMonitor) is READ-ONLY and does NOT acquire per-ticket SL locks.
         It only calls monitor_all_positions_continuous() which is read-only (observes positions, does not mutate SL).
-        All SL mutations are handled EXCLUSIVELY by SLManager._sl_worker_loop() (single-writer).
+        All SL mutations are handled EXCLUSIVELY by synchronous SL update cycle in run_cycle() (single-writer).
         
         CRITICAL: This thread must NEVER:
         - Call sl_manager.update_sl_atomic()
@@ -2878,7 +3008,7 @@ class TradingBot:
         - Call sl_manager.fail_safe_check() (use fail_safe_check_read_only() instead)
         - Acquire any per-ticket SL locks
         
-        If this thread acquires locks, it will cause lock contention with SLWorker and block all SL updates.
+        If this thread acquires locks, it will cause lock contention with synchronous SL updates and block all SL updates.
         """
         # MANDATORY OBSERVABILITY: Wrap entire loop in try-except to catch fatal crashes
         try:
@@ -3788,6 +3918,83 @@ class TradingBot:
         logger.info(f"mode={mode} | [RUN_CYCLE] Starting trading cycle at {cycle_timestamp}")
         scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Cycle start timestamp: {cycle_timestamp}")
         
+        # Phase 1: Pre-cycle SL update (SYNCHRONOUS)
+        if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+            sl_manager = self.risk_manager.sl_manager
+            if sl_manager.pre_cycle_update_enabled:
+                try:
+                    logger.info(f"mode={mode} | [RUN_CYCLE] Starting pre-cycle SL update")
+                    sl_update_success, sl_update_stats = sl_manager.update_all_positions_synchronous()
+                    
+                    if not sl_update_success:
+                        # SL update failed - halt trading
+                        failed_tickets = sl_update_stats.get('failed_tickets', [])
+                        failure_count = sl_update_stats.get('failure_count', 0)
+                        
+                        logger.critical(f"mode={mode} | [RUN_CYCLE] Pre-cycle SL update FAILED: {failure_count} failure(s)")
+                        
+                        # Attempt market close of failed positions
+                        for ticket in failed_tickets:
+                            try:
+                                position = self.order_manager.get_position_by_ticket(ticket)
+                                if position:
+                                    symbol = position.get('symbol', 'N/A')
+                                    logger.critical(f"mode={mode} | [RUN_CYCLE] Attempting market close of failed position: ticket={ticket} symbol={symbol}")
+                                    # Market close will be handled by kill switch activation
+                            except Exception as e:
+                                logger.error(f"mode={mode} | [RUN_CYCLE] Error getting position {ticket} for market close: {e}")
+                        
+                        # Activate kill switch
+                        self.activate_kill_switch(
+                            f"Pre-cycle SL update failed: {failure_count} position(s) failed",
+                            close_positions=False  # Positions will be closed individually above
+                        )
+                        
+                        # Return early - skip scan/execution
+                        logger.critical(f"mode={mode} | [RUN_CYCLE] Trading cycle ABORTED due to SL update failure")
+                        return
+                    
+                    # Verify SL health
+                    sl_health_ok, violations = sl_manager._verify_sl_health()
+                    if not sl_health_ok:
+                        logger.critical(f"mode={mode} | [RUN_CYCLE] SL health check FAILED: {len(violations)} violation(s)")
+                        
+                        # Attempt market close of violating positions
+                        for violation in violations:
+                            ticket = violation.get('ticket', 0)
+                            if ticket > 0:
+                                try:
+                                    position = self.order_manager.get_position_by_ticket(ticket)
+                                    if position:
+                                        symbol = position.get('symbol', 'N/A')
+                                        logger.critical(f"mode={mode} | [RUN_CYCLE] Attempting market close of violating position: "
+                                                       f"ticket={ticket} symbol={symbol} type={violation.get('type')}")
+                                except Exception as e:
+                                    logger.error(f"mode={mode} | [RUN_CYCLE] Error getting position {ticket} for market close: {e}")
+                        
+                        # Activate kill switch
+                        self.activate_kill_switch(
+                            f"SL health check failed: {len(violations)} violation(s)",
+                            close_positions=False
+                        )
+                        
+                        # Return early - skip scan/execution
+                        logger.critical(f"mode={mode} | [RUN_CYCLE] Trading cycle ABORTED due to SL health violation")
+                        return
+                    
+                    logger.info(f"mode={mode} | [RUN_CYCLE] Pre-cycle SL update completed successfully: "
+                               f"positions={sl_update_stats.get('positions_processed', 0)} "
+                               f"success={sl_update_stats.get('success_count', 0)} "
+                               f"duration_ms={sl_update_stats.get('duration_ms', 0):.1f}")
+                    
+                except Exception as e:
+                    logger.critical(f"mode={mode} | [RUN_CYCLE] Exception during pre-cycle SL update: {e}", exc_info=True)
+                    self.activate_kill_switch(
+                        f"Exception during pre-cycle SL update: {e}",
+                        close_positions=False
+                    )
+                    return
+        
         # Check master kill switch FIRST (governance)
         # CRITICAL FIX: Allow scanning even when kill switch is active - only prevent trade execution
         # This allows the bot to continue monitoring the market and logging opportunities
@@ -4489,6 +4696,47 @@ class TradingBot:
             # Log cycle completion with timing
             cycle_duration = time.time() - cycle_start_time
             mode = "BACKTEST" if self.is_backtest else "LIVE"
+            # Phase 1: Post-cycle SL verification
+            if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+                sl_manager = self.risk_manager.sl_manager
+                if sl_manager.post_cycle_verification_enabled:
+                    try:
+                        sl_health_ok, violations = sl_manager._verify_sl_health()
+                        if not sl_health_ok:
+                            logger.critical(f"mode={mode} | [RUN_CYCLE] Post-cycle SL health check FAILED: {len(violations)} violation(s)")
+                            
+                            # Attempt market close of violating positions
+                            for violation in violations:
+                                ticket = violation.get('ticket', 0)
+                                if ticket > 0:
+                                    try:
+                                        position = self.order_manager.get_position_by_ticket(ticket)
+                                        if position:
+                                            symbol = position.get('symbol', 'N/A')
+                                            logger.critical(f"mode={mode} | [RUN_CYCLE] Attempting market close of violating position: "
+                                                           f"ticket={ticket} symbol={symbol} type={violation.get('type')}")
+                                    except Exception as e:
+                                        logger.error(f"mode={mode} | [RUN_CYCLE] Error getting position {ticket} for market close: {e}")
+                            
+                            # Activate kill switch
+                            self.activate_kill_switch(
+                                f"Post-cycle SL health check failed: {len(violations)} violation(s)",
+                                close_positions=False
+                            )
+                        else:
+                            logger.debug(f"mode={mode} | [RUN_CYCLE] Post-cycle SL health check passed")
+                            # CRITICAL FIX: Clear kill switch if it was activated due to SL health violations
+                            # This allows trading to resume when violations are resolved
+                            if self.kill_switch_active:
+                                logger.info(f"mode={mode} | [RUN_CYCLE] SL health check passed - clearing kill switch (violations resolved)")
+                                self.reset_kill_switch()
+                    except Exception as e:
+                        logger.critical(f"mode={mode} | [RUN_CYCLE] Exception during post-cycle SL verification: {e}", exc_info=True)
+                        self.activate_kill_switch(
+                            f"Exception during post-cycle SL verification: {e}",
+                            close_positions=False
+                        )
+            
             cycle_end_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
             
             logger.info(f"mode={mode} | [RUN_CYCLE] Cycle completed at {cycle_end_timestamp} | Duration: {cycle_duration:.3f}s")
@@ -4536,17 +4784,20 @@ class TradingBot:
         else:
             logger.info(f"Trading bot started in AUTOMATIC MODE. Cycle interval: {cycle_interval_seconds}s")
         
+        # Phase 2: SL Worker thread DISABLED - using synchronous SL updates instead
         # CRITICAL FIX: Start SLManager worker thread for real-time SL updates
-        if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
-            try:
-                self.risk_manager.sl_manager.start_sl_worker()
-                logger.info("[OK] SLManager worker thread started successfully")
-            except Exception as e:
-                logger.error(f"[ERROR] Failed to start SLManager worker thread: {e}", exc_info=True)
-                error_logger.error(f"SLManager worker thread start failed: {e}", exc_info=True)
-        else:
-            logger.critical("[ERROR] SLManager not available - cannot start worker thread")
-            error_logger.critical("SLManager not available - worker thread not started")
+        # PHASE 2 COMMENTED OUT: Worker thread disabled, using synchronous updates in run_cycle()
+        # if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
+        #     try:
+        #         self.risk_manager.sl_manager.start_sl_worker()
+        #         logger.info("[OK] SLManager worker thread started successfully")
+        #     except Exception as e:
+        #         logger.error(f"[ERROR] Failed to start SLManager worker thread: {e}", exc_info=True)
+        #         error_logger.error(f"SLManager worker thread start failed: {e}", exc_info=True)
+        # else:
+        #     logger.critical("[ERROR] SLManager not available - cannot start worker thread")
+        #     error_logger.critical("SLManager not available - worker thread not started")
+        logger.info("[PHASE 2] SL Worker thread DISABLED - using synchronous SL updates in run_cycle()")
         
         # Start continuous trailing stop monitor
         self.start_continuous_trailing_stop()
@@ -4642,15 +4893,24 @@ class TradingBot:
                         # Trades are executing, wait a bit before checking again
                         time.sleep(5)
                 else:
-                    # Automatic mode: wait for cycle interval
+                    # Automatic mode: continuous checking (no sleep between cycles)
+                    # Check if entire market is closed - if so, wait before next cycle
                     mode = "BACKTEST" if self.is_backtest else "LIVE"
-                    sleep_start = time.time()
-                    logger.info(f"[MAIN_LOOP] Cycle #{cycle_count} completed. Waiting {cycle_interval_seconds}s until next cycle...")
-                    scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Waiting {cycle_interval_seconds}s until next cycle")
-                    time.sleep(cycle_interval_seconds)
-                    sleep_duration = time.time() - sleep_start
-                    logger.info(f"[MAIN_LOOP] Sleep completed. Duration: {sleep_duration:.3f}s (target: {cycle_interval_seconds}s). Continuing to next cycle...")
-                    scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Sleep completed | Duration: {sleep_duration:.3f}s (target: {cycle_interval_seconds}s)")
+                    
+                    # Check if market is closed (sample a few symbols to detect market-wide closure)
+                    market_closed = self._check_market_wide_closed()
+                    if market_closed:
+                        # Market is closed - wait before checking again
+                        wait_time = min(cycle_interval_seconds, 60)  # Max 60s wait when market closed
+                        logger.info(f"[MAIN_LOOP] Cycle #{cycle_count} completed. Market appears closed - waiting {wait_time}s before next check...")
+                        scheduler_logger.info(f"mode={mode} | [RUN_CYCLE] Market closed - waiting {wait_time}s")
+                        time.sleep(wait_time)
+                    else:
+                        # Market is open - continue immediately (no sleep)
+                        logger.debug(f"[MAIN_LOOP] Cycle #{cycle_count} completed. Market open - continuing immediately to next cycle...")
+                        scheduler_logger.debug(f"mode={mode} | [RUN_CYCLE] Market open - continuing immediately")
+                        # Small delay to prevent CPU spinning (10ms)
+                        time.sleep(0.01)
         
         except KeyboardInterrupt:
             logger.info("Trading bot stopped by user")
@@ -4690,90 +4950,9 @@ class TradingBot:
         # Get health snapshot to check thread status
         health_snapshot = system_health.get_health_snapshot()
         
-        # Check SLWorker thread - enhanced to be more proactive
-        sl_worker_health = health_snapshot.get("SLWorker", {})
-        is_marked_dead = sl_worker_health.get("dead", False)
-        
-        # CRITICAL FIX: Proactively check worker status, not just if marked dead
-        # This catches cases where thread stopped but wasn't marked dead yet
-        try:
-            if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
-                sl_manager = self.risk_manager.sl_manager
-                worker_status = sl_manager.get_worker_status()
-                is_running = worker_status.get('running', False)
-                is_thread_alive = worker_status.get('thread_alive', False)
-                
-                # Check if worker should be running but isn't
-                if not is_running or not is_thread_alive:
-                    logger.critical(f"[THREAD_RECOVERY] SLWorker not running properly (running={is_running}, thread_alive={is_thread_alive}) - attempting restart...")
-                    # Stop any stale worker state
-                    try:
-                        sl_manager.stop_sl_worker()
-                    except Exception as cleanup_error:
-                        logger.warning(f"[THREAD_RECOVERY] Error during SLWorker cleanup (non-fatal): {cleanup_error}")
-                    # Restart the worker
-                    try:
-                        sl_manager.start_sl_worker()
-                        logger.critical("[THREAD_RECOVERY] SLWorker thread restarted successfully")
-                        # Reset the dead flag in system health
-                        system_health.reset_thread_dead_flag("SLWorker")
-                        # The system health monitor will detect the new thread on next heartbeat cycle
-                    except Exception as restart_error:
-                        logger.critical(f"[THREAD_RECOVERY] Failed to restart SLWorker thread: {restart_error}", exc_info=True)
-                        # Don't reset dead flag if restart failed - system remains unsafe
-                elif is_marked_dead:
-                    # Thread is alive but marked dead - reset the dead flag
-                    logger.info("[THREAD_RECOVERY] SLWorker thread is alive but marked dead - resetting health state")
-                    system_health.reset_thread_dead_flag("SLWorker")
-                    # The heartbeat monitor will detect it's alive on next cycle
-        except Exception as e:
-            logger.critical(f"[THREAD_RECOVERY] Failed to check/restart SLWorker thread: {e}", exc_info=True)
-        
-        # Legacy check for marked dead (fallback)
-        if is_marked_dead:
-            logger.critical("[THREAD_RECOVERY] SLWorker thread is marked dead - attempting restart...")
-            try:
-                # Check if SLManager exists and can restart
-                if hasattr(self.risk_manager, 'sl_manager') and self.risk_manager.sl_manager:
-                    sl_manager = self.risk_manager.sl_manager
-                    # Check if thread is actually dead (not just marked dead)
-                    if hasattr(sl_manager, '_sl_worker_thread') and sl_manager._sl_worker_thread:
-                        if not sl_manager._sl_worker_thread.is_alive():
-                            logger.critical("[THREAD_RECOVERY] SLWorker thread confirmed dead - restarting...")
-                            # Stop any stale worker state
-                            try:
-                                sl_manager.stop_sl_worker()
-                            except Exception as cleanup_error:
-                                logger.warning(f"[THREAD_RECOVERY] Error during SLWorker cleanup (non-fatal): {cleanup_error}")
-                            # Restart the worker
-                            try:
-                                sl_manager.start_sl_worker()
-                                logger.critical("[THREAD_RECOVERY] SLWorker thread restarted successfully")
-                                # Reset the dead flag in system health
-                                system_health.reset_thread_dead_flag("SLWorker")
-                                # The system health monitor will detect the new thread on next heartbeat cycle
-                            except Exception as restart_error:
-                                logger.critical(f"[THREAD_RECOVERY] Failed to restart SLWorker thread: {restart_error}", exc_info=True)
-                                # Don't reset dead flag if restart failed - system remains unsafe
-                        else:
-                            # Thread is alive but marked dead - reset the dead flag
-                            logger.info("[THREAD_RECOVERY] SLWorker thread is alive but marked dead - resetting health state")
-                            system_health.reset_thread_dead_flag("SLWorker")
-                            # The heartbeat monitor will detect it's alive on next cycle
-                    else:
-                        # No thread reference - start it
-                        logger.critical("[THREAD_RECOVERY] SLWorker thread missing - starting...")
-                        try:
-                            sl_manager.start_sl_worker()
-                            logger.critical("[THREAD_RECOVERY] SLWorker thread started successfully")
-                            # Reset the dead flag in system health
-                            system_health.reset_thread_dead_flag("SLWorker")
-                        except Exception as start_error:
-                            logger.critical(f"[THREAD_RECOVERY] Failed to start SLWorker thread: {start_error}", exc_info=True)
-                else:
-                    logger.critical("[THREAD_RECOVERY] SLManager not available - cannot restart SLWorker")
-            except Exception as e:
-                logger.critical(f"[THREAD_RECOVERY] Failed to restart SLWorker thread: {e}", exc_info=True)
+        # Phase 3: SLWorker thread removed - skip recovery checks
+        # SL updates now happen synchronously in run_cycle(), no worker thread to monitor
+        # No need to check or restart SLWorker - it no longer exists
         
         # Check other critical threads (TrailingStopMonitor, FastTrailingStopMonitor, PositionMonitor)
         for thread_name in ["TrailingStopMonitor", "FastTrailingStopMonitor", "PositionMonitor"]:

@@ -225,11 +225,21 @@ class OrderManager:
             try:
                 worker_status = self._sl_manager.get_worker_status()
                 is_running = worker_status.get('running', False)
+                system_type = worker_status.get('system_type', 'legacy')
                 is_thread_alive = worker_status.get('thread_alive', False)
                 active_positions = worker_status.get('last_position_count', 0)
                 
-                # If worker is not running or thread is not alive, check if we should allow trade anyway
-                if not is_running or not is_thread_alive:
+                # For synchronous system, running=True and thread_alive=False is expected
+                # Only check thread_alive for legacy thread-based systems
+                if system_type == 'synchronous':
+                    # Synchronous system - only check if running flag is False
+                    if not is_running:
+                        # Synchronous system should always be running
+                        logger.warning(f"[TRADE_GATING] Synchronous SL system reported not running - blocking trade")
+                        checks['sl_worker_available'] = False
+                        checks['block_reason'] = "Synchronous SL system not available"
+                        return checks
+                elif not is_running or not is_thread_alive:
                     # Get timing stats to check if worker was recently active
                     timing_stats = self._sl_manager.get_timing_stats()
                     last_update_time = timing_stats.get('last_update_time')
@@ -455,7 +465,8 @@ class OrderManager:
         stop_loss: float,
         take_profit: Optional[float] = None,
         comment: str = "Trading Bot",
-        max_risk_usd: Optional[float] = None
+        max_risk_usd: Optional[float] = None,
+        strategy_sl_price: Optional[float] = None
     ) -> Optional[Dict[str, Any]]:
         """
         Place a market order with ATOMIC SL (SL included in order request).
@@ -551,9 +562,45 @@ class OrderManager:
                    'mt5_comment': f"Trade gating check failed: {gate_checks['reason']}"}
         
         # CRITICAL SAFETY FIX #1: Calculate SL BEFORE order placement
-        # If max_risk_usd is provided, use it to calculate SL. Otherwise, reject order.
-        if max_risk_usd is not None and max_risk_usd < 0:
-            # Calculate SL using SLManager logic
+        # Priority: strategy_sl_price > max_risk_usd > stop_loss
+        digits = symbol_info.get('digits', 5)
+        if strategy_sl_price is not None and strategy_sl_price > 0:
+            # Use strategy-based SL price directly
+            sl_price = strategy_sl_price
+            # Normalize to symbol's tick size
+            sl_price = round(sl_price / point) * point
+            sl_price = round(sl_price, digits)
+            
+            # Validate strategy SL is in correct direction
+            if order_type == OrderType.BUY:
+                if sl_price >= price:
+                    logger.error(f"[STRATEGY_SL_INVALID] Strategy SL ({sl_price:.5f}) >= entry ({price:.5f}) for BUY - REJECTING ORDER")
+                    return {'error': -6, 'error_type': 'strategy_sl_invalid', 'mt5_comment': 'Strategy SL invalid for BUY order'}
+            else:  # SELL
+                if sl_price <= price:
+                    logger.error(f"[STRATEGY_SL_INVALID] Strategy SL ({sl_price:.5f}) <= entry ({price:.5f}) for SELL - REJECTING ORDER")
+                    return {'error': -6, 'error_type': 'strategy_sl_invalid', 'mt5_comment': 'Strategy SL invalid for SELL order'}
+            
+            # Calculate TP if provided
+            if take_profit and take_profit > 0:
+                if order_type == OrderType.BUY:
+                    tp_price = price + (take_profit * pip_value)
+                else:  # SELL
+                    tp_price = price - (take_profit * pip_value)
+            else:
+                tp_price = 0
+            
+            # Normalize TP to symbol's tick size
+            if tp_price > 0:
+                tp_price = round(tp_price / point) * point
+                tp_price = round(tp_price, digits)
+            
+            # Validation price for constraint checking
+            validation_price = ask_price if order_type == OrderType.SELL else price
+            
+            logger.info(f"[ATOMIC_SL] {symbol} {order_type.name}: Using strategy SL={sl_price:.5f}")
+        elif max_risk_usd is not None and max_risk_usd < 0:
+            # Calculate SL using SLManager logic (fallback to USD-based)
             sl_price = self.calculate_initial_sl_price(symbol, order_type, lot_size, price, max_risk_usd)
             if sl_price is None:
                 logger.error(f"[ATOMIC_SL_FAILED] Cannot calculate valid SL for {symbol} - REJECTING ORDER")
@@ -569,7 +616,6 @@ class OrderManager:
                 tp_price = 0
             
             # Normalize TP to symbol's tick size
-            digits = symbol_info.get('digits', 5)
             if tp_price > 0:
                 tp_price = round(tp_price / point) * point
                 tp_price = round(tp_price, digits)

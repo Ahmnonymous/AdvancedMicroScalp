@@ -2819,19 +2819,18 @@ class RiskManager:
                     # Skip if not in fast polling mode and we're in fast polling cycle
                     continue
                 
-                # CRITICAL FIX: SL updates are now handled EXCLUSIVELY by SLManager._sl_worker_loop()
+                # CRITICAL FIX: SL updates are now handled EXCLUSIVELY by synchronous SL update cycle
                 # This eliminates duplicate SL update attempts and lock contention
-                # The _sl_worker_loop() runs every 500ms (or instant) and is the single source of truth for SL updates
+                # The synchronous update cycle runs in run_cycle() and is the single source of truth for SL updates
                 #
                 # DO NOT call sl_manager.update_sl_atomic() here - it causes:
                 # 1. Duplicate SL update attempts (redundancy)
-                # 2. Lock contention between threads
+                # 2. Lock contention
                 # 3. Rate limiting issues
                 # 4. "No changes" errors from duplicate attempts
                 #
-                # SLManager._sl_worker_loop() handles ALL SL logic:
+                # SLManager.update_all_positions_synchronous() handles ALL SL logic:
                 # - Strict loss enforcement (-$2.00)
-                # - Break-even SL
                 # - Sweet-spot profit locking (calls ProfitLockingEngine internally)
                 # - Trailing stops
                 #
@@ -2843,7 +2842,7 @@ class RiskManager:
                 # Get current profit for logging/monitoring purposes only
                 current_profit = position.get('profit', 0.0)
                 
-                # NOTE: All SL updates are handled by SLManager._sl_worker_loop() thread
+                # NOTE: All SL updates are handled by synchronous SL update cycle in run_cycle()
                 # No need to call update_sl_atomic() here - it would create duplicate updates
                 
                 # MICRO-HFT PROFIT ENGINE: Check and close AFTER SL manager has locked profit

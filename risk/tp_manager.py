@@ -120,27 +120,8 @@ class TPManager:
                 if strategy_tp_price <= entry_price:
                     logger.warning(f"[TP_STRATEGY_INVALID] Strategy TP ({strategy_tp_price:.5f}) <= entry ({entry_price:.5f}) for BUY - using default")
                 else:
-                    # Apply quality/trend-based adjustment
-                    adjustment_factor = 1.0
-                    if quality_score is not None:
-                        # High quality (85+): use 60-70% of strategy TP (more conservative)
-                        # Medium quality (70-84): use 50-60% of strategy TP
-                        # Lower quality (<70): use 40-50% of strategy TP
-                        if quality_score >= 85:
-                            adjustment_factor = 0.65  # Use 65% of strategy TP for high quality
-                        elif quality_score >= 70:
-                            adjustment_factor = 0.55  # Use 55% of strategy TP for medium quality
-                        else:
-                            adjustment_factor = 0.45  # Use 45% of strategy TP for lower quality
-                    
-                    if trend_strength is not None:
-                        # Adjust based on trend strength
-                        # Strong trend (>0.05): increase by 10%
-                        # Weak trend (<0.02): decrease by 10%
-                        if trend_strength > 0.05:
-                            adjustment_factor *= 1.10
-                        elif trend_strength < 0.02:
-                            adjustment_factor *= 0.90
+                    # Apply 50% of strategy TP (half of suggested TP)
+                    adjustment_factor = 0.5  # Use 50% of strategy TP
                     
                     # Calculate adjusted TP
                     tp_distance = strategy_tp_price - entry_price
@@ -160,21 +141,8 @@ class TPManager:
                 if strategy_tp_price >= entry_price or strategy_tp_price <= 0:
                     logger.warning(f"[TP_STRATEGY_INVALID] Strategy TP ({strategy_tp_price:.5f}) invalid for SELL - using default")
                 else:
-                    # Apply quality/trend-based adjustment (same logic as BUY)
-                    adjustment_factor = 1.0
-                    if quality_score is not None:
-                        if quality_score >= 85:
-                            adjustment_factor = 0.65
-                        elif quality_score >= 70:
-                            adjustment_factor = 0.55
-                        else:
-                            adjustment_factor = 0.45
-                    
-                    if trend_strength is not None:
-                        if trend_strength > 0.05:
-                            adjustment_factor *= 1.10
-                        elif trend_strength < 0.02:
-                            adjustment_factor *= 0.90
+                    # Apply 50% of strategy TP (half of suggested TP)
+                    adjustment_factor = 0.5  # Use 50% of strategy TP
                     
                     # Calculate adjusted TP
                     tp_distance = entry_price - strategy_tp_price

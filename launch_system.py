@@ -233,9 +233,12 @@ class TradingSystemLauncher:
                     sl_safety_guard.start()
                     logger.info("[OK] SL Safety Guard started")
                     
+                    # Phase 2: SL Worker thread DISABLED - using synchronous SL updates instead
                     # Start SL worker with watchdog
-                    sl_manager.start_sl_worker(watchdog=watchdog)
-                    logger.info("[OK] SL Worker started (500ms cadence)")
+                    # PHASE 2 COMMENTED OUT: Worker thread disabled, using synchronous updates in run_cycle()
+                    # sl_manager.start_sl_worker(watchdog=watchdog)
+                    # logger.info("[OK] SL Worker started (500ms cadence)")
+                    logger.info("[PHASE 2] SL Worker thread DISABLED - using synchronous SL updates in run_cycle()")
                 else:
                     logger.warning("SL Manager is None - skipping SL Worker")
             else:
@@ -731,30 +734,26 @@ class TradingSystemLauncher:
                                 symbol,
                                 pos_type,
                                 f"{volume:.4f}",
-                                entry_str,
-                                current_str,
                                 f"{profit_color}${profit:,.2f}{Colors.END}",
                                 effective_sl_str,
-                                effective_tp_str,
-                                sl_status_indicator,
-                                status_display
+                                effective_tp_str
                             ])
                         
                         if TABULATE_AVAILABLE:
-                            headers = ["Ticket", "Symbol", "Type", "Lot", "Entry", "Current", "P/L", "Effective SL", "Effective TP", "SL Status", "Status"]
+                            headers = ["Ticket", "Symbol", "Type", "Lot", "P/L", "Effective SL", "Effective TP"]
                             print(tabulate(positions_table, headers=headers, tablefmt="grid", stralign="left"))
                             
                             # Total row
                             total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
-                            total_row = [f"{Colors.BOLD}TOTAL{Colors.END}", "", "", "", "", "", 
-                                       f"{total_color}${total_profit:,.2f}{Colors.END}", "", "", "", ""]
+                            total_row = [f"{Colors.BOLD}TOTAL{Colors.END}", "", "", "", 
+                                       f"{total_color}${total_profit:,.2f}{Colors.END}", "", ""]
                             print(tabulate([total_row], tablefmt="grid", stralign="left"))
                         else:
                             # Fallback
-                            print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'Entry':<12} | {'Current':<12} | {'P/L':<12} | {'Effective SL':<18} | {'Effective TP':<18} | {'SL Status':<12} | {'Status'}{Colors.END}")
-                            print(f"{Colors.BLUE}{'-' * 180}{Colors.END}")
+                            print(f"{Colors.BOLD}{'Ticket':<10} | {'Symbol':<12} | {'Type':<6} | {'Lot':<8} | {'P/L':<12} | {'Effective SL':<18} | {'Effective TP':<18}{Colors.END}")
+                            print(f"{Colors.BLUE}{'-' * 100}{Colors.END}")
                             for row in positions_table:
-                                print(" | ".join(f"{str(cell):<25}" if i == 6 else f"{str(cell):<15}" if i in [7, 8] else f"{str(cell):<12}" for i, cell in enumerate(row)))
+                                print(" | ".join(f"{str(cell):<25}" if i == 4 else f"{str(cell):<15}" if i in [5, 6] else f"{str(cell):<12}" for i, cell in enumerate(row)))
                             total_color = Colors.GREEN if total_profit >= 0 else Colors.RED
                             print(f"{Colors.BOLD}{'TOTAL FLOATING P/L':<25} | {total_color}${total_profit:>12,.2f}{Colors.END}")
                     else:
@@ -842,7 +841,7 @@ class TradingSystemLauncher:
                     # Footer
                     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
                     print(f"{Colors.YELLOW}Display updates every {summary_interval:.0f}s | Trading runs at millisecond speeds | Press Ctrl+C to stop{Colors.END}")
-                    print(f"{Colors.YELLOW}SL Status: {Colors.GREEN}[OK]{Colors.END} = OK/Protected, {Colors.YELLOW}[W]{Colors.END} = Pending/Warning, {Colors.RED}[V]{Colors.END} = Violation | Updates tracked in real-time{Colors.END}")
+                    # Removed SL Status legend - column removed from table
                     print(f"{Colors.BOLD}{Colors.CYAN}{'=' * 120}{Colors.END}")
                     
                     # ==================== LOG SUMMARY METRICS TO FILE ====================
@@ -987,17 +986,19 @@ class TradingSystemLauncher:
         self.shutdown_event.set()
         self.reconciliation_stop_event.set()
         
+        # Phase 2: SL Worker thread DISABLED - skip stop
         # Stop SL Worker and Watchdog
         logger.info("Stopping SL Worker and Watchdog...")
-        if self.bot and self.bot.risk_manager and hasattr(self.bot.risk_manager, 'sl_manager'):
-            sl_manager = self.bot.risk_manager.sl_manager
-            if sl_manager is not None:  # CRITICAL FIX: Check if sl_manager is not None
-                if hasattr(sl_manager, '_watchdog') and sl_manager._watchdog:
-                    sl_manager._watchdog.stop()
-                if hasattr(sl_manager, 'stop_sl_worker'):
-                    sl_manager.stop_sl_worker()
-                time.sleep(0.5)
-        logger.info("[OK] SL Worker and Watchdog stopped")
+        # PHASE 2 COMMENTED OUT: Worker thread disabled
+        # if self.bot and self.bot.risk_manager and hasattr(self.bot.risk_manager, 'sl_manager'):
+        #     sl_manager = self.bot.risk_manager.sl_manager
+        #     if sl_manager is not None:  # CRITICAL FIX: Check if sl_manager is not None
+        #         if hasattr(sl_manager, '_watchdog') and sl_manager._watchdog:
+        #             sl_manager._watchdog.stop()
+        #         if hasattr(sl_manager, 'stop_sl_worker'):
+        #             sl_manager.stop_sl_worker()
+        #         time.sleep(0.5)
+        logger.info("[PHASE 2] SL Worker and Watchdog stop skipped (worker disabled)")
         
         # Stop Trading Bot
         logger.info("Stopping Trading Bot...")
@@ -1129,7 +1130,7 @@ class TradingSystemLauncher:
                 if kill_switch_active:
                     logger.warning(f"KILL SWITCH ACTIVE - Trading Halted")
                 if sl_violations_count > 0:
-                    logger.warning(f"{sl_violations_count} SL Violation(s) Detected")
+                    logger.debug(f"{sl_violations_count} SL Violation(s) Detected")  # Changed to debug to suppress console output
                 if not sl_manager_available:
                     logger.warning("SL Manager Not Available - SL Enforcement May Not Work")
                 if len(recent_errors) > 0:

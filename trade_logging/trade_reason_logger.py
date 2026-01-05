@@ -1204,6 +1204,126 @@ class TradeReasonLogger:
         
         return suggestion
     
+    def _calculate_strategy_suggested_sl(
+        self,
+        symbol: str,
+        entry_price: float,
+        signal: str,
+        opportunity: Dict[str, Any],
+        lot_size: float
+    ) -> Dict[str, Any]:
+        """
+        Calculate what SL the strategy would suggest based on entry conditions.
+        
+        Uses ATR, trend strength, and quality score to determine optimal SL.
+        Similar to TP calculation but in opposite direction.
+        """
+        suggestion = {
+            'suggested_sl_price': None,
+            'suggested_sl_usd': None,
+            'calculation_method': 'unknown',
+            'reasoning': [],
+            'analysis_available': False
+        }
+        
+        if not self.order_manager:
+            return suggestion
+        
+        try:
+            # Get symbol info
+            symbol_info = self.order_manager.mt5_connector.get_symbol_info(symbol) if hasattr(self.order_manager, 'mt5_connector') else None
+            if not symbol_info:
+                return suggestion
+            
+            # Extract entry conditions
+            atr = opportunity.get('atr', 0.0)
+            trend_strength = opportunity.get('trend_strength', 0.0)
+            quality_score = opportunity.get('quality_score', 0.0)
+            point = symbol_info.get('point', 0.00001)
+            point_value = symbol_info.get('trade_tick_value', None)
+            contract_size = symbol_info.get('contract_size', 100000)
+            
+            # Method 1: ATR-based SL (most common for scalping)
+            if atr > 0:
+                # For scalping: SL = 1.5-2.5x ATR depending on quality
+                # Higher quality = tighter SL (more confidence)
+                if quality_score >= 85:
+                    atr_multiplier = 1.5  # High quality: tighter SL
+                elif quality_score >= 70:
+                    atr_multiplier = 2.0
+                else:
+                    atr_multiplier = 2.5  # Lower quality: wider SL
+                
+                sl_distance = atr * atr_multiplier
+                
+                if signal == 'LONG' or signal == 'BUY':
+                    suggested_sl_price = entry_price - sl_distance
+                else:  # SHORT or SELL
+                    suggested_sl_price = entry_price + sl_distance
+                
+                # Calculate risk in USD
+                if point_value and point_value > 0:
+                    sl_distance_points = sl_distance / point
+                    suggested_sl_usd = sl_distance_points * lot_size * point_value
+                else:
+                    suggested_sl_usd = sl_distance * lot_size * contract_size
+                
+                suggestion.update({
+                    'suggested_sl_price': suggested_sl_price,
+                    'suggested_sl_usd': abs(suggested_sl_usd),  # Risk is always positive
+                    'calculation_method': 'atr_based',
+                    'reasoning': [
+                        f"ATR-based calculation: {atr_multiplier}x ATR ({atr:.5f})",
+                        f"Quality score: {quality_score:.1f} (determines multiplier)",
+                        f"Trend strength: {trend_strength:.4f}"
+                    ],
+                    'analysis_available': True
+                })
+            
+            # Method 2: Trend strength-based SL (if ATR not available)
+            elif trend_strength > 0:
+                # Use trend strength to determine SL distance
+                # Strong trends: 1-1.5% of entry price (tighter SL)
+                # Weak trends: 1.5-2% of entry price (wider SL)
+                if trend_strength > 0.05:
+                    sl_pct = 0.01  # 1% for strong trends (tighter)
+                elif trend_strength > 0.02:
+                    sl_pct = 0.015  # 1.5% for moderate trends
+                else:
+                    sl_pct = 0.02  # 2% for weak trends (wider)
+                
+                if signal == 'LONG' or signal == 'BUY':
+                    suggested_sl_price = entry_price * (1 - sl_pct)
+                else:  # SHORT or SELL
+                    suggested_sl_price = entry_price * (1 + sl_pct)
+                
+                sl_distance = abs(suggested_sl_price - entry_price)
+                
+                # Calculate risk in USD
+                if point_value and point_value > 0:
+                    sl_distance_points = sl_distance / point
+                    suggested_sl_usd = sl_distance_points * lot_size * point_value
+                else:
+                    suggested_sl_usd = sl_distance * lot_size * contract_size
+                
+                suggestion.update({
+                    'suggested_sl_price': suggested_sl_price,
+                    'suggested_sl_usd': abs(suggested_sl_usd),  # Risk is always positive
+                    'calculation_method': 'trend_strength_based',
+                    'reasoning': [
+                        f"Trend strength-based: {sl_pct*100:.1f}% of entry price",
+                        f"Trend strength: {trend_strength:.4f}",
+                        f"Quality score: {quality_score:.1f}"
+                    ],
+                    'analysis_available': True
+                })
+            
+        except Exception as e:
+            if self.text_logger:
+                self.text_logger.debug(f"Error calculating strategy-suggested SL for {symbol}: {e}")
+        
+        return suggestion
+    
     def log_trade_outcome(
         self,
         ticket: int,
