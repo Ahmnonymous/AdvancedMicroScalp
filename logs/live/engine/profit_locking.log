@@ -312,3 +312,353 @@
 2026-01-05 07:33:35 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=630861047 Symbol=XAUUSDm Profit=$0.06 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
 2026-01-05 07:33:35 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=630861047 Symbol=XAUUSDm Profit=$0.06 Enabled=True
 2026-01-05 07:33:35 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=630861047 Symbol=XAUUSDm Profit=$0.06 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:28:17 - profit_locking - INFO - Profit-Locking Engine initialized | Sweet spot: $0.03-$0.1 | Step: $0.1
+2026-01-05 09:28:17 - profit_locking - INFO - Dynamic Sweet Spot Locking: Enabled | Poll interval: 1000ms | Track minimum: True | Apply immediately: True
+2026-01-05 09:29:10 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631780973 Symbol=GBPUSDm Profit=$0.05 Enabled=True
+2026-01-05 09:29:10 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: GBPUSDm Ticket 631780973 | Entered sweet spot at $0.05 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 09:29:10 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm OldSL=1.34634 NewSL=1.34329 TargetLock=$0.05
+2026-01-05 09:29:10 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm TargetSL=1.34329
+2026-01-05 09:29:11 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm OldSL=1.34634 NewSL=1.34329 TargetLock=$0.05
+2026-01-05 09:29:11 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm TargetSL=1.34329
+2026-01-05 09:29:12 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm OldSL=1.34634 NewSL=1.34329 TargetLock=$0.05
+2026-01-05 09:29:12 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm TargetSL=1.34329
+2026-01-05 09:29:13 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631780973 Symbol=GBPUSDm Profit=$0.07 Enabled=True
+2026-01-05 09:29:14 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm OldSL=1.34634 NewSL=1.34329 TargetLock=$0.05
+2026-01-05 09:29:14 - profit_locking - INFO - [OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm NewSL=1.34329
+2026-01-05 09:29:15 - profit_locking - INFO - [VERIFY_SUCCESS] Ticket=631780973 Symbol=GBPUSDm | Attempt 1/3 | Target: 1.34329 | Applied: 1.34329 | Diff: 0.00000 | Tolerance: 0.00010
+2026-01-05 09:29:15 - profit_locking - INFO - [OK] SWEET SPOT LOCK APPLIED (BROKER VERIFIED): GBPUSDm Ticket 631780973 | Attempt 4/5 | Current profit: $0.05 | Locked at: $0.05 | Target SL: 1.34329 | Applied SL: 1.34329 | SUCCESS
+2026-01-05 09:29:15 - profit_locking - INFO - [LOCK_SUCCESS] Ticket=631780973 Symbol=GBPUSDm Profit=$0.05 LockedAt=$0.05 TargetSL=1.34329 | Min in sweet spot: $0.05 Status=[OK] VERIFIED
+2026-01-05 09:29:15 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm OldSL=1.34329 NewSL=1.34328 TargetLock=$0.06
+2026-01-05 09:29:15 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm TargetSL=1.34328
+2026-01-05 09:29:16 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm OldSL=1.34329 NewSL=1.34328 TargetLock=$0.06
+2026-01-05 09:29:16 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm TargetSL=1.34328
+2026-01-05 09:29:17 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm OldSL=1.34329 NewSL=1.34328 TargetLock=$0.06
+2026-01-05 09:29:17 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631780973 Symbol=GBPUSDm TargetSL=1.34328
+2026-01-05 09:29:19 - profit_locking - WARNING - [WARNING] Position 631780973 not found during profit lock attempt 4
+2026-01-05 09:29:19 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631780973 Symbol=GBPUSDm Profit=$0.07 TargetLock=$0.06 TargetSL=1.34328 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:29:24 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.09 Enabled=True
+2026-01-05 09:29:24 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: XAUUSDm Ticket 631781065 | Entered sweet spot at $0.09 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 09:29:24 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.09 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:29:24 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.06 Enabled=True
+2026-01-05 09:29:24 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.06 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:29:28 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.10 Enabled=True
+2026-01-05 09:29:28 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.10 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:29:28 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.10 Enabled=True
+2026-01-05 09:29:28 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.10 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:29:28 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.10 Enabled=True
+2026-01-05 09:29:28 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.10 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:29:28 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.10 Enabled=True
+2026-01-05 09:29:28 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.10 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:29 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:29 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: BTCUSDm Ticket 631781270 | Entered sweet spot at $0.04 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 09:30:29 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781270 Symbol=BTCUSDm OldSL=92890.10000 NewSL=92586.10000 TargetLock=$0.04
+2026-01-05 09:30:29 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781270 Symbol=BTCUSDm TargetSL=92586.10000
+2026-01-05 09:30:29 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781270 Symbol=BTCUSDm OldSL=92890.10000 NewSL=92586.10000 TargetLock=$0.04
+2026-01-05 09:30:29 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781270 Symbol=BTCUSDm TargetSL=92586.10000
+2026-01-05 09:30:30 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781270 Symbol=BTCUSDm OldSL=92890.10000 NewSL=92586.10000 TargetLock=$0.04
+2026-01-05 09:30:30 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781270 Symbol=BTCUSDm TargetSL=92586.10000
+2026-01-05 09:30:32 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 TargetLock=$0.04 TargetSL=92586.10000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:30:33 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.03 Enabled=True
+2026-01-05 09:30:33 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781270 Symbol=BTCUSDm OldSL=92890.10000 NewSL=92587.10000 TargetLock=$0.03
+2026-01-05 09:30:33 - profit_locking - INFO - [OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket=631781270 Symbol=BTCUSDm NewSL=92587.10000
+2026-01-05 09:30:34 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.03 Enabled=True
+2026-01-05 09:30:34 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.03 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:34 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.03 Enabled=True
+2026-01-05 09:30:34 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.03 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:35 - profit_locking - INFO - [VERIFY_SUCCESS] Ticket=631781270 Symbol=BTCUSDm | Attempt 1/3 | Target: 92587.10000 | Applied: 92587.10000 | Diff: 0.00000 | Tolerance: 2.00000
+2026-01-05 09:30:35 - profit_locking - INFO - [OK] SWEET SPOT LOCK APPLIED (BROKER VERIFIED): BTCUSDm Ticket 631781270 | Attempt 1/5 | Current profit: $0.03 | Locked at: $0.03 | Target SL: 92587.10000 | Applied SL: 92587.10000 | SUCCESS
+2026-01-05 09:30:35 - profit_locking - INFO - [LOCK_SUCCESS] Ticket=631781270 Symbol=BTCUSDm Profit=$0.03 LockedAt=$0.03 TargetSL=92587.10000 | Min in sweet spot: $0.03 Status=[OK] VERIFIED
+2026-01-05 09:30:37 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:37 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:37 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:37 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:37 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:37 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:37 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:37 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:37 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:37 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:38 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:39 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:40 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:40 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:40 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:40 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:40 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:40 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:40 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:40 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:30:40 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:30:40 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781270 Symbol=BTCUSDm Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:31:02 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.07 Enabled=True
+2026-01-05 09:31:02 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.07 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:31:02 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.08 Enabled=True
+2026-01-05 09:31:02 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.08 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:31:02 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.08 Enabled=True
+2026-01-05 09:31:02 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.08 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:31:02 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.08 Enabled=True
+2026-01-05 09:31:02 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.08 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:31:02 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.05 Enabled=True
+2026-01-05 09:31:02 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.05 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:34:36 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781065 Symbol=XAUUSDm Profit=$0.08 Enabled=True
+2026-01-05 09:34:36 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781065 Symbol=XAUUSDm Profit=$0.08 CurrentLocked=$0.10 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:41:32 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:41:32 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: UK100m Ticket 631781149 | Entered sweet spot at $0.03 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 09:41:32 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:41:32 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:41:32 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:41:32 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:41:33 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10007.64000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:41:36 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:41:36 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:41:36 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:41:36 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:41:36 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:41:37 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:41:37 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:41:39 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10007.64000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:42:02 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:02 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:02 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:02 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:02 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:03 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:03 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:05 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10007.64000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:42:10 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:10 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:10 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:11 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:11 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:12 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:12 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:14 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:14 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:16 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=9781.32000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:16 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:16 - profit_locking - ERROR - [ERROR] SWEET SPOT LOCK FAILED: UK100m Ticket 631781149 | After 5 attempts | Target lock: $0.03 | Target SL: 10007.64000 | Last error: (1, 'Success')
+2026-01-05 09:42:16 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10007.64000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:42:20 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:20 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=10006.12000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:20 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:20 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=10006.12000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:20 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:21 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=10006.12000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:21 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:23 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=10006.12000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:23 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:25 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m OldSL=10006.12000 NewSL=10007.64000 TargetLock=$0.03
+2026-01-05 09:42:25 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781149 Symbol=UK100m TargetSL=10007.64000
+2026-01-05 09:42:25 - profit_locking - ERROR - [ERROR] SWEET SPOT LOCK FAILED: UK100m Ticket 631781149 | After 5 attempts | Target lock: $0.03 | Target SL: 10007.64000 | Last error: (1, 'Success')
+2026-01-05 09:42:25 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10007.64000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:42:30 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:30 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:42:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781149 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:42:31 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631781149 Symbol=UK100m Profit=$0.03 CurrentLocked=$0.02 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 09:45:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631781459 Symbol=FR40m Profit=$0.04 Enabled=True
+2026-01-05 09:45:39 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: FR40m Ticket 631781459 | Entered sweet spot at $0.04 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 09:45:39 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m OldSL=7963.02000 NewSL=8222.26000 TargetLock=$0.04
+2026-01-05 09:45:39 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m TargetSL=8222.26000
+2026-01-05 09:45:40 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m OldSL=7963.02000 NewSL=8222.26000 TargetLock=$0.04
+2026-01-05 09:45:40 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m TargetSL=8222.26000
+2026-01-05 09:45:41 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m OldSL=7963.02000 NewSL=8222.26000 TargetLock=$0.04
+2026-01-05 09:45:41 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m TargetSL=8222.26000
+2026-01-05 09:45:43 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m OldSL=7963.02000 NewSL=8222.26000 TargetLock=$0.04
+2026-01-05 09:45:43 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m TargetSL=8222.26000
+2026-01-05 09:45:45 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m OldSL=7963.02000 NewSL=8222.26000 TargetLock=$0.04
+2026-01-05 09:45:45 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631781459 Symbol=FR40m TargetSL=8222.26000
+2026-01-05 09:45:45 - profit_locking - ERROR - [ERROR] SWEET SPOT LOCK FAILED: FR40m Ticket 631781459 | After 5 attempts | Target lock: $0.04 | Target SL: 8222.26000 | Last error: (1, 'Success')
+2026-01-05 09:45:45 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631781459 Symbol=FR40m Profit=$0.04 TargetLock=$0.04 TargetSL=8222.26000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:50:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631945652 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:50:31 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: UK100m Ticket 631945652 | Entered sweet spot at $0.03 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 09:50:31 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m OldSL=9786.46000 NewSL=10012.78000 TargetLock=$0.03
+2026-01-05 09:50:31 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m TargetSL=10012.78000
+2026-01-05 09:50:32 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m OldSL=9786.46000 NewSL=10012.78000 TargetLock=$0.03
+2026-01-05 09:50:32 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m TargetSL=10012.78000
+2026-01-05 09:50:33 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m OldSL=9786.46000 NewSL=10012.78000 TargetLock=$0.03
+2026-01-05 09:50:33 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m TargetSL=10012.78000
+2026-01-05 09:50:35 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m OldSL=9786.46000 NewSL=10012.78000 TargetLock=$0.03
+2026-01-05 09:50:35 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m TargetSL=10012.78000
+2026-01-05 09:50:36 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631945652 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:50:37 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m OldSL=9786.46000 NewSL=10012.78000 TargetLock=$0.03
+2026-01-05 09:50:37 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m TargetSL=10012.78000
+2026-01-05 09:50:37 - profit_locking - ERROR - [ERROR] SWEET SPOT LOCK FAILED: UK100m Ticket 631945652 | After 5 attempts | Target lock: $0.03 | Target SL: 10012.78000 | Last error: (1, 'Success')
+2026-01-05 09:50:37 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631945652 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10012.78000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:50:37 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m OldSL=10011.62000 NewSL=10012.78000 TargetLock=$0.03
+2026-01-05 09:50:37 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m TargetSL=10012.78000
+2026-01-05 09:50:38 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631945652 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 09:50:38 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m OldSL=10011.62000 NewSL=10012.78000 TargetLock=$0.03
+2026-01-05 09:50:38 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631945652 Symbol=UK100m TargetSL=10012.78000
+2026-01-05 09:50:39 - profit_locking - WARNING - [WARNING] Position 631945652 not found during profit lock attempt 3
+2026-01-05 09:50:39 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631945652 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10012.78000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:50:39 - profit_locking - WARNING - [WARNING] Position 631945652 not found during profit lock attempt 1
+2026-01-05 09:50:39 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631945652 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10012.78000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:51:20 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631944891 Symbol=EURUSDm Profit=$0.03 Enabled=True
+2026-01-05 09:51:20 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: EURUSDm Ticket 631944891 | Entered sweet spot at $0.03 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 09:51:20 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16466 NewSL=1.16769 TargetLock=$0.03
+2026-01-05 09:51:20 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16769
+2026-01-05 09:51:20 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16466 NewSL=1.16769 TargetLock=$0.03
+2026-01-05 09:51:20 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16769
+2026-01-05 09:51:21 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631944891 Symbol=EURUSDm Profit=$0.03 TargetLock=$0.03 TargetSL=1.16769 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:51:29 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631944891 Symbol=EURUSDm Profit=$0.03 Enabled=True
+2026-01-05 09:51:29 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16758 NewSL=1.16769 TargetLock=$0.03
+2026-01-05 09:51:29 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16769
+2026-01-05 09:51:30 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16758 NewSL=1.16769 TargetLock=$0.03
+2026-01-05 09:51:30 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16769
+2026-01-05 09:51:31 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631944891 Symbol=EURUSDm Profit=$0.03 TargetLock=$0.03 TargetSL=1.16769 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:51:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631944891 Symbol=EURUSDm Profit=$0.03 Enabled=True
+2026-01-05 09:51:39 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16758 NewSL=1.16769 TargetLock=$0.03
+2026-01-05 09:51:39 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16769
+2026-01-05 09:51:39 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631944891 Symbol=EURUSDm Profit=$0.03 Enabled=True
+2026-01-05 09:51:39 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631944891 Symbol=EURUSDm Profit=$0.03 TargetLock=$0.03 TargetSL=1.16769 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:51:39 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631944891 Symbol=EURUSDm Profit=$0.03 TargetLock=$0.03 TargetSL=1.16769 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:51:54 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631944891 Symbol=EURUSDm Profit=$0.04 Enabled=True
+2026-01-05 09:51:54 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16758 NewSL=1.16769 TargetLock=$0.03
+2026-01-05 09:51:55 - profit_locking - INFO - [OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm NewSL=1.16769
+2026-01-05 09:51:56 - profit_locking - INFO - [VERIFY_SUCCESS] Ticket=631944891 Symbol=EURUSDm | Attempt 1/3 | Target: 1.16769 | Applied: 1.16769 | Diff: 0.00000 | Tolerance: 0.00010
+2026-01-05 09:51:56 - profit_locking - INFO - [OK] SWEET SPOT LOCK APPLIED (BROKER VERIFIED): EURUSDm Ticket 631944891 | Attempt 1/5 | Current profit: $0.04 | Locked at: $0.03 | Target SL: 1.16769 | Applied SL: 1.16769 | SUCCESS
+2026-01-05 09:51:56 - profit_locking - INFO - [LOCK_SUCCESS] Ticket=631944891 Symbol=EURUSDm Profit=$0.04 LockedAt=$0.03 TargetSL=1.16769 | Min in sweet spot: $0.03 Status=[OK] VERIFIED
+2026-01-05 09:52:01 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631944891 Symbol=EURUSDm Profit=$0.07 Enabled=True
+2026-01-05 09:52:01 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16769 NewSL=1.16772 TargetLock=$0.06
+2026-01-05 09:52:03 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16772
+2026-01-05 09:52:03 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16769 NewSL=1.16772 TargetLock=$0.06
+2026-01-05 09:52:03 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16772
+2026-01-05 09:52:04 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16769 NewSL=1.16772 TargetLock=$0.06
+2026-01-05 09:52:04 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16772
+2026-01-05 09:52:06 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16769 NewSL=1.16772 TargetLock=$0.06
+2026-01-05 09:52:06 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16772
+2026-01-05 09:52:08 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm OldSL=1.16769 NewSL=1.16772 TargetLock=$0.06
+2026-01-05 09:52:08 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631944891 Symbol=EURUSDm TargetSL=1.16772
+2026-01-05 09:52:08 - profit_locking - ERROR - [ERROR] SWEET SPOT LOCK FAILED: EURUSDm Ticket 631944891 | After 5 attempts | Target lock: $0.06 | Target SL: 1.16772 | Last error: (1, 'Success')
+2026-01-05 09:52:08 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631944891 Symbol=EURUSDm Profit=$0.07 TargetLock=$0.06 TargetSL=1.16772 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 09:54:30 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631988148 Symbol=DE30m Profit=$0.04 Enabled=True
+2026-01-05 09:54:30 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: DE30m Ticket 631988148 | Entered sweet spot at $0.04 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 09:54:30 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631988148 Symbol=DE30m OldSL=25051.00000 NewSL=24791.00000 TargetLock=$0.04
+2026-01-05 09:54:30 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631988148 Symbol=DE30m TargetSL=24791.00000
+2026-01-05 09:54:31 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631988148 Symbol=DE30m OldSL=25051.00000 NewSL=24791.00000 TargetLock=$0.04
+2026-01-05 09:54:31 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631988148 Symbol=DE30m TargetSL=24791.00000
+2026-01-05 09:54:32 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631988148 Symbol=DE30m OldSL=25051.00000 NewSL=24791.00000 TargetLock=$0.04
+2026-01-05 09:54:32 - profit_locking - INFO - [OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket=631988148 Symbol=DE30m NewSL=24791.00000
+2026-01-05 09:54:34 - profit_locking - INFO - [VERIFY_SUCCESS] Ticket=631988148 Symbol=DE30m | Attempt 1/3 | Target: 24791.00000 | Applied: 24791.00000 | Diff: 0.00000 | Tolerance: 20.00000
+2026-01-05 09:54:34 - profit_locking - INFO - [OK] SWEET SPOT LOCK APPLIED (BROKER VERIFIED): DE30m Ticket 631988148 | Attempt 3/5 | Current profit: $0.04 | Locked at: $0.04 | Target SL: 24791.00000 | Applied SL: 24791.00000 | SUCCESS
+2026-01-05 09:54:34 - profit_locking - INFO - [LOCK_SUCCESS] Ticket=631988148 Symbol=DE30m Profit=$0.04 LockedAt=$0.04 TargetSL=24791.00000 | Min in sweet spot: $0.04 Status=[OK] VERIFIED
+2026-01-05 14:31:02 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631987386 Symbol=UK100m Profit=$0.03 Enabled=True
+2026-01-05 14:31:02 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: UK100m Ticket 631987386 | Entered sweet spot at $0.03 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 14:31:02 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631987386 Symbol=UK100m OldSL=9790.74000 NewSL=10015.61000 TargetLock=$0.03
+2026-01-05 14:31:02 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631987386 Symbol=UK100m TargetSL=10015.61000
+2026-01-05 14:31:05 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631987386 Symbol=UK100m OldSL=9790.74000 NewSL=10015.61000 TargetLock=$0.03
+2026-01-05 14:31:05 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=631987386 Symbol=UK100m TargetSL=10015.61000
+2026-01-05 14:31:06 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=631987386 Symbol=UK100m OldSL=9790.74000 NewSL=10015.61000 TargetLock=$0.03
+2026-01-05 14:31:07 - profit_locking - INFO - [OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket=631987386 Symbol=UK100m NewSL=10015.61000
+2026-01-05 14:31:07 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=631987386 Symbol=UK100m Profit=$0.04 Enabled=True
+2026-01-05 14:31:07 - profit_locking - WARNING - [LOCK_BLOCKED] Ticket=631987386 Symbol=UK100m Profit=$0.04 CurrentLocked=$0.03 Reason=No lock needed (target lock calculation returned None)
+2026-01-05 14:31:09 - profit_locking - WARNING - [POSITION_CLOSED_DURING_VERIFY] Ticket=631987386 Symbol=UK100m | Position closed during verification attempt 1/3 | Cannot verify SL - position no longer exists
+2026-01-05 14:31:09 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=631987386 Symbol=UK100m Profit=$0.03 TargetLock=$0.03 TargetSL=10015.61000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 17:42:43 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=637321581 Symbol=BTCXAUm Profit=$0.07 Enabled=True
+2026-01-05 17:42:43 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: BTCXAUm Ticket 637321581 | Entered sweet spot at $0.07 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 17:42:43 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=637321581 Symbol=BTCXAUm Profit=$0.07 TargetLock=$0.07 TargetSL=28.12398 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 17:42:45 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=637321581 Symbol=BTCXAUm Profit=$0.06 Enabled=True
+2026-01-05 17:42:45 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.05646 NewSL=27.12398 TargetLock=$0.06
+2026-01-05 17:42:45 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=27.12398
+2026-01-05 17:42:45 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.05646 NewSL=27.12398 TargetLock=$0.06
+2026-01-05 17:42:45 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=27.12398
+2026-01-05 17:42:47 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.05646 NewSL=27.12398 TargetLock=$0.06
+2026-01-05 17:42:47 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=27.12398
+2026-01-05 17:42:49 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.05646 NewSL=27.12398 TargetLock=$0.06
+2026-01-05 17:42:49 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=27.12398
+2026-01-05 17:42:51 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.05646 NewSL=27.12398 TargetLock=$0.06
+2026-01-05 17:42:51 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=27.12398
+2026-01-05 17:42:51 - profit_locking - ERROR - [ERROR] SWEET SPOT LOCK FAILED: BTCXAUm Ticket 637321581 | After 5 attempts | Target lock: $0.06 | Target SL: 27.12398 | Last error: (1, 'Success')
+2026-01-05 17:42:51 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=637321581 Symbol=BTCXAUm Profit=$0.06 TargetLock=$0.06 TargetSL=27.12398 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 17:42:52 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=637321581 Symbol=BTCXAUm Profit=$0.03 Enabled=True
+2026-01-05 17:42:52 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.05646 NewSL=24.12398 TargetLock=$0.03
+2026-01-05 17:42:52 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=24.12398
+2026-01-05 17:42:53 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.05646 NewSL=24.12398 TargetLock=$0.03
+2026-01-05 17:42:53 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=24.12398
+2026-01-05 17:42:54 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.05646 NewSL=24.12398 TargetLock=$0.03
+2026-01-05 17:42:54 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=24.12398
+2026-01-05 17:42:56 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=637321581 Symbol=BTCXAUm Profit=$0.03 TargetLock=$0.03 TargetSL=24.12398 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 17:44:23 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=637321581 Symbol=BTCXAUm Profit=$0.06 Enabled=True
+2026-01-05 17:44:23 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.06269 NewSL=26.12398 TargetLock=$0.05
+2026-01-05 17:44:23 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=26.12398
+2026-01-05 17:44:23 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.06269 NewSL=26.12398 TargetLock=$0.05
+2026-01-05 17:44:23 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=26.12398
+2026-01-05 17:44:24 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=637321581 Symbol=BTCXAUm Profit=$0.06 TargetLock=$0.05 TargetSL=26.12398 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 17:44:31 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=637321581 Symbol=BTCXAUm Profit=$0.09 Enabled=True
+2026-01-05 17:44:31 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.06269 NewSL=29.12398 TargetLock=$0.08
+2026-01-05 17:44:31 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=29.12398
+2026-01-05 17:44:32 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.06269 NewSL=29.12398 TargetLock=$0.08
+2026-01-05 17:44:32 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=29.12398
+2026-01-05 17:44:33 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm OldSL=21.06269 NewSL=29.12398 TargetLock=$0.08
+2026-01-05 17:44:33 - profit_locking - ERROR - [ERROR] SL UPDATE FAILED (ProfitLockingEngine): Ticket=637321581 Symbol=BTCXAUm TargetSL=29.12398
+2026-01-05 17:44:36 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=637321581 Symbol=BTCXAUm Profit=$0.09 TargetLock=$0.08 TargetSL=29.12398 RetryCount=5 Reason=Lock attempt failed - broker SL not updated
+2026-01-05 17:56:03 - profit_locking - INFO - [LOCK_ATTEMPT] Profit-Locking Engine | Ticket=637324257 Symbol=AMZNm Profit=$0.03 Enabled=True
+2026-01-05 17:56:03 - profit_locking - INFO - 🎯 SWEET SPOT ENTRY: AMZNm Ticket 637324257 | Entered sweet spot at $0.03 | Applying IMMEDIATE SL lock to prevent negative P/L
+2026-01-05 17:56:03 - profit_locking - INFO - 🔥 SL UPDATE ATTEMPT (ProfitLockingEngine): Ticket=637324257 Symbol=AMZNm OldSL=236.51000 NewSL=233.48000 TargetLock=$0.03
+2026-01-05 17:56:04 - profit_locking - INFO - [OK] SL UPDATE SUCCESS (ProfitLockingEngine): Ticket=637324257 Symbol=AMZNm NewSL=233.48000
+2026-01-05 17:56:05 - profit_locking - WARNING - [POSITION_CLOSED_DURING_VERIFY] Ticket=637324257 Symbol=AMZNm | Position closed during verification attempt 1/3 | Cannot verify SL - position no longer exists
+2026-01-05 17:56:05 - profit_locking - ERROR - [LOCK_BLOCKED] Ticket=637324257 Symbol=AMZNm Profit=$0.03 TargetLock=$0.03 TargetSL=233.48000 RetryCount=5 Reason=Lock attempt failed - broker SL not updated

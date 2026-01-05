@@ -1,0 +1,65 @@
+2026-01-05 11:01:54 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.2% of avg range > max 50.0%
+2026-01-05 11:03:42 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 67.2% of avg range > max 50.0%
+2026-01-05 11:05:28 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.9% of avg range > max 50.0%
+2026-01-05 11:07:14 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.4% of avg range > max 50.0%
+2026-01-05 11:09:01 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 92.1% of avg range > max 50.0%
+2026-01-05 11:10:46 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.2% of avg range > max 50.0%
+2026-01-05 11:17:54 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 134.5% of avg range > max 50.0%
+2026-01-05 11:19:42 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 158.4% of avg range > max 50.0%
+2026-01-05 11:23:15 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 151.9% of avg range > max 50.0%
+2026-01-05 11:25:02 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 152.9% of avg range > max 50.0%
+2026-01-05 11:26:49 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 143.7% of avg range > max 50.0%
+2026-01-05 11:28:36 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 135.2% of avg range > max 50.0%
+2026-01-05 11:30:21 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 137.9% of avg range > max 50.0%
+2026-01-05 11:32:08 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.9% of avg range > max 50.0%
+2026-01-05 11:34:01 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 155.3% of avg range > max 50.0%
+2026-01-05 11:37:36 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 148.1% of avg range > max 50.0%
+2026-01-05 11:39:22 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 144.6% of avg range > max 50.0%
+2026-01-05 11:41:09 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 145.5% of avg range > max 50.0%
+2026-01-05 11:42:57 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 161.6% of avg range > max 50.0%
+2026-01-05 11:44:44 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 173.9% of avg range > max 50.0%
+2026-01-05 11:46:39 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 195.9% of avg range > max 50.0%
+2026-01-05 11:48:26 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 210.5% of avg range > max 50.0%
+2026-01-05 11:50:11 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 215.2% of avg range > max 50.0%
+2026-01-05 11:51:58 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 216.2% of avg range > max 50.0%
+2026-01-05 11:53:44 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 205.1% of avg range > max 50.0%
+2026-01-05 11:55:30 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 204.3% of avg range > max 50.0%
+2026-01-05 11:57:16 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 230.8% of avg range > max 50.0%
+2026-01-05 11:59:04 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 12:00:48 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 12:04:22 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 133.7% of avg range > max 50.0%
+2026-01-05 12:06:09 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 120.6% of avg range > max 50.0%
+2026-01-05 12:07:56 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 111.9% of avg range > max 50.0%
+2026-01-05 12:09:43 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 100.4% of avg range > max 50.0%
+2026-01-05 12:11:30 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 99.6% of avg range > max 50.0%
+2026-01-05 12:13:17 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 101.7% of avg range > max 50.0%
+2026-01-05 12:15:05 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 100.4% of avg range > max 50.0%
+2026-01-05 12:16:52 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 97.2% of avg range > max 50.0%
+2026-01-05 12:18:39 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 97.2% of avg range > max 50.0%
+2026-01-05 12:20:25 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 103.4% of avg range > max 50.0%
+2026-01-05 12:22:13 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 116.5% of avg range > max 50.0%
+2026-01-05 12:25:03 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 130.1% of avg range > max 50.0%
+2026-01-05 12:39:09 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 138.7% of avg range > max 50.0%
+2026-01-05 12:43:56 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.0% of avg range > max 50.0%
+2026-01-05 12:48:23 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 181.8% of avg range > max 50.0%
+2026-01-05 12:53:03 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 218.2% of avg range > max 50.0%
+2026-01-05 12:57:45 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 180.5% of avg range > max 50.0%
+2026-01-05 13:08:03 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 108.4% of avg range > max 50.0%
+2026-01-05 13:12:25 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.5% of avg range > max 50.0%
+2026-01-05 13:17:06 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.9% of avg range > max 50.0%
+2026-01-05 13:21:34 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.3% of avg range > max 50.0%
+2026-01-05 13:26:17 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.4% of avg range > max 50.0%
+2026-01-05 13:30:59 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 84.4% of avg range > max 50.0%
+2026-01-05 13:35:54 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.4% of avg range > max 50.0%
+2026-01-05 13:50:16 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.1% of avg range > max 50.0%
+2026-01-05 13:55:12 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.9% of avg range > max 50.0%
+2026-01-05 13:59:58 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 14:04:51 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 86.6% of avg range > max 50.0%
+2026-01-05 14:09:35 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.8% of avg range > max 50.0%
+2026-01-05 14:14:41 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 86.0% of avg range > max 50.0%
+2026-01-05 14:24:58 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.6% of avg range > max 50.0%
+2026-01-05 14:30:05 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.0% of avg range > max 50.0%
+2026-01-05 14:59:49 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 15:59:44 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 16:41:28 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 53.2% of avg < min 55.0%
+2026-01-05 17:02:57 - trades.TSLAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.1% of avg < min 55.0%

@@ -1,2 +1,34 @@
 2026-01-02 20:35:52 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 181.8% of avg range > max 50.0%
 2026-01-02 20:44:43 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 176.5% of avg range > max 50.0%
+2026-01-05 14:43:15 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 299.2% of avg range > max 50.0%
+2026-01-05 14:48:39 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.8% of avg range > max 50.0%
+2026-01-05 14:54:25 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 104.0% of avg range > max 50.0%
+2026-01-05 14:59:55 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 15:22:30 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.2% of avg range > max 50.0%
+2026-01-05 15:27:48 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.5% of avg range > max 50.0%
+2026-01-05 15:33:02 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.3% of avg range > max 50.0%
+2026-01-05 15:49:02 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 92.2% of avg range > max 50.0%
+2026-01-05 15:54:19 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 114.3% of avg range > max 50.0%
+2026-01-05 15:59:33 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 16:05:07 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 109.3% of avg range > max 50.0%
+2026-01-05 16:20:06 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.8% of avg range > max 50.0%
+2026-01-05 16:25:18 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 133.3% of avg range > max 50.0%
+2026-01-05 16:30:40 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.0% of avg range > max 50.0%
+2026-01-05 16:35:58 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 153.8% of avg range > max 50.0%
+2026-01-05 16:41:14 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 153.8% of avg range > max 50.0%
+2026-01-05 16:46:32 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 137.4% of avg range > max 50.0%
+2026-01-05 16:51:51 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.6% of avg range > max 50.0%
+2026-01-05 16:57:25 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 112.5% of avg range > max 50.0%
+2026-01-05 17:02:41 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 102.3% of avg range > max 50.0%
+2026-01-05 17:07:42 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 105.9% of avg range > max 50.0%
+2026-01-05 17:12:52 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 114.9% of avg range > max 50.0%
+2026-01-05 17:22:41 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 125.9% of avg range > max 50.0%
+2026-01-05 17:27:57 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 118.4% of avg range > max 50.0%
+2026-01-05 17:33:02 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 120.8% of avg range > max 50.0%
+2026-01-05 17:38:22 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 130.4% of avg range > max 50.0%
+2026-01-05 17:44:37 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 145.2% of avg range > max 50.0%
+2026-01-05 17:51:08 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 195.7% of avg range > max 50.0%
+2026-01-05 17:57:40 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 195.7% of avg range > max 50.0%
+2026-01-05 18:02:42 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 197.8% of avg range > max 50.0%
+2026-01-05 18:12:43 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 169.8% of avg range > max 50.0%
+2026-01-05 18:22:45 - trades.SBUXm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 163.6% of avg range > max 50.0%

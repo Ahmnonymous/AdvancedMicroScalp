@@ -2254,3 +2254,13 @@
 2026-01-02 21:58:25,479 - INFO - EURZARm: MARKET_CLOSING - Market closing in 1.6 minutes (session: WEEK)
 2026-01-02 21:58:25,495 - INFO - NZDSEKm: MARKET_CLOSING - Market closing in 1.6 minutes (session: WEEK)
 2026-01-02 21:58:25,504 - INFO - NZDNOKm: MARKET_CLOSING - Market closing in 1.6 minutes (session: WEEK)
+2026-01-05 14:34:49,968 - INFO - ORCLm: LOW_VOLUME - Insufficient real volume: 0 < 100 (Volume: 0.0)
+2026-01-05 14:43:08,135 - INFO - PGm: LOW_VOLUME - Insufficient real volume: 0 < 100 (Volume: 0.0)
+2026-01-05 14:43:18,531 - INFO - UPSm: LOW_VOLUME - Insufficient real volume: 0 < 100 (Volume: 0.0)
+2026-01-05 14:44:04,454 - INFO - MMMm: LOW_VOLUME - Insufficient real volume: 0 < 100 (Volume: 0.0)
+2026-01-05 14:44:36,711 - INFO - AMGNm: LOW_VOLUME - Insufficient real volume: 0 < 100 (Volume: 0.0)
+2026-01-05 16:04:29,729 - INFO - UK100m: MARKET_CLOSING - Stock index closing in 25.5 minutes
+2026-01-05 16:09:45,254 - INFO - UK100m: MARKET_CLOSING - Stock index closing in 20.2 minutes
+2026-01-05 16:14:36,771 - INFO - UK100m: MARKET_CLOSING - Stock index closing in 15.4 minutes
+2026-01-05 16:19:40,694 - INFO - UK100m: MARKET_CLOSING - Stock index closing in 10.3 minutes
+2026-01-05 16:24:53,490 - INFO - UK100m: MARKET_CLOSING - Stock index closing in 5.1 minutes

@@ -1,3 +1,34 @@
 2026-01-02 20:36:10 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 254.4% of avg range > max 50.0%
 2026-01-02 20:38:28 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.7% of avg range > max 50.0%
 2026-01-02 20:40:32 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 190.1% of avg range > max 50.0%
+2026-01-05 14:55:53 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.1% of avg range > max 50.0%
+2026-01-05 15:24:02 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.2% of avg range > max 50.0%
+2026-01-05 15:29:20 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.8% of avg range > max 50.0%
+2026-01-05 15:34:41 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.6% of avg range > max 50.0%
+2026-01-05 15:39:48 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.5% of avg range > max 50.0%
+2026-01-05 15:45:15 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.6% of avg range > max 50.0%
+2026-01-05 15:50:29 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.7% of avg range > max 50.0%
+2026-01-05 15:55:51 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 101.1% of avg range > max 50.0%
+2026-01-05 16:01:17 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 109.3% of avg range > max 50.0%
+2026-01-05 16:21:50 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 130.8% of avg range > max 50.0%
+2026-01-05 16:27:03 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 129.0% of avg range > max 50.0%
+2026-01-05 16:32:28 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 132.9% of avg range > max 50.0%
+2026-01-05 16:37:38 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 138.1% of avg range > max 50.0%
+2026-01-05 16:42:56 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.3% of avg range > max 50.0%
+2026-01-05 16:48:15 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 164.6% of avg range > max 50.0%
+2026-01-05 16:53:44 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 149.9% of avg range > max 50.0%
+2026-01-05 16:59:10 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 17:04:25 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 144.6% of avg range > max 50.0%
+2026-01-05 17:09:21 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 136.0% of avg range > max 50.0%
+2026-01-05 17:14:18 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 130.1% of avg range > max 50.0%
+2026-01-05 17:19:10 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 154.8% of avg range > max 50.0%
+2026-01-05 17:29:30 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 134.2% of avg range > max 50.0%
+2026-01-05 17:34:33 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 140.2% of avg range > max 50.0%
+2026-01-05 17:39:55 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 137.3% of avg range > max 50.0%
+2026-01-05 17:46:41 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 152.5% of avg range > max 50.0%
+2026-01-05 17:53:29 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 149.6% of avg range > max 50.0%
+2026-01-05 17:59:24 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 18:04:17 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 161.4% of avg range > max 50.0%
+2026-01-05 18:09:14 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 182.9% of avg range > max 50.0%
+2026-01-05 18:14:14 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 190.8% of avg range > max 50.0%
+2026-01-05 18:28:57 - trades.COSTm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 192.4% of avg range > max 50.0%

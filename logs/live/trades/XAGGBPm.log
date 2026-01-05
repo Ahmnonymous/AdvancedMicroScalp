@@ -54,3 +54,74 @@
 2026-01-05 08:52:52 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 72.4% of avg range > max 50.0%
 2026-01-05 08:54:34 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.4% of avg range > max 50.0%
 2026-01-05 08:56:19 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.4% of avg range > max 50.0%
+2026-01-05 09:28:29 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.1% of avg range > max 50.0%
+2026-01-05 09:30:32 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 72.5% of avg range > max 50.0%
+2026-01-05 09:32:26 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.7% of avg range > max 50.0%
+2026-01-05 09:34:23 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.5% of avg range > max 50.0%
+2026-01-05 09:36:18 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.1% of avg range > max 50.0%
+2026-01-05 09:38:11 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.5% of avg range > max 50.0%
+2026-01-05 09:40:00 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.4% of avg range > max 50.0%
+2026-01-05 09:41:49 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.5% of avg range > max 50.0%
+2026-01-05 09:45:22 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.8% of avg range > max 50.0%
+2026-01-05 09:47:10 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.8% of avg range > max 50.0%
+2026-01-05 09:48:51 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.7% of avg range > max 50.0%
+2026-01-05 09:50:42 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.0% of avg range > max 50.0%
+2026-01-05 09:52:26 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.3% of avg range > max 50.0%
+2026-01-05 09:54:07 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.4% of avg range > max 50.0%
+2026-01-05 09:56:00 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.4% of avg range > max 50.0%
+2026-01-05 09:57:45 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.5% of avg range > max 50.0%
+2026-01-05 09:59:31 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 10:01:15 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.5% of avg range > max 50.0%
+2026-01-05 10:03:02 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.3% of avg range > max 50.0%
+2026-01-05 10:04:48 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 60.8% of avg range > max 50.0%
+2026-01-05 10:06:36 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.1% of avg range > max 50.0%
+2026-01-05 10:08:22 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 64.9% of avg range > max 50.0%
+2026-01-05 10:10:08 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.9% of avg range > max 50.0%
+2026-01-05 10:11:52 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 68.3% of avg range > max 50.0%
+2026-01-05 10:13:38 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.4% of avg range > max 50.0%
+2026-01-05 10:15:22 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.6% of avg range > max 50.0%
+2026-01-05 10:18:50 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.5% of avg range > max 50.0%
+2026-01-05 10:20:33 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.8% of avg range > max 50.0%
+2026-01-05 10:22:18 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.3% of avg range > max 50.0%
+2026-01-05 10:24:06 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 85.8% of avg range > max 50.0%
+2026-01-05 10:25:50 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.6% of avg range > max 50.0%
+2026-01-05 10:27:37 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 85.5% of avg range > max 50.0%
+2026-01-05 10:29:21 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.3% of avg range > max 50.0%
+2026-01-05 10:31:06 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.4% of avg range > max 50.0%
+2026-01-05 10:32:49 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.9% of avg range > max 50.0%
+2026-01-05 10:34:33 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.5% of avg range > max 50.0%
+2026-01-05 10:36:18 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.1% of avg range > max 50.0%
+2026-01-05 10:38:04 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.1% of avg range > max 50.0%
+2026-01-05 10:39:49 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.2% of avg range > max 50.0%
+2026-01-05 10:46:02 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.6% of avg range > max 50.0%
+2026-01-05 10:47:47 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.7% of avg range > max 50.0%
+2026-01-05 10:49:32 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 97.3% of avg range > max 50.0%
+2026-01-05 10:51:18 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 103.1% of avg range > max 50.0%
+2026-01-05 10:53:03 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 100.2% of avg range > max 50.0%
+2026-01-05 10:54:50 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 106.2% of avg range > max 50.0%
+2026-01-05 10:56:36 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.2% of avg range > max 50.0%
+2026-01-05 10:58:21 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 75.2% of avg range > max 50.0%
+2026-01-05 11:00:09 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 11:10:47 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 24.0% of avg < min 55.0%
+2026-01-05 11:16:07 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 18.1% of avg < min 55.0%
+2026-01-05 11:28:35 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.0% of avg < min 55.0%
+2026-01-05 11:32:08 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.1% of avg < min 55.0%
+2026-01-05 11:34:00 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 28.0% of avg < min 55.0%
+2026-01-05 11:53:44 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.6% of avg range > max 50.0%
+2026-01-05 11:55:30 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.5% of avg range > max 50.0%
+2026-01-05 11:59:03 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 12:00:48 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 12:04:22 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.8% of avg < min 55.0%
+2026-01-05 12:34:31 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 44.4% of avg < min 55.0%
+2026-01-05 12:48:22 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 46.7% of avg < min 55.0%
+2026-01-05 14:00:08 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 14:19:51 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.8% of avg < min 55.0%
+2026-01-05 14:34:19 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 41.1% of avg < min 55.0%
+2026-01-05 14:38:36 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 51.7% of avg < min 55.0%
+2026-01-05 14:49:07 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 50.3% of avg < min 55.0%
+2026-01-05 15:00:37 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 15:49:49 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.5% of avg < min 55.0%
+2026-01-05 16:00:30 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 16:58:30 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 49.0% of avg < min 55.0%
+2026-01-05 17:03:40 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 26.3% of avg < min 55.0%
+2026-01-05 17:08:41 - trades.XAGGBPm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 42.0% of avg < min 55.0%

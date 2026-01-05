@@ -3,3 +3,35 @@
 2026-01-02 20:40:24 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
 2026-01-02 20:42:22 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
 2026-01-02 20:44:45 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.07 pips < min 0.40 pips
+2026-01-05 14:42:28 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 14:59:43 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 15:05:30 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 15:11:12 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 15:16:56 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 0.40 pips
+2026-01-05 15:22:26 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 15:27:44 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.40 pips
+2026-01-05 15:33:10 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.40 pips
+2026-01-05 15:59:38 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 16:05:05 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.40 pips
+2026-01-05 16:15:05 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.40 pips
+2026-01-05 16:20:17 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.16 pips < min 0.40 pips
+2026-01-05 16:25:29 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 16:30:48 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 16:36:07 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 16:41:18 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 16:46:42 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 16:51:57 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 17:02:52 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 17:07:49 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 17:12:58 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 17:17:50 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 17:22:51 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 17:28:07 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 17:33:10 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 17:38:27 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.07 pips < min 0.40 pips
+2026-01-05 17:44:49 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 17:51:20 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.04 pips < min 0.40 pips
+2026-01-05 17:57:52 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.03 pips < min 0.40 pips
+2026-01-05 18:02:47 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.02 pips < min 0.40 pips
+2026-01-05 18:17:48 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.04 pips < min 0.40 pips
+2026-01-05 18:22:54 - trades.Tm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.05 pips < min 0.40 pips

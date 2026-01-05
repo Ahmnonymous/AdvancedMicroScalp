@@ -1,2 +1,22 @@
 2026-01-02 20:35:51 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
 2026-01-02 20:38:12 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.14 pips < min 0.40 pips
+2026-01-05 15:10:58 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 132.2% of avg range > max 50.0%
+2026-01-05 15:16:45 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 133.3% of avg range > max 50.0%
+2026-01-05 15:22:12 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 172.8% of avg range > max 50.0%
+2026-01-05 15:27:27 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.40 pips
+2026-01-05 15:32:47 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 15:53:47 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.3% of avg range > max 50.0%
+2026-01-05 15:59:25 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 16:04:45 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 170.7% of avg range > max 50.0%
+2026-01-05 16:51:41 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 117.6% of avg range > max 50.0%
+2026-01-05 16:57:15 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.9% of avg range > max 50.0%
+2026-01-05 17:02:30 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 128.4% of avg range > max 50.0%
+2026-01-05 17:07:37 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 138.6% of avg range > max 50.0%
+2026-01-05 17:12:41 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 164.7% of avg range > max 50.0%
+2026-01-05 17:17:32 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.40 pips
+2026-01-05 17:22:37 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 200.0% of avg range > max 50.0%
+2026-01-05 18:02:37 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 18:07:32 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.40 pips
+2026-01-05 18:12:34 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 175.0% of avg range > max 50.0%
+2026-01-05 18:17:35 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.9% of avg range > max 50.0%
+2026-01-05 18:27:25 - trades.CMCSAm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.40 pips
