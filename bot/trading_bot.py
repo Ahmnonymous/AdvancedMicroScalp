@@ -522,21 +522,33 @@ class TradingBot:
         try:
             # Get trade statistics
             total_trades = self.trade_stats.get('total_trades', 0)
-            wins = self.trade_stats.get('profitable_trades', 0)
-            losses = total_trades - wins
+            profitable_trades = self.trade_stats.get('profitable_trades', 0)
+            losing_trades = self.trade_stats.get('losing_trades', 0)
+            closed_trades = profitable_trades + losing_trades  # Only count closed trades
             
+            # CRITICAL FIX: Return None if no trades at all (prevents false triggers)
             if total_trades == 0:
                 return None
             
-            # Calculate win rate
-            win_rate = wins / total_trades if total_trades > 0 else 0.0
+            # CRITICAL FIX: Calculate win_rate only from closed trades, not total trades
+            # Win rate should be: wins / closed_trades, not wins / total_trades
+            # This prevents false 0.0 win_rate when trades are still open
+            if closed_trades > 0:
+                win_rate = profitable_trades / closed_trades
+            else:
+                # No closed trades yet - set win_rate to None to skip check
+                win_rate = None
             
             # Calculate expectancy (simplified - would need profit/loss data)
             # For now, return basic metrics
             metrics = {
-                'win_rate': win_rate,
-                'total_trades': total_trades  # CRITICAL: Include total_trades so regression guard can check sample size
+                'total_trades': total_trades,  # Total trades (open + closed)
+                'closed_trades': closed_trades  # CRITICAL: Include closed_trades for sample size check
             }
+            
+            # Only include win_rate if we have closed trades
+            if win_rate is not None:
+                metrics['win_rate'] = win_rate
             
             # Add latency if available (would need to track this)
             # Add other metrics as they become available
@@ -3817,12 +3829,13 @@ class TradingBot:
                     # Collect current metrics
                     current_metrics = self._collect_metrics_for_regression_guard()
                     if current_metrics:
-                        # CRITICAL FIX: Double-check that we have sufficient trades before checking metrics
-                        total_trades = current_metrics.get('total_trades', 0)
-                        min_sample_size = 10  # Require at least 10 trades before checking metrics
+                        # CRITICAL FIX: Check closed_trades instead of total_trades for win_rate/expectancy metrics
+                        # closed_trades represents completed trades that can be evaluated
+                        closed_trades = current_metrics.get('closed_trades', 0)
+                        min_sample_size = 10  # Require at least 10 closed trades before checking metrics
                         
-                        if total_trades < min_sample_size:
-                            logger.debug(f"[REGRESSION_GUARD] Skipping check - insufficient sample size ({total_trades} trades < {min_sample_size})")
+                        if closed_trades < min_sample_size:
+                            logger.debug(f"[REGRESSION_GUARD] Skipping check - insufficient closed trades ({closed_trades} < {min_sample_size})")
                         else:
                             # CRITICAL FIX: Pass min_sample_size to regression guard check
                             # Regression guard will now check sample size internally and skip if insufficient

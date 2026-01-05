@@ -1088,8 +1088,14 @@ class OrderManager:
             
             if new_sl >= min_allowed_sl:
                 logger.warning(f"SL {new_sl:.5f} too close to market (BID: {current_bid:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level}, stops_level: {stops_level})")
-                # Schedule retry with backoff - position may move away from market
-                return False  # Will be retried by caller with backoff
+                # CRITICAL FIX: Adjust SL to minimum allowed distance instead of failing
+                # This prevents repeated failures when market moves close to SL
+                new_sl = min_allowed_sl - (point * 0.1)  # Small buffer below minimum
+                # Normalize to symbol's point precision
+                digits = symbol_info.get('digits', 5)
+                new_sl = round(new_sl / point) * point
+                new_sl = round(new_sl, digits)
+                logger.info(f"[SL_ADJUSTED] SL adjusted to minimum allowed distance: {new_sl:.5f}")
         else:  # SELL
             # For SELL: SL must be above current ASK by at least freeze_level
             # When freeze_level=0 and stops_level=0, allow SL anywhere above ASK (no minimum distance)
@@ -1103,8 +1109,14 @@ class OrderManager:
             
             if new_sl <= min_allowed_sl:
                 logger.warning(f"SL {new_sl:.5f} too close to market (ASK: {current_ask:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level}, stops_level: {stops_level})")
-                # Schedule retry with backoff - position may move away from market
-                return False  # Will be retried by caller with backoff
+                # CRITICAL FIX: Adjust SL to minimum allowed distance instead of failing
+                # This prevents repeated failures when market moves close to SL
+                new_sl = min_allowed_sl + (point * 0.1)  # Small buffer above minimum
+                # Normalize to symbol's point precision
+                digits = symbol_info.get('digits', 5)
+                new_sl = round(new_sl / point) * point
+                new_sl = round(new_sl, digits)
+                logger.info(f"[SL_ADJUSTED] SL adjusted to minimum allowed distance: {new_sl:.5f}")
         
         # CRITICAL FIX: Validate TP distance from market (MT5 requires TP to be minimum distance from market)
         # This is the core issue - TP was being rejected silently by MT5 if too close to market
@@ -1179,10 +1191,10 @@ class OrderManager:
                    f"SL: {new_sl:.5f} (included: {new_sl > 0}) | "
                    f"TP: {new_tp:.5f} (included: {new_tp > 0})")
         
-        # PHASE 1 FIX 1.2: Add aggressive timeout protection to MT5 API call
-        # Use 1 second timeout (more aggressive than 2s worker timeout) to fail fast
+        # PHASE 1 FIX 1.2: Add timeout protection to MT5 API call
+        # Use 2 second timeout to allow for network delays while still failing fast
         modify_start_time = time.time()
-        modify_timeout_seconds = 1.0  # 1 second timeout for MT5 API call (fail fast)
+        modify_timeout_seconds = 2.0  # 2 second timeout for MT5 API call (increased from 1.0s for reliability)
         
         # PHASE 1 FIX 1.2: Pre-check MT5 connection health before attempting
         # If MT5 is unresponsive, skip immediately to prevent blocking
@@ -1297,6 +1309,50 @@ class OrderManager:
                             logger.warning(f"[TP_VERIFY_FAIL] Ticket {ticket} | MT5 success but TP not applied | "
                                          f"Expected: {new_tp:.5f} | Applied: {applied_tp:.5f} | "
                                          f"Diff: {abs(applied_tp - new_tp):.5f}")
+                            
+                            # CRITICAL FIX: Retry with adjusted TP if too close to market
+                            # Get fresh tick data for retry (market may have moved)
+                            retry_tick = self.mt5_connector.get_tick(symbol)
+                            if retry_tick:
+                                retry_ask = retry_tick.ask
+                                retry_bid = retry_tick.bid
+                                
+                                # Check if TP is too close and adjust before retry
+                                if self._is_buy_position(position):
+                                    if freeze_level > 0:
+                                        min_allowed_tp = retry_ask + (freeze_level * point)
+                                    elif stops_level > 0:
+                                        min_allowed_tp = retry_ask + (stops_level * point)
+                                    else:
+                                        min_allowed_tp = retry_ask + (point * 0.1)
+                                    
+                                    if new_tp <= min_allowed_tp:
+                                        # Adjust TP to minimum allowed
+                                        new_tp = min_allowed_tp
+                                        digits = symbol_info.get('digits', 5)
+                                        new_tp = round(new_tp / point) * point
+                                        new_tp = round(new_tp, digits)
+                                        logger.info(f"[TP_RETRY_ADJUSTED] TP adjusted for retry: {new_tp:.5f}")
+                                        # Update request with adjusted TP for retry
+                                        request["tp"] = new_tp
+                                else:  # SELL
+                                    if freeze_level > 0:
+                                        min_allowed_tp = retry_bid - (freeze_level * point)
+                                    elif stops_level > 0:
+                                        min_allowed_tp = retry_bid - (stops_level * point)
+                                    else:
+                                        min_allowed_tp = retry_bid - (point * 0.1)
+                                    
+                                    if new_tp >= min_allowed_tp:
+                                        # Adjust TP to minimum allowed
+                                        new_tp = min_allowed_tp
+                                        digits = symbol_info.get('digits', 5)
+                                        new_tp = round(new_tp / point) * point
+                                        new_tp = round(new_tp, digits)
+                                        logger.info(f"[TP_RETRY_ADJUSTED] TP adjusted for retry: {new_tp:.5f}")
+                                        # Update request with adjusted TP for retry
+                                        request["tp"] = new_tp
+                            
                             # Return False to trigger retry
                             if attempt < max_retries - 1:
                                 logger.warning(f"Retrying TP modification (attempt {attempt + 1}/{max_retries})...")

@@ -154,10 +154,15 @@ class RegressionGuard:
         Returns:
             Tuple of (is_safe: bool, rollback_reason: Optional[str])
         """
-        # Check if we have sufficient sample size
+        # CRITICAL FIX: Check closed_trades instead of total_trades for win_rate/expectancy metrics
+        # closed_trades represents trades that have completed and can be evaluated
+        # total_trades includes open positions which cannot be evaluated yet
+        closed_trades = metrics.get('closed_trades', 0)
         total_trades = metrics.get('total_trades', 0)
-        if total_trades < min_sample_size:
-            logger.debug(f"[REGRESSION_GUARD] Insufficient sample size ({total_trades} trades < {min_sample_size}) - skipping check")
+        
+        # Check if we have sufficient sample size (use closed_trades for trade-based metrics)
+        if closed_trades < min_sample_size:
+            logger.debug(f"[REGRESSION_GUARD] Insufficient sample size ({closed_trades} closed trades < {min_sample_size}) - skipping check")
             return True, None  # Safe - not enough data to make decision
         
         # CRITICAL FIX: Additional safety check - if total_trades is 0, definitely skip
@@ -172,10 +177,16 @@ class RegressionGuard:
             if metric_name not in budget:
                 continue
             
-            # Skip checking metrics that require trades if we don't have enough trades
-            if metric_name in ['win_rate', 'expectancy_per_trade'] and total_trades < min_sample_size:
-                logger.debug(f"[REGRESSION_GUARD] Skipping {metric_name} check - insufficient sample size ({total_trades} trades)")
-                continue
+            # CRITICAL FIX: Skip checking metrics that require closed trades if we don't have enough closed trades
+            # Use closed_trades instead of total_trades for win_rate/expectancy (these require completed trades)
+            if metric_name in ['win_rate', 'expectancy_per_trade']:
+                if closed_trades < min_sample_size:
+                    logger.debug(f"[REGRESSION_GUARD] Skipping {metric_name} check - insufficient closed trades ({closed_trades} < {min_sample_size})")
+                    continue
+                # CRITICAL FIX: Also skip if win_rate is None (no closed trades yet)
+                if metric_name == 'win_rate' and value is None:
+                    logger.debug(f"[REGRESSION_GUARD] Skipping win_rate check - no closed trades yet (win_rate=None)")
+                    continue
             
             budget_config = budget[metric_name]
             threshold = budget_config.get('rollback_trigger')

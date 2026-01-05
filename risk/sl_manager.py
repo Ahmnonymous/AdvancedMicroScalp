@@ -7775,6 +7775,10 @@ class SLManager:
                         if len(self._timing_stats['loop_durations']) > 1000:
                             self._timing_stats['loop_durations'].pop(0)
                         self._timing_stats['last_loop_time'] = datetime.now()
+                        # CRITICAL FIX: Update last_update_time at end of each loop iteration
+                        # This ensures trade gating checks know worker is active even when no SL updates occur
+                        # Prevents false "backlog detected" errors when worker is running normally
+                        self._timing_stats['last_update_time'] = datetime.now()
                     
                     # FIX 6: CRITICAL - If loop exceeds 1000ms, skip non-critical updates to prevent cascading delays
                     # This prevents worker loop from getting stuck processing all positions when under load
