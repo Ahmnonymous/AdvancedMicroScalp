@@ -1134,14 +1134,15 @@ class OrderManager:
             
             if new_sl >= min_allowed_sl:
                 logger.warning(f"SL {new_sl:.5f} too close to market (BID: {current_bid:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level}, stops_level: {stops_level})")
-                # CRITICAL FIX: Adjust SL to minimum allowed distance instead of failing
-                # This prevents repeated failures when market moves close to SL
-                new_sl = min_allowed_sl - (point * 0.1)  # Small buffer below minimum
+                # CRITICAL FIX: Adjust SL to minimum allowed distance with larger buffer to prevent repeated failures
+                # Use at least 2 points buffer (or 10% of stops_level, whichever is larger) to prevent "Invalid stops" errors
+                buffer_points = max(2, int(stops_level * 0.1)) if stops_level > 0 else 2
+                new_sl = min_allowed_sl - (point * buffer_points)  # Larger buffer below minimum
                 # Normalize to symbol's point precision
                 digits = symbol_info.get('digits', 5)
                 new_sl = round(new_sl / point) * point
                 new_sl = round(new_sl, digits)
-                logger.info(f"[SL_ADJUSTED] SL adjusted to minimum allowed distance: {new_sl:.5f}")
+                logger.info(f"[SL_ADJUSTED] SL adjusted to minimum allowed distance with {buffer_points} point buffer: {new_sl:.5f}")
         else:  # SELL
             # For SELL: SL must be above current ASK by at least freeze_level
             # When freeze_level=0 and stops_level=0, allow SL anywhere above ASK (no minimum distance)
@@ -1155,14 +1156,15 @@ class OrderManager:
             
             if new_sl <= min_allowed_sl:
                 logger.warning(f"SL {new_sl:.5f} too close to market (ASK: {current_ask:.5f}, min allowed: {min_allowed_sl:.5f}, freeze_level: {freeze_level}, stops_level: {stops_level})")
-                # CRITICAL FIX: Adjust SL to minimum allowed distance instead of failing
-                # This prevents repeated failures when market moves close to SL
-                new_sl = min_allowed_sl + (point * 0.1)  # Small buffer above minimum
+                # CRITICAL FIX: Adjust SL to minimum allowed distance with larger buffer to prevent repeated failures
+                # Use at least 2 points buffer (or 10% of stops_level, whichever is larger) to prevent "Invalid stops" errors
+                buffer_points = max(2, int(stops_level * 0.1)) if stops_level > 0 else 2
+                new_sl = min_allowed_sl + (point * buffer_points)  # Larger buffer above minimum
                 # Normalize to symbol's point precision
                 digits = symbol_info.get('digits', 5)
                 new_sl = round(new_sl / point) * point
                 new_sl = round(new_sl, digits)
-                logger.info(f"[SL_ADJUSTED] SL adjusted to minimum allowed distance: {new_sl:.5f}")
+                logger.info(f"[SL_ADJUSTED] SL adjusted to minimum allowed distance with {buffer_points} point buffer: {new_sl:.5f}")
         
         # CRITICAL FIX: Validate TP distance from market (MT5 requires TP to be minimum distance from market)
         # This is the core issue - TP was being rejected silently by MT5 if too close to market

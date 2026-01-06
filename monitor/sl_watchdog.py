@@ -187,6 +187,15 @@ class SLWatchdog:
                             if ticket in self.sl_manager._last_sl_update:
                                 time_since_update = (current_time - self.sl_manager._last_sl_update[ticket]).total_seconds()
                                 
+                                # CRITICAL FIX: Apply grace period for new positions
+                                grace_period = getattr(self.sl_manager, 'new_position_grace_period_seconds', 5.0)
+                                # Check if this is a new position (no SL update yet or very recent)
+                                is_new_position = time_since_update < grace_period
+                                
+                                if is_new_position:
+                                    # New position - skip staleness check (within grace period)
+                                    continue
+                                
                                 # FIX D: Determine threshold based on trade state
                                 if profit > 0:
                                     threshold = self.stale_threshold_profitable  # 2.0s for profitable
@@ -201,6 +210,16 @@ class SLWatchdog:
                                 
                                 if time_since_update > threshold:
                                     stale_tickets.append((ticket, time_since_update))
+                            else:
+                                # No SL update record - check if position is new (within grace period)
+                                # For positions without update record, check position age
+                                position_time = position.get('time', 0)
+                                if position_time > 0:
+                                    position_age = (current_time.timestamp() - position_time) if hasattr(current_time, 'timestamp') else (time.time() - position_time)
+                                    grace_period = getattr(self.sl_manager, 'new_position_grace_period_seconds', 5.0)
+                                    if position_age < grace_period:
+                                        # New position - skip staleness check
+                                        continue
                     
                     if stale_tickets:
                         # FIX D: Log with adaptive threshold information

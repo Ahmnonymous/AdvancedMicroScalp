@@ -124,6 +124,8 @@ class SLManager:
         # Pre-cycle SL update configuration (synchronous updates before each trading cycle)
         self.pre_cycle_update_enabled = self.risk_config.get('pre_cycle_update_enabled', True)
         self.max_staleness_window_seconds = self.risk_config.get('max_staleness_window_seconds', 2.0)
+        # CRITICAL FIX: Grace period for new positions (increased from default to prevent false staleness)
+        self.new_position_grace_period_seconds = self.risk_config.get('new_position_grace_period_seconds', 5.0)  # 5s grace period for new positions
         
         # Post-cycle SL verification configuration
         self.post_cycle_verification_enabled = self.risk_config.get('post_cycle_verification_enabled', True)
@@ -2666,6 +2668,13 @@ class SLManager:
         Returns:
             (success, reason, target_sl_price)
         """
+        # CRITICAL FIX: Check if profit zone updates are disabled
+        if not self.profit_zone_updates_enabled:
+            symbol = position.get('symbol', '')
+            ticket = position.get('ticket', 0)
+            logger.debug(f"[PROFIT_ZONE_DISABLED] {symbol} Ticket {ticket} | Trailing stop disabled - skipping (profit: ${current_profit:.2f})")
+            return False, f"Profit zone updates disabled - trailing stop skipped", None
+        
         if current_profit <= self.trailing_increment_usd:
             return False, f"Profit (${current_profit:.2f}) below trailing threshold (${self.trailing_increment_usd:.2f})", None
         
@@ -6121,7 +6130,8 @@ class SLManager:
                 trailing_profit_check = sweet_spot_profit if 'sweet_spot_profit' in locals() else current_profit
             
             # PRIORITY 4: Trailing stop if profit > $0.10
-            if trailing_profit_check > self.trailing_increment_usd:
+            # CRITICAL FIX: Check if profit zone updates are enabled before attempting trailing stop
+            if trailing_profit_check > self.trailing_increment_usd and self.profit_zone_updates_enabled:
                 # Check if fast trailing threshold reached
                 fast_trailing_threshold = self.risk_config.get('fast_trailing_threshold_usd', 0.10)
                 is_fast_trailing = trailing_profit_check >= fast_trailing_threshold
@@ -6141,6 +6151,12 @@ class SLManager:
                 
                 # Apply trailing stop OUTSIDE the lock (all network calls happen here)
                 success, reason, target_sl = self._apply_trailing_stop(trailing_position, trailing_profit_check)
+            elif trailing_profit_check > self.trailing_increment_usd and not self.profit_zone_updates_enabled:
+                # Profit zone updates disabled - skip trailing stop
+                logger.debug(f"[PROFIT_ZONE_DISABLED] {symbol} Ticket {ticket} | Trailing stop skipped - profit zone updates disabled (profit: ${trailing_profit_check:.2f})")
+                success = False
+                reason = "Profit zone updates disabled"
+                target_sl = None
                 
                 # Re-acquire lock briefly to update tracking
                 lock_acquired, lock, lock_reason = self._acquire_ticket_lock_with_timeout(ticket, is_profit_locking=True)

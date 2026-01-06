@@ -2347,6 +2347,11 @@ class TradingBot:
                     mt5_comment = 'Order placement returned None (connection error, symbol not found, tick unavailable, or market closed)'
                     error_type = 'connection_or_symbol_error'
                     logger.warning(f"[WARNING] {symbol}: Order placement returned None - likely connection error, symbol not found, tick unavailable, or market closed")
+                    # CRITICAL FIX: Check if price is stale before retrying
+                    symbol_info_check = self.mt5_connector.get_symbol_info(symbol, check_price_staleness=True)
+                    if symbol_info_check is None:
+                        logger.warning(f"[SKIP] {symbol}: Price is stale - skipping order placement")
+                        return None  # Don't retry if price is stale
                 elif isinstance(result, dict):
                     if 'error' in result:
                         ticket = result['error']  # Error code
