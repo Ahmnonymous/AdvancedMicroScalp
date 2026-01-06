@@ -1,0 +1,26 @@
+2026-01-05 21:39:09 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 413.8% of avg range > max 50.0%
+2026-01-05 21:39:33 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 413.8% of avg range > max 50.0%
+2026-01-05 21:39:56 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 413.8% of avg range > max 50.0%
+2026-01-05 21:40:20 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 424.8% of avg range > max 50.0%
+2026-01-05 21:40:52 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 424.8% of avg range > max 50.0%
+2026-01-05 21:41:28 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 444.4% of avg range > max 50.0%
+2026-01-05 21:42:03 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 444.4% of avg range > max 50.0%
+2026-01-05 21:42:51 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 444.4% of avg range > max 50.0%
+2026-01-05 21:43:03 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 448.6% of avg range > max 50.0%
+2026-01-05 21:43:06 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 448.6% of avg range > max 50.0%
+2026-01-05 21:43:21 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 448.6% of avg range > max 50.0%
+2026-01-05 21:43:30 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 448.6% of avg range > max 50.0%
+2026-01-05 21:43:48 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 448.6% of avg range > max 50.0%
+2026-01-05 21:44:04 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 461.5% of avg range > max 50.0%
+2026-01-05 21:44:34 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 461.5% of avg range > max 50.0%
+2026-01-05 21:45:12 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 452.8% of avg range > max 50.0%
+2026-01-05 21:45:46 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 452.8% of avg range > max 50.0%
+2026-01-05 21:46:25 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 436.4% of avg range > max 50.0%
+2026-01-05 21:47:11 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 440.4% of avg range > max 50.0%
+2026-01-05 23:20:00 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 431.6% of avg range > max 50.0%
+2026-01-05 23:23:57 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 594.2% of avg range > max 50.0%
+2026-01-05 23:26:13 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 616.5% of avg range > max 50.0%
+2026-01-05 23:29:40 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 706.9% of avg range > max 50.0%
+2026-01-06 03:41:22 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3574s)
+2026-01-06 04:41:25 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3577s)
+2026-01-06 05:41:28 - trades.GBPCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3579s)

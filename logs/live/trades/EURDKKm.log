@@ -1,0 +1,2 @@
+2026-01-05 23:27:40 - trades.EURDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.40 pips
+2026-01-05 23:30:39 - trades.EURDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.40 pips

@@ -1,0 +1,2 @@
+2026-01-06 02:41:41 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3550s)
+2026-01-06 04:41:50 - trades.USDCNHm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3552s)

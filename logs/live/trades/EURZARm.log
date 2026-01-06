@@ -1,0 +1,64 @@
+2026-01-05 21:38:12 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3654.2% of avg range > max 50.0%
+2026-01-05 21:38:26 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6952.3% of avg range > max 50.0%
+2026-01-05 21:38:47 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6952.3% of avg range > max 50.0%
+2026-01-05 21:39:17 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6834.4% of avg range > max 50.0%
+2026-01-05 21:39:39 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6834.4% of avg range > max 50.0%
+2026-01-05 21:40:03 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7005.7% of avg range > max 50.0%
+2026-01-05 21:40:27 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7005.7% of avg range > max 50.0%
+2026-01-05 21:40:59 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7005.7% of avg range > max 50.0%
+2026-01-05 21:41:34 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7212.7% of avg range > max 50.0%
+2026-01-05 21:42:09 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6831.7% of avg range > max 50.0%
+2026-01-05 21:51:45 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7545.5% of avg range > max 50.0%
+2026-01-05 21:52:12 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7768.7% of avg range > max 50.0%
+2026-01-05 21:52:43 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7768.7% of avg range > max 50.0%
+2026-01-05 21:52:54 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7768.7% of avg range > max 50.0%
+2026-01-05 21:53:11 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7737.5% of avg range > max 50.0%
+2026-01-05 21:53:39 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7737.5% of avg range > max 50.0%
+2026-01-05 21:54:10 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7535.7% of avg range > max 50.0%
+2026-01-05 21:54:47 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7535.7% of avg range > max 50.0%
+2026-01-05 21:55:29 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7394.2% of avg range > max 50.0%
+2026-01-05 21:55:52 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7394.2% of avg range > max 50.0%
+2026-01-05 21:56:19 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7322.3% of avg range > max 50.0%
+2026-01-05 21:56:48 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7322.3% of avg range > max 50.0%
+2026-01-05 21:59:11 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 22:01:07 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7378.5% of avg range > max 50.0%
+2026-01-05 22:08:38 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10921.0% of avg range > max 50.0%
+2026-01-05 22:09:32 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7292.5% of avg range > max 50.0%
+2026-01-05 22:11:05 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5287.2% of avg range > max 50.0%
+2026-01-05 22:12:48 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5103.3% of avg range > max 50.0%
+2026-01-05 22:15:08 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2729.8% of avg range > max 50.0%
+2026-01-05 22:17:26 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2138.3% of avg range > max 50.0%
+2026-01-05 22:18:28 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2101.3% of avg range > max 50.0%
+2026-01-05 22:19:48 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2043.1% of avg range > max 50.0%
+2026-01-05 22:21:11 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2089.2% of avg range > max 50.0%
+2026-01-05 22:22:45 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1878.3% of avg range > max 50.0%
+2026-01-05 22:24:19 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1902.8% of avg range > max 50.0%
+2026-01-05 22:26:12 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3094.7% of avg range > max 50.0%
+2026-01-05 22:27:39 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2688.9% of avg range > max 50.0%
+2026-01-05 22:36:38 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2511.3% of avg range > max 50.0%
+2026-01-05 22:38:20 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2647.5% of avg range > max 50.0%
+2026-01-05 22:40:17 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2393.8% of avg range > max 50.0%
+2026-01-05 22:42:16 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2427.8% of avg range > max 50.0%
+2026-01-05 22:43:54 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2169.4% of avg range > max 50.0%
+2026-01-05 22:55:09 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2356.2% of avg range > max 50.0%
+2026-01-05 22:56:53 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2378.4% of avg range > max 50.0%
+2026-01-05 22:58:40 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2349.6% of avg range > max 50.0%
+2026-01-05 23:00:32 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:29 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2400.5% of avg range > max 50.0%
+2026-01-05 23:04:26 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2383.0% of avg range > max 50.0%
+2026-01-05 23:06:39 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2594.3% of avg range > max 50.0%
+2026-01-05 23:09:07 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3121.4% of avg range > max 50.0%
+2026-01-05 23:10:51 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3109.6% of avg range > max 50.0%
+2026-01-05 23:14:13 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4159.7% of avg range > max 50.0%
+2026-01-05 23:17:32 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4751.0% of avg range > max 50.0%
+2026-01-05 23:20:15 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5029.2% of avg range > max 50.0%
+2026-01-05 23:24:02 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8006.0% of avg range > max 50.0%
+2026-01-05 23:26:29 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7594.6% of avg range > max 50.0%
+2026-01-05 23:29:52 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6886.9% of avg range > max 50.0%
+2026-01-05 23:35:19 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5734.3% of avg range > max 50.0%
+2026-01-05 23:37:39 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5639.1% of avg range > max 50.0%
+2026-01-05 23:40:03 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5231.1% of avg range > max 50.0%
+2026-01-06 00:41:50 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3528s)
+2026-01-06 01:42:03 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3521s)
+2026-01-06 02:42:07 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3523s)
+2026-01-06 03:42:11 - trades.EURZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3525s)

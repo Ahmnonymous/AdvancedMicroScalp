@@ -1,0 +1,1163 @@
+2026-01-05 21:37:50 - order_manager - INFO - [ORDER_MANAGER] SLManager reference set: True
+2026-01-05 21:38:12 - order_manager - INFO - [ATOMIC_SL] BTCXAUm SELL: Using strategy SL=21.16358
+2026-01-05 21:38:12 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 21.13132 | SL: 21.16358
+2026-01-05 21:38:13 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=638931688 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 21.16358 | Entry Price: 21.13132 (requested: 21.13132) | Slippage: 0.00000
+2026-01-05 21:38:13 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCXAUm Ticket 638931688 | SL verified: 21.16358 (expected: 21.16358)
+2026-01-05 21:38:13 - order_manager - INFO - [MODIFY_ORDER] Ticket 638931688 | Symbol BTCXAUm | SL: 21.16358 (included: True) | TP: 21.09906 (included: True)
+2026-01-05 21:38:13 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638931688 Symbol=BTCXAUm | SL: 21.16358 (old: 21.16358) | TP: 21.09906 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=21.13757, comment=
+2026-01-05 21:38:13 - order_manager - INFO - [SL_VERIFIED] Ticket 638931688 | SL verified: 21.16358 (expected: 21.16358)
+2026-01-05 21:38:14 - order_manager - INFO - [TP_VERIFIED] Ticket 638931688 | TP verified: 21.09906 (expected: 21.09906)
+2026-01-05 21:38:26 - order_manager - INFO - [ATOMIC_SL] BTCXAUm SELL: Using strategy SL=21.16569
+2026-01-05 21:38:26 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 21.13270 | SL: 21.16569
+2026-01-05 21:38:26 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=638932107 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 21.16569 | Entry Price: 21.13270 (requested: 21.13270) | Slippage: 0.00000
+2026-01-05 21:38:26 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCXAUm Ticket 638932107 | SL verified: 21.16569 (expected: 21.16569)
+2026-01-05 21:38:26 - order_manager - INFO - [MODIFY_ORDER] Ticket 638932107 | Symbol BTCXAUm | SL: 21.16569 (included: True) | TP: 21.10044 (included: True)
+2026-01-05 21:38:27 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638932107 Symbol=BTCXAUm | SL: 21.16569 (old: 21.16569) | TP: 21.10044 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=21.13895, comment=
+2026-01-05 21:38:27 - order_manager - INFO - [SL_VERIFIED] Ticket 638932107 | SL verified: 21.16569 (expected: 21.16569)
+2026-01-05 21:38:27 - order_manager - INFO - [TP_VERIFIED] Ticket 638932107 | TP verified: 21.10044 (expected: 21.10044)
+2026-01-05 21:38:28 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94125.78000
+2026-01-05 21:38:28 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 93991.28000 | SL: 94125.78000
+2026-01-05 21:38:28 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638932168 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94125.78000 | Entry Price: 93991.28000 (requested: 93991.28000) | Slippage: 0.00000
+2026-01-05 21:38:28 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638932168 | SL verified: 94125.78000 (expected: 94125.78000)
+2026-01-05 21:38:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 638932168 | Symbol BTCUSDm | SL: 94125.78000 (included: True) | TP: 93856.78000 (included: True)
+2026-01-05 21:38:28 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638932168 Symbol=BTCUSDm | SL: 94125.78000 (old: 94125.78000) | TP: 93856.78000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94009.28, comment=
+2026-01-05 21:38:29 - order_manager - INFO - [SL_VERIFIED] Ticket 638932168 | SL verified: 94125.78000 (expected: 94125.78000)
+2026-01-05 21:38:29 - order_manager - INFO - [TP_VERIFIED] Ticket 638932168 | TP verified: 93856.78000 (expected: 93856.78000)
+2026-01-05 21:38:47 - order_manager - INFO - [ATOMIC_SL] BTCXAUm SELL: Using strategy SL=21.17374
+2026-01-05 21:38:47 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 21.14335 | SL: 21.17374
+2026-01-05 21:38:48 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=638932926 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 21.17374 | Entry Price: 21.14335 (requested: 21.14335) | Slippage: 0.00000
+2026-01-05 21:38:48 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCXAUm Ticket 638932926 | SL verified: 21.17374 (expected: 21.17374)
+2026-01-05 21:38:48 - order_manager - INFO - [MODIFY_ORDER] Ticket 638932926 | Symbol BTCXAUm | SL: 21.17374 (included: True) | TP: 21.11109 (included: True)
+2026-01-05 21:38:48 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638932926 Symbol=BTCXAUm | SL: 21.17374 (old: 21.17374) | TP: 21.11109 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=21.1496, comment=
+2026-01-05 21:38:48 - order_manager - INFO - [SL_VERIFIED] Ticket 638932926 | SL verified: 21.17374 (expected: 21.17374)
+2026-01-05 21:38:48 - order_manager - INFO - [TP_VERIFIED] Ticket 638932926 | TP verified: 21.11109 (expected: 21.11109)
+2026-01-05 21:38:49 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94169.98000
+2026-01-05 21:38:49 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 94037.69000 | SL: 94169.98000
+2026-01-05 21:38:49 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638933026 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94169.98000 | Entry Price: 94037.69000 (requested: 94037.69000) | Slippage: 0.00000
+2026-01-05 21:38:50 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638933026 | SL verified: 94169.98000 (expected: 94169.98000)
+2026-01-05 21:38:50 - order_manager - INFO - [MODIFY_ORDER] Ticket 638933026 | Symbol BTCUSDm | SL: 94169.98000 (included: True) | TP: 93903.19000 (included: True)
+2026-01-05 21:38:50 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638933026 Symbol=BTCUSDm | SL: 94169.98000 (old: 94169.98000) | TP: 93903.19000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94055.69, comment=
+2026-01-05 21:38:50 - order_manager - INFO - [SL_VERIFIED] Ticket 638933026 | SL verified: 94169.98000 (expected: 94169.98000)
+2026-01-05 21:38:50 - order_manager - INFO - [TP_VERIFIED] Ticket 638933026 | TP verified: 93903.19000 (expected: 93903.19000)
+2026-01-05 21:39:05 - order_manager - INFO - [MODIFY_ORDER] Ticket 638933026 | Symbol BTCUSDm | SL: 94027.69000 (included: True) | TP: 93903.19000 (included: True)
+2026-01-05 21:39:05 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638933026 Symbol=BTCUSDm | SL: 94027.69000 (old: 94169.98000) | TP: 93903.19000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94024.62, comment=
+2026-01-05 21:39:05 - order_manager - INFO - [SL_VERIFIED] Ticket 638933026 | SL verified: 94027.69000 (expected: 94027.69000)
+2026-01-05 21:40:27 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4443.73400
+2026-01-05 21:40:27 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.76000 | SL: 4443.73400
+2026-01-05 21:40:27 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638938142 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4443.73400 | Entry Price: 4446.76000 (requested: 4446.76000) | Slippage: 0.00000
+2026-01-05 21:40:27 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638938142 | SL verified: 4443.73400 (expected: 4443.73400)
+2026-01-05 21:40:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 638938142 | Symbol XAUUSDm | SL: 4443.76000 (included: True) | TP: 0.00000 (included: False)
+2026-01-05 21:40:28 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638938142 Symbol=XAUUSDm | SL: 4443.76000 (old: 4443.73400) | TP: 0.00000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.6, comment=
+2026-01-05 21:40:28 - order_manager - INFO - [SL_VERIFIED] Ticket 638938142 | SL verified: 4443.76000 (expected: 4443.76000)
+2026-01-05 21:40:31 - order_manager - INFO - [MODIFY_ORDER] Ticket 638938142 | Symbol XAUUSDm | SL: 4443.76000 (included: True) | TP: 4448.65100 (included: True)
+2026-01-05 21:40:31 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638938142 Symbol=XAUUSDm | SL: 4443.76000 (old: 4443.76000) | TP: 4448.65100 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.654, comment=
+2026-01-05 21:40:32 - order_manager - INFO - [SL_VERIFIED] Ticket 638938142 | SL verified: 4443.76000 (expected: 4443.76000)
+2026-01-05 21:40:32 - order_manager - INFO - [TP_VERIFIED] Ticket 638938142 | TP verified: 4448.65100 (expected: 4448.65100)
+2026-01-05 21:40:59 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4443.57100
+2026-01-05 21:40:59 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.61200 | SL: 4443.57100
+2026-01-05 21:40:59 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638940196 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4443.57100 | Entry Price: 4446.61200 (requested: 4446.61200) | Slippage: 0.00000
+2026-01-05 21:40:59 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638940196 | SL verified: 4443.57100 (expected: 4443.57100)
+2026-01-05 21:41:00 - order_manager - INFO - [MODIFY_ORDER] Ticket 638940196 | Symbol XAUUSDm | SL: 4443.61200 (included: True) | TP: 0.00000 (included: False)
+2026-01-05 21:41:00 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638940196 Symbol=XAUUSDm | SL: 4443.61200 (old: 4443.57100) | TP: 0.00000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.446, comment=
+2026-01-05 21:41:00 - order_manager - INFO - [SL_VERIFIED] Ticket 638940196 | SL verified: 4443.61200 (expected: 4443.61200)
+2026-01-05 21:41:03 - order_manager - INFO - [MODIFY_ORDER] Ticket 638940196 | Symbol XAUUSDm | SL: 4443.61200 (included: True) | TP: 4448.50300 (included: True)
+2026-01-05 21:41:03 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638940196 Symbol=XAUUSDm | SL: 4443.61200 (old: 4443.61200) | TP: 4448.50300 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.376, comment=
+2026-01-05 21:41:04 - order_manager - INFO - [SL_VERIFIED] Ticket 638940196 | SL verified: 4443.61200 (expected: 4443.61200)
+2026-01-05 21:41:04 - order_manager - INFO - [TP_VERIFIED] Ticket 638940196 | TP verified: 4448.50300 (expected: 4448.50300)
+2026-01-05 21:41:35 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4443.71200
+2026-01-05 21:41:35 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.56500 | SL: 4443.71200
+2026-01-05 21:41:35 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638942755 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4443.71200 | Entry Price: 4446.56500 (requested: 4446.56500) | Slippage: 0.00000
+2026-01-05 21:41:35 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638942755 | SL verified: 4443.71200 (expected: 4443.71200)
+2026-01-05 21:41:35 - order_manager - INFO - [MODIFY_ORDER] Ticket 638942755 | Symbol XAUUSDm | SL: 4443.71200 (included: True) | TP: 4448.34800 (included: True)
+2026-01-05 21:41:35 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638942755 Symbol=XAUUSDm | SL: 4443.71200 (old: 4443.71200) | TP: 4448.34800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.409, comment=
+2026-01-05 21:41:35 - order_manager - INFO - [SL_VERIFIED] Ticket 638942755 | SL verified: 4443.71200 (expected: 4443.71200)
+2026-01-05 21:41:36 - order_manager - INFO - [TP_VERIFIED] Ticket 638942755 | TP verified: 4448.34800 (expected: 4448.34800)
+2026-01-05 21:41:36 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93953.27000
+2026-01-05 21:41:36 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94126.14000 | SL: 93953.27000
+2026-01-05 21:41:37 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638942817 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93953.27000 | Entry Price: 94126.14000 (requested: 94126.14000) | Slippage: 0.00000
+2026-01-05 21:41:37 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638942817 | SL verified: 93953.27000 (expected: 93953.27000)
+2026-01-05 21:41:37 - order_manager - INFO - [MODIFY_ORDER] Ticket 638942817 | Symbol BTCUSDm | SL: 93953.27000 (included: True) | TP: 94234.18000 (included: True)
+2026-01-05 21:41:37 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638942817 Symbol=BTCUSDm | SL: 93953.27000 (old: 93953.27000) | TP: 94234.18000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94108.14, comment=
+2026-01-05 21:41:37 - order_manager - INFO - [SL_VERIFIED] Ticket 638942817 | SL verified: 93953.27000 (expected: 93953.27000)
+2026-01-05 21:41:38 - order_manager - INFO - [TP_VERIFIED] Ticket 638942817 | TP verified: 94234.18000 (expected: 94234.18000)
+2026-01-05 21:41:45 - order_manager - WARNING - SL 4446.67200 too close to market (BID: 4446.67100, min allowed: 4446.67090, freeze_level: 0, stops_level: 0)
+2026-01-05 21:41:45 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 4446.67100
+2026-01-05 21:41:45 - order_manager - INFO - [MODIFY_ORDER] Ticket 638940196 | Symbol XAUUSDm | SL: 4446.67100 (included: True) | TP: 4448.50300 (included: True)
+2026-01-05 21:41:45 - order_manager - WARNING - Modify order failed for ticket 638940196 (attempt 1/2): 10016 - Invalid stops. Retrying...
+2026-01-05 21:41:45 - order_manager - ERROR - [ERROR] SL UPDATE FAILED: Ticket=638940196 Symbol=XAUUSDm Code=10016 Reason=Invalid stops Attempts=2
+2026-01-05 21:41:45 - order_manager - ERROR - Modify order failed for ticket 638940196 after 2 attempts: 10016 - Invalid stops
+2026-01-05 21:41:45 - order_manager - WARNING - [FALLBACK] Attempting direct MT5 API call for ticket 638940196
+2026-01-05 21:41:45 - order_manager - ERROR - [FALLBACK FAILED] Direct MT5 API call failed for ticket 638940196: 10016
+2026-01-05 21:41:46 - order_manager - WARNING - SL 4446.67200 too close to market (BID: 4446.65800, min allowed: 4446.65790, freeze_level: 0, stops_level: 0)
+2026-01-05 21:41:46 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 4446.65800
+2026-01-05 21:41:46 - order_manager - INFO - [MODIFY_ORDER] Ticket 638940196 | Symbol XAUUSDm | SL: 4446.65800 (included: True) | TP: 4448.50300 (included: True)
+2026-01-05 21:41:48 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638940196 | MT5 modify_order took 2.16s (exceeded 2.0s limit)
+2026-01-05 21:41:48 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638940196 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:41:48 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638940196 | MT5 modify_order timeout: 2.23s > 2.0s limit
+2026-01-05 21:41:49 - order_manager - WARNING - SL 4446.67200 too close to market (BID: 4446.65100, min allowed: 4446.65090, freeze_level: 0, stops_level: 0)
+2026-01-05 21:41:49 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 4446.65100
+2026-01-05 21:41:49 - order_manager - INFO - [MODIFY_ORDER] Ticket 638940196 | Symbol XAUUSDm | SL: 4446.65100 (included: True) | TP: 4448.50300 (included: True)
+2026-01-05 21:41:51 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638940196 | MT5 modify_order took 2.21s (exceeded 2.0s limit)
+2026-01-05 21:41:51 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638940196 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:41:51 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638940196 | MT5 modify_order timeout: 2.28s > 2.0s limit
+2026-01-05 21:41:53 - order_manager - INFO - [MODIFY_ORDER] Ticket 638940196 | Symbol XAUUSDm | SL: 4446.51600 (included: True) | TP: 4448.50300 (included: True)
+2026-01-05 21:41:53 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638940196 Symbol=XAUUSDm | SL: 4446.51600 (old: 4443.61200) | TP: 4448.50300 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.526, comment=
+2026-01-05 21:41:54 - order_manager - INFO - [SL_VERIFIED] Ticket 638940196 | SL verified: 4446.51600 (expected: 4446.51600)
+2026-01-05 21:41:54 - order_manager - INFO - [MODIFY_ORDER] Ticket 638942755 | Symbol XAUUSDm | SL: 4446.70700 (included: True) | TP: 4448.34800 (included: True)
+2026-01-05 21:41:54 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638942755 Symbol=XAUUSDm | SL: 4446.70700 (old: 4443.71200) | TP: 4448.34800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.752, comment=
+2026-01-05 21:41:55 - order_manager - INFO - [SL_VERIFIED] Ticket 638942755 | SL verified: 4446.70700 (expected: 4446.70700)
+2026-01-05 21:42:09 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4444.21700
+2026-01-05 21:42:09 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.75200 | SL: 4444.21700
+2026-01-05 21:42:09 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638944033 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4444.21700 | Entry Price: 4446.75200 (requested: 4446.75200) | Slippage: 0.00000
+2026-01-05 21:42:10 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638944033 | SL verified: 4444.21700 (expected: 4444.21700)
+2026-01-05 21:42:10 - order_manager - INFO - [MODIFY_ORDER] Ticket 638944033 | Symbol XAUUSDm | SL: 4444.21700 (included: True) | TP: 4448.53500 (included: True)
+2026-01-05 21:42:10 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638944033 Symbol=XAUUSDm | SL: 4444.21700 (old: 4444.21700) | TP: 4448.53500 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.592, comment=
+2026-01-05 21:42:10 - order_manager - INFO - [SL_VERIFIED] Ticket 638944033 | SL verified: 4444.21700 (expected: 4444.21700)
+2026-01-05 21:42:10 - order_manager - INFO - [TP_VERIFIED] Ticket 638944033 | TP verified: 4448.53500 (expected: 4448.53500)
+2026-01-05 21:42:18 - order_manager - INFO - [MODIFY_ORDER] Ticket 638940196 | Symbol XAUUSDm | SL: 4446.73300 (included: True) | TP: 4448.50300 (included: True)
+2026-01-05 21:42:18 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638940196 Symbol=XAUUSDm | SL: 4446.73300 (old: 4446.51600) | TP: 4448.50300 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.743, comment=
+2026-01-05 21:42:18 - order_manager - INFO - [SL_VERIFIED] Ticket 638940196 | SL verified: 4446.73300 (expected: 4446.73300)
+2026-01-05 21:42:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 638940196 | Symbol XAUUSDm | SL: 4446.75000 (included: True) | TP: 4448.50300 (included: True)
+2026-01-05 21:42:28 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638940196 Symbol=XAUUSDm | SL: 4446.75000 (old: 4446.73300) | TP: 4448.50300 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.76, comment=
+2026-01-05 21:42:28 - order_manager - INFO - [SL_VERIFIED] Ticket 638940196 | SL verified: 4446.75000 (expected: 4446.75000)
+2026-01-05 21:42:31 - order_manager - WARNING - SL 94132.14000 too close to market (BID: 94131.85000, min allowed: 94131.84900, freeze_level: 0, stops_level: 0)
+2026-01-05 21:42:31 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 94131.85000
+2026-01-05 21:42:31 - order_manager - INFO - [MODIFY_ORDER] Ticket 638942817 | Symbol BTCUSDm | SL: 94131.85000 (included: True) | TP: 94234.18000 (included: True)
+2026-01-05 21:42:31 - order_manager - WARNING - Modify order failed for ticket 638942817 (attempt 1/2): 10016 - Invalid stops. Retrying...
+2026-01-05 21:42:31 - order_manager - ERROR - [ERROR] SL UPDATE FAILED: Ticket=638942817 Symbol=BTCUSDm Code=10016 Reason=Invalid stops Attempts=2
+2026-01-05 21:42:31 - order_manager - ERROR - Modify order failed for ticket 638942817 after 2 attempts: 10016 - Invalid stops
+2026-01-05 21:42:31 - order_manager - WARNING - [FALLBACK] Attempting direct MT5 API call for ticket 638942817
+2026-01-05 21:42:31 - order_manager - ERROR - [FALLBACK FAILED] Direct MT5 API call failed for ticket 638942817: 10016
+2026-01-05 21:42:32 - order_manager - WARNING - SL 94132.14000 too close to market (BID: 94131.75000, min allowed: 94131.74900, freeze_level: 0, stops_level: 0)
+2026-01-05 21:42:32 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 94131.75000
+2026-01-05 21:42:32 - order_manager - INFO - [MODIFY_ORDER] Ticket 638942817 | Symbol BTCUSDm | SL: 94131.75000 (included: True) | TP: 94234.18000 (included: True)
+2026-01-05 21:42:34 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638942817 | MT5 modify_order took 2.14s (exceeded 2.0s limit)
+2026-01-05 21:42:34 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638942817 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:42:34 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638942817 | MT5 modify_order timeout: 2.19s > 2.0s limit
+2026-01-05 21:42:35 - order_manager - WARNING - SL 94132.14000 too close to market (BID: 94131.46000, min allowed: 94131.45900, freeze_level: 0, stops_level: 0)
+2026-01-05 21:42:35 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 94131.46000
+2026-01-05 21:42:35 - order_manager - INFO - [MODIFY_ORDER] Ticket 638942817 | Symbol BTCUSDm | SL: 94131.46000 (included: True) | TP: 94234.18000 (included: True)
+2026-01-05 21:42:37 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638942817 | MT5 modify_order took 2.12s (exceeded 2.0s limit)
+2026-01-05 21:42:37 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638942817 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:42:37 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638942817 | MT5 modify_order timeout: 2.17s > 2.0s limit
+2026-01-05 21:42:39 - order_manager - INFO - [MODIFY_ORDER] Ticket 638942817 | Symbol BTCUSDm | SL: 94120.96000 (included: True) | TP: 94234.18000 (included: True)
+2026-01-05 21:42:40 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638942817 Symbol=BTCUSDm | SL: 94120.96000 (old: 93953.27000) | TP: 94234.18000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94121.06, comment=
+2026-01-05 21:42:40 - order_manager - INFO - [SL_VERIFIED] Ticket 638942817 | SL verified: 94120.96000 (expected: 94120.96000)
+2026-01-05 21:42:53 - order_manager - WARNING - SL 4446.78200 too close to market (BID: 4446.78100, min allowed: 4446.78090, freeze_level: 0, stops_level: 0)
+2026-01-05 21:42:53 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 4446.78100
+2026-01-05 21:42:53 - order_manager - INFO - [MODIFY_ORDER] Ticket 638944033 | Symbol XAUUSDm | SL: 4446.78100 (included: True) | TP: 4448.53500 (included: True)
+2026-01-05 21:42:55 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638944033 | MT5 modify_order took 2.11s (exceeded 2.0s limit)
+2026-01-05 21:42:55 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638944033 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:42:55 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638944033 | MT5 modify_order timeout: 2.16s > 2.0s limit
+2026-01-05 21:42:55 - order_manager - INFO - [MODIFY_ORDER] Ticket 638944033 | Symbol XAUUSDm | SL: 4446.73800 (included: True) | TP: 4448.53500 (included: True)
+2026-01-05 21:42:56 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638944033 Symbol=XAUUSDm | SL: 4446.73800 (old: 4444.21700) | TP: 4448.53500 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.742, comment=
+2026-01-05 21:42:56 - order_manager - INFO - [SL_VERIFIED] Ticket 638944033 | SL verified: 4446.73800 (expected: 4446.73800)
+2026-01-05 21:42:56 - order_manager - INFO - [MODIFY_ORDER] Ticket 638938142 | Symbol XAUUSDm | SL: 4443.92000 (included: True) | TP: 4448.65100 (included: True)
+2026-01-05 21:42:56 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638938142 Symbol=XAUUSDm | SL: 4443.92000 (old: 4443.76000) | TP: 4448.65100 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.742, comment=
+2026-01-05 21:42:56 - order_manager - INFO - [SL_VERIFIED] Ticket 638938142 | SL verified: 4443.92000 (expected: 4443.92000)
+2026-01-05 21:42:59 - order_manager - INFO - [MODIFY_ORDER] Ticket 638938142 | Symbol XAUUSDm | SL: 4446.81000 (included: True) | TP: 4448.65100 (included: True)
+2026-01-05 21:43:00 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638938142 Symbol=XAUUSDm | SL: 4446.81000 (old: 4443.92000) | TP: 4448.65100 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.812, comment=
+2026-01-05 21:43:00 - order_manager - INFO - [SL_VERIFIED] Ticket 638938142 | SL verified: 4446.81000 (expected: 4446.81000)
+2026-01-05 21:43:10 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4444.05000
+2026-01-05 21:43:10 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.94900 | SL: 4444.05000
+2026-01-05 21:43:10 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638946078 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4444.05000 | Entry Price: 4446.94900 (requested: 4446.94900) | Slippage: 0.00000
+2026-01-05 21:43:10 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638946078 | SL verified: 4444.05000 (expected: 4444.05000)
+2026-01-05 21:43:10 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946078 | Symbol XAUUSDm | SL: 4444.05000 (included: True) | TP: 4448.76100 (included: True)
+2026-01-05 21:43:10 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946078 Symbol=XAUUSDm | SL: 4444.05000 (old: 4444.05000) | TP: 4448.76100 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.789, comment=
+2026-01-05 21:43:10 - order_manager - INFO - [SL_VERIFIED] Ticket 638946078 | SL verified: 4444.05000 (expected: 4444.05000)
+2026-01-05 21:43:11 - order_manager - INFO - [TP_VERIFIED] Ticket 638946078 | TP verified: 4448.76100 (expected: 4448.76100)
+2026-01-05 21:43:11 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93940.64000
+2026-01-05 21:43:11 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94109.27000 | SL: 93940.64000
+2026-01-05 21:43:11 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638946111 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93940.64000 | Entry Price: 94109.27000 (requested: 94109.27000) | Slippage: 0.00000
+2026-01-05 21:43:12 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638946111 | SL verified: 93940.64000 (expected: 93940.64000)
+2026-01-05 21:43:12 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946111 | Symbol BTCUSDm | SL: 93940.64000 (included: True) | TP: 94214.66000 (included: True)
+2026-01-05 21:43:12 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946111 Symbol=BTCUSDm | SL: 93940.64000 (old: 93940.64000) | TP: 94214.66000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94091.15, comment=
+2026-01-05 21:43:12 - order_manager - INFO - [SL_VERIFIED] Ticket 638946111 | SL verified: 93940.64000 (expected: 93940.64000)
+2026-01-05 21:43:12 - order_manager - INFO - [TP_VERIFIED] Ticket 638946111 | TP verified: 94214.66000 (expected: 94214.66000)
+2026-01-05 21:43:13 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946078 | Symbol XAUUSDm | SL: 4444.10900 (included: True) | TP: 4448.76100 (included: True)
+2026-01-05 21:43:13 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946078 Symbol=XAUUSDm | SL: 4444.10900 (old: 4444.05000) | TP: 4448.76100 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.922, comment=
+2026-01-05 21:43:13 - order_manager - INFO - [SL_VERIFIED] Ticket 638946078 | SL verified: 4444.10900 (expected: 4444.10900)
+2026-01-05 21:43:23 - order_manager - WARNING - SL 4446.98900 too close to market (BID: 4446.98900, min allowed: 4446.98890, freeze_level: 0, stops_level: 0)
+2026-01-05 21:43:23 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 4446.98900
+2026-01-05 21:43:23 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946078 | Symbol XAUUSDm | SL: 4446.98900 (included: True) | TP: 4448.76100 (included: True)
+2026-01-05 21:43:23 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946078 Symbol=XAUUSDm | SL: 4446.98900 (old: 4444.10900) | TP: 4448.76100 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.989, comment=
+2026-01-05 21:43:23 - order_manager - INFO - [SL_VERIFIED] Ticket 638946078 | SL verified: 4446.98900 (expected: 4446.98900)
+2026-01-05 21:43:34 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4444.18900
+2026-01-05 21:43:34 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4447.08800 | SL: 4444.18900
+2026-01-05 21:43:34 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638946666 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4444.18900 | Entry Price: 4447.08800 (requested: 4447.08800) | Slippage: 0.00000
+2026-01-05 21:43:34 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638946666 | SL verified: 4444.18900 (expected: 4444.18900)
+2026-01-05 21:43:34 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4444.18900 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:43:35 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946666 Symbol=XAUUSDm | SL: 4444.18900 (old: 4444.18900) | TP: 4448.90200 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.968, comment=
+2026-01-05 21:43:35 - order_manager - INFO - [SL_VERIFIED] Ticket 638946666 | SL verified: 4444.18900 (expected: 4444.18900)
+2026-01-05 21:43:35 - order_manager - INFO - [TP_VERIFIED] Ticket 638946666 | TP verified: 4448.90200 (expected: 4448.90200)
+2026-01-05 21:43:36 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93942.99000
+2026-01-05 21:43:36 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94110.05000 | SL: 93942.99000
+2026-01-05 21:43:36 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638946746 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93942.99000 | Entry Price: 94110.05000 (requested: 94110.05000) | Slippage: 0.00000
+2026-01-05 21:43:36 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638946746 | SL verified: 93942.99000 (expected: 93942.99000)
+2026-01-05 21:43:36 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946746 | Symbol BTCUSDm | SL: 93942.99000 (included: True) | TP: 94215.44000 (included: True)
+2026-01-05 21:43:37 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946746 Symbol=BTCUSDm | SL: 93942.99000 (old: 93942.99000) | TP: 94215.44000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94092.05, comment=
+2026-01-05 21:43:37 - order_manager - INFO - [SL_VERIFIED] Ticket 638946746 | SL verified: 93942.99000 (expected: 93942.99000)
+2026-01-05 21:43:37 - order_manager - INFO - [TP_VERIFIED] Ticket 638946746 | TP verified: 94215.44000 (expected: 94215.44000)
+2026-01-05 21:43:41 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4444.25200 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:43:41 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946666 Symbol=XAUUSDm | SL: 4444.25200 (old: 4444.18900) | TP: 4448.90200 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4447.055, comment=
+2026-01-05 21:43:41 - order_manager - INFO - [SL_VERIFIED] Ticket 638946666 | SL verified: 4444.25200 (expected: 4444.25200)
+2026-01-05 21:44:11 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4444.03200
+2026-01-05 21:44:11 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.90500 | SL: 4444.03200
+2026-01-05 21:44:11 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638948299 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4444.03200 | Entry Price: 4446.90500 (requested: 4446.90500) | Slippage: 0.00000
+2026-01-05 21:44:11 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638948299 | SL verified: 4444.03200 (expected: 4444.03200)
+2026-01-05 21:44:11 - order_manager - INFO - [MODIFY_ORDER] Ticket 638948299 | Symbol XAUUSDm | SL: 4444.03200 (included: True) | TP: 4448.69400 (included: True)
+2026-01-05 21:44:11 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638948299 Symbol=XAUUSDm | SL: 4444.03200 (old: 4444.03200) | TP: 4448.69400 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.745, comment=
+2026-01-05 21:44:11 - order_manager - INFO - [SL_VERIFIED] Ticket 638948299 | SL verified: 4444.03200 (expected: 4444.03200)
+2026-01-05 21:44:12 - order_manager - INFO - [TP_VERIFIED] Ticket 638948299 | TP verified: 4448.69400 (expected: 4448.69400)
+2026-01-05 21:44:12 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93969.53000
+2026-01-05 21:44:12 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94118.27000 | SL: 93969.53000
+2026-01-05 21:44:13 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638948344 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93969.53000 | Entry Price: 94118.27000 (requested: 94118.27000) | Slippage: 0.00000
+2026-01-05 21:44:13 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638948344 | SL verified: 93969.53000 (expected: 93969.53000)
+2026-01-05 21:44:13 - order_manager - INFO - [MODIFY_ORDER] Ticket 638948344 | Symbol BTCUSDm | SL: 93969.53000 (included: True) | TP: 94211.23000 (included: True)
+2026-01-05 21:44:13 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638948344 Symbol=BTCUSDm | SL: 93969.53000 (old: 93969.53000) | TP: 94211.23000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94100.27, comment=
+2026-01-05 21:44:13 - order_manager - INFO - [SL_VERIFIED] Ticket 638948344 | SL verified: 93969.53000 (expected: 93969.53000)
+2026-01-05 21:44:14 - order_manager - INFO - [TP_VERIFIED] Ticket 638948344 | TP verified: 94211.23000 (expected: 94211.23000)
+2026-01-05 21:44:41 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4443.42700
+2026-01-05 21:44:41 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.26000 | SL: 4443.42700
+2026-01-05 21:44:41 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638948986 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4443.42700 | Entry Price: 4446.26000 (requested: 4446.26000) | Slippage: 0.00000
+2026-01-05 21:44:41 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638948986 | SL verified: 4443.42700 (expected: 4443.42700)
+2026-01-05 21:44:42 - order_manager - INFO - [MODIFY_ORDER] Ticket 638948986 | Symbol XAUUSDm | SL: 4443.42700 (included: True) | TP: 4448.04900 (included: True)
+2026-01-05 21:44:42 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638948986 Symbol=XAUUSDm | SL: 4443.42700 (old: 4443.42700) | TP: 4448.04900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.1, comment=
+2026-01-05 21:44:42 - order_manager - INFO - [SL_VERIFIED] Ticket 638948986 | SL verified: 4443.42700 (expected: 4443.42700)
+2026-01-05 21:44:42 - order_manager - INFO - [TP_VERIFIED] Ticket 638948986 | TP verified: 4448.04900 (expected: 4448.04900)
+2026-01-05 21:44:43 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93952.56000
+2026-01-05 21:44:43 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94101.41000 | SL: 93952.56000
+2026-01-05 21:44:43 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638949073 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93952.56000 | Entry Price: 94101.41000 (requested: 94101.41000) | Slippage: 0.00000
+2026-01-05 21:44:43 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638949073 | SL verified: 93952.56000 (expected: 93952.56000)
+2026-01-05 21:44:43 - order_manager - INFO - [MODIFY_ORDER] Ticket 638949073 | Symbol BTCUSDm | SL: 93952.56000 (included: True) | TP: 94194.37000 (included: True)
+2026-01-05 21:44:44 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638949073 Symbol=BTCUSDm | SL: 93952.56000 (old: 93952.56000) | TP: 94194.37000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94083.41, comment=
+2026-01-05 21:44:44 - order_manager - INFO - [SL_VERIFIED] Ticket 638949073 | SL verified: 93952.56000 (expected: 93952.56000)
+2026-01-05 21:44:44 - order_manager - INFO - [TP_VERIFIED] Ticket 638949073 | TP verified: 94194.37000 (expected: 94194.37000)
+2026-01-05 21:45:38 - order_manager - INFO - [MODIFY_ORDER] Ticket 638948986 | Symbol XAUUSDm | SL: 4446.66400 (included: True) | TP: 4448.04900 (included: True)
+2026-01-05 21:45:38 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638948986 Symbol=XAUUSDm | SL: 4446.66400 (old: 4443.42700) | TP: 4448.04900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.674, comment=
+2026-01-05 21:45:39 - order_manager - INFO - [SL_VERIFIED] Ticket 638948986 | SL verified: 4446.66400 (expected: 4446.66400)
+2026-01-05 21:45:54 - order_manager - ERROR - Cannot place order: Symbol XAUUSDm not found or price is stale
+2026-01-05 21:45:56 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4444.00200
+2026-01-05 21:45:56 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.75900 | SL: 4444.00200
+2026-01-05 21:45:56 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638951735 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4444.00200 | Entry Price: 4446.75900 (requested: 4446.75900) | Slippage: 0.00000
+2026-01-05 21:45:56 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638951735 | SL verified: 4444.00200 (expected: 4444.00200)
+2026-01-05 21:45:56 - order_manager - INFO - [MODIFY_ORDER] Ticket 638951735 | Symbol XAUUSDm | SL: 4444.00200 (included: True) | TP: 4448.49700 (included: True)
+2026-01-05 21:45:56 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638951735 Symbol=XAUUSDm | SL: 4444.00200 (old: 4444.00200) | TP: 4448.49700 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.599, comment=
+2026-01-05 21:45:57 - order_manager - INFO - [SL_VERIFIED] Ticket 638951735 | SL verified: 4444.00200 (expected: 4444.00200)
+2026-01-05 21:45:57 - order_manager - INFO - [TP_VERIFIED] Ticket 638951735 | TP verified: 4448.49700 (expected: 4448.49700)
+2026-01-05 21:46:34 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94012.35000
+2026-01-05 21:46:34 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94119.49000 | SL: 94012.35000
+2026-01-05 21:46:35 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638952828 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94012.35000 | Entry Price: 94119.49000 (requested: 94119.49000) | Slippage: 0.00000
+2026-01-05 21:46:35 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638952828 | SL verified: 94012.35000 (expected: 94012.35000)
+2026-01-05 21:46:35 - order_manager - INFO - [MODIFY_ORDER] Ticket 638952828 | Symbol BTCUSDm | SL: 94012.35000 (included: True) | TP: 94224.50000 (included: True)
+2026-01-05 21:46:35 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638952828 Symbol=BTCUSDm | SL: 94012.35000 (old: 94012.35000) | TP: 94224.50000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94101.49, comment=
+2026-01-05 21:46:35 - order_manager - INFO - [SL_VERIFIED] Ticket 638952828 | SL verified: 94012.35000 (expected: 94012.35000)
+2026-01-05 21:46:36 - order_manager - INFO - [TP_VERIFIED] Ticket 638952828 | TP verified: 94224.50000 (expected: 94224.50000)
+2026-01-05 21:46:36 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4443.31500
+2026-01-05 21:46:36 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4446.17300 | SL: 4443.31500
+2026-01-05 21:46:37 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638952901 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4443.31500 | Entry Price: 4446.17300 (requested: 4446.17300) | Slippage: 0.00000
+2026-01-05 21:46:37 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638952901 | SL verified: 4443.31500 (expected: 4443.31500)
+2026-01-05 21:46:37 - order_manager - INFO - [MODIFY_ORDER] Ticket 638952901 | Symbol XAUUSDm | SL: 4443.31500 (included: True) | TP: 4447.96900 (included: True)
+2026-01-05 21:46:37 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638952901 Symbol=XAUUSDm | SL: 4443.31500 (old: 4443.31500) | TP: 4447.96900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.013, comment=
+2026-01-05 21:46:37 - order_manager - INFO - [SL_VERIFIED] Ticket 638952901 | SL verified: 4443.31500 (expected: 4443.31500)
+2026-01-05 21:46:38 - order_manager - INFO - [TP_VERIFIED] Ticket 638952901 | TP verified: 4447.96900 (expected: 4447.96900)
+2026-01-05 21:46:39 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946111 | Symbol BTCUSDm | SL: 94120.86000 (included: True) | TP: 94214.66000 (included: True)
+2026-01-05 21:46:39 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946111 Symbol=BTCUSDm | SL: 94120.86000 (old: 93940.64000) | TP: 94214.66000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94120.96, comment=
+2026-01-05 21:46:39 - order_manager - INFO - [SL_VERIFIED] Ticket 638946111 | SL verified: 94120.86000 (expected: 94120.86000)
+2026-01-05 21:46:43 - order_manager - WARNING - SL 94114.05000 too close to market (BID: 94113.66000, min allowed: 94113.65900, freeze_level: 0, stops_level: 0)
+2026-01-05 21:46:43 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 94113.66000
+2026-01-05 21:46:43 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946746 | Symbol BTCUSDm | SL: 94113.66000 (included: True) | TP: 94215.44000 (included: True)
+2026-01-05 21:46:45 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638946746 | MT5 modify_order took 2.09s (exceeded 2.0s limit)
+2026-01-05 21:46:45 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638946746 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:46:45 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638946746 | MT5 modify_order timeout: 2.17s > 2.0s limit
+2026-01-05 21:46:45 - order_manager - WARNING - SL 94114.05000 too close to market (BID: 94113.44000, min allowed: 94113.43900, freeze_level: 0, stops_level: 0)
+2026-01-05 21:46:45 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 94113.44000
+2026-01-05 21:46:45 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946746 | Symbol BTCUSDm | SL: 94113.44000 (included: True) | TP: 94215.44000 (included: True)
+2026-01-05 21:46:47 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638946746 | MT5 modify_order took 2.18s (exceeded 2.0s limit)
+2026-01-05 21:46:47 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638946746 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:46:48 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638946746 | MT5 modify_order timeout: 2.32s > 2.0s limit
+2026-01-05 21:46:49 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946746 | Symbol BTCUSDm | SL: 94106.90000 (included: True) | TP: 94215.44000 (included: True)
+2026-01-05 21:46:49 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946746 Symbol=BTCUSDm | SL: 94106.90000 (old: 93942.99000) | TP: 94215.44000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94107.0, comment=
+2026-01-05 21:46:49 - order_manager - INFO - [SL_VERIFIED] Ticket 638946746 | SL verified: 94106.90000 (expected: 94106.90000)
+2026-01-05 21:46:56 - order_manager - INFO - [MODIFY_ORDER] Ticket 638949073 | Symbol BTCUSDm | SL: 94116.83000 (included: True) | TP: 94194.37000 (included: True)
+2026-01-05 21:46:56 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638949073 Symbol=BTCUSDm | SL: 94116.83000 (old: 93952.56000) | TP: 94194.37000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94116.93, comment=
+2026-01-05 21:46:56 - order_manager - INFO - [SL_VERIFIED] Ticket 638949073 | SL verified: 94116.83000 (expected: 94116.83000)
+2026-01-05 21:47:19 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 21:47:21 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94055.29000
+2026-01-05 21:47:21 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94160.30000 | SL: 94055.29000
+2026-01-05 21:47:21 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638954763 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94055.29000 | Entry Price: 94160.30000 (requested: 94160.30000) | Slippage: 0.00000
+2026-01-05 21:47:21 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638954763 | SL verified: 94055.29000 (expected: 94055.29000)
+2026-01-05 21:47:21 - order_manager - INFO - [MODIFY_ORDER] Ticket 638954763 | Symbol BTCUSDm | SL: 94055.29000 (included: True) | TP: 94265.31000 (included: True)
+2026-01-05 21:47:22 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638954763 Symbol=BTCUSDm | SL: 94055.29000 (old: 94055.29000) | TP: 94265.31000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94142.3, comment=
+2026-01-05 21:47:22 - order_manager - INFO - [SL_VERIFIED] Ticket 638954763 | SL verified: 94055.29000 (expected: 94055.29000)
+2026-01-05 21:47:22 - order_manager - INFO - [TP_VERIFIED] Ticket 638954763 | TP verified: 94265.31000 (expected: 94265.31000)
+2026-01-05 21:47:23 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4443.09300
+2026-01-05 21:47:23 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4445.85400 | SL: 4443.09300
+2026-01-05 21:47:23 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638954821 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4443.09300 | Entry Price: 4445.85400 (requested: 4445.85400) | Slippage: 0.00000
+2026-01-05 21:47:23 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638954821 | SL verified: 4443.09300 (expected: 4443.09300)
+2026-01-05 21:47:23 - order_manager - INFO - [MODIFY_ORDER] Ticket 638954821 | Symbol XAUUSDm | SL: 4443.09300 (included: True) | TP: 4447.65000 (included: True)
+2026-01-05 21:47:24 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638954821 Symbol=XAUUSDm | SL: 4443.09300 (old: 4443.09300) | TP: 4447.65000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4445.694, comment=
+2026-01-05 21:47:24 - order_manager - INFO - [SL_VERIFIED] Ticket 638954821 | SL verified: 4443.09300 (expected: 4443.09300)
+2026-01-05 21:47:24 - order_manager - INFO - [TP_VERIFIED] Ticket 638954821 | TP verified: 4447.65000 (expected: 4447.65000)
+2026-01-05 21:47:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946746 | Symbol BTCUSDm | SL: 94146.35000 (included: True) | TP: 94215.44000 (included: True)
+2026-01-05 21:47:29 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946746 Symbol=BTCUSDm | SL: 94146.35000 (old: 94106.90000) | TP: 94215.44000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94146.45, comment=
+2026-01-05 21:47:29 - order_manager - INFO - [SL_VERIFIED] Ticket 638946746 | SL verified: 94146.35000 (expected: 94146.35000)
+2026-01-05 21:47:33 - order_manager - INFO - [MODIFY_ORDER] Ticket 638948344 | Symbol BTCUSDm | SL: 94146.27000 (included: True) | TP: 94211.23000 (included: True)
+2026-01-05 21:47:33 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638948344 Symbol=BTCUSDm | SL: 94146.27000 (old: 93969.53000) | TP: 94211.23000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94146.45, comment=
+2026-01-05 21:47:33 - order_manager - INFO - [SL_VERIFIED] Ticket 638948344 | SL verified: 94146.27000 (expected: 94146.27000)
+2026-01-05 21:47:37 - order_manager - INFO - [MODIFY_ORDER] Ticket 638952828 | Symbol BTCUSDm | SL: 94142.63000 (included: True) | TP: 94224.50000 (included: True)
+2026-01-05 21:47:37 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638952828 Symbol=BTCUSDm | SL: 94142.63000 (old: 94012.35000) | TP: 94224.50000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94142.73, comment=
+2026-01-05 21:47:37 - order_manager - INFO - [SL_VERIFIED] Ticket 638952828 | SL verified: 94142.63000 (expected: 94142.63000)
+2026-01-05 21:48:00 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94055.36000
+2026-01-05 21:48:00 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94165.71000 | SL: 94055.36000
+2026-01-05 21:48:01 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638956140 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94055.36000 | Entry Price: 94165.71000 (requested: 94165.71000) | Slippage: 0.00000
+2026-01-05 21:48:01 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638956140 | SL verified: 94055.36000 (expected: 94055.36000)
+2026-01-05 21:48:01 - order_manager - INFO - [MODIFY_ORDER] Ticket 638956140 | Symbol BTCUSDm | SL: 94055.36000 (included: True) | TP: 94276.06000 (included: True)
+2026-01-05 21:48:02 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638956140 Symbol=BTCUSDm | SL: 94055.36000 (old: 94055.36000) | TP: 94276.06000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94147.71, comment=
+2026-01-05 21:48:02 - order_manager - INFO - [SL_VERIFIED] Ticket 638956140 | SL verified: 94055.36000 (expected: 94055.36000)
+2026-01-05 21:48:02 - order_manager - INFO - [TP_VERIFIED] Ticket 638956140 | TP verified: 94276.06000 (expected: 94276.06000)
+2026-01-05 21:48:19 - order_manager - INFO - [MODIFY_ORDER] Ticket 638954821 | Symbol XAUUSDm | SL: 4446.19300 (included: True) | TP: 4447.65000 (included: True)
+2026-01-05 21:48:19 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638954821 Symbol=XAUUSDm | SL: 4446.19300 (old: 4443.09300) | TP: 4447.65000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.203, comment=
+2026-01-05 21:48:19 - order_manager - INFO - [SL_VERIFIED] Ticket 638954821 | SL verified: 4446.19300 (expected: 4446.19300)
+2026-01-05 21:48:46 - order_manager - INFO - [MODIFY_ORDER] Ticket 638952901 | Symbol XAUUSDm | SL: 4446.67000 (included: True) | TP: 4447.96900 (included: True)
+2026-01-05 21:48:46 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638952901 Symbol=XAUUSDm | SL: 4446.67000 (old: 4443.31500) | TP: 4447.96900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.68, comment=
+2026-01-05 21:48:46 - order_manager - INFO - [SL_VERIFIED] Ticket 638952901 | SL verified: 4446.67000 (expected: 4446.67000)
+2026-01-05 21:48:50 - order_manager - INFO - [MODIFY_ORDER] Ticket 638954821 | Symbol XAUUSDm | SL: 4446.71400 (included: True) | TP: 4447.65000 (included: True)
+2026-01-05 21:48:50 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638954821 Symbol=XAUUSDm | SL: 4446.71400 (old: 4446.19300) | TP: 4447.65000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4446.733, comment=
+2026-01-05 21:48:50 - order_manager - INFO - [SL_VERIFIED] Ticket 638954821 | SL verified: 4446.71400 (expected: 4446.71400)
+2026-01-05 21:49:12 - order_manager - INFO - [MODIFY_ORDER] Ticket 638948299 | Symbol XAUUSDm | SL: 4447.05200 (included: True) | TP: 4448.69400 (included: True)
+2026-01-05 21:49:12 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638948299 Symbol=XAUUSDm | SL: 4447.05200 (old: 4444.03200) | TP: 4448.69400 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4447.062, comment=
+2026-01-05 21:49:13 - order_manager - INFO - [SL_VERIFIED] Ticket 638948299 | SL verified: 4447.05200 (expected: 4447.05200)
+2026-01-05 21:49:13 - order_manager - INFO - [MODIFY_ORDER] Ticket 638951735 | Symbol XAUUSDm | SL: 4447.11900 (included: True) | TP: 4448.49700 (included: True)
+2026-01-05 21:49:13 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638951735 Symbol=XAUUSDm | SL: 4447.11900 (old: 4444.00200) | TP: 4448.49700 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4447.14, comment=
+2026-01-05 21:49:13 - order_manager - INFO - [SL_VERIFIED] Ticket 638951735 | SL verified: 4447.11900 (expected: 4447.11900)
+2026-01-05 21:49:14 - order_manager - INFO - [MODIFY_ORDER] Ticket 638952901 | Symbol XAUUSDm | SL: 4447.27400 (included: True) | TP: 4447.96900 (included: True)
+2026-01-05 21:49:14 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638952901 Symbol=XAUUSDm | SL: 4447.27400 (old: 4446.67000) | TP: 4447.96900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4447.284, comment=
+2026-01-05 21:49:14 - order_manager - INFO - [SL_VERIFIED] Ticket 638952901 | SL verified: 4447.27400 (expected: 4447.27400)
+2026-01-05 21:49:14 - order_manager - WARNING - SL 94167.30000 too close to market (BID: 94166.69000, min allowed: 94166.68900, freeze_level: 0, stops_level: 0)
+2026-01-05 21:49:14 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 94166.69000
+2026-01-05 21:49:14 - order_manager - INFO - [MODIFY_ORDER] Ticket 638954763 | Symbol BTCUSDm | SL: 94166.69000 (included: True) | TP: 94265.31000 (included: True)
+2026-01-05 21:49:17 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638954763 | MT5 modify_order took 2.09s (exceeded 2.0s limit)
+2026-01-05 21:49:17 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638954763 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:49:17 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638954763 | MT5 modify_order timeout: 2.15s > 2.0s limit
+2026-01-05 21:49:17 - order_manager - INFO - [MODIFY_ORDER] Ticket 638954763 | Symbol BTCUSDm | SL: 94167.30000 (included: True) | TP: 94265.31000 (included: True)
+2026-01-05 21:49:17 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638954763 Symbol=BTCUSDm | SL: 94167.30000 (old: 94055.29000) | TP: 94265.31000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94177.74, comment=
+2026-01-05 21:49:18 - order_manager - INFO - [SL_VERIFIED] Ticket 638954763 | SL verified: 94167.30000 (expected: 94167.30000)
+2026-01-05 21:49:20 - order_manager - INFO - [MODIFY_ORDER] Ticket 638956140 | Symbol BTCUSDm | SL: 94181.50000 (included: True) | TP: 94276.06000 (included: True)
+2026-01-05 21:49:20 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638956140 Symbol=BTCUSDm | SL: 94181.50000 (old: 94055.36000) | TP: 94276.06000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94183.49, comment=
+2026-01-05 21:49:20 - order_manager - INFO - [SL_VERIFIED] Ticket 638956140 | SL verified: 94181.50000 (expected: 94181.50000)
+2026-01-05 21:49:20 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4448.09900 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:49:21 - order_manager - WARNING - Modify order failed for ticket 638946666 (attempt 1/2): 10016 - Invalid stops. Retrying...
+2026-01-05 21:49:21 - order_manager - ERROR - [ERROR] SL UPDATE FAILED: Ticket=638946666 Symbol=XAUUSDm Code=10016 Reason=Invalid stops Attempts=2
+2026-01-05 21:49:21 - order_manager - ERROR - Modify order failed for ticket 638946666 after 2 attempts: 10016 - Invalid stops
+2026-01-05 21:49:21 - order_manager - WARNING - [FALLBACK] Attempting direct MT5 API call for ticket 638946666
+2026-01-05 21:49:21 - order_manager - ERROR - [FALLBACK FAILED] Direct MT5 API call failed for ticket 638946666: 10016
+2026-01-05 21:49:21 - order_manager - INFO - [MODIFY_ORDER] Ticket 638954763 | Symbol BTCUSDm | SL: 94183.39000 (included: True) | TP: 94265.31000 (included: True)
+2026-01-05 21:49:23 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638954763 | MT5 modify_order took 2.12s (exceeded 2.0s limit)
+2026-01-05 21:49:23 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638954763 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:49:23 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638954763 | MT5 modify_order timeout: 2.19s > 2.0s limit
+2026-01-05 21:49:23 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4447.95200 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:49:25 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638946666 | MT5 modify_order took 2.21s (exceeded 2.0s limit)
+2026-01-05 21:49:25 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638946666 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:49:25 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638946666 | MT5 modify_order timeout: 2.27s > 2.0s limit
+2026-01-05 21:49:25 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4448.13000 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:49:26 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946666 Symbol=XAUUSDm | SL: 4448.13000 (old: 4444.25200) | TP: 4448.90200 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.14, comment=
+2026-01-05 21:49:26 - order_manager - INFO - [SL_VERIFIED] Ticket 638946666 | SL verified: 4448.13000 (expected: 4448.13000)
+2026-01-05 21:49:26 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4448.15200 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:49:27 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946666 Symbol=XAUUSDm | SL: 4448.15200 (old: 4448.13000) | TP: 4448.90200 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.156, comment=
+2026-01-05 21:49:27 - order_manager - INFO - [SL_VERIFIED] Ticket 638946666 | SL verified: 4448.15200 (expected: 4448.15200)
+2026-01-05 21:49:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4448.29300 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:49:28 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946666 Symbol=XAUUSDm | SL: 4448.29300 (old: 4448.15200) | TP: 4448.90200 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.303, comment=
+2026-01-05 21:49:28 - order_manager - INFO - [SL_VERIFIED] Ticket 638946666 | SL verified: 4448.29300 (expected: 4448.29300)
+2026-01-05 21:49:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 638954763 | Symbol BTCUSDm | SL: 94169.30000 (included: True) | TP: 94265.31000 (included: True)
+2026-01-05 21:49:28 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638954763 Symbol=BTCUSDm | SL: 94169.30000 (old: 94167.30000) | TP: 94265.31000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94170.31, comment=
+2026-01-05 21:49:29 - order_manager - INFO - [SL_VERIFIED] Ticket 638954763 | SL verified: 94169.30000 (expected: 94169.30000)
+2026-01-05 21:49:31 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4448.55200 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:49:33 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638946666 | MT5 modify_order took 2.20s (exceeded 2.0s limit)
+2026-01-05 21:49:33 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638946666 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:49:33 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638946666 | MT5 modify_order timeout: 2.25s > 2.0s limit
+2026-01-05 21:49:38 - order_manager - INFO - [MODIFY_ORDER] Ticket 638946666 | Symbol XAUUSDm | SL: 4448.55200 (included: True) | TP: 4448.90200 (included: True)
+2026-01-05 21:49:38 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638946666 Symbol=XAUUSDm | SL: 4448.55200 (old: 4448.29300) | TP: 4448.90200 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.561, comment=
+2026-01-05 21:49:38 - order_manager - INFO - [SL_VERIFIED] Ticket 638946666 | SL verified: 4448.55200 (expected: 4448.55200)
+2026-01-05 21:49:47 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94073.96000
+2026-01-05 21:49:47 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94179.58000 | SL: 94073.96000
+2026-01-05 21:49:48 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638962334 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94073.96000 | Entry Price: 94179.58000 (requested: 94179.58000) | Slippage: 0.00000
+2026-01-05 21:49:48 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638962334 | SL verified: 94073.96000 (expected: 94073.96000)
+2026-01-05 21:49:48 - order_manager - INFO - [MODIFY_ORDER] Ticket 638962334 | Symbol BTCUSDm | SL: 94073.96000 (included: True) | TP: 94282.76000 (included: True)
+2026-01-05 21:49:48 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638962334 Symbol=BTCUSDm | SL: 94073.96000 (old: 94073.96000) | TP: 94282.76000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94156.7, comment=
+2026-01-05 21:49:48 - order_manager - INFO - [SL_VERIFIED] Ticket 638962334 | SL verified: 94073.96000 (expected: 94073.96000)
+2026-01-05 21:49:49 - order_manager - INFO - [TP_VERIFIED] Ticket 638962334 | TP verified: 94282.76000 (expected: 94282.76000)
+2026-01-05 21:50:00 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94072.09000
+2026-01-05 21:50:00 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94177.85000 | SL: 94072.09000
+2026-01-05 21:50:00 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638962748 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94072.09000 | Entry Price: 94177.85000 (requested: 94177.85000) | Slippage: 0.00000
+2026-01-05 21:50:00 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638962748 | SL verified: 94072.09000 (expected: 94072.09000)
+2026-01-05 21:50:00 - order_manager - INFO - [MODIFY_ORDER] Ticket 638962748 | Symbol BTCUSDm | SL: 94072.09000 (included: True) | TP: 94283.47000 (included: True)
+2026-01-05 21:50:00 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638962748 Symbol=BTCUSDm | SL: 94072.09000 (old: 94072.09000) | TP: 94283.47000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94159.85, comment=
+2026-01-05 21:50:01 - order_manager - INFO - [SL_VERIFIED] Ticket 638962748 | SL verified: 94072.09000 (expected: 94072.09000)
+2026-01-05 21:50:01 - order_manager - INFO - [TP_VERIFIED] Ticket 638962748 | TP verified: 94283.47000 (expected: 94283.47000)
+2026-01-05 21:50:18 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4445.78100
+2026-01-05 21:50:18 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4448.40900 | SL: 4445.78100
+2026-01-05 21:50:18 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638963447 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4445.78100 | Entry Price: 4448.40900 (requested: 4448.40900) | Slippage: 0.00000
+2026-01-05 21:50:18 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638963447 | SL verified: 4445.78100 (expected: 4445.78100)
+2026-01-05 21:50:18 - order_manager - INFO - [MODIFY_ORDER] Ticket 638963447 | Symbol XAUUSDm | SL: 4445.78100 (included: True) | TP: 4450.05700 (included: True)
+2026-01-05 21:50:19 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638963447 Symbol=XAUUSDm | SL: 4445.78100 (old: 4445.78100) | TP: 4450.05700 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.259, comment=
+2026-01-05 21:50:19 - order_manager - INFO - [SL_VERIFIED] Ticket 638963447 | SL verified: 4445.78100 (expected: 4445.78100)
+2026-01-05 21:50:19 - order_manager - INFO - [TP_VERIFIED] Ticket 638963447 | TP verified: 4450.05700 (expected: 4450.05700)
+2026-01-05 21:50:38 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 21:50:40 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 21:50:44 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94101.87000
+2026-01-05 21:50:44 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94216.24000 | SL: 94101.87000
+2026-01-05 21:50:44 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638964745 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94101.87000 | Entry Price: 94216.24000 (requested: 94216.24000) | Slippage: 0.00000
+2026-01-05 21:50:44 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638964745 | SL verified: 94101.87000 (expected: 94101.87000)
+2026-01-05 21:50:44 - order_manager - INFO - [MODIFY_ORDER] Ticket 638964745 | Symbol BTCUSDm | SL: 94101.87000 (included: True) | TP: 94320.08000 (included: True)
+2026-01-05 21:50:44 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638964745 Symbol=BTCUSDm | SL: 94101.87000 (old: 94101.87000) | TP: 94320.08000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94198.24, comment=
+2026-01-05 21:50:45 - order_manager - INFO - [SL_VERIFIED] Ticket 638964745 | SL verified: 94101.87000 (expected: 94101.87000)
+2026-01-05 21:50:45 - order_manager - INFO - [TP_VERIFIED] Ticket 638964745 | TP verified: 94320.08000 (expected: 94320.08000)
+2026-01-05 21:50:45 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4446.00700
+2026-01-05 21:50:45 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4448.59500 | SL: 4446.00700
+2026-01-05 21:50:46 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638964857 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4446.00700 | Entry Price: 4448.59500 (requested: 4448.59500) | Slippage: 0.00000
+2026-01-05 21:50:46 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638964857 | SL verified: 4446.00700 (expected: 4446.00700)
+2026-01-05 21:50:46 - order_manager - INFO - [MODIFY_ORDER] Ticket 638964857 | Symbol XAUUSDm | SL: 4446.00700 (included: True) | TP: 4450.23800 (included: True)
+2026-01-05 21:50:46 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638964857 Symbol=XAUUSDm | SL: 4446.00700 (old: 4446.00700) | TP: 4450.23800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.435, comment=
+2026-01-05 21:50:46 - order_manager - INFO - [SL_VERIFIED] Ticket 638964857 | SL verified: 4446.00700 (expected: 4446.00700)
+2026-01-05 21:50:47 - order_manager - INFO - [TP_VERIFIED] Ticket 638964857 | TP verified: 4450.23800 (expected: 4450.23800)
+2026-01-05 21:50:47 - order_manager - INFO - [MODIFY_ORDER] Ticket 638962334 | Symbol BTCUSDm | SL: 94206.96000 (included: True) | TP: 94282.76000 (included: True)
+2026-01-05 21:50:48 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638962334 Symbol=BTCUSDm | SL: 94206.96000 (old: 94073.96000) | TP: 94282.76000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94207.06, comment=
+2026-01-05 21:50:48 - order_manager - INFO - [SL_VERIFIED] Ticket 638962334 | SL verified: 94206.96000 (expected: 94206.96000)
+2026-01-05 21:50:48 - order_manager - INFO - [MODIFY_ORDER] Ticket 638962748 | Symbol BTCUSDm | SL: 94213.73000 (included: True) | TP: 94283.47000 (included: True)
+2026-01-05 21:50:49 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638962748 Symbol=BTCUSDm | SL: 94213.73000 (old: 94072.09000) | TP: 94283.47000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94213.83, comment=
+2026-01-05 21:50:49 - order_manager - INFO - [SL_VERIFIED] Ticket 638962748 | SL verified: 94213.73000 (expected: 94213.73000)
+2026-01-05 21:51:09 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94104.25000
+2026-01-05 21:51:09 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94208.09000 | SL: 94104.25000
+2026-01-05 21:51:09 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638965863 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94104.25000 | Entry Price: 94208.09000 (requested: 94208.09000) | Slippage: 0.00000
+2026-01-05 21:51:09 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638965863 | SL verified: 94104.25000 (expected: 94104.25000)
+2026-01-05 21:51:09 - order_manager - INFO - [MODIFY_ORDER] Ticket 638965863 | Symbol BTCUSDm | SL: 94104.25000 (included: True) | TP: 94311.93000 (included: True)
+2026-01-05 21:51:10 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638965863 Symbol=BTCUSDm | SL: 94104.25000 (old: 94104.25000) | TP: 94311.93000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94190.09, comment=
+2026-01-05 21:51:10 - order_manager - INFO - [SL_VERIFIED] Ticket 638965863 | SL verified: 94104.25000 (expected: 94104.25000)
+2026-01-05 21:51:10 - order_manager - INFO - [TP_VERIFIED] Ticket 638965863 | TP verified: 94311.93000 (expected: 94311.93000)
+2026-01-05 21:51:11 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4445.86400
+2026-01-05 21:51:11 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4448.45900 | SL: 4445.86400
+2026-01-05 21:51:11 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638966040 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4445.86400 | Entry Price: 4448.45900 (requested: 4448.45900) | Slippage: 0.00000
+2026-01-05 21:51:11 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638966040 | SL verified: 4445.86400 (expected: 4445.86400)
+2026-01-05 21:51:11 - order_manager - INFO - [MODIFY_ORDER] Ticket 638966040 | Symbol XAUUSDm | SL: 4445.86400 (included: True) | TP: 4450.21000 (included: True)
+2026-01-05 21:51:11 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638966040 Symbol=XAUUSDm | SL: 4445.86400 (old: 4445.86400) | TP: 4450.21000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.516, comment=
+2026-01-05 21:51:12 - order_manager - INFO - [SL_VERIFIED] Ticket 638966040 | SL verified: 4445.86400 (expected: 4445.86400)
+2026-01-05 21:51:12 - order_manager - INFO - [TP_VERIFIED] Ticket 638966040 | TP verified: 4450.21000 (expected: 4450.21000)
+2026-01-05 21:52:12 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 21:52:14 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94115.24000
+2026-01-05 21:52:14 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94247.31000 | SL: 94115.24000
+2026-01-05 21:52:15 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638968252 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94115.24000 | Entry Price: 94247.31000 (requested: 94247.31000) | Slippage: 0.00000
+2026-01-05 21:52:15 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638968252 | SL verified: 94115.24000 (expected: 94115.24000)
+2026-01-05 21:52:15 - order_manager - INFO - [MODIFY_ORDER] Ticket 638968252 | Symbol BTCUSDm | SL: 94115.24000 (included: True) | TP: 94360.38000 (included: True)
+2026-01-05 21:52:15 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638968252 Symbol=BTCUSDm | SL: 94115.24000 (old: 94115.24000) | TP: 94360.38000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94228.49, comment=
+2026-01-05 21:52:15 - order_manager - INFO - [SL_VERIFIED] Ticket 638968252 | SL verified: 94115.24000 (expected: 94115.24000)
+2026-01-05 21:52:16 - order_manager - INFO - [TP_VERIFIED] Ticket 638968252 | TP verified: 94360.38000 (expected: 94360.38000)
+2026-01-05 21:52:16 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4446.15400
+2026-01-05 21:52:16 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4448.58700 | SL: 4446.15400
+2026-01-05 21:52:16 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638968321 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4446.15400 | Entry Price: 4448.58700 (requested: 4448.58700) | Slippage: 0.00000
+2026-01-05 21:52:17 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638968321 | SL verified: 4446.15400 (expected: 4446.15400)
+2026-01-05 21:52:17 - order_manager - INFO - [MODIFY_ORDER] Ticket 638968321 | Symbol XAUUSDm | SL: 4446.15400 (included: True) | TP: 4450.10800 (included: True)
+2026-01-05 21:52:17 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638968321 Symbol=XAUUSDm | SL: 4446.15400 (old: 4446.15400) | TP: 4450.10800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.427, comment=
+2026-01-05 21:52:17 - order_manager - INFO - [SL_VERIFIED] Ticket 638968321 | SL verified: 4446.15400 (expected: 4446.15400)
+2026-01-05 21:52:17 - order_manager - INFO - [TP_VERIFIED] Ticket 638968321 | TP verified: 4450.10800 (expected: 4450.10800)
+2026-01-05 21:52:18 - order_manager - INFO - [MODIFY_ORDER] Ticket 638964745 | Symbol BTCUSDm | SL: 94229.36000 (included: True) | TP: 94320.08000 (included: True)
+2026-01-05 21:52:19 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638964745 Symbol=BTCUSDm | SL: 94229.36000 (old: 94101.87000) | TP: 94320.08000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94229.46, comment=
+2026-01-05 21:52:19 - order_manager - INFO - [SL_VERIFIED] Ticket 638964745 | SL verified: 94229.36000 (expected: 94229.36000)
+2026-01-05 21:52:22 - order_manager - INFO - [MODIFY_ORDER] Ticket 638965863 | Symbol BTCUSDm | SL: 94235.11000 (included: True) | TP: 94311.93000 (included: True)
+2026-01-05 21:52:23 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638965863 Symbol=BTCUSDm | SL: 94235.11000 (old: 94104.25000) | TP: 94311.93000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94235.21, comment=
+2026-01-05 21:52:23 - order_manager - INFO - [SL_VERIFIED] Ticket 638965863 | SL verified: 94235.11000 (expected: 94235.11000)
+2026-01-05 21:52:23 - order_manager - WARNING - SL 4448.74600 too close to market (BID: 4448.74500, min allowed: 4448.74490, freeze_level: 0, stops_level: 0)
+2026-01-05 21:52:23 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 4448.74500
+2026-01-05 21:52:23 - order_manager - INFO - [MODIFY_ORDER] Ticket 638966040 | Symbol XAUUSDm | SL: 4448.74500 (included: True) | TP: 4450.21000 (included: True)
+2026-01-05 21:52:25 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638966040 | MT5 modify_order took 2.17s (exceeded 2.0s limit)
+2026-01-05 21:52:25 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638966040 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:52:25 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638966040 | MT5 modify_order timeout: 2.23s > 2.0s limit
+2026-01-05 21:52:26 - order_manager - INFO - [MODIFY_ORDER] Ticket 638966040 | Symbol XAUUSDm | SL: 4448.74600 (included: True) | TP: 4450.21000 (included: True)
+2026-01-05 21:52:28 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638966040 | MT5 modify_order took 2.19s (exceeded 2.0s limit)
+2026-01-05 21:52:28 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638966040 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:52:28 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638966040 | MT5 modify_order timeout: 2.32s > 2.0s limit
+2026-01-05 21:52:29 - order_manager - INFO - [MODIFY_ORDER] Ticket 638966040 | Symbol XAUUSDm | SL: 4448.64600 (included: True) | TP: 4450.21000 (included: True)
+2026-01-05 21:52:29 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638966040 Symbol=XAUUSDm | SL: 4448.64600 (old: 4445.86400) | TP: 4450.21000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.656, comment=
+2026-01-05 21:52:30 - order_manager - INFO - [SL_VERIFIED] Ticket 638966040 | SL verified: 4448.64600 (expected: 4448.64600)
+2026-01-05 21:52:33 - order_manager - INFO - [MODIFY_ORDER] Ticket 638968321 | Symbol XAUUSDm | SL: 4448.70600 (included: True) | TP: 4450.10800 (included: True)
+2026-01-05 21:52:33 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638968321 Symbol=XAUUSDm | SL: 4448.70600 (old: 4446.15400) | TP: 4450.10800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.716, comment=
+2026-01-05 21:52:33 - order_manager - INFO - [SL_VERIFIED] Ticket 638968321 | SL verified: 4448.70600 (expected: 4448.70600)
+2026-01-05 21:52:34 - order_manager - INFO - [MODIFY_ORDER] Ticket 638963447 | Symbol XAUUSDm | SL: 4448.74900 (included: True) | TP: 4450.05700 (included: True)
+2026-01-05 21:52:34 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638963447 Symbol=XAUUSDm | SL: 4448.74900 (old: 4445.78100) | TP: 4450.05700 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.759, comment=
+2026-01-05 21:52:34 - order_manager - INFO - [SL_VERIFIED] Ticket 638963447 | SL verified: 4448.74900 (expected: 4448.74900)
+2026-01-05 21:52:34 - order_manager - INFO - [MODIFY_ORDER] Ticket 638964857 | Symbol XAUUSDm | SL: 4448.74900 (included: True) | TP: 4450.23800 (included: True)
+2026-01-05 21:52:34 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638964857 Symbol=XAUUSDm | SL: 4448.74900 (old: 4446.00700) | TP: 4450.23800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.759, comment=
+2026-01-05 21:52:35 - order_manager - INFO - [SL_VERIFIED] Ticket 638964857 | SL verified: 4448.74900 (expected: 4448.74900)
+2026-01-05 21:52:35 - order_manager - INFO - [MODIFY_ORDER] Ticket 638966040 | Symbol XAUUSDm | SL: 4448.74600 (included: True) | TP: 4450.21000 (included: True)
+2026-01-05 21:52:35 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638966040 Symbol=XAUUSDm | SL: 4448.74600 (old: 4448.64600) | TP: 4450.21000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.759, comment=
+2026-01-05 21:52:35 - order_manager - INFO - [SL_VERIFIED] Ticket 638966040 | SL verified: 4448.74600 (expected: 4448.74600)
+2026-01-05 21:52:39 - order_manager - INFO - [MODIFY_ORDER] Ticket 638968321 | Symbol XAUUSDm | SL: 4448.73800 (included: True) | TP: 4450.10800 (included: True)
+2026-01-05 21:52:39 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638968321 Symbol=XAUUSDm | SL: 4448.73800 (old: 4448.70600) | TP: 4450.10800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.748, comment=
+2026-01-05 21:52:40 - order_manager - INFO - [SL_VERIFIED] Ticket 638968321 | SL verified: 4448.73800 (expected: 4448.73800)
+2026-01-05 21:52:55 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94110.65000
+2026-01-05 21:52:55 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94214.39000 | SL: 94110.65000
+2026-01-05 21:52:55 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638970601 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94110.65000 | Entry Price: 94214.39000 (requested: 94214.39000) | Slippage: 0.00000
+2026-01-05 21:52:55 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638970601 | SL verified: 94110.65000 (expected: 94110.65000)
+2026-01-05 21:52:55 - order_manager - INFO - [MODIFY_ORDER] Ticket 638970601 | Symbol BTCUSDm | SL: 94110.65000 (included: True) | TP: 94325.94000 (included: True)
+2026-01-05 21:52:55 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638970601 Symbol=BTCUSDm | SL: 94110.65000 (old: 94110.65000) | TP: 94325.94000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94196.39, comment=
+2026-01-05 21:52:56 - order_manager - INFO - [SL_VERIFIED] Ticket 638970601 | SL verified: 94110.65000 (expected: 94110.65000)
+2026-01-05 21:52:56 - order_manager - INFO - [TP_VERIFIED] Ticket 638970601 | TP verified: 94325.94000 (expected: 94325.94000)
+2026-01-05 21:53:12 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94104.02000
+2026-01-05 21:53:12 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94221.95000 | SL: 94104.02000
+2026-01-05 21:53:12 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638971060 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94104.02000 | Entry Price: 94221.95000 (requested: 94221.95000) | Slippage: 0.00000
+2026-01-05 21:53:12 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638971060 | SL verified: 94104.02000 (expected: 94104.02000)
+2026-01-05 21:53:12 - order_manager - INFO - [MODIFY_ORDER] Ticket 638971060 | Symbol BTCUSDm | SL: 94104.02000 (included: True) | TP: 94322.62000 (included: True)
+2026-01-05 21:53:12 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638971060 Symbol=BTCUSDm | SL: 94104.02000 (old: 94104.02000) | TP: 94322.62000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94182.19, comment=
+2026-01-05 21:53:13 - order_manager - INFO - [SL_VERIFIED] Ticket 638971060 | SL verified: 94104.02000 (expected: 94104.02000)
+2026-01-05 21:53:13 - order_manager - INFO - [TP_VERIFIED] Ticket 638971060 | TP verified: 94322.62000 (expected: 94322.62000)
+2026-01-05 21:53:14 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4446.07500
+2026-01-05 21:53:14 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4448.36000 | SL: 4446.07500
+2026-01-05 21:53:14 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638971150 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4446.07500 | Entry Price: 4448.36000 (requested: 4448.36000) | Slippage: 0.00000
+2026-01-05 21:53:14 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638971150 | SL verified: 4446.07500 (expected: 4446.07500)
+2026-01-05 21:53:14 - order_manager - INFO - [MODIFY_ORDER] Ticket 638971150 | Symbol XAUUSDm | SL: 4446.07500 (included: True) | TP: 4449.78800 (included: True)
+2026-01-05 21:53:14 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638971150 Symbol=XAUUSDm | SL: 4446.07500 (old: 4446.07500) | TP: 4449.78800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.2, comment=
+2026-01-05 21:53:14 - order_manager - INFO - [SL_VERIFIED] Ticket 638971150 | SL verified: 4446.07500 (expected: 4446.07500)
+2026-01-05 21:53:15 - order_manager - INFO - [TP_VERIFIED] Ticket 638971150 | TP verified: 4449.78800 (expected: 4449.78800)
+2026-01-05 21:53:39 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 21:53:41 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94069.38000
+2026-01-05 21:53:41 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94181.98000 | SL: 94069.38000
+2026-01-05 21:53:42 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638971959 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94069.38000 | Entry Price: 94181.98000 (requested: 94181.98000) | Slippage: 0.00000
+2026-01-05 21:53:42 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638971959 | SL verified: 94069.38000 (expected: 94069.38000)
+2026-01-05 21:53:42 - order_manager - INFO - [MODIFY_ORDER] Ticket 638971959 | Symbol BTCUSDm | SL: 94069.38000 (included: True) | TP: 94293.53000 (included: True)
+2026-01-05 21:53:42 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638971959 Symbol=BTCUSDm | SL: 94069.38000 (old: 94069.38000) | TP: 94293.53000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94163.98, comment=
+2026-01-05 21:53:42 - order_manager - INFO - [SL_VERIFIED] Ticket 638971959 | SL verified: 94069.38000 (expected: 94069.38000)
+2026-01-05 21:53:43 - order_manager - INFO - [TP_VERIFIED] Ticket 638971959 | TP verified: 94293.53000 (expected: 94293.53000)
+2026-01-05 21:53:53 - order_manager - INFO - [MODIFY_ORDER] Ticket 638971150 | Symbol XAUUSDm | SL: 4448.49700 (included: True) | TP: 4449.78800 (included: True)
+2026-01-05 21:53:53 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638971150 Symbol=XAUUSDm | SL: 4448.49700 (old: 4446.07500) | TP: 4449.78800 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.573, comment=
+2026-01-05 21:53:53 - order_manager - INFO - [SL_VERIFIED] Ticket 638971150 | SL verified: 4448.49700 (expected: 4448.49700)
+2026-01-05 21:54:10 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94069.17000
+2026-01-05 21:54:10 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94177.73000 | SL: 94069.17000
+2026-01-05 21:54:10 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638972819 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94069.17000 | Entry Price: 94177.73000 (requested: 94177.73000) | Slippage: 0.00000
+2026-01-05 21:54:11 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638972819 | SL verified: 94069.17000 (expected: 94069.17000)
+2026-01-05 21:54:11 - order_manager - INFO - [MODIFY_ORDER] Ticket 638972819 | Symbol BTCUSDm | SL: 94069.17000 (included: True) | TP: 94287.27000 (included: True)
+2026-01-05 21:54:11 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638972819 Symbol=BTCUSDm | SL: 94069.17000 (old: 94069.17000) | TP: 94287.27000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94159.73, comment=
+2026-01-05 21:54:11 - order_manager - INFO - [SL_VERIFIED] Ticket 638972819 | SL verified: 94069.17000 (expected: 94069.17000)
+2026-01-05 21:54:11 - order_manager - INFO - [TP_VERIFIED] Ticket 638972819 | TP verified: 94287.27000 (expected: 94287.27000)
+2026-01-05 21:54:12 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4446.03000
+2026-01-05 21:54:12 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4448.33700 | SL: 4446.03000
+2026-01-05 21:54:12 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638972852 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4446.03000 | Entry Price: 4448.33700 (requested: 4448.33700) | Slippage: 0.00000
+2026-01-05 21:54:12 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638972852 | SL verified: 4446.03000 (expected: 4446.03000)
+2026-01-05 21:54:13 - order_manager - INFO - [MODIFY_ORDER] Ticket 638972852 | Symbol XAUUSDm | SL: 4446.03000 (included: True) | TP: 4449.77900 (included: True)
+2026-01-05 21:54:13 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638972852 Symbol=XAUUSDm | SL: 4446.03000 (old: 4446.03000) | TP: 4449.77900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.177, comment=
+2026-01-05 21:54:13 - order_manager - INFO - [SL_VERIFIED] Ticket 638972852 | SL verified: 4446.03000 (expected: 4446.03000)
+2026-01-05 21:54:13 - order_manager - INFO - [TP_VERIFIED] Ticket 638972852 | TP verified: 4449.77900 (expected: 4449.77900)
+2026-01-05 21:54:27 - order_manager - INFO - [MODIFY_ORDER] Ticket 638972819 | Symbol BTCUSDm | SL: 94181.73000 (included: True) | TP: 94287.27000 (included: True)
+2026-01-05 21:54:27 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638972819 Symbol=BTCUSDm | SL: 94181.73000 (old: 94069.17000) | TP: 94287.27000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94182.27, comment=
+2026-01-05 21:54:27 - order_manager - INFO - [SL_VERIFIED] Ticket 638972819 | SL verified: 94181.73000 (expected: 94181.73000)
+2026-01-05 21:54:29 - order_manager - INFO - [MODIFY_ORDER] Ticket 638972852 | Symbol XAUUSDm | SL: 4448.54800 (included: True) | TP: 4449.77900 (included: True)
+2026-01-05 21:54:30 - order_manager - WARNING - Modify order failed for ticket 638972852 (attempt 1/2): 10016 - Invalid stops. Retrying...
+2026-01-05 21:54:30 - order_manager - ERROR - [ERROR] SL UPDATE FAILED: Ticket=638972852 Symbol=XAUUSDm Code=10016 Reason=Invalid stops Attempts=2
+2026-01-05 21:54:30 - order_manager - ERROR - Modify order failed for ticket 638972852 after 2 attempts: 10016 - Invalid stops
+2026-01-05 21:54:30 - order_manager - WARNING - [FALLBACK] Attempting direct MT5 API call for ticket 638972852
+2026-01-05 21:54:30 - order_manager - ERROR - [FALLBACK FAILED] Direct MT5 API call failed for ticket 638972852: 10016
+2026-01-05 21:54:42 - order_manager - INFO - [MODIFY_ORDER] Ticket 638972852 | Symbol XAUUSDm | SL: 4448.39700 (included: True) | TP: 4449.77900 (included: True)
+2026-01-05 21:54:43 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638972852 Symbol=XAUUSDm | SL: 4448.39700 (old: 4446.03000) | TP: 4449.77900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.401, comment=
+2026-01-05 21:54:43 - order_manager - INFO - [SL_VERIFIED] Ticket 638972852 | SL verified: 4448.39700 (expected: 4448.39700)
+2026-01-05 21:55:00 - order_manager - INFO - [MODIFY_ORDER] Ticket 638972852 | Symbol XAUUSDm | SL: 4448.55700 (included: True) | TP: 4449.77900 (included: True)
+2026-01-05 21:55:00 - order_manager - WARNING - Modify order failed for ticket 638972852 (attempt 1/2): 10016 - Invalid stops. Retrying...
+2026-01-05 21:55:00 - order_manager - ERROR - [ERROR] SL UPDATE FAILED: Ticket=638972852 Symbol=XAUUSDm Code=10016 Reason=Invalid stops Attempts=2
+2026-01-05 21:55:00 - order_manager - ERROR - Modify order failed for ticket 638972852 after 2 attempts: 10016 - Invalid stops
+2026-01-05 21:55:00 - order_manager - WARNING - [FALLBACK] Attempting direct MT5 API call for ticket 638972852
+2026-01-05 21:55:00 - order_manager - ERROR - [FALLBACK FAILED] Direct MT5 API call failed for ticket 638972852: 10016
+2026-01-05 21:55:52 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4446.17200
+2026-01-05 21:55:52 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4448.46000 | SL: 4446.17200
+2026-01-05 21:55:52 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638976909 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4446.17200 | Entry Price: 4448.46000 (requested: 4448.46000) | Slippage: 0.00000
+2026-01-05 21:55:53 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638976909 | SL verified: 4446.17200 (expected: 4446.17200)
+2026-01-05 21:55:53 - order_manager - INFO - [MODIFY_ORDER] Ticket 638976909 | Symbol XAUUSDm | SL: 4446.17200 (included: True) | TP: 4449.89000 (included: True)
+2026-01-05 21:55:53 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638976909 Symbol=XAUUSDm | SL: 4446.17200 (old: 4446.17200) | TP: 4449.89000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.3, comment=
+2026-01-05 21:55:53 - order_manager - INFO - [SL_VERIFIED] Ticket 638976909 | SL verified: 4446.17200 (expected: 4446.17200)
+2026-01-05 21:55:53 - order_manager - INFO - [TP_VERIFIED] Ticket 638976909 | TP verified: 4449.89000 (expected: 4449.89000)
+2026-01-05 21:55:54 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93961.56000
+2026-01-05 21:55:54 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94117.27000 | SL: 93961.56000
+2026-01-05 21:55:54 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638976977 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93961.56000 | Entry Price: 94117.27000 (requested: 94117.27000) | Slippage: 0.00000
+2026-01-05 21:55:54 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638976977 | SL verified: 93961.56000 (expected: 93961.56000)
+2026-01-05 21:55:54 - order_manager - INFO - [MODIFY_ORDER] Ticket 638976977 | Symbol BTCUSDm | SL: 93961.56000 (included: True) | TP: 94229.11000 (included: True)
+2026-01-05 21:55:55 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638976977 Symbol=BTCUSDm | SL: 93961.56000 (old: 93961.56000) | TP: 94229.11000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94099.27, comment=
+2026-01-05 21:55:55 - order_manager - INFO - [SL_VERIFIED] Ticket 638976977 | SL verified: 93961.56000 (expected: 93961.56000)
+2026-01-05 21:55:55 - order_manager - INFO - [TP_VERIFIED] Ticket 638976977 | TP verified: 94229.11000 (expected: 94229.11000)
+2026-01-05 21:55:59 - order_manager - WARNING - SL 4448.51000 too close to market (BID: 4448.50500, min allowed: 4448.50490, freeze_level: 0, stops_level: 0)
+2026-01-05 21:55:59 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 4448.50500
+2026-01-05 21:55:59 - order_manager - INFO - [MODIFY_ORDER] Ticket 638976909 | Symbol XAUUSDm | SL: 4448.50500 (included: True) | TP: 4449.89000 (included: True)
+2026-01-05 21:56:01 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638976909 | MT5 modify_order took 2.20s (exceeded 2.0s limit)
+2026-01-05 21:56:01 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638976909 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:56:01 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638976909 | MT5 modify_order timeout: 2.29s > 2.0s limit
+2026-01-05 21:56:02 - order_manager - WARNING - SL 4448.51000 too close to market (BID: 4448.50500, min allowed: 4448.50490, freeze_level: 0, stops_level: 0)
+2026-01-05 21:56:02 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 4448.50500
+2026-01-05 21:56:02 - order_manager - INFO - [MODIFY_ORDER] Ticket 638976909 | Symbol XAUUSDm | SL: 4448.50500 (included: True) | TP: 4449.89000 (included: True)
+2026-01-05 21:56:04 - order_manager - WARNING - [MODIFY_SLOW] Ticket 638976909 | MT5 modify_order took 2.11s (exceeded 2.0s limit)
+2026-01-05 21:56:04 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 638976909 | Retrying after slow call (attempt 1/2)
+2026-01-05 21:56:04 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 638976909 | MT5 modify_order timeout: 2.18s > 2.0s limit
+2026-01-05 21:56:05 - order_manager - INFO - [MODIFY_ORDER] Ticket 638976909 | Symbol XAUUSDm | SL: 4448.51000 (included: True) | TP: 4449.89000 (included: True)
+2026-01-05 21:56:05 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638976909 Symbol=XAUUSDm | SL: 4448.51000 (old: 4446.17200) | TP: 4449.89000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.511, comment=
+2026-01-05 21:56:05 - order_manager - INFO - [SL_VERIFIED] Ticket 638976909 | SL verified: 4448.51000 (expected: 4448.51000)
+2026-01-05 21:56:19 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4446.85600
+2026-01-05 21:56:19 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4449.16000 | SL: 4446.85600
+2026-01-05 21:56:20 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638979567 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4446.85600 | Entry Price: 4449.16000 (requested: 4449.16000) | Slippage: 0.00000
+2026-01-05 21:56:20 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638979567 | SL verified: 4446.85600 (expected: 4446.85600)
+2026-01-05 21:56:20 - order_manager - INFO - [MODIFY_ORDER] Ticket 638979567 | Symbol XAUUSDm | SL: 4446.85600 (included: True) | TP: 4450.59000 (included: True)
+2026-01-05 21:56:20 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638979567 Symbol=XAUUSDm | SL: 4446.85600 (old: 4446.85600) | TP: 4450.59000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4449.0, comment=
+2026-01-05 21:56:20 - order_manager - INFO - [SL_VERIFIED] Ticket 638979567 | SL verified: 4446.85600 (expected: 4446.85600)
+2026-01-05 21:56:20 - order_manager - INFO - [TP_VERIFIED] Ticket 638979567 | TP verified: 4450.59000 (expected: 4450.59000)
+2026-01-05 21:56:21 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93937.32000
+2026-01-05 21:56:21 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94115.86000 | SL: 93937.32000
+2026-01-05 21:56:21 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638979685 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93937.32000 | Entry Price: 94115.86000 (requested: 94115.86000) | Slippage: 0.00000
+2026-01-05 21:56:21 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638979685 | SL verified: 93937.32000 (expected: 93937.32000)
+2026-01-05 21:56:21 - order_manager - INFO - [MODIFY_ORDER] Ticket 638979685 | Symbol BTCUSDm | SL: 93937.32000 (included: True) | TP: 94227.70000 (included: True)
+2026-01-05 21:56:22 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638979685 Symbol=BTCUSDm | SL: 93937.32000 (old: 93937.32000) | TP: 94227.70000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94097.86, comment=
+2026-01-05 21:56:22 - order_manager - INFO - [SL_VERIFIED] Ticket 638979685 | SL verified: 93937.32000 (expected: 93937.32000)
+2026-01-05 21:56:22 - order_manager - INFO - [TP_VERIFIED] Ticket 638979685 | TP verified: 94227.70000 (expected: 94227.70000)
+2026-01-05 21:56:26 - order_manager - INFO - [MODIFY_ORDER] Ticket 638976909 | Symbol XAUUSDm | SL: 4449.12000 (included: True) | TP: 4449.89000 (included: True)
+2026-01-05 21:56:26 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638976909 Symbol=XAUUSDm | SL: 4449.12000 (old: 4448.51000) | TP: 4449.89000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4449.152, comment=
+2026-01-05 21:56:27 - order_manager - INFO - [SL_VERIFIED] Ticket 638976909 | SL verified: 4449.12000 (expected: 4449.12000)
+2026-01-05 21:56:49 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93987.28000
+2026-01-05 21:56:49 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94134.70000 | SL: 93987.28000
+2026-01-05 21:56:49 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638981381 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93987.28000 | Entry Price: 94134.70000 (requested: 94134.70000) | Slippage: 0.00000
+2026-01-05 21:56:49 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638981381 | SL verified: 93987.28000 (expected: 93987.28000)
+2026-01-05 21:56:49 - order_manager - INFO - [MODIFY_ORDER] Ticket 638981381 | Symbol BTCUSDm | SL: 93987.28000 (included: True) | TP: 94280.65000 (included: True)
+2026-01-05 21:56:50 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638981381 Symbol=BTCUSDm | SL: 93987.28000 (old: 93987.28000) | TP: 94280.65000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94116.34, comment=
+2026-01-05 21:56:50 - order_manager - INFO - [SL_VERIFIED] Ticket 638981381 | SL verified: 93987.28000 (expected: 93987.28000)
+2026-01-05 21:56:50 - order_manager - INFO - [TP_VERIFIED] Ticket 638981381 | TP verified: 94280.65000 (expected: 94280.65000)
+2026-01-05 21:56:51 - order_manager - INFO - [ATOMIC_SL] XAUUSDm BUY: Using strategy SL=4446.71200
+2026-01-05 21:56:51 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 4449.06800 | SL: 4446.71200
+2026-01-05 21:56:51 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=638981591 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 4446.71200 | Entry Price: 4449.06800 (requested: 4449.06800) | Slippage: 0.00000
+2026-01-05 21:56:51 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 638981591 | SL verified: 4446.71200 (expected: 4446.71200)
+2026-01-05 21:56:51 - order_manager - INFO - [MODIFY_ORDER] Ticket 638981591 | Symbol XAUUSDm | SL: 4446.71200 (included: True) | TP: 4450.41400 (included: True)
+2026-01-05 21:56:51 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638981591 Symbol=XAUUSDm | SL: 4446.71200 (old: 4446.71200) | TP: 4450.41400 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4448.839, comment=
+2026-01-05 21:56:52 - order_manager - INFO - [SL_VERIFIED] Ticket 638981591 | SL verified: 4446.71200 (expected: 4446.71200)
+2026-01-05 21:56:52 - order_manager - INFO - [TP_VERIFIED] Ticket 638981591 | TP verified: 4450.41400 (expected: 4450.41400)
+2026-01-05 22:02:05 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93881.77000
+2026-01-05 22:02:05 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94056.24000 | SL: 93881.77000
+2026-01-05 22:02:06 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638985487 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93881.77000 | Entry Price: 94056.24000 (requested: 94056.24000) | Slippage: 0.00000
+2026-01-05 22:02:07 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638985487 | SL verified: 93881.77000 (expected: 93881.77000)
+2026-01-05 22:02:07 - order_manager - INFO - [MODIFY_ORDER] Ticket 638985487 | Symbol BTCUSDm | SL: 93881.77000 (included: True) | TP: 94197.63000 (included: True)
+2026-01-05 22:02:07 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638985487 Symbol=BTCUSDm | SL: 93881.77000 (old: 93881.77000) | TP: 94197.63000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=93997.34, comment=
+2026-01-05 22:02:08 - order_manager - INFO - [SL_VERIFIED] Ticket 638985487 | SL verified: 93881.77000 (expected: 93881.77000)
+2026-01-05 22:02:08 - order_manager - INFO - [TP_VERIFIED] Ticket 638985487 | TP verified: 94197.63000 (expected: 94197.63000)
+2026-01-05 22:02:59 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:03:01 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:03:05 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:03:13 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93853.13000
+2026-01-05 22:03:13 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94092.95000 | SL: 93853.13000
+2026-01-05 22:03:14 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638986364 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93853.13000 | Entry Price: 94092.95000 (requested: 94092.95000) | Slippage: 0.00000
+2026-01-05 22:03:14 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638986364 | SL verified: 93853.13000 (expected: 93853.13000)
+2026-01-05 22:03:15 - order_manager - INFO - [MODIFY_ORDER] Ticket 638986364 | Symbol BTCUSDm | SL: 93853.13000 (included: True) | TP: 94272.44000 (included: True)
+2026-01-05 22:03:16 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638986364 Symbol=BTCUSDm | SL: 93853.13000 (old: 93853.13000) | TP: 94272.44000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94080.33, comment=
+2026-01-05 22:03:16 - order_manager - INFO - [SL_VERIFIED] Ticket 638986364 | SL verified: 93853.13000 (expected: 93853.13000)
+2026-01-05 22:03:17 - order_manager - INFO - [TP_VERIFIED] Ticket 638986364 | TP verified: 94272.44000 (expected: 94272.44000)
+2026-01-05 22:03:42 - order_manager - INFO - [MODIFY_ORDER] Ticket 638985487 | Symbol BTCUSDm | SL: 94068.81000 (included: True) | TP: 94197.63000 (included: True)
+2026-01-05 22:03:43 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638985487 Symbol=BTCUSDm | SL: 94068.81000 (old: 93881.77000) | TP: 94197.63000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94068.91, comment=
+2026-01-05 22:03:43 - order_manager - INFO - [SL_VERIFIED] Ticket 638985487 | SL verified: 94068.81000 (expected: 94068.81000)
+2026-01-05 22:04:11 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:04:13 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93860.99000
+2026-01-05 22:04:13 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94109.80000 | SL: 93860.99000
+2026-01-05 22:04:14 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638986646 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93860.99000 | Entry Price: 94109.80000 (requested: 94109.80000) | Slippage: 0.00000
+2026-01-05 22:04:14 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638986646 | SL verified: 93860.99000 (expected: 93860.99000)
+2026-01-05 22:04:16 - order_manager - INFO - [MODIFY_ORDER] Ticket 638986646 | Symbol BTCUSDm | SL: 93860.99000 (included: True) | TP: 94255.02000 (included: True)
+2026-01-05 22:04:16 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638986646 Symbol=BTCUSDm | SL: 93860.99000 (old: 93860.99000) | TP: 94255.02000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94090.42, comment=
+2026-01-05 22:04:17 - order_manager - INFO - [SL_VERIFIED] Ticket 638986646 | SL verified: 93860.99000 (expected: 93860.99000)
+2026-01-05 22:04:17 - order_manager - INFO - [TP_VERIFIED] Ticket 638986646 | TP verified: 94255.02000 (expected: 94255.02000)
+2026-01-05 22:07:02 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=93933.23000
+2026-01-05 22:07:02 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94102.82000 | SL: 93933.23000
+2026-01-05 22:07:03 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638987515 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 93933.23000 | Entry Price: 94102.82000 (requested: 94102.82000) | Slippage: 0.00000
+2026-01-05 22:07:05 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638987515 | SL verified: 93933.23000 (expected: 93933.23000)
+2026-01-05 22:07:10 - order_manager - INFO - [MODIFY_ORDER] Ticket 638987515 | Symbol BTCUSDm | SL: 93933.23000 (included: True) | TP: 94272.31000 (included: True)
+2026-01-05 22:07:11 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638987515 Symbol=BTCUSDm | SL: 93933.23000 (old: 93933.23000) | TP: 94272.31000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94101.9, comment=
+2026-01-05 22:07:11 - order_manager - INFO - [SL_VERIFIED] Ticket 638987515 | SL verified: 93933.23000 (expected: 93933.23000)
+2026-01-05 22:07:11 - order_manager - INFO - [TP_VERIFIED] Ticket 638987515 | TP verified: 94272.31000 (expected: 94272.31000)
+2026-01-05 22:07:36 - order_manager - INFO - [MODIFY_ORDER] Ticket 638986364 | Symbol BTCUSDm | SL: 94110.43000 (included: True) | TP: 94272.44000 (included: True)
+2026-01-05 22:07:36 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638986364 Symbol=BTCUSDm | SL: 94110.43000 (old: 93853.13000) | TP: 94272.44000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94110.53, comment=
+2026-01-05 22:07:37 - order_manager - INFO - [SL_VERIFIED] Ticket 638986364 | SL verified: 94110.43000 (expected: 94110.43000)
+2026-01-05 22:07:41 - order_manager - INFO - [MODIFY_ORDER] Ticket 638987515 | Symbol BTCUSDm | SL: 94112.82000 (included: True) | TP: 94272.31000 (included: True)
+2026-01-05 22:07:43 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638987515 Symbol=BTCUSDm | SL: 94112.82000 (old: 93933.23000) | TP: 94272.31000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94113.01, comment=
+2026-01-05 22:07:43 - order_manager - INFO - [SL_VERIFIED] Ticket 638987515 | SL verified: 94112.82000 (expected: 94112.82000)
+2026-01-05 22:08:15 - order_manager - INFO - [MODIFY_ORDER] Ticket 638981381 | Symbol BTCUSDm | SL: 94144.70000 (included: True) | TP: 94280.65000 (included: True)
+2026-01-05 22:08:16 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638981381 Symbol=BTCUSDm | SL: 94144.70000 (old: 93987.28000) | TP: 94280.65000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94145.28, comment=
+2026-01-05 22:08:16 - order_manager - INFO - [SL_VERIFIED] Ticket 638981381 | SL verified: 94144.70000 (expected: 94144.70000)
+2026-01-05 22:08:22 - order_manager - INFO - [MODIFY_ORDER] Ticket 638986646 | Symbol BTCUSDm | SL: 94140.63000 (included: True) | TP: 94255.02000 (included: True)
+2026-01-05 22:08:22 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638986646 Symbol=BTCUSDm | SL: 94140.63000 (old: 93860.99000) | TP: 94255.02000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94140.73, comment=
+2026-01-05 22:08:23 - order_manager - INFO - [SL_VERIFIED] Ticket 638986646 | SL verified: 94140.63000 (expected: 94140.63000)
+2026-01-05 22:08:55 - order_manager - INFO - [MODIFY_ORDER] Ticket 638976977 | Symbol BTCUSDm | SL: 94145.27000 (included: True) | TP: 94229.11000 (included: True)
+2026-01-05 22:08:55 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638976977 Symbol=BTCUSDm | SL: 94145.27000 (old: 93961.56000) | TP: 94229.11000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94145.34, comment=
+2026-01-05 22:08:55 - order_manager - INFO - [SL_VERIFIED] Ticket 638976977 | SL verified: 94145.27000 (expected: 94145.27000)
+2026-01-05 22:09:00 - order_manager - INFO - [MODIFY_ORDER] Ticket 638979685 | Symbol BTCUSDm | SL: 94187.38000 (included: True) | TP: 94227.70000 (included: True)
+2026-01-05 22:09:00 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638979685 Symbol=BTCUSDm | SL: 94187.38000 (old: 93937.32000) | TP: 94227.70000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94187.48, comment=
+2026-01-05 22:09:01 - order_manager - INFO - [SL_VERIFIED] Ticket 638979685 | SL verified: 94187.38000 (expected: 94187.38000)
+2026-01-05 22:10:15 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94025.38000
+2026-01-05 22:10:15 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94186.23000 | SL: 94025.38000
+2026-01-05 22:10:15 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638989004 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94025.38000 | Entry Price: 94186.23000 (requested: 94186.23000) | Slippage: 0.00000
+2026-01-05 22:10:16 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638989004 | SL verified: 94025.38000 (expected: 94025.38000)
+2026-01-05 22:10:16 - order_manager - INFO - [MODIFY_ORDER] Ticket 638989004 | Symbol BTCUSDm | SL: 94025.38000 (included: True) | TP: 94346.95000 (included: True)
+2026-01-05 22:10:17 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638989004 Symbol=BTCUSDm | SL: 94025.38000 (old: 94025.38000) | TP: 94346.95000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94168.23, comment=
+2026-01-05 22:10:17 - order_manager - INFO - [SL_VERIFIED] Ticket 638989004 | SL verified: 94025.38000 (expected: 94025.38000)
+2026-01-05 22:10:17 - order_manager - INFO - [TP_VERIFIED] Ticket 638989004 | TP verified: 94346.95000 (expected: 94346.95000)
+2026-01-05 22:11:56 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:11:58 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94072.14000
+2026-01-05 22:11:58 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94199.02000 | SL: 94072.14000
+2026-01-05 22:11:58 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638990250 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94072.14000 | Entry Price: 94199.02000 (requested: 94199.02000) | Slippage: 0.00000
+2026-01-05 22:11:58 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638990250 | SL verified: 94072.14000 (expected: 94072.14000)
+2026-01-05 22:11:59 - order_manager - INFO - [MODIFY_ORDER] Ticket 638990250 | Symbol BTCUSDm | SL: 94072.14000 (included: True) | TP: 94337.19000 (included: True)
+2026-01-05 22:11:59 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638990250 Symbol=BTCUSDm | SL: 94072.14000 (old: 94072.14000) | TP: 94337.19000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94181.02, comment=
+2026-01-05 22:12:00 - order_manager - INFO - [SL_VERIFIED] Ticket 638990250 | SL verified: 94072.14000 (expected: 94072.14000)
+2026-01-05 22:12:02 - order_manager - INFO - [TP_VERIFIED] Ticket 638990250 | TP verified: 94337.19000 (expected: 94337.19000)
+2026-01-05 22:13:57 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94050.50000
+2026-01-05 22:13:57 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94190.05000 | SL: 94050.50000
+2026-01-05 22:13:57 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638991483 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94050.50000 | Entry Price: 94190.05000 (requested: 94190.05000) | Slippage: 0.00000
+2026-01-05 22:13:57 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638991483 | SL verified: 94050.50000 (expected: 94050.50000)
+2026-01-05 22:13:58 - order_manager - INFO - [MODIFY_ORDER] Ticket 638991483 | Symbol BTCUSDm | SL: 94050.50000 (included: True) | TP: 94312.37000 (included: True)
+2026-01-05 22:13:58 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638991483 Symbol=BTCUSDm | SL: 94050.50000 (old: 94050.50000) | TP: 94312.37000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94172.05, comment=
+2026-01-05 22:13:58 - order_manager - INFO - [SL_VERIFIED] Ticket 638991483 | SL verified: 94050.50000 (expected: 94050.50000)
+2026-01-05 22:13:59 - order_manager - INFO - [TP_VERIFIED] Ticket 638991483 | TP verified: 94312.37000 (expected: 94312.37000)
+2026-01-05 22:16:21 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:16:24 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:16:28 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94124.13000
+2026-01-05 22:16:28 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94245.88000 | SL: 94124.13000
+2026-01-05 22:16:28 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638992522 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94124.13000 | Entry Price: 94245.88000 (requested: 94245.88000) | Slippage: 0.00000
+2026-01-05 22:16:28 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638992522 | SL verified: 94124.13000 (expected: 94124.13000)
+2026-01-05 22:16:30 - order_manager - INFO - [MODIFY_ORDER] Ticket 638992522 | Symbol BTCUSDm | SL: 94124.13000 (included: True) | TP: 94359.35000 (included: True)
+2026-01-05 22:16:30 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638992522 Symbol=BTCUSDm | SL: 94124.13000 (old: 94124.13000) | TP: 94359.35000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94232.41, comment=
+2026-01-05 22:16:30 - order_manager - INFO - [SL_VERIFIED] Ticket 638992522 | SL verified: 94124.13000 (expected: 94124.13000)
+2026-01-05 22:16:31 - order_manager - INFO - [TP_VERIFIED] Ticket 638992522 | TP verified: 94359.35000 (expected: 94359.35000)
+2026-01-05 22:16:43 - order_manager - INFO - [MODIFY_ORDER] Ticket 638989004 | Symbol BTCUSDm | SL: 94246.78000 (included: True) | TP: 94346.95000 (included: True)
+2026-01-05 22:16:43 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638989004 Symbol=BTCUSDm | SL: 94246.78000 (old: 94025.38000) | TP: 94346.95000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94246.88, comment=
+2026-01-05 22:16:43 - order_manager - INFO - [SL_VERIFIED] Ticket 638989004 | SL verified: 94246.78000 (expected: 94246.78000)
+2026-01-05 22:16:45 - order_manager - INFO - [MODIFY_ORDER] Ticket 638990250 | Symbol BTCUSDm | SL: 94250.65000 (included: True) | TP: 94337.19000 (included: True)
+2026-01-05 22:16:46 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638990250 Symbol=BTCUSDm | SL: 94250.65000 (old: 94072.14000) | TP: 94337.19000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94250.75, comment=
+2026-01-05 22:16:46 - order_manager - INFO - [SL_VERIFIED] Ticket 638990250 | SL verified: 94250.65000 (expected: 94250.65000)
+2026-01-05 22:16:49 - order_manager - INFO - [MODIFY_ORDER] Ticket 638991483 | Symbol BTCUSDm | SL: 94245.56000 (included: True) | TP: 94312.37000 (included: True)
+2026-01-05 22:16:50 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638991483 Symbol=BTCUSDm | SL: 94245.56000 (old: 94050.50000) | TP: 94312.37000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94245.66, comment=
+2026-01-05 22:16:50 - order_manager - INFO - [SL_VERIFIED] Ticket 638991483 | SL verified: 94245.56000 (expected: 94245.56000)
+2026-01-05 22:17:08 - order_manager - INFO - [MODIFY_ORDER] Ticket 638992522 | Symbol BTCUSDm | SL: 94252.88000 (included: True) | TP: 94359.35000 (included: True)
+2026-01-05 22:17:08 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638992522 Symbol=BTCUSDm | SL: 94252.88000 (old: 94124.13000) | TP: 94359.35000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94253.46, comment=
+2026-01-05 22:17:08 - order_manager - INFO - [SL_VERIFIED] Ticket 638992522 | SL verified: 94252.88000 (expected: 94252.88000)
+2026-01-05 22:17:56 - order_manager - INFO - [MODIFY_ORDER] Ticket 638992522 | Symbol BTCUSDm | SL: 94308.86000 (included: True) | TP: 94359.35000 (included: True)
+2026-01-05 22:17:56 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638992522 Symbol=BTCUSDm | SL: 94308.86000 (old: 94252.88000) | TP: 94359.35000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94308.96, comment=
+2026-01-05 22:17:56 - order_manager - INFO - [SL_VERIFIED] Ticket 638992522 | SL verified: 94308.86000 (expected: 94308.86000)
+2026-01-05 22:21:58 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94261.65000
+2026-01-05 22:21:58 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94357.45000 | SL: 94261.65000
+2026-01-05 22:21:58 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638995774 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94261.65000 | Entry Price: 94357.45000 (requested: 94357.45000) | Slippage: 0.00000
+2026-01-05 22:21:58 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638995774 | SL verified: 94261.65000 (expected: 94261.65000)
+2026-01-05 22:21:59 - order_manager - INFO - [MODIFY_ORDER] Ticket 638995774 | Symbol BTCUSDm | SL: 94261.65000 (included: True) | TP: 94453.25000 (included: True)
+2026-01-05 22:21:59 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638995774 Symbol=BTCUSDm | SL: 94261.65000 (old: 94261.65000) | TP: 94453.25000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94339.45, comment=
+2026-01-05 22:21:59 - order_manager - INFO - [SL_VERIFIED] Ticket 638995774 | SL verified: 94261.65000 (expected: 94261.65000)
+2026-01-05 22:22:00 - order_manager - INFO - [TP_VERIFIED] Ticket 638995774 | TP verified: 94453.25000 (expected: 94453.25000)
+2026-01-05 22:28:14 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94221.95000
+2026-01-05 22:28:14 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94319.73000 | SL: 94221.95000
+2026-01-05 22:28:14 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=638999738 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94221.95000 | Entry Price: 94319.73000 (requested: 94319.73000) | Slippage: 0.00000
+2026-01-05 22:28:14 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 638999738 | SL verified: 94221.95000 (expected: 94221.95000)
+2026-01-05 22:28:16 - order_manager - INFO - [MODIFY_ORDER] Ticket 638999738 | Symbol BTCUSDm | SL: 94221.95000 (included: True) | TP: 94417.51000 (included: True)
+2026-01-05 22:28:17 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=638999738 Symbol=BTCUSDm | SL: 94221.95000 (old: 94221.95000) | TP: 94417.51000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94301.9, comment=
+2026-01-05 22:28:17 - order_manager - INFO - [SL_VERIFIED] Ticket 638999738 | SL verified: 94221.95000 (expected: 94221.95000)
+2026-01-05 22:28:18 - order_manager - INFO - [TP_VERIFIED] Ticket 638999738 | TP verified: 94417.51000 (expected: 94417.51000)
+2026-01-05 22:30:04 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94174.06000
+2026-01-05 22:30:04 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94277.40000 | SL: 94174.06000
+2026-01-05 22:30:04 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639000563 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94174.06000 | Entry Price: 94277.40000 (requested: 94277.40000) | Slippage: 0.00000
+2026-01-05 22:30:04 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639000563 | SL verified: 94174.06000 (expected: 94174.06000)
+2026-01-05 22:30:05 - order_manager - INFO - [MODIFY_ORDER] Ticket 639000563 | Symbol BTCUSDm | SL: 94174.06000 (included: True) | TP: 94375.80000 (included: True)
+2026-01-05 22:30:05 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639000563 Symbol=BTCUSDm | SL: 94174.06000 (old: 94174.06000) | TP: 94375.80000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94259.4, comment=
+2026-01-05 22:30:06 - order_manager - INFO - [SL_VERIFIED] Ticket 639000563 | SL verified: 94174.06000 (expected: 94174.06000)
+2026-01-05 22:30:06 - order_manager - INFO - [TP_VERIFIED] Ticket 639000563 | TP verified: 94375.80000 (expected: 94375.80000)
+2026-01-05 22:33:36 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94155.98000
+2026-01-05 22:33:36 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94235.18000 | SL: 94155.98000
+2026-01-05 22:33:37 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639002497 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94155.98000 | Entry Price: 94235.18000 (requested: 94235.18000) | Slippage: 0.00000
+2026-01-05 22:33:37 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639002497 | SL verified: 94155.98000 (expected: 94155.98000)
+2026-01-05 22:33:37 - order_manager - INFO - [MODIFY_ORDER] Ticket 639002497 | Symbol BTCUSDm | SL: 94155.98000 (included: True) | TP: 94329.73000 (included: True)
+2026-01-05 22:33:38 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639002497 Symbol=BTCUSDm | SL: 94155.98000 (old: 94155.98000) | TP: 94329.73000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94217.18, comment=
+2026-01-05 22:33:38 - order_manager - INFO - [SL_VERIFIED] Ticket 639002497 | SL verified: 94155.98000 (expected: 94155.98000)
+2026-01-05 22:33:38 - order_manager - INFO - [TP_VERIFIED] Ticket 639002497 | TP verified: 94329.73000 (expected: 94329.73000)
+2026-01-05 22:35:48 - order_manager - INFO - [MODIFY_ORDER] Ticket 639000563 | Symbol BTCUSDm | SL: 94282.40000 (included: True) | TP: 94375.80000 (included: True)
+2026-01-05 22:35:48 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639000563 Symbol=BTCUSDm | SL: 94282.40000 (old: 94174.06000) | TP: 94375.80000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94284.24, comment=
+2026-01-05 22:35:49 - order_manager - INFO - [SL_VERIFIED] Ticket 639000563 | SL verified: 94282.40000 (expected: 94282.40000)
+2026-01-05 22:35:52 - order_manager - INFO - [MODIFY_ORDER] Ticket 639002497 | Symbol BTCUSDm | SL: 94285.68000 (included: True) | TP: 94329.73000 (included: True)
+2026-01-05 22:35:52 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639002497 Symbol=BTCUSDm | SL: 94285.68000 (old: 94155.98000) | TP: 94329.73000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94285.78, comment=
+2026-01-05 22:35:52 - order_manager - INFO - [SL_VERIFIED] Ticket 639002497 | SL verified: 94285.68000 (expected: 94285.68000)
+2026-01-05 22:37:21 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94210.43000
+2026-01-05 22:37:21 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94312.21000 | SL: 94210.43000
+2026-01-05 22:37:21 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639003765 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94210.43000 | Entry Price: 94312.21000 (requested: 94312.21000) | Slippage: 0.00000
+2026-01-05 22:37:21 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639003765 | SL verified: 94210.43000 (expected: 94210.43000)
+2026-01-05 22:37:22 - order_manager - INFO - [MODIFY_ORDER] Ticket 639003765 | Symbol BTCUSDm | SL: 94210.43000 (included: True) | TP: 94413.94000 (included: True)
+2026-01-05 22:37:22 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639003765 Symbol=BTCUSDm | SL: 94210.43000 (old: 94210.43000) | TP: 94413.94000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94294.11, comment=
+2026-01-05 22:37:23 - order_manager - INFO - [SL_VERIFIED] Ticket 639003765 | SL verified: 94210.43000 (expected: 94210.43000)
+2026-01-05 22:37:23 - order_manager - INFO - [TP_VERIFIED] Ticket 639003765 | TP verified: 94413.94000 (expected: 94413.94000)
+2026-01-05 22:39:10 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:39:12 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94232.46000
+2026-01-05 22:39:12 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94331.77000 | SL: 94232.46000
+2026-01-05 22:39:13 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639004540 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94232.46000 | Entry Price: 94331.77000 (requested: 94331.77000) | Slippage: 0.00000
+2026-01-05 22:39:13 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639004540 | SL verified: 94232.46000 (expected: 94232.46000)
+2026-01-05 22:39:13 - order_manager - INFO - [MODIFY_ORDER] Ticket 639004540 | Symbol BTCUSDm | SL: 94232.46000 (included: True) | TP: 94430.97000 (included: True)
+2026-01-05 22:39:14 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639004540 Symbol=BTCUSDm | SL: 94232.46000 (old: 94232.46000) | TP: 94430.97000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94312.72, comment=
+2026-01-05 22:39:14 - order_manager - INFO - [SL_VERIFIED] Ticket 639004540 | SL verified: 94232.46000 (expected: 94232.46000)
+2026-01-05 22:39:14 - order_manager - INFO - [TP_VERIFIED] Ticket 639004540 | TP verified: 94430.97000 (expected: 94430.97000)
+2026-01-05 22:41:16 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94233.17000
+2026-01-05 22:41:16 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94338.97000 | SL: 94233.17000
+2026-01-05 22:41:17 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639005284 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94233.17000 | Entry Price: 94338.97000 (requested: 94338.97000) | Slippage: 0.00000
+2026-01-05 22:41:17 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639005284 | SL verified: 94233.17000 (expected: 94233.17000)
+2026-01-05 22:41:17 - order_manager - INFO - [MODIFY_ORDER] Ticket 639005284 | Symbol BTCUSDm | SL: 94233.17000 (included: True) | TP: 94438.58000 (included: True)
+2026-01-05 22:41:17 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639005284 Symbol=BTCUSDm | SL: 94233.17000 (old: 94233.17000) | TP: 94438.58000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94320.97, comment=
+2026-01-05 22:41:18 - order_manager - INFO - [SL_VERIFIED] Ticket 639005284 | SL verified: 94233.17000 (expected: 94233.17000)
+2026-01-05 22:41:18 - order_manager - INFO - [TP_VERIFIED] Ticket 639005284 | TP verified: 94438.58000 (expected: 94438.58000)
+2026-01-05 22:41:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 639003765 | Symbol BTCUSDm | SL: 94340.11000 (included: True) | TP: 94413.94000 (included: True)
+2026-01-05 22:41:28 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639003765 Symbol=BTCUSDm | SL: 94340.11000 (old: 94210.43000) | TP: 94413.94000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94351.8, comment=
+2026-01-05 22:41:28 - order_manager - INFO - [SL_VERIFIED] Ticket 639003765 | SL verified: 94340.11000 (expected: 94340.11000)
+2026-01-05 22:41:34 - order_manager - INFO - [MODIFY_ORDER] Ticket 639004540 | Symbol BTCUSDm | SL: 94348.56000 (included: True) | TP: 94430.97000 (included: True)
+2026-01-05 22:41:34 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639004540 Symbol=BTCUSDm | SL: 94348.56000 (old: 94232.46000) | TP: 94430.97000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94348.66, comment=
+2026-01-05 22:41:34 - order_manager - INFO - [SL_VERIFIED] Ticket 639004540 | SL verified: 94348.56000 (expected: 94348.56000)
+2026-01-05 22:41:38 - order_manager - INFO - [MODIFY_ORDER] Ticket 639005284 | Symbol BTCUSDm | SL: 94352.13000 (included: True) | TP: 94438.58000 (included: True)
+2026-01-05 22:41:38 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639005284 Symbol=BTCUSDm | SL: 94352.13000 (old: 94233.17000) | TP: 94438.58000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94352.27, comment=
+2026-01-05 22:41:38 - order_manager - INFO - [SL_VERIFIED] Ticket 639005284 | SL verified: 94352.13000 (expected: 94352.13000)
+2026-01-05 22:43:01 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94191.85000
+2026-01-05 22:43:01 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94311.92000 | SL: 94191.85000
+2026-01-05 22:43:01 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639005950 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94191.85000 | Entry Price: 94311.92000 (requested: 94311.92000) | Slippage: 0.00000
+2026-01-05 22:43:02 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639005950 | SL verified: 94191.85000 (expected: 94191.85000)
+2026-01-05 22:43:02 - order_manager - INFO - [MODIFY_ORDER] Ticket 639005950 | Symbol BTCUSDm | SL: 94191.85000 (included: True) | TP: 94386.96000 (included: True)
+2026-01-05 22:43:02 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639005950 Symbol=BTCUSDm | SL: 94191.85000 (old: 94191.85000) | TP: 94386.96000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94294.67, comment=
+2026-01-05 22:43:03 - order_manager - INFO - [SL_VERIFIED] Ticket 639005950 | SL verified: 94191.85000 (expected: 94191.85000)
+2026-01-05 22:43:03 - order_manager - INFO - [TP_VERIFIED] Ticket 639005950 | TP verified: 94386.96000 (expected: 94386.96000)
+2026-01-05 22:44:50 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 22:44:52 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94117.58000
+2026-01-05 22:44:52 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94279.80000 | SL: 94117.58000
+2026-01-05 22:44:52 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639006533 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94117.58000 | Entry Price: 94279.80000 (requested: 94279.80000) | Slippage: 0.00000
+2026-01-05 22:44:52 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639006533 | SL verified: 94117.58000 (expected: 94117.58000)
+2026-01-05 22:44:53 - order_manager - INFO - [MODIFY_ORDER] Ticket 639006533 | Symbol BTCUSDm | SL: 94117.58000 (included: True) | TP: 94344.64000 (included: True)
+2026-01-05 22:44:53 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639006533 Symbol=BTCUSDm | SL: 94117.58000 (old: 94117.58000) | TP: 94344.64000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94261.8, comment=
+2026-01-05 22:44:54 - order_manager - INFO - [SL_VERIFIED] Ticket 639006533 | SL verified: 94117.58000 (expected: 94117.58000)
+2026-01-05 22:44:54 - order_manager - INFO - [TP_VERIFIED] Ticket 639006533 | TP verified: 94344.64000 (expected: 94344.64000)
+2026-01-05 22:46:27 - order_manager - INFO - [MODIFY_ORDER] Ticket 639005950 | Symbol BTCUSDm | SL: 94337.18000 (included: True) | TP: 94386.96000 (included: True)
+2026-01-05 22:46:29 - order_manager - WARNING - [MODIFY_SLOW] Ticket 639005950 | MT5 modify_order took 2.17s (exceeded 2.0s limit)
+2026-01-05 22:46:29 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 639005950 | Retrying after slow call (attempt 1/2)
+2026-01-05 22:46:29 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 639005950 | MT5 modify_order timeout: 2.24s > 2.0s limit
+2026-01-05 22:46:31 - order_manager - INFO - [MODIFY_ORDER] Ticket 639006533 | Symbol BTCUSDm | SL: 94335.00000 (included: True) | TP: 94344.64000 (included: True)
+2026-01-05 22:46:32 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639006533 Symbol=BTCUSDm | SL: 94335.00000 (old: 94117.58000) | TP: 94344.64000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94335.1, comment=
+2026-01-05 22:46:32 - order_manager - INFO - [SL_VERIFIED] Ticket 639006533 | SL verified: 94335.00000 (expected: 94335.00000)
+2026-01-05 22:46:39 - order_manager - INFO - [MODIFY_ORDER] Ticket 639005950 | Symbol BTCUSDm | SL: 94338.20000 (included: True) | TP: 94386.96000 (included: True)
+2026-01-05 22:46:39 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639005950 Symbol=BTCUSDm | SL: 94338.20000 (old: 94191.85000) | TP: 94386.96000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94338.3, comment=
+2026-01-05 22:46:40 - order_manager - INFO - [SL_VERIFIED] Ticket 639005950 | SL verified: 94338.20000 (expected: 94338.20000)
+2026-01-05 22:48:40 - order_manager - INFO - [ATOMIC_SL] BTCUSDm BUY: Using strategy SL=94125.87000
+2026-01-05 22:48:40 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 94257.90000 | SL: 94125.87000
+2026-01-05 22:48:40 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639008780 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 94125.87000 | Entry Price: 94257.90000 (requested: 94257.90000) | Slippage: 0.00000
+2026-01-05 22:48:40 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639008780 | SL verified: 94125.87000 (expected: 94125.87000)
+2026-01-05 22:48:40 - order_manager - INFO - [MODIFY_ORDER] Ticket 639008780 | Symbol BTCUSDm | SL: 94125.87000 (included: True) | TP: 94333.69000 (included: True)
+2026-01-05 22:48:41 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639008780 Symbol=BTCUSDm | SL: 94125.87000 (old: 94125.87000) | TP: 94333.69000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94226.45, comment=
+2026-01-05 22:48:41 - order_manager - INFO - [SL_VERIFIED] Ticket 639008780 | SL verified: 94125.87000 (expected: 94125.87000)
+2026-01-05 22:48:41 - order_manager - INFO - [TP_VERIFIED] Ticket 639008780 | TP verified: 94333.69000 (expected: 94333.69000)
+2026-01-05 22:50:19 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94262.89000
+2026-01-05 22:50:19 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 94157.61000 | SL: 94262.89000
+2026-01-05 22:50:19 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639009986 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94262.89000 | Entry Price: 94157.61000 (requested: 94157.61000) | Slippage: 0.00000
+2026-01-05 22:50:19 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639009986 | SL verified: 94262.89000 (expected: 94262.89000)
+2026-01-05 22:50:20 - order_manager - INFO - [MODIFY_ORDER] Ticket 639009986 | Symbol BTCUSDm | SL: 94262.89000 (included: True) | TP: 94086.84000 (included: True)
+2026-01-05 22:50:20 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639009986 Symbol=BTCUSDm | SL: 94262.89000 (old: 94262.89000) | TP: 94086.84000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94189.3, comment=
+2026-01-05 22:50:20 - order_manager - INFO - [SL_VERIFIED] Ticket 639009986 | SL verified: 94262.89000 (expected: 94262.89000)
+2026-01-05 22:50:21 - order_manager - INFO - [TP_VERIFIED] Ticket 639009986 | TP verified: 94086.84000 (expected: 94086.84000)
+2026-01-05 22:52:17 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94299.14000
+2026-01-05 22:52:17 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 94156.24000 | SL: 94299.14000
+2026-01-05 22:52:18 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639011049 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94299.14000 | Entry Price: 94156.24000 (requested: 94156.24000) | Slippage: 0.00000
+2026-01-05 22:52:18 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639011049 | SL verified: 94299.14000 (expected: 94299.14000)
+2026-01-05 22:52:18 - order_manager - INFO - [MODIFY_ORDER] Ticket 639011049 | Symbol BTCUSDm | SL: 94299.14000 (included: True) | TP: 94099.04000 (included: True)
+2026-01-05 22:52:19 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639011049 Symbol=BTCUSDm | SL: 94299.14000 (old: 94299.14000) | TP: 94099.04000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94174.24, comment=
+2026-01-05 22:52:19 - order_manager - INFO - [SL_VERIFIED] Ticket 639011049 | SL verified: 94299.14000 (expected: 94299.14000)
+2026-01-05 22:52:20 - order_manager - INFO - [TP_VERIFIED] Ticket 639011049 | TP verified: 94099.04000 (expected: 94099.04000)
+2026-01-05 22:54:17 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94283.70000
+2026-01-05 22:54:17 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 94168.93000 | SL: 94283.70000
+2026-01-05 22:54:17 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639012108 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94283.70000 | Entry Price: 94168.93000 (requested: 94168.93000) | Slippage: 0.00000
+2026-01-05 22:54:17 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639012108 | SL verified: 94283.70000 (expected: 94283.70000)
+2026-01-05 22:54:18 - order_manager - INFO - [MODIFY_ORDER] Ticket 639012108 | Symbol BTCUSDm | SL: 94283.70000 (included: True) | TP: 94096.53000 (included: True)
+2026-01-05 22:54:18 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639012108 Symbol=BTCUSDm | SL: 94283.70000 (old: 94283.70000) | TP: 94096.53000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94186.93, comment=
+2026-01-05 22:54:19 - order_manager - INFO - [SL_VERIFIED] Ticket 639012108 | SL verified: 94283.70000 (expected: 94283.70000)
+2026-01-05 22:54:19 - order_manager - INFO - [TP_VERIFIED] Ticket 639012108 | TP verified: 94096.53000 (expected: 94096.53000)
+2026-01-05 23:03:19 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94130.43000
+2026-01-05 23:03:19 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 94041.79000 | SL: 94130.43000
+2026-01-05 23:03:20 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639021266 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94130.43000 | Entry Price: 94041.79000 (requested: 94041.79000) | Slippage: 0.00000
+2026-01-05 23:03:20 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639021266 | SL verified: 94130.43000 (expected: 94130.43000)
+2026-01-05 23:03:21 - order_manager - INFO - [MODIFY_ORDER] Ticket 639021266 | Symbol BTCUSDm | SL: 94130.43000 (included: True) | TP: 93950.46000 (included: True)
+2026-01-05 23:03:22 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639021266 Symbol=BTCUSDm | SL: 94130.43000 (old: 94130.43000) | TP: 93950.46000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94047.3, comment=
+2026-01-05 23:03:22 - order_manager - INFO - [SL_VERIFIED] Ticket 639021266 | SL verified: 94130.43000 (expected: 94130.43000)
+2026-01-05 23:03:23 - order_manager - INFO - [TP_VERIFIED] Ticket 639021266 | TP verified: 93950.46000 (expected: 93950.46000)
+2026-01-05 23:05:09 - order_manager - INFO - [ATOMIC_SL] US30m BUY: Using strategy SL=49017.50000
+2026-01-05 23:05:09 - order_manager - INFO - mode=LIVE | symbol=US30m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49034.30000 | SL: 49017.50000
+2026-01-05 23:05:09 - order_manager - INFO - mode=LIVE | symbol=US30m | ticket=639034644 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49017.50000 | Entry Price: 49034.30000 (requested: 49034.30000) | Slippage: 0.00000
+2026-01-05 23:05:10 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30m Ticket 639034644 | SL verified: 49017.50000 (expected: 49017.50000)
+2026-01-05 23:05:13 - order_manager - INFO - [MODIFY_ORDER] Ticket 639034644 | Symbol US30m | SL: 49017.50000 (included: True) | TP: 49051.10000 (included: True)
+2026-01-05 23:05:13 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639034644 Symbol=US30m | SL: 49017.50000 (old: 49017.50000) | TP: 49051.10000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49032.2, comment=
+2026-01-05 23:05:14 - order_manager - INFO - [SL_VERIFIED] Ticket 639034644 | SL verified: 49017.50000 (expected: 49017.50000)
+2026-01-05 23:05:14 - order_manager - INFO - [TP_VERIFIED] Ticket 639034644 | TP verified: 49051.10000 (expected: 49051.10000)
+2026-01-05 23:05:15 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 23:05:17 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94148.45000
+2026-01-05 23:05:17 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 94059.38000 | SL: 94148.45000
+2026-01-05 23:05:18 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639035056 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94148.45000 | Entry Price: 94059.38000 (requested: 94059.38000) | Slippage: 0.00000
+2026-01-05 23:05:18 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639035056 | SL verified: 94148.45000 (expected: 94148.45000)
+2026-01-05 23:05:22 - order_manager - INFO - [MODIFY_ORDER] Ticket 639035056 | Symbol BTCUSDm | SL: 94148.45000 (included: True) | TP: 93972.05000 (included: True)
+2026-01-05 23:05:22 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639035056 Symbol=BTCUSDm | SL: 94148.45000 (old: 94148.45000) | TP: 93972.05000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94058.94, comment=
+2026-01-05 23:05:22 - order_manager - INFO - [SL_VERIFIED] Ticket 639035056 | SL verified: 94148.45000 (expected: 94148.45000)
+2026-01-05 23:05:23 - order_manager - INFO - [TP_VERIFIED] Ticket 639035056 | TP verified: 93972.05000 (expected: 93972.05000)
+2026-01-05 23:05:25 - order_manager - INFO - [ATOMIC_SL] US30_x10m BUY: Using strategy SL=49017.40000
+2026-01-05 23:05:25 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49034.20000 | SL: 49017.40000
+2026-01-05 23:05:25 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | ticket=639035399 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49017.40000 | Entry Price: 49034.20000 (requested: 49034.20000) | Slippage: 0.00000
+2026-01-05 23:05:25 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30_x10m Ticket 639035399 | SL verified: 49017.40000 (expected: 49017.40000)
+2026-01-05 23:05:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 639035399 | Symbol US30_x10m | SL: 49017.40000 (included: True) | TP: 49051.00000 (included: True)
+2026-01-05 23:05:29 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639035399 Symbol=US30_x10m | SL: 49017.40000 (old: 49017.40000) | TP: 49051.00000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49032.1, comment=
+2026-01-05 23:05:29 - order_manager - INFO - [SL_VERIFIED] Ticket 639035399 | SL verified: 49017.40000 (expected: 49017.40000)
+2026-01-05 23:05:29 - order_manager - INFO - [TP_VERIFIED] Ticket 639035399 | TP verified: 49051.00000 (expected: 49051.00000)
+2026-01-05 23:05:40 - order_manager - INFO - [MODIFY_ORDER] Ticket 639035056 | Symbol BTCUSDm | SL: 94049.38000 (included: True) | TP: 93972.05000 (included: True)
+2026-01-05 23:05:40 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639035056 Symbol=BTCUSDm | SL: 94049.38000 (old: 94148.45000) | TP: 93972.05000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94046.05, comment=
+2026-01-05 23:05:40 - order_manager - INFO - [SL_VERIFIED] Ticket 639035056 | SL verified: 94049.38000 (expected: 94049.38000)
+2026-01-05 23:07:35 - order_manager - ERROR - Cannot place order: Symbol US30m not found or price is stale
+2026-01-05 23:07:38 - order_manager - INFO - [ATOMIC_SL] US30m BUY: Using strategy SL=49021.70000
+2026-01-05 23:07:38 - order_manager - INFO - mode=LIVE | symbol=US30m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49038.80000 | SL: 49021.70000
+2026-01-05 23:07:38 - order_manager - INFO - mode=LIVE | symbol=US30m | ticket=639040394 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49021.70000 | Entry Price: 49038.80000 (requested: 49038.80000) | Slippage: 0.00000
+2026-01-05 23:07:38 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30m Ticket 639040394 | SL verified: 49021.70000 (expected: 49021.70000)
+2026-01-05 23:07:38 - order_manager - INFO - [MODIFY_ORDER] Ticket 639040394 | Symbol US30m | SL: 49021.70000 (included: True) | TP: 49055.40000 (included: True)
+2026-01-05 23:07:39 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639040394 Symbol=US30m | SL: 49021.70000 (old: 49021.70000) | TP: 49055.40000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49036.7, comment=
+2026-01-05 23:07:39 - order_manager - INFO - [SL_VERIFIED] Ticket 639040394 | SL verified: 49021.70000 (expected: 49021.70000)
+2026-01-05 23:07:39 - order_manager - INFO - [TP_VERIFIED] Ticket 639040394 | TP verified: 49055.40000 (expected: 49055.40000)
+2026-01-05 23:07:41 - order_manager - ERROR - Cannot place order: Symbol US30_x10m not found or price is stale
+2026-01-05 23:07:43 - order_manager - INFO - [ATOMIC_SL] US30_x10m BUY: Using strategy SL=49022.20000
+2026-01-05 23:07:43 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49038.30000 | SL: 49022.20000
+2026-01-05 23:07:44 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | ticket=639040652 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49022.20000 | Entry Price: 49038.30000 (requested: 49038.30000) | Slippage: 0.00000
+2026-01-05 23:07:44 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30_x10m Ticket 639040652 | SL verified: 49022.20000 (expected: 49022.20000)
+2026-01-05 23:07:44 - order_manager - INFO - [MODIFY_ORDER] Ticket 639040652 | Symbol US30_x10m | SL: 49022.20000 (included: True) | TP: 49054.90000 (included: True)
+2026-01-05 23:07:44 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639040652 Symbol=US30_x10m | SL: 49022.20000 (old: 49022.20000) | TP: 49054.90000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49036.2, comment=
+2026-01-05 23:07:45 - order_manager - INFO - [SL_VERIFIED] Ticket 639040652 | SL verified: 49022.20000 (expected: 49022.20000)
+2026-01-05 23:07:45 - order_manager - INFO - [TP_VERIFIED] Ticket 639040652 | TP verified: 49054.90000 (expected: 49054.90000)
+2026-01-05 23:07:52 - order_manager - WARNING - SL 49038.30000 too close to market (BID: 49037.20000, min allowed: 49037.19000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:07:52 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49037.20000
+2026-01-05 23:07:52 - order_manager - INFO - [MODIFY_ORDER] Ticket 639034644 | Symbol US30m | SL: 49037.20000 (included: True) | TP: 49051.10000 (included: True)
+2026-01-05 23:07:53 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639034644 Symbol=US30m | SL: 49037.20000 (old: 49017.50000) | TP: 49051.10000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49037.2, comment=
+2026-01-05 23:07:53 - order_manager - INFO - [SL_VERIFIED] Ticket 639034644 | SL verified: 49037.20000 (expected: 49037.20000)
+2026-01-05 23:07:58 - order_manager - WARNING - SL 49038.30000 too close to market (BID: 49037.20000, min allowed: 49037.19000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:07:58 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49037.20000
+2026-01-05 23:07:58 - order_manager - INFO - [MODIFY_ORDER] Ticket 639034644 | Symbol US30m | SL: 49037.20000 (included: True) | TP: 49051.10000 (included: True)
+2026-01-05 23:08:04 - order_manager - WARNING - SL 49038.30000 too close to market (BID: 49037.20000, min allowed: 49037.19000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:08:04 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49037.20000
+2026-01-05 23:08:04 - order_manager - INFO - [MODIFY_ORDER] Ticket 639034644 | Symbol US30m | SL: 49037.20000 (included: True) | TP: 49051.10000 (included: True)
+2026-01-05 23:08:10 - order_manager - WARNING - SL 49038.30000 too close to market (BID: 49037.20000, min allowed: 49037.19000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:08:10 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49037.20000
+2026-01-05 23:08:10 - order_manager - INFO - [MODIFY_ORDER] Ticket 639034644 | Symbol US30m | SL: 49037.20000 (included: True) | TP: 49051.10000 (included: True)
+2026-01-05 23:08:17 - order_manager - WARNING - SL 49038.30000 too close to market (BID: 49037.20000, min allowed: 49037.19000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:08:17 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49037.20000
+2026-01-05 23:08:17 - order_manager - INFO - [MODIFY_ORDER] Ticket 639034644 | Symbol US30m | SL: 49037.20000 (included: True) | TP: 49051.10000 (included: True)
+2026-01-05 23:08:24 - order_manager - INFO - [MODIFY_ORDER] Ticket 639035399 | Symbol US30_x10m | SL: 49036.00000 (included: True) | TP: 49051.00000 (included: True)
+2026-01-05 23:08:25 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639035399 Symbol=US30_x10m | SL: 49036.00000 (old: 49017.40000) | TP: 49051.00000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49037.0, comment=
+2026-01-05 23:08:25 - order_manager - INFO - [SL_VERIFIED] Ticket 639035399 | SL verified: 49036.00000 (expected: 49036.00000)
+2026-01-05 23:09:40 - order_manager - INFO - [MODIFY_ORDER] Ticket 639035399 | Symbol US30_x10m | SL: 49036.50000 (included: True) | TP: 49051.00000 (included: True)
+2026-01-05 23:09:40 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639035399 Symbol=US30_x10m | SL: 49036.50000 (old: 49036.00000) | TP: 49051.00000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49037.5, comment=
+2026-01-05 23:09:40 - order_manager - INFO - [SL_VERIFIED] Ticket 639035399 | SL verified: 49036.50000 (expected: 49036.50000)
+2026-01-05 23:11:59 - order_manager - INFO - [ATOMIC_SL] US30m BUY: Using strategy SL=49018.90000
+2026-01-05 23:11:59 - order_manager - INFO - mode=LIVE | symbol=US30m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49035.00000 | SL: 49018.90000
+2026-01-05 23:11:59 - order_manager - INFO - mode=LIVE | symbol=US30m | ticket=639064828 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49018.90000 | Entry Price: 49035.00000 (requested: 49035.00000) | Slippage: 0.00000
+2026-01-05 23:11:59 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30m Ticket 639064828 | SL verified: 49018.90000 (expected: 49018.90000)
+2026-01-05 23:12:00 - order_manager - INFO - [MODIFY_ORDER] Ticket 639064828 | Symbol US30m | SL: 49018.90000 (included: True) | TP: 49051.10000 (included: True)
+2026-01-05 23:12:00 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639064828 Symbol=US30m | SL: 49018.90000 (old: 49018.90000) | TP: 49051.10000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49032.4, comment=
+2026-01-05 23:12:00 - order_manager - INFO - [SL_VERIFIED] Ticket 639064828 | SL verified: 49018.90000 (expected: 49018.90000)
+2026-01-05 23:12:01 - order_manager - INFO - [TP_VERIFIED] Ticket 639064828 | TP verified: 49051.10000 (expected: 49051.10000)
+2026-01-05 23:12:03 - order_manager - INFO - [ATOMIC_SL] US30_x10m BUY: Using strategy SL=49018.40000
+2026-01-05 23:12:03 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49034.50000 | SL: 49018.40000
+2026-01-05 23:12:04 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | ticket=639065230 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49018.40000 | Entry Price: 49034.50000 (requested: 49034.50000) | Slippage: 0.00000
+2026-01-05 23:12:04 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30_x10m Ticket 639065230 | SL verified: 49018.40000 (expected: 49018.40000)
+2026-01-05 23:12:04 - order_manager - INFO - [MODIFY_ORDER] Ticket 639065230 | Symbol US30_x10m | SL: 49018.40000 (included: True) | TP: 49050.60000 (included: True)
+2026-01-05 23:12:05 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639065230 Symbol=US30_x10m | SL: 49018.40000 (old: 49018.40000) | TP: 49050.60000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49032.4, comment=
+2026-01-05 23:12:05 - order_manager - INFO - [SL_VERIFIED] Ticket 639065230 | SL verified: 49018.40000 (expected: 49018.40000)
+2026-01-05 23:12:05 - order_manager - INFO - [TP_VERIFIED] Ticket 639065230 | TP verified: 49050.60000 (expected: 49050.60000)
+2026-01-05 23:12:09 - order_manager - INFO - [ATOMIC_SL] XAUUSDm SELL: Using strategy SL=4458.78200
+2026-01-05 23:12:09 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 4455.83400 | SL: 4458.78200
+2026-01-05 23:12:09 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=639065481 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 4458.78200 | Entry Price: 4455.83400 (requested: 4455.83400) | Slippage: 0.00000
+2026-01-05 23:12:10 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 639065481 | SL verified: 4458.78200 (expected: 4458.78200)
+2026-01-05 23:12:15 - order_manager - INFO - [MODIFY_ORDER] Ticket 639065481 | Symbol XAUUSDm | SL: 4458.78200 (included: True) | TP: 4453.99200 (included: True)
+2026-01-05 23:12:15 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639065481 Symbol=XAUUSDm | SL: 4458.78200 (old: 4458.78200) | TP: 4453.99200 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4455.661, comment=
+2026-01-05 23:12:15 - order_manager - INFO - [SL_VERIFIED] Ticket 639065481 | SL verified: 4458.78200 (expected: 4458.78200)
+2026-01-05 23:12:16 - order_manager - INFO - [TP_VERIFIED] Ticket 639065481 | TP verified: 4453.99200 (expected: 4453.99200)
+2026-01-05 23:12:44 - order_manager - INFO - [MODIFY_ORDER] Ticket 639065481 | Symbol XAUUSDm | SL: 4454.93400 (included: True) | TP: 4453.99200 (included: True)
+2026-01-05 23:12:44 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639065481 Symbol=XAUUSDm | SL: 4454.93400 (old: 4458.78200) | TP: 4453.99200 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4454.653, comment=
+2026-01-05 23:12:45 - order_manager - INFO - [SL_VERIFIED] Ticket 639065481 | SL verified: 4454.93400 (expected: 4454.93400)
+2026-01-05 23:15:45 - order_manager - INFO - [ATOMIC_SL] XAUUSDm SELL: Using strategy SL=4455.02000
+2026-01-05 23:15:45 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 4451.58200 | SL: 4455.02000
+2026-01-05 23:15:45 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=639081292 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 4455.02000 | Entry Price: 4451.58200 (requested: 4451.58200) | Slippage: 0.00000
+2026-01-05 23:15:45 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 639081292 | SL verified: 4455.02000 (expected: 4455.02000)
+2026-01-05 23:15:49 - order_manager - INFO - [MODIFY_ORDER] Ticket 639081292 | Symbol XAUUSDm | SL: 4454.60300 (included: True) | TP: 0.00000 (included: False)
+2026-01-05 23:15:49 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639081292 Symbol=XAUUSDm | SL: 4454.60300 (old: 4455.02000) | TP: 0.00000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4451.779, comment=
+2026-01-05 23:15:49 - order_manager - INFO - [SL_VERIFIED] Ticket 639081292 | SL verified: 4454.60300 (expected: 4454.60300)
+2026-01-05 23:15:52 - order_manager - INFO - [MODIFY_ORDER] Ticket 639081292 | Symbol XAUUSDm | SL: 4454.60300 (included: True) | TP: 4449.44400 (included: True)
+2026-01-05 23:15:53 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639081292 Symbol=XAUUSDm | SL: 4454.60300 (old: 4454.60300) | TP: 4449.44400 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4451.459, comment=
+2026-01-05 23:15:53 - order_manager - INFO - [SL_VERIFIED] Ticket 639081292 | SL verified: 4454.60300 (expected: 4454.60300)
+2026-01-05 23:15:54 - order_manager - INFO - [TP_VERIFIED] Ticket 639081292 | TP verified: 4449.44400 (expected: 4449.44400)
+2026-01-05 23:16:20 - order_manager - INFO - [MODIFY_ORDER] Ticket 639081292 | Symbol XAUUSDm | SL: 4451.10300 (included: True) | TP: 4449.44400 (included: True)
+2026-01-05 23:16:20 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639081292 Symbol=XAUUSDm | SL: 4451.10300 (old: 4454.60300) | TP: 4449.44400 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4450.982, comment=
+2026-01-05 23:16:20 - order_manager - INFO - [SL_VERIFIED] Ticket 639081292 | SL verified: 4451.10300 (expected: 4451.10300)
+2026-01-05 23:18:39 - order_manager - INFO - [ATOMIC_SL] US30m BUY: Using strategy SL=49004.50000
+2026-01-05 23:18:39 - order_manager - INFO - mode=LIVE | symbol=US30m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49028.60000 | SL: 49004.50000
+2026-01-05 23:18:39 - order_manager - INFO - mode=LIVE | symbol=US30m | ticket=639093057 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49004.50000 | Entry Price: 49028.60000 (requested: 49028.60000) | Slippage: 0.00000
+2026-01-05 23:18:40 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30m Ticket 639093057 | SL verified: 49004.50000 (expected: 49004.50000)
+2026-01-05 23:18:41 - order_manager - INFO - [MODIFY_ORDER] Ticket 639093057 | Symbol US30m | SL: 49004.50000 (included: True) | TP: 49043.30000 (included: True)
+2026-01-05 23:18:41 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639093057 Symbol=US30m | SL: 49004.50000 (old: 49004.50000) | TP: 49043.30000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49026.5, comment=
+2026-01-05 23:18:42 - order_manager - INFO - [SL_VERIFIED] Ticket 639093057 | SL verified: 49004.50000 (expected: 49004.50000)
+2026-01-05 23:18:42 - order_manager - INFO - [TP_VERIFIED] Ticket 639093057 | TP verified: 49043.30000 (expected: 49043.30000)
+2026-01-05 23:18:44 - order_manager - INFO - [ATOMIC_SL] US30_x10m BUY: Using strategy SL=49005.00000
+2026-01-05 23:18:44 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49028.50000 | SL: 49005.00000
+2026-01-05 23:18:44 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | ticket=639093858 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49005.00000 | Entry Price: 49028.50000 (requested: 49028.50000) | Slippage: 0.00000
+2026-01-05 23:18:44 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30_x10m Ticket 639093858 | SL verified: 49005.00000 (expected: 49005.00000)
+2026-01-05 23:18:45 - order_manager - INFO - [MODIFY_ORDER] Ticket 639093858 | Symbol US30_x10m | SL: 49005.00000 (included: True) | TP: 49043.20000 (included: True)
+2026-01-05 23:18:45 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639093858 Symbol=US30_x10m | SL: 49005.00000 (old: 49005.00000) | TP: 49043.20000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49026.4, comment=
+2026-01-05 23:18:45 - order_manager - INFO - [SL_VERIFIED] Ticket 639093858 | SL verified: 49005.00000 (expected: 49005.00000)
+2026-01-05 23:18:46 - order_manager - INFO - [TP_VERIFIED] Ticket 639093858 | TP verified: 49043.20000 (expected: 49043.20000)
+2026-01-05 23:21:42 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94086.78000
+2026-01-05 23:21:42 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 94019.31000 | SL: 94086.78000
+2026-01-05 23:21:42 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639104664 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94086.78000 | Entry Price: 94019.31000 (requested: 94019.31000) | Slippage: 0.00000
+2026-01-05 23:21:42 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639104664 | SL verified: 94086.78000 (expected: 94086.78000)
+2026-01-05 23:21:45 - order_manager - INFO - [MODIFY_ORDER] Ticket 639104664 | Symbol BTCUSDm | SL: 94086.78000 (included: True) | TP: 93960.17000 (included: True)
+2026-01-05 23:21:46 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639104664 Symbol=BTCUSDm | SL: 94086.78000 (old: 94086.78000) | TP: 93960.17000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=94027.79, comment=
+2026-01-05 23:21:46 - order_manager - INFO - [SL_VERIFIED] Ticket 639104664 | SL verified: 94086.78000 (expected: 94086.78000)
+2026-01-05 23:21:47 - order_manager - INFO - [TP_VERIFIED] Ticket 639104664 | TP verified: 93960.17000 (expected: 93960.17000)
+2026-01-05 23:21:49 - order_manager - ERROR - Cannot place order: Symbol US30m not found or price is stale
+2026-01-05 23:21:51 - order_manager - INFO - [ATOMIC_SL] US30m BUY: Using strategy SL=49009.00000
+2026-01-05 23:21:51 - order_manager - INFO - mode=LIVE | symbol=US30m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49032.80000 | SL: 49009.00000
+2026-01-05 23:21:51 - order_manager - INFO - mode=LIVE | symbol=US30m | ticket=639104978 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49009.00000 | Entry Price: 49032.80000 (requested: 49032.80000) | Slippage: 0.00000
+2026-01-05 23:21:51 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30m Ticket 639104978 | SL verified: 49009.00000 (expected: 49009.00000)
+2026-01-05 23:21:52 - order_manager - INFO - [MODIFY_ORDER] Ticket 639104978 | Symbol US30m | SL: 49009.00000 (included: True) | TP: 49048.10000 (included: True)
+2026-01-05 23:21:53 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639104978 Symbol=US30m | SL: 49009.00000 (old: 49009.00000) | TP: 49048.10000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49031.1, comment=
+2026-01-05 23:21:53 - order_manager - INFO - [SL_VERIFIED] Ticket 639104978 | SL verified: 49009.00000 (expected: 49009.00000)
+2026-01-05 23:21:53 - order_manager - INFO - [TP_VERIFIED] Ticket 639104978 | TP verified: 49048.10000 (expected: 49048.10000)
+2026-01-05 23:21:58 - order_manager - INFO - [ATOMIC_SL] US30_x10m BUY: Using strategy SL=49009.40000
+2026-01-05 23:21:58 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | [ORDER_SENT] Sending order | Type: BUY | Volume: 0.01 | Price: 49033.20000 | SL: 49009.40000
+2026-01-05 23:21:58 - order_manager - INFO - mode=LIVE | symbol=US30_x10m | ticket=639105276 | [ORDER_FILLED] FULL FILL | Type: BUY | Volume: 0.0100 (requested: 0.0100) | SL: 49009.40000 | Entry Price: 49033.20000 (requested: 49033.20000) | Slippage: 0.00000
+2026-01-05 23:21:58 - order_manager - INFO - [ATOMIC_SL_VERIFIED] US30_x10m Ticket 639105276 | SL verified: 49009.40000 (expected: 49009.40000)
+2026-01-05 23:21:58 - order_manager - INFO - [MODIFY_ORDER] Ticket 639105276 | Symbol US30_x10m | SL: 49009.40000 (included: True) | TP: 49048.10000 (included: True)
+2026-01-05 23:21:59 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639105276 Symbol=US30_x10m | SL: 49009.40000 (old: 49009.40000) | TP: 49048.10000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49031.1, comment=
+2026-01-05 23:21:59 - order_manager - INFO - [SL_VERIFIED] Ticket 639105276 | SL verified: 49009.40000 (expected: 49009.40000)
+2026-01-05 23:21:59 - order_manager - INFO - [TP_VERIFIED] Ticket 639105276 | TP verified: 49048.10000 (expected: 49048.10000)
+2026-01-05 23:22:12 - order_manager - WARNING - SL 49029.30000 too close to market (BID: 49029.30000, min allowed: 49029.29000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:22:12 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49029.30000
+2026-01-05 23:22:12 - order_manager - INFO - [MODIFY_ORDER] Ticket 639093858 | Symbol US30_x10m | SL: 49029.30000 (included: True) | TP: 49043.20000 (included: True)
+2026-01-05 23:22:14 - order_manager - WARNING - [MODIFY_SLOW] Ticket 639093858 | MT5 modify_order took 2.18s (exceeded 2.0s limit)
+2026-01-05 23:22:14 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 639093858 | Retrying after slow call (attempt 1/2)
+2026-01-05 23:22:14 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 639093858 | MT5 modify_order timeout: 2.26s > 2.0s limit
+2026-01-05 23:22:15 - order_manager - WARNING - SL 49029.30000 too close to market (BID: 49029.30000, min allowed: 49029.29000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:22:15 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49029.30000
+2026-01-05 23:22:15 - order_manager - INFO - [MODIFY_ORDER] Ticket 639093858 | Symbol US30_x10m | SL: 49029.30000 (included: True) | TP: 49043.20000 (included: True)
+2026-01-05 23:22:17 - order_manager - WARNING - [MODIFY_SLOW] Ticket 639093858 | MT5 modify_order took 2.17s (exceeded 2.0s limit)
+2026-01-05 23:22:17 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 639093858 | Retrying after slow call (attempt 1/2)
+2026-01-05 23:22:17 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 639093858 | MT5 modify_order timeout: 2.23s > 2.0s limit
+2026-01-05 23:22:18 - order_manager - WARNING - SL 49029.30000 too close to market (BID: 49029.10000, min allowed: 49029.09000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:22:18 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49029.10000
+2026-01-05 23:22:18 - order_manager - INFO - [MODIFY_ORDER] Ticket 639093858 | Symbol US30_x10m | SL: 49029.10000 (included: True) | TP: 49043.20000 (included: True)
+2026-01-05 23:22:20 - order_manager - WARNING - [MODIFY_SLOW] Ticket 639093858 | MT5 modify_order took 2.18s (exceeded 2.0s limit)
+2026-01-05 23:22:20 - order_manager - WARNING - [MODIFY_SLOW_RETRY] Ticket 639093858 | Retrying after slow call (attempt 1/2)
+2026-01-05 23:22:20 - order_manager - WARNING - [MODIFY_TIMEOUT] Ticket 639093858 | MT5 modify_order timeout: 2.25s > 2.0s limit
+2026-01-05 23:22:24 - order_manager - INFO - [MODIFY_ORDER] Ticket 639093858 | Symbol US30_x10m | SL: 49027.20000 (included: True) | TP: 49043.20000 (included: True)
+2026-01-05 23:22:24 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639093858 Symbol=US30_x10m | SL: 49027.20000 (old: 49005.00000) | TP: 49043.20000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49028.2, comment=
+2026-01-05 23:22:25 - order_manager - INFO - [SL_VERIFIED] Ticket 639093858 | SL verified: 49027.20000 (expected: 49027.20000)
+2026-01-05 23:28:18 - order_manager - INFO - [ATOMIC_SL] XAUUSDm SELL: Using strategy SL=4452.56200
+2026-01-05 23:28:18 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 4449.71600 | SL: 4452.56200
+2026-01-05 23:28:18 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=639124577 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 4452.56200 | Entry Price: 4449.71600 (requested: 4449.71600) | Slippage: 0.00000
+2026-01-05 23:28:18 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 639124577 | SL verified: 4452.56200 (expected: 4452.56200)
+2026-01-05 23:28:19 - order_manager - INFO - [MODIFY_ORDER] Ticket 639124577 | Symbol XAUUSDm | SL: 4452.56200 (included: True) | TP: 4446.89700 (included: True)
+2026-01-05 23:28:19 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639124577 Symbol=XAUUSDm | SL: 4452.56200 (old: 4452.56200) | TP: 4446.89700 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4449.877, comment=
+2026-01-05 23:28:20 - order_manager - INFO - [SL_VERIFIED] Ticket 639124577 | SL verified: 4452.56200 (expected: 4452.56200)
+2026-01-05 23:28:20 - order_manager - INFO - [TP_VERIFIED] Ticket 639124577 | TP verified: 4446.89700 (expected: 4446.89700)
+2026-01-05 23:28:35 - order_manager - WARNING - SL 49031.60000 too close to market (BID: 49031.20000, min allowed: 49031.19000, freeze_level: 0, stops_level: 0)
+2026-01-05 23:28:35 - order_manager - INFO - [SL_ADJUSTED] SL adjusted to minimum allowed distance: 49031.20000
+2026-01-05 23:28:35 - order_manager - INFO - [MODIFY_ORDER] Ticket 639093057 | Symbol US30m | SL: 49031.20000 (included: True) | TP: 49043.30000 (included: True)
+2026-01-05 23:28:36 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639093057 Symbol=US30m | SL: 49031.20000 (old: 49004.50000) | TP: 49043.30000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=49031.2, comment=
+2026-01-05 23:28:36 - order_manager - INFO - [SL_VERIFIED] Ticket 639093057 | SL verified: 49031.20000 (expected: 49031.20000)
+2026-01-05 23:28:39 - order_manager - INFO - [MODIFY_ORDER] Ticket 639104664 | Symbol BTCUSDm | SL: 93989.31000 (included: True) | TP: 93960.17000 (included: True)
+2026-01-05 23:28:39 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639104664 Symbol=BTCUSDm | SL: 93989.31000 (old: 94086.78000) | TP: 93960.17000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=93973.82, comment=
+2026-01-05 23:28:39 - order_manager - INFO - [SL_VERIFIED] Ticket 639104664 | SL verified: 93989.31000 (expected: 93989.31000)
+2026-01-05 23:28:49 - order_manager - INFO - [MODIFY_ORDER] Ticket 639124577 | Symbol XAUUSDm | SL: 4449.51600 (included: True) | TP: 4446.89700 (included: True)
+2026-01-05 23:28:49 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639124577 Symbol=XAUUSDm | SL: 4449.51600 (old: 4452.56200) | TP: 4446.89700 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4449.346, comment=
+2026-01-05 23:28:50 - order_manager - INFO - [SL_VERIFIED] Ticket 639124577 | SL verified: 4449.51600 (expected: 4449.51600)
+2026-01-05 23:30:57 - order_manager - INFO - [ATOMIC_SL] BTCXAUm SELL: Using strategy SL=21.12828
+2026-01-05 23:30:57 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 21.11315 | SL: 21.12828
+2026-01-05 23:30:57 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=639133402 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 21.12828 | Entry Price: 21.11315 (requested: 21.11315) | Slippage: 0.00000
+2026-01-05 23:30:57 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCXAUm Ticket 639133402 | SL verified: 21.12828 (expected: 21.12828)
+2026-01-05 23:30:58 - order_manager - INFO - [MODIFY_ORDER] Ticket 639133402 | Symbol BTCXAUm | SL: 21.12828 (included: True) | TP: 21.09897 (included: True)
+2026-01-05 23:30:58 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639133402 Symbol=BTCXAUm | SL: 21.12828 (old: 21.12828) | TP: 21.09897 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=21.1194, comment=
+2026-01-05 23:30:59 - order_manager - INFO - [SL_VERIFIED] Ticket 639133402 | SL verified: 21.12828 (expected: 21.12828)
+2026-01-05 23:30:59 - order_manager - INFO - [TP_VERIFIED] Ticket 639133402 | TP verified: 21.09897 (expected: 21.09897)
+2026-01-05 23:31:02 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=94048.31000
+2026-01-05 23:31:02 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 93971.25000 | SL: 94048.31000
+2026-01-05 23:31:02 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639133716 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 94048.31000 | Entry Price: 93971.25000 (requested: 93971.25000) | Slippage: 0.00000
+2026-01-05 23:31:02 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639133716 | SL verified: 94048.31000 (expected: 94048.31000)
+2026-01-05 23:31:03 - order_manager - INFO - [MODIFY_ORDER] Ticket 639133716 | Symbol BTCUSDm | SL: 94048.31000 (included: True) | TP: 93887.63000 (included: True)
+2026-01-05 23:31:03 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639133716 Symbol=BTCUSDm | SL: 94048.31000 (old: 94048.31000) | TP: 93887.63000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=93973.27, comment=
+2026-01-05 23:31:03 - order_manager - INFO - [SL_VERIFIED] Ticket 639133716 | SL verified: 94048.31000 (expected: 94048.31000)
+2026-01-05 23:31:04 - order_manager - INFO - [TP_VERIFIED] Ticket 639133716 | TP verified: 93887.63000 (expected: 93887.63000)
+2026-01-05 23:31:08 - order_manager - INFO - [ATOMIC_SL] XAUUSDm SELL: Using strategy SL=4453.17900
+2026-01-05 23:31:08 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 4449.61400 | SL: 4453.17900
+2026-01-05 23:31:08 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=639133895 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 4453.17900 | Entry Price: 4449.61400 (requested: 4449.61400) | Slippage: 0.00000
+2026-01-05 23:31:08 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 639133895 | SL verified: 4453.17900 (expected: 4453.17900)
+2026-01-05 23:31:09 - order_manager - INFO - [MODIFY_ORDER] Ticket 639133895 | Symbol XAUUSDm | SL: 4452.61400 (included: True) | TP: 0.00000 (included: False)
+2026-01-05 23:31:09 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639133895 Symbol=XAUUSDm | SL: 4452.61400 (old: 4453.17900) | TP: 0.00000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4449.786, comment=
+2026-01-05 23:31:09 - order_manager - INFO - [SL_VERIFIED] Ticket 639133895 | SL verified: 4452.61400 (expected: 4452.61400)
+2026-01-05 23:31:13 - order_manager - INFO - [MODIFY_ORDER] Ticket 639133895 | Symbol XAUUSDm | SL: 4452.61400 (included: True) | TP: 4447.38600 (included: True)
+2026-01-05 23:31:13 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639133895 Symbol=XAUUSDm | SL: 4452.61400 (old: 4452.61400) | TP: 4447.38600 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4450.083, comment=
+2026-01-05 23:31:13 - order_manager - INFO - [SL_VERIFIED] Ticket 639133895 | SL verified: 4452.61400 (expected: 4452.61400)
+2026-01-05 23:31:14 - order_manager - INFO - [TP_VERIFIED] Ticket 639133895 | TP verified: 4447.38600 (expected: 4447.38600)
+2026-01-05 23:33:37 - order_manager - INFO - [ATOMIC_SL] BTCXAUm SELL: Using strategy SL=21.16415
+2026-01-05 23:33:37 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 21.15073 | SL: 21.16415
+2026-01-05 23:33:37 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=639153853 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 21.16415 | Entry Price: 21.15073 (requested: 21.15073) | Slippage: 0.00000
+2026-01-05 23:33:37 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCXAUm Ticket 639153853 | SL verified: 21.16415 (expected: 21.16415)
+2026-01-05 23:33:38 - order_manager - INFO - [MODIFY_ORDER] Ticket 639153853 | Symbol BTCXAUm | SL: 21.16415 (included: True) | TP: 21.13439 (included: True)
+2026-01-05 23:33:38 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639153853 Symbol=BTCXAUm | SL: 21.16415 (old: 21.16415) | TP: 21.13439 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=21.15415, comment=
+2026-01-05 23:33:38 - order_manager - INFO - [SL_VERIFIED] Ticket 639153853 | SL verified: 21.16415 (expected: 21.16415)
+2026-01-05 23:33:39 - order_manager - INFO - [TP_VERIFIED] Ticket 639153853 | TP verified: 21.13439 (expected: 21.13439)
+2026-01-05 23:33:40 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=93984.58000
+2026-01-05 23:33:40 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 93910.02000 | SL: 93984.58000
+2026-01-05 23:33:40 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639153965 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 93984.58000 | Entry Price: 93910.02000 (requested: 93910.02000) | Slippage: 0.00000
+2026-01-05 23:33:40 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639153965 | SL verified: 93984.58000 (expected: 93984.58000)
+2026-01-05 23:33:40 - order_manager - INFO - [MODIFY_ORDER] Ticket 639153965 | Symbol BTCUSDm | SL: 93984.58000 (included: True) | TP: 93835.46000 (included: True)
+2026-01-05 23:33:41 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639153965 Symbol=BTCUSDm | SL: 93984.58000 (old: 93984.58000) | TP: 93835.46000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=93931.58, comment=
+2026-01-05 23:33:41 - order_manager - INFO - [SL_VERIFIED] Ticket 639153965 | SL verified: 93984.58000 (expected: 93984.58000)
+2026-01-05 23:33:41 - order_manager - INFO - [TP_VERIFIED] Ticket 639153965 | TP verified: 93835.46000 (expected: 93835.46000)
+2026-01-05 23:33:43 - order_manager - INFO - [ATOMIC_SL] XAUUSDm SELL: Using strategy SL=4444.05900
+2026-01-05 23:33:43 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 4440.66800 | SL: 4444.05900
+2026-01-05 23:33:43 - order_manager - INFO - mode=LIVE | symbol=XAUUSDm | ticket=639154186 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 4444.05900 | Entry Price: 4440.66800 (requested: 4440.66800) | Slippage: 0.00000
+2026-01-05 23:33:44 - order_manager - INFO - [ATOMIC_SL_VERIFIED] XAUUSDm Ticket 639154186 | SL verified: 4444.05900 (expected: 4444.05900)
+2026-01-05 23:33:52 - order_manager - INFO - [MODIFY_ORDER] Ticket 639154186 | Symbol XAUUSDm | SL: 4444.05900 (included: True) | TP: 4438.53900 (included: True)
+2026-01-05 23:33:52 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639154186 Symbol=XAUUSDm | SL: 4444.05900 (old: 4444.05900) | TP: 4438.53900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4440.605, comment=
+2026-01-05 23:33:52 - order_manager - INFO - [SL_VERIFIED] Ticket 639154186 | SL verified: 4444.05900 (expected: 4444.05900)
+2026-01-05 23:33:53 - order_manager - INFO - [TP_VERIFIED] Ticket 639154186 | TP verified: 4438.53900 (expected: 4438.53900)
+2026-01-05 23:33:55 - order_manager - INFO - [MODIFY_ORDER] Ticket 639133716 | Symbol BTCUSDm | SL: 93948.13000 (included: True) | TP: 93887.63000 (included: True)
+2026-01-05 23:33:56 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639133716 Symbol=BTCUSDm | SL: 93948.13000 (old: 94048.31000) | TP: 93887.63000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=93927.62, comment=
+2026-01-05 23:33:56 - order_manager - INFO - [SL_VERIFIED] Ticket 639133716 | SL verified: 93948.13000 (expected: 93948.13000)
+2026-01-05 23:34:04 - order_manager - INFO - [MODIFY_ORDER] Ticket 639154186 | Symbol XAUUSDm | SL: 4443.61200 (included: True) | TP: 4438.53900 (included: True)
+2026-01-05 23:34:05 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639154186 Symbol=XAUUSDm | SL: 4443.61200 (old: 4444.05900) | TP: 4438.53900 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=4441.648, comment=
+2026-01-05 23:34:05 - order_manager - INFO - [SL_VERIFIED] Ticket 639154186 | SL verified: 4443.61200 (expected: 4443.61200)
+2026-01-05 23:36:27 - order_manager - INFO - [ATOMIC_SL] BTCXAUm SELL: Using strategy SL=21.13777
+2026-01-05 23:36:27 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 21.12209 | SL: 21.13777
+2026-01-05 23:36:27 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=639167996 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 21.13777 | Entry Price: 21.12209 (requested: 21.12209) | Slippage: 0.00000
+2026-01-05 23:36:27 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCXAUm Ticket 639167996 | SL verified: 21.13777 (expected: 21.13777)
+2026-01-05 23:36:28 - order_manager - INFO - [MODIFY_ORDER] Ticket 639167996 | Symbol BTCXAUm | SL: 21.13777 (included: True) | TP: 21.10641 (included: True)
+2026-01-05 23:36:28 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639167996 Symbol=BTCXAUm | SL: 21.13777 (old: 21.13777) | TP: 21.10641 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=21.12834, comment=
+2026-01-05 23:36:28 - order_manager - INFO - [SL_VERIFIED] Ticket 639167996 | SL verified: 21.13777 (expected: 21.13777)
+2026-01-05 23:36:28 - order_manager - INFO - [TP_VERIFIED] Ticket 639167996 | TP verified: 21.10641 (expected: 21.10641)
+2026-01-05 23:36:29 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 23:36:32 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=93967.83000
+2026-01-05 23:36:32 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 93896.16000 | SL: 93967.83000
+2026-01-05 23:36:32 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639168716 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 93967.83000 | Entry Price: 93896.16000 (requested: 93896.16000) | Slippage: 0.00000
+2026-01-05 23:36:32 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639168716 | SL verified: 93967.83000 (expected: 93967.83000)
+2026-01-05 23:36:33 - order_manager - INFO - [MODIFY_ORDER] Ticket 639168716 | Symbol BTCUSDm | SL: 93967.83000 (included: True) | TP: 93819.84000 (included: True)
+2026-01-05 23:36:33 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639168716 Symbol=BTCUSDm | SL: 93967.83000 (old: 93967.83000) | TP: 93819.84000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=93914.16, comment=
+2026-01-05 23:36:33 - order_manager - INFO - [SL_VERIFIED] Ticket 639168716 | SL verified: 93967.83000 (expected: 93967.83000)
+2026-01-05 23:36:34 - order_manager - INFO - [TP_VERIFIED] Ticket 639168716 | TP verified: 93819.84000 (expected: 93819.84000)
+2026-01-05 23:38:44 - order_manager - INFO - [ATOMIC_SL] BTCXAUm SELL: Using strategy SL=21.13973
+2026-01-05 23:38:44 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 21.12466 | SL: 21.13973
+2026-01-05 23:38:44 - order_manager - INFO - mode=LIVE | symbol=BTCXAUm | ticket=639178881 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 21.13973 | Entry Price: 21.12466 (requested: 21.12466) | Slippage: 0.00000
+2026-01-05 23:38:44 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCXAUm Ticket 639178881 | SL verified: 21.13973 (expected: 21.13973)
+2026-01-05 23:38:45 - order_manager - INFO - [MODIFY_ORDER] Ticket 639178881 | Symbol BTCXAUm | SL: 21.13973 (included: True) | TP: 21.10959 (included: True)
+2026-01-05 23:38:45 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639178881 Symbol=BTCXAUm | SL: 21.13973 (old: 21.13973) | TP: 21.10959 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=21.13091, comment=
+2026-01-05 23:38:45 - order_manager - INFO - [SL_VERIFIED] Ticket 639178881 | SL verified: 21.13973 (expected: 21.13973)
+2026-01-05 23:38:46 - order_manager - INFO - [TP_VERIFIED] Ticket 639178881 | TP verified: 21.10959 (expected: 21.10959)
+2026-01-05 23:38:48 - order_manager - ERROR - Cannot place order: Symbol BTCUSDm not found or price is stale
+2026-01-05 23:38:51 - order_manager - INFO - [ATOMIC_SL] BTCUSDm SELL: Using strategy SL=93951.72000
+2026-01-05 23:38:51 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | [ORDER_SENT] Sending order | Type: SELL | Volume: 0.01 | Price: 93879.95000 | SL: 93951.72000
+2026-01-05 23:38:52 - order_manager - INFO - mode=LIVE | symbol=BTCUSDm | ticket=639179638 | [ORDER_FILLED] FULL FILL | Type: SELL | Volume: 0.0100 (requested: 0.0100) | SL: 93951.72000 | Entry Price: 93879.95000 (requested: 93879.95000) | Slippage: 0.00000
+2026-01-05 23:38:52 - order_manager - INFO - [ATOMIC_SL_VERIFIED] BTCUSDm Ticket 639179638 | SL verified: 93951.72000 (expected: 93951.72000)
+2026-01-05 23:38:52 - order_manager - INFO - [MODIFY_ORDER] Ticket 639179638 | Symbol BTCUSDm | SL: 93951.72000 (included: True) | TP: 93810.56000 (included: True)
+2026-01-05 23:38:52 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639179638 Symbol=BTCUSDm | SL: 93951.72000 (old: 93951.72000) | TP: 93810.56000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=93897.95, comment=
+2026-01-05 23:38:52 - order_manager - INFO - [SL_VERIFIED] Ticket 639179638 | SL verified: 93951.72000 (expected: 93951.72000)
+2026-01-05 23:38:53 - order_manager - INFO - [TP_VERIFIED] Ticket 639179638 | TP verified: 93810.56000 (expected: 93810.56000)
+2026-01-05 23:38:57 - order_manager - INFO - [MODIFY_ORDER] Ticket 639153965 | Symbol BTCUSDm | SL: 93900.02000 (included: True) | TP: 93835.46000 (included: True)
+2026-01-05 23:38:58 - order_manager - INFO - [OK] MODIFY SUCCESS: Ticket=639153965 Symbol=BTCUSDm | SL: 93900.02000 (old: 93984.58000) | TP: 93835.46000 | Result: retcode=10009, deal=0, order=0, volume=0.01, price=93883.24, comment=
+2026-01-05 23:38:58 - order_manager - INFO - [SL_VERIFIED] Ticket 639153965 | SL verified: 93900.02000 (expected: 93900.02000)

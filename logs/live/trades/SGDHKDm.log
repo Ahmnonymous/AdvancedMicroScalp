@@ -1,0 +1,39 @@
+2026-01-05 21:54:07 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 21:54:46 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 21:55:28 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.40 pips
+2026-01-05 21:55:50 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.40 pips
+2026-01-05 21:56:17 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14927.4% of avg range > max 50.0%
+2026-01-05 21:56:45 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14301.7% of avg range > max 50.0%
+2026-01-05 21:58:34 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8940.4% of avg range > max 50.0%
+2026-01-05 22:06:44 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7325.4% of avg range > max 50.0%
+2026-01-05 22:08:49 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5636.7% of avg range > max 50.0%
+2026-01-05 22:10:00 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5421.5% of avg range > max 50.0%
+2026-01-05 22:11:37 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5197.7% of avg range > max 50.0%
+2026-01-05 22:13:31 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5024.9% of avg range > max 50.0%
+2026-01-05 22:20:18 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3804.9% of avg range > max 50.0%
+2026-01-05 22:21:38 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4086.1% of avg range > max 50.0%
+2026-01-05 22:40:51 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7224.0% of avg range > max 50.0%
+2026-01-05 22:42:41 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8371.4% of avg range > max 50.0%
+2026-01-05 22:44:29 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9721.1% of avg range > max 50.0%
+2026-01-05 22:46:10 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9785.7% of avg range > max 50.0%
+2026-01-05 22:47:19 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9901.4% of avg range > max 50.0%
+2026-01-05 22:48:27 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9682.7% of avg range > max 50.0%
+2026-01-05 22:49:59 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9288.2% of avg range > max 50.0%
+2026-01-05 22:51:55 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9455.6% of avg range > max 50.0%
+2026-01-05 23:01:16 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7829.8% of avg range > max 50.0%
+2026-01-05 23:03:09 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7019.2% of avg range > max 50.0%
+2026-01-05 23:04:57 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6684.9% of avg range > max 50.0%
+2026-01-05 23:07:21 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6183.4% of avg range > max 50.0%
+2026-01-05 23:15:29 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5518.9% of avg range > max 50.0%
+2026-01-05 23:18:28 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6164.4% of avg range > max 50.0%
+2026-01-05 23:21:25 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10464.6% of avg range > max 50.0%
+2026-01-05 23:24:25 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13588.0% of avg range > max 50.0%
+2026-01-05 23:30:47 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 27819.7% of avg range > max 50.0%
+2026-01-05 23:33:27 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 34231.2% of avg range > max 50.0%
+2026-01-05 23:36:19 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 43641.0% of avg range > max 50.0%
+2026-01-05 23:38:33 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38123.6% of avg range > max 50.0%
+2026-01-06 00:41:31 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3546s)
+2026-01-06 01:41:45 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3539s)
+2026-01-06 02:41:47 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3543s)
+2026-01-06 04:41:55 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3546s)
+2026-01-06 05:41:53 - trades.SGDHKDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3555s)

@@ -1,0 +1,10 @@
+2026-01-05 22:29:40 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 22:31:26 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.40 pips
+2026-01-05 22:33:14 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 28688.3% of avg range > max 50.0%
+2026-01-05 22:35:16 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 27217.4% of avg range > max 50.0%
+2026-01-05 22:37:02 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29564.6% of avg range > max 50.0%
+2026-01-05 22:38:48 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29047.0% of avg range > max 50.0%
+2026-01-05 22:40:50 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31231.9% of avg range > max 50.0%
+2026-01-05 23:07:25 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.40 pips
+2026-01-05 23:09:29 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.40 pips
+2026-01-05 23:30:48 - trades.EURPLNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips

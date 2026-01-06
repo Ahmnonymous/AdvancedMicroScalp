@@ -1,0 +1,33 @@
+2026-01-05 21:47:09 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.2% of avg range > max 50.0%
+2026-01-05 21:47:49 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.2% of avg range > max 50.0%
+2026-01-05 21:48:25 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 238.4% of avg range > max 50.0%
+2026-01-05 21:48:56 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 238.4% of avg range > max 50.0%
+2026-01-05 21:49:39 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 247.0% of avg range > max 50.0%
+2026-01-05 21:49:43 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 247.0% of avg range > max 50.0%
+2026-01-05 21:49:54 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 247.0% of avg range > max 50.0%
+2026-01-05 21:50:10 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 250.9% of avg range > max 50.0%
+2026-01-05 21:50:31 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 250.9% of avg range > max 50.0%
+2026-01-05 21:51:01 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 250.9% of avg range > max 50.0%
+2026-01-05 21:51:41 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 230.8% of avg range > max 50.0%
+2026-01-05 21:52:03 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.2% of avg range > max 50.0%
+2026-01-05 21:52:41 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.2% of avg range > max 50.0%
+2026-01-05 21:52:48 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.2% of avg range > max 50.0%
+2026-01-05 21:53:05 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.2% of avg range > max 50.0%
+2026-01-05 21:53:30 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 239.2% of avg range > max 50.0%
+2026-01-05 21:53:59 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 248.3% of avg range > max 50.0%
+2026-01-05 21:54:45 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 272.2% of avg range > max 50.0%
+2026-01-05 21:55:26 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 272.7% of avg range > max 50.0%
+2026-01-05 21:55:44 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 272.7% of avg range > max 50.0%
+2026-01-05 21:56:12 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 275.9% of avg range > max 50.0%
+2026-01-05 21:56:39 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 275.9% of avg range > max 50.0%
+2026-01-05 21:57:14 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 277.5% of avg range > max 50.0%
+2026-01-05 21:59:58 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 23:03:51 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 148.9% of avg range > max 50.0%
+2026-01-05 23:06:01 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.1% of avg range > max 50.0%
+2026-01-05 23:08:52 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 113.3% of avg range > max 50.0%
+2026-01-05 23:10:19 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.5% of avg range > max 50.0%
+2026-01-05 23:13:19 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.7% of avg range > max 50.0%
+2026-01-05 23:16:53 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 80.7% of avg range > max 50.0%
+2026-01-06 00:40:45 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3593s)
+2026-01-06 02:40:59 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3591s)
+2026-01-06 03:41:04 - trades.US500m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3592s)

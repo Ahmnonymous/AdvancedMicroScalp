@@ -1,0 +1,13 @@
+2026-01-05 23:01:17 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7297.0% of avg range > max 50.0%
+2026-01-05 23:03:09 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7089.5% of avg range > max 50.0%
+2026-01-05 23:05:00 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6882.4% of avg range > max 50.0%
+2026-01-05 23:07:24 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6859.3% of avg range > max 50.0%
+2026-01-05 23:09:28 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6591.8% of avg range > max 50.0%
+2026-01-05 23:11:47 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6723.1% of avg range > max 50.0%
+2026-01-05 23:18:29 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7464.5% of avg range > max 50.0%
+2026-01-05 23:21:27 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10706.1% of avg range > max 50.0%
+2026-01-05 23:24:25 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13584.2% of avg range > max 50.0%
+2026-01-05 23:27:57 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13842.1% of avg range > max 50.0%
+2026-01-05 23:30:47 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15307.9% of avg range > max 50.0%
+2026-01-05 23:36:18 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16293.3% of avg range > max 50.0%
+2026-01-05 23:38:32 - trades.CHFDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 17474.2% of avg range > max 50.0%

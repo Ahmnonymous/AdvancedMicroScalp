@@ -1,0 +1,2 @@
+2026-01-06 04:42:10 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3532s)
+2026-01-06 05:42:07 - trades.GBPDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3541s)

@@ -1,0 +1,19 @@
+2026-01-05 22:41:48 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 203.4% of avg range > max 50.0%
+2026-01-05 22:43:23 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 288.1% of avg range > max 50.0%
+2026-01-05 22:45:47 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 270.3% of avg range > max 50.0%
+2026-01-05 22:46:56 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 224.3% of avg range > max 50.0%
+2026-01-05 22:47:37 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 271.8% of avg range > max 50.0%
+2026-01-05 22:49:01 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 400.0% of avg range > max 50.0%
+2026-01-05 22:50:47 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 274.5% of avg range > max 50.0%
+2026-01-05 22:52:53 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 489.8% of avg range > max 50.0%
+2026-01-05 22:54:39 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 369.6% of avg range > max 50.0%
+2026-01-05 22:56:26 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 357.1% of avg range > max 50.0%
+2026-01-05 22:58:15 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 23:00:08 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:01:49 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 23:03:43 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 23:05:52 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-06 01:40:47 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3597s)
+2026-01-06 02:40:52 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3598s)
+2026-01-06 03:40:58 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3598s)
+2026-01-06 04:41:04 - trades.AUDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3598s)

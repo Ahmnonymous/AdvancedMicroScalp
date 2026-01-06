@@ -1,0 +1,28 @@
+2026-01-05 21:37:57 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 45.2% of avg < min 55.0%
+2026-01-05 21:39:09 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.4% of avg range > max 50.0%
+2026-01-05 21:39:33 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.4% of avg range > max 50.0%
+2026-01-05 21:39:55 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.4% of avg range > max 50.0%
+2026-01-05 21:40:19 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.0% of avg range > max 50.0%
+2026-01-05 21:40:52 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 51.0% of avg range > max 50.0%
+2026-01-05 21:44:03 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 50.6% of avg < min 55.0%
+2026-01-05 21:44:33 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 49.4% of avg < min 55.0%
+2026-01-05 21:47:10 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.0% of avg < min 55.0%
+2026-01-05 21:47:51 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 39.0% of avg < min 55.0%
+2026-01-05 21:48:27 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 49.9% of avg < min 55.0%
+2026-01-05 21:48:58 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 49.0% of avg < min 55.0%
+2026-01-05 21:50:11 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 24.6% of avg < min 55.0%
+2026-01-05 21:50:32 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 24.5% of avg < min 55.0%
+2026-01-05 21:53:06 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 35.1% of avg < min 55.0%
+2026-01-05 21:53:32 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 34.6% of avg < min 55.0%
+2026-01-05 21:55:26 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.8% of avg range > max 50.0%
+2026-01-05 21:55:45 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.8% of avg range > max 50.0%
+2026-01-05 21:56:13 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.1% of avg range > max 50.0%
+2026-01-05 21:56:40 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50.1% of avg range > max 50.0%
+2026-01-05 23:19:42 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 15.9% of avg < min 55.0%
+2026-01-05 23:23:51 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 31.2% of avg < min 55.0%
+2026-01-06 00:40:59 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3579s)
+2026-01-06 01:41:06 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3578s)
+2026-01-06 02:41:14 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3576s)
+2026-01-06 03:41:17 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3579s)
+2026-01-06 04:41:21 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3580s)
+2026-01-06 05:41:24 - trades.XAGUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3584s)

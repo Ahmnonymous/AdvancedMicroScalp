@@ -1,0 +1,45 @@
+2026-01-05 21:38:10 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4744.3% of avg range > max 50.0%
+2026-01-05 21:38:25 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3718.7% of avg range > max 50.0%
+2026-01-05 21:38:46 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2432.1% of avg range > max 50.0%
+2026-01-05 21:47:58 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2854.4% of avg range > max 50.0%
+2026-01-05 21:48:34 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2937.1% of avg range > max 50.0%
+2026-01-05 21:49:07 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2957.1% of avg range > max 50.0%
+2026-01-05 21:49:41 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3102.5% of avg range > max 50.0%
+2026-01-05 21:49:47 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2989.7% of avg range > max 50.0%
+2026-01-05 21:49:59 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2994.0% of avg range > max 50.0%
+2026-01-05 21:50:17 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3039.6% of avg range > max 50.0%
+2026-01-05 21:50:36 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3080.0% of avg range > max 50.0%
+2026-01-05 21:51:07 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3091.2% of avg range > max 50.0%
+2026-01-05 21:51:44 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3117.6% of avg range > max 50.0%
+2026-01-05 21:52:11 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3105.7% of avg range > max 50.0%
+2026-01-05 21:52:43 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3136.7% of avg range > max 50.0%
+2026-01-05 21:52:54 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3140.1% of avg range > max 50.0%
+2026-01-05 21:53:11 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3219.0% of avg range > max 50.0%
+2026-01-05 21:53:38 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3230.2% of avg range > max 50.0%
+2026-01-05 21:54:08 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3273.2% of avg range > max 50.0%
+2026-01-05 21:54:47 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3373.0% of avg range > max 50.0%
+2026-01-05 21:55:28 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3265.5% of avg range > max 50.0%
+2026-01-05 21:55:51 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3277.4% of avg range > max 50.0%
+2026-01-05 21:56:18 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3781.7% of avg range > max 50.0%
+2026-01-05 21:56:47 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3919.2% of avg range > max 50.0%
+2026-01-05 21:58:57 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4744.9% of avg range > max 50.0%
+2026-01-05 22:55:25 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 575.8% of avg range > max 50.0%
+2026-01-05 22:57:10 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 596.8% of avg range > max 50.0%
+2026-01-05 22:58:58 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 574.5% of avg range > max 50.0%
+2026-01-05 23:00:51 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:47 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 890.8% of avg range > max 50.0%
+2026-01-05 23:04:39 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 882.2% of avg range > max 50.0%
+2026-01-05 23:06:56 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 859.7% of avg range > max 50.0%
+2026-01-05 23:09:17 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 996.1% of avg range > max 50.0%
+2026-01-05 23:11:14 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1372.8% of avg range > max 50.0%
+2026-01-05 23:14:40 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2168.4% of avg range > max 50.0%
+2026-01-05 23:17:55 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2859.4% of avg range > max 50.0%
+2026-01-05 23:20:41 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3119.7% of avg range > max 50.0%
+2026-01-05 23:24:11 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6041.1% of avg range > max 50.0%
+2026-01-05 23:32:57 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5629.0% of avg range > max 50.0%
+2026-01-05 23:35:44 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6167.3% of avg range > max 50.0%
+2026-01-05 23:37:59 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6661.5% of avg range > max 50.0%
+2026-01-05 23:40:22 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5816.3% of avg range > max 50.0%
+2026-01-06 01:41:59 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3524s)
+2026-01-06 02:42:06 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3524s)
+2026-01-06 05:42:08 - trades.AUDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3540s)

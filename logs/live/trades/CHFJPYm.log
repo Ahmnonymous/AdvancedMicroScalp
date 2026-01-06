@@ -1,0 +1,49 @@
+2026-01-05 21:49:00 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 351.5% of avg range > max 50.0%
+2026-01-05 21:49:40 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 345.7% of avg range > max 50.0%
+2026-01-05 21:49:44 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 345.7% of avg range > max 50.0%
+2026-01-05 21:49:56 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 345.7% of avg range > max 50.0%
+2026-01-05 21:50:12 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 362.1% of avg range > max 50.0%
+2026-01-05 21:50:33 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 370.7% of avg range > max 50.0%
+2026-01-05 21:51:03 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 378.4% of avg range > max 50.0%
+2026-01-05 21:51:42 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 387.4% of avg range > max 50.0%
+2026-01-05 21:52:06 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 373.9% of avg range > max 50.0%
+2026-01-05 21:52:41 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 373.9% of avg range > max 50.0%
+2026-01-05 21:52:50 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 373.9% of avg range > max 50.0%
+2026-01-05 21:53:07 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 373.9% of avg range > max 50.0%
+2026-01-05 21:53:33 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 349.6% of avg range > max 50.0%
+2026-01-05 21:54:03 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 349.6% of avg range > max 50.0%
+2026-01-05 21:54:46 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 341.5% of avg range > max 50.0%
+2026-01-05 21:55:27 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 359.8% of avg range > max 50.0%
+2026-01-05 21:55:47 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 359.8% of avg range > max 50.0%
+2026-01-05 21:56:14 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 479.7% of avg range > max 50.0%
+2026-01-05 21:56:42 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 422.8% of avg range > max 50.0%
+2026-01-05 21:57:50 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 634.1% of avg range > max 50.0%
+2026-01-05 22:00:27 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 22:08:33 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 591.4% of avg range > max 50.0%
+2026-01-05 22:09:24 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 568.1% of avg range > max 50.0%
+2026-01-05 22:10:57 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 681.6% of avg range > max 50.0%
+2026-01-05 22:12:50 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1064.8% of avg range > max 50.0%
+2026-01-05 22:15:27 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1238.1% of avg range > max 50.0%
+2026-01-05 22:17:27 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 883.3% of avg range > max 50.0%
+2026-01-05 22:18:30 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 973.2% of avg range > max 50.0%
+2026-01-05 22:19:52 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 925.8% of avg range > max 50.0%
+2026-01-05 22:21:14 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 925.8% of avg range > max 50.0%
+2026-01-05 22:22:53 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 882.9% of avg range > max 50.0%
+2026-01-05 22:24:23 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1034.1% of avg range > max 50.0%
+2026-01-05 22:26:00 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1079.2% of avg range > max 50.0%
+2026-01-05 22:27:33 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1131.3% of avg range > max 50.0%
+2026-01-05 22:29:07 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1441.0% of avg range > max 50.0%
+2026-01-05 22:30:55 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1329.1% of avg range > max 50.0%
+2026-01-05 22:34:34 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1492.3% of avg range > max 50.0%
+2026-01-05 22:36:34 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2219.8% of avg range > max 50.0%
+2026-01-05 22:38:11 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1844.4% of avg range > max 50.0%
+2026-01-05 22:40:07 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1727.3% of avg range > max 50.0%
+2026-01-05 23:04:18 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 447.6% of avg range > max 50.0%
+2026-01-05 23:06:30 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 391.7% of avg range > max 50.0%
+2026-01-05 23:09:02 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 293.2% of avg range > max 50.0%
+2026-01-05 23:10:42 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 258.1% of avg range > max 50.0%
+2026-01-05 23:13:58 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 241.1% of avg range > max 50.0%
+2026-01-06 00:41:02 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3576s)
+2026-01-06 01:41:08 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3575s)
+2026-01-06 02:41:16 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3574s)
+2026-01-06 05:41:27 - trades.CHFJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3581s)

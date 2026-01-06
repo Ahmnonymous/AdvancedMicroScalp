@@ -1,0 +1,48 @@
+2026-01-05 21:54:03 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 520.5% of avg range > max 50.0%
+2026-01-05 21:54:45 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 520.5% of avg range > max 50.0%
+2026-01-05 21:55:27 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 531.5% of avg range > max 50.0%
+2026-01-05 21:55:46 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 531.5% of avg range > max 50.0%
+2026-01-05 21:56:14 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 558.8% of avg range > max 50.0%
+2026-01-05 21:56:42 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 558.8% of avg range > max 50.0%
+2026-01-05 21:57:46 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 558.8% of avg range > max 50.0%
+2026-01-05 22:00:31 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 22:08:33 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 852.6% of avg range > max 50.0%
+2026-01-05 22:09:25 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 821.1% of avg range > max 50.0%
+2026-01-05 22:10:55 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 758.6% of avg range > max 50.0%
+2026-01-05 22:12:44 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 747.1% of avg range > max 50.0%
+2026-01-05 22:17:23 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 524.0% of avg range > max 50.0%
+2026-01-05 22:18:22 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 537.9% of avg range > max 50.0%
+2026-01-05 22:19:46 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 535.2% of avg range > max 50.0%
+2026-01-05 22:21:10 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 525.6% of avg range > max 50.0%
+2026-01-05 22:22:44 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 604.2% of avg range > max 50.0%
+2026-01-05 22:24:15 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 643.7% of avg range > max 50.0%
+2026-01-05 22:25:51 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 564.7% of avg range > max 50.0%
+2026-01-05 22:27:25 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 559.3% of avg range > max 50.0%
+2026-01-05 22:28:59 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 675.3% of avg range > max 50.0%
+2026-01-05 22:40:03 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1065.4% of avg range > max 50.0%
+2026-01-05 22:42:07 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1266.7% of avg range > max 50.0%
+2026-01-05 22:43:42 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1357.1% of avg range > max 50.0%
+2026-01-05 22:45:55 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 22:47:05 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3468.1% of avg range > max 50.0%
+2026-01-05 22:47:57 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2170.2% of avg range > max 50.0%
+2026-01-05 22:49:26 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1238.8% of avg range > max 50.0%
+2026-01-05 22:51:11 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1146.9% of avg range > max 50.0%
+2026-01-05 22:53:20 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 852.9% of avg range > max 50.0%
+2026-01-05 22:54:59 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 885.5% of avg range > max 50.0%
+2026-01-05 22:56:48 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 826.1% of avg range > max 50.0%
+2026-01-05 22:58:33 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 956.5% of avg range > max 50.0%
+2026-01-05 23:02:23 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 721.3% of avg range > max 50.0%
+2026-01-05 23:04:21 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 603.8% of avg range > max 50.0%
+2026-01-05 23:06:33 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 570.1% of avg range > max 50.0%
+2026-01-05 23:09:04 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 639.6% of avg range > max 50.0%
+2026-01-05 23:10:47 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 576.7% of avg range > max 50.0%
+2026-01-05 23:14:03 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 559.6% of avg range > max 50.0%
+2026-01-05 23:17:26 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 502.1% of avg range > max 50.0%
+2026-01-05 23:20:05 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 487.8% of avg range > max 50.0%
+2026-01-05 23:23:59 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 590.0% of avg range > max 50.0%
+2026-01-05 23:26:30 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 606.1% of avg range > max 50.0%
+2026-01-05 23:37:33 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 839.2% of avg range > max 50.0%
+2026-01-05 23:39:55 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 900.8% of avg range > max 50.0%
+2026-01-06 01:41:17 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3567s)
+2026-01-06 02:41:24 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3566s)
+2026-01-06 03:41:28 - trades.CADJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3568s)

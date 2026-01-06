@@ -1,0 +1,50 @@
+2026-01-05 21:38:10 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 355.8% of avg range > max 50.0%
+2026-01-05 21:38:25 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3963.5% of avg range > max 50.0%
+2026-01-05 21:38:46 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3963.5% of avg range > max 50.0%
+2026-01-05 21:51:44 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2381.8% of avg range > max 50.0%
+2026-01-05 21:52:11 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2462.9% of avg range > max 50.0%
+2026-01-05 21:52:42 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2462.9% of avg range > max 50.0%
+2026-01-05 21:52:53 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2462.9% of avg range > max 50.0%
+2026-01-05 21:53:10 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2472.9% of avg range > max 50.0%
+2026-01-05 21:53:38 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2472.9% of avg range > max 50.0%
+2026-01-05 21:54:08 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2483.0% of avg range > max 50.0%
+2026-01-05 21:54:47 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3877.4% of avg range > max 50.0%
+2026-01-05 21:55:28 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1814.3% of avg range > max 50.0%
+2026-01-05 21:55:51 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1814.3% of avg range > max 50.0%
+2026-01-05 21:56:18 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1446.0% of avg range > max 50.0%
+2026-01-05 21:56:47 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1446.0% of avg range > max 50.0%
+2026-01-05 21:58:51 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1454.3% of avg range > max 50.0%
+2026-01-05 22:06:11 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5895.9% of avg range > max 50.0%
+2026-01-05 22:08:34 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6057.4% of avg range > max 50.0%
+2026-01-05 22:09:24 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6057.4% of avg range > max 50.0%
+2026-01-05 22:10:54 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5448.4% of avg range > max 50.0%
+2026-01-05 22:14:54 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3754.4% of avg range > max 50.0%
+2026-01-05 22:17:23 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2987.4% of avg range > max 50.0%
+2026-01-05 22:18:18 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2873.3% of avg range > max 50.0%
+2026-01-05 22:20:36 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3270.4% of avg range > max 50.0%
+2026-01-05 22:21:57 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3666.6% of avg range > max 50.0%
+2026-01-05 22:22:36 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3616.8% of avg range > max 50.0%
+2026-01-05 22:25:16 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5440.4% of avg range > max 50.0%
+2026-01-05 22:25:54 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6115.2% of avg range > max 50.0%
+2026-01-05 22:27:27 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4474.7% of avg range > max 50.0%
+2026-01-05 22:34:32 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2556.7% of avg range > max 50.0%
+2026-01-05 22:36:28 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2903.2% of avg range > max 50.0%
+2026-01-05 22:38:09 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2631.9% of avg range > max 50.0%
+2026-01-05 22:40:05 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2165.8% of avg range > max 50.0%
+2026-01-05 22:42:08 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2148.2% of avg range > max 50.0%
+2026-01-05 22:43:46 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1962.9% of avg range > max 50.0%
+2026-01-05 22:53:25 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2108.8% of avg range > max 50.0%
+2026-01-05 23:11:57 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2842.1% of avg range > max 50.0%
+2026-01-05 23:15:42 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3957.8% of avg range > max 50.0%
+2026-01-05 23:18:37 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4440.1% of avg range > max 50.0%
+2026-01-05 23:21:39 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6619.4% of avg range > max 50.0%
+2026-01-05 23:24:29 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6815.0% of avg range > max 50.0%
+2026-01-05 23:28:12 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8106.2% of avg range > max 50.0%
+2026-01-05 23:30:54 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8024.2% of avg range > max 50.0%
+2026-01-05 23:33:35 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6707.6% of avg range > max 50.0%
+2026-01-05 23:36:25 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6883.8% of avg range > max 50.0%
+2026-01-05 23:38:43 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5588.1% of avg range > max 50.0%
+2026-01-05 23:40:45 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3588s)
+2026-01-06 02:41:58 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3532s)
+2026-01-06 04:42:05 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3536s)
+2026-01-06 05:42:04 - trades.USDZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3544s)

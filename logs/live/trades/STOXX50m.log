@@ -1,0 +1,11 @@
+2026-01-05 22:00:25 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:13 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2105.3% of avg range > max 50.0%
+2026-01-05 23:04:10 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2089.1% of avg range > max 50.0%
+2026-01-05 23:34:55 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1920.6% of avg range > max 50.0%
+2026-01-05 23:37:22 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1814.9% of avg range > max 50.0%
+2026-01-06 00:40:48 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3590s)
+2026-01-06 01:40:54 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3590s)
+2026-01-06 02:41:03 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3588s)
+2026-01-06 04:41:12 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3590s)
+2026-01-06 05:41:15 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3593s)
+2026-01-06 06:42:09 - trades.STOXX50m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3565s)

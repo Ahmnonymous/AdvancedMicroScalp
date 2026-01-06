@@ -1,0 +1,35 @@
+2026-01-05 21:37:54 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.4% of avg range > max 50.0%
+2026-01-05 21:38:20 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.5% of avg range > max 50.0%
+2026-01-05 21:38:41 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.5% of avg range > max 50.0%
+2026-01-05 21:39:07 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.8% of avg range > max 50.0%
+2026-01-05 21:39:32 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.8% of avg range > max 50.0%
+2026-01-05 21:39:54 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.8% of avg range > max 50.0%
+2026-01-05 21:40:18 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.2% of avg range > max 50.0%
+2026-01-05 21:40:50 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.2% of avg range > max 50.0%
+2026-01-05 21:51:41 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 116.4% of avg range > max 50.0%
+2026-01-05 21:52:03 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.7% of avg range > max 50.0%
+2026-01-05 21:52:40 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.7% of avg range > max 50.0%
+2026-01-05 21:52:48 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.7% of avg range > max 50.0%
+2026-01-05 21:53:04 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.5% of avg range > max 50.0%
+2026-01-05 21:53:30 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.5% of avg range > max 50.0%
+2026-01-05 21:53:58 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 107.5% of avg range > max 50.0%
+2026-01-05 21:54:45 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 122.2% of avg range > max 50.0%
+2026-01-05 21:55:26 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.9% of avg range > max 50.0%
+2026-01-05 21:55:44 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.9% of avg range > max 50.0%
+2026-01-05 21:56:12 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.7% of avg range > max 50.0%
+2026-01-05 21:56:38 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 121.7% of avg range > max 50.0%
+2026-01-05 21:57:14 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 120.0% of avg range > max 50.0%
+2026-01-05 21:59:53 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 23:00:12 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:01:56 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 98.3% of avg range > max 50.0%
+2026-01-05 23:05:57 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.2% of avg range > max 50.0%
+2026-01-05 23:08:52 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57.0% of avg range > max 50.0%
+2026-01-05 23:10:16 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.0% of avg range > max 50.0%
+2026-01-05 23:13:17 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 40.1% of avg < min 55.0%
+2026-01-05 23:16:44 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 42.5% of avg < min 55.0%
+2026-01-05 23:19:27 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Candle quality: current range 47.8% of avg < min 55.0%
+2026-01-05 23:25:20 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.3% of avg range > max 50.0%
+2026-01-06 00:40:44 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3594s)
+2026-01-06 01:40:51 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3593s)
+2026-01-06 02:40:57 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3593s)
+2026-01-06 03:41:02 - trades.USTECm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3594s)

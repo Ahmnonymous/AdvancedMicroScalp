@@ -1,0 +1,21 @@
+2026-01-05 21:38:04 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 21849.1% of avg range > max 50.0%
+2026-01-05 21:38:22 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16527.3% of avg range > max 50.0%
+2026-01-05 21:38:44 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16527.3% of avg range > max 50.0%
+2026-01-05 22:47:09 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4274.4% of avg range > max 50.0%
+2026-01-05 22:47:54 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4274.4% of avg range > max 50.0%
+2026-01-05 22:49:30 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4881.3% of avg range > max 50.0%
+2026-01-05 22:51:19 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6725.5% of avg range > max 50.0%
+2026-01-05 22:55:12 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 12786.1% of avg range > max 50.0%
+2026-01-05 22:56:57 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13508.5% of avg range > max 50.0%
+2026-01-05 22:58:45 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14357.5% of avg range > max 50.0%
+2026-01-05 23:02:33 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15522.1% of avg range > max 50.0%
+2026-01-05 23:26:41 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 11519.6% of avg range > max 50.0%
+2026-01-05 23:32:37 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10532.7% of avg range > max 50.0%
+2026-01-05 23:35:27 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10067.5% of avg range > max 50.0%
+2026-01-05 23:37:43 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10345.2% of avg range > max 50.0%
+2026-01-05 23:40:07 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10539.3% of avg range > max 50.0%
+2026-01-06 00:41:14 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3563s)
+2026-01-06 01:41:29 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3555s)
+2026-01-06 02:41:33 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3558s)
+2026-01-06 03:41:40 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3556s)
+2026-01-06 04:41:41 - trades.USDNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3560s)

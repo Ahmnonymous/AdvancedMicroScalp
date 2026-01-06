@@ -1,0 +1,25 @@
+2026-01-05 22:33:00 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1976.7% of avg range > max 50.0%
+2026-01-05 22:34:59 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2138.5% of avg range > max 50.0%
+2026-01-05 22:36:52 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2224.3% of avg range > max 50.0%
+2026-01-05 22:38:37 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2146.8% of avg range > max 50.0%
+2026-01-05 22:40:33 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2198.1% of avg range > max 50.0%
+2026-01-05 22:42:28 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2262.1% of avg range > max 50.0%
+2026-01-05 22:44:13 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2143.5% of avg range > max 50.0%
+2026-01-05 22:46:03 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2252.5% of avg range > max 50.0%
+2026-01-05 22:47:12 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2310.9% of avg range > max 50.0%
+2026-01-05 22:48:09 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2340.4% of avg range > max 50.0%
+2026-01-05 22:49:41 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2666.7% of avg range > max 50.0%
+2026-01-05 22:51:34 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3926.6% of avg range > max 50.0%
+2026-01-05 22:53:40 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5228.9% of avg range > max 50.0%
+2026-01-05 22:55:24 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.40 pips
+2026-01-05 22:57:08 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 22:58:56 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.40 pips
+2026-01-05 23:06:55 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3095.0% of avg range > max 50.0%
+2026-01-05 23:09:15 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2911.9% of avg range > max 50.0%
+2026-01-05 23:17:54 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2242.9% of avg range > max 50.0%
+2026-01-05 23:20:39 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2477.5% of avg range > max 50.0%
+2026-01-05 23:24:11 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3522.6% of avg range > max 50.0%
+2026-01-06 00:41:13 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3565s)
+2026-01-06 01:41:26 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3558s)
+2026-01-06 02:41:31 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3559s)
+2026-01-06 03:41:39 - trades.EURSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3557s)

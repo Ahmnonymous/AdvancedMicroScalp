@@ -1,0 +1,68 @@
+2026-01-05 21:38:08 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 647.0% of avg range > max 50.0%
+2026-01-05 21:38:24 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4548.9% of avg range > max 50.0%
+2026-01-05 21:38:45 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4548.9% of avg range > max 50.0%
+2026-01-05 21:39:14 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4521.3% of avg range > max 50.0%
+2026-01-05 21:39:37 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4521.3% of avg range > max 50.0%
+2026-01-05 21:39:59 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4516.6% of avg range > max 50.0%
+2026-01-05 21:40:24 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4559.8% of avg range > max 50.0%
+2026-01-05 21:40:56 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4559.8% of avg range > max 50.0%
+2026-01-05 21:41:32 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4683.0% of avg range > max 50.0%
+2026-01-05 21:42:07 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4480.0% of avg range > max 50.0%
+2026-01-05 21:42:52 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4480.0% of avg range > max 50.0%
+2026-01-05 21:43:04 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4372.4% of avg range > max 50.0%
+2026-01-05 21:43:08 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4372.4% of avg range > max 50.0%
+2026-01-05 21:43:22 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4372.4% of avg range > max 50.0%
+2026-01-05 21:43:32 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4372.4% of avg range > max 50.0%
+2026-01-05 21:43:50 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4367.8% of avg range > max 50.0%
+2026-01-05 21:50:15 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4148.1% of avg range > max 50.0%
+2026-01-05 21:50:35 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4148.1% of avg range > max 50.0%
+2026-01-05 21:51:06 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4221.7% of avg range > max 50.0%
+2026-01-05 21:51:44 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4221.7% of avg range > max 50.0%
+2026-01-05 21:52:09 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4203.1% of avg range > max 50.0%
+2026-01-05 21:52:42 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4207.5% of avg range > max 50.0%
+2026-01-05 21:52:52 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4211.9% of avg range > max 50.0%
+2026-01-05 21:53:09 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4184.2% of avg range > max 50.0%
+2026-01-05 21:53:36 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4184.2% of avg range > max 50.0%
+2026-01-05 21:54:06 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4184.2% of avg range > max 50.0%
+2026-01-05 21:54:46 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5710.5% of avg range > max 50.0%
+2026-01-05 21:55:28 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3041.4% of avg range > max 50.0%
+2026-01-05 21:55:49 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3041.4% of avg range > max 50.0%
+2026-01-05 21:56:17 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3030.0% of avg range > max 50.0%
+2026-01-05 21:56:45 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3039.5% of avg range > max 50.0%
+2026-01-05 21:58:29 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3143.3% of avg range > max 50.0%
+2026-01-05 22:11:40 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4484.8% of avg range > max 50.0%
+2026-01-05 22:16:02 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3734.1% of avg range > max 50.0%
+2026-01-05 22:17:39 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2535.6% of avg range > max 50.0%
+2026-01-05 22:18:56 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2535.7% of avg range > max 50.0%
+2026-01-05 22:20:19 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2520.8% of avg range > max 50.0%
+2026-01-05 22:21:39 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2680.9% of avg range > max 50.0%
+2026-01-05 22:23:20 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2654.9% of avg range > max 50.0%
+2026-01-05 22:24:55 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2679.3% of avg range > max 50.0%
+2026-01-05 22:26:41 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3747.4% of avg range > max 50.0%
+2026-01-05 22:28:06 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3318.2% of avg range > max 50.0%
+2026-01-05 22:35:25 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2910.2% of avg range > max 50.0%
+2026-01-05 22:37:12 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3321.4% of avg range > max 50.0%
+2026-01-05 22:38:55 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3230.6% of avg range > max 50.0%
+2026-01-05 22:40:59 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2831.7% of avg range > max 50.0%
+2026-01-05 22:42:48 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2645.5% of avg range > max 50.0%
+2026-01-05 22:55:47 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3317.1% of avg range > max 50.0%
+2026-01-05 22:57:33 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3470.0% of avg range > max 50.0%
+2026-01-05 22:59:21 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 23:01:13 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3462.7% of avg range > max 50.0%
+2026-01-05 23:03:02 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3598.0% of avg range > max 50.0%
+2026-01-05 23:04:55 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3509.0% of avg range > max 50.0%
+2026-01-05 23:07:16 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3853.9% of avg range > max 50.0%
+2026-01-05 23:09:25 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4414.2% of avg range > max 50.0%
+2026-01-05 23:11:41 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4355.9% of avg range > max 50.0%
+2026-01-05 23:21:18 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9353.8% of avg range > max 50.0%
+2026-01-05 23:24:23 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 12063.2% of avg range > max 50.0%
+2026-01-05 23:27:49 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 12404.5% of avg range > max 50.0%
+2026-01-05 23:30:42 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10930.0% of avg range > max 50.0%
+2026-01-05 23:33:24 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9818.5% of avg range > max 50.0%
+2026-01-05 23:36:15 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9306.6% of avg range > max 50.0%
+2026-01-05 23:38:27 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8537.2% of avg range > max 50.0%
+2026-01-05 23:40:38 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3594s)
+2026-01-06 00:41:30 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3548s)
+2026-01-06 01:41:43 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3540s)
+2026-01-06 02:41:46 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3545s)
+2026-01-06 04:41:53 - trades.DKKZARm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3548s)

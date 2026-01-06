@@ -1,0 +1,8 @@
+2026-01-05 21:47:53 - trades.GBPNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 508.8% of avg range > max 50.0%
+2026-01-05 21:48:29 - trades.GBPNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 465.9% of avg range > max 50.0%
+2026-01-05 21:49:01 - trades.GBPNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 454.9% of avg range > max 50.0%
+2026-01-05 21:49:40 - trades.GBPNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 454.9% of avg range > max 50.0%
+2026-01-05 21:49:45 - trades.GBPNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 454.9% of avg range > max 50.0%
+2026-01-05 21:49:56 - trades.GBPNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 454.9% of avg range > max 50.0%
+2026-01-06 01:41:23 - trades.GBPNZDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3561s)
+2026-01-06 03:41:35 - trades.GBPNZDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3561s)

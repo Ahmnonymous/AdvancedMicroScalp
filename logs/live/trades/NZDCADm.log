@@ -1,0 +1,46 @@
+2026-01-05 21:39:08 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 252.4% of avg range > max 50.0%
+2026-01-05 21:39:32 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 252.4% of avg range > max 50.0%
+2026-01-05 21:39:54 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 252.4% of avg range > max 50.0%
+2026-01-05 21:40:18 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 245.3% of avg range > max 50.0%
+2026-01-05 21:40:51 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 245.3% of avg range > max 50.0%
+2026-01-05 21:41:27 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 238.5% of avg range > max 50.0%
+2026-01-05 21:42:00 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 238.5% of avg range > max 50.0%
+2026-01-05 21:42:50 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 250.0% of avg range > max 50.0%
+2026-01-05 21:43:03 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.0% of avg range > max 50.0%
+2026-01-05 21:43:06 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.0% of avg range > max 50.0%
+2026-01-05 21:43:21 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.0% of avg range > max 50.0%
+2026-01-05 21:43:29 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.0% of avg range > max 50.0%
+2026-01-05 21:43:48 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 268.0% of avg range > max 50.0%
+2026-01-05 21:44:03 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 276.6% of avg range > max 50.0%
+2026-01-05 21:44:33 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 276.6% of avg range > max 50.0%
+2026-01-05 22:17:24 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1839.1% of avg range > max 50.0%
+2026-01-05 22:18:21 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1827.2% of avg range > max 50.0%
+2026-01-05 22:19:43 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1707.3% of avg range > max 50.0%
+2026-01-05 22:21:05 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 22:32:29 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.40 pips
+2026-01-05 22:34:23 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 22:36:19 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 22:38:00 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 22:39:56 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1185.2% of avg range > max 50.0%
+2026-01-05 22:41:57 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 896.6% of avg range > max 50.0%
+2026-01-05 22:43:40 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1088.9% of avg range > max 50.0%
+2026-01-05 22:45:54 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1075.3% of avg range > max 50.0%
+2026-01-05 22:47:04 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1111.1% of avg range > max 50.0%
+2026-01-05 22:47:49 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1075.3% of avg range > max 50.0%
+2026-01-05 22:49:20 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1041.7% of avg range > max 50.0%
+2026-01-05 22:51:03 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 979.6% of avg range > max 50.0%
+2026-01-05 22:53:13 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 900.0% of avg range > max 50.0%
+2026-01-05 22:54:55 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 891.3% of avg range > max 50.0%
+2026-01-05 22:56:37 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 517.6% of avg range > max 50.0%
+2026-01-05 23:10:31 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 321.7% of avg range > max 50.0%
+2026-01-05 23:13:40 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 308.7% of avg range > max 50.0%
+2026-01-05 23:17:11 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 294.9% of avg range > max 50.0%
+2026-01-05 23:19:45 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 282.2% of avg range > max 50.0%
+2026-01-05 23:23:52 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 389.8% of avg range > max 50.0%
+2026-01-05 23:25:51 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 403.5% of avg range > max 50.0%
+2026-01-05 23:29:28 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 434.0% of avg range > max 50.0%
+2026-01-05 23:32:13 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 429.9% of avg range > max 50.0%
+2026-01-05 23:34:48 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 438.1% of avg range > max 50.0%
+2026-01-06 02:41:06 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3584s)
+2026-01-06 03:41:19 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3577s)
+2026-01-06 04:41:15 - trades.NZDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3587s)

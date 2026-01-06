@@ -1,0 +1,14 @@
+2026-01-05 23:03:54 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.2% of avg range > max 50.0%
+2026-01-05 23:06:08 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 189.7% of avg range > max 50.0%
+2026-01-05 23:23:45 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.9% of avg range > max 50.0%
+2026-01-05 23:25:26 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.6% of avg range > max 50.0%
+2026-01-05 23:29:10 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.2% of avg range > max 50.0%
+2026-01-05 23:31:56 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.1% of avg range > max 50.0%
+2026-01-05 23:34:32 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.6% of avg range > max 50.0%
+2026-01-05 23:37:08 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 91.5% of avg range > max 50.0%
+2026-01-05 23:39:33 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.3% of avg range > max 50.0%
+2026-01-06 00:40:47 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3591s)
+2026-01-06 01:40:54 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3590s)
+2026-01-06 02:41:01 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3589s)
+2026-01-06 03:41:07 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3589s)
+2026-01-06 04:41:11 - trades.AUS200m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3591s)

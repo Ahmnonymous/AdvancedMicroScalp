@@ -1,0 +1,17 @@
+2026-01-05 23:06:57 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1443.6% of avg range > max 50.0%
+2026-01-05 23:09:16 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1237.3% of avg range > max 50.0%
+2026-01-05 23:11:12 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 990.5% of avg range > max 50.0%
+2026-01-05 23:14:38 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 918.4% of avg range > max 50.0%
+2026-01-05 23:17:57 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 907.8% of avg range > max 50.0%
+2026-01-05 23:20:44 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 872.9% of avg range > max 50.0%
+2026-01-05 23:24:14 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1069.8% of avg range > max 50.0%
+2026-01-05 23:27:13 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1087.4% of avg range > max 50.0%
+2026-01-05 23:30:25 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1130.6% of avg range > max 50.0%
+2026-01-05 23:32:59 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1247.4% of avg range > max 50.0%
+2026-01-05 23:35:49 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1494.9% of avg range > max 50.0%
+2026-01-05 23:38:01 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1754.5% of avg range > max 50.0%
+2026-01-05 23:40:23 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2117.6% of avg range > max 50.0%
+2026-01-06 00:41:12 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3566s)
+2026-01-06 01:41:27 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3556s)
+2026-01-06 04:41:40 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3562s)
+2026-01-06 05:41:40 - trades.SGDJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3568s)

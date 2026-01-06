@@ -1,0 +1,39 @@
+2026-01-05 21:37:58 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.40 pips
+2026-01-05 21:43:30 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
+2026-01-05 21:43:49 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
+2026-01-05 21:44:04 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
+2026-01-05 21:44:34 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
+2026-01-05 21:45:13 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
+2026-01-05 21:45:46 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
+2026-01-05 21:54:00 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 21:54:45 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 21:55:26 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 21:55:45 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 21:56:13 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 21:56:40 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 21:57:28 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 22:15:12 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.40 pips
+2026-01-05 22:24:28 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.15 pips < min 0.40 pips
+2026-01-05 22:26:08 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 22:32:45 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 22:34:45 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 22:47:10 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 22:48:00 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 22:49:33 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 22:51:22 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 23:04:29 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 23:06:42 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 23:09:09 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 23:11:00 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 23:14:21 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 23:17:41 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 23:20:25 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 23:24:05 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.07 pips < min 0.40 pips
+2026-01-05 23:26:46 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
+2026-01-05 23:30:02 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.05 pips < min 0.40 pips
+2026-01-05 23:32:41 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.05 pips < min 0.40 pips
+2026-01-06 01:41:19 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3565s)
+2026-01-06 02:41:26 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3564s)
+2026-01-06 03:41:30 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3565s)
+2026-01-06 04:41:33 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3569s)
+2026-01-06 05:41:35 - trades.ZARJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3573s)

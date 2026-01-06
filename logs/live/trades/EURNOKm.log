@@ -1,0 +1,49 @@
+2026-01-05 21:45:21 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2087.0% of avg range > max 50.0%
+2026-01-05 21:45:52 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2145.3% of avg range > max 50.0%
+2026-01-05 21:46:33 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2195.0% of avg range > max 50.0%
+2026-01-05 21:47:17 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2150.5% of avg range > max 50.0%
+2026-01-05 21:47:59 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2203.9% of avg range > max 50.0%
+2026-01-05 21:48:35 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2221.6% of avg range > max 50.0%
+2026-01-05 21:49:07 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2242.2% of avg range > max 50.0%
+2026-01-05 21:49:42 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2263.1% of avg range > max 50.0%
+2026-01-05 21:49:47 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2265.2% of avg range > max 50.0%
+2026-01-05 21:49:59 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2335.6% of avg range > max 50.0%
+2026-01-05 21:50:17 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2406.6% of avg range > max 50.0%
+2026-01-05 21:50:37 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2447.0% of avg range > max 50.0%
+2026-01-05 21:51:08 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2486.5% of avg range > max 50.0%
+2026-01-05 21:51:44 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2506.8% of avg range > max 50.0%
+2026-01-05 21:52:12 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2599.5% of avg range > max 50.0%
+2026-01-05 21:52:43 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2647.3% of avg range > max 50.0%
+2026-01-05 22:18:43 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 556.4% of avg range > max 50.0%
+2026-01-05 22:20:07 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 769.2% of avg range > max 50.0%
+2026-01-05 22:21:24 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 632.3% of avg range > max 50.0%
+2026-01-05 22:26:21 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 595.6% of avg range > max 50.0%
+2026-01-05 22:27:45 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 422.9% of avg range > max 50.0%
+2026-01-05 22:29:21 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 431.9% of avg range > max 50.0%
+2026-01-05 22:44:10 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 482.2% of avg range > max 50.0%
+2026-01-05 22:46:02 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 511.7% of avg range > max 50.0%
+2026-01-05 22:47:13 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 524.5% of avg range > max 50.0%
+2026-01-05 22:48:06 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 796.2% of avg range > max 50.0%
+2026-01-05 22:49:46 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 777.4% of avg range > max 50.0%
+2026-01-05 22:51:36 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 501.5% of avg range > max 50.0%
+2026-01-05 22:53:45 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 586.6% of avg range > max 50.0%
+2026-01-05 22:55:19 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 468.6% of avg range > max 50.0%
+2026-01-05 22:57:05 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 491.0% of avg range > max 50.0%
+2026-01-05 22:58:52 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 485.1% of avg range > max 50.0%
+2026-01-05 23:00:52 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:40 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 778.7% of avg range > max 50.0%
+2026-01-05 23:04:34 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 769.0% of avg range > max 50.0%
+2026-01-05 23:06:50 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 806.4% of avg range > max 50.0%
+2026-01-05 23:09:14 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 964.6% of avg range > max 50.0%
+2026-01-05 23:11:08 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1312.4% of avg range > max 50.0%
+2026-01-05 23:14:32 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1884.7% of avg range > max 50.0%
+2026-01-05 23:17:49 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2614.1% of avg range > max 50.0%
+2026-01-05 23:30:16 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3437.5% of avg range > max 50.0%
+2026-01-05 23:32:50 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3489.0% of avg range > max 50.0%
+2026-01-05 23:35:39 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3902.7% of avg range > max 50.0%
+2026-01-05 23:37:55 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4156.7% of avg range > max 50.0%
+2026-01-05 23:40:16 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3995.3% of avg range > max 50.0%
+2026-01-06 00:41:14 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3564s)
+2026-01-06 01:41:27 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3557s)
+2026-01-06 02:41:32 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3558s)
+2026-01-06 04:41:40 - trades.EURNOKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3561s)

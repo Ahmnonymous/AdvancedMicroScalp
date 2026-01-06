@@ -1,0 +1,461 @@
+2026-01-05 21:37:50 - tp_manager - INFO - TP Manager initialized | TP target: $1.00 | Partial close: 50%
+2026-01-05 21:38:13 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638931688 | Strategy TP: 21.06679214285714 | Quality: 85 | Trend: 0.003675459822548817
+2026-01-05 21:38:13 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.06679 | Adjusted: 21.09906 | Quality: 85 | Trend: 0.003675459822548817 | Factor: 0.50
+2026-01-05 21:38:13 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.06679 | Adjusted: 21.09906 | Quality: 85 | Trend: 0.003675459822548817 | Factor: 0.50
+2026-01-05 21:38:13 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638931688 | Attempt 1/6 | Setting TP: 21.09906
+2026-01-05 21:38:14 - tp_manager - INFO - [TP_APPLIED] Ticket 638931688 | Symbol BTCXAUm | TP price: 21.09906 | Applied: 21.09906 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:38:26 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638932107 | Strategy TP: 21.068172142857144 | Quality: 85 | Trend: 0.003675459822548817
+2026-01-05 21:38:26 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.06817 | Adjusted: 21.10044 | Quality: 85 | Trend: 0.003675459822548817 | Factor: 0.50
+2026-01-05 21:38:26 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.06817 | Adjusted: 21.10044 | Quality: 85 | Trend: 0.003675459822548817 | Factor: 0.50
+2026-01-05 21:38:26 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638932107 | Attempt 1/6 | Setting TP: 21.10044
+2026-01-05 21:38:28 - tp_manager - INFO - [TP_APPLIED] Ticket 638932107 | Symbol BTCXAUm | TP price: 21.10044 | Applied: 21.10044 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:38:28 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638932168 | Strategy TP: 93722.27642857144 | Quality: 85 | Trend: 0.003159077177994362
+2026-01-05 21:38:28 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93722.27643 | Adjusted: 93856.78000 | Quality: 85 | Trend: 0.003159077177994362 | Factor: 0.50
+2026-01-05 21:38:28 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93722.27643 | Adjusted: 93856.78000 | Quality: 85 | Trend: 0.003159077177994362 | Factor: 0.50
+2026-01-05 21:38:28 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638932168 | Attempt 1/6 | Setting TP: 93856.78000
+2026-01-05 21:38:29 - tp_manager - INFO - [TP_APPLIED] Ticket 638932168 | Symbol BTCUSDm | TP price: 93856.78000 | Applied: 93856.78000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:38:48 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638932926 | Strategy TP: 21.078822142857142 | Quality: 85 | Trend: 0.003675459822548817
+2026-01-05 21:38:48 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.07882 | Adjusted: 21.11109 | Quality: 85 | Trend: 0.003675459822548817 | Factor: 0.50
+2026-01-05 21:38:48 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.07882 | Adjusted: 21.11109 | Quality: 85 | Trend: 0.003675459822548817 | Factor: 0.50
+2026-01-05 21:38:48 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638932926 | Attempt 1/6 | Setting TP: 21.11109
+2026-01-05 21:38:49 - tp_manager - INFO - [TP_APPLIED] Ticket 638932926 | Symbol BTCXAUm | TP price: 21.11109 | Applied: 21.11109 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:38:50 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638933026 | Strategy TP: 93768.68642857144 | Quality: 85 | Trend: 0.003159077177994362
+2026-01-05 21:38:50 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93768.68643 | Adjusted: 93903.19000 | Quality: 85 | Trend: 0.003159077177994362 | Factor: 0.50
+2026-01-05 21:38:50 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93768.68643 | Adjusted: 93903.19000 | Quality: 85 | Trend: 0.003159077177994362 | Factor: 0.50
+2026-01-05 21:38:50 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638933026 | Attempt 1/6 | Setting TP: 93903.19000
+2026-01-05 21:38:52 - tp_manager - INFO - [TP_APPLIED] Ticket 638933026 | Symbol BTCUSDm | TP price: 93903.19000 | Applied: 93903.19000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:40:31 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638938142 | Strategy TP: 4450.541964285714 | Quality: 70 | Trend: 0.0001136494509928093
+2026-01-05 21:40:31 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.54196 | Adjusted: 4448.65100 | Quality: 70 | Trend: 0.0001136494509928093 | Factor: 0.50
+2026-01-05 21:40:31 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.54196 | Adjusted: 4448.65100 | Quality: 70 | Trend: 0.0001136494509928093 | Factor: 0.50
+2026-01-05 21:40:31 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638938142 | Attempt 1/6 | Setting TP: 4448.65100
+2026-01-05 21:40:32 - tp_manager - INFO - [TP_APPLIED] Ticket 638938142 | Symbol XAUUSDm | TP price: 4448.65100 | Applied: 4448.65100 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:41:03 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638940196 | Strategy TP: 4450.393964285714 | Quality: 70 | Trend: 0.0001136494509928093
+2026-01-05 21:41:03 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.39396 | Adjusted: 4448.50300 | Quality: 70 | Trend: 0.0001136494509928093 | Factor: 0.50
+2026-01-05 21:41:03 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.39396 | Adjusted: 4448.50300 | Quality: 70 | Trend: 0.0001136494509928093 | Factor: 0.50
+2026-01-05 21:41:03 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638940196 | Attempt 1/6 | Setting TP: 4448.50300
+2026-01-05 21:41:05 - tp_manager - INFO - [TP_APPLIED] Ticket 638940196 | Symbol XAUUSDm | TP price: 4448.50300 | Applied: 4448.50300 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:41:35 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638942755 | Strategy TP: 4450.131249999999 | Quality: 70 | Trend: 0.00015335624879426506
+2026-01-05 21:41:35 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.13125 | Adjusted: 4448.34800 | Quality: 70 | Trend: 0.00015335624879426506 | Factor: 0.50
+2026-01-05 21:41:35 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.13125 | Adjusted: 4448.34800 | Quality: 70 | Trend: 0.00015335624879426506 | Factor: 0.50
+2026-01-05 21:41:35 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638942755 | Attempt 1/6 | Setting TP: 4448.34800
+2026-01-05 21:41:36 - tp_manager - INFO - [TP_APPLIED] Ticket 638942755 | Symbol XAUUSDm | TP price: 4448.34800 | Applied: 4448.34800 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:41:37 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638942817 | Strategy TP: 94342.22928571429 | Quality: 70 | Trend: 0.000143875482226793
+2026-01-05 21:41:37 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94342.22929 | Adjusted: 94234.18000 | Quality: 70 | Trend: 0.000143875482226793 | Factor: 0.50
+2026-01-05 21:41:37 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94342.22929 | Adjusted: 94234.18000 | Quality: 70 | Trend: 0.000143875482226793 | Factor: 0.50
+2026-01-05 21:41:37 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638942817 | Attempt 1/6 | Setting TP: 94234.18000
+2026-01-05 21:41:38 - tp_manager - INFO - [TP_APPLIED] Ticket 638942817 | Symbol BTCUSDm | TP price: 94234.18000 | Applied: 94234.18000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:42:10 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638944033 | Strategy TP: 4450.31825 | Quality: 70 | Trend: 0.00015335624879426506
+2026-01-05 21:42:10 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.31825 | Adjusted: 4448.53500 | Quality: 70 | Trend: 0.00015335624879426506 | Factor: 0.50
+2026-01-05 21:42:10 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.31825 | Adjusted: 4448.53500 | Quality: 70 | Trend: 0.00015335624879426506 | Factor: 0.50
+2026-01-05 21:42:10 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638944033 | Attempt 1/6 | Setting TP: 4448.53500
+2026-01-05 21:42:11 - tp_manager - INFO - [TP_APPLIED] Ticket 638944033 | Symbol XAUUSDm | TP price: 4448.53500 | Applied: 4448.53500 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:43:10 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638946078 | Strategy TP: 4450.572214285714 | Quality: 70 | Trend: 0.00017297225475884683
+2026-01-05 21:43:10 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.57221 | Adjusted: 4448.76100 | Quality: 70 | Trend: 0.00017297225475884683 | Factor: 0.50
+2026-01-05 21:43:10 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.57221 | Adjusted: 4448.76100 | Quality: 70 | Trend: 0.00017297225475884683 | Factor: 0.50
+2026-01-05 21:43:10 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638946078 | Attempt 1/6 | Setting TP: 4448.76100
+2026-01-05 21:43:11 - tp_manager - INFO - [TP_APPLIED] Ticket 638946078 | Symbol XAUUSDm | TP price: 4448.76100 | Applied: 4448.76100 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:43:12 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638946111 | Strategy TP: 94320.05571428573 | Quality: 70 | Trend: 0.0002008975954383857
+2026-01-05 21:43:12 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94320.05571 | Adjusted: 94214.66000 | Quality: 70 | Trend: 0.0002008975954383857 | Factor: 0.50
+2026-01-05 21:43:12 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94320.05571 | Adjusted: 94214.66000 | Quality: 70 | Trend: 0.0002008975954383857 | Factor: 0.50
+2026-01-05 21:43:12 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638946111 | Attempt 1/6 | Setting TP: 94214.66000
+2026-01-05 21:43:13 - tp_manager - INFO - [TP_APPLIED] Ticket 638946111 | Symbol BTCUSDm | TP price: 94214.66000 | Applied: 94214.66000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:43:34 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638946666 | Strategy TP: 4450.711214285714 | Quality: 70 | Trend: 0.00017297225475884683
+2026-01-05 21:43:34 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.71121 | Adjusted: 4448.90200 | Quality: 70 | Trend: 0.00017297225475884683 | Factor: 0.50
+2026-01-05 21:43:34 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.71121 | Adjusted: 4448.90200 | Quality: 70 | Trend: 0.00017297225475884683 | Factor: 0.50
+2026-01-05 21:43:34 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638946666 | Attempt 1/6 | Setting TP: 4448.90200
+2026-01-05 21:43:36 - tp_manager - INFO - [TP_APPLIED] Ticket 638946666 | Symbol XAUUSDm | TP price: 4448.90200 | Applied: 4448.90200 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:43:36 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638946746 | Strategy TP: 94320.83571428573 | Quality: 70 | Trend: 0.0002008975954383857
+2026-01-05 21:43:36 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94320.83571 | Adjusted: 94215.44000 | Quality: 70 | Trend: 0.0002008975954383857 | Factor: 0.50
+2026-01-05 21:43:36 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94320.83571 | Adjusted: 94215.44000 | Quality: 70 | Trend: 0.0002008975954383857 | Factor: 0.50
+2026-01-05 21:43:36 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638946746 | Attempt 1/6 | Setting TP: 94215.44000
+2026-01-05 21:43:38 - tp_manager - INFO - [TP_APPLIED] Ticket 638946746 | Symbol BTCUSDm | TP price: 94215.44000 | Applied: 94215.44000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:44:11 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638948299 | Strategy TP: 4450.482142857142 | Quality: 70 | Trend: 0.00022880027405512094
+2026-01-05 21:44:11 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.48214 | Adjusted: 4448.69400 | Quality: 70 | Trend: 0.00022880027405512094 | Factor: 0.50
+2026-01-05 21:44:11 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.48214 | Adjusted: 4448.69400 | Quality: 70 | Trend: 0.00022880027405512094 | Factor: 0.50
+2026-01-05 21:44:11 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638948299 | Attempt 1/6 | Setting TP: 4448.69400
+2026-01-05 21:44:12 - tp_manager - INFO - [TP_APPLIED] Ticket 638948299 | Symbol XAUUSDm | TP price: 4448.69400 | Applied: 4448.69400 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:44:13 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638948344 | Strategy TP: 94304.1967857143 | Quality: 70 | Trend: 0.00034938250046236076
+2026-01-05 21:44:13 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94304.19679 | Adjusted: 94211.23000 | Quality: 70 | Trend: 0.00034938250046236076 | Factor: 0.50
+2026-01-05 21:44:13 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94304.19679 | Adjusted: 94211.23000 | Quality: 70 | Trend: 0.00034938250046236076 | Factor: 0.50
+2026-01-05 21:44:13 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638948344 | Attempt 1/6 | Setting TP: 94211.23000
+2026-01-05 21:44:14 - tp_manager - INFO - [TP_APPLIED] Ticket 638948344 | Symbol BTCUSDm | TP price: 94211.23000 | Applied: 94211.23000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:44:42 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638948986 | Strategy TP: 4449.837142857143 | Quality: 70 | Trend: 0.00022880027405512094
+2026-01-05 21:44:42 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4449.83714 | Adjusted: 4448.04900 | Quality: 70 | Trend: 0.00022880027405512094 | Factor: 0.50
+2026-01-05 21:44:42 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4449.83714 | Adjusted: 4448.04900 | Quality: 70 | Trend: 0.00022880027405512094 | Factor: 0.50
+2026-01-05 21:44:42 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638948986 | Attempt 1/6 | Setting TP: 4448.04900
+2026-01-05 21:44:43 - tp_manager - INFO - [TP_APPLIED] Ticket 638948986 | Symbol XAUUSDm | TP price: 4448.04900 | Applied: 4448.04900 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:44:43 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638949073 | Strategy TP: 94287.33678571429 | Quality: 70 | Trend: 0.00034938250046236076
+2026-01-05 21:44:43 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94287.33679 | Adjusted: 94194.37000 | Quality: 70 | Trend: 0.00034938250046236076 | Factor: 0.50
+2026-01-05 21:44:43 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94287.33679 | Adjusted: 94194.37000 | Quality: 70 | Trend: 0.00034938250046236076 | Factor: 0.50
+2026-01-05 21:44:43 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638949073 | Attempt 1/6 | Setting TP: 94194.37000
+2026-01-05 21:44:45 - tp_manager - INFO - [TP_APPLIED] Ticket 638949073 | Symbol BTCUSDm | TP price: 94194.37000 | Applied: 94194.37000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:45:56 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638951735 | Strategy TP: 4450.235607142857 | Quality: 70 | Trend: 0.0002476905121286477
+2026-01-05 21:45:56 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.23561 | Adjusted: 4448.49700 | Quality: 70 | Trend: 0.0002476905121286477 | Factor: 0.50
+2026-01-05 21:45:56 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4450.23561 | Adjusted: 4448.49700 | Quality: 70 | Trend: 0.0002476905121286477 | Factor: 0.50
+2026-01-05 21:45:56 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638951735 | Attempt 1/6 | Setting TP: 4448.49700
+2026-01-05 21:45:58 - tp_manager - INFO - [TP_APPLIED] Ticket 638951735 | Symbol XAUUSDm | TP price: 4448.49700 | Applied: 4448.49700 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:46:35 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638952828 | Strategy TP: 94329.50071428572 | Quality: 85 | Trend: 0.0006046076429199785
+2026-01-05 21:46:35 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94329.50071 | Adjusted: 94224.50000 | Quality: 85 | Trend: 0.0006046076429199785 | Factor: 0.50
+2026-01-05 21:46:35 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94329.50071 | Adjusted: 94224.50000 | Quality: 85 | Trend: 0.0006046076429199785 | Factor: 0.50
+2026-01-05 21:46:35 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638952828 | Attempt 1/6 | Setting TP: 94224.50000
+2026-01-05 21:46:36 - tp_manager - INFO - [TP_APPLIED] Ticket 638952828 | Symbol BTCUSDm | TP price: 94224.50000 | Applied: 94224.50000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:46:37 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638952901 | Strategy TP: 4449.764249999999 | Quality: 70 | Trend: 0.0002680018656298817
+2026-01-05 21:46:37 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4449.76425 | Adjusted: 4447.96900 | Quality: 70 | Trend: 0.0002680018656298817 | Factor: 0.50
+2026-01-05 21:46:37 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4449.76425 | Adjusted: 4447.96900 | Quality: 70 | Trend: 0.0002680018656298817 | Factor: 0.50
+2026-01-05 21:46:37 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638952901 | Attempt 1/6 | Setting TP: 4447.96900
+2026-01-05 21:46:38 - tp_manager - INFO - [TP_APPLIED] Ticket 638952901 | Symbol XAUUSDm | TP price: 4447.96900 | Applied: 4447.96900 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:47:21 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638954763 | Strategy TP: 94370.31071428572 | Quality: 85 | Trend: 0.0006046076429199785
+2026-01-05 21:47:21 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94370.31071 | Adjusted: 94265.31000 | Quality: 85 | Trend: 0.0006046076429199785 | Factor: 0.50
+2026-01-05 21:47:21 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94370.31071 | Adjusted: 94265.31000 | Quality: 85 | Trend: 0.0006046076429199785 | Factor: 0.50
+2026-01-05 21:47:21 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638954763 | Attempt 1/6 | Setting TP: 94265.31000
+2026-01-05 21:47:23 - tp_manager - INFO - [TP_APPLIED] Ticket 638954763 | Symbol BTCUSDm | TP price: 94265.31000 | Applied: 94265.31000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:47:23 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638954821 | Strategy TP: 4449.44525 | Quality: 70 | Trend: 0.0002680018656298817
+2026-01-05 21:47:23 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4449.44525 | Adjusted: 4447.65000 | Quality: 70 | Trend: 0.0002680018656298817 | Factor: 0.50
+2026-01-05 21:47:23 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4449.44525 | Adjusted: 4447.65000 | Quality: 70 | Trend: 0.0002680018656298817 | Factor: 0.50
+2026-01-05 21:47:23 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638954821 | Attempt 1/6 | Setting TP: 4447.65000
+2026-01-05 21:47:25 - tp_manager - INFO - [TP_APPLIED] Ticket 638954821 | Symbol XAUUSDm | TP price: 4447.65000 | Applied: 4447.65000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:48:01 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638956140 | Strategy TP: 94386.4092857143 | Quality: 85 | Trend: 0.0007680604156853621
+2026-01-05 21:48:01 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94386.40929 | Adjusted: 94276.06000 | Quality: 85 | Trend: 0.0007680604156853621 | Factor: 0.50
+2026-01-05 21:48:01 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94386.40929 | Adjusted: 94276.06000 | Quality: 85 | Trend: 0.0007680604156853621 | Factor: 0.50
+2026-01-05 21:48:01 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638956140 | Attempt 1/6 | Setting TP: 94276.06000
+2026-01-05 21:48:03 - tp_manager - INFO - [TP_APPLIED] Ticket 638956140 | Symbol BTCUSDm | TP price: 94276.06000 | Applied: 94276.06000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:49:48 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638962334 | Strategy TP: 94390.8292857143 | Quality: 85 | Trend: 0.0009519871762249964
+2026-01-05 21:49:48 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94390.82929 | Adjusted: 94282.76000 | Quality: 85 | Trend: 0.0009519871762249964 | Factor: 0.50
+2026-01-05 21:49:48 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94390.82929 | Adjusted: 94282.76000 | Quality: 85 | Trend: 0.0009519871762249964 | Factor: 0.50
+2026-01-05 21:49:48 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638962334 | Attempt 1/6 | Setting TP: 94282.76000
+2026-01-05 21:49:49 - tp_manager - INFO - [TP_APPLIED] Ticket 638962334 | Symbol BTCUSDm | TP price: 94282.76000 | Applied: 94282.76000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:50:00 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638962748 | Strategy TP: 94389.0992857143 | Quality: 85 | Trend: 0.0009519871762249964
+2026-01-05 21:50:00 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94389.09929 | Adjusted: 94283.47000 | Quality: 85 | Trend: 0.0009519871762249964 | Factor: 0.50
+2026-01-05 21:50:00 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94389.09929 | Adjusted: 94283.47000 | Quality: 85 | Trend: 0.0009519871762249964 | Factor: 0.50
+2026-01-05 21:50:00 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638962748 | Attempt 1/6 | Setting TP: 94283.47000
+2026-01-05 21:50:01 - tp_manager - INFO - [TP_APPLIED] Ticket 638962748 | Symbol BTCUSDm | TP price: 94283.47000 | Applied: 94283.47000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:50:18 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638963447 | Strategy TP: 4451.694178571428 | Quality: 70 | Trend: 0.0003795631119042377
+2026-01-05 21:50:18 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.69418 | Adjusted: 4450.05700 | Quality: 70 | Trend: 0.0003795631119042377 | Factor: 0.50
+2026-01-05 21:50:18 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.69418 | Adjusted: 4450.05700 | Quality: 70 | Trend: 0.0003795631119042377 | Factor: 0.50
+2026-01-05 21:50:18 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638963447 | Attempt 1/6 | Setting TP: 4450.05700
+2026-01-05 21:50:20 - tp_manager - INFO - [TP_APPLIED] Ticket 638963447 | Symbol XAUUSDm | TP price: 4450.05700 | Applied: 4450.05700 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:50:44 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638964745 | Strategy TP: 94423.9192857143 | Quality: 85 | Trend: 0.001384964975371624
+2026-01-05 21:50:44 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94423.91929 | Adjusted: 94320.08000 | Quality: 85 | Trend: 0.001384964975371624 | Factor: 0.50
+2026-01-05 21:50:44 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94423.91929 | Adjusted: 94320.08000 | Quality: 85 | Trend: 0.001384964975371624 | Factor: 0.50
+2026-01-05 21:50:44 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638964745 | Attempt 1/6 | Setting TP: 94320.08000
+2026-01-05 21:50:45 - tp_manager - INFO - [TP_APPLIED] Ticket 638964745 | Symbol BTCUSDm | TP price: 94320.08000 | Applied: 94320.08000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:50:46 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638964857 | Strategy TP: 4451.880178571429 | Quality: 70 | Trend: 0.0003795631119042377
+2026-01-05 21:50:46 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.88018 | Adjusted: 4450.23800 | Quality: 70 | Trend: 0.0003795631119042377 | Factor: 0.50
+2026-01-05 21:50:46 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.88018 | Adjusted: 4450.23800 | Quality: 70 | Trend: 0.0003795631119042377 | Factor: 0.50
+2026-01-05 21:50:46 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638964857 | Attempt 1/6 | Setting TP: 4450.23800
+2026-01-05 21:50:47 - tp_manager - INFO - [TP_APPLIED] Ticket 638964857 | Symbol XAUUSDm | TP price: 4450.23800 | Applied: 4450.23800 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:51:09 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638965863 | Strategy TP: 94415.7692857143 | Quality: 85 | Trend: 0.001384964975371624
+2026-01-05 21:51:09 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94415.76929 | Adjusted: 94311.93000 | Quality: 85 | Trend: 0.001384964975371624 | Factor: 0.50
+2026-01-05 21:51:09 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94415.76929 | Adjusted: 94311.93000 | Quality: 85 | Trend: 0.001384964975371624 | Factor: 0.50
+2026-01-05 21:51:09 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638965863 | Attempt 1/6 | Setting TP: 94311.93000
+2026-01-05 21:51:11 - tp_manager - INFO - [TP_APPLIED] Ticket 638965863 | Symbol BTCUSDm | TP price: 94311.93000 | Applied: 94311.93000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:51:11 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638966040 | Strategy TP: 4451.744178571428 | Quality: 70 | Trend: 0.0003795631119042377
+2026-01-05 21:51:11 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.74418 | Adjusted: 4450.21000 | Quality: 70 | Trend: 0.0003795631119042377 | Factor: 0.50
+2026-01-05 21:51:11 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.74418 | Adjusted: 4450.21000 | Quality: 70 | Trend: 0.0003795631119042377 | Factor: 0.50
+2026-01-05 21:51:11 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638966040 | Attempt 1/6 | Setting TP: 4450.21000
+2026-01-05 21:51:12 - tp_manager - INFO - [TP_APPLIED] Ticket 638966040 | Symbol XAUUSDm | TP price: 4450.21000 | Applied: 4450.21000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:52:15 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638968252 | Strategy TP: 94473.44571428573 | Quality: 85 | Trend: 0.0015270019142445052
+2026-01-05 21:52:15 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94473.44571 | Adjusted: 94360.38000 | Quality: 85 | Trend: 0.0015270019142445052 | Factor: 0.50
+2026-01-05 21:52:15 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94473.44571 | Adjusted: 94360.38000 | Quality: 85 | Trend: 0.0015270019142445052 | Factor: 0.50
+2026-01-05 21:52:15 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638968252 | Attempt 1/6 | Setting TP: 94360.38000
+2026-01-05 21:52:16 - tp_manager - INFO - [TP_APPLIED] Ticket 638968252 | Symbol BTCUSDm | TP price: 94360.38000 | Applied: 94360.38000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:52:17 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638968321 | Strategy TP: 4451.628607142858 | Quality: 70 | Trend: 0.00038420340409620534
+2026-01-05 21:52:17 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.62861 | Adjusted: 4450.10800 | Quality: 70 | Trend: 0.00038420340409620534 | Factor: 0.50
+2026-01-05 21:52:17 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.62861 | Adjusted: 4450.10800 | Quality: 70 | Trend: 0.00038420340409620534 | Factor: 0.50
+2026-01-05 21:52:17 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638968321 | Attempt 1/6 | Setting TP: 4450.10800
+2026-01-05 21:52:18 - tp_manager - INFO - [TP_APPLIED] Ticket 638968321 | Symbol XAUUSDm | TP price: 4450.10800 | Applied: 4450.10800 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:52:55 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638970601 | Strategy TP: 94437.48071428572 | Quality: 85 | Trend: 0.0016327708625207859
+2026-01-05 21:52:55 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94437.48071 | Adjusted: 94325.94000 | Quality: 85 | Trend: 0.0016327708625207859 | Factor: 0.50
+2026-01-05 21:52:55 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94437.48071 | Adjusted: 94325.94000 | Quality: 85 | Trend: 0.0016327708625207859 | Factor: 0.50
+2026-01-05 21:52:55 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638970601 | Attempt 1/6 | Setting TP: 94325.94000
+2026-01-05 21:52:56 - tp_manager - INFO - [TP_APPLIED] Ticket 638970601 | Symbol BTCUSDm | TP price: 94325.94000 | Applied: 94325.94000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:53:12 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638971060 | Strategy TP: 94445.04071428571 | Quality: 85 | Trend: 0.0016327708625207859
+2026-01-05 21:53:12 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94445.04071 | Adjusted: 94322.62000 | Quality: 85 | Trend: 0.0016327708625207859 | Factor: 0.50
+2026-01-05 21:53:12 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94445.04071 | Adjusted: 94322.62000 | Quality: 85 | Trend: 0.0016327708625207859 | Factor: 0.50
+2026-01-05 21:53:12 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638971060 | Attempt 1/6 | Setting TP: 94322.62000
+2026-01-05 21:53:13 - tp_manager - INFO - [TP_APPLIED] Ticket 638971060 | Symbol BTCUSDm | TP price: 94322.62000 | Applied: 94322.62000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:53:14 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638971150 | Strategy TP: 4451.215714285714 | Quality: 70 | Trend: 0.00036164123732626655
+2026-01-05 21:53:14 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.21571 | Adjusted: 4449.78800 | Quality: 70 | Trend: 0.00036164123732626655 | Factor: 0.50
+2026-01-05 21:53:14 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.21571 | Adjusted: 4449.78800 | Quality: 70 | Trend: 0.00036164123732626655 | Factor: 0.50
+2026-01-05 21:53:14 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638971150 | Attempt 1/6 | Setting TP: 4449.78800
+2026-01-05 21:53:15 - tp_manager - INFO - [TP_APPLIED] Ticket 638971150 | Symbol XAUUSDm | TP price: 4449.78800 | Applied: 4449.78800 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:53:42 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638971959 | Strategy TP: 94405.07071428571 | Quality: 85 | Trend: 0.0016327708625207859
+2026-01-05 21:53:42 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94405.07071 | Adjusted: 94293.53000 | Quality: 85 | Trend: 0.0016327708625207859 | Factor: 0.50
+2026-01-05 21:53:42 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94405.07071 | Adjusted: 94293.53000 | Quality: 85 | Trend: 0.0016327708625207859 | Factor: 0.50
+2026-01-05 21:53:42 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638971959 | Attempt 1/6 | Setting TP: 94293.53000
+2026-01-05 21:53:43 - tp_manager - INFO - [TP_APPLIED] Ticket 638971959 | Symbol BTCUSDm | TP price: 94293.53000 | Applied: 94293.53000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:54:11 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638972819 | Strategy TP: 94396.80500000001 | Quality: 85 | Trend: 0.0016585129462336485
+2026-01-05 21:54:11 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94396.80500 | Adjusted: 94287.27000 | Quality: 85 | Trend: 0.0016585129462336485 | Factor: 0.50
+2026-01-05 21:54:11 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94396.80500 | Adjusted: 94287.27000 | Quality: 85 | Trend: 0.0016585129462336485 | Factor: 0.50
+2026-01-05 21:54:11 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638972819 | Attempt 1/6 | Setting TP: 94287.27000
+2026-01-05 21:54:12 - tp_manager - INFO - [TP_APPLIED] Ticket 638972819 | Symbol BTCUSDm | TP price: 94287.27000 | Applied: 94287.27000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:54:13 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638972852 | Strategy TP: 4451.22075 | Quality: 70 | Trend: 0.00033262156205150176
+2026-01-05 21:54:13 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.22075 | Adjusted: 4449.77900 | Quality: 70 | Trend: 0.00033262156205150176 | Factor: 0.50
+2026-01-05 21:54:13 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.22075 | Adjusted: 4449.77900 | Quality: 70 | Trend: 0.00033262156205150176 | Factor: 0.50
+2026-01-05 21:54:13 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638972852 | Attempt 1/6 | Setting TP: 4449.77900
+2026-01-05 21:54:14 - tp_manager - INFO - [TP_APPLIED] Ticket 638972852 | Symbol XAUUSDm | TP price: 4449.77900 | Applied: 4449.77900 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:55:53 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638976909 | Strategy TP: 4451.32 | Quality: 70 | Trend: 0.0002696279312344915
+2026-01-05 21:55:53 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.32000 | Adjusted: 4449.89000 | Quality: 70 | Trend: 0.0002696279312344915 | Factor: 0.50
+2026-01-05 21:55:53 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.32000 | Adjusted: 4449.89000 | Quality: 70 | Trend: 0.0002696279312344915 | Factor: 0.50
+2026-01-05 21:55:53 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638976909 | Attempt 1/6 | Setting TP: 4449.89000
+2026-01-05 21:55:54 - tp_manager - INFO - [TP_APPLIED] Ticket 638976909 | Symbol XAUUSDm | TP price: 4449.89000 | Applied: 4449.89000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:55:54 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638976977 | Strategy TP: 94340.95571428572 | Quality: 70 | Trend: 0.0016685708642906175
+2026-01-05 21:55:54 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94340.95571 | Adjusted: 94229.11000 | Quality: 70 | Trend: 0.0016685708642906175 | Factor: 0.50
+2026-01-05 21:55:54 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94340.95571 | Adjusted: 94229.11000 | Quality: 70 | Trend: 0.0016685708642906175 | Factor: 0.50
+2026-01-05 21:55:54 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638976977 | Attempt 1/6 | Setting TP: 94229.11000
+2026-01-05 21:55:56 - tp_manager - INFO - [TP_APPLIED] Ticket 638976977 | Symbol BTCUSDm | TP price: 94229.11000 | Applied: 94229.11000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:56:20 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638979567 | Strategy TP: 4452.0199999999995 | Quality: 70 | Trend: 0.0002696279312344915
+2026-01-05 21:56:20 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4452.02000 | Adjusted: 4450.59000 | Quality: 70 | Trend: 0.0002696279312344915 | Factor: 0.50
+2026-01-05 21:56:20 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4452.02000 | Adjusted: 4450.59000 | Quality: 70 | Trend: 0.0002696279312344915 | Factor: 0.50
+2026-01-05 21:56:20 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638979567 | Attempt 1/6 | Setting TP: 4450.59000
+2026-01-05 21:56:21 - tp_manager - INFO - [TP_APPLIED] Ticket 638979567 | Symbol XAUUSDm | TP price: 4450.59000 | Applied: 4450.59000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:56:21 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638979685 | Strategy TP: 94339.54571428572 | Quality: 70 | Trend: 0.0016685708642906175
+2026-01-05 21:56:21 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94339.54571 | Adjusted: 94227.70000 | Quality: 70 | Trend: 0.0016685708642906175 | Factor: 0.50
+2026-01-05 21:56:21 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94339.54571 | Adjusted: 94227.70000 | Quality: 70 | Trend: 0.0016685708642906175 | Factor: 0.50
+2026-01-05 21:56:21 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638979685 | Attempt 1/6 | Setting TP: 94227.70000
+2026-01-05 21:56:23 - tp_manager - INFO - [TP_APPLIED] Ticket 638979685 | Symbol BTCUSDm | TP price: 94227.70000 | Applied: 94227.70000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:56:49 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638981381 | Strategy TP: 94426.59357142857 | Quality: 85 | Trend: 0.0017070351086970231
+2026-01-05 21:56:49 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94426.59357 | Adjusted: 94280.65000 | Quality: 85 | Trend: 0.0017070351086970231 | Factor: 0.50
+2026-01-05 21:56:49 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94426.59357 | Adjusted: 94280.65000 | Quality: 85 | Trend: 0.0017070351086970231 | Factor: 0.50
+2026-01-05 21:56:49 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638981381 | Attempt 1/6 | Setting TP: 94280.65000
+2026-01-05 21:56:51 - tp_manager - INFO - [TP_APPLIED] Ticket 638981381 | Symbol BTCUSDm | TP price: 94280.65000 | Applied: 94280.65000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 21:56:51 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638981591 | Strategy TP: 4451.828178571429 | Quality: 70 | Trend: 0.0002285211129210166
+2026-01-05 21:56:51 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.82818 | Adjusted: 4450.41400 | Quality: 70 | Trend: 0.0002285211129210166 | Factor: 0.50
+2026-01-05 21:56:51 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4451.82818 | Adjusted: 4450.41400 | Quality: 70 | Trend: 0.0002285211129210166 | Factor: 0.50
+2026-01-05 21:56:51 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638981591 | Attempt 1/6 | Setting TP: 4450.41400
+2026-01-05 21:56:52 - tp_manager - INFO - [TP_APPLIED] Ticket 638981591 | Symbol XAUUSDm | TP price: 4450.41400 | Applied: 4450.41400 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:02:07 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638985487 | Strategy TP: 94348.83642857143 | Quality: 70 | Trend: 0.001842077821699435
+2026-01-05 22:02:07 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94348.83643 | Adjusted: 94197.63000 | Quality: 70 | Trend: 0.001842077821699435 | Factor: 0.50
+2026-01-05 22:02:07 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94348.83643 | Adjusted: 94197.63000 | Quality: 70 | Trend: 0.001842077821699435 | Factor: 0.50
+2026-01-05 22:02:07 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638985487 | Attempt 1/6 | Setting TP: 94197.63000
+2026-01-05 22:02:09 - tp_manager - INFO - [TP_APPLIED] Ticket 638985487 | Symbol BTCUSDm | TP price: 94197.63000 | Applied: 94197.63000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:03:15 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638986364 | Strategy TP: 94451.98142857142 | Quality: 85 | Trend: 0.0018227643833748932
+2026-01-05 22:03:15 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94451.98143 | Adjusted: 94272.44000 | Quality: 85 | Trend: 0.0018227643833748932 | Factor: 0.50
+2026-01-05 22:03:15 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94451.98143 | Adjusted: 94272.44000 | Quality: 85 | Trend: 0.0018227643833748932 | Factor: 0.50
+2026-01-05 22:03:15 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638986364 | Attempt 1/6 | Setting TP: 94272.44000
+2026-01-05 22:03:17 - tp_manager - INFO - [TP_APPLIED] Ticket 638986364 | Symbol BTCUSDm | TP price: 94272.44000 | Applied: 94272.44000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:04:16 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638986646 | Strategy TP: 94400.24285714286 | Quality: 70 | Trend: 0.001770023989923249
+2026-01-05 22:04:16 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94400.24286 | Adjusted: 94255.02000 | Quality: 70 | Trend: 0.001770023989923249 | Factor: 0.50
+2026-01-05 22:04:16 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94400.24286 | Adjusted: 94255.02000 | Quality: 70 | Trend: 0.001770023989923249 | Factor: 0.50
+2026-01-05 22:04:16 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638986646 | Attempt 1/6 | Setting TP: 94255.02000
+2026-01-05 22:04:17 - tp_manager - INFO - [TP_APPLIED] Ticket 638986646 | Symbol BTCUSDm | TP price: 94255.02000 | Applied: 94255.02000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:07:10 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638987515 | Strategy TP: 94441.80928571429 | Quality: 85 | Trend: 0.0016775924096641642
+2026-01-05 22:07:10 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94441.80929 | Adjusted: 94272.31000 | Quality: 85 | Trend: 0.0016775924096641642 | Factor: 0.50
+2026-01-05 22:07:10 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94441.80929 | Adjusted: 94272.31000 | Quality: 85 | Trend: 0.0016775924096641642 | Factor: 0.50
+2026-01-05 22:07:10 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638987515 | Attempt 1/6 | Setting TP: 94272.31000
+2026-01-05 22:07:12 - tp_manager - INFO - [TP_APPLIED] Ticket 638987515 | Symbol BTCUSDm | TP price: 94272.31000 | Applied: 94272.31000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:10:16 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638989004 | Strategy TP: 94507.665 | Quality: 85 | Trend: 0.0013837956643440346
+2026-01-05 22:10:16 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94507.66500 | Adjusted: 94346.95000 | Quality: 85 | Trend: 0.0013837956643440346 | Factor: 0.50
+2026-01-05 22:10:16 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94507.66500 | Adjusted: 94346.95000 | Quality: 85 | Trend: 0.0013837956643440346 | Factor: 0.50
+2026-01-05 22:10:16 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638989004 | Attempt 1/6 | Setting TP: 94346.95000
+2026-01-05 22:10:18 - tp_manager - INFO - [TP_APPLIED] Ticket 638989004 | Symbol BTCUSDm | TP price: 94346.95000 | Applied: 94346.95000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:11:59 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638990250 | Strategy TP: 94475.36285714286 | Quality: 85 | Trend: 0.0011214209543403142
+2026-01-05 22:11:59 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94475.36286 | Adjusted: 94337.19000 | Quality: 85 | Trend: 0.0011214209543403142 | Factor: 0.50
+2026-01-05 22:11:59 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94475.36286 | Adjusted: 94337.19000 | Quality: 85 | Trend: 0.0011214209543403142 | Factor: 0.50
+2026-01-05 22:11:59 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638990250 | Attempt 1/6 | Setting TP: 94337.19000
+2026-01-05 22:12:03 - tp_manager - INFO - [TP_APPLIED] Ticket 638990250 | Symbol BTCUSDm | TP price: 94337.19000 | Applied: 94337.19000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:13:57 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638991483 | Strategy TP: 94434.68285714286 | Quality: 85 | Trend: 0.0009139654096836249
+2026-01-05 22:13:57 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94434.68286 | Adjusted: 94312.37000 | Quality: 85 | Trend: 0.0009139654096836249 | Factor: 0.50
+2026-01-05 22:13:57 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94434.68286 | Adjusted: 94312.37000 | Quality: 85 | Trend: 0.0009139654096836249 | Factor: 0.50
+2026-01-05 22:13:57 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638991483 | Attempt 1/6 | Setting TP: 94312.37000
+2026-01-05 22:13:59 - tp_manager - INFO - [TP_APPLIED] Ticket 638991483 | Symbol BTCUSDm | TP price: 94312.37000 | Applied: 94312.37000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:16:30 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638992522 | Strategy TP: 94472.81071428572 | Quality: 85 | Trend: 0.0008103884451721873
+2026-01-05 22:16:30 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94472.81071 | Adjusted: 94359.35000 | Quality: 85 | Trend: 0.0008103884451721873 | Factor: 0.50
+2026-01-05 22:16:30 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94472.81071 | Adjusted: 94359.35000 | Quality: 85 | Trend: 0.0008103884451721873 | Factor: 0.50
+2026-01-05 22:16:30 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638992522 | Attempt 1/6 | Setting TP: 94359.35000
+2026-01-05 22:16:31 - tp_manager - INFO - [TP_APPLIED] Ticket 638992522 | Symbol BTCUSDm | TP price: 94359.35000 | Applied: 94359.35000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:21:59 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638995774 | Strategy TP: 94549.05357142857 | Quality: 85 | Trend: 0.0006476968803764152
+2026-01-05 22:21:59 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94549.05357 | Adjusted: 94453.25000 | Quality: 85 | Trend: 0.0006476968803764152 | Factor: 0.50
+2026-01-05 22:21:59 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94549.05357 | Adjusted: 94453.25000 | Quality: 85 | Trend: 0.0006476968803764152 | Factor: 0.50
+2026-01-05 22:21:59 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638995774 | Attempt 1/6 | Setting TP: 94453.25000
+2026-01-05 22:22:00 - tp_manager - INFO - [TP_APPLIED] Ticket 638995774 | Symbol BTCUSDm | TP price: 94453.25000 | Applied: 94453.25000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:28:16 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 638999738 | Strategy TP: 94515.285 | Quality: 85 | Trend: 0.000881801741297447
+2026-01-05 22:28:16 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94515.28500 | Adjusted: 94417.51000 | Quality: 85 | Trend: 0.000881801741297447 | Factor: 0.50
+2026-01-05 22:28:16 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94515.28500 | Adjusted: 94417.51000 | Quality: 85 | Trend: 0.000881801741297447 | Factor: 0.50
+2026-01-05 22:28:16 - tp_manager - INFO - [TP_ATTEMPT] Ticket 638999738 | Attempt 1/6 | Setting TP: 94417.51000
+2026-01-05 22:28:18 - tp_manager - INFO - [TP_APPLIED] Ticket 638999738 | Symbol BTCUSDm | TP price: 94417.51000 | Applied: 94417.51000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:30:05 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639000563 | Strategy TP: 94474.20428571428 | Quality: 85 | Trend: 0.0008984659770662932
+2026-01-05 22:30:05 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94474.20429 | Adjusted: 94375.80000 | Quality: 85 | Trend: 0.0008984659770662932 | Factor: 0.50
+2026-01-05 22:30:05 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94474.20429 | Adjusted: 94375.80000 | Quality: 85 | Trend: 0.0008984659770662932 | Factor: 0.50
+2026-01-05 22:30:05 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639000563 | Attempt 1/6 | Setting TP: 94375.80000
+2026-01-05 22:30:07 - tp_manager - INFO - [TP_APPLIED] Ticket 639000563 | Symbol BTCUSDm | TP price: 94375.80000 | Applied: 94375.80000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:33:37 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639002497 | Strategy TP: 94424.27857142856 | Quality: 85 | Trend: 0.0008146742542170083
+2026-01-05 22:33:37 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94424.27857 | Adjusted: 94329.73000 | Quality: 85 | Trend: 0.0008146742542170083 | Factor: 0.50
+2026-01-05 22:33:37 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94424.27857 | Adjusted: 94329.73000 | Quality: 85 | Trend: 0.0008146742542170083 | Factor: 0.50
+2026-01-05 22:33:37 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639002497 | Attempt 1/6 | Setting TP: 94329.73000
+2026-01-05 22:33:39 - tp_manager - INFO - [TP_APPLIED] Ticket 639002497 | Symbol BTCUSDm | TP price: 94329.73000 | Applied: 94329.73000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:37:22 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639003765 | Strategy TP: 94515.76857142858 | Quality: 85 | Trend: 0.0006426107066728887
+2026-01-05 22:37:22 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94515.76857 | Adjusted: 94413.94000 | Quality: 85 | Trend: 0.0006426107066728887 | Factor: 0.50
+2026-01-05 22:37:22 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94515.76857 | Adjusted: 94413.94000 | Quality: 85 | Trend: 0.0006426107066728887 | Factor: 0.50
+2026-01-05 22:37:22 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639003765 | Attempt 1/6 | Setting TP: 94413.94000
+2026-01-05 22:37:24 - tp_manager - INFO - [TP_APPLIED] Ticket 639003765 | Symbol BTCUSDm | TP price: 94413.94000 | Applied: 94413.94000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:39:13 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639004540 | Strategy TP: 94530.16857142857 | Quality: 85 | Trend: 0.0006196927279002748
+2026-01-05 22:39:13 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94530.16857 | Adjusted: 94430.97000 | Quality: 85 | Trend: 0.0006196927279002748 | Factor: 0.50
+2026-01-05 22:39:13 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94530.16857 | Adjusted: 94430.97000 | Quality: 85 | Trend: 0.0006196927279002748 | Factor: 0.50
+2026-01-05 22:39:13 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639004540 | Attempt 1/6 | Setting TP: 94430.97000
+2026-01-05 22:39:15 - tp_manager - INFO - [TP_APPLIED] Ticket 639004540 | Symbol BTCUSDm | TP price: 94430.97000 | Applied: 94430.97000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:41:17 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639005284 | Strategy TP: 94538.18071428571 | Quality: 85 | Trend: 0.0005074964995093826
+2026-01-05 22:41:17 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94538.18071 | Adjusted: 94438.58000 | Quality: 85 | Trend: 0.0005074964995093826 | Factor: 0.50
+2026-01-05 22:41:17 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94538.18071 | Adjusted: 94438.58000 | Quality: 85 | Trend: 0.0005074964995093826 | Factor: 0.50
+2026-01-05 22:41:17 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639005284 | Attempt 1/6 | Setting TP: 94438.58000
+2026-01-05 22:41:19 - tp_manager - INFO - [TP_APPLIED] Ticket 639005284 | Symbol BTCUSDm | TP price: 94438.58000 | Applied: 94438.58000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:43:02 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639005950 | Strategy TP: 94462.00392857142 | Quality: 70 | Trend: 0.00045282552827264244
+2026-01-05 22:43:02 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94462.00393 | Adjusted: 94386.96000 | Quality: 70 | Trend: 0.00045282552827264244 | Factor: 0.50
+2026-01-05 22:43:02 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94462.00393 | Adjusted: 94386.96000 | Quality: 70 | Trend: 0.00045282552827264244 | Factor: 0.50
+2026-01-05 22:43:02 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639005950 | Attempt 1/6 | Setting TP: 94386.96000
+2026-01-05 22:43:04 - tp_manager - INFO - [TP_APPLIED] Ticket 639005950 | Symbol BTCUSDm | TP price: 94386.96000 | Applied: 94386.96000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:44:53 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639006533 | Strategy TP: 94409.48857142856 | Quality: 55 | Trend: 0.00033191667594123096
+2026-01-05 22:44:53 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94409.48857 | Adjusted: 94344.64000 | Quality: 55 | Trend: 0.00033191667594123096 | Factor: 0.50
+2026-01-05 22:44:53 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94409.48857 | Adjusted: 94344.64000 | Quality: 55 | Trend: 0.00033191667594123096 | Factor: 0.50
+2026-01-05 22:44:53 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639006533 | Attempt 1/6 | Setting TP: 94344.64000
+2026-01-05 22:44:54 - tp_manager - INFO - [TP_APPLIED] Ticket 639006533 | Symbol BTCUSDm | TP price: 94344.64000 | Applied: 94344.64000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:48:40 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639008780 | Strategy TP: 94422.93214285713 | Quality: 70 | Trend: 0.00011697567237745914
+2026-01-05 22:48:40 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94422.93214 | Adjusted: 94333.69000 | Quality: 70 | Trend: 0.00011697567237745914 | Factor: 0.50
+2026-01-05 22:48:40 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94422.93214 | Adjusted: 94333.69000 | Quality: 70 | Trend: 0.00011697567237745914 | Factor: 0.50
+2026-01-05 22:48:40 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639008780 | Attempt 1/6 | Setting TP: 94333.69000
+2026-01-05 22:48:42 - tp_manager - INFO - [TP_APPLIED] Ticket 639008780 | Symbol BTCUSDm | TP price: 94333.69000 | Applied: 94333.69000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:50:20 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639009986 | Strategy TP: 94016.06714285715 | Quality: 70 | Trend: 0.0002342856733837448
+2026-01-05 22:50:20 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94016.06714 | Adjusted: 94086.84000 | Quality: 70 | Trend: 0.0002342856733837448 | Factor: 0.50
+2026-01-05 22:50:20 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94016.06714 | Adjusted: 94086.84000 | Quality: 70 | Trend: 0.0002342856733837448 | Factor: 0.50
+2026-01-05 22:50:20 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639009986 | Attempt 1/6 | Setting TP: 94086.84000
+2026-01-05 22:50:21 - tp_manager - INFO - [TP_APPLIED] Ticket 639009986 | Symbol BTCUSDm | TP price: 94086.84000 | Applied: 94086.84000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:52:18 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639011049 | Strategy TP: 94041.83571428573 | Quality: 55 | Trend: 0.000319949309287999
+2026-01-05 22:52:18 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94041.83571 | Adjusted: 94099.04000 | Quality: 55 | Trend: 0.000319949309287999 | Factor: 0.50
+2026-01-05 22:52:18 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94041.83571 | Adjusted: 94099.04000 | Quality: 55 | Trend: 0.000319949309287999 | Factor: 0.50
+2026-01-05 22:52:18 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639011049 | Attempt 1/6 | Setting TP: 94099.04000
+2026-01-05 22:52:21 - tp_manager - INFO - [TP_APPLIED] Ticket 639011049 | Symbol BTCUSDm | TP price: 94099.04000 | Applied: 94099.04000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 22:54:18 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639012108 | Strategy TP: 94024.13714285714 | Quality: 70 | Trend: 0.0004768848224863545
+2026-01-05 22:54:18 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94024.13714 | Adjusted: 94096.53000 | Quality: 70 | Trend: 0.0004768848224863545 | Factor: 0.50
+2026-01-05 22:54:18 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 94024.13714 | Adjusted: 94096.53000 | Quality: 70 | Trend: 0.0004768848224863545 | Factor: 0.50
+2026-01-05 22:54:18 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639012108 | Attempt 1/6 | Setting TP: 94096.53000
+2026-01-05 22:54:19 - tp_manager - INFO - [TP_APPLIED] Ticket 639012108 | Symbol BTCUSDm | TP price: 94096.53000 | Applied: 94096.53000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:03:21 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639021266 | Strategy TP: 93859.13714285714 | Quality: 85 | Trend: 0.0009343079019551201
+2026-01-05 23:03:21 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93859.13714 | Adjusted: 93950.46000 | Quality: 85 | Trend: 0.0009343079019551201 | Factor: 0.50
+2026-01-05 23:03:21 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93859.13714 | Adjusted: 93950.46000 | Quality: 85 | Trend: 0.0009343079019551201 | Factor: 0.50
+2026-01-05 23:03:21 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639021266 | Attempt 1/6 | Setting TP: 93950.46000
+2026-01-05 23:03:23 - tp_manager - INFO - [TP_APPLIED] Ticket 639021266 | Symbol BTCUSDm | TP price: 93950.46000 | Applied: 93950.46000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:05:13 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639034644 | Strategy TP: 49067.83571428572 | Quality: 85 | Trend: 0.0006122233987161232
+2026-01-05 23:05:13 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49067.83571 | Adjusted: 49051.10000 | Quality: 85 | Trend: 0.0006122233987161232 | Factor: 0.50
+2026-01-05 23:05:13 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49067.83571 | Adjusted: 49051.10000 | Quality: 85 | Trend: 0.0006122233987161232 | Factor: 0.50
+2026-01-05 23:05:13 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639034644 | Attempt 1/6 | Setting TP: 49051.10000
+2026-01-05 23:05:14 - tp_manager - INFO - [TP_APPLIED] Ticket 639034644 | Symbol US30m | TP price: 49051.10000 | Applied: 49051.10000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:05:22 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639035056 | Strategy TP: 93884.71571428572 | Quality: 85 | Trend: 0.0009503376552168432
+2026-01-05 23:05:22 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93884.71571 | Adjusted: 93972.05000 | Quality: 85 | Trend: 0.0009503376552168432 | Factor: 0.50
+2026-01-05 23:05:22 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93884.71571 | Adjusted: 93972.05000 | Quality: 85 | Trend: 0.0009503376552168432 | Factor: 0.50
+2026-01-05 23:05:22 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639035056 | Attempt 1/6 | Setting TP: 93972.05000
+2026-01-05 23:05:23 - tp_manager - INFO - [TP_APPLIED] Ticket 639035056 | Symbol BTCUSDm | TP price: 93972.05000 | Applied: 93972.05000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:05:28 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639035399 | Strategy TP: 49067.735714285714 | Quality: 85 | Trend: 0.0006122233987161232
+2026-01-05 23:05:28 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49067.73571 | Adjusted: 49051.00000 | Quality: 85 | Trend: 0.0006122233987161232 | Factor: 0.50
+2026-01-05 23:05:28 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49067.73571 | Adjusted: 49051.00000 | Quality: 85 | Trend: 0.0006122233987161232 | Factor: 0.50
+2026-01-05 23:05:28 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639035399 | Attempt 1/6 | Setting TP: 49051.00000
+2026-01-05 23:05:30 - tp_manager - INFO - [TP_APPLIED] Ticket 639035399 | Symbol US30_x10m | TP price: 49051.00000 | Applied: 49051.00000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:07:38 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639040394 | Strategy TP: 49072.078571428574 | Quality: 85 | Trend: 0.0006268862953996269
+2026-01-05 23:07:38 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49072.07857 | Adjusted: 49055.40000 | Quality: 85 | Trend: 0.0006268862953996269 | Factor: 0.50
+2026-01-05 23:07:38 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49072.07857 | Adjusted: 49055.40000 | Quality: 85 | Trend: 0.0006268862953996269 | Factor: 0.50
+2026-01-05 23:07:38 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639040394 | Attempt 1/6 | Setting TP: 49055.40000
+2026-01-05 23:07:40 - tp_manager - INFO - [TP_APPLIED] Ticket 639040394 | Symbol US30m | TP price: 49055.40000 | Applied: 49055.40000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:07:44 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639040652 | Strategy TP: 49071.578571428574 | Quality: 85 | Trend: 0.0006268862953996269
+2026-01-05 23:07:44 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49071.57857 | Adjusted: 49054.90000 | Quality: 85 | Trend: 0.0006268862953996269 | Factor: 0.50
+2026-01-05 23:07:44 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49071.57857 | Adjusted: 49054.90000 | Quality: 85 | Trend: 0.0006268862953996269 | Factor: 0.50
+2026-01-05 23:07:44 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639040652 | Attempt 1/6 | Setting TP: 49054.90000
+2026-01-05 23:07:46 - tp_manager - INFO - [TP_APPLIED] Ticket 639040652 | Symbol US30_x10m | TP price: 49054.90000 | Applied: 49054.90000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:11:59 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639064828 | Strategy TP: 49067.14285714286 | Quality: 85 | Trend: 0.0005834001207371773
+2026-01-05 23:11:59 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49067.14286 | Adjusted: 49051.10000 | Quality: 85 | Trend: 0.0005834001207371773 | Factor: 0.50
+2026-01-05 23:12:00 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49067.14286 | Adjusted: 49051.10000 | Quality: 85 | Trend: 0.0005834001207371773 | Factor: 0.50
+2026-01-05 23:12:00 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639064828 | Attempt 1/6 | Setting TP: 49051.10000
+2026-01-05 23:12:01 - tp_manager - INFO - [TP_APPLIED] Ticket 639064828 | Symbol US30m | TP price: 49051.10000 | Applied: 49051.10000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:12:04 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639065230 | Strategy TP: 49066.64285714286 | Quality: 85 | Trend: 0.0005834001207371773
+2026-01-05 23:12:04 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49066.64286 | Adjusted: 49050.60000 | Quality: 85 | Trend: 0.0005834001207371773 | Factor: 0.50
+2026-01-05 23:12:04 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49066.64286 | Adjusted: 49050.60000 | Quality: 85 | Trend: 0.0005834001207371773 | Factor: 0.50
+2026-01-05 23:12:04 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639065230 | Attempt 1/6 | Setting TP: 49050.60000
+2026-01-05 23:12:07 - tp_manager - INFO - [TP_APPLIED] Ticket 639065230 | Symbol US30_x10m | TP price: 49050.60000 | Applied: 49050.60000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:12:14 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639065481 | Strategy TP: 4452.149178571428 | Quality: 70 | Trend: 0.00021406934112900178
+2026-01-05 23:12:14 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4452.14918 | Adjusted: 4453.99200 | Quality: 70 | Trend: 0.00021406934112900178 | Factor: 0.50
+2026-01-05 23:12:14 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4452.14918 | Adjusted: 4453.99200 | Quality: 70 | Trend: 0.00021406934112900178 | Factor: 0.50
+2026-01-05 23:12:14 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639065481 | Attempt 1/6 | Setting TP: 4453.99200
+2026-01-05 23:12:16 - tp_manager - INFO - [TP_APPLIED] Ticket 639065481 | Symbol XAUUSDm | TP price: 4453.99200 | Applied: 4453.99200 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:15:52 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639081292 | Strategy TP: 4447.284857142858 | Quality: 70 | Trend: 0.00038277007017282295
+2026-01-05 23:15:52 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4447.28486 | Adjusted: 4449.44400 | Quality: 70 | Trend: 0.00038277007017282295 | Factor: 0.50
+2026-01-05 23:15:52 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4447.28486 | Adjusted: 4449.44400 | Quality: 70 | Trend: 0.00038277007017282295 | Factor: 0.50
+2026-01-05 23:15:52 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639081292 | Attempt 1/6 | Setting TP: 4449.44400
+2026-01-05 23:15:55 - tp_manager - INFO - [TP_APPLIED] Ticket 639081292 | Symbol XAUUSDm | TP price: 4449.44400 | Applied: 4449.44400 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:18:41 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639093057 | Strategy TP: 49057.95714285714 | Quality: 70 | Trend: 0.00032638972348075416
+2026-01-05 23:18:41 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49057.95714 | Adjusted: 49043.30000 | Quality: 70 | Trend: 0.00032638972348075416 | Factor: 0.50
+2026-01-05 23:18:41 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49057.95714 | Adjusted: 49043.30000 | Quality: 70 | Trend: 0.00032638972348075416 | Factor: 0.50
+2026-01-05 23:18:41 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639093057 | Attempt 1/6 | Setting TP: 49043.30000
+2026-01-05 23:18:43 - tp_manager - INFO - [TP_APPLIED] Ticket 639093057 | Symbol US30m | TP price: 49043.30000 | Applied: 49043.30000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:18:45 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639093858 | Strategy TP: 49057.857142857145 | Quality: 70 | Trend: 0.00032638972348075416
+2026-01-05 23:18:45 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49057.85714 | Adjusted: 49043.20000 | Quality: 70 | Trend: 0.00032638972348075416 | Factor: 0.50
+2026-01-05 23:18:45 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49057.85714 | Adjusted: 49043.20000 | Quality: 70 | Trend: 0.00032638972348075416 | Factor: 0.50
+2026-01-05 23:18:45 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639093858 | Attempt 1/6 | Setting TP: 49043.20000
+2026-01-05 23:18:47 - tp_manager - INFO - [TP_APPLIED] Ticket 639093858 | Symbol US30_x10m | TP price: 49043.20000 | Applied: 49043.20000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:21:45 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639104664 | Strategy TP: 93901.03714285714 | Quality: 85 | Trend: 0.0005661598423604739
+2026-01-05 23:21:45 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93901.03714 | Adjusted: 93960.17000 | Quality: 85 | Trend: 0.0005661598423604739 | Factor: 0.50
+2026-01-05 23:21:45 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93901.03714 | Adjusted: 93960.17000 | Quality: 85 | Trend: 0.0005661598423604739 | Factor: 0.50
+2026-01-05 23:21:45 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639104664 | Attempt 1/6 | Setting TP: 93960.17000
+2026-01-05 23:21:47 - tp_manager - INFO - [TP_APPLIED] Ticket 639104664 | Symbol BTCUSDm | TP price: 93960.17000 | Applied: 93960.17000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:21:52 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639104978 | Strategy TP: 49062.55 | Quality: 70 | Trend: 0.0002091353399695445
+2026-01-05 23:21:52 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49062.55000 | Adjusted: 49048.10000 | Quality: 70 | Trend: 0.0002091353399695445 | Factor: 0.50
+2026-01-05 23:21:52 - tp_manager - INFO - [TP_STRATEGY] US30m | Using strategy TP with adjustment | Strategy TP: 49062.55000 | Adjusted: 49048.10000 | Quality: 70 | Trend: 0.0002091353399695445 | Factor: 0.50
+2026-01-05 23:21:52 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639104978 | Attempt 1/6 | Setting TP: 49048.10000
+2026-01-05 23:21:55 - tp_manager - INFO - [TP_APPLIED] Ticket 639104978 | Symbol US30m | TP price: 49048.10000 | Applied: 49048.10000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:21:58 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639105276 | Strategy TP: 49062.95 | Quality: 70 | Trend: 0.0002091353399695445
+2026-01-05 23:21:58 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49062.95000 | Adjusted: 49048.10000 | Quality: 70 | Trend: 0.0002091353399695445 | Factor: 0.50
+2026-01-05 23:21:58 - tp_manager - INFO - [TP_STRATEGY] US30_x10m | Using strategy TP with adjustment | Strategy TP: 49062.95000 | Adjusted: 49048.10000 | Quality: 70 | Trend: 0.0002091353399695445 | Factor: 0.50
+2026-01-05 23:21:58 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639105276 | Attempt 1/6 | Setting TP: 49048.10000
+2026-01-05 23:22:00 - tp_manager - INFO - [TP_APPLIED] Ticket 639105276 | Symbol US30_x10m | TP price: 49048.10000 | Applied: 49048.10000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:28:19 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639124577 | Strategy TP: 4444.077928571429 | Quality: 85 | Trend: 0.0005695724183137141
+2026-01-05 23:28:19 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4444.07793 | Adjusted: 4446.89700 | Quality: 85 | Trend: 0.0005695724183137141 | Factor: 0.50
+2026-01-05 23:28:19 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4444.07793 | Adjusted: 4446.89700 | Quality: 85 | Trend: 0.0005695724183137141 | Factor: 0.50
+2026-01-05 23:28:19 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639124577 | Attempt 1/6 | Setting TP: 4446.89700
+2026-01-05 23:28:21 - tp_manager - INFO - [TP_APPLIED] Ticket 639124577 | Symbol XAUUSDm | TP price: 4446.89700 | Applied: 4446.89700 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:30:58 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639133402 | Strategy TP: 21.084787142857145 | Quality: 85 | Trend: 0.000849226995287473
+2026-01-05 23:30:58 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.08479 | Adjusted: 21.09897 | Quality: 85 | Trend: 0.000849226995287473 | Factor: 0.50
+2026-01-05 23:30:58 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.08479 | Adjusted: 21.09897 | Quality: 85 | Trend: 0.000849226995287473 | Factor: 0.50
+2026-01-05 23:30:58 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639133402 | Attempt 1/6 | Setting TP: 21.09897
+2026-01-05 23:31:00 - tp_manager - INFO - [TP_APPLIED] Ticket 639133402 | Symbol BTCXAUm | TP price: 21.09897 | Applied: 21.09897 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:31:03 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639133716 | Strategy TP: 93817.12928571428 | Quality: 85 | Trend: 0.0009560536833615605
+2026-01-05 23:31:03 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93817.12929 | Adjusted: 93887.63000 | Quality: 85 | Trend: 0.0009560536833615605 | Factor: 0.50
+2026-01-05 23:31:03 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93817.12929 | Adjusted: 93887.63000 | Quality: 85 | Trend: 0.0009560536833615605 | Factor: 0.50
+2026-01-05 23:31:03 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639133716 | Attempt 1/6 | Setting TP: 93887.63000
+2026-01-05 23:31:04 - tp_manager - INFO - [TP_APPLIED] Ticket 639133716 | Symbol BTCUSDm | TP price: 93887.63000 | Applied: 93887.63000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:31:13 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639133895 | Strategy TP: 4445.158285714286 | Quality: 70 | Trend: 0.00044231204411034037
+2026-01-05 23:31:13 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4445.15829 | Adjusted: 4447.38600 | Quality: 70 | Trend: 0.00044231204411034037 | Factor: 0.50
+2026-01-05 23:31:13 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4445.15829 | Adjusted: 4447.38600 | Quality: 70 | Trend: 0.00044231204411034037 | Factor: 0.50
+2026-01-05 23:31:13 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639133895 | Attempt 1/6 | Setting TP: 4447.38600
+2026-01-05 23:31:14 - tp_manager - INFO - [TP_APPLIED] Ticket 639133895 | Symbol XAUUSDm | TP price: 4447.38600 | Applied: 4447.38600 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:33:38 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639153853 | Strategy TP: 21.11805142857143 | Quality: 85 | Trend: 0.0009649224294779785
+2026-01-05 23:33:38 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.11805 | Adjusted: 21.13439 | Quality: 85 | Trend: 0.0009649224294779785 | Factor: 0.50
+2026-01-05 23:33:38 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.11805 | Adjusted: 21.13439 | Quality: 85 | Trend: 0.0009649224294779785 | Factor: 0.50
+2026-01-05 23:33:38 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639153853 | Attempt 1/6 | Setting TP: 21.13439
+2026-01-05 23:33:39 - tp_manager - INFO - [TP_APPLIED] Ticket 639153853 | Symbol BTCXAUm | TP price: 21.13439 | Applied: 21.13439 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:33:40 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639153965 | Strategy TP: 93760.90285714286 | Quality: 85 | Trend: 0.0010229500909017487
+2026-01-05 23:33:40 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93760.90286 | Adjusted: 93835.46000 | Quality: 85 | Trend: 0.0010229500909017487 | Factor: 0.50
+2026-01-05 23:33:40 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93760.90286 | Adjusted: 93835.46000 | Quality: 85 | Trend: 0.0010229500909017487 | Factor: 0.50
+2026-01-05 23:33:40 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639153965 | Attempt 1/6 | Setting TP: 93835.46000
+2026-01-05 23:33:42 - tp_manager - INFO - [TP_APPLIED] Ticket 639153965 | Symbol BTCUSDm | TP price: 93835.46000 | Applied: 93835.46000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:33:52 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639154186 | Strategy TP: 4436.46675 | Quality: 70 | Trend: 0.0003211164675464351
+2026-01-05 23:33:52 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4436.46675 | Adjusted: 4438.53900 | Quality: 70 | Trend: 0.0003211164675464351 | Factor: 0.50
+2026-01-05 23:33:52 - tp_manager - INFO - [TP_STRATEGY] XAUUSDm | Using strategy TP with adjustment | Strategy TP: 4436.46675 | Adjusted: 4438.53900 | Quality: 70 | Trend: 0.0003211164675464351 | Factor: 0.50
+2026-01-05 23:33:52 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639154186 | Attempt 1/6 | Setting TP: 4438.53900
+2026-01-05 23:33:53 - tp_manager - INFO - [TP_APPLIED] Ticket 639154186 | Symbol XAUUSDm | TP price: 4438.53900 | Applied: 4438.53900 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:36:28 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639167996 | Strategy TP: 21.090733571428572 | Quality: 85 | Trend: 0.001029987219680514
+2026-01-05 23:36:28 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.09073 | Adjusted: 21.10641 | Quality: 85 | Trend: 0.001029987219680514 | Factor: 0.50
+2026-01-05 23:36:28 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.09073 | Adjusted: 21.10641 | Quality: 85 | Trend: 0.001029987219680514 | Factor: 0.50
+2026-01-05 23:36:28 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639167996 | Attempt 1/6 | Setting TP: 21.10641
+2026-01-05 23:36:29 - tp_manager - INFO - [TP_APPLIED] Ticket 639167996 | Symbol BTCXAUm | TP price: 21.10641 | Applied: 21.10641 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:36:33 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639168716 | Strategy TP: 93743.52428571429 | Quality: 85 | Trend: 0.0010703390575194673
+2026-01-05 23:36:33 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93743.52429 | Adjusted: 93819.84000 | Quality: 85 | Trend: 0.0010703390575194673 | Factor: 0.50
+2026-01-05 23:36:33 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93743.52429 | Adjusted: 93819.84000 | Quality: 85 | Trend: 0.0010703390575194673 | Factor: 0.50
+2026-01-05 23:36:33 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639168716 | Attempt 1/6 | Setting TP: 93819.84000
+2026-01-05 23:36:34 - tp_manager - INFO - [TP_APPLIED] Ticket 639168716 | Symbol BTCUSDm | TP price: 93819.84000 | Applied: 93819.84000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:38:45 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639178881 | Strategy TP: 21.094527142857146 | Quality: 85 | Trend: 0.0010520930458160775
+2026-01-05 23:38:45 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.09453 | Adjusted: 21.10959 | Quality: 85 | Trend: 0.0010520930458160775 | Factor: 0.50
+2026-01-05 23:38:45 - tp_manager - INFO - [TP_STRATEGY] BTCXAUm | Using strategy TP with adjustment | Strategy TP: 21.09453 | Adjusted: 21.10959 | Quality: 85 | Trend: 0.0010520930458160775 | Factor: 0.50
+2026-01-05 23:38:45 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639178881 | Attempt 1/6 | Setting TP: 21.10959
+2026-01-05 23:38:47 - tp_manager - INFO - [TP_APPLIED] Ticket 639178881 | Symbol BTCXAUm | TP price: 21.10959 | Applied: 21.10959 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3
+2026-01-05 23:38:52 - tp_manager - INFO - [TP_STRATEGY_STORED] Ticket 639179638 | Strategy TP: 93741.16357142857 | Quality: 85 | Trend: 0.0009502432594602113
+2026-01-05 23:38:52 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93741.16357 | Adjusted: 93810.56000 | Quality: 85 | Trend: 0.0009502432594602113 | Factor: 0.50
+2026-01-05 23:38:52 - tp_manager - INFO - [TP_STRATEGY] BTCUSDm | Using strategy TP with adjustment | Strategy TP: 93741.16357 | Adjusted: 93810.56000 | Quality: 85 | Trend: 0.0009502432594602113 | Factor: 0.50
+2026-01-05 23:38:52 - tp_manager - INFO - [TP_ATTEMPT] Ticket 639179638 | Attempt 1/6 | Setting TP: 93810.56000
+2026-01-05 23:38:54 - tp_manager - INFO - [TP_APPLIED] Ticket 639179638 | Symbol BTCUSDm | TP price: 93810.56000 | Applied: 93810.56000 | Target profit: $1.00 | Attempt: 1/6 | Verify: 1/3

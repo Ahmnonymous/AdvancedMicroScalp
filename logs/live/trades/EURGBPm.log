@@ -1,0 +1,1 @@
+2026-01-06 04:41:17 - trades.EURGBPm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3585s)

@@ -1,0 +1,23 @@
+2026-01-05 22:36:42 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.40 pips
+2026-01-05 22:38:25 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.40 pips
+2026-01-05 22:40:21 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.40 pips
+2026-01-05 22:44:02 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.40 pips
+2026-01-05 22:49:35 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.40 pips
+2026-01-05 22:51:23 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 22:53:35 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 22:55:15 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 23:02:35 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips
+2026-01-05 23:09:10 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.16 pips < min 0.40 pips
+2026-01-05 23:11:02 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.17 pips < min 0.40 pips
+2026-01-05 23:14:22 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.17 pips < min 0.40 pips
+2026-01-05 23:20:26 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.14 pips < min 0.40 pips
+2026-01-05 23:24:06 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 23:26:49 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 23:30:07 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.06 pips < min 0.40 pips
+2026-01-05 23:32:40 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.05 pips < min 0.40 pips
+2026-01-05 23:35:30 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.05 pips < min 0.40 pips
+2026-01-05 23:37:44 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.05 pips < min 0.40 pips
+2026-01-05 23:40:08 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.04 pips < min 0.40 pips
+2026-01-06 01:41:22 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3562s)
+2026-01-06 03:41:32 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3564s)
+2026-01-06 04:41:34 - trades.DKKSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3568s)

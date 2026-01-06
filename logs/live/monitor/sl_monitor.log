@@ -1,0 +1,46 @@
+2026-01-05 21:37:51 - sl_monitor - INFO - SL Realtime Monitor initialized
+2026-01-05 21:37:53 - sl_monitor - INFO - SL Realtime Monitor initialized (integrated mode)
+2026-01-05 21:41:10 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 638938142 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-3.16 worse than -$3.00 limit
+2026-01-05 21:41:54 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 638938142 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-3.16 worse than -$3.00 limit
+2026-01-05 21:42:00 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638940196 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 5.4s
+2026-01-05 21:42:00 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638942755 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 5.4s
+2026-01-05 21:42:05 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638940196 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 10.9s
+2026-01-05 21:42:05 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638942755 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 10.9s
+2026-01-05 21:42:16 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 638938142 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-3.16 worse than -$3.00 limit
+2026-01-05 21:42:17 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638940196 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 22.2s
+2026-01-05 21:42:22 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 638938142 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-3.16 worse than -$3.00 limit
+2026-01-05 21:42:55 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 638938142 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-3.16 worse than -$3.00 limit
+2026-01-05 21:43:12 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 638946078 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-3.06 worse than -$3.00 limit
+2026-01-05 21:43:23 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946078 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 5.2s
+2026-01-05 21:43:39 - sl_monitor - CRITICAL - SL VIOLATION [CRITICAL] | Ticket: 638946666 | Symbol: XAUUSDm | Type: strict_loss_violation | SL violation: Effective SL $-3.06 worse than -$3.00 limit
+2026-01-05 21:46:59 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946746 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 5.5s
+2026-01-05 21:47:04 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946746 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 11.0s
+2026-01-05 21:47:10 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946746 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 16.7s
+2026-01-05 21:47:16 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946746 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 22.4s
+2026-01-05 21:47:22 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946746 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 28.5s
+2026-01-05 21:47:27 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946746 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 34.0s
+2026-01-05 21:49:16 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946666 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 332.6s
+2026-01-05 21:49:25 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638946666 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 341.4s
+2026-01-05 21:52:39 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638968321 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 5.4s
+2026-01-05 21:54:51 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638972852 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 5.4s
+2026-01-05 21:54:56 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638972852 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 10.8s
+2026-01-05 21:56:15 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638976909 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 5.3s
+2026-01-05 21:56:20 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638976909 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 10.9s
+2026-01-05 21:56:26 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638976909 | Symbol: XAUUSDm | Type: sl_stale | SL not updated for 16.4s
+2026-01-05 22:07:54 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638986364 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 7.5s
+2026-01-05 22:17:23 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638992522 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 8.2s
+2026-01-05 22:17:31 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638992522 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 16.6s
+2026-01-05 22:17:38 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638992522 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 23.8s
+2026-01-05 22:17:47 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638992522 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 32.6s
+2026-01-05 22:17:56 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 638992522 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 41.0s
+2026-01-05 22:36:11 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639000563 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 11.2s
+2026-01-05 22:36:19 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639000563 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 19.1s
+2026-01-05 22:36:29 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639000563 | Symbol: BTCUSDm | Type: sl_stale | SL not updated for 29.3s
+2026-01-05 23:08:39 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639035399 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 7.0s
+2026-01-05 23:08:48 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639035399 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 15.1s
+2026-01-05 23:08:56 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639035399 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 23.6s
+2026-01-05 23:09:04 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639035399 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 31.5s
+2026-01-05 23:09:12 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639035399 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 39.9s
+2026-01-05 23:09:21 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639035399 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 48.3s
+2026-01-05 23:09:30 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639035399 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 57.1s
+2026-01-05 23:09:39 - sl_monitor - WARNING - SL VIOLATION [WARNING] | Ticket: 639035399 | Symbol: US30_x10m | Type: sl_stale | SL not updated for 66.2s

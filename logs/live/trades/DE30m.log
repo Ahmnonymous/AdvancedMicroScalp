@@ -1,0 +1,12 @@
+2026-01-05 23:03:56 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 809.7% of avg range > max 50.0%
+2026-01-05 23:13:27 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 475.1% of avg range > max 50.0%
+2026-01-05 23:16:56 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 403.2% of avg range > max 50.0%
+2026-01-05 23:19:32 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 366.3% of avg range > max 50.0%
+2026-01-05 23:23:46 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 425.5% of avg range > max 50.0%
+2026-01-05 23:25:27 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 471.7% of avg range > max 50.0%
+2026-01-05 23:29:12 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 483.1% of avg range > max 50.0%
+2026-01-05 23:31:57 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 418.4% of avg range > max 50.0%
+2026-01-05 23:34:33 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 407.3% of avg range > max 50.0%
+2026-01-06 01:40:50 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3594s)
+2026-01-06 02:40:56 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3594s)
+2026-01-06 06:41:48 - trades.DE30m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3586s)

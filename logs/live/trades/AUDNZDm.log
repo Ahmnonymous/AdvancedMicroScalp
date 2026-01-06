@@ -1,0 +1,4 @@
+2026-01-06 00:40:58 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3580s)
+2026-01-06 02:41:15 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3576s)
+2026-01-06 03:41:18 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3578s)
+2026-01-06 05:41:25 - trades.AUDNZDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3583s)

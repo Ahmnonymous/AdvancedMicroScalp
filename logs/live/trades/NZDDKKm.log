@@ -1,0 +1,9 @@
+2026-01-05 23:21:09 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 7466.7% of avg range > max 50.0%
+2026-01-05 23:24:21 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10209.9% of avg range > max 50.0%
+2026-01-05 23:27:38 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10043.5% of avg range > max 50.0%
+2026-01-05 23:30:38 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10126.0% of avg range > max 50.0%
+2026-01-05 23:33:22 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9525.8% of avg range > max 50.0%
+2026-01-06 01:41:47 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3537s)
+2026-01-06 02:41:51 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3539s)
+2026-01-06 03:41:59 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3537s)
+2026-01-06 04:41:59 - trades.NZDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3543s)

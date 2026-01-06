@@ -1,0 +1,27 @@
+2026-01-05 21:38:10 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 27907.0% of avg range > max 50.0%
+2026-01-05 21:38:25 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 32608.7% of avg range > max 50.0%
+2026-01-05 21:38:46 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 32608.7% of avg range > max 50.0%
+2026-01-05 21:58:50 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 12987.0% of avg range > max 50.0%
+2026-01-05 22:06:44 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15228.4% of avg range > max 50.0%
+2026-01-05 22:08:50 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16348.8% of avg range > max 50.0%
+2026-01-05 22:10:01 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 29126.2% of avg range > max 50.0%
+2026-01-05 22:11:41 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 25210.1% of avg range > max 50.0%
+2026-01-05 22:23:25 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4092.8% of avg range > max 50.0%
+2026-01-05 22:29:43 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3821.7% of avg range > max 50.0%
+2026-01-05 22:31:31 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3747.7% of avg range > max 50.0%
+2026-01-05 22:33:19 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3776.0% of avg range > max 50.0%
+2026-01-05 22:35:22 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3690.0% of avg range > max 50.0%
+2026-01-05 22:37:11 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3478.3% of avg range > max 50.0%
+2026-01-05 22:38:54 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3886.0% of avg range > max 50.0%
+2026-01-05 22:48:30 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9884.7% of avg range > max 50.0%
+2026-01-05 23:03:03 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10118.0% of avg range > max 50.0%
+2026-01-05 23:04:55 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10274.0% of avg range > max 50.0%
+2026-01-05 23:07:17 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 11811.0% of avg range > max 50.0%
+2026-01-05 23:09:26 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14669.9% of avg range > max 50.0%
+2026-01-05 23:11:42 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 17595.3% of avg range > max 50.0%
+2026-01-05 23:27:52 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 38216.6% of avg range > max 50.0%
+2026-01-06 00:41:42 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3536s)
+2026-01-06 01:41:53 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3531s)
+2026-01-06 02:41:57 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3533s)
+2026-01-06 03:42:05 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3530s)
+2026-01-06 04:42:04 - trades.USDTHBm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3538s)

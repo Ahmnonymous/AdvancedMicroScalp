@@ -1,0 +1,41 @@
+2026-01-05 21:37:57 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 160.0% of avg range > max 50.0%
+2026-01-05 21:38:21 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.6% of avg range > max 50.0%
+2026-01-05 21:38:42 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.6% of avg range > max 50.0%
+2026-01-05 21:39:08 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.6% of avg range > max 50.0%
+2026-01-05 21:39:33 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 150.6% of avg range > max 50.0%
+2026-01-05 21:39:55 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 144.0% of avg range > max 50.0%
+2026-01-05 21:40:19 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 146.9% of avg range > max 50.0%
+2026-01-05 21:40:51 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 146.9% of avg range > max 50.0%
+2026-01-05 21:47:51 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 147.5% of avg range > max 50.0%
+2026-01-05 21:48:27 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 145.2% of avg range > max 50.0%
+2026-01-05 21:48:58 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 145.2% of avg range > max 50.0%
+2026-01-05 21:49:40 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 152.5% of avg range > max 50.0%
+2026-01-05 21:49:44 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 152.5% of avg range > max 50.0%
+2026-01-05 21:49:55 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 152.5% of avg range > max 50.0%
+2026-01-05 21:50:11 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.9% of avg range > max 50.0%
+2026-01-05 21:50:32 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.9% of avg range > max 50.0%
+2026-01-05 21:51:02 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 142.3% of avg range > max 50.0%
+2026-01-05 21:51:42 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 142.3% of avg range > max 50.0%
+2026-01-05 21:52:04 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 142.3% of avg range > max 50.0%
+2026-01-05 21:52:41 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.9% of avg range > max 50.0%
+2026-01-05 21:52:48 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 157.9% of avg range > max 50.0%
+2026-01-05 21:53:05 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 158.6% of avg range > max 50.0%
+2026-01-05 21:53:31 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 158.6% of avg range > max 50.0%
+2026-01-05 21:54:00 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 158.6% of avg range > max 50.0%
+2026-01-05 21:54:45 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.9% of avg range > max 50.0%
+2026-01-05 21:55:26 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.9% of avg range > max 50.0%
+2026-01-05 21:55:45 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.9% of avg range > max 50.0%
+2026-01-05 21:56:13 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 169.8% of avg range > max 50.0%
+2026-01-05 21:56:40 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 169.8% of avg range > max 50.0%
+2026-01-05 21:57:15 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 163.6% of avg range > max 50.0%
+2026-01-05 23:06:14 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 116.9% of avg range > max 50.0%
+2026-01-05 23:17:06 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 88.0% of avg range > max 50.0%
+2026-01-05 23:19:37 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 90.5% of avg range > max 50.0%
+2026-01-05 23:25:40 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.0% of avg range > max 50.0%
+2026-01-05 23:34:41 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 94.0% of avg range > max 50.0%
+2026-01-05 23:37:13 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.5% of avg range > max 50.0%
+2026-01-05 23:39:40 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.8% of avg range > max 50.0%
+2026-01-06 00:40:56 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3582s)
+2026-01-06 01:41:04 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3580s)
+2026-01-06 02:41:10 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3580s)
+2026-01-06 04:41:20 - trades.USOILm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3582s)

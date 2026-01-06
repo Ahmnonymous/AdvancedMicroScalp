@@ -1,0 +1,50 @@
+2026-01-05 21:37:52 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 491.3% of avg range > max 50.0%
+2026-01-05 21:38:19 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 496.6% of avg range > max 50.0%
+2026-01-05 21:38:40 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 496.6% of avg range > max 50.0%
+2026-01-05 21:42:50 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 592.8% of avg range > max 50.0%
+2026-01-05 21:43:02 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 592.8% of avg range > max 50.0%
+2026-01-05 21:43:05 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 592.8% of avg range > max 50.0%
+2026-01-05 21:43:20 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 611.7% of avg range > max 50.0%
+2026-01-05 21:43:28 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 611.7% of avg range > max 50.0%
+2026-01-05 21:43:48 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 611.7% of avg range > max 50.0%
+2026-01-05 21:44:01 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 601.8% of avg range > max 50.0%
+2026-01-05 21:44:31 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 601.8% of avg range > max 50.0%
+2026-01-05 21:45:09 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 574.9% of avg range > max 50.0%
+2026-01-05 21:45:43 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 574.9% of avg range > max 50.0%
+2026-01-05 21:46:21 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 605.8% of avg range > max 50.0%
+2026-01-05 21:47:07 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 577.3% of avg range > max 50.0%
+2026-01-05 21:48:55 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 569.8% of avg range > max 50.0%
+2026-01-05 21:49:39 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 556.6% of avg range > max 50.0%
+2026-01-05 21:49:42 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 556.6% of avg range > max 50.0%
+2026-01-05 21:49:53 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 556.6% of avg range > max 50.0%
+2026-01-05 21:50:09 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 517.9% of avg range > max 50.0%
+2026-01-05 21:50:30 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 517.9% of avg range > max 50.0%
+2026-01-05 21:51:00 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 517.9% of avg range > max 50.0%
+2026-01-05 21:51:41 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 529.3% of avg range > max 50.0%
+2026-01-05 21:52:02 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 529.3% of avg range > max 50.0%
+2026-01-05 21:52:40 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 569.8% of avg range > max 50.0%
+2026-01-05 21:52:47 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 569.8% of avg range > max 50.0%
+2026-01-05 21:53:04 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 565.9% of avg range > max 50.0%
+2026-01-05 21:53:29 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 565.9% of avg range > max 50.0%
+2026-01-05 21:53:58 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 565.9% of avg range > max 50.0%
+2026-01-05 21:54:44 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 579.0% of avg range > max 50.0%
+2026-01-05 21:55:26 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 580.6% of avg range > max 50.0%
+2026-01-05 21:55:43 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 580.6% of avg range > max 50.0%
+2026-01-05 21:56:11 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 603.0% of avg range > max 50.0%
+2026-01-05 21:56:37 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 603.0% of avg range > max 50.0%
+2026-01-05 21:57:13 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 588.8% of avg range > max 50.0%
+2026-01-05 23:08:49 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 563.3% of avg range > max 50.0%
+2026-01-05 23:10:04 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 450.4% of avg range > max 50.0%
+2026-01-05 23:13:03 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 369.7% of avg range > max 50.0%
+2026-01-05 23:16:32 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 326.3% of avg range > max 50.0%
+2026-01-05 23:19:14 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 277.8% of avg range > max 50.0%
+2026-01-05 23:23:40 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 253.4% of avg range > max 50.0%
+2026-01-05 23:25:10 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 246.6% of avg range > max 50.0%
+2026-01-05 23:29:02 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 248.4% of avg range > max 50.0%
+2026-01-05 23:34:21 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 226.1% of avg range > max 50.0%
+2026-01-05 23:36:57 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 225.7% of avg range > max 50.0%
+2026-01-05 23:39:23 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 221.8% of avg range > max 50.0%
+2026-01-06 01:40:45 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3599s)
+2026-01-06 03:40:57 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3599s)
+2026-01-06 05:41:09 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3599s)
+2026-01-06 06:41:39 - trades.XAUEURm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3596s)

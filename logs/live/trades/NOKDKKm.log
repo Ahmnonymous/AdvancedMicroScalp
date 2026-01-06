@@ -1,0 +1,27 @@
+2026-01-05 21:46:31 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 0.40 pips
+2026-01-05 21:47:15 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 21:47:56 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 21:48:32 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:49:05 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:49:41 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:49:46 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:49:58 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:50:15 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.40 pips
+2026-01-05 21:50:35 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.40 pips
+2026-01-05 21:51:06 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.40 pips
+2026-01-05 22:53:52 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14723.4% of avg range > max 50.0%
+2026-01-05 22:57:24 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 21831.6% of avg range > max 50.0%
+2026-01-05 22:59:10 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 23:01:06 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 31422.7% of avg range > max 50.0%
+2026-01-05 23:04:46 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 27523.8% of avg range > max 50.0%
+2026-01-05 23:07:09 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22446.2% of avg range > max 50.0%
+2026-01-05 23:09:22 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20468.1% of avg range > max 50.0%
+2026-01-05 23:11:30 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 18810.5% of avg range > max 50.0%
+2026-01-05 23:15:03 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16045.7% of avg range > max 50.0%
+2026-01-05 23:18:13 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15130.4% of avg range > max 50.0%
+2026-01-05 23:20:59 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15202.2% of avg range > max 50.0%
+2026-01-05 23:24:19 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20592.6% of avg range > max 50.0%
+2026-01-05 23:27:31 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 20129.5% of avg range > max 50.0%
+2026-01-05 23:40:33 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3600s)
+2026-01-06 00:41:29 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3549s)
+2026-01-06 02:41:44 - trades.NOKDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3546s)

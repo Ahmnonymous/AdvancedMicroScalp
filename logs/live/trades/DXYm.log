@@ -1,0 +1,20 @@
+2026-01-05 21:37:58 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 688.2% of avg range > max 50.0%
+2026-01-05 21:38:21 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 695.7% of avg range > max 50.0%
+2026-01-05 21:38:43 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 695.7% of avg range > max 50.0%
+2026-01-05 22:41:57 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.40 pips
+2026-01-05 22:43:36 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.40 pips
+2026-01-05 22:45:53 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 22:47:02 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 22:47:47 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 22:49:15 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 22:51:01 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.40 pips
+2026-01-05 22:53:06 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.40 pips
+2026-01-05 22:54:51 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.40 pips
+2026-01-05 22:56:40 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 561.0% of avg range > max 50.0%
+2026-01-05 22:58:26 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 547.6% of avg range > max 50.0%
+2026-01-05 23:00:29 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:17 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 621.4% of avg range > max 50.0%
+2026-01-06 00:41:07 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3571s)
+2026-01-06 02:41:22 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3568s)
+2026-01-06 03:41:26 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3570s)
+2026-01-06 04:41:30 - trades.DXYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3572s)

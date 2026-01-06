@@ -1,0 +1,86 @@
+2026-01-05 21:37:55 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.2% of avg range > max 50.0%
+2026-01-05 21:38:20 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.2% of avg range > max 50.0%
+2026-01-05 21:38:41 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.5% of avg range > max 50.0%
+2026-01-05 21:39:07 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.6% of avg range > max 50.0%
+2026-01-05 21:39:32 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.8% of avg range > max 50.0%
+2026-01-05 21:39:54 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 55.6% of avg range > max 50.0%
+2026-01-05 21:44:02 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.1% of avg range > max 50.0%
+2026-01-05 21:44:32 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.1% of avg range > max 50.0%
+2026-01-05 21:45:10 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 81.7% of avg range > max 50.0%
+2026-01-05 21:45:45 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 70.0% of avg range > max 50.0%
+2026-01-05 21:46:23 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 71.5% of avg range > max 50.0%
+2026-01-05 21:47:09 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.7% of avg range > max 50.0%
+2026-01-05 21:47:49 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 74.7% of avg range > max 50.0%
+2026-01-05 21:48:25 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.9% of avg range > max 50.0%
+2026-01-05 21:48:57 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.8% of avg range > max 50.0%
+2026-01-05 21:49:39 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.1% of avg range > max 50.0%
+2026-01-05 21:49:43 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.1% of avg range > max 50.0%
+2026-01-05 21:49:54 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.1% of avg range > max 50.0%
+2026-01-05 21:50:10 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.2% of avg range > max 50.0%
+2026-01-05 21:50:31 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.0% of avg range > max 50.0%
+2026-01-05 21:51:01 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.2% of avg range > max 50.0%
+2026-01-05 21:51:42 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 87.9% of avg range > max 50.0%
+2026-01-05 21:52:04 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 73.1% of avg range > max 50.0%
+2026-01-05 21:52:41 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.3% of avg range > max 50.0%
+2026-01-05 21:52:48 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 76.3% of avg range > max 50.0%
+2026-01-05 21:53:05 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.7% of avg range > max 50.0%
+2026-01-05 21:53:31 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.7% of avg range > max 50.0%
+2026-01-05 21:53:59 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 79.6% of avg range > max 50.0%
+2026-01-05 21:54:45 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.6% of avg range > max 50.0%
+2026-01-05 21:55:26 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 99.7% of avg range > max 50.0%
+2026-01-05 21:55:44 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 82.9% of avg range > max 50.0%
+2026-01-05 21:56:12 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.2% of avg range > max 50.0%
+2026-01-05 21:56:39 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 93.2% of avg range > max 50.0%
+2026-01-05 21:57:14 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.2% of avg range > max 50.0%
+2026-01-05 22:00:09 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 22:01:43 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 137.2% of avg range > max 50.0%
+2026-01-05 22:02:47 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 137.2% of avg range > max 50.0%
+2026-01-05 22:09:14 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 167.2% of avg range > max 50.0%
+2026-01-05 22:10:42 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 123.7% of avg range > max 50.0%
+2026-01-05 22:12:31 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 159.2% of avg range > max 50.0%
+2026-01-05 22:14:34 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 159.2% of avg range > max 50.0%
+2026-01-05 22:17:17 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 144.5% of avg range > max 50.0%
+2026-01-05 22:18:09 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 102.1% of avg range > max 50.0%
+2026-01-05 22:19:34 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 146.4% of avg range > max 50.0%
+2026-01-05 22:20:53 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 105.6% of avg range > max 50.0%
+2026-01-05 22:22:24 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 170.0% of avg range > max 50.0%
+2026-01-05 22:24:04 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 238.5% of avg range > max 50.0%
+2026-01-05 22:25:42 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 97.6% of avg range > max 50.0%
+2026-01-05 22:27:15 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 96.0% of avg range > max 50.0%
+2026-01-05 22:28:43 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 95.7% of avg range > max 50.0%
+2026-01-05 22:30:34 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 132.3% of avg range > max 50.0%
+2026-01-05 22:32:12 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 97.2% of avg range > max 50.0%
+2026-01-05 22:34:12 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 179.6% of avg range > max 50.0%
+2026-01-05 22:36:08 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 89.1% of avg range > max 50.0%
+2026-01-05 22:37:47 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 169.2% of avg range > max 50.0%
+2026-01-05 22:39:44 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 112.6% of avg range > max 50.0%
+2026-01-05 22:41:51 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 159.3% of avg range > max 50.0%
+2026-01-05 22:43:29 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 114.0% of avg range > max 50.0%
+2026-01-05 22:45:49 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 165.7% of avg range > max 50.0%
+2026-01-05 22:46:59 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 291.9% of avg range > max 50.0%
+2026-01-05 22:47:43 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 342.3% of avg range > max 50.0%
+2026-01-05 22:52:59 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 113.0% of avg range > max 50.0%
+2026-01-05 22:54:44 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 103.7% of avg range > max 50.0%
+2026-01-05 22:56:32 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 100.1% of avg range > max 50.0%
+2026-01-05 22:58:20 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 137.0% of avg range > max 50.0%
+2026-01-05 23:00:18 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:01 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 66.2% of avg range > max 50.0%
+2026-01-05 23:03:55 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 63.0% of avg range > max 50.0%
+2026-01-05 23:06:07 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.9% of avg range > max 50.0%
+2026-01-05 23:08:54 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.5% of avg range > max 50.0%
+2026-01-05 23:10:23 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 62.1% of avg range > max 50.0%
+2026-01-05 23:13:25 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 61.4% of avg range > max 50.0%
+2026-01-05 23:16:55 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 54.0% of avg range > max 50.0%
+2026-01-05 23:23:45 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 53.9% of avg range > max 50.0%
+2026-01-05 23:25:28 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 56.4% of avg range > max 50.0%
+2026-01-05 23:29:13 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 58.6% of avg range > max 50.0%
+2026-01-05 23:31:55 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 59.2% of avg range > max 50.0%
+2026-01-05 23:34:32 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 77.1% of avg range > max 50.0%
+2026-01-05 23:37:06 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 65.4% of avg range > max 50.0%
+2026-01-05 23:39:32 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 69.4% of avg range > max 50.0%
+2026-01-06 00:40:46 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3591s)
+2026-01-06 01:40:53 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3591s)
+2026-01-06 02:41:00 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3590s)
+2026-01-06 03:41:06 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3590s)
+2026-01-06 04:41:10 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3592s)
+2026-01-06 06:42:06 - trades.BTCJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3569s)

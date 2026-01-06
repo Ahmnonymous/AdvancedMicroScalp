@@ -1,0 +1,31 @@
+2026-01-05 22:17:36 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2501.9% of avg range > max 50.0%
+2026-01-05 22:18:50 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2500.9% of avg range > max 50.0%
+2026-01-05 22:20:13 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2449.8% of avg range > max 50.0%
+2026-01-05 22:40:44 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3329.7% of avg range > max 50.0%
+2026-01-05 22:42:36 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3852.1% of avg range > max 50.0%
+2026-01-05 22:44:21 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4041.8% of avg range > max 50.0%
+2026-01-05 22:46:06 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4196.5% of avg range > max 50.0%
+2026-01-05 22:47:16 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4085.1% of avg range > max 50.0%
+2026-01-05 22:48:17 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4144.9% of avg range > max 50.0%
+2026-01-05 22:49:51 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4154.4% of avg range > max 50.0%
+2026-01-05 22:51:46 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4432.0% of avg range > max 50.0%
+2026-01-05 22:53:51 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4578.5% of avg range > max 50.0%
+2026-01-05 22:55:34 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4149.3% of avg range > max 50.0%
+2026-01-05 22:57:20 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3748.3% of avg range > max 50.0%
+2026-01-05 22:59:08 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 23:01:01 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4142.5% of avg range > max 50.0%
+2026-01-05 23:02:53 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 4000.0% of avg range > max 50.0%
+2026-01-05 23:04:45 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3634.6% of avg range > max 50.0%
+2026-01-05 23:07:08 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3590.4% of avg range > max 50.0%
+2026-01-05 23:09:22 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3546.5% of avg range > max 50.0%
+2026-01-05 23:11:27 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3299.3% of avg range > max 50.0%
+2026-01-05 23:20:57 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 3875.4% of avg range > max 50.0%
+2026-01-05 23:24:18 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6874.4% of avg range > max 50.0%
+2026-01-05 23:27:27 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8023.5% of avg range > max 50.0%
+2026-01-05 23:30:31 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9633.8% of avg range > max 50.0%
+2026-01-05 23:33:16 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10604.7% of avg range > max 50.0%
+2026-01-05 23:36:04 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 12342.3% of avg range > max 50.0%
+2026-01-05 23:38:15 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 11982.5% of avg range > max 50.0%
+2026-01-06 00:41:22 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3556s)
+2026-01-06 01:41:37 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3547s)
+2026-01-06 03:41:46 - trades.CHFSGDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3550s)

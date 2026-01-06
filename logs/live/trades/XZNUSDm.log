@@ -1,0 +1,4 @@
+2026-01-06 01:41:02 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3582s)
+2026-01-06 02:41:09 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3581s)
+2026-01-06 03:41:14 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3581s)
+2026-01-06 04:41:19 - trades.XZNUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3583s)

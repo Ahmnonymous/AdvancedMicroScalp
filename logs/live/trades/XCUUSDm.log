@@ -1,0 +1,3 @@
+2026-01-06 02:41:11 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3580s)
+2026-01-06 04:41:19 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3582s)
+2026-01-06 05:41:23 - trades.XCUUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3585s)

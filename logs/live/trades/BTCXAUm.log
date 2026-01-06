@@ -1,0 +1,8 @@
+{"timestamp": "2026-01-05 23:39:21", "symbol": "BTCXAUm", "trade_type": null, "entry_price": 21.124660000000002, "exit_price": 21.13973, "profit_usd": -0.67, "status": "CLOSED", "order_id": "639178881", "additional_info": {"duration_minutes": 0.6166666666666667, "close_reason": "Stop Loss", "commission": 0.0, "swap": 0.0}}
+{"timestamp": "2026-01-05 23:39:21", "symbol": "BTCXAUm", "trade_type": null, "entry_price": 21.12209, "exit_price": 21.13777, "profit_usd": -0.7, "status": "CLOSED", "order_id": "639167996", "additional_info": {"duration_minutes": 2.9, "close_reason": "Stop Loss", "commission": 0.0, "swap": 0.0}}
+2026-01-05 23:39:26 - trades.BTCXAUm - INFO - ================================================================================
+2026-01-06 00:41:26 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3551s)
+2026-01-06 01:41:41 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3543s)
+2026-01-06 02:41:42 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3548s)
+2026-01-06 03:41:51 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3545s)
+2026-01-06 04:41:51 - trades.BTCXAUm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3551s)

@@ -1,0 +1,27 @@
+2026-01-05 21:37:50 - mt5_connection - INFO - Attempting to connect to MT5 (using default installation path)
+2026-01-05 21:37:51 - mt5_connection - INFO - Attempting to login to account 259747051 on server Exness-MT5Trial15...
+2026-01-05 21:37:51 - mt5_connection - INFO - [OK] MT5 connected successfully. Account: 259747051, Balance: 10048.7
+2026-01-05 21:37:51 - mt5_connection - INFO - Attempting to connect to MT5 (using default installation path)
+2026-01-05 21:37:51 - mt5_connection - INFO - Attempting to login to account 259747051 on server Exness-MT5Trial15...
+2026-01-05 21:37:51 - mt5_connection - INFO - [OK] MT5 connected successfully. Account: 259747051, Balance: 10048.7
+2026-01-05 21:45:54 - mt5_connection - WARNING - XAUUSDm: Price is stale (4.25s > 2.0s), rejecting
+2026-01-05 21:47:19 - mt5_connection - WARNING - BTCUSDm: Price is stale (6.35s > 2.0s), rejecting
+2026-01-05 21:50:38 - mt5_connection - WARNING - BTCUSDm: Price is stale (2.11s > 2.0s), rejecting
+2026-01-05 21:50:40 - mt5_connection - WARNING - BTCUSDm: Price is stale (2.12s > 2.0s), rejecting
+2026-01-05 21:52:12 - mt5_connection - WARNING - BTCUSDm: Price is stale (2.87s > 2.0s), rejecting
+2026-01-05 21:53:39 - mt5_connection - WARNING - BTCUSDm: Price is stale (5.85s > 2.0s), rejecting
+2026-01-05 22:02:59 - mt5_connection - WARNING - BTCUSDm: Price is stale (6.17s > 2.0s), rejecting
+2026-01-05 22:03:01 - mt5_connection - WARNING - BTCUSDm: Price is stale (8.25s > 2.0s), rejecting
+2026-01-05 22:03:05 - mt5_connection - WARNING - BTCUSDm: Price is stale (3.26s > 2.0s), rejecting
+2026-01-05 22:04:11 - mt5_connection - WARNING - BTCUSDm: Price is stale (2.50s > 2.0s), rejecting
+2026-01-05 22:11:56 - mt5_connection - WARNING - BTCUSDm: Price is stale (9.06s > 2.0s), rejecting
+2026-01-05 22:16:21 - mt5_connection - WARNING - BTCUSDm: Price is stale (19.25s > 2.0s), rejecting
+2026-01-05 22:16:24 - mt5_connection - WARNING - BTCUSDm: Price is stale (2.06s > 2.0s), rejecting
+2026-01-05 22:39:10 - mt5_connection - WARNING - BTCUSDm: Price is stale (3.53s > 2.0s), rejecting
+2026-01-05 22:44:50 - mt5_connection - WARNING - BTCUSDm: Price is stale (5.45s > 2.0s), rejecting
+2026-01-05 23:05:15 - mt5_connection - WARNING - BTCUSDm: Price is stale (4.74s > 2.0s), rejecting
+2026-01-05 23:07:35 - mt5_connection - WARNING - US30m: Price is stale (4.97s > 2.0s), rejecting
+2026-01-05 23:07:41 - mt5_connection - WARNING - US30_x10m: Price is stale (2.66s > 2.0s), rejecting
+2026-01-05 23:21:49 - mt5_connection - WARNING - US30m: Price is stale (8.42s > 2.0s), rejecting
+2026-01-05 23:36:29 - mt5_connection - WARNING - BTCUSDm: Price is stale (2.89s > 2.0s), rejecting
+2026-01-05 23:38:48 - mt5_connection - WARNING - BTCUSDm: Price is stale (2.29s > 2.0s), rejecting

@@ -1,0 +1,36 @@
+2026-01-05 21:39:08 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 21:39:32 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 21:39:54 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 21:40:18 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 21:40:51 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 21:41:26 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.40 pips
+2026-01-05 21:42:00 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 321.0% of avg range > max 50.0%
+2026-01-05 21:42:50 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 321.0% of avg range > max 50.0%
+2026-01-05 21:43:03 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 21:43:06 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 21:43:21 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 21:43:29 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 21:43:48 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 21:44:03 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 21:44:33 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 21:45:11 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 21:45:45 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 21:46:24 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 21:47:10 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 21:47:50 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 21:48:26 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 22:49:12 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 22:50:57 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.40 pips
+2026-01-05 22:53:03 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.40 pips
+2026-01-05 22:54:47 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.40 pips
+2026-01-05 22:56:39 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.40 pips
+2026-01-05 22:58:24 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.40 pips
+2026-01-05 23:00:22 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:06 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.40 pips
+2026-01-05 23:04:07 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.40 pips
+2026-01-05 23:19:36 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 23:23:49 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.40 pips
+2026-01-05 23:25:33 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-06 01:40:59 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3585s)
+2026-01-06 02:41:07 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3583s)
+2026-01-06 05:41:20 - trades.USDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3588s)

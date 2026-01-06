@@ -1,0 +1,63 @@
+2026-01-05 21:39:13 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 21:39:36 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 21:39:59 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 21:40:23 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 21:40:55 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 21:41:31 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 21:42:06 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 21:42:52 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.10 pips < min 0.40 pips
+2026-01-05 21:43:04 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:43:08 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:43:22 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:43:32 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:43:49 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:44:07 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 21:44:37 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 21:45:17 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips
+2026-01-05 21:45:50 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips
+2026-01-05 21:49:04 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:49:41 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:49:46 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:49:57 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:51:43 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:52:08 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:52:42 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:52:52 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.11 pips < min 0.40 pips
+2026-01-05 21:53:09 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 21:53:35 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 21:55:28 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 21:55:49 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 21:56:16 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips
+2026-01-05 21:56:44 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips
+2026-01-05 22:08:44 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2131.0% of avg range > max 50.0%
+2026-01-05 22:13:14 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2019.7% of avg range > max 50.0%
+2026-01-05 22:15:40 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2038.2% of avg range > max 50.0%
+2026-01-05 22:17:34 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1925.0% of avg range > max 50.0%
+2026-01-05 22:31:15 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 22:32:58 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 5280.0% of avg range > max 50.0%
+2026-01-05 22:47:13 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.40 pips
+2026-01-05 22:48:11 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 22:49:45 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 22:51:40 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.40 pips
+2026-01-05 22:53:43 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 22:55:28 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 22:57:13 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.09 pips < min 0.40 pips
+2026-01-05 22:58:59 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.08 pips < min 0.40 pips
+2026-01-05 23:00:54 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:44 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-05 23:04:39 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.14 pips < min 0.40 pips
+2026-01-05 23:06:59 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.16 pips < min 0.40 pips
+2026-01-05 23:09:17 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.17 pips < min 0.40 pips
+2026-01-05 23:11:15 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.17 pips < min 0.40 pips
+2026-01-05 23:14:47 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.40 pips
+2026-01-05 23:17:58 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.18 pips < min 0.40 pips
+2026-01-05 23:20:42 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.19 pips < min 0.40 pips
+2026-01-05 23:24:13 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.17 pips < min 0.40 pips
+2026-01-05 23:33:03 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.13 pips < min 0.40 pips
+2026-01-05 23:35:50 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.14 pips < min 0.40 pips
+2026-01-05 23:38:03 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.14 pips < min 0.40 pips
+2026-01-05 23:40:23 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.12 pips < min 0.40 pips
+2026-01-06 00:41:23 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3555s)
+2026-01-06 01:41:38 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3546s)
+2026-01-06 03:41:49 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3547s)
+2026-01-06 05:41:48 - trades.SEKJPYm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3560s)

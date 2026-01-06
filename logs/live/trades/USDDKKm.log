@@ -1,0 +1,22 @@
+2026-01-05 21:38:07 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1257.7% of avg range > max 50.0%
+2026-01-05 21:38:24 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2022.2% of avg range > max 50.0%
+2026-01-05 21:38:45 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 2025.4% of avg range > max 50.0%
+2026-01-05 22:44:24 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10344.6% of avg range > max 50.0%
+2026-01-05 22:46:08 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10489.7% of avg range > max 50.0%
+2026-01-05 22:47:17 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10498.3% of avg range > max 50.0%
+2026-01-05 22:48:21 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 10357.4% of avg range > max 50.0%
+2026-01-05 22:49:53 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 11429.7% of avg range > max 50.0%
+2026-01-05 22:51:51 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15684.2% of avg range > max 50.0%
+2026-01-05 22:53:54 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22992.2% of avg range > max 50.0%
+2026-01-05 22:55:40 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 28557.7% of avg range > max 50.0%
+2026-01-05 22:57:26 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 23902.4% of avg range > max 50.0%
+2026-01-05 22:59:12 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: last 1 minutes of hour blocked
+2026-01-05 23:11:38 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6147.6% of avg range > max 50.0%
+2026-01-05 23:21:12 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 6723.9% of avg range > max 50.0%
+2026-01-05 23:24:22 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 8995.5% of avg range > max 50.0%
+2026-01-05 23:27:43 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 9240.1% of avg range > max 50.0%
+2026-01-05 23:36:13 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 13491.4% of avg range > max 50.0%
+2026-01-06 01:41:42 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3542s)
+2026-01-06 02:41:43 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3547s)
+2026-01-06 04:41:52 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3550s)
+2026-01-06 05:41:51 - trades.USDDKKm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3557s)

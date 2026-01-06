@@ -1,0 +1,19 @@
+{"timestamp": "2026-01-05 23:17:08", "symbol": "US30_x10m", "trade_type": null, "entry_price": 49038.3, "exit_price": 49022.2, "profit_usd": -1.6099999999999999, "status": "CLOSED", "order_id": "639040652", "additional_info": {"duration_minutes": 9.4, "close_reason": "Stop Loss", "commission": 0.0, "swap": 0.0}}
+{"timestamp": "2026-01-05 23:23:07", "symbol": "US30_x10m", "trade_type": "LONG", "entry_price": 49028.5, "exit_price": 49027.2, "profit_usd": -0.13, "status": "CLOSED", "order_id": "639093858", "additional_info": {"entry_price_requested": 49028.5, "lot_size": 0.01, "stop_loss_pips": 234.85714285714494, "stop_loss_price": 49005.014285714286, "slippage": 0.0, "quality_score": 70, "spread_points": 0.4283406491193611, "spread_fees_cost": 0.20999999999985447, "risk_usd": 2.348571428571449, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 49058.604999999996, "sma_slow": 49042.598, "rsi": 28.83787661405495, "duration_minutes": 4.383333333333334, "close_reason": "Early Closure ($-0.13) - Expected -$2.00", "commission": 0.0, "swap": 0.0}}
+{"timestamp": "2026-01-05 23:30:24", "symbol": "US30_x10m", "trade_type": null, "entry_price": 49034.5, "exit_price": 49018.4, "profit_usd": -1.6099999999999999, "status": "CLOSED", "order_id": "639065230", "additional_info": {"duration_minutes": 18.333333333333332, "close_reason": "Stop Loss", "commission": 0.0, "swap": 0.0}}
+{"timestamp": "2026-01-05 23:33:15", "symbol": "US30_x10m", "trade_type": "LONG", "entry_price": 49033.2, "exit_price": 49009.4, "profit_usd": -2.38, "status": "CLOSED", "order_id": "639105276", "additional_info": {"entry_price_requested": 49033.2, "lot_size": 0.01, "stop_loss_pips": 238.0000000000291, "stop_loss_price": 49009.399999999994, "slippage": 0.0, "quality_score": 70, "spread_points": 0.4282995894439539, "spread_fees_cost": 0.20999999999985447, "risk_usd": 2.380000000000291, "min_lot": 0.01, "min_lot_source": "broker", "sma_fast": 49050.270000000004, "sma_slow": 49040.014, "rsi": 20.136054421760846, "duration_minutes": 11.283333333333333, "close_reason": "Stop Loss", "commission": 0.0, "swap": 0.0}}
+2026-01-05 23:33:19 - trades.US30_x10m - INFO - [-] POSITION CLOSED
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Symbol: US30_x10m
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Ticket: 639105276
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Entry Time: 2026-01-05 23:21:58
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Entry Price: 49033.20000
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Close Time: 2026-01-05 23:33:15
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Close Price: 49009.40000
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Profit/Loss: $-2.38 USD
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Duration: 11.3 minutes
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Close Reason: Stop Loss
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Commission: 0.0
+2026-01-05 23:33:19 - trades.US30_x10m - INFO -    Swap: 0.0
+2026-01-05 23:33:19 - trades.US30_x10m - INFO - ================================================================================
+2026-01-06 00:40:41 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3597s)
+2026-01-06 02:40:54 - trades.US30_x10m - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3596s)

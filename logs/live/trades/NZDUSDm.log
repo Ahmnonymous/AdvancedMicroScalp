@@ -1,0 +1,54 @@
+2026-01-05 21:37:56 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 21:38:21 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.40 pips
+2026-01-05 21:38:41 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.38 pips < min 0.40 pips
+2026-01-05 21:46:24 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 21:47:10 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 21:47:50 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 21:48:27 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 21:48:58 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 21:49:40 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 21:49:44 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 21:49:55 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 21:50:11 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:50:32 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:51:02 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 21:51:42 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 21:52:05 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 21:52:41 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 21:52:48 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 21:53:05 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:53:31 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:54:00 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 21:54:45 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.40 pips
+2026-01-05 21:55:26 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 21:55:45 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 21:56:13 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 21:56:40 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 21:57:15 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.40 pips
+2026-01-05 22:01:47 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 22:08:32 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.30 pips < min 0.40 pips
+2026-01-05 22:09:21 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.40 pips
+2026-01-05 22:49:17 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1073.2% of avg range > max 50.0%
+2026-01-05 22:51:09 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1270.6% of avg range > max 50.0%
+2026-01-05 22:53:18 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 1302.3% of avg range > max 50.0%
+2026-01-05 22:54:52 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 903.2% of avg range > max 50.0%
+2026-01-05 22:56:38 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 500.0% of avg range > max 50.0%
+2026-01-05 22:58:27 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 533.3% of avg range > max 50.0%
+2026-01-05 23:00:21 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 23:02:08 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 391.3% of avg range > max 50.0%
+2026-01-05 23:04:00 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 391.3% of avg range > max 50.0%
+2026-01-05 23:06:15 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 423.5% of avg range > max 50.0%
+2026-01-05 23:08:56 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.40 pips < min 0.40 pips
+2026-01-05 23:10:27 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.39 pips < min 0.40 pips
+2026-01-05 23:13:31 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 23:17:05 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.40 pips
+2026-01-05 23:19:39 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 23:23:50 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 23:25:38 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.30 pips < min 0.40 pips
+2026-01-05 23:29:23 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 23:32:08 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.40 pips
+2026-01-05 23:34:43 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.37 pips < min 0.40 pips
+2026-01-05 23:37:13 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-06 00:40:56 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3581s)
+2026-01-06 01:41:03 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3580s)
+2026-01-06 03:41:16 - trades.NZDUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3580s)

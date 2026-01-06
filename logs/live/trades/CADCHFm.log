@@ -1,0 +1,26 @@
+2026-01-05 22:32:18 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.30 pips < min 0.40 pips
+2026-01-05 22:34:16 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 22:36:13 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 22:37:54 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.40 pips
+2026-01-05 22:39:49 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.40 pips
+2026-01-05 22:41:54 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.40 pips
+2026-01-05 22:43:32 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.40 pips
+2026-01-05 22:45:51 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.20 pips < min 0.40 pips
+2026-01-05 22:47:00 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.21 pips < min 0.40 pips
+2026-01-05 22:47:42 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.23 pips < min 0.40 pips
+2026-01-05 22:49:09 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.40 pips
+2026-01-05 22:50:59 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 22:53:11 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 22:54:50 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 0.40 pips
+2026-01-05 22:56:34 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.36 pips < min 0.40 pips
+2026-01-05 23:13:36 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 421.1% of avg range > max 50.0%
+2026-01-05 23:17:10 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 465.1% of avg range > max 50.0%
+2026-01-05 23:19:35 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 279.6% of avg range > max 50.0%
+2026-01-05 23:23:48 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 23:25:31 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.24 pips < min 0.40 pips
+2026-01-05 23:29:17 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.27 pips < min 0.40 pips
+2026-01-05 23:31:59 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-06 00:40:49 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3588s)
+2026-01-06 01:40:56 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3587s)
+2026-01-06 03:41:10 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3585s)
+2026-01-06 04:41:14 - trades.CADCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3588s)

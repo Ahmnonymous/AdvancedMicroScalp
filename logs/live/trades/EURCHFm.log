@@ -1,0 +1,9 @@
+2026-01-05 23:08:59 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 555.6% of avg range > max 50.0%
+2026-01-05 23:10:34 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 555.6% of avg range > max 50.0%
+2026-01-05 23:13:47 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 555.6% of avg range > max 50.0%
+2026-01-05 23:17:15 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.40 pips
+2026-01-05 23:19:49 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.40 pips
+2026-01-05 23:23:54 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 23:25:57 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 23:29:33 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.22 pips < min 0.40 pips
+2026-01-05 23:32:18 - trades.EURCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.17 pips < min 0.40 pips

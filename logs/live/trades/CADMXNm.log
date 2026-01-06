@@ -1,0 +1,25 @@
+2026-01-05 21:58:05 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 18324.2% of avg range > max 50.0%
+2026-01-05 22:00:47 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Session guard: first 1 minutes of hour blocked
+2026-01-05 22:01:53 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 17224.0% of avg range > max 50.0%
+2026-01-05 22:08:35 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16602.4% of avg range > max 50.0%
+2026-01-05 22:09:31 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 17460.7% of avg range > max 50.0%
+2026-01-05 22:11:06 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 17668.9% of avg range > max 50.0%
+2026-01-05 22:12:51 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 19002.8% of avg range > max 50.0%
+2026-01-05 22:14:57 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 21976.9% of avg range > max 50.0%
+2026-01-05 22:32:35 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15082.0% of avg range > max 50.0%
+2026-01-05 22:34:38 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 15342.2% of avg range > max 50.0%
+2026-01-05 22:36:36 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14748.5% of avg range > max 50.0%
+2026-01-05 22:38:19 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 14659.3% of avg range > max 50.0%
+2026-01-05 22:40:17 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16024.0% of avg range > max 50.0%
+2026-01-05 22:42:17 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16408.4% of avg range > max 50.0%
+2026-01-05 22:43:57 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 16550.9% of avg range > max 50.0%
+2026-01-05 22:45:59 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 22571.9% of avg range > max 50.0%
+2026-01-05 22:47:10 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 49499.1% of avg range > max 50.0%
+2026-01-05 22:47:55 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 49499.1% of avg range > max 50.0%
+2026-01-05 22:49:32 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 47305.0% of avg range > max 50.0%
+2026-01-05 22:51:20 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 57748.9% of avg range > max 50.0%
+2026-01-05 22:53:31 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 50434.8% of avg range > max 50.0%
+2026-01-05 22:55:13 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 47054.7% of avg range > max 50.0%
+2026-01-05 22:56:58 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 44765.1% of avg range > max 50.0%
+2026-01-05 22:58:45 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 49044.1% of avg range > max 50.0%
+2026-01-05 23:02:30 - trades.CADMXNm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 24320.9% of avg range > max 50.0%

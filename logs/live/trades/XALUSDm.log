@@ -1,0 +1,3 @@
+2026-01-06 01:41:20 - trades.XALUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3563s)
+2026-01-06 03:41:29 - trades.XALUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3566s)
+2026-01-06 04:41:32 - trades.XALUSDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3569s)

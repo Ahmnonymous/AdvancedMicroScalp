@@ -1,0 +1,17 @@
+2026-01-05 21:37:55 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 21:38:20 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 21:38:41 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 23:17:12 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 547.6% of avg range > max 50.0%
+2026-01-05 23:19:44 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 528.7% of avg range > max 50.0%
+2026-01-05 23:23:51 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.28 pips < min 0.40 pips
+2026-01-05 23:25:49 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.29 pips < min 0.40 pips
+2026-01-05 23:29:30 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.40 pips
+2026-01-05 23:32:11 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 23:34:47 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.35 pips < min 0.40 pips
+2026-01-05 23:37:11 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 534.9% of avg range > max 50.0%
+2026-01-05 23:39:36 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 322.6% of avg range > max 50.0%
+2026-01-06 00:40:50 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3588s)
+2026-01-06 02:41:05 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3585s)
+2026-01-06 03:41:11 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3584s)
+2026-01-06 05:41:18 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3590s)
+2026-01-06 06:42:23 - trades.AUDCHFm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3551s)

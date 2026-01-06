@@ -1,0 +1,20 @@
+2026-01-05 21:38:03 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 894.7% of avg range > max 50.0%
+2026-01-05 21:38:22 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 894.7% of avg range > max 50.0%
+2026-01-05 21:38:43 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 894.7% of avg range > max 50.0%
+2026-01-05 21:39:11 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 894.7% of avg range > max 50.0%
+2026-01-05 21:39:35 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 837.4% of avg range > max 50.0%
+2026-01-05 21:39:57 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 837.4% of avg range > max 50.0%
+2026-01-05 21:40:21 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 858.6% of avg range > max 50.0%
+2026-01-05 21:40:54 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 858.6% of avg range > max 50.0%
+2026-01-05 21:41:30 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 858.6% of avg range > max 50.0%
+2026-01-05 21:42:04 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 833.3% of avg range > max 50.0%
+2026-01-05 21:51:43 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 906.2% of avg range > max 50.0%
+2026-01-05 21:52:07 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 906.2% of avg range > max 50.0%
+2026-01-05 21:52:41 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 983.1% of avg range > max 50.0%
+2026-01-05 21:52:51 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 983.1% of avg range > max 50.0%
+2026-01-05 21:53:08 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 961.3% of avg range > max 50.0%
+2026-01-05 21:53:34 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 961.3% of avg range > max 50.0%
+2026-01-05 21:54:04 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 961.3% of avg range > max 50.0%
+2026-01-06 01:41:28 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3556s)
+2026-01-06 03:41:38 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3558s)
+2026-01-06 05:41:40 - trades.UKOILm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3567s)

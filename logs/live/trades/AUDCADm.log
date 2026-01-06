@@ -1,0 +1,53 @@
+2026-01-05 21:39:09 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 307.7% of avg range > max 50.0%
+2026-01-05 21:39:33 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 316.5% of avg range > max 50.0%
+2026-01-05 21:39:55 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 316.5% of avg range > max 50.0%
+2026-01-05 21:40:19 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 318.8% of avg range > max 50.0%
+2026-01-05 21:40:52 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 318.8% of avg range > max 50.0%
+2026-01-05 21:41:27 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 338.5% of avg range > max 50.0%
+2026-01-05 21:42:02 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 338.5% of avg range > max 50.0%
+2026-01-05 21:42:50 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 346.5% of avg range > max 50.0%
+2026-01-05 21:43:03 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 354.8% of avg range > max 50.0%
+2026-01-05 21:43:06 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 354.8% of avg range > max 50.0%
+2026-01-05 21:43:21 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 354.8% of avg range > max 50.0%
+2026-01-05 21:43:30 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 354.8% of avg range > max 50.0%
+2026-01-05 21:43:48 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 354.8% of avg range > max 50.0%
+2026-01-05 21:44:04 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 372.9% of avg range > max 50.0%
+2026-01-05 21:44:34 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 372.9% of avg range > max 50.0%
+2026-01-05 21:45:12 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 379.3% of avg range > max 50.0%
+2026-01-05 21:45:46 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 379.3% of avg range > max 50.0%
+2026-01-05 21:46:25 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 389.4% of avg range > max 50.0%
+2026-01-05 21:47:10 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 423.1% of avg range > max 50.0%
+2026-01-05 21:47:51 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 423.1% of avg range > max 50.0%
+2026-01-05 21:48:27 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 435.6% of avg range > max 50.0%
+2026-01-05 21:48:58 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 435.6% of avg range > max 50.0%
+2026-01-05 21:49:40 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 427.2% of avg range > max 50.0%
+2026-01-05 21:49:44 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 427.2% of avg range > max 50.0%
+2026-01-05 21:49:55 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 427.2% of avg range > max 50.0%
+2026-01-05 21:50:11 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 478.3% of avg range > max 50.0%
+2026-01-05 21:50:32 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 478.3% of avg range > max 50.0%
+2026-01-05 21:51:02 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 444.4% of avg range > max 50.0%
+2026-01-05 21:51:42 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 444.4% of avg range > max 50.0%
+2026-01-05 21:52:05 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 444.4% of avg range > max 50.0%
+2026-01-05 21:52:41 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 444.4% of avg range > max 50.0%
+2026-01-05 21:52:49 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 444.4% of avg range > max 50.0%
+2026-01-05 21:53:06 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 427.2% of avg range > max 50.0%
+2026-01-05 21:53:32 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 427.2% of avg range > max 50.0%
+2026-01-05 21:54:00 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 427.2% of avg range > max 50.0%
+2026-01-05 21:54:45 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 449.0% of avg range > max 50.0%
+2026-01-05 22:30:43 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.25 pips < min 0.40 pips
+2026-01-05 22:32:19 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.26 pips < min 0.40 pips
+2026-01-05 22:34:22 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 22:36:17 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.40 pips
+2026-01-05 22:37:51 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 22:39:53 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.40 pips
+2026-01-05 22:41:55 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 22:43:34 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.31 pips < min 0.40 pips
+2026-01-05 22:47:04 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 22:47:46 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.32 pips < min 0.40 pips
+2026-01-05 22:49:18 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.33 pips < min 0.40 pips
+2026-01-05 22:51:01 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.34 pips < min 0.40 pips
+2026-01-05 22:53:16 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Entry filter: Volatility floor: avg range 0.30 pips < min 0.40 pips
+2026-01-06 02:41:15 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3575s)
+2026-01-06 03:41:20 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3575s)
+2026-01-06 04:41:23 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3579s)
+2026-01-06 05:41:26 - trades.AUDCADm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3582s)

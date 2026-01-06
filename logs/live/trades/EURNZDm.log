@@ -1,0 +1,5 @@
+2026-01-05 23:17:24 - trades.EURNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 189.1% of avg range > max 50.0%
+2026-01-05 23:20:02 - trades.EURNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 285.2% of avg range > max 50.0%
+2026-01-05 23:23:58 - trades.EURNZDm - DEBUG - [SKIP] Cannot open trade: Entry filter: Spread sanity: spread 254.7% of avg range > max 50.0%
+2026-01-06 03:41:34 - trades.EURNZDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3562s)
+2026-01-06 04:41:35 - trades.EURNZDm - DEBUG - [SKIP] Cannot open trade: Circuit breaker: Rolling PnL of last 50 trades <= -$10 (current: $-15.64) (resumes in 3567s)
